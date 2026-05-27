@@ -79,6 +79,17 @@ python3 scripts/last_commit.py --team team-members --json > activity.json
 Same `gh` auth as `find_unassigned.py` — `read:org` (for `--team`) is enough;
 `read:project` is **not** required.
 
+The script merges two signals to avoid the search/commits API's default-branch
+blind spot:
+
+- `search/commits` — lifetime data, but only indexes commits on each repo's
+  default branch.
+- `users/{u}/events/public` — public PushEvents on any branch, last ~90 days
+  / 300 events.
+
+The more recent of the two wins per user, so feature-branch work in an open
+or unmerged branch still shows up.
+
 ## Linting
 
 This repo enforces the same code-style baseline as the main Millennium-Dawn

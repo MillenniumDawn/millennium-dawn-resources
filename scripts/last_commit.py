@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """Find the last commit a user (or every member of a team) made in an org.
 
-Uses GitHub's search/commits endpoint via the `gh` CLI to look up the most
-recent commit per user, org-wide. Pairs with `find_unassigned.py` to spot
-team members who are idle on both assignments *and* commits.
+Combines two GitHub data sources to avoid the default-branch blind spot:
+
+  * `search/commits`        — every commit on a repo's **default branch**,
+                              lifetime data, no time window.
+  * `users/{u}/events/orgs/{o}` — PushEvents on **any branch** in the org,
+                              including feature branches, last ~90 days.
+
+The two are merged per user and the more recent timestamp wins. Without the
+events source, anyone whose work lives on unmerged feature branches looks
+inactive (which is the symptom this script was originally hiding).
 
 Usage:
     # one user
@@ -96,8 +103,21 @@ def team_members(org: str, slug: str) -> list[str]:
         cursor = page["pageInfo"]["endCursor"]
 
 
-def last_commit(user: str, *, org: str | None, repo: str | None) -> dict[str, Any] | None:
-    """Return the most recent commit by `user`. None if no commits found."""
+def _first_line(text: str | None) -> str:
+    if not text:
+        return ""
+    return text.splitlines()[0]
+
+
+def last_default_branch_commit(
+    user: str, *, org: str | None, repo: str | None
+) -> dict[str, Any] | None:
+    """Most recent commit by `user` indexed by search/commits.
+
+    Important caveat: GitHub's search/commits endpoint only indexes commits
+    on each repo's default branch. Feature-branch work is invisible here —
+    see `last_push_event_in_org` for that.
+    """
     if repo:
         query = f"repo:{repo} author:{user}"
     elif org:
@@ -107,14 +127,9 @@ def last_commit(user: str, *, org: str | None, repo: str | None) -> dict[str, An
 
     body = gh_api(
         "search/commits",
-        {
-            "q": query,
-            "sort": "committer-date",
-            "order": "desc",
-            "per_page": 1,
-        },
+        {"q": query, "sort": "committer-date", "order": "desc", "per_page": 1},
     )
-    items = body.get("items") or []
+    items = body.get("items") if isinstance(body, dict) else None
     if not items:
         return None
     item = items[0]
@@ -124,9 +139,66 @@ def last_commit(user: str, *, org: str | None, repo: str | None) -> dict[str, An
         "full_sha": item["sha"],
         "date": (commit.get("committer") or {}).get("date", ""),
         "repo": (item.get("repository") or {}).get("full_name", ""),
-        "message": (commit.get("message") or "").splitlines()[0] if commit.get("message") else "",
+        "branch": "(default)",
+        "message": _first_line(commit.get("message")),
         "url": item.get("html_url", ""),
+        "source": "search-commits",
     }
+
+
+def last_push_event_in_org(user: str, org: str) -> dict[str, Any] | None:
+    """Most recent PushEvent by `user` within `org` across any branch.
+
+    Uses the public events feed (`/users/{u}/events/public`), which is
+    capped at ~300 events / 90 days. Filters down to events whose repo
+    belongs to `org`. Catches commits to feature branches that the
+    search/commits API does not index. Returns None if the user has no
+    qualifying PushEvent in the window.
+    """
+    body = gh_api(f"users/{user}/events/public", {"per_page": 100})
+    if not isinstance(body, list):
+        return None
+    org_prefix = f"{org}/"
+    for event in body:
+        if event.get("type") != "PushEvent":
+            continue
+        repo_name = (event.get("repo") or {}).get("name") or ""
+        if not repo_name.startswith(org_prefix):
+            continue
+        payload = event.get("payload") or {}
+        ref = payload.get("ref") or ""
+        branch = ref.removeprefix("refs/heads/") if ref.startswith("refs/heads/") else ref
+        commits = payload.get("commits") or []
+        head_commit = commits[-1] if commits else {}
+        # payload.head is the post-push tip; the commits[] array is empty on
+        # force-pushes and over-size pushes, so prefer payload.head for SHA.
+        sha = payload.get("head") or head_commit.get("sha") or ""
+        return {
+            "sha": sha[:7] if sha else "",
+            "full_sha": sha,
+            "date": event.get("created_at") or "",
+            "repo": repo_name,
+            "branch": branch,
+            "message": _first_line(head_commit.get("message")),
+            "url": f"https://github.com/{repo_name}/commit/{sha}" if sha and repo_name else "",
+            "source": "push-event",
+        }
+    return None
+
+
+def last_commit(user: str, *, org: str | None, repo: str | None) -> dict[str, Any] | None:
+    """Combine the default-branch and PushEvent signals; return the newer one."""
+    candidates: list[dict[str, Any]] = []
+    if org and not repo:
+        push = last_push_event_in_org(user, org)
+        if push:
+            candidates.append(push)
+    commit = last_default_branch_commit(user, org=org, repo=repo)
+    if commit:
+        candidates.append(commit)
+    if not candidates:
+        return None
+    return max(candidates, key=lambda c: c["date"])
 
 
 def main() -> int:
@@ -188,7 +260,7 @@ def main() -> int:
         print(f"Last commit by {args.user} in {scope}:")
     else:
         print(f"Last commit per member of team '{args.team}' in {scope} (stalest first):\n")
-        print(f"{'USER':<24} {'DATE':<20} {'SHA':<8} {'REPO':<32} MESSAGE")
+        print(f"{'USER':<24} {'DATE':<20} {'BRANCH':<24} {'SHA':<8} " f"{'REPO':<36} MESSAGE")
 
     for row in rows:
         info = row["last_commit"]
@@ -196,18 +268,24 @@ def main() -> int:
             if args.user:
                 print("  (no commits found)")
             else:
-                print(f"{row['user']:<24} {'(no commits)':<20} {'-':<8} {'-':<32} -")
+                print(f"{row['user']:<24} {'(no commits)':<20} {'-':<24} {'-':<8} " f"{'-':<36} -")
             continue
-        date = info["date"][:19].replace("T", " ")  # 2026-05-26T08:10:15Z → 2026-05-26 08:10:15
+        date = info["date"][:19].replace("T", " ")
+        branch = info.get("branch") or "(default)"
         if args.user:
-            print(f"  {date} UTC  {info['sha']}  {info['repo']}")
+            print(f"  {date} UTC  {info['sha']}  {info['repo']}  [{branch}]  ({info['source']})")
             print(f"  {info['message']}")
             print(f"  {info['url']}")
         else:
             msg = info["message"]
-            if len(msg) > 60:
-                msg = msg[:57] + "..."
-            print(f"{row['user']:<24} {date:<20} {info['sha']:<8} {info['repo']:<32} {msg}")
+            if len(msg) > 50:
+                msg = msg[:47] + "..."
+            if len(branch) > 23:
+                branch = branch[:20] + "..."
+            print(
+                f"{row['user']:<24} {date:<20} {branch:<24} {info['sha']:<8} "
+                f"{info['repo']:<36} {msg}"
+            )
 
     return 0
 
