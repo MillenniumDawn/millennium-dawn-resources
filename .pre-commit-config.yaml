@@ -1,0 +1,79 @@
+# Pre-commit configuration for millennium-dawn-resources
+# See https://pre-commit.com — versions track the main Millennium-Dawn repo
+# so code-style rules stay consistent across both repositories.
+#
+# Run on staged files (default): git commit
+# Run on specific files:         pre-commit run --files path/to/file
+# Run all hooks on all files:    pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: Detect secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: '\.secrets\.baseline$'
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: fix-byte-order-marker
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=10000']
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-ast
+        files: '\.py$'
+      - id: debug-statements
+        files: '\.py$'
+
+  # --- Python ---
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        files: '\.py$'
+        args: [--line-length=100]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        files: '\.py$'
+        args: [--profile=black, --line-length=100]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        files: '\.py$'
+        args: [--fix, --line-length=100]
+
+  # --- Shell ---
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+
+  # --- Markdown / YAML formatting ---
+  # rbubley/mirrors-prettier is the maintained fork of pre-commit/mirrors-prettier
+  # (which was archived upstream). Same prettier binary.
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.8.3
+    hooks:
+      - id: prettier
+        name: Format Markdown files
+        files: '\.md$'
+        args: [--prose-wrap=preserve, --print-width=120]
+        additional_dependencies:
+          - prettier@3.8.3
