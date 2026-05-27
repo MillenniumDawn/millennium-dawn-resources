@@ -56,6 +56,29 @@ gh auth status                           # verify all scopes are present
 project metadata, no repository contents. If you already have `repo` from
 other workflows it will remain after the refresh.
 
+### `scripts/last_commit.py`
+
+Reports the most recent commit per user, org-wide (or for a single user, or
+scoped to one repo). Pairs with `find_unassigned.py` to spot members who are
+idle on both assignments **and** commits.
+
+```bash
+# one user
+python3 scripts/last_commit.py --user AngriestBird
+
+# every member of a team, stalest first
+python3 scripts/last_commit.py --team team-members
+
+# scoped to one repo
+python3 scripts/last_commit.py --user AngriestBird --repo MillenniumDawn/Millennium-Dawn
+
+# machine-readable
+python3 scripts/last_commit.py --team team-members --json > activity.json
+```
+
+Same `gh` auth as `find_unassigned.py` — `read:org` (for `--team`) is enough;
+`read:project` is **not** required.
+
 ## Linting
 
 This repo enforces the same code-style baseline as the main Millennium-Dawn
