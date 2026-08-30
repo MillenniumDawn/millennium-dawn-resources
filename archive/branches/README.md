@@ -9,8 +9,14 @@ The source branch tip is recorded in each subdirectory's `<branch>.json`
 metadata. The branch refs themselves are deleted; the data lives here so the
 work isn't lost if anyone needs to revive or rebase it later.
 
-The `tools/archive_stale_branches.py` script regenerates this tree from the
-original branch refs if they still exist locally (`origin/<name>`).
+The generator lives in the Millennium-Dawn repo, since it reads that repo's
+branch refs. It regenerates this tree from the original refs if they still
+exist locally (`origin/<name>`), and writes here by default:
+
+```bash
+cd /path/to/Millennium-Dawn
+python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/archive/branches
+```
 
 ## Layout
 
