@@ -6,9 +6,12 @@
 # Run on specific files:         pre-commit run --files path/to/file
 # Run all hooks on all files:    pre-commit run --all-files
 
-# Archived legacy scripts (scripts/legacy/) are kept verbatim for reference and
-# are not maintained — exempt them from all hooks so nothing reformats them.
-exclude: '^scripts/legacy/'
+# Archived legacy scripts (scripts/legacy/) and the imported archive/ tree are
+# kept verbatim for reference and are not maintained — exempt them from all hooks
+# so nothing reformats them. archive/ in particular holds raw HOI4 mod files
+# whose BOMs and line endings the fixer hooks would happily destroy, plus source
+# PDFs well over the large-file limit.
+exclude: '^(archive|scripts/legacy)/'
 
 repos:
   - repo: https://github.com/Yelp/detect-secrets
