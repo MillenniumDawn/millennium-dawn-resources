@@ -8,10 +8,42 @@ inside the mod itself.
 ## Layout
 
 ```
+archive/                 Material retired from the mod repo (see below)
 scripts/                 Operational and audit scripts (Python, shell, ...)
+scripts/legacy/          Unmaintained scripts, kept verbatim
 .pre-commit-config.yaml  Shared lint config — mirrors MD repo versions
 .secrets.baseline        detect-secrets baseline
 ```
+
+## Archive
+
+`archive/` is where content leaves the mod repo when it is no longer worth
+carrying there but is worth keeping. Nothing in it is maintained, nothing in it
+is expected to compile, and the lint hooks skip it entirely so that raw HOI4
+files keep their original BOMs and line endings.
+
+| Directory                | Contents                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| `archive/branches/`      | Diverging files from 12 stale upstream branches, one directory per branch                 |
+| `archive/content/`       | Cut and never-integrated country content, including the Dread submods and Wagner          |
+| `archive/systems/`       | Cut or prototype game systems: space, trade, internal factions, officer corps, and more   |
+| `archive/oobs/`          | Order-of-battle source material, mostly Military Balance PDFs and spreadsheets            |
+| `archive/gfx-templates/` | Layered source files (psd/psb/ai) for mod graphics                                        |
+| `archive/spreadsheets/`  | Balance and economy workbooks                                                             |
+| `archive/reference/`     | Loose reference: world map, state category cheat sheet, subideology guides, editor syntax |
+
+### Regenerating `archive/branches/`
+
+The generator still lives in the mod repo, because it reads that repo's branch
+refs. Point it here:
+
+```bash
+cd /path/to/Millennium-Dawn
+python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/archive/branches
+```
+
+It defaults to that path already, so a plain run works when the two checkouts
+are siblings.
 
 ## Scripts
 
