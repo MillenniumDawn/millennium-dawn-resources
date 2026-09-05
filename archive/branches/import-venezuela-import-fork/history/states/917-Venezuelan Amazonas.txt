@@ -1,0 +1,33 @@
+state = {
+	id = 917
+	name = "STATE_917"
+
+	resources = {
+		aluminium = 44
+		tungsten = 50
+		steel = 22	
+		chromium = 34
+		rubber = 120
+	}
+
+	history = {
+		owner = VEN
+		victory_points = {
+			5317 1
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+
+		}
+		add_core_of = VEN
+		set_variable = { productivity_state_var = 471 }
+	}
+
+	provinces = {
+		5317 8050 11777 12107 14075
+	}
+	manpower = 142917
+	buildings_max_level_factor = 1.000
+	state_category = state_00
+}

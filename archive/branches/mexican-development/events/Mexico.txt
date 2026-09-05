@@ -1,0 +1,20 @@
+add_namespace = mexico_news
+
+# Mexican News #
+
+# Monarchists elected #
+news_event = {
+	id = mexico_news.1
+	immediate = { log = "[GetDateText]: [Root.GetName]: event mexico_news.1" }
+	title = mexico_news.1.t
+	desc = mexico_news.1.d
+	picture =
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = mexico_news.1.o1
+		log = "[GetDateText]: [This.GetName]: mexico_news.1.o1 executed"
+	}
+}

@@ -24,7 +24,7 @@ files keep their original BOMs and line endings.
 
 | Directory                | Contents                                                                                  |
 | ------------------------ | ----------------------------------------------------------------------------------------- |
-| `archive/branches/`      | Diverging files from 12 stale upstream branches, one directory per branch                 |
+| `archive/branches/`      | Diverging files from 17 stale upstream branches, one directory per branch                 |
 | `archive/content/`       | Cut and never-integrated country content, including the Dread submods and Wagner          |
 | `archive/systems/`       | Cut or prototype game systems: space, trade, internal factions, officer corps, and more   |
 | `archive/oobs/`          | Order-of-battle source material, mostly Military Balance PDFs and spreadsheets            |

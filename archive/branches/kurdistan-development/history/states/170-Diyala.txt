@@ -1,0 +1,39 @@
+state = {
+	id = 170
+	name = "STATE_170"
+	resources = {
+		oil = 10
+	}
+
+	history = {
+		owner = IRQ
+		set_variable = { state_renewable_capacity_factor_modifier_var = 0.986 }
+		victory_points = {
+			10793 2
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+		}
+		add_core_of = IRQ
+		add_core_of = KUR
+
+		add_core_of = PUK
+		set_variable = { productivity_state_var = 327 }
+		add_province_modifier = {
+			static_modifiers = { terrain_baqubah }
+			province = { id = 10793 }
+		}
+		add_province_modifier = {
+			static_modifiers = { terrain_al_qusayr }
+			province = { id = 11112 }
+		}
+	}
+
+	provinces = {
+		1455 10793 11112 11284 14058 14659
+	}
+	manpower = 1060756
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}

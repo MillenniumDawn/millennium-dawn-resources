@@ -1,0 +1,3486 @@
+MEX_decision_category_cartel_system = {
+
+
+
+	 ########     #######    ###    ##    #######    ########      #####     
+	##      ##   ##     ##   #####  ##   ##     ##   ##     ##    ##   ##    
+	##          ##       ##  ## ##  ##  ##       ##  ##     ##   ##     ##   
+	  #######   ##       ##  ##  ## ##  ##       ##  ########   ###########  
+	        ##  ##       ##  ##   ####  ##       ##  ##   ##    ##       ##  
+	##      ##   ##     ##   ##    ###   ##     ##   ##    ##   ##       ##  
+	 ########     #######    ##     ##    #######    ##     ##  ##       ##  
+	
+	MEX_counter_the_cds_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cdg
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+			
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_sonora
+				has_country_flag = supported_the_cds_sonora
+			}
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cds_sonora
+		}
+	}
+
+	MEX_support_the_cds_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cdg
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_sonora
+				has_country_flag = supported_the_cds_sonora
+			}
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cds_sonora
+			set_country_flag = links_to_the_cds
+		}
+	}
+
+
+
+
+
+
+	  ###  ###     ####  	  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #  #   #      	 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #   ###   	#      #   #  #   #  # # #    #    #####  ####   
+	 #     #  #       #  	 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###  ###    ####   	  ###   ###    ###   #   #    #    #####  #   #  
+
+
+
+
+
+	### COUNTERED THE CDS ###
+	MEX_obstruct_smugling_of_cds_drugs_to_us_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_sonora
+		}
+	}
+
+	MEX_obstruct_smugling_of_cds_arms_to_us_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_sonora
+		}
+	}
+
+	MEX_prosecute_cds_leaders_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_sonora
+		}
+	}
+
+	MEX_arrest_officers_that_took_cds_bribes_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_sonora
+		}
+	}
+
+	MEX_clamp_down_on_the_cds_black_market_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_sonora
+		}
+	}
+
+
+
+
+
+	  ###  ###     ####  	  ###    #      #      #   #   
+	 #     #  #   #      	 #   #   #      #       # #    
+	#      #   #   ###   	#######  #      #        #     
+	 #     #  #       #  	#     #  #      #        #     
+	  ###  ###    ####   	#     #  #####  #####    #     
+
+
+
+
+
+
+	### ALLIED THE CDS ###
+	MEX_facilitate_smugling_of_cds_drugs_to_us_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+	}
+
+	MEX_facilitate_smugling_of_cds_arms_to_us_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+	}
+
+	MEX_protect_cds_leaders_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+	}
+
+	MEX_accept_cds_bribes_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cds_sonora = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_sonora
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_sonora
+			has_country_flag = looking_at_sonora
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_sonora
+		}
+	}
+
+
+
+
+	######       #####     ########     #####     		  ######     #####     ##      
+	##    ##    ##   ##       ##       ##   ##    		 ##         ##   ##    ##      
+	##    ##   ##     ##      ##      ##     ##   		##         ##     ##   ##      
+	#######   ###########     ##     ###########  		##        ###########  ##      
+	##    ##  ##       ##     ##     ##       ##  		##        ##       ##  ##      
+	##    ##  ##       ##  ## ##     ##       ##  		 ##       ##       ##  ##      ###
+	######    ##       ##   ###      ##       ##  		  ######  ##       ##  ######  ###
+
+	MEX_counter_the_cds_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cdg
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_baja
+				has_country_flag = supported_the_cds_baja
+			}
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cds_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			
+		}
+	}
+
+	MEX_support_the_cds_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cdg
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_baja
+				has_country_flag = supported_the_cds_baja
+			}
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cds_baja
+			set_country_flag = links_to_the_cds
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			
+		}
+	}
+
+
+
+
+	  ###  ###     ####  	  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #  #   #      	 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #   ###   	#      #   #  #   #  # # #    #    #####  ####   
+	 #     #  #       #  	 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###  ###    ####   	  ###   ###    ###   #   #    #    #####  #   #  
+
+	### COUNTERED THE CDS ###
+	MEX_obstruct_smugling_of_cds_drugs_to_us_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_baja
+		}
+	}
+
+	MEX_obstruct_smugling_of_cds_arms_to_us_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_baja
+		}
+	}
+
+	MEX_prosecute_cds_leaders_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_baja
+		}
+	}
+
+	MEX_arrest_officers_that_took_cds_bribes_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_baja
+		}
+	}
+
+	MEX_clamp_down_on_the_cds_black_market_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_baja
+		}
+	}
+
+
+
+
+	  ###  ###     ####  	  ###    #      #      #   #   
+	 #     #  #   #      	 #   #   #      #       # #    
+	#      #   #   ###   	#######  #      #        #     
+	 #     #  #       #  	#     #  #      #        #     
+	  ###  ###    ####   	#     #  #####  #####    #     
+
+	### ALLIED THE CDS ###
+	MEX_facilitate_smugling_of_cds_drugs_to_us_baja  = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_baja
+		}
+	}
+
+	MEX_facilitate_smugling_of_cds_arms_to_us_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_baja
+		}
+	}
+
+	MEX_protect_cds_leaders_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_baja
+		}
+	}
+
+	MEX_accept_cds_bribes_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_baja
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cds_baja = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_baja
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_baja
+			has_country_flag = looking_at_baja
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cds_baja
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_baja
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	########   ########    #######    		######    ########      #####     ##      ##    #######    
+	##     ##     ##      ##     ##   		##    ##  ##     ##    ##   ##    ##      ##   ##     ##   
+	##     ##     ##     ##       ##  		##    ##  ##     ##   ##     ##   ##      ##  ##       ##  
+	########      ##     ##       ##  		#######   ########   ###########  ##      ##  ##       ##  
+	##   ##       ##     ##       ##  		##    ##  ##   ##    ##       ##  ##      ##  ##       ##  
+	##    ##      ##      ##     ##   		##    ##  ##    ##   ##       ##    ##  ##     ##     ##   
+	##     ##  ########    #######    		######    ##     ##  ##       ##     ####       #######    
+	MEX_counter_the_cdg_rio_grande = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cds
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_rio_grande
+				has_country_flag = supported_the_cdg_rio_grande
+			}
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cdg_rio_grande
+		}
+	}
+
+	MEX_support_the_cdg_rio_grande = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cds
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_rio_grande
+				has_country_flag = supported_the_cdg_rio_grande
+			}
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cdg_rio_grande
+			set_country_flag = links_to_the_cdg
+		}
+	}
+
+
+
+	  ###  ###     ####  	  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #  #   #      	 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #   ###   	#      #   #  #   #  # # #    #    #####  ####   
+	 #     #  #       #  	 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###  ###    ####   	  ###   ###    ###   #   #    #    #####  #   #  
+
+
+
+
+	### COUNTERED THE CDS ###
+	MEX_obstruct_smugling_of_cdg_drugs_to_us_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_rio_grande
+		}
+	}
+
+	MEX_obstruct_smugling_of_cdg_arms_to_us_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_rio_grande
+		}
+	}
+
+	MEX_prosecute_cdg_leaders_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_rio_grande
+		}
+	}
+
+	MEX_arrest_officers_that_took_cdg_bribes_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_rio_grande
+		}
+	}
+
+	MEX_clamp_down_on_the_cdg_black_market_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_rio_grande
+		}
+	}
+
+
+
+	
+
+	  ###  ###     ####  	  ###    #      #      #   #   
+	 #     #  #   #      	 #   #   #      #       # #    
+	#      #   #   ###   	#######  #      #        #     
+	 #     #  #       #  	#     #  #      #        #     
+	  ###  ###    ####   	#     #  #####  #####    #     
+
+
+
+	  
+
+	### ALLIED THE CDS ###
+	MEX_facilitate_smugling_of_cdg_drugs_to_us_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_rio_grande
+		}
+	}
+
+	MEX_facilitate_smugling_of_cdg_arms_to_us_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_rio_grande
+		}
+	}
+
+	MEX_protect_cdg_leaders_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_rio_grande
+		}
+	}
+
+	MEX_accept_cdg_bribes_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_rio_grande
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cdg_rio_bravo = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_rio_grande
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_rio_grande
+			has_country_flag = looking_at_rio_bravo
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_rio_grande
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_rio_grande
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 ########        		##       ##  ########   ########   ########  
+	##      ##       		##       ##  ##        ##      ##     ##     
+	##               		##       ##  ##        ##             ##     
+	  #######        		##  ###  ##  ########    #######      ##     
+	        ##       		## ## ## ##  ##                ##     ##     
+	##      ##  ###  		####   ####  ##        ##      ##     ##     
+	 ########   ###  		##       ##  ########   ########      ##     
+	MEX_counter_the_cjng_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cds
+						has_country_flag = links_to_the_cdg
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cjng_south_west
+				has_country_flag = supported_the_cjng_south_west
+			}
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cjng_south_west
+		}
+	}
+
+	MEX_support_the_cjng_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cds
+				has_country_flag = links_to_the_cdg
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cjng_south_west
+				has_country_flag = supported_the_cjng_south_west
+			}
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cjng_south_west
+			set_country_flag = links_to_the_cjng
+		}
+	}
+
+	  ######  ########  ###    ##    #######           #####     ##      ##      ##       ##  
+	 ##          ##     #####  ##   ##     ##         ##   ##    ##      ##        ##   ##    
+	##           ##     ## ##  ##  ##                ##     ##   ##      ##          ####     
+	##           ##     ##  ## ##  ##               ###########  ##      ##           ##      
+	##           ##     ##   ####  ##   ######      ##       ##  ##      ##           ##      
+	 ##       ## ##     ##    ###   ##     ##       ##       ##  ##      ##           ##      
+	  ######   ###      ##     ##    #######        ##       ##  ######  ######       ##      
+
+	### ALLIED THE CJNG ###
+
+	MEX_facilitate_smugling_of_cjng_drugs_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+	}
+
+	MEX_facilitate_smugling_of_cjng_arms_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+	}
+
+	MEX_protect_cjng_leaders_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+	}
+
+	MEX_accept_cjng_bribes_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cjng_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cjng_south_west
+		}
+	}
+
+	  ######  ########  ###    ##    #######          ######    #######    ##      ##  ###    ##  ########  ########  ########   
+	 ##          ##     #####  ##   ##     ##        ##        ##     ##   ##      ##  #####  ##     ##     ##        ##     ##  
+	##           ##     ## ##  ##  ##               ##        ##       ##  ##      ##  ## ##  ##     ##     ##        ##     ##  
+	##           ##     ##  ## ##  ##               ##        ##       ##  ##      ##  ##  ## ##     ##     ########  ########   
+	##           ##     ##   ####  ##   ######      ##        ##       ##  ##      ##  ##   ####     ##     ##        ##   ##    
+	 ##       ## ##     ##    ###   ##     ##        ##        ##     ##    ##    ##   ##    ###     ##     ##        ##    ##   
+	  ######   ###      ##     ##    #######          ######    #######      ######    ##     ##     ##     ########  ##     ##  
+
+	### COUNTERED THE CJNG ###
+	MEX_obstruct_smugling_of_cjng_drugs_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+	}
+
+	MEX_obstruct_smugling_of_cjng_arms_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+	}
+
+	MEX_prosecute_cjng_leaders_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+	}
+
+	MEX_arrest_officers_that_took_cjng_bribes_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+	}
+
+	MEX_clamp_down_on_the_cjng_black_market_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cjng_south_west
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cjng_south_west
+			has_country_flag = looking_at_south_west
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cjng_south_west
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	##      ##  ########  ########      #####       ######  ########   ##      ##  ########  
+	##      ##  ##        ##     ##    ##   ##     ##       ##     ##  ##      ##       ##   
+	##      ##  ##        ##     ##   ##     ##   ##        ##     ##  ##      ##      ##    
+	##      ##  ########  ########   ###########  ##        ########   ##      ##     ##     
+	##      ##  ##        ##   ##    ##       ##  ##        ##   ##    ##      ##    ##      
+	  ##  ##    ##        ##    ##   ##       ##   ##       ##    ##    ##    ##    ##       
+	   ####     ########  ##     ##  ##       ##    ######  ##     ##    ######    ########  
+
+
+	MEX_counter_the_cds_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cdg
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_veracruz
+				has_country_flag = supported_the_cds_veracruz
+			}
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cds_veracruz
+		}
+	}
+
+	MEX_support_the_cds_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cdg
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_veracruz
+				has_country_flag = supported_the_cds_veracruz
+			}
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cds_veracruz
+			set_country_flag = links_to_the_cds
+		}
+	}
+
+
+	  ###  ###     ####  		  ###    #      #      #   #  
+	 #     #  #   #      		 #   #   #      #       # #   
+	#      #   #   ###   		#######  #      #        #    
+	 #     #  #       #  		#     #  #      #        #    
+	  ###  ###    ####   		#     #  #####  #####    #    
+
+	MEX_facilitate_smugling_of_cds_drugs_to_us_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+	}
+
+	MEX_facilitate_smugling_of_cds_arms_to_us_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+	}
+
+	MEX_protect_cds_leaders_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+	}
+
+	MEX_accept_cds_bribes_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cds_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cds_veracruz
+		}
+	}
+
+
+
+	  ###  ###     ####  		  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #  #   #      		 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #   ###   		#      #   #  #   #  # # #    #    #####  ####   
+	 #     #  #       #  		 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###  ###    ####   		  ###   ###    ###   #   #    #    #####  #   #  
+
+
+	MEX_obstruct_smugling_of_cjng_drugs_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+	}
+
+	MEX_obstruct_smugling_of_cjng_arms_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+	}
+
+	MEX_prosecute_cjng_leaders_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+	}
+
+	MEX_arrest_officers_that_took_cjng_bribes_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+	}
+
+	MEX_clamp_down_on_the_cjng_black_market_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_veracruz
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_veracruz
+			has_country_flag = looking_at_veracruz
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_veracruz
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  ######  ########  ###    ##  ########  ########  ########   
+	 ##       ##        #####  ##     ##     ##        ##     ##  
+	##        ##        ## ##  ##     ##     ##        ##     ##  
+	##        ########  ##  ## ##     ##     ########  ########   
+	##        ##        ##   ####     ##     ##        ##   ##    
+	 ##       ##        ##    ###     ##     ##        ##    ##   
+	  ######  ########  ##     ##     ##     ########  ##     ##  
+
+
+
+	  ###  ###     ####  
+	 #     #  #   #      
+	#      #   #   ###   
+	 #     #  #       #  
+	  ###  ###    ####   
+
+	MEX_counter_the_cds_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cdg
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_center
+				has_country_flag = supported_the_cds_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cds_center
+		}
+	}
+
+	MEX_support_the_cds_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cdg
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cds_center
+				has_country_flag = supported_the_cds_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cds_center
+			set_country_flag = links_to_the_cds
+		}
+	}
+
+	  ###  ###     ###   
+	 #     #  #   #   #  
+	#      #   #  #      
+	 #     #  #   # ###  
+	  ###  ###     ###   
+
+	MEX_counter_the_cdg_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cds
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_center
+				has_country_flag = supported_the_cdg_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cdg_center
+		}
+	}
+
+	MEX_support_the_cdg_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cds
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_center
+				has_country_flag = supported_the_cdg_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cdg_center
+			set_country_flag = links_to_the_cdg
+		}
+	}
+
+
+	  ###  #####  #   #   ###   
+	 #       #    ##  #  #   #  
+	#        #    # # #  #      
+	 #     # #    #  ##  # ###  
+	  ###  ###    #   #   ###   
+
+	MEX_counter_the_cjng_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cds
+						has_country_flag = links_to_the_cdg
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cjng_center
+				has_country_flag = supported_the_cjng_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cjng_center
+		}
+	}
+
+	MEX_support_the_cjng_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cds
+				has_country_flag = links_to_the_cdg
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cjng_center
+				has_country_flag = supported_the_cjng_center
+			}
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cjng_center
+			set_country_flag = links_to_the_cjng
+		}
+	}
+
+	  ###  ###     ####  		  ###    #      #      #   #  
+	 #     #  #   #      		 #   #   #      #       # #   
+	#      #   #   ###   		#######  #      #        #    
+	 #     #  #       #  		#     #  #      #        #    
+	  ###  ###    ####   		#     #  #####  #####    #    
+
+	MEX_facilitate_smugling_of_cds_drugs_to_us_center = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_center
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_center
+		}
+	}
+
+	MEX_facilitate_smugling_of_cds_arms_to_us_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_center
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_center
+		}
+	}
+
+	MEX_protect_cds_leaders_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_center
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_center
+		}
+	}
+
+	MEX_accept_cds_bribes_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_center
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_center
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cds_veracruz = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_center
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_center
+		}
+	}
+
+
+
+	  ###  ###     ####  		  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #  #   #      		 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #   ###   		#      #   #  #   #  # # #    #    #####  ####   
+	 #     #  #       #  		 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###  ###    ####   		  ###   ###    ###   #   #    #    #####  #   #  
+
+
+	MEX_obstruct_smugling_of_cjng_drugs_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_center
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_center
+		}
+	}
+
+	MEX_obstruct_smugling_of_cjng_arms_to_us_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_center
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_center
+		}
+	}
+
+	MEX_prosecute_cjng_leaders_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_center
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_center
+		}
+	}
+
+	MEX_arrest_officers_that_took_cjng_bribes_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_center
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_center
+		}
+	}
+
+	MEX_clamp_down_on_the_cjng_black_market_south_west = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cds_center
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cds_center
+			has_country_flag = looking_at_center
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cds_center
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cds_center
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	##        ##  ##      ##    ######     #####     ########     #####     ###    ##  
+	  ##    ##    ##      ##   ##         ##   ##       ##       ##   ##    #####  ##  
+		####      ##      ##  ##         ##     ##      ##      ##     ##   ## ##  ##  
+		 ##       ##      ##  ##        ###########     ##     ###########  ##  ## ##  
+		 ##       ##      ##  ##        ##       ##     ##     ##       ##  ##   ####  
+		 ##        ##    ##    ##       ##       ##     ##     ##       ##  ##    ###  
+		 ##         ######      ######  ##       ##     ##     ##       ##  ##     ##  
+	MEX_counter_the_cdg_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			OR = {
+				has_completed_focus = MEX_War_on_Corruption
+				AND = {
+					has_completed_focus = MEX_Corrupt_Government
+					OR = {
+						has_country_flag = links_to_the_cds
+						has_country_flag = links_to_the_cjng
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_yucatan_chiapas
+				has_country_flag = supported_the_cdg_yucatan_chiapas
+			}
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = countered_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_support_the_cdg_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		rays_re_enable = 60
+
+		available = {
+			has_completed_focus = MEX_Corrupt_Government
+			NOT = {
+				has_country_flag = links_to_the_cds
+				has_country_flag = links_to_the_cjng
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_country_flag = countered_the_cdg_yucatan_chiapas
+				has_country_flag = supported_the_cdg_yucatan_chiapas
+			}
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = supported_the_cdg_yucatan_chiapas
+			set_country_flag = links_to_the_cdg
+		}
+	}
+	
+
+
+	  ######  ######       #######    		
+	 ##       ##    ##    ##     ##   		
+	##        ##     ##  ##           		
+	##        ##     ##  ##           		
+	##        ##     ##  ##   ######  		
+	 ##       ##    ##    ##     ##   		
+	  ######  ######       #######    		
+
+	  ###   ###   #   #  #   #  #####  #####  ####   
+	 #     #   #  #   #  ##  #    #    #      #   #  
+	#      #   #  #   #  # # #    #    #####  ####   
+	 #     #   #  #   #  #  ##    #    #      #  #   
+	  ###   ###    ###   #   #    #    #####  #   #  
+	MEX_obstruct_smugling_of_cdg_drugs_to_us_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_cdg_the_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_obstruct_smugling_of_cdg_arms_to_us_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_prosecute_cdg_leaders_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_arrest_officers_that_took_cdg_bribes_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_clamp_down_on_the_cdg_black_market_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_countering_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = countered_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_countering_the_cdg_yucatan_chiapas
+		}
+	}
+
+
+
+
+	  ######  ######       #######    		
+	 ##       ##    ##    ##     ##   		
+	##        ##     ##  ##           		
+	##        ##     ##  ##           		
+	##        ##     ##  ##   ######  		
+	 ##       ##    ##    ##     ##   		
+	  ######  ######       #######    		
+
+	  ###    #      #      #   #  
+	 #   #   #      #       # #   
+	#######  #      #        #    
+	#     #  #      #        #    
+	#     #  #####  #####    #    
+
+	MEX_facilitate_smugling_of_cdg_drugs_to_us_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			clr_country_flag = supported_the_cdg_yucatan_chiapas
+			#set_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_facilitate_smugling_of_cdg_arms_to_us_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_protect_cdg_leaders_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_accept_cdg_bribes_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_shadow_sellings_of_equipment_to_cdg_yucatan_chiapas = {
+		icon = tanks
+		allowed = {
+			original_tag = MEX
+		}
+		fire_only_once = no
+		days_remove = 120
+
+		available = {
+			NOT = {
+				has_country_flag = already_supporting_the_cdg_yucatan_chiapas
+			}
+		}
+
+		visible = {
+			has_country_flag = supported_the_cdg_yucatan_chiapas
+			has_country_flag = looking_at_yucatan_chiapas
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			set_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+
+		remove_effect = {
+			clr_country_flag = already_supporting_the_cdg_yucatan_chiapas
+		}
+	}
+
+	MEX_cartel_update = {
+        icon = generic_nationalism 
+        trigger = {
+            country_exists = MEX
+        }
+        fixed_random_seed = no
+        available = {
+            always = no
+        }
+        remove_trigger = {
+            
+        }
+        fire_only_once = no
+        days_re_enable = 1
+        is_good = no
+        days_mission_timeout = 30
+        complete_effect = {
+            
+        }
+        timeout_effect = {
+            activate_mission = MEX_cartel_update
+
+			### SONORA ###
+			add_to_variable = { cds_sonora = cds_increase }
+			add_to_variable = { government_sonora = -cds_increase }
+
+			### BAJA CAL ###
+			add_to_variable = { cds_baja_cal = cds_increase }
+			add_to_variable = { cjng_baja_cal = 0 }
+			add_to_variable = { government_baja_cal = -cds_increase }
+			add_to_variable = { government_baja_cal = -cjng_baja_cal }
+
+			### CENTER ###
+			add_to_variable = { cds_center = cds_increase }
+			add_to_variable = { cjng_center = cjng_increase }
+			add_to_variable = { government_center = -cds_increase }
+			add_to_variable = { government_center = -cjng_increase }
+
+			### SOUTH WEST ###
+			add_to_variable = { cjng_south_west = 0 }
+			add_to_variable = { government_south_west = 0 }
+
+			### RIO ###
+			add_to_variable = { cdg_rio = cdg_increase }
+			add_to_variable = { government_rio = -cdg_increase }
+
+			### VERACRUZ ###
+			add_to_variable = { cdg_veracruz = cdg_increase }
+			add_to_variable = { government_veracruz = -cdg_increase }
+
+			### YUCATAN ###
+			add_to_variable = { cdg_yucatan = cdg_increase }
+			add_to_variable = { government_yucatan = -cdg_increase }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### MILITARY STUFF ###
+
+MEX_millitary_spending_category = {
+	MEX_tank_programs = {
+		icon = tanks
+		allowed = { original_tag = MEX }
+		is_good = yes
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 10
+
+		visible = {
+			has_completed_focus = MEX_tank_program
+			OR = {
+				has_idea = MEX_tank_negligence_2
+				hidden_trigger = {
+					has_idea = MEX_tank_negligence_1
+				}
+				hidden_trigger = {
+					has_idea = MEX_tank_negligence
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_tank_program"
+			custom_effect_tooltip = MEX_treasury_tank_program_increasing_spedning
+			set_variable = {mex_tank_program_increase_speding = 0}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_tank_program"
+			MEX_increase_tank_research = yes
+			clear_variable = mex_tank_program_increase_speding
+		}
+	}
+	MEX_navy_programs = {
+		icon = GFX_decision_generic_research
+		allowed = { original_tag = MEX }
+		is_good = yes
+		fire_only_once = no
+		days_remove = 15
+		days_re_enable = 5
+
+		visible = {
+			has_completed_focus = MEX_carrier_program
+			OR = {
+				has_idea = MEX_coastal_fleet
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_1
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_2
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_3
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_4
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_5
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_6
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_7
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_8
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_navy_program"
+			custom_effect_tooltip = MEX_treasury_tank_program_increasing_spedning
+			set_variable = {mex_navy_program_increase_speding = 0}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_navy_program"
+			MEX_increase_navy_research = yes
+			clear_variable = mex_navy_program_increase_speding
+		}
+	}
+}
+MEX_Tank_Program = {
+	MEX_tank_programs = {
+		icon = tanks
+		allowed = { original_tag = MEX }
+		is_good = yes
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 10
+
+		visible = {
+			has_completed_focus = MEX_tank_program
+			OR = {
+				has_idea = MEX_tank_negligence_2
+				hidden_trigger = {
+					has_idea = MEX_tank_negligence_1
+				}
+				hidden_trigger = {
+					has_idea = MEX_tank_negligence
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_tank_program"
+			custom_effect_tooltip = MEX_treasury_tank_program_increasing_spedning
+			set_variable = {mex_tank_program_increase_speding = 0}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_tank_program"
+			MEX_increase_tank_research = yes
+			clear_variable = mex_tank_program_increase_speding
+		}
+	}
+	MEX_navy_programs = {
+		icon = GFX_decision_generic_research
+		allowed = { original_tag = MEX }
+		is_good = yes
+		fire_only_once = no
+		days_remove = 15
+		days_re_enable = 5
+
+		visible = {
+			has_completed_focus = MEX_carrier_program
+			OR = {
+				has_idea = MEX_coastal_fleet
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_1
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_2
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_3
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_4
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_5
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_6
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_7
+				}
+				hidden_trigger = {
+					has_idea = MEX_coastal_fleet_8
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_navy_program"
+			custom_effect_tooltip = MEX_treasury_tank_program_increasing_spedning
+			set_variable = {mex_navy_program_increase_speding = 0}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision MEX_navy_program"
+			MEX_increase_navy_research = yes
+			clear_variable = mex_navy_program_increase_speding
+		}
+	}
+}

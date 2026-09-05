@@ -1,0 +1,75 @@
+# STATES
+modifier_usos_y_costumbres = { # on State
+	enable = {
+		always = yes
+	}
+	attrition = 1
+	army_speed_factor = -0.25
+	ground_defense_factor = -0.25
+	army_attack_factor = -0.1
+	disable_strategic_redeployment = 0
+	local_org_regain = -0.025
+	recruitable_population  = -0.95
+	state_resources_factor = -0.50
+}
+
+modifier_ezln_control = { # on State
+	enable = {
+		always = yes
+	}
+	attrition = 1
+	army_speed_factor = -0.5
+	ground_defense_factor = -0.75
+	army_attack_factor = -0.25
+	disable_strategic_redeployment = 1
+	local_org_regain = -0.1
+	recruitable_population  = -0.90
+	state_resources_factor = -0.90
+}
+
+modifier_cartel_war = { # on State
+	enable = {
+		always = yes
+	}
+	icon = "GFX_modifiers_cartel_war"
+	air_cas_present_factor = -0.75
+	army_attack_factor = -0.9
+	army_speed_factor = -0.75
+	ground_attack_factor = -0.75
+	local_org_regain = -0.5
+}
+
+# IDEAS
+MEX_the_mexican_army = {
+	on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_the_mexican_army" }
+
+	icon = "MEX_The_Mexican_army_idea"
+
+	enable = {
+		always = yes
+	}
+	
+	army_attack_factor = MEX_army_attack_factor_modifier
+	army_core_defence_factor = MEX_core_defence_factor_modifier
+	army_org_factor = MEX_org_factor_modifier
+	attrition = MEX_attrition_modifier
+	breakthrough_factor = MEX_breakthrough_factor_modifier
+	max_dig_in_factor = MEX_max_dig_in_factor_modifier
+	special_forces_cap = MEX_special_forces_cap_modifier
+}
+MEX_the_mexican_navy = {
+	on_add = { log = "[GetDateText]: [Root.GetName]: add idea MEX_the_mexican_navy" }
+
+	icon = "MEX_The_Mexican_navy_idea"
+
+	enable = {
+		always = yes
+	}
+	
+	experience_gain_navy_factor = MEX_experience_gain_navy_factor_modifier
+	navy_capital_ship_attack_factor = MEX_navy_capital_ship_attack_factor_modifier
+	navy_screen_attack_factor = MEX_navy_screen_attack_factor_modifier
+	navy_submarine_attack_factor = MEX_navy_submarine_attack_factor_modifier
+	navy_carrier_air_attack_factor = MEX_navy_carrier_air_attack_factor_modifier
+}
+

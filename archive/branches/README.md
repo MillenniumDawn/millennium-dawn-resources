@@ -40,6 +40,11 @@ python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/ar
 | md-railway-guns            | 2025-10-09    | 8                |
 | didi                       | 2025-11-28    | 146              |
 | Irish-Development          | 2025-12-23    | 107              |
+| import-venezuela-import-fork  | 2026-02-21    | 23               |
+| kurdistan-development         | 2026-06-23    | 8                |
+| lebanon-development           | 2026-05-13    | 6                |
+| mexican-development           | 2026-05-17    | 67               |
+| palestine_development         | 2024-12-03    | 4                |
 
 ASEAN_shared_tree shows 583 in the 3-dot diff but 496 of those files are
 byte-identical to main; only 87 actually differ. The script's identical-skip
