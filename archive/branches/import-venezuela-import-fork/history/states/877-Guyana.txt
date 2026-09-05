@@ -1,0 +1,35 @@
+state = {
+	id = 877
+	name = "STATE_877"
+	resources = {
+		aluminium = 54.000
+		tungsten = 12.000
+		oil = 158.000
+	}
+
+	history = {
+		owner = GUY
+		add_core_of = GUY
+		victory_points = {
+			4982 3
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			air_base = 1
+			industrial_complex = 1
+			4982 = {
+				naval_base = 2
+			}
+		}
+
+		set_variable = { productivity_state_var = 666 }
+	}
+
+	provinces = {
+		4982 12340 12400
+	}
+	manpower = 523418
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

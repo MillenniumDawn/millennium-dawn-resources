@@ -1,0 +1,39 @@
+#venezuela opinion modifiers
+opinion_modifiers = {
+	VEN_USA_f16_deal = { # Un acuerdo F-16 con EE. UU. es un gran evento diplomático. Si es positivo, debería ser más fuerte. Eliminar el decay lo haría permanente.
+		value = 70 
+	}
+	VEN_SWE_gripen_deal = {
+		value = 70  
+	}
+	VEN_SOV_su30_deal = {
+		value = 70  
+	}
+	VEN_friendship_cuba = {
+		value = 50  
+	}
+	VEN_friendship = {
+		value = 25
+	}
+	VEN_friendship_brazil = {
+		value = 35  
+	}
+	VEN_friendship_argentina = {
+		value = 35  
+	}
+	VEN_reached_to_usa = {
+		value = 50
+	}
+	VEN_us_import_policy_aggressive = {
+		value = -25
+		decay = 1
+	}
+	VEN_us_import_policy_fair = {
+		value = 15
+		decay = 1
+	}
+	VEN_reached_out_to_cuba_modifier = {
+		value = 25
+		decay = 0.5
+	}
+}
