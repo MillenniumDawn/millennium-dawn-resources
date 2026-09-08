@@ -21,3 +21,6 @@ venv/
 # Local secrets — only the baseline is committed
 secrets.json
 *.secret
+
+# Local profiler reports
+.reports/
