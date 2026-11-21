@@ -1,0 +1,100 @@
+capital = 580
+2000.1.1 = {
+	set_country_flag = is_civil_war_faction
+	set_variable = { civil_war_original_tag = CHA.id }
+	set_variable = { gdp_per_capita = 0.3 }
+
+	add_ideas = {
+		sunni
+		non_state_actor
+		defence_09
+		edu_01
+		health_01
+		social_01
+		bureau_01
+		police_03
+		volunteer_army
+		no_women_in_military
+		the_military
+		farmers
+		officer_baptism_by_fire
+	}
+
+	set_technology = {
+		infantry_mass_assault = 1
+		infantry_weapons_1 = 1
+		cnc_equipment_1 = 1
+		Anti_tank_0 = 1
+		Anti_Air_0 = 1
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		decryption1 = 1
+		encryption1 = 1
+		radar = 1
+		fuel_silos = 1
+	}
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 10 }
+	add_to_array = { influence_array = LBA.id }
+	add_to_array = { influence_array_val = 30 }
+	startup_influence = yes
+
+	set_variable = { var = corporate_tax_rate value = 5 }
+	set_variable = { var = population_tax_rate value = 5 }
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 100.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "2000.1.1"
+		election_frequency = 60
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	set_variable = { party_pop_array^0 = 0 }
+	set_variable = { party_pop_array^1 = 0 }
+	set_variable = { party_pop_array^2 = 0 }
+	set_variable = { party_pop_array^3 = 0 }
+	set_variable = { party_pop_array^4 = 0 }
+	set_variable = { party_pop_array^5 = 0 }
+	set_variable = { party_pop_array^6 = 0 }
+	set_variable = { party_pop_array^7 = 0 }
+	set_variable = { party_pop_array^8 = 0 }
+	set_variable = { party_pop_array^9 = 0 }
+	set_variable = { party_pop_array^10 = 0 }
+	set_variable = { party_pop_array^11 = 0 }
+	set_variable = { party_pop_array^12 = 0 }
+	set_variable = { party_pop_array^13 = 1.0 }
+	set_variable = { party_pop_array^14 = 0 }
+	set_variable = { party_pop_array^15 = 0 }
+	set_variable = { party_pop_array^16 = 0 }
+	set_variable = { party_pop_array^17 = 0 }
+	set_variable = { party_pop_array^18 = 0 }
+	set_variable = { party_pop_array^19 = 0 }
+	set_variable = { party_pop_array^20 = 0 }
+	set_variable = { party_pop_array^21 = 0 }
+	set_variable = { party_pop_array^22 = 0 }
+	set_variable = { party_pop_array^23 = 0 }
+
+	add_to_array = { ruling_party = 13 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Toubou Derde Council"
+		picture = "generic_african_leader.dds"
+		ideology = Neutral_Autocracy
+		traits = {
+			neutrality_Neutral_Autocracy
+		}
+	}
+}

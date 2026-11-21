@@ -1,0 +1,22 @@
+# Chad Tribal Politics Decision Category
+
+CHA_tribal_politics_category = {
+	icon = GFX_decision_category_generic_political_actions
+
+	picture = GFX_decision_category_picture_generic_africa
+
+	priority = 150
+
+	allowed = {
+		original_tag = CHA
+	}
+
+	scripted_gui = CHA_tribal_loyalty_gui
+
+	visible = {
+		original_tag = CHA
+		has_completed_focus = CHA_tribal_balance
+	}
+
+	visible_when_empty = yes
+}

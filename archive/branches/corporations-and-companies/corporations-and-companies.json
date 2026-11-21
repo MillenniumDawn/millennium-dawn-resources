@@ -1,0 +1,19 @@
+{
+  "branch": "origin/corporations-and-companies",
+  "tip_sha": "044e537f8e4b163d83e4d94a89c3624b1fcacd81",
+  "tip_short": "044e537f8e",
+  "last_author": "Maks",
+  "last_commit_date": "2026-05-19T03:10:26+02:00",
+  "last_commit_subject": "Merge branch 'main' into corporations-and-companies",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "604b1126a4c9c9f0e1c6d5eeb48380eb57bc49a4",
+  "diverging_files_3dot": 147,
+  "archived_files": 142,
+  "deleted_paths": [
+    "gfx/interface/equipmentdesigner/afv/Countries/Italy/ita_apc_blueprint.dds",
+    "gfx/interface/equipmentdesigner/afv/Countries/Italy/ita_apc_gun.dds",
+    "gfx/interface/equipmentdesigner/afv/Countries/Italy/ita_apc_suspension.dds",
+    "gfx/interface/equipmentdesigner/afv/Countries/Italy/ita_apc_turret.dds",
+    "resources/GFX templates/Events/EventWorld_Template.psd"
+  ]
+}

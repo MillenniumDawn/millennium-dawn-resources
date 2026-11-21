@@ -1,0 +1,1911 @@
+# Authors: Birdy, Killerabbit
+# see Modding Resources/Internal Factions/ for more info on functions and code
+# Purpose of this file:
+# This file handles ALL background methods for the internal faction system.
+# Version: v2.0
+# Last Modified: January 2022
+
+# List of Factions sorted by category
+# Economic Type: Small & Medium Business Owners, International Bankers, Fossil Fuel Industry
+# Industrial Conglomerates, Oligarchs
+# Militaristic: Maritime Industry, Military-Industrial Complex, The Military, Intelligence Community
+# Special Interest: Labour Unions, Landowners, Farmers, Communist Cadres
+# Religious Factions: Wahabi Ulema, The Ulema, The Clergy, The Priesthood
+# Nation Specific: The Donju, The Bazaar, Saudi Royal Family, IRGC, Iranian Quds Force,
+# Foreign Jihadis, VEVAK, Chaebols, Wall Street, ISI Pakistan
+
+# setup_init_factions:
+# Method for initializing all dynamic modifiers and other effects for the internal faction system
+setup_init_factions = {
+	# Economic Factions
+	if = {
+		limit = {
+			has_idea = small_medium_business_owners
+			NOT = { has_variable = small_medium_business_owners_opinion }
+		}
+		set_variable = { small_medium_business_owners_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = international_bankers
+			NOT = { has_variable = international_bankers_opinion }
+		}
+		set_variable = { international_bankers_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = oligarchs
+			NOT = { has_variable = oligarchs_opinion }
+		}
+		set_variable = { oligarchs_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = industrial_conglomerates
+			NOT = { has_variable = industrial_conglomerates_opinion }
+		}
+		set_variable = { industrial_conglomerates_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = fossil_fuel_industry
+			NOT = { has_variable = fossil_fuel_industry_opinion }
+		}
+		set_variable = { fossil_fuel_industry_opinion = 50 }
+	}
+	# Militaristic Factions
+	if = {
+		limit = {
+			has_idea = intelligence_community
+			NOT = { has_variable = intelligence_community_opinion }
+		}
+		set_variable = { intelligence_community_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = the_military
+			NOT = { has_variable = the_military_opinion }
+		}
+		set_variable = { the_military_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = defense_industry
+			NOT = { has_variable = defense_industry_opinion }
+		}
+		set_variable = { defense_industry_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = maritime_industry
+			NOT = { has_variable = maritime_industry_opinion }
+		}
+		set_variable = { maritime_industry_opinion = 50 }
+	}
+	# Special Interest Groups
+	if = {
+		limit = {
+			has_idea = wahabi_ulema
+			NOT = { has_variable = wahabi_ulema_opinion }
+		}
+		set_variable = { wahabi_ulema_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = the_priesthood
+			NOT = { has_variable = the_priesthood_opinion }
+		}
+		set_variable = { the_priesthood_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = the_ulema
+			NOT = { has_variable = the_ulema_opinion }
+		}
+		set_variable = { the_ulema_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = the_clergy
+			NOT = { has_variable = the_clergy_opinion }
+		}
+		set_variable = { the_clergy_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = communist_cadres
+			NOT = { has_variable = communist_cadres_opinion }
+		}
+		set_variable = { communist_cadres_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = farmers
+			NOT = { has_variable = farmers_opinion }
+		}
+		set_variable = { farmers_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = landowners
+			NOT = { has_variable = landowners_opinion }
+		}
+		set_variable = { landowners_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = labour_unions
+			NOT = { has_variable = labour_unions_opinion }
+		}
+		set_variable = { labour_unions_opinion = 50 }
+	}
+	# Nation Specific
+	if = {
+		limit = {
+			has_idea = foreign_jihadis
+			NOT = { has_variable = foreign_jihadis_opinion }
+		}
+		set_variable = { foreign_jihadis_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = iranian_quds_force
+			NOT = { has_variable = iranian_quds_force_opinion }
+		}
+		set_variable = { iranian_quds_force_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = saudi_royal_family
+			NOT = { has_variable = saudi_royal_family_opinion }
+		}
+		set_variable = { saudi_royal_family_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = chaebols
+			NOT = { has_variable = chaebols_opinion }
+		}
+		set_variable = { chaebols_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = wall_street
+			NOT = { has_variable = wall_street_opinion }
+		}
+		set_variable = { wall_street_opinion = 50 }
+	}
+	if = {
+		limit = {
+			has_idea = the_donju
+			NOT = { has_variable = the_donju_opinion }
+		}
+		set_variable = { the_donju_opinion = 50 }
+	}
+
+	# Set minimum opinion values
+	if = {
+		limit = { has_idea = small_medium_business_owners }
+		set_variable = { small_medium_business_owners_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = international_bankers }
+		set_variable = { international_bankers_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = oligarchs }
+		set_variable = { oligarchs_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = industrial_conglomerates }
+		set_variable = { industrial_conglomerates_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = fossil_fuel_industry }
+		set_variable = { fossil_fuel_industry_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = intelligence_community }
+		set_variable = { intelligence_community_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = the_military }
+		set_variable = { the_military_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = defense_industry }
+		set_variable = { defense_industry_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = maritime_industry }
+		set_variable = { maritime_industry_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = wahabi_ulema }
+		set_variable = { wahabi_ulema_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = the_priesthood }
+		set_variable = { the_priesthood_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = the_ulema }
+		set_variable = { the_ulema_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = the_clergy }
+		set_variable = { the_clergy_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = communist_cadres }
+		set_variable = { communist_cadres_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = farmers }
+		set_variable = { farmers_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = landowners }
+		set_variable = { landowners_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = labour_unions }
+		set_variable = { labour_unions_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = foreign_jihadis }
+		set_variable = { foreign_jihadis_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = iranian_quds_force }
+		set_variable = { iranian_quds_force_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = saudi_royal_family }
+		set_variable = { saudi_royal_family_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = chaebols }
+		set_variable = { chaebols_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = wall_street }
+		set_variable = { wall_street_opinion_min = 50 }
+	}
+	if = {
+		limit = { has_idea = the_donju }
+		set_variable = { the_donju_opinion_min = 50 }
+	}
+}
+
+# display_election_campaign_status:
+# Method for handling Internal Factions role in MDs Election System
+# Note: This is a handler for adding to variable campaign_funding_count which impacts the election system
+# Otherwise it is only used for localization purposes in the initial event for elections.
+# Subsequent effects such as display_election_status_small_medium_business_owners are just for the
+# individual factions and their impact on the variable campaign_funding_count and their display loc
+display_election_campaign_status = {
+	# Base Value of Campaign Funding
+	# Further Modified by your factions
+	set_variable = { campaign_funding_count = 10 }
+
+	for_each_loop = {
+		array = internal_faction_active
+		value = internal_faction_v
+		set_temp_variable = { internal_faction_id = internal_faction_v }
+		set_temp_variable = { temp_faction_opinion = internal_faction_opinion^internal_faction_v }
+		calculate_election_funding_from_opinion = yes
+	}
+	round_variable = campaign_funding_count
+
+	custom_effect_tooltip = display_internal_faction_election_effects
+}
+
+# Generic election funding calculator
+# Maps opinion tiers to funding: <20 = -2, 20-39 = -1, 40-59 = 0, 60-79 = +1, >=80 = +2
+# Usage: set temp_faction_opinion before calling
+calculate_election_funding_from_opinion = {
+	if = { limit = { check_variable = { temp_faction_opinion < 20 } }
+		set_temp_variable = { internal_faction_funding = -2 }
+	}
+	else_if = { limit = { check_variable = { temp_faction_opinion < 40 } }
+		set_temp_variable = { internal_faction_funding = -1 }
+	}
+	else_if = { limit = { check_variable = { temp_faction_opinion > 79 } }
+		set_temp_variable = { internal_faction_funding = 2 }
+	}
+	else_if = { limit = { check_variable = { temp_faction_opinion > 59 } }
+		set_temp_variable = { internal_faction_funding = 1 }
+	}
+	else = {
+		set_temp_variable = { internal_faction_funding = 0 }
+	}
+	internal_faction_influence_scale = yes
+	multiply_temp_variable = { internal_faction_funding = internal_faction_scale }
+	add_to_variable = { campaign_funding_count = internal_faction_funding }
+}
+
+autocrats_opinion_change = {
+	#Autocrats get faction effects double
+	if = {
+		limit = {
+			OR = {
+				western_autocrats_are_in_power = yes	#Western Autocrats
+				check_variable = { ruling_party = 7 }	#Emerging autocrats
+				check_variable = { ruling_party = 13 }	#Neutral autocrats
+				check_variable = { ruling_party = 21 }	#fascists
+				check_variable = { ruling_party = 22 }	#military junta
+			}
+			check_variable = { temp_opinion > 0 }
+		}
+		multiply_temp_variable = { temp_opinion = 2 }
+	}
+}
+
+# Update Opinion
+# Methods for changing internal faction opinions
+# HOW TO USE:
+# effect = {
+#	 set_temp_variable = { temp_opinion = -# } for reducing opinion
+#	 set_temp_variable = { temp_opinion = # } for raising opinion
+#	 change_defense_industry_opinion = yes #Automatically will handle any updates
+# }
+
+change_small_medium_business_owners_opinion = {
+	set_temp_variable = { internal_faction_id = 1 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = small_medium_business_owners }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { small_medium_business_owners_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { small_medium_business_owners_opinion_minimum = temp_minimum }
+			clamp_variable = { var = small_medium_business_owners_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = small_medium_business_owners_opinion_minimum }
+		set_temp_variable = { small_medium_business_owners_min = min_opinion }
+		set_temp_variable = { small_medium_business_owners_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { small_medium_business_owners_opinion_min = 50 }
+		add_to_variable = { small_medium_business_owners_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = small_medium_business_owners_opinion
+			min = small_medium_business_owners_min
+			max = small_medium_business_owners_max
+		}
+		custom_effect_tooltip = display_small_medium_business_owners_opinion
+	}
+}
+
+# Industrial Conglomerates
+change_industrial_conglomerates_opinion = {
+	set_temp_variable = { internal_faction_id = 4 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = industrial_conglomerates }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { industrial_conglomerates_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { industrial_conglomerates_opinion_minimum = temp_minimum }
+			clamp_variable = { var = industrial_conglomerates_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = industrial_conglomerates_opinion_minimum }
+		set_temp_variable = { industrial_conglomerates_min = min_opinion }
+		set_temp_variable = { industrial_conglomerates_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { industrial_conglomerates_opinion_min = 50 }
+		add_to_variable = { industrial_conglomerates_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = industrial_conglomerates_opinion
+			min = industrial_conglomerates_min
+			max = industrial_conglomerates_max
+		}
+		custom_effect_tooltip = display_industrial_conglomerates_opinion
+	}
+}
+
+# Fossil Fuel Industry
+change_fossil_fuel_industry_opinion = {
+	set_temp_variable = { internal_faction_id = 3 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = fossil_fuel_industry }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { fossil_fuel_industry_opinion = temp_opinion }
+
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		if = {
+			limit = { has_idea = rentier_state }
+			add_to_temp_variable = { min_opinion = 15 }
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_idea = mining_industrialists_ast
+					has_idea = mining_industrialists_ast_1
+					has_idea = mining_industrialists_ast_2
+					has_idea = mining_industrialists_ast_3
+				}
+			}
+			add_to_temp_variable = { min_opinion = -20 }
+		}
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { fossil_fuel_industry_opinion_minimum = temp_minimum }
+			clamp_variable = { var = fossil_fuel_industry_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = fossil_fuel_industry_opinion_minimum }
+		set_temp_variable = { fossil_fuel_industry_min = min_opinion }
+		set_temp_variable = { fossil_fuel_industry_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { fossil_fuel_industry_opinion_min = 50 }
+		add_to_variable = { fossil_fuel_industry_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = fossil_fuel_industry_opinion
+			min = fossil_fuel_industry_min
+			max = fossil_fuel_industry_max
+		}
+		custom_effect_tooltip = display_fossil_fuel_industry_opinion
+	}
+}
+
+# Military-Industrial Complex
+change_defense_industry_opinion = {
+	set_temp_variable = { internal_faction_id = 8 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = defense_industry }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { defense_industry_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { defense_industry_opinion_minimum = temp_minimum }
+			clamp_variable = { var = defense_industry_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = defense_industry_opinion_minimum }
+		set_temp_variable = { defense_industry_min = min_opinion }
+		set_temp_variable = { defense_industry_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { defense_industry_opinion_min = 50 }
+		add_to_variable = { defense_industry_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = defense_industry_opinion
+			min = defense_industry_min
+			max = defense_industry_max
+		}
+		custom_effect_tooltip = display_defense_industry_opinion
+	}
+}
+
+# Maritime Industry
+change_maritime_industry_opinion = {
+	set_temp_variable = { internal_faction_id = 6 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = maritime_industry }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { maritime_industry_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { maritime_industry_opinion_minimum = temp_minimum }
+			clamp_variable = { var = maritime_industry_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = maritime_industry_opinion_minimum }
+		set_temp_variable = { maritime_industry_min = min_opinion }
+		set_temp_variable = { maritime_industry_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { maritime_industry_opinion_min = 50 }
+		add_to_variable = { maritime_industry_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = maritime_industry_opinion
+			min = maritime_industry_min
+			max = maritime_industry_max
+		}
+		custom_effect_tooltip = display_maritime_industry_opinion
+	}
+}
+
+# International Bankers
+change_international_bankers_opinion = {
+	set_temp_variable = { internal_faction_id = 2 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = international_bankers }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { international_bankers_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { international_bankers_opinion_minimum = temp_minimum }
+			clamp_variable = { var = international_bankers_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = international_bankers_opinion_minimum }
+		set_temp_variable = { international_bankers_min = min_opinion }
+		set_temp_variable = { international_bankers_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { international_bankers_opinion_min = 50 }
+		add_to_variable = { international_bankers_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = international_bankers_opinion
+			min = international_bankers_min
+			max = international_bankers_max
+		}
+		custom_effect_tooltip = display_international_bankers_opinion
+	}
+}
+
+# Oligarchs
+change_oligarchs_opinion = {
+	set_temp_variable = { internal_faction_id = 5 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = oligarchs }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { oligarchs_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { oligarchs_opinion_minimum = temp_minimum }
+			clamp_variable = { var = oligarchs_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = oligarchs_opinion_minimum }
+		set_temp_variable = { oligarchs_min = min_opinion }
+		set_temp_variable = { oligarchs_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { oligarchs_opinion_min = 50 }
+		add_to_variable = { oligarchs_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = oligarchs_opinion
+			min = oligarchs_min
+			max = oligarchs_max
+		}
+		custom_effect_tooltip = display_oligarchs_opinion
+	}
+}
+
+# Farmers
+change_farmers_opinion = {
+	set_temp_variable = { internal_faction_id = 12 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = farmers }
+
+		#Autocrats get faction effects double
+		if = {
+			limit = {
+				OR = {
+					western_autocrats_are_in_power = yes	#Western Autocrats
+					check_variable = { ruling_party = 7 }	#Emerging autocrats
+					check_variable = { ruling_party = 13 }	#Neutral autocrats
+					check_variable = { ruling_party = 21 }	#fascists
+					check_variable = { ruling_party = 22 }	#military junta
+					has_idea = syria_increased_agricultural_subsidies #increasing agricultural subsidies gets farmers' effects double
+				}
+				check_variable = { temp_opinion > 0 }
+			}
+			multiply_temp_variable = { temp_opinion = 2 }
+		}
+
+		add_to_variable = { farmers_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		if = { limit = { original_tag = BRA }
+			if = { limit = { has_idea = BRA_idea_pro_farmers }
+				add_to_temp_variable = { min_opinion = 5 }
+			}
+			if = { limit = { has_idea = BRA_idea_pro_farmers_2 }
+				add_to_temp_variable = { min_opinion = 10 }
+			}
+		}
+		if = {
+			limit = { original_tag = COM }
+			if = { limit = { has_idea = COM_pro_farmers_idea }
+				add_to_temp_variable = { min_opinion = 5 }
+			}
+		}
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { farmers_opinion_minimum = temp_minimum }
+			clamp_variable = { var = farmers_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = farmers_opinion_minimum }
+		set_temp_variable = { farmers_min = min_opinion }
+		set_temp_variable = { farmers_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { farmers_opinion_min = 50 }
+		add_to_variable = { farmers_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = farmers_opinion
+			min = farmers_min
+			max = farmers_max
+		}
+		custom_effect_tooltip = display_farmers_opinion
+	}
+}
+
+# Landowners
+change_landowners_opinion = {
+	set_temp_variable = { internal_faction_id = 11 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = landowners }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { landowners_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+		# Custom Min/Max Opinion Instructions
+		# if = {
+		#	limit = { tag = TAG }
+		# 	add_to_temp_variable = { min_opinion = x }
+		# }
+		if = { limit = { tag = SPR }
+			if = { limit = { has_idea = SPR_the_hands_of_the_few_idea }
+				add_to_temp_variable = { min_opinion = 15 }
+			}
+		}
+		if = {
+			limit = { tag = SIN }
+			if = { limit = { has_idea = SIN_support_for_the_business }
+				add_to_temp_variable = { min_opinion = 10 }
+			}
+		}
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { landowners_opinion_minimum = temp_minimum }
+			clamp_variable = { var = landowners_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = landowners_opinion_minimum }
+		set_temp_variable = { landowners_min = min_opinion }
+		set_temp_variable = { landowners_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { landowners_opinion_min = 50 }
+		add_to_variable = { landowners_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = landowners_opinion
+			min = landowners_min
+			max = landowners_max
+		}
+		custom_effect_tooltip = display_landowners_opinion
+	}
+}
+
+# Labour Unions
+change_labour_unions_opinion = {
+	set_temp_variable = { internal_faction_id = 10 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = labour_unions }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { labour_unions_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+		# Custom Min/Max Opinion Instructions
+		# if = {
+		#	limit = { tag = TAG }
+		# 	add_to_temp_variable = { min_opinion = x }
+		# }
+		if = { limit = { tag = SPR }
+			if = { limit = { has_idea = SPR_unionization_of_faith_idea }
+				add_to_temp_variable = { min_opinion = 15 }
+			}
+		}
+		if = {
+			limit = { tag = SIN }
+			if = { limit = { has_idea = SIN_support_for_the_workers }
+				add_to_temp_variable = { min_opinion = 10 }
+			}
+		}
+		if = {
+			limit = { tag = DEN }
+			if = { limit = { has_idea = DEN_in_need_of_banking_reforms_idea }
+				add_to_temp_variable = { max_opinion = -15 }
+			}
+			if = { limit = { has_idea = DEN_intensify_the_flexicurity_idea }
+				add_to_temp_variable = { min_opinion = 10 }
+			}
+		}
+		if = {
+			limit = { tag = BRA }
+			if = {
+				limit = { has_idea = BRA_idea_pro_unions }
+				add_to_temp_variable = { min_opinion = 15 }
+			}
+		}
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { labour_unions_opinion_minimum = temp_minimum }
+			clamp_variable = { var = labour_unions_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = labour_unions_opinion_minimum }
+		set_temp_variable = { labour_unions_min = min_opinion }
+		set_temp_variable = { labour_unions_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { labour_unions_opinion_min = 50 }
+		add_to_variable = { labour_unions_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = labour_unions_opinion
+			min = labour_unions_min
+			max = labour_unions_max
+		}
+		custom_effect_tooltip = display_labour_unions_opinion
+	}
+}
+
+# Communist Cadres
+change_communist_cadres_opinion = {
+	set_temp_variable = { internal_faction_id = 13 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = communist_cadres }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { communist_cadres_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { communist_cadres_opinion_minimum = temp_minimum }
+			clamp_variable = { var = communist_cadres_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = communist_cadres_opinion_minimum }
+		set_temp_variable = { communist_cadres_min = min_opinion }
+		set_temp_variable = { communist_cadres_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { communist_cadres_opinion_min = 50 }
+		add_to_variable = { communist_cadres_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = communist_cadres_opinion
+			min = communist_cadres_min
+			max = communist_cadres_max
+		}
+		custom_effect_tooltip = display_communist_cadres_opinion
+	}
+}
+
+# The Clergy
+change_the_clergy_opinion = {
+	set_temp_variable = { internal_faction_id = 16 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = the_clergy }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { the_clergy_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { the_clergy_opinion_minimum = temp_minimum }
+			clamp_variable = { var = the_clergy_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = the_clergy_opinion_minimum }
+		set_temp_variable = { the_clergy_min = min_opinion }
+		set_temp_variable = { the_clergy_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { the_clergy_opinion_min = 50 }
+		add_to_variable = { the_clergy_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = the_clergy_opinion
+			min = the_clergy_min
+			max = the_clergy_max
+		}
+		custom_effect_tooltip = display_the_clergy_opinion
+	}
+}
+
+# The Ulema
+change_the_ulema_opinion = {
+	set_temp_variable = { internal_faction_id = 15 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = the_ulema }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { the_ulema_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { the_ulema_opinion_minimum = temp_minimum }
+			clamp_variable = { var = the_ulema_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = the_ulema_opinion_minimum }
+		set_temp_variable = { the_ulema_min = min_opinion }
+		set_temp_variable = { the_ulema_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { the_ulema_opinion_min = 50 }
+		add_to_variable = { the_ulema_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = the_ulema_opinion
+			min = the_ulema_min
+			max = the_ulema_max
+		}
+		custom_effect_tooltip = display_the_ulema_opinion
+	}
+}
+
+# The Priesthood
+change_the_priesthood_opinion = {
+	set_temp_variable = { internal_faction_id = 14 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = the_priesthood }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { the_priesthood_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { the_priesthood_opinion_minimum = temp_minimum }
+			clamp_variable = { var = the_priesthood_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = the_priesthood_opinion_minimum }
+		set_temp_variable = { the_priesthood_min = min_opinion }
+		set_temp_variable = { the_priesthood_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { the_priesthood_opinion_min = 50 }
+		add_to_variable = { the_priesthood_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = the_priesthood_opinion
+			min = the_priesthood_min
+			max = the_priesthood_max
+		}
+		custom_effect_tooltip = display_the_priesthood_opinion
+	}
+}
+
+# Wahabi Ulema
+change_the_wahabi_ulema_opinion = {
+	set_temp_variable = { internal_faction_id = 17 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = wahabi_ulema }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { wahabi_ulema_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { wahabi_ulema_opinion_minimum = temp_minimum }
+			clamp_variable = { var = wahabi_ulema_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = wahabi_ulema_opinion_minimum }
+		set_temp_variable = { wahabi_ulema_min = min_opinion }
+		set_temp_variable = { wahabi_ulema_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { wahabi_ulema_opinion_min = 50 }
+		add_to_variable = { wahabi_ulema_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = wahabi_ulema_opinion
+			min = wahabi_ulema_min
+			max = wahabi_ulema_max
+		}
+		custom_effect_tooltip = display_wahabi_ulema_opinion
+	}
+}
+
+# The Military
+change_the_military_opinion = {
+	set_temp_variable = { internal_faction_id = 7 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = the_military }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { the_military_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+		if = {
+			limit = { has_idea = defence_03 }
+			add_to_temp_variable = { min_opinion = 5 }
+		}
+		else_if = {
+			limit = { has_idea = defence_04 }
+			add_to_temp_variable = { min_opinion = 10 }
+		}
+		else_if = {
+			limit = { has_idea = defence_05 }
+			add_to_temp_variable = { min_opinion = 15 }
+		}
+		else_if = {
+			limit = { has_idea = defence_06 }
+			add_to_temp_variable = { min_opinion = 20 }
+		}
+		else_if = {
+			limit = { has_idea = defence_07 }
+			add_to_temp_variable = { min_opinion = 25 }
+		}
+		else_if = {
+			limit = { has_idea = defence_08 }
+			add_to_temp_variable = { min_opinion = 30 }
+		}
+		else_if = {
+			limit = { has_idea = defence_09 }
+			add_to_temp_variable = { min_opinion = 35 }
+		}
+
+		if = { limit = { has_idea = internal_factions_allowed_foreign_nationals_military }
+			add_to_temp_variable = { max_opinion = -5 }
+		}
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { the_military_opinion_minimum = temp_minimum }
+			clamp_variable = { var = the_military_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = the_military_opinion_minimum }
+		set_temp_variable = { the_military_min = min_opinion }
+		set_temp_variable = { the_military_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { the_military_opinion_min = 50 }
+		add_to_variable = { the_military_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = the_military_opinion
+			min = the_military_min
+			max = the_military_max
+		}
+		if = { limit = { original_tag = PER NOT = { has_country_flag = PER_turn_off_IR_stuff } } custom_effect_tooltip = display_the_irgc_opinion }
+		else = { custom_effect_tooltip = display_the_military_opinion }
+	}
+}
+
+# Intelligence Community
+change_intelligence_community_opinion = {
+	set_temp_variable = { internal_faction_id = 9 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = intelligence_community }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { intelligence_community_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { intelligence_community_opinion_minimum = temp_minimum }
+			clamp_variable = { var = intelligence_community_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = intelligence_community_opinion_minimum }
+		set_temp_variable = { intelligence_community_min = min_opinion }
+		set_temp_variable = { intelligence_community_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { intelligence_community_opinion_min = 50 }
+		add_to_variable = { intelligence_community_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = intelligence_community_opinion
+			min = intelligence_community_min
+			max = intelligence_community_max
+		}
+		custom_effect_tooltip = display_intelligence_community_opinion
+	}
+}
+
+# The Donju
+change_the_donju_opinion = {
+	set_temp_variable = { internal_faction_id = 18 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = the_donju }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { the_donju_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { the_donju_opinion_minimum = temp_minimum }
+			clamp_variable = { var = the_donju_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = the_donju_opinion_minimum }
+		set_temp_variable = { the_donju_min = min_opinion }
+		set_temp_variable = { the_donju_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { the_donju_opinion_min = 50 }
+		add_to_variable = { the_donju_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = the_donju_opinion
+			min = the_donju_min
+			max = the_donju_max
+		}
+		custom_effect_tooltip = display_the_donju_opinion
+	}
+}
+
+# Saudi Royal Family
+change_saudi_royal_family_opinion = {
+	set_temp_variable = { internal_faction_id = 19 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = saudi_royal_family }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { saudi_royal_family_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { saudi_royal_family_opinion_minimum = temp_minimum }
+			clamp_variable = { var = saudi_royal_family_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = saudi_royal_family_opinion_minimum }
+		set_temp_variable = { saudi_royal_family_min = min_opinion }
+		set_temp_variable = { saudi_royal_family_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { saudi_royal_family_opinion_min = 50 }
+		add_to_variable = { saudi_royal_family_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = saudi_royal_family_opinion
+			min = saudi_royal_family_min
+			max = saudi_royal_family_max
+		}
+		custom_effect_tooltip = display_saudi_royal_family_opinion
+	}
+}
+
+
+# Foreign Jihadist
+change_foreign_jihadis_opinion = {
+	set_temp_variable = { internal_faction_id = 21 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = foreign_jihadis }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { foreign_jihadis_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { foreign_jihadis_opinion_minimum = temp_minimum }
+			clamp_variable = { var = foreign_jihadis_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = foreign_jihadis_opinion_minimum }
+		set_temp_variable = { foreign_jihadis_min = min_opinion }
+		set_temp_variable = { foreign_jihadis_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { foreign_jihadis_opinion_min = 50 }
+		add_to_variable = { foreign_jihadis_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = foreign_jihadis_opinion
+			min = foreign_jihadis_min
+			max = foreign_jihadis_max
+		}
+		custom_effect_tooltip = display_foreign_jihadis_opinion
+	}
+}
+
+# Iranian Quds Force
+change_iranian_quds_force_opinion = {
+	set_temp_variable = { internal_faction_id = 20 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = iranian_quds_force }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { iranian_quds_force_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { iranian_quds_force_opinion_minimum = temp_minimum }
+			clamp_variable = { var = iranian_quds_force_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = iranian_quds_force_opinion_minimum }
+		set_temp_variable = { iranian_quds_force_min = min_opinion }
+		set_temp_variable = { iranian_quds_force_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { iranian_quds_force_opinion_min = 50 }
+		add_to_variable = { iranian_quds_force_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = iranian_quds_force_opinion
+			min = iranian_quds_force_min
+			max = iranian_quds_force_max
+		}
+		custom_effect_tooltip = display_iranian_quds_force_opinion
+	}
+}
+
+# Chaebols
+change_chaebols_opinion = {
+	set_temp_variable = { internal_faction_id = 23 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = chaebols }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { chaebols_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { chaebols_opinion_minimum = temp_minimum }
+			clamp_variable = { var = chaebols_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = chaebols_opinion_minimum }
+		set_temp_variable = { chaebols_min = min_opinion }
+		set_temp_variable = { chaebols_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { chaebols_opinion_min = 50 }
+		add_to_variable = { chaebols_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = chaebols_opinion
+			min = chaebols_min
+			max = chaebols_max
+		}
+		custom_effect_tooltip = display_chaebols_opinion
+	}
+}
+
+# Wall Street
+change_wall_street_opinion = {
+	set_temp_variable = { internal_faction_id = 22 }
+	internal_faction_change_opinion = yes
+	if = { limit = { has_idea = wall_street }
+
+		autocrats_opinion_change = yes
+
+		add_to_variable = { wall_street_opinion = temp_opinion }
+
+		set_temp_variable = { min_opinion = 0 }
+		set_temp_variable = { max_opinion = 100 }
+
+
+		# Stored entrenchment; _opinion_min below is the recomputed total this feeds
+		if = {
+			limit = { NOT = { check_variable = { temp_minimum = 0 } } }
+			custom_effect_tooltip = internal_faction_erode_minimum_tt
+			add_to_variable = { wall_street_opinion_minimum = temp_minimum }
+			clamp_variable = { var = wall_street_opinion_minimum min = 0 max = 10 }
+		}
+
+		add_to_temp_variable = { min_opinion = wall_street_opinion_minimum }
+		set_temp_variable = { wall_street_min = min_opinion }
+		set_temp_variable = { wall_street_max = max_opinion }
+
+		# For the Minimum Opinion
+		set_variable = { wall_street_opinion_min = 50 }
+		add_to_variable = { wall_street_opinion_min = min_opinion }
+
+		clamp_variable = {
+			var = wall_street_opinion
+			min = wall_street_min
+			max = wall_street_max
+		}
+		custom_effect_tooltip = display_wall_street_opinion
+
+		if = {
+			limit = {
+				check_variable = { temp_opinion > 0 }
+				check_variable = { USA_strength_of_wall_street_var < 50 }
+			}
+			set_temp_variable = { modify_wall_street = 2 }
+			USA_modify_strength_of_wall_street = yes
+		}
+		else_if = {
+			limit = {
+				check_variable = { temp_opinion < 0 }
+				check_variable = { USA_strength_of_wall_street_var > 0 }
+			}
+			set_temp_variable = { modify_wall_street = -2 }
+			USA_modify_strength_of_wall_street = yes
+		}
+
+	}
+}
+
+# This changes the opinion of all active internal factions
+# set_temp_variable = { temp_all_opinion = -+ # }
+change_all_internal_faction_opinion = {
+	set_temp_variable = { temp_opinion = temp_all_opinion }
+	change_small_medium_business_owners_opinion = yes
+	change_industrial_conglomerates_opinion = yes
+	change_fossil_fuel_industry_opinion = yes
+	change_defense_industry_opinion = yes
+	change_maritime_industry_opinion = yes
+	change_international_bankers_opinion = yes
+	change_oligarchs_opinion = yes
+	change_farmers_opinion = yes
+	change_landowners_opinion = yes
+	change_labour_unions_opinion = yes
+	change_communist_cadres_opinion = yes
+	change_the_clergy_opinion = yes
+	change_the_ulema_opinion = yes
+	change_the_priesthood_opinion = yes
+	change_the_wahabi_ulema_opinion = yes
+	change_the_military_opinion = yes
+	change_intelligence_community_opinion = yes
+	change_the_donju_opinion = yes
+	change_saudi_royal_family_opinion = yes
+	change_foreign_jihadis_opinion = yes
+	change_chaebols_opinion = yes
+	change_wall_street_opinion = yes
+}
+
+# Internal Faction Debugging Tools:
+# The following command sets all of one's Internal Factions to maximum
+# This is only used for cheating or extensive testing. :shrug:
+set_to_max_internal_faction_opinions = {
+	custom_effect_tooltip = set_full_internal_faction_opinions
+	if = { limit = { has_idea = small_medium_business_owners }
+		set_variable = { small_medium_business_owners_opinion = 100 }
+	}
+	if = { limit = { has_idea = foreign_jihadis }
+		set_variable = { foreign_jihadis_opinion = 100 }
+	}
+	if = { limit = { has_idea = saudi_royal_family }
+		set_variable = { saudi_royal_family_opinion = 100 }
+	}
+	if = { limit = { has_idea = wahabi_ulema }
+		set_variable = { wahabi_ulema_opinion = 100 }
+	}
+	if = { limit = { has_idea = the_priesthood }
+		set_variable = { the_priesthood_opinion = 100 }
+	}
+	if = { limit = { has_idea = the_ulema }
+		set_variable = { the_ulema_opinion = 100 }
+	}
+	if = { limit = { has_idea = the_clergy }
+		set_variable = { the_clergy_opinion = 100 }
+	}
+	if = { limit = { has_idea = communist_cadres }
+		set_variable = { communist_cadres_opinion = 100 }
+	}
+	if = { limit = { has_idea = farmers }
+		set_variable = { farmers_opinion = 100 }
+	}
+	if = { limit = { has_idea = landowners }
+		set_variable = { landowners_opinion = 100 }
+	}
+	if = { limit = { has_idea = labour_unions }
+		set_variable = { labour_unions_opinion = 100 }
+	}
+	if = { limit = { has_idea = intelligence_community }
+		set_variable = { intelligence_community_opinion = 100 }
+	}
+	if = { limit = { has_idea = the_military }
+		set_variable = { the_military_opinion = 100 }
+	}
+	if = { limit = { has_idea = defense_industry }
+		set_variable = { defense_industry_opinion = 100 }
+	}
+	if = { limit = { has_idea = maritime_industry }
+		set_variable = { maritime_industry_opinion = 100 }
+	}
+	if = { limit = { has_idea = oligarchs }
+		set_variable = { oligarchs_opinion = 100 }
+	}
+	if = { limit = { has_idea = chaebols }
+		set_variable = { chaebols_opinion = 100 }
+	}
+	if = { limit = { has_idea = industrial_conglomerates }
+		set_variable = { industrial_conglomerates_opinion = 100 }
+	}
+	if = { limit = { has_idea = fossil_fuel_industry }
+		set_variable = { fossil_fuel_industry_opinion = 100 }
+	}
+	if = { limit = { has_idea = wall_street }
+		set_variable = { wall_street_opinion = 100 }
+	}
+	if = { limit = { has_idea = international_bankers }
+		set_variable = { international_bankers_opinion = 100 }
+	}
+	if = { limit = { has_idea = the_donju }
+		set_variable = { the_donju_opinion = 100 }
+	}
+}
+
+# The following command sets all of one's Internal Factions to neutral or 50
+# Again this is used for testing or debugging.
+reset_all_internal_faction_opinions = {
+	custom_effect_tooltip = reset_internal_faction_opinion
+	# Economic Factions
+	if = { limit = { has_idea = small_medium_business_owners }
+		set_variable = { small_medium_business_owners_opinion = 50 }
+		clear_variable = small_medium_business_owners_opinion_minimum
+	}
+	if = { limit = { has_idea = international_bankers }
+		set_variable = { international_bankers_opinion = 50 }
+		clear_variable = international_bankers_opinion_minimum
+	}
+	if = { limit = { has_idea = oligarchs }
+		set_variable = { oligarchs_opinion = 50 }
+		clear_variable = oligarchs_opinion_minimum
+	}
+	if = { limit = { has_idea = industrial_conglomerates }
+		set_variable = { industrial_conglomerates_opinion = 50 }
+		clear_variable = industrial_conglomerates_opinion_minimum
+	}
+	if = { limit = { has_idea = fossil_fuel_industry }
+		set_variable = { fossil_fuel_industry_opinion = 50 }
+		clear_variable = fossil_fuel_industry_opinion_minimum
+	}
+	# Militaristic Factions
+	if = { limit = { has_idea = intelligence_community }
+		set_variable = { intelligence_community_opinion = 50 }
+		clear_variable = intelligence_community_opinion_minimum
+	}
+	if = { limit = { has_idea = the_military }
+		set_variable = { the_military_opinion = 50 }
+		clear_variable = the_military_opinion_minimum
+	}
+	if = { limit = { has_idea = defense_industry }
+		set_variable = { defense_industry_opinion = 50 }
+		clear_variable = defense_industry_opinion_minimum
+	}
+	if = { limit = { has_idea = maritime_industry }
+		set_variable = { maritime_industry_opinion = 50 }
+		clear_variable = maritime_industry_opinion_minimum
+	}
+	# Special Interest Groups
+	if = { limit = { has_idea = wahabi_ulema }
+		set_variable = { wahabi_ulema_opinion = 50 }
+		clear_variable = wahabi_ulema_opinion_minimum
+	}
+	if = { limit = { has_idea = the_priesthood }
+		set_variable = { the_priesthood_opinion = 50 }
+		clear_variable = the_priesthood_opinion_minimum
+	}
+	if = { limit = { has_idea = the_ulema }
+		set_variable = { the_ulema_opinion = 50 }
+		clear_variable = the_ulema_opinion_minimum
+	}
+	if = { limit = { has_idea = the_clergy }
+		set_variable = { the_clergy_opinion = 50 }
+		clear_variable = the_clergy_opinion_minimum
+	}
+	if = { limit = { has_idea = communist_cadres }
+		set_variable = { communist_cadres_opinion = 50 }
+		clear_variable = communist_cadres_opinion_minimum
+	}
+	if = { limit = { has_idea = farmers }
+		set_variable = { farmers_opinion = 50 }
+		clear_variable = farmers_opinion_minimum
+	}
+	if = { limit = { has_idea = landowners }
+		set_variable = { landowners_opinion = 50 }
+		clear_variable = landowners_opinion_minimum
+	}
+	if = { limit = { has_idea = labour_unions }
+		set_variable = { labour_unions_opinion = 50 }
+		clear_variable = labour_unions_opinion_minimum
+	}
+	if = { limit = { has_idea = foreign_jihadis }
+		set_variable = { foreign_jihadis_opinion = 50 }
+		clear_variable = foreign_jihadis_opinion_minimum
+	}
+	if = { limit = { has_idea = iranian_quds_force }
+		set_variable = { iranian_quds_force_opinion = 50 }
+		clear_variable = iranian_quds_force_opinion_minimum
+	}
+	if = { limit = { has_idea = saudi_royal_family }
+		set_variable = { saudi_royal_family_opinion = 50 }
+		clear_variable = saudi_royal_family_opinion_minimum
+	}
+	if = { limit = { has_idea = chaebols }
+		set_variable = { chaebols_opinion = 50 }
+		clear_variable = chaebols_opinion_minimum
+	}
+	if = { limit = { has_idea = wall_street }
+		set_variable = { wall_street_opinion = 50 }
+		clear_variable = wall_street_opinion_minimum
+	}
+	if = { limit = { has_idea = the_donju }
+		set_variable = { the_donju_opinion = 50 }
+		clear_variable = the_donju_opinion_minimum
+	}
+}
+
+# Effect: monthly_tick_internal_factions_opinion
+# Purpose: Ticks down the monthly internal factions
+monthly_tick_internal_factions_opinion = {
+	# Skip entirely when tick rate is 0 (game rule: no decay)
+	if = {
+		limit = { NOT = { check_variable = { global.monthly_internal_faction_tick_rate < 0.01 } } }
+
+	# Economic Factions
+	if = {
+		limit = {
+			has_idea = small_medium_business_owners
+			check_variable = { small_medium_business_owners_opinion > small_medium_business_owners_opinion_min }
+		}
+		subtract_from_variable = { small_medium_business_owners_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = small_medium_business_owners_opinion min = small_medium_business_owners_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = international_bankers
+			check_variable = { international_bankers_opinion > international_bankers_opinion_min }
+		}
+		subtract_from_variable = { international_bankers_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = international_bankers_opinion min = international_bankers_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = oligarchs
+			check_variable = { oligarchs_opinion > oligarchs_opinion_min }
+		}
+		subtract_from_variable = { oligarchs_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = oligarchs_opinion min = oligarchs_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = industrial_conglomerates
+			check_variable = { industrial_conglomerates_opinion > industrial_conglomerates_opinion_min }
+		}
+		subtract_from_variable = { industrial_conglomerates_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = industrial_conglomerates_opinion min = industrial_conglomerates_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = fossil_fuel_industry
+			check_variable = { fossil_fuel_industry_opinion > fossil_fuel_industry_opinion_min }
+		}
+		subtract_from_variable = { fossil_fuel_industry_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = fossil_fuel_industry_opinion min = fossil_fuel_industry_opinion_min }
+	}
+	# Militaristic Factions
+	if = {
+		limit = {
+			has_idea = intelligence_community
+			check_variable = { intelligence_community_opinion > intelligence_community_opinion_min }
+		}
+		subtract_from_variable = { intelligence_community_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = intelligence_community_opinion min = intelligence_community_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = the_military
+			check_variable = { the_military_opinion > the_military_opinion_min }
+		}
+		subtract_from_variable = { the_military_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = the_military_opinion min = the_military_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = defense_industry
+			check_variable = { defense_industry_opinion > defense_industry_opinion_min }
+		}
+		subtract_from_variable = { defense_industry_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = defense_industry_opinion min = defense_industry_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = maritime_industry
+			check_variable = { maritime_industry_opinion > maritime_industry_opinion_min }
+		}
+		subtract_from_variable = { maritime_industry_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = maritime_industry_opinion min = maritime_industry_opinion_min }
+	}
+	# Special Interest Groups
+	if = {
+		limit = {
+			has_idea = wahabi_ulema
+			check_variable = { wahabi_ulema_opinion > wahabi_ulema_opinion_min }
+		}
+		if = { limit = { NOT = { has_variable = wahabi_ulema_opinion_min } } set_variable = { wahabi_ulema_opinion_min = 50 } }
+		subtract_from_variable = { wahabi_ulema_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = wahabi_ulema_opinion min = wahabi_ulema_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = the_priesthood
+			check_variable = { the_priesthood_opinion > the_priesthood_opinion_min }
+		}
+		subtract_from_variable = { the_priesthood_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = the_priesthood_opinion min = the_priesthood_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = the_ulema
+			check_variable = { the_ulema_opinion > the_ulema_opinion_min }
+		}
+		subtract_from_variable = { the_ulema_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = the_ulema_opinion min = the_ulema_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = the_clergy
+			check_variable = { the_clergy_opinion > the_clergy_opinion_min }
+		}
+		subtract_from_variable = { the_clergy_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = the_clergy_opinion min = the_clergy_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = communist_cadres
+			check_variable = { communist_cadres_opinion > communist_cadres_opinion_min }
+		}
+		subtract_from_variable = { communist_cadres_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = communist_cadres_opinion min = communist_cadres_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = farmers
+			check_variable = { farmers_opinion > farmers_opinion_min }
+		}
+		if = { limit = { NOT = { has_variable = farmers_opinion_min } } set_variable = { farmers_opinion_min = 50 } }
+		subtract_from_variable = { farmers_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = farmers_opinion min = farmers_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = landowners
+			check_variable = { landowners_opinion > landowners_opinion_min }
+		}
+		subtract_from_variable = { landowners_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = landowners_opinion min = landowners_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = labour_unions
+			check_variable = { labour_unions_opinion > labour_unions_opinion_min }
+		}
+		subtract_from_variable = { labour_unions_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = labour_unions_opinion min = labour_unions_opinion_min }
+	}
+	# Nation Specific
+	if = {
+		limit = {
+			has_idea = foreign_jihadis
+			check_variable = { foreign_jihadis_opinion > foreign_jihadis_opinion_min }
+		}
+		if = { limit = { NOT = { has_variable = foreign_jihadis_opinion_min } } set_variable = { foreign_jihadis_opinion_min = 50 } }
+		subtract_from_variable = { foreign_jihadis_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = foreign_jihadis_opinion min = foreign_jihadis_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = iranian_quds_force
+			check_variable = { iranian_quds_force_opinion > iranian_quds_force_opinion_min }
+		}
+		subtract_from_variable = { iranian_quds_force_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = iranian_quds_force_opinion min = iranian_quds_force_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = saudi_royal_family
+			check_variable = { saudi_royal_family_opinion > saudi_royal_family_opinion_min }
+		}
+		subtract_from_variable = { saudi_royal_family_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = saudi_royal_family_opinion min = saudi_royal_family_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = chaebols
+			check_variable = { chaebols_opinion > chaebols_opinion_min }
+		}
+		subtract_from_variable = { chaebols_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = chaebols_opinion min = chaebols_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = wall_street
+			check_variable = { wall_street_opinion > wall_street_opinion_min }
+		}
+		subtract_from_variable = { wall_street_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = wall_street_opinion min = wall_street_opinion_min }
+	}
+	if = {
+		limit = {
+			has_idea = the_donju
+			check_variable = { the_donju_opinion > the_donju_opinion_min }
+		}
+		subtract_from_variable = { the_donju_opinion = global.monthly_internal_faction_tick_rate }
+		clamp_variable = { var = the_donju_opinion min = the_donju_opinion_min }
+	}
+	} # end tick rate > 0 guard
+}
+
+# Effect: copy_internal_factions_from
+# Purpose: Copies internal factions from the selected nation
+# Parameter:
+#  - nation_to_copy_from - accepts all tags as a variable
+copy_internal_factions = {
+	var:nation_to_copy_from = {
+		if = { limit = { has_idea = small_medium_business_owners }
+			PREV = { add_ideas = small_medium_business_owners }
+		}
+		if = { limit = { has_idea = international_bankers }
+			PREV = { add_ideas = international_bankers }
+		}
+		if = { limit = { has_idea = fossil_fuel_industry }
+			PREV = { add_ideas = fossil_fuel_industry }
+		}
+		if = { limit = { has_idea = industrial_conglomerates }
+			PREV = { add_ideas = industrial_conglomerates }
+		}
+		if = { limit = { has_idea = oligarchs }
+			PREV = { add_ideas = oligarchs }
+		}
+		if = { limit = { has_idea = maritime_industry }
+			PREV = { add_ideas = maritime_industry }
+		}
+		if = { limit = { has_idea = defense_industry }
+			PREV = { add_ideas = defense_industry }
+		}
+		if = { limit = { has_idea = the_military }
+			PREV = { add_ideas = the_military }
+		}
+		if = { limit = { has_idea = intelligence_community }
+			PREV = { add_ideas = intelligence_community }
+		}
+		if = { limit = { has_idea = labour_unions }
+			PREV = { add_ideas = labour_unions }
+		}
+		if = { limit = { has_idea = landowners }
+			PREV = { add_ideas = landowners }
+		}
+		if = { limit = { has_idea = farmers }
+			PREV = { add_ideas = farmers }
+		}
+		if = {
+			limit = {
+				has_idea = communist_cadres
+				PREV = {
+					OR = {
+						check_variable = { ruling_party = 4 }
+						check_variable = { ruling_party = 19 }
+					}
+				}
+			}
+			PREV = { add_ideas = communist_cadres }
+		}
+		if = { limit = { has_idea = the_priesthood }
+			PREV = { add_ideas = the_priesthood }
+		}
+		if = { limit = { has_idea = the_ulema }
+			PREV = { add_ideas = the_ulema }
+		}
+		if = { limit = { has_idea = the_clergy }
+			PREV = { add_ideas = the_clergy }
+		}
+		if = { limit = { has_idea = wahabi_ulema }
+			PREV = { add_ideas = wahabi_ulema }
+		}
+		if = { limit = { has_idea = the_donju }
+			PREV = { add_ideas = the_donju }
+		}
+		if = {
+			limit = {
+				has_idea = saudi_royal_family
+				PREV = {
+					OR = {
+						check_variable = { ruling_party = 10 }
+						check_variable = { ruling_party = 23 }
+						western_autocrats_are_in_power = yes
+					}
+				}
+			}
+			PREV = { add_ideas = saudi_royal_family }
+		}
+		if = {
+			limit = {
+				has_idea = iranian_quds_force
+				PREV = {
+					NOT = {
+						OR = {
+							has_government = democratic
+							has_government = fascism
+						}
+					}
+				}
+			}
+			PREV = { add_ideas = iranian_quds_force }
+		}
+		if = {
+			limit = {
+				has_idea = foreign_jihadis
+				PREV = {
+					check_variable = { ruling_party = 11 }
+				}
+			}
+			PREV = { add_ideas = foreign_jihadis }
+		}
+		if = { limit = { has_idea = wall_street }
+			PREV = { add_ideas = wall_street }
+		}
+		if = { limit = { has_idea = chaebols }
+			PREV = { add_ideas = chaebols }
+		}
+	}
+}

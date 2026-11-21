@@ -1,0 +1,2857 @@
+# Chad National Spirits and Ideas
+# Second Chadian Civil War
+
+ideas = {
+	country = {
+
+		#####################################
+		# CIVIL WAR IDEAS
+		#####################################
+
+		CHA_second_civil_war = {
+			name = CHA_second_civil_war
+			picture = recovering_from_the_civil_war
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_second_civil_war" }
+
+			modifier = {
+				political_power_gain = -0.25
+				stability_factor = -0.20
+				war_support_factor = -0.10
+				production_speed_buildings_factor = -0.15
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		CHA_battle_for_ndjamena = {
+			name = CHA_battle_for_ndjamena
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_battle_for_ndjamena" }
+
+			modifier = {
+				army_defence_factor = 0.15
+				army_morale_factor = 0.10
+				army_core_defence_factor = 0.20
+			}
+		}
+
+		CHA_post_war_recovery = {
+			name = CHA_post_war_recovery
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_post_war_recovery" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.05
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		CHA_rebel_momentum = {
+			name = CHA_rebel_momentum
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_rebel_momentum" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_morale_factor = 0.15
+				army_speed_factor = 0.10
+			}
+		}
+
+		#####################################
+		# INTERNATIONAL INTERVENTION
+		#####################################
+
+		CHA_minurcat_presence = {
+			name = CHA_minurcat_presence
+			picture = un_intervention
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_minurcat_presence" }
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = -0.05
+			}
+		}
+
+		CHA_eufor_presence = {
+			name = CHA_eufor_presence
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_eufor_presence" }
+
+			modifier = {
+				army_defence_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_french_air_support = {
+			name = CHA_french_air_support
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_french_air_support" }
+
+			modifier = {
+				air_superiority_efficiency = 0.20
+				enemy_army_bonus_air_superiority_factor = -0.15
+				army_defence_factor = 0.05
+			}
+		}
+
+		CHA_french_military_presence = {
+			name = CHA_french_military_presence
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_french_military_presence" }
+
+			modifier = {
+				army_defence_factor = 0.10
+				stability_factor = 0.05
+				political_power_gain = -0.05
+			}
+		}
+
+		#####################################
+		# POLITICAL IDEAS
+		#####################################
+
+		CHA_term_limits_removed = {
+			name = CHA_term_limits_removed
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_term_limits_removed" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.05
+				drift_defence_factor = 0.15
+			}
+		}
+
+		CHA_zaghawa_dominance = {
+			name = CHA_zaghawa_dominance
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_dominance" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.10
+				drift_defence_factor = 0.10
+			}
+		}
+
+		CHA_democratic_transition = {
+			name = CHA_democratic_transition
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_democratic_transition" }
+
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = 0.10
+				democratic_drift = 0.02
+			}
+		}
+
+		CHA_competitive_politics = {
+			name = CHA_competitive_politics
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_competitive_politics" }
+
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.05
+				democratic_drift = 0.01
+			}
+		}
+
+		CHA_transitional_military_council = {
+			name = CHA_transitional_military_council
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_transitional_military_council" }
+
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = -0.10
+				army_morale_factor = 0.05
+			}
+		}
+
+		CHA_broad_coalition = {
+			name = CHA_broad_coalition
+			picture = disjointed_government
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_broad_coalition" }
+
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = 0.10
+			}
+		}
+
+		CHA_expanded_security_services = {
+			name = CHA_expanded_security_services
+			picture = secret_police
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_expanded_security_services" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.05
+				drift_defence_factor = 0.20
+				democratic_drift = -0.02
+			}
+		}
+
+		CHA_peaceful_development = {
+			name = CHA_peaceful_development
+			picture = neutrality
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_peaceful_development" }
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.10
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		#####################################
+		# ECONOMIC IDEAS
+		#####################################
+
+		CHA_oil_boom = {
+			name = CHA_oil_boom
+			picture = oil_profits
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_oil_boom" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.10
+				fuel_gain_factor = 0.15
+			}
+		}
+
+		CHA_managed_oil_economy = {
+			name = CHA_managed_oil_economy
+			picture = oil_profits
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_managed_oil_economy" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.15
+				fuel_gain_factor = 0.20
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_cotton_exports = {
+			name = CHA_cotton_exports
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_cotton_exports" }
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				stability_factor = 0.02
+			}
+		}
+
+		CHA_improved_irrigation = {
+			name = CHA_improved_irrigation
+			picture = water_conservation
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_improved_irrigation" }
+
+			modifier = {
+				stability_factor = 0.03
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		CHA_food_security_program = {
+			name = CHA_food_security_program
+			picture = Stabilized_Food_Supply
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_food_security_program" }
+
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_agricultural_investment = {
+			name = CHA_agricultural_investment
+			picture = agriculture
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_agricultural_investment" }
+
+			modifier = {
+				stability_factor = 0.03
+				consumer_goods_factor = -0.02
+				local_resources_factor = 0.05
+			}
+		}
+
+		CHA_tribal_unity = {
+			name = CHA_tribal_unity
+			picture = national_unity
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_unity" }
+
+			modifier = {
+				stability_factor = 0.15
+				political_power_factor = 0.10
+				war_support_factor = 0.10
+				conscription_factor = 0.05
+			}
+		}
+
+		CHA_reforestation_program = {
+			name = CHA_reforestation_program
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_reforestation_program" }
+
+			modifier = {
+				stability_factor = 0.03
+				consumer_goods_factor = -0.02
+				local_resources_factor = 0.05
+			}
+		}
+
+		#####################################
+		# MILITARY IDEAS
+		#####################################
+
+		CHA_french_trained_army = {
+			name = CHA_french_trained_army
+			picture = reserve_divisions
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_french_trained_army" }
+
+			modifier = {
+				army_org_factor = 0.05
+				experience_gain_army_factor = 0.10
+				army_morale_factor = 0.05
+			}
+		}
+
+		CHA_desert_warriors = {
+			name = CHA_desert_warriors
+			picture = west_sahara2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_desert_warriors" }
+
+			modifier = {
+				army_speed_factor = 0.05
+				attrition = -0.10
+				army_attack_factor = 0.05
+			}
+		}
+
+		CHA_presidential_guard = {
+			name = CHA_presidential_guard
+			picture = praetorian_guard_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_presidential_guard" }
+
+			modifier = {
+				army_defence_factor = 0.10
+				army_morale_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_counter_terrorism_training = {
+			name = CHA_counter_terrorism_training
+			picture = counter_terror_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_counter_terrorism_training" }
+
+			modifier = {
+				army_attack_factor = 0.05
+				army_org_factor = 0.05
+				experience_gain_army_factor = 0.05
+			}
+		}
+
+		CHA_sahel_force_member = {
+			name = CHA_sahel_force_member
+			picture = AU_member
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sahel_force_member" }
+
+			modifier = {
+				army_org_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+
+		CHA_military_offensive_idea = {
+			name = CHA_military_offensive_idea
+			picture = national_mobilization
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_military_offensive_idea" }
+
+			modifier = {
+				army_attack_factor = 0.15
+				army_speed_factor = 0.10
+				army_org_factor = -0.05
+			}
+		}
+
+		#####################################
+		# DECISION-RELATED IDEAS
+		#####################################
+
+		CHA_cotton_exports_bonus = {
+			name = CHA_cotton_exports_bonus
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_cotton_exports_bonus" }
+
+			modifier = {
+				consumer_goods_factor = -0.02
+				stability_factor = 0.03
+			}
+		}
+
+		CHA_toyota_war_doctrine = {
+			name = CHA_toyota_war_doctrine
+			picture = west_sahara2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toyota_war_doctrine" }
+
+			modifier = {
+				army_speed_factor = 0.10
+				motorized_attack_factor = 0.10
+				motorized_defence_factor = 0.05
+			}
+		}
+
+		CHA_border_patrol_active = {
+			name = CHA_border_patrol_active
+			picture = counter_terror_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_border_patrol_active" }
+
+			modifier = {
+				stability_factor = 0.04
+				army_core_defence_factor = 0.05
+			}
+		}
+
+		CHA_cemac_member = {
+			name = CHA_cemac_member
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_cemac_member" }
+
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		#####################################
+		# ISLAMIST PATH IDEAS
+		#####################################
+
+		CHA_islamic_schools = {
+			name = CHA_islamic_schools
+			picture = jihad_of_education
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_schools" }
+
+			modifier = {
+				stability_factor = 0.03
+				political_power_gain = 0.05
+				drift_defence_factor = 0.10
+			}
+		}
+
+		CHA_sufi_influence = {
+			name = CHA_sufi_influence
+			picture = sufi_islam
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sufi_influence" }
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_wahabi_mosques = {
+			name = CHA_wahabi_mosques
+			picture = wahabi_ulema
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_wahabi_mosques" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = 0.10
+				drift_defence_factor = 0.20
+			}
+		}
+
+		CHA_caliphate_declared = {
+			name = CHA_caliphate_declared
+			picture = true_caliphate
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_caliphate_declared" }
+
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = 0.25
+				army_morale_factor = 0.15
+				drift_defence_factor = 0.50
+			}
+		}
+
+		#####################################
+		# SOCIALIST PATH IDEAS
+		#####################################
+
+		CHA_nationalized_oil = {
+			name = CHA_nationalized_oil
+			picture = BRA_nationalized_industries
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_nationalized_oil" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+				fuel_gain_factor = 0.25
+			}
+		}
+
+		CHA_state_controlled_economy = {
+			name = CHA_state_controlled_economy
+			picture = planning_bonus
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_state_controlled_economy" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.10
+				political_power_gain = -0.10
+			}
+		}
+
+		CHA_collectivized_agriculture = {
+			name = CHA_collectivized_agriculture
+			picture = gre_agricultural_communes
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_collectivized_agriculture" }
+
+			modifier = {
+				stability_factor = 0.03
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_pan_african_leader = {
+			name = CHA_pan_african_leader
+			picture = African_union2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_pan_african_leader" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				justify_war_goal_time = -0.15
+			}
+		}
+
+		#####################################
+		# MILITARY JUNTA IDEAS
+		#####################################
+
+		CHA_state_of_emergency = {
+			name = CHA_state_of_emergency
+			picture = financial_crisis
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_state_of_emergency" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = 0.10
+				army_defence_factor = 0.05
+				political_power_gain = 0.10
+			}
+		}
+
+		CHA_military_elite = {
+			name = CHA_military_elite
+			picture = praetorian_guard_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_military_elite" }
+
+			modifier = {
+				army_org_factor = 0.10
+				army_morale_factor = 0.10
+				political_power_gain = -0.05
+			}
+		}
+
+		CHA_praetorian_guard_state = {
+			name = CHA_praetorian_guard_state
+			picture = praetorian_guard_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_praetorian_guard_state" }
+
+			modifier = {
+				stability_factor = 0.05
+				army_defence_factor = 0.15
+				army_attack_factor = 0.10
+				political_power_gain = 0.10
+				drift_defence_factor = 0.30
+			}
+		}
+
+		#####################################
+		# TRIBAL MECHANICS IDEAS
+		#####################################
+
+		CHA_tribal_balance = {
+			name = CHA_tribal_balance_idea
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_balance" }
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_zaghawa_militia = {
+			name = CHA_zaghawa_militia_idea
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_militia" }
+
+			modifier = {
+				army_attack_factor = 0.05
+				army_speed_factor = 0.05
+				conscription = 0.01
+			}
+		}
+
+		CHA_arab_council = {
+			name = CHA_arab_council
+			picture = arab_workers_union
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_council" }
+
+			modifier = {
+				stability_factor = 0.03
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_southern_development = {
+			name = CHA_southern_development
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_southern_development" }
+
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_national_unity_achieved = {
+			name = CHA_national_unity_achieved
+			picture = national_unity
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_national_unity_achieved" }
+
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.15
+				war_support_factor = 0.10
+				army_morale_factor = 0.10
+			}
+		}
+
+		#####################################
+		# NEIGHBOR RELATIONS IDEAS
+		#####################################
+
+		CHA_libyan_weapons = {
+			name = CHA_libyan_weapons
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_libyan_weapons" }
+
+			modifier = {
+				army_attack_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}
+
+		CHA_car_peacekeeper = {
+			name = CHA_car_peacekeeper
+			picture = un_intervention
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_car_peacekeeper" }
+
+			modifier = {
+				army_org_factor = 0.05
+				experience_gain_army_factor = 0.10
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_regional_trade_hub = {
+			name = CHA_regional_trade_hub
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_regional_trade_hub" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		#####################################
+		# ECONOMIC EXPANSION IDEAS
+		#####################################
+
+		CHA_mega_infrastructure = {
+			name = CHA_mega_infrastructure
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_mega_infrastructure" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_foreign_investment_boom = {
+			name = CHA_foreign_investment_boom
+			picture = foreign_capital
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_foreign_investment_boom" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.05
+				political_power_gain = -0.05
+			}
+		}
+
+		#####################################
+		# TRIBAL LOYALTY BONUS IDEAS
+		#####################################
+
+		CHA_zaghawa_elite_guard_idea = {
+			name = CHA_zaghawa_elite_guard_idea
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_elite_guard_idea" }
+
+			modifier = {
+				army_defence_factor = 0.10
+				army_morale_factor = 0.10
+				political_power_gain = 0.10
+			}
+		}
+
+		CHA_arab_cavalry_idea = {
+			name = CHA_arab_cavalry_idea
+			picture = armor
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_cavalry_idea" }
+
+			modifier = {
+				army_speed_factor = 0.10
+				conscription_factor = 0.10
+				army_attack_factor = 0.05
+			}
+		}
+
+		CHA_sara_prosperity_idea = {
+			name = CHA_sara_prosperity_idea
+			picture = agrarian_economy_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_prosperity_idea" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.03
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_toubou_guides_idea = {
+			name = CHA_toubou_guides_idea
+			picture = west_sahara2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_guides_idea" }
+
+			modifier = {
+				army_org_factor = 0.10
+				attrition = -0.15
+				recon_factor = 0.20
+			}
+		}
+
+		#####################################
+		# TRIBAL RESOURCE ECONOMY MODIFIERS
+		#####################################
+
+		# Zaghawa Resource Modifiers (Eastern oil region)
+		CHA_zaghawa_resource_bonus = {
+			name = CHA_zaghawa_resource_bonus
+			picture = oil_profits
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_resource_bonus" }
+
+			modifier = {
+				fuel_gain_factor = 0.20
+				local_resources_factor = 0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_zaghawa_resource_penalty_low = {
+			name = CHA_zaghawa_resource_penalty_low
+			picture = poor_economy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_resource_penalty_low" }
+
+			modifier = {
+				fuel_gain_factor = -0.25
+				local_resources_factor = -0.15
+			}
+		}
+
+		CHA_zaghawa_resource_penalty_critical = {
+			name = CHA_zaghawa_resource_penalty_critical
+			picture = poor_economy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_resource_penalty_critical" }
+
+			modifier = {
+				fuel_gain_factor = -0.50
+				local_resources_factor = -0.30
+				production_speed_buildings_factor = -0.10
+			}
+		}
+
+		# Arab Resource Modifiers (Central livestock/trade region)
+		CHA_arab_resource_bonus = {
+			name = CHA_arab_resource_bonus
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_resource_bonus" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				trade_opinion_factor = 0.15
+			}
+		}
+
+		CHA_arab_resource_penalty_low = {
+			name = CHA_arab_resource_penalty_low
+			picture = poor_economy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_resource_penalty_low" }
+
+			modifier = {
+				consumer_goods_factor = 0.03
+				stability_factor = -0.05
+			}
+		}
+
+		CHA_arab_resource_penalty_critical = {
+			name = CHA_arab_resource_penalty_critical
+			picture = financial_crisis
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_resource_penalty_critical" }
+
+			modifier = {
+				consumer_goods_factor = 0.08
+				stability_factor = -0.10
+				trade_opinion_factor = -0.20
+			}
+		}
+
+		# Sara Resource Modifiers (Southern agricultural region)
+		CHA_sara_resource_bonus = {
+			name = CHA_sara_resource_bonus
+			picture = agrarian_economy_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_resource_bonus" }
+
+			modifier = {
+				consumer_goods_factor = -0.08
+				stability_factor = 0.05
+				monthly_population = 0.10
+			}
+		}
+
+		CHA_sara_resource_penalty_low = {
+			name = CHA_sara_resource_penalty_low
+			picture = looming_famine
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_resource_penalty_low" }
+
+			modifier = {
+				consumer_goods_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+
+		CHA_sara_resource_penalty_critical = {
+			name = CHA_sara_resource_penalty_critical
+			picture = famine
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_resource_penalty_critical" }
+
+			modifier = {
+				consumer_goods_factor = 0.12
+				stability_factor = -0.15
+				monthly_population = -0.20
+			}
+		}
+
+		# Toubou Resource Modifiers (Northern Tibesti - minerals, border security)
+		CHA_toubou_resource_bonus = {
+			name = CHA_toubou_resource_bonus
+			picture = west_sahara2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_resource_bonus" }
+
+			modifier = {
+				attrition = -0.10
+				army_speed_factor = 0.05
+				local_resources_factor = 0.10
+			}
+		}
+
+		CHA_toubou_resource_penalty_low = {
+			name = CHA_toubou_resource_penalty_low
+			picture = poor_economy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_resource_penalty_low" }
+
+			modifier = {
+				attrition = 0.10
+				local_resources_factor = -0.15
+			}
+		}
+
+		CHA_toubou_resource_penalty_critical = {
+			name = CHA_toubou_resource_penalty_critical
+			picture = poor_economy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_resource_penalty_critical" }
+
+			modifier = {
+				attrition = 0.20
+				local_resources_factor = -0.30
+				army_speed_factor = -0.10
+			}
+		}
+
+		#####################################
+		# TRIBAL REBELLION IDEAS
+		#####################################
+
+		CHA_tribal_rebel_momentum = {
+			name = CHA_tribal_rebel_momentum
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_rebel_momentum" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_morale_factor = 0.15
+				army_speed_factor = 0.10
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_desert_fighters = {
+			name = CHA_desert_fighters
+			picture = west_sahara2
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_desert_fighters" }
+
+			modifier = {
+				attrition = -0.30
+				army_org_factor = 0.15
+				recon_factor = 0.25
+			}
+		}
+
+		# Protest level modifier (applied when tribe at protest level)
+		CHA_tribal_protests = {
+			name = CHA_tribal_protests
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_protests" }
+
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = -0.10
+			}
+		}
+
+		# Tribe-specific partisan ideas
+		CHA_zaghawa_partisans = {
+			name = CHA_zaghawa_partisans
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_partisans" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.03
+				army_morale_factor = -0.05
+			}
+		}
+
+		CHA_arab_partisans = {
+			name = CHA_arab_partisans
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_partisans" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.03
+				army_morale_factor = -0.05
+			}
+		}
+
+		CHA_toubou_partisans = {
+			name = CHA_toubou_partisans
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_partisans" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.03
+				army_morale_factor = -0.05
+			}
+		}
+
+		CHA_sara_partisans = {
+			name = CHA_sara_partisans
+			picture = guerrilla_warfare_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_partisans" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.03
+				army_morale_factor = -0.05
+			}
+		}
+
+		# Tribe-specific separatism ideas
+		CHA_zaghawa_separatism = {
+			name = CHA_zaghawa_separatism
+			picture = catalonia_separatism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_zaghawa_separatism" }
+
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.10
+				war_support_factor = -0.05
+			}
+		}
+
+		CHA_arab_separatism = {
+			name = CHA_arab_separatism
+			picture = catalonia_separatism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_arab_separatism" }
+
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.10
+				war_support_factor = -0.05
+			}
+		}
+
+		CHA_toubou_separatism = {
+			name = CHA_toubou_separatism
+			picture = catalonia_separatism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_toubou_separatism" }
+
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.10
+				war_support_factor = -0.05
+			}
+		}
+
+		CHA_sara_separatism = {
+			name = CHA_sara_separatism
+			picture = catalonia_separatism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sara_separatism" }
+
+			modifier = {
+				stability_factor = -0.08
+				political_power_factor = -0.10
+				war_support_factor = -0.05
+			}
+		}
+
+		#####################################
+		# TRIBAL CONFEDERATION PATH IDEAS
+		#####################################
+
+		CHA_tribal_council_idea = {
+			name = CHA_tribal_council_idea
+			picture = tribal_primacy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_council_idea" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_power_rotation_idea = {
+			name = CHA_power_rotation_idea
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_power_rotation_idea" }
+
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_tribal_federalism_idea = {
+			name = CHA_tribal_federalism_idea
+			picture = decentralization_government_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_federalism_idea" }
+
+			modifier = {
+				political_power_gain = 0.05
+				local_resources_factor = 0.10
+			}
+		}
+
+		CHA_tribal_military_idea = {
+			name = CHA_tribal_military_idea
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_military_idea" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_defence_factor = 0.05
+				army_morale_factor = 0.10
+				attrition = -0.15
+			}
+		}
+
+		#####################################
+		# PAN-AFRICANISM PATH IDEAS
+		#####################################
+
+		CHA_au_standby_force_idea = {
+			name = CHA_au_standby_force_idea
+			picture = African_union1
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_au_standby_force_idea" }
+
+			modifier = {
+				army_org_factor = 0.05
+				experience_gain_army = 0.05
+				command_power_gain_mult = 0.10
+			}
+		}
+
+		CHA_imperial_legacy_idea = {
+			name = CHA_imperial_legacy_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_imperial_legacy_idea" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				war_support_factor = 0.10
+				army_morale_factor = 0.10
+			}
+		}
+
+		#####################################
+		# NEOCOLONIALISM PATH IDEAS
+		#####################################
+
+		CHA_french_protectorate_idea = {
+			name = CHA_french_protectorate_idea
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_french_protectorate_idea" }
+
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.10
+				army_org_factor = 0.10
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		CHA_chinese_oil_investment_idea = {
+			name = CHA_chinese_oil_investment_idea
+			picture = china_factory
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_chinese_oil_investment_idea" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				local_resources_factor = 0.10
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		CHA_chinese_sphere_idea = {
+			name = CHA_chinese_sphere_idea
+			picture = china_factory
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_chinese_sphere_idea" }
+
+			modifier = {
+				political_power_gain = -0.05
+				production_speed_buildings_factor = 0.15
+				local_resources_factor = 0.15
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		#####################################
+		# WAVE 1 NEW IDEAS
+		#####################################
+
+		CHA_deby_consolidation = {
+			name = CHA_deby_consolidation
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_deby_consolidation" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				drift_defence_factor = 0.10
+			}
+		}
+
+		CHA_patronage_network = {
+			name = CHA_patronage_network
+			picture = african_tribalism
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_patronage_network" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = -0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+
+		CHA_state_media = {
+			name = CHA_state_media
+			picture = generic_oppression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_state_media" }
+
+			modifier = {
+				political_power_gain = 0.10
+				drift_defence_factor = 0.20
+				war_support_factor = 0.05
+			}
+		}
+
+		CHA_entrenched_rule = {
+			name = CHA_entrenched_rule
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_entrenched_rule" }
+
+			modifier = {
+				political_power_gain = 0.25
+				stability_factor = -0.10
+				drift_defence_factor = 0.25
+				army_morale_factor = 0.05
+			}
+		}
+
+		CHA_war_on_terror = {
+			name = CHA_war_on_terror
+			picture = counter_terror_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_war_on_terror" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_morale_factor = 0.10
+				war_support_factor = 0.10
+				political_power_gain = -0.10
+			}
+		}
+
+		CHA_authoritarian_crackdown = {
+			name = CHA_authoritarian_crackdown
+			picture = secret_police
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_authoritarian_crackdown" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.15
+				drift_defence_factor = 0.30
+				army_morale_factor = -0.05
+			}
+		}
+
+		CHA_reform_momentum = {
+			name = CHA_reform_momentum
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_reform_momentum" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.10
+				democratic_drift = 0.02
+			}
+		}
+
+		CHA_free_press_idea = {
+			name = CHA_free_press_idea
+			picture = generic_oppression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_free_press_idea" }
+
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.10
+				democratic_drift = 0.01
+			}
+		}
+
+		CHA_civil_society = {
+			name = CHA_civil_society
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_civil_society" }
+
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_gender_equality = {
+			name = CHA_gender_equality
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_gender_equality" }
+
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.03
+				monthly_population = 0.05
+			}
+		}
+
+		CHA_democratic_beacon = {
+			name = CHA_democratic_beacon
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_democratic_beacon" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.15
+				democratic_drift = 0.03
+				war_support_factor = -0.05
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		CHA_development_planning = {
+			name = CHA_development_planning
+			picture = ETH_joint_african_development_program
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_development_planning" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		CHA_independent_elections = {
+			name = CHA_independent_elections
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_independent_elections" }
+
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = 0.10
+				democratic_drift = 0.02
+			}
+		}
+
+		CHA_human_rights_charter_idea = {
+			name = CHA_human_rights_charter_idea
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_human_rights_charter_idea" }
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.05
+				war_support_factor = -0.03
+			}
+		}
+
+		CHA_decentralized_governance = {
+			name = CHA_decentralized_governance
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_decentralized_governance" }
+
+			modifier = {
+				political_power_gain = -0.10
+				stability_factor = 0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_sudan_proxy_war = {
+			name = CHA_sudan_proxy_war
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sudan_proxy_war" }
+
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.10
+				war_support_factor = 0.10
+				stability_factor = -0.10
+			}
+		}
+
+		CHA_boko_haram_war_idea = {
+			name = CHA_boko_haram_war_idea
+			picture = counter_terror_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_boko_haram_war_idea" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_morale_factor = 0.05
+				war_support_factor = 0.15
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		CHA_austerity_measures_idea = {
+			name = CHA_austerity_measures_idea
+			picture = financial_sector_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_austerity_measures_idea" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = -0.10
+				production_speed_buildings_factor = -0.05
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_tmc_authority = {
+			name = CHA_tmc_authority
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tmc_authority" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.15
+				army_morale_factor = 0.10
+				drift_defence_factor = 0.15
+			}
+		}
+
+		CHA_fifth_republic_idea = {
+			name = CHA_fifth_republic_idea
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_fifth_republic_idea" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				drift_defence_factor = 0.20
+			}
+		}
+
+		CHA_sahel_strongman_idea = {
+			name = CHA_sahel_strongman_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sahel_strongman_idea" }
+
+			modifier = {
+				political_power_gain = 0.20
+				army_attack_factor = 0.10
+				army_morale_factor = 0.10
+				stability_factor = -0.05
+				war_support_factor = 0.10
+			}
+		}
+
+		#####################################
+		# WAVE 2 NEW IDEAS - JUNTA
+		#####################################
+
+		CHA_martial_law = {
+			name = CHA_martial_law
+			picture = financial_crisis
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_martial_law" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.20
+				army_morale_factor = 0.10
+				drift_defence_factor = 0.25
+				war_support_factor = 0.10
+			}
+		}
+
+		CHA_military_administration = {
+			name = CHA_military_administration
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_military_administration" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.10
+				production_speed_buildings_factor = 0.10
+				army_morale_factor = 0.05
+			}
+		}
+
+		CHA_total_war_economy = {
+			name = CHA_total_war_economy
+			picture = reserve_divisions
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_total_war_economy" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.15
+				war_support_factor = 0.10
+				stability_factor = -0.10
+			}
+		}
+
+		CHA_police_state = {
+			name = CHA_police_state
+			picture = secret_police
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_police_state" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = -0.15
+				drift_defence_factor = 0.35
+				army_morale_factor = -0.05
+			}
+		}
+
+		CHA_junta_constitution_idea = {
+			name = CHA_junta_constitution_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_junta_constitution_idea" }
+
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.20
+				stability_factor = -0.05
+			}
+		}
+
+		CHA_military_industrial_complex_idea = {
+			name = CHA_military_industrial_complex_idea
+			picture = reserve_divisions
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_military_industrial_complex_idea" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.03
+				army_attack_factor = 0.05
+			}
+		}
+
+		CHA_fortress_chad_idea = {
+			name = CHA_fortress_chad_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_fortress_chad_idea" }
+
+			modifier = {
+				army_defence_factor = 0.20
+				army_core_defence_factor = 0.15
+				army_morale_factor = 0.10
+			}
+		}
+
+		CHA_wagner_cooperation_idea = {
+			name = CHA_wagner_cooperation_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_wagner_cooperation_idea" }
+
+			modifier = {
+				army_attack_factor = 0.10
+				army_morale_factor = 0.05
+				political_power_gain = -0.10
+			}
+		}
+
+		CHA_eternal_junta_idea = {
+			name = CHA_eternal_junta_idea
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_eternal_junta_idea" }
+
+			modifier = {
+				political_power_gain = 0.25
+				army_attack_factor = 0.10
+				army_morale_factor = 0.15
+				stability_factor = -0.10
+				drift_defence_factor = 0.30
+			}
+		}
+
+		#####################################
+		# WAVE 2 NEW IDEAS - ISLAMIST
+		#####################################
+
+		CHA_sharia_finance = {
+			name = CHA_sharia_finance
+			picture = financial_sector_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sharia_finance" }
+
+			modifier = {
+				consumer_goods_factor = -0.03
+				production_speed_buildings_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_sharia_courts = {
+			name = CHA_sharia_courts
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sharia_courts" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.05
+				drift_defence_factor = 0.15
+			}
+		}
+
+		CHA_islamic_republic = {
+			name = CHA_islamic_republic
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_republic" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				drift_defence_factor = 0.20
+				war_support_factor = 0.05
+			}
+		}
+
+		CHA_morality_police = {
+			name = CHA_morality_police
+			picture = secret_police
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_morality_police" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.10
+				drift_defence_factor = 0.25
+				war_support_factor = -0.05
+			}
+		}
+
+		CHA_jihad_declared = {
+			name = CHA_jihad_declared
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_jihad_declared" }
+
+			modifier = {
+				army_attack_factor = 0.15
+				army_morale_factor = 0.20
+				war_support_factor = 0.20
+				stability_factor = -0.15
+				political_power_gain = -0.10
+			}
+		}
+
+		CHA_wadai_sultanate_idea = {
+			name = CHA_wadai_sultanate_idea
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_wadai_sultanate_idea" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.10
+				drift_defence_factor = 0.10
+			}
+		}
+
+		CHA_islamic_golden_age_idea = {
+			name = CHA_islamic_golden_age_idea
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_golden_age_idea" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = 0.10
+				production_speed_buildings_factor = 0.10
+				drift_defence_factor = 0.20
+			}
+		}
+
+		#####################################
+		# WAVE 3 NEW IDEAS - SOCIALIST
+		#####################################
+
+		CHA_workers_councils_idea = {
+			name = CHA_workers_councils_idea
+			picture = planning_bonus
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_workers_councils_idea" }
+
+			modifier = {
+				political_power_gain = 0.05
+				production_speed_buildings_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_vanguard_party = {
+			name = CHA_vanguard_party
+			picture = communism3
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_vanguard_party" }
+
+			modifier = {
+				political_power_gain = 0.15
+				drift_defence_factor = 0.20
+				stability_factor = -0.05
+			}
+		}
+
+		CHA_food_sovereignty = {
+			name = CHA_food_sovereignty
+			picture = agriculture
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_food_sovereignty" }
+
+			modifier = {
+				stability_factor = 0.10
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_revolutionary_military = {
+			name = CHA_revolutionary_military
+			picture = army_dominant
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_revolutionary_military" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.05
+				army_attack_factor = 0.10
+				army_morale_factor = 0.15
+				war_support_factor = 0.10
+				drift_defence_factor = 0.15
+			}
+		}
+
+		#####################################
+		# WAVE 3 NEW IDEAS - TRIBAL
+		#####################################
+
+		CHA_customary_law = {
+			name = CHA_customary_law
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_customary_law" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.10
+			}
+		}
+
+		CHA_nomadic_rights = {
+			name = CHA_nomadic_rights
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_nomadic_rights" }
+
+			modifier = {
+				stability_factor = 0.10
+				army_speed_factor = 0.05
+				monthly_population = 0.03
+			}
+		}
+
+		CHA_resource_sharing = {
+			name = CHA_resource_sharing
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_resource_sharing" }
+
+			modifier = {
+				stability_factor = 0.10
+				consumer_goods_factor = -0.02
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_tribal_harmony = {
+			name = CHA_tribal_harmony
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_harmony" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.15
+				army_morale_factor = 0.05
+			}
+		}
+
+		#####################################
+		# WAVE 3 NEW IDEAS - PAN-AFRICAN
+		#####################################
+
+		CHA_cultural_renaissance = {
+			name = CHA_cultural_renaissance
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_cultural_renaissance" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.10
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_intellectual_liberation = {
+			name = CHA_intellectual_liberation
+			picture = research_bonus
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_intellectual_liberation" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_continental_parliament_idea = {
+			name = CHA_continental_parliament_idea
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_continental_parliament_idea" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = 0.15
+				war_support_factor = 0.05
+			}
+		}
+
+		CHA_african_renaissance_idea = {
+			name = CHA_african_renaissance_idea
+			picture = AU_member
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_african_renaissance_idea" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = 0.15
+				production_speed_buildings_factor = 0.10
+				army_morale_factor = 0.10
+			}
+		}
+
+		#####################################
+		# WAVE 3 NEW IDEAS - NEOCOLONIAL
+		#####################################
+
+		CHA_barkhane_base = {
+			name = CHA_barkhane_base
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_barkhane_base" }
+
+			modifier = {
+				army_defence_factor = 0.15
+				stability_factor = 0.05
+				political_power_gain = -0.10
+			}
+		}
+
+		CHA_debt_trap = {
+			name = CHA_debt_trap
+			picture = financial_sector_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_debt_trap" }
+
+			modifier = {
+				consumer_goods_factor = 0.05
+				production_speed_buildings_factor = 0.10
+				political_power_gain = -0.15
+			}
+		}
+
+		CHA_trade_hub = {
+			name = CHA_trade_hub
+			picture = financial_sector_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_trade_hub" }
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_sovereign_chad_idea = {
+			name = CHA_sovereign_chad_idea
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_sovereign_chad_idea" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = 0.10
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		#####################################
+		# SWAP CHAIN IDEAS
+		#####################################
+
+		# Foreign Dependency Chain
+		CHA_foreign_dependency_1 = {
+			name = CHA_foreign_dependency_1
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_foreign_dependency_1" }
+
+			modifier = {
+				political_power_gain = 0.05
+				production_speed_buildings_factor = 0.05
+				political_power_factor = -0.05
+			}
+		}
+
+		CHA_foreign_dependency_2 = {
+			name = CHA_foreign_dependency_2
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_foreign_dependency_2" }
+
+			modifier = {
+				political_power_gain = 0.10
+				production_speed_buildings_factor = 0.10
+				army_org_factor = 0.05
+				political_power_factor = -0.10
+				stability_factor = -0.05
+			}
+		}
+
+		CHA_foreign_dependency_3 = {
+			name = CHA_foreign_dependency_3
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_foreign_dependency_3" }
+
+			modifier = {
+				political_power_gain = 0.15
+				production_speed_buildings_factor = 0.15
+				army_org_factor = 0.10
+				army_defence_factor = 0.05
+				political_power_factor = -0.20
+				stability_factor = -0.10
+			}
+		}
+
+		# Pan-African Influence Chain
+		CHA_pan_african_influence_1 = {
+			name = CHA_pan_african_influence_1
+			picture = AU_member
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_pan_african_influence_1" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = 0.03
+			}
+		}
+
+		CHA_pan_african_influence_2 = {
+			name = CHA_pan_african_influence_2
+			picture = AU_member
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_pan_african_influence_2" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = 0.05
+				justify_war_goal_time = -0.10
+				consumer_goods_factor = 0.02
+			}
+		}
+
+		CHA_pan_african_influence_3 = {
+			name = CHA_pan_african_influence_3
+			picture = AU_member
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_pan_african_influence_3" }
+
+			modifier = {
+				political_power_gain = 0.20
+				stability_factor = 0.10
+				justify_war_goal_time = -0.15
+				army_morale_factor = 0.05
+				consumer_goods_factor = 0.03
+			}
+		}
+
+		# Tribal Governance Chain
+		CHA_tribal_governance_1 = {
+			name = CHA_tribal_governance_1
+			picture = tribal_primacy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_governance_1" }
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_tribal_governance_2 = {
+			name = CHA_tribal_governance_2
+			picture = tribal_primacy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_governance_2" }
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.10
+				conscription_factor = 0.05
+			}
+		}
+
+		CHA_tribal_governance_3 = {
+			name = CHA_tribal_governance_3
+			picture = tribal_primacy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_tribal_governance_3" }
+
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.15
+				conscription_factor = 0.10
+				army_morale_factor = 0.05
+			}
+		}
+
+		# Islamic Governance Chain
+		CHA_islamic_governance_1 = {
+			name = CHA_islamic_governance_1
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_governance_1" }
+
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = 0.03
+				drift_defence_factor = 0.10
+				fascism_drift = 0.01
+			}
+		}
+
+		CHA_islamic_governance_2 = {
+			name = CHA_islamic_governance_2
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_governance_2" }
+
+			modifier = {
+				political_power_gain = 0.10
+				stability_factor = -0.05
+				drift_defence_factor = 0.20
+				war_support_factor = 0.05
+				fascism_drift = 0.03
+			}
+		}
+
+		CHA_islamic_governance_3 = {
+			name = CHA_islamic_governance_3
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_islamic_governance_3" }
+
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.10
+				drift_defence_factor = 0.30
+				war_support_factor = 0.10
+				army_morale_factor = 0.10
+				fascism_drift = 0.05
+			}
+		}
+
+		# Economic Development Chain
+		CHA_economic_development_1 = {
+			name = CHA_economic_development_1
+			picture = ETH_joint_african_development_program
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_economic_development_1" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		CHA_economic_development_2 = {
+			name = CHA_economic_development_2
+			picture = ETH_joint_african_development_program
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_economic_development_2" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.03
+				stability_factor = 0.03
+			}
+		}
+
+		CHA_economic_development_3 = {
+			name = CHA_economic_development_3
+			picture = ETH_joint_african_development_program
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_economic_development_3" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				fuel_gain_factor = 0.10
+			}
+		}
+
+		#####################################
+		# UTILITY IDEAS
+		#####################################
+
+		CHA_religious_harmony = {
+			name = CHA_religious_harmony
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_religious_harmony" }
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.05
+				war_support_factor = -0.05
+			}
+		}
+
+		#####################################
+		# ADDITIONAL IDEAS
+		#####################################
+
+		CHA_constitutional_protections = {
+			name = CHA_constitutional_protections
+			picture = democracy
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_constitutional_protections" }
+
+			modifier = {
+				political_power_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		CHA_revolutionary_fervor = {
+			name = CHA_revolutionary_fervor
+			picture = communism3
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_revolutionary_fervor" }
+
+			modifier = {
+				war_support_factor = 0.10
+				political_power_factor = -0.05
+				communism_drift = 0.02
+			}
+		}
+
+		CHA_planned_economy = {
+			name = CHA_planned_economy
+			picture = planning_bonus
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_planned_economy" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				local_resources_factor = 0.10
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_livestock_export_program = {
+			name = CHA_livestock_export_program
+			picture = agrarian_economy_idea
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_livestock_export_program" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.03
+				monthly_population = 0.05
+				stability_factor = 0.02
+			}
+		}
+
+		CHA_environmental_restoration = {
+			name = CHA_environmental_restoration
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_environmental_restoration" }
+
+			modifier = {
+				stability_factor = 0.05
+				monthly_population = 0.10
+			}
+		}
+
+		CHA_ndjamena_free_trade_zone = {
+			name = CHA_ndjamena_free_trade_zone
+			picture = trade
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_ndjamena_free_trade_zone" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_oil_price_insurance = {
+			name = CHA_oil_price_insurance
+			picture = oil_profits
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_oil_price_insurance" }
+
+			modifier = {
+				stability_factor = 0.03
+				political_power_factor = 0.02
+			}
+		}
+
+		CHA_social_investment = {
+			name = CHA_social_investment
+			picture = ARG_social_welfare_fund_ns
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_social_investment" }
+
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = 0.03
+				political_power_factor = -0.05
+			}
+		}
+
+		CHA_foreign_dependency_4 = {
+			name = CHA_foreign_dependency_4
+			picture = french_foreign_legion
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_foreign_dependency_4" }
+
+			modifier = {
+				political_power_factor = -0.15
+				stability_factor = -0.10
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		# NEW IDEAS - Overhaul
+
+		CHA_ethnic_tensions = {
+			name = CHA_ethnic_tensions
+			picture = political_repression
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_ethnic_tensions" }
+
+			modifier = {
+				stability_factor = -0.10
+				political_power_gain = -0.10
+				conscription_factor = -0.10
+			}
+		}
+
+		CHA_underdevelopment = {
+			name = CHA_underdevelopment
+			picture = poor
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_underdevelopment" }
+
+			modifier = {
+				production_speed_buildings_factor = -0.15
+				consumer_goods_factor = 0.05
+				monthly_population = -0.10
+			}
+		}
+
+		CHA_boko_haram_threat = {
+			name = CHA_boko_haram_threat
+			picture = counter_terror_spirit
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_boko_haram_threat" }
+
+			modifier = {
+				stability_factor = -0.05
+				war_support_factor = -0.05
+				army_core_defence_factor = -0.05
+			}
+		}
+
+		CHA_research_initiative = {
+			name = CHA_research_initiative
+			picture = research_bonus
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_research_initiative" }
+
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+
+		CHA_literacy_campaign = {
+			name = CHA_literacy_campaign
+			picture = jihad_of_education
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_literacy_campaign" }
+
+			modifier = {
+				research_speed_factor = 0.03
+				monthly_population = 0.05
+			}
+		}
+
+		CHA_public_health_program = {
+			name = CHA_public_health_program
+			picture = health_care
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_public_health_program" }
+
+			modifier = {
+				monthly_population = 0.10
+				stability_factor = 0.03
+			}
+		}
+
+		CHA_mineral_survey = {
+			name = CHA_mineral_survey
+			picture = resource_production
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_mineral_survey" }
+
+			modifier = {
+				local_resources_factor = 0.10
+			}
+		}
+
+		CHA_rural_electrification = {
+			name = CHA_rural_electrification
+			picture = electric_grid
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_rural_electrification" }
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
+		}
+
+		CHA_lake_chad_water_management = {
+			name = CHA_lake_chad_water_management
+			picture = water_conservation
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_lake_chad_water_management" }
+
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		CHA_fishing_industry = {
+			name = CHA_fishing_industry
+			picture = sustainable_development
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_fishing_industry" }
+
+			modifier = {
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		CHA_regional_water_cooperation = {
+			name = CHA_regional_water_cooperation
+			picture = international_treaty
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_regional_water_cooperation" }
+
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.05
+			}
+		}
+
+		CHA_paratrooper_training_idea = {
+			name = CHA_paratrooper_training_idea
+			picture = reserve_divisions
+
+			allowed_civil_war = { always = yes }
+
+			on_add = { log = "[GetDateText]: [THIS.GetName]: add idea CHA_paratrooper_training_idea" }
+
+			modifier = {
+				special_forces_cap = 0.05
+				army_attack_factor = 0.02
+			}
+		}
+	}
+}

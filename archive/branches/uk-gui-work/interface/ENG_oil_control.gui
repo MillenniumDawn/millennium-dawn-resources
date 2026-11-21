@@ -1,0 +1,33 @@
+guiTypes = {
+	containerWindowType = {
+		name = "show_oil_control_ring"
+		position = { x = 10%% y = 5%% }
+		size = { width = 200 height = 220 }
+		clipping = no
+		moveable = no
+
+		iconType = {
+			name = "oil_ring_bar"
+			spriteType = "GFX_oil_ring_warning"
+			position = { x = 50%% y = 10%% }
+		}
+
+		textBoxType = {
+			name = "oil_ring_label_text"
+			text = "[oil_ring_label]"
+			position = { x = 50%% y = 44%% }
+			size = { width = 100 height = 20 }
+			format = centre
+			font = "hoi_18b"
+		}
+
+		textBoxType = {
+			name = "oil_ring_pct_text"
+			text = "[?oil_control_pct]%"
+			position  = { x = 50%% y = 54%% }
+			size = { width = 100 height = 20 }
+			format = centre
+			font = "hoi_16"
+		}
+	}
+}

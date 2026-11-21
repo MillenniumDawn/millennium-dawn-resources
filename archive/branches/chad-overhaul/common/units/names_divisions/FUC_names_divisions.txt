@@ -1,0 +1,99 @@
+# Division template historical names system for FUC
+# Front Uni du Changement (United Front for Change) - Eastern rebel coalition
+
+FUC_REBEL_01 = {
+	name = "FUC Rebel Columns"
+
+	for_countries = { FUC }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" "Mot_Inf_Bat" }
+
+	fallback_name = "%d. Colonne FUC"
+
+	ordered = {
+		1 = { "Colonne de l'Est" }
+		2 = { "Colonne du Ouaddaï" }
+		3 = { "Colonne du Salamat" }
+		4 = { "Colonne de la Frontière" }
+		5 = { "Colonne Mobile Nord" }
+	}
+}
+
+FUC_UFDD = {
+	name = "UFDD Forces"
+
+	for_countries = { FUC }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Forces UFDD"
+
+	ordered = {
+		1 = { "UFDD - Groupement Principal" }
+		2 = { "UFDD - Brigade Mobile" }
+		3 = { "UFDD - Colonne Nouri" }
+	}
+}
+
+FUC_RFC = {
+	name = "RFC Forces"
+
+	for_countries = { FUC }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Forces RFC"
+
+	ordered = {
+		1 = { "RFC - Brigade Principale" }
+		2 = { "RFC - Colonne Est" }
+	}
+}
+
+FUC_RAFD = {
+	name = "RAFD Forces"
+
+	for_countries = { FUC }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Forces RAFD"
+
+	ordered = {
+		1 = { "RAFD - Groupement Erdimi" }
+		2 = { "RAFD - Colonne Mobile" }
+	}
+}
+
+FUC_TECHNICAL_COLUMNS = {
+	name = "Technical Columns"
+
+	for_countries = { FUC }
+
+	division_types = { "Mot_Militia_Bat" "Mot_Inf_Bat" }
+
+	fallback_name = "%d. Colonne Technique"
+
+	ordered = {
+		1 = { "Colonne Technique Alpha" }
+		2 = { "Colonne Technique Bravo" }
+		3 = { "Colonne d'Assaut Rapide" }
+		4 = { "Groupe Mobile d'Intervention" }
+	}
+}
+
+FUC_DESERT_RAIDERS = {
+	name = "Desert Raiders"
+
+	for_countries = { FUC }
+
+	division_types = { "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Razzia du Désert"
+
+	ordered = {
+		1 = { "Razzia du Désert - Nord" }
+		2 = { "Razzia du Désert - Est" }
+		3 = { "Groupe de Reconnaissance" }
+	}
+}

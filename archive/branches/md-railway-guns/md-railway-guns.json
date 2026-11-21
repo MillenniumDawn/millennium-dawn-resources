@@ -1,10 +1,13 @@
 {
   "branch": "origin/md-railway-guns",
-  "tip_sha": "a31138b6cceb8727bf9d08028e632858d84aef10",
-  "tip_short": "a31138b6cc",
+  "tip_sha": "5f087f341421da9ab00eecd1cf4ae8169b87e852",
+  "tip_short": "5f087f3414",
   "last_author": "crocomoth",
-  "last_commit_date": "2025-10-09T21:13:33+02:00",
-  "last_commit_subject": "add initial implementation for SRBMs based on railway guns",
-  "diverging_files_3dot": 8,
-  "archived_files": 8
+  "last_commit_date": "2026-10-29T23:21:03+01:00",
+  "last_commit_subject": "Fix some SRBM issues",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "26831e11d2a596070f0d0113765d9a443bd5fbd3",
+  "diverging_files_3dot": 11,
+  "archived_files": 11,
+  "deleted_paths": []
 }

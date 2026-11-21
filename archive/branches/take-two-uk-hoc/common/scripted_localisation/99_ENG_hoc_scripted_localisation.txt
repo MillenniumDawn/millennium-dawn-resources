@@ -1,0 +1,262 @@
+defined_text = {
+	name = ENG_hoc_0
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^0 > 0 } }
+		localization_key = ENG_hoc_party_0
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_1
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^1 > 0 } }
+		localization_key = ENG_hoc_party_1
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_2
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^2 > 0 } }
+		localization_key = ENG_hoc_party_2
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_3
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^3 > 0 } }
+		localization_key = ENG_hoc_party_3
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_4
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^4 > 0 } }
+		localization_key = ENG_hoc_party_4
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_5
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^5 > 0 } }
+		localization_key = ENG_hoc_party_5
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_6
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^6 > 0 } }
+		localization_key = ENG_hoc_party_6
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_7
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^7 > 0 } }
+		localization_key = ENG_hoc_party_7
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_8
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^8 > 0 } }
+		localization_key = ENG_hoc_party_8
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_9
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^9 > 0 } }
+		localization_key = ENG_hoc_party_9
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_10
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^10 > 0 } }
+		localization_key = ENG_hoc_party_10
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_11
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^11 > 0 } }
+		localization_key = ENG_hoc_party_11
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_12
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^12 > 0 } }
+		localization_key = ENG_hoc_party_12
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_13
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^13 > 0 } }
+		localization_key = ENG_hoc_party_13
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_14
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^14 > 0 } }
+		localization_key = ENG_hoc_party_14
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_15
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^15 > 0 } }
+		localization_key = ENG_hoc_party_15
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_16
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^16 > 0 } }
+		localization_key = ENG_hoc_party_16
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_17
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^17 > 0 } }
+		localization_key = ENG_hoc_party_17
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_18
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^18 > 0 } }
+		localization_key = ENG_hoc_party_18
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_19
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^19 > 0 } }
+		localization_key = ENG_hoc_party_19
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_20
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^20 > 0 } }
+		localization_key = ENG_hoc_party_20
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_21
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_seats^21 > 0 } }
+		localization_key = ENG_hoc_party_21
+	}
+}
+
+# Regional parties
+defined_text = {
+	name = ENG_hoc_snp
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_snp_seats > 0 } }
+		localization_key = ENG_hoc_party_snp
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_pc
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_pc_seats > 0 } }
+		localization_key = ENG_hoc_party_pc
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_dup
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_dup_seats > 0 } }
+		localization_key = ENG_hoc_party_dup
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_uup
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_uup_seats > 0 } }
+		localization_key = ENG_hoc_party_uup
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_sf
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_sf_seats > 0 } }
+		localization_key = ENG_hoc_party_sf
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_sdlp
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_sdlp_seats > 0 } }
+		localization_key = ENG_hoc_party_sdlp
+	}
+}
+
+defined_text = {
+	name = ENG_hoc_ind
+	text = {
+		trigger = { check_variable = { ROOT.ENG_hoc_independent_seats > 0 } }
+		localization_key = ENG_hoc_party_ind
+	}
+}
+
+# Government status display
+defined_text = {
+	name = ENG_hoc_gov_status
+	text = {
+		trigger = {
+			has_country_flag = ENG_hoc_coalition_active
+		}
+		localization_key = ENG_hoc_status_coalition
+	}
+	text = {
+		trigger = {
+			has_country_flag = ENG_hoc_hung_parliament
+		}
+		localization_key = ENG_hoc_status_hung
+	}
+	text = {
+		trigger = {
+			check_variable = { ENG_hoc_majority = 1 }
+			check_variable = { ENG_hoc_ruling_party_won = 1 }
+		}
+		localization_key = ENG_hoc_status_majority
+	}
+	text = {
+		trigger = {
+			check_variable = { ENG_hoc_ruling_party_won = 0 }
+		}
+		localization_key = ENG_hoc_status_opposition
+	}
+}

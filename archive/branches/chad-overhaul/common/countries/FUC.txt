@@ -1,0 +1,6 @@
+# FUC - United Front for Democratic Change (Front Uni pour le Changement)
+# Chadian rebel faction active December 2005 - October 2006
+graphical_culture = african_gfx
+graphical_culture_2d = african_2d
+
+color = { 139 69 19 }

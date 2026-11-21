@@ -1,0 +1,347 @@
+# Chad AI Strategies
+# Comprehensive AI behavior for all political paths and tribal system
+
+CHA_support_the_drc = {
+	allowed = { original_tag = CHA }
+	enable = {
+		NOT = { has_war_with = DRC }
+		DRC = { has_country_leader = { name = "Laurent-Désiré Kabila" } }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "DRC" value = 50 }
+	ai_strategy = { type = support id = "DRC" value = 10 }
+}
+
+# ==========================================
+# TRIBAL CONFEDERATION PATH AI
+# ==========================================
+
+CHA_tribal_confederation_diplomacy = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_confederation_path
+	}
+	abort_when_not_enabled = yes
+
+	# Focus on regional stability
+	ai_strategy = { type = befriend id = "NIG" value = 30 }
+	ai_strategy = { type = befriend id = "MAL" value = 30 }
+	ai_strategy = { type = befriend id = "SUD" value = 20 }
+	ai_strategy = { type = befriend id = "CAR" value = 30 }
+
+	# Reduce dependence on great powers
+	ai_strategy = { type = befriend id = "FRA" value = -20 }
+	ai_strategy = { type = befriend id = "CHI" value = -10 }
+}
+
+CHA_tribal_internal_focus = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_confederation_path
+	}
+	abort_when_not_enabled = yes
+
+	# Focus on internal stability over expansion
+	ai_strategy = { type = conquer id = "CAR" value = -100 }
+	ai_strategy = { type = conquer id = "NIG" value = -100 }
+	ai_strategy = { type = conquer id = "SUD" value = -100 }
+}
+
+# ==========================================
+# PAN-AFRICAN PATH AI
+# ==========================================
+
+CHA_panafrican_sahel_leadership = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_panafrican_path
+	}
+	abort_when_not_enabled = yes
+
+	# Lead G5 Sahel nations
+	ai_strategy = { type = befriend id = "MAL" value = 100 }
+	ai_strategy = { type = befriend id = "NIG" value = 100 }
+	ai_strategy = { type = befriend id = "BFA" value = 100 }
+	ai_strategy = { type = befriend id = "MAU" value = 100 }
+
+	# Seek to lead these nations
+	ai_strategy = { type = alliance id = "MAL" value = 50 }
+	ai_strategy = { type = alliance id = "NIG" value = 50 }
+	ai_strategy = { type = alliance id = "BFA" value = 50 }
+	ai_strategy = { type = alliance id = "MAU" value = 50 }
+}
+
+CHA_panafrican_au_integration = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_panafrican_path
+	}
+	abort_when_not_enabled = yes
+
+	# Support African Union initiatives
+	ai_strategy = { type = befriend id = "ETH" value = 50 }
+	ai_strategy = { type = befriend id = "SAF" value = 40 }
+	ai_strategy = { type = befriend id = "NIG" value = 60 }
+	ai_strategy = { type = befriend id = "EGY" value = 30 }
+
+	# Counter neo-colonial influence
+	ai_strategy = { type = befriend id = "FRA" value = -50 }
+}
+
+CHA_kanem_bornu_ambitions = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_kanem_bornu_legacy
+	}
+	abort_when_not_enabled = yes
+
+	# Lake Chad Basin dominion
+	ai_strategy = { type = conquer id = "NIG" value = 30 }
+	ai_strategy = { type = conquer id = "CAM" value = 20 }
+}
+
+# ==========================================
+# NEOCOLONIALISM PATH AI - FRENCH BRANCH
+# ==========================================
+
+CHA_french_alignment = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_french_patron
+	}
+	abort_when_not_enabled = yes
+
+	# Deep French alliance
+	ai_strategy = { type = befriend id = "FRA" value = 200 }
+	ai_strategy = { type = alliance id = "FRA" value = 100 }
+	ai_strategy = { type = support id = "FRA" value = 100 }
+
+	# Support French interests in Africa
+	ai_strategy = { type = befriend id = "CDI" value = 50 }
+	ai_strategy = { type = befriend id = "SEN" value = 50 }
+	ai_strategy = { type = befriend id = "CAM" value = 50 }
+
+	# Oppose Chinese influence
+	ai_strategy = { type = befriend id = "CHI" value = -100 }
+}
+
+CHA_french_military_cooperation = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_french_patron
+		FRA = { has_war = yes }
+	}
+	abort_when_not_enabled = yes
+
+	# Support France in conflicts
+	ai_strategy = { type = support id = "FRA" value = 200 }
+}
+
+# ==========================================
+# NEOCOLONIALISM PATH AI - CHINESE BRANCH
+# ==========================================
+
+CHA_chinese_alignment = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_chinese_patron
+	}
+	abort_when_not_enabled = yes
+
+	# Deep Chinese partnership
+	ai_strategy = { type = befriend id = "CHI" value = 200 }
+	ai_strategy = { type = alliance id = "CHI" value = 50 }
+
+	# Join Chinese economic sphere
+	ai_strategy = { type = befriend id = "PAK" value = 30 }
+	ai_strategy = { type = befriend id = "ETH" value = 50 }
+	ai_strategy = { type = befriend id = "DRC" value = 40 }
+
+	# Distance from France
+	ai_strategy = { type = befriend id = "FRA" value = -100 }
+	ai_strategy = { type = alliance id = "FRA" value = -200 }
+}
+
+CHA_bri_economics = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_country_flag = CHA_chinese_patron
+	}
+	abort_when_not_enabled = yes
+
+	# Chinese economic partnership - focus on development
+	ai_strategy = { type = protect id = "CHI" value = 50 }
+}
+
+# ==========================================
+# GAME RULE BASED AI BEHAVIOR
+# ==========================================
+
+# Pro-Western Foreign Policy
+CHA_game_rule_pro_west = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_game_rule = { rule = CHA_foreign_policy option = CHA_PRO_WEST }
+		NOT = { has_country_flag = CHA_chinese_patron }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "FRA" value = 100 }
+	ai_strategy = { type = befriend id = "USA" value = 50 }
+	ai_strategy = { type = befriend id = "ENG" value = 30 }
+}
+
+# Pivot to East Foreign Policy
+CHA_game_rule_pivot_east = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_game_rule = { rule = CHA_foreign_policy option = CHA_PIVOT_EAST }
+		NOT = { has_country_flag = CHA_french_patron }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "CHI" value = 100 }
+	ai_strategy = { type = befriend id = "RUS" value = 30 }
+	ai_strategy = { type = befriend id = "FRA" value = -50 }
+}
+
+# Regional Power Foreign Policy
+CHA_game_rule_regional_power = {
+	allowed = { original_tag = CHA }
+	enable = {
+		has_game_rule = { rule = CHA_foreign_policy option = CHA_REGIONAL_POWER }
+	}
+	abort_when_not_enabled = yes
+
+	# Intervene in regional conflicts
+	ai_strategy = { type = support id = "DAR" value = 50 }
+	ai_strategy = { type = antagonize id = "SUD" value = 30 }
+	ai_strategy = { type = befriend id = "CAR" value = 50 }
+	ai_strategy = { type = befriend id = "NIG" value = 50 }
+}
+
+# ==========================================
+# TRIBAL SYSTEM AI MANAGEMENT
+# ==========================================
+
+CHA_low_tribal_loyalty_crisis = {
+	allowed = { original_tag = CHA }
+	enable = {
+		OR = {
+			check_variable = { CHA_zaghawa_loyalty < 25 }
+			check_variable = { CHA_arab_loyalty < 25 }
+			check_variable = { CHA_sara_loyalty < 25 }
+			check_variable = { CHA_toubou_loyalty < 25 }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	# Focus on internal stability during tribal crisis
+	ai_strategy = { type = conquer value = -100 }
+	ai_strategy = { type = alliance value = -50 }
+}
+
+# ==========================================
+# REBEL COUNTRY HANDLING
+# ==========================================
+
+CHA_fight_zaghawa_rebels = {
+	allowed = { original_tag = CHA }
+	enable = {
+		country_exists = ZGW
+		has_war_with = ZGW
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = conquer id = "ZGW" value = 200 }
+	ai_strategy = { type = antagonize id = "ZGW" value = 200 }
+}
+
+CHA_fight_arab_rebels = {
+	allowed = { original_tag = CHA }
+	enable = {
+		country_exists = ARC
+		has_war_with = ARC
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = conquer id = "ARC" value = 200 }
+	ai_strategy = { type = antagonize id = "ARC" value = 200 }
+}
+
+CHA_fight_sara_rebels = {
+	allowed = { original_tag = CHA }
+	enable = {
+		country_exists = SRR
+		has_war_with = SRR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = conquer id = "SRR" value = 200 }
+	ai_strategy = { type = antagonize id = "SRR" value = 200 }
+}
+
+CHA_fight_toubou_rebels = {
+	allowed = { original_tag = CHA }
+	enable = {
+		country_exists = TBU
+		has_war_with = TBU
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = conquer id = "TBU" value = 200 }
+	ai_strategy = { type = antagonize id = "TBU" value = 200 }
+}
+
+CHA_fight_islamist_rebels = {
+	allowed = { original_tag = CHA }
+	enable = {
+		country_exists = ISC
+		has_war_with = ISC
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = conquer id = "ISC" value = 200 }
+	ai_strategy = { type = antagonize id = "ISC" value = 200 }
+}
+
+#Rivalry with Libya
+CHA_libyan_chad_rivalry = {
+	allowed = { original_tag = CHA }
+
+	enable = {
+		LBA = { has_completed_focus = LBA_rivalry_with_chad }
+		NOT = { is_in_faction_with = LBA }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = antagonize id = "LBA" value = 50 }
+}
+#Libya befriended Chad
+CHA_befriend_libya = {
+	allowed = { original_tag = CHA }
+
+	enable = {
+		LBA = { has_completed_focus = LBA_reconcile_with_chad }
+		NOT = { has_war_with = LBA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "LBA" value = 50 }
+}
+
+#Idriss Deby supports Darfur
+CHA_support_darfur = {
+	allowed = { original_tag = CHA }
+	enable = {
+		NOT = { has_war_with = DAR }
+		has_country_leader = { name = "Idriss Déby" ruling_only = yes }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { type = befriend id = "DAR" value = 100 }
+	ai_strategy = { type = support id = "DAR" value = 100 }
+}

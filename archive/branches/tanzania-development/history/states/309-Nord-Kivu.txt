@@ -1,0 +1,48 @@
+state = {
+	id = 309
+	name = "STATE_309"
+
+	resources = {
+		tungsten = 7
+	}
+
+	history = {
+		owner = RCD
+		set_variable = { state_renewable_capacity_factor_modifier_var = 0.550 }
+		DRC = {
+			set_province_controller = 13520
+			set_province_controller = 6417
+			set_province_controller = 13518
+			set_province_controller = 13519
+		}
+		victory_points = {
+			13515 5
+		}
+		victory_points = {
+			13518 2
+		}
+		buildings = {
+			infrastructure = 0
+			internet_station = 0
+			air_base = 1
+
+		}
+		add_core_of = DRC
+		add_core_of = RCD
+		add_core_of = MLC
+		add_claim_by = RWA
+		set_variable = { productivity_state_var = 363 }
+
+		add_province_modifier = {
+			static_modifiers = { terrain_goma }
+			province = { id = 13515 }
+		}
+	}
+
+	provinces = {
+		1181 12783 6417 13515 13516 13517 13518 13519 13520
+	}
+	manpower = 2741248
+	buildings_max_level_factor = 1.000
+	state_category = state_04
+}

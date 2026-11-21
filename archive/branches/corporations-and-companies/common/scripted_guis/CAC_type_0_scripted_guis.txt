@@ -1,0 +1,1035 @@
+scripted_gui = {
+    company_upgrades_type_0 = {
+		window_name = "company_upgrades_type_0"
+        context_type = player_context
+		parent_window_name = "company_detail_window"
+
+		visible = {
+			ROOT = {
+				AND = {
+					check_variable = { CAC_companies_type^opened_company_details = 0 }
+					check_variable = { companies_upgrades_tab = 1 }
+				}
+			}
+		}
+
+		triggers = {
+			company_type_0_upgrade_0_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 0 }
+
+				set_temp_variable = { upgrade_0_status_temp = CAC_companies_upgrades_2d^index }
+
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+					cac_needed_money_for_upgrade = yes
+				}
+			}
+			company_type_0_upgrade_1_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 1 }
+
+				set_temp_variable = { upgrade_1_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+					has_tech = computing3
+					has_tech = internet3
+				}
+			}
+			company_type_0_upgrade_2_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 2 }
+
+				set_temp_variable = { upgrade_2_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_3_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 3 }
+
+				set_temp_variable = { upgrade_3_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_4_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 4 }
+
+				set_temp_variable = { upgrade_4_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_5_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 5 }
+
+				set_temp_variable = { upgrade_5_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_6_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 6 }
+
+				set_temp_variable = { upgrade_6_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_7_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 7 }
+
+				set_temp_variable = { upgrade_7_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_8_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 8 }
+
+				set_temp_variable = { upgrade_8_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_9_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 9 }
+
+				set_temp_variable = { upgrade_9_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_10_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 10 }
+
+				set_temp_variable = { upgrade_10_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_11_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 11 }
+
+				set_temp_variable = { upgrade_11_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_12_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 12 }
+
+				set_temp_variable = { upgrade_12_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_13_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 13 }
+
+				set_temp_variable = { upgrade_13_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_14_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 14 }
+
+				set_temp_variable = { upgrade_14_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_15_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 15 }
+
+				set_temp_variable = { upgrade_15_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_16_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 16 }
+
+				set_temp_variable = { upgrade_16_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_17_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 17 }
+
+				set_temp_variable = { upgrade_17_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_18_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 18 }
+
+				set_temp_variable = { upgrade_18_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_19_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 19 }
+
+				set_temp_variable = { upgrade_19_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+			company_type_0_upgrade_20_btn_click_enabled = {
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 20 }
+
+				set_temp_variable = { upgrade_20_status_temp = CAC_companies_upgrades_2d^index }
+				# Requirements
+				set_temp_variable = { cac_needed_money_base = 5 } # amount of money needed
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				AND = {
+					cac_needed_money_for_upgrade = yes
+					check_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+			}
+		}
+
+		effects = {
+			company_type_0_upgrade_0_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 0 } # index of # prerequisite upgrade
+
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 1 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_modifier_political_power_change = 0.05 }
+				CAC_modify_modifier_political_power_effect = yes
+
+				set_temp_variable = { cac_factories_change = 1 }
+				set_temp_variable = { cac_slot = opened_company_details }
+
+				add_stability = 0.03
+			}
+			company_type_0_upgrade_1_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 1 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 2 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 5 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_tax_gain_multiplier_change = 0.05 }
+				CAC_modify_modifier_tax_gain_multiplier_effect = yes
+
+				set_temp_variable = { cac_modifier_consumer_goods_change = -0.05 }
+				CAC_modify_modifier_consumer_goods_effect = yes
+			}
+			company_type_0_upgrade_2_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 2 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 3 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_return_on_investment_change = 0.05 }
+				CAC_modify_modifier_return_on_investment_effect = yes
+
+				set_temp_variable = { cac_modifier_investment_cost_change = -0.1 }
+				CAC_modify_modifier_investment_cost_effect = yes
+			}
+			company_type_0_upgrade_3_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 3 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 4 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_trade_opinion_change = 0.15 }
+				CAC_modify_modifier_trade_opinion_effect = yes
+			}
+			company_type_0_upgrade_4_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 4 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 8 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 9 }
+				if = {
+					limit = { check_variable = { CAC_companies_upgrades_2d^index = 3 } }
+
+					set_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_income_modifier_change = 0.1 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_modifier_effect = yes
+
+				set_temp_variable = { cac_modifier_trade_opinion_change = 0.05 }
+				CAC_modify_modifier_trade_opinion_effect = yes
+
+				add_stability = 0.05
+			}
+			company_type_0_upgrade_5_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 5 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 6 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_consumer_goods_change = 0.05 }
+				CAC_modify_modifier_consumer_goods_effect = yes
+
+				set_temp_variable = { cac_modifier_tax_gain_multiplier_change = 0.05 }
+				CAC_modify_modifier_tax_gain_multiplier_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_income_per_factory_change = 0.05 }
+				CAC_modify_income_per_factory_effect = yes
+			}
+			company_type_0_upgrade_6_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 6 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 7 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_political_power_change = 0.05 }
+				CAC_modify_modifier_political_power_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_income_per_factory_change = 0.05 }
+				CAC_modify_income_per_factory_effect = yes
+			}
+			company_type_0_upgrade_7_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 7 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 9 }
+				if = {
+					limit = { check_variable = { CAC_companies_upgrades_2d^index = 3 } }
+
+					set_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 10 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_income_modifier_change = 0.1 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_modifier_effect = yes
+
+				add_stability = 0.03
+			}
+			company_type_0_upgrade_8_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 8 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_return_on_investment_change = 0.1 }
+				CAC_modify_modifier_return_on_investment_effect = yes
+
+				set_temp_variable = { cac_modifier_trade_opinion_change = 0.1 }
+				CAC_modify_modifier_trade_opinion_effect = yes
+			}
+			company_type_0_upgrade_9_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 9 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_tax_gain_multiplier_change = 0.1 }
+				CAC_modify_modifier_tax_gain_multiplier_effect = yes
+
+				set_temp_variable = { cac_income_modifier_change = 0.1 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_modifier_effect = yes
+			}
+			company_type_0_upgrade_10_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 10 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_consumer_goods_change = -0.1 }
+				CAC_modify_modifier_consumer_goods_effect = yes
+
+				add_stability = 0.05
+			}
+			company_type_0_upgrade_11_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 11 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 12 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 15 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_political_power_change = 0.05 }
+				CAC_modify_modifier_political_power_effect = yes
+
+				set_temp_variable = { cac_income_modifier_change = 0.05 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_modifier_effect = yes
+			}
+			company_type_0_upgrade_12_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 12 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 13 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_additional_income_change = 0.05 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_additional_income_effect = yes
+
+				add_stability = 0.05
+			}
+			company_type_0_upgrade_13_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 13 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 14 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_income_per_factory_change = 0.15 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_per_factory_effect = yes
+
+				set_temp_variable = { cac_expenses_per_factory_change = -0.1 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_expenses_per_factory_effect = yes
+
+				set_temp_variable = { cac_modifier_political_power_change = -0.05 }
+				CAC_modify_modifier_political_power_effect = yes
+			}
+			company_type_0_upgrade_14_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 14 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 18 }
+				if = {
+					limit = { check_variable = { CAC_companies_upgrades_2d^index = 3 } }
+
+					set_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_income_per_factory_change = 0.05 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_per_factory_effect = yes
+			}
+			company_type_0_upgrade_15_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 15 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 16 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_additional_income_change = 0.05 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_additional_income_effect = yes
+
+				add_stability = 0.03
+			}
+			company_type_0_upgrade_16_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 16 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 17 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				random_owned_state = {
+					add_building_construction = {
+						type = offices
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			company_type_0_upgrade_17_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 17 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 18 }
+				if = {
+					limit = { check_variable = { CAC_companies_upgrades_2d^index = 3 } }
+
+					set_variable = { CAC_companies_upgrades_2d^index = 2 }
+				}
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_expenses_per_factory_change = -0.03 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_expenses_per_factory_effect = yes
+
+				set_temp_variable = { cac_modifier_political_power_change = 0.1 }
+				CAC_modify_modifier_political_power_effect = yes
+			}
+			company_type_0_upgrade_18_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 18 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 19 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 20 }
+				set_temp_variable = { cac_new_status = 2 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				add_political_power = 250
+
+				set_temp_variable = { cac_modifier_trade_opinion_change = 0.05 }
+				CAC_modify_modifier_trade_opinion_effect = yes
+			}
+			company_type_0_upgrade_19_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 19 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 20 }
+				set_temp_variable = { cac_new_status = 3 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_income_modifier_change = 0.15 }
+				set_temp_variable = { cac_slot = opened_company_details }
+				CAC_modify_income_modifier_effect = yes
+			}
+			company_type_0_upgrade_20_btn_click = {
+				# complete this upgrade
+				set_temp_variable = { index = opened_company_details }
+				multiply_temp_variable = { index = 30 }
+				add_to_temp_variable = { index = 20 }
+				set_variable = { CAC_companies_upgrades_2d^index = 1 }
+
+				# unlock upgrades
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_upgrade = 19 }
+				set_temp_variable = { cac_new_status = 3 }
+				CAC_modify_upgrade_status_effect = yes
+
+				# change company size
+				add_to_variable = { CAC_companies_size^opened_company_details = 1 }
+
+				# effects
+				set_temp_variable = { cac_slot = opened_company_details }
+				set_temp_variable = { cac_base_money_change = -5 }
+				CAC_complete_upgrade_effect = yes
+
+				set_temp_variable = { cac_modifier_political_power_change = 0.1 }
+				CAC_modify_modifier_political_power_effect = yes
+
+				set_temp_variable = { cac_modifier_trade_opinion_change = 0.1 }
+				CAC_modify_modifier_trade_opinion_effect = yes
+
+				add_stability = 0.05
+			}
+		}
+
+		properties = {
+			company_type_0_upgrade_0_btn = {
+				frame = upgrade_0_status_temp
+			}
+			company_type_0_upgrade_1_btn = {
+				frame = upgrade_1_status_temp
+			}
+			company_type_0_upgrade_2_btn = {
+				frame = upgrade_2_status_temp
+			}
+			company_type_0_upgrade_3_btn = {
+				frame = upgrade_3_status_temp
+			}
+			company_type_0_upgrade_4_btn = {
+				frame = upgrade_4_status_temp
+			}
+			company_type_0_upgrade_5_btn = {
+				frame = upgrade_5_status_temp
+			}
+			company_type_0_upgrade_6_btn = {
+				frame = upgrade_6_status_temp
+			}
+			company_type_0_upgrade_7_btn = {
+				frame = upgrade_7_status_temp
+			}
+			company_type_0_upgrade_8_btn = {
+				frame = upgrade_8_status_temp
+			}
+			company_type_0_upgrade_9_btn = {
+				frame = upgrade_9_status_temp
+			}
+			company_type_0_upgrade_10_btn = {
+				frame = upgrade_10_status_temp
+			}
+			company_type_0_upgrade_11_btn = {
+				frame = upgrade_11_status_temp
+			}
+			company_type_0_upgrade_12_btn = {
+				frame = upgrade_12_status_temp
+			}
+			company_type_0_upgrade_13_btn = {
+				frame = upgrade_13_status_temp
+			}
+			company_type_0_upgrade_14_btn = {
+				frame = upgrade_14_status_temp
+			}
+			company_type_0_upgrade_15_btn = {
+				frame = upgrade_15_status_temp
+			}
+			company_type_0_upgrade_16_btn = {
+				frame = upgrade_16_status_temp
+			}
+			company_type_0_upgrade_17_btn = {
+				frame = upgrade_17_status_temp
+			}
+			company_type_0_upgrade_18_btn = {
+				frame = upgrade_18_status_temp
+			}
+			company_type_0_upgrade_19_btn = {
+				frame = upgrade_19_status_temp
+			}
+			company_type_0_upgrade_20_btn = {
+				frame = upgrade_20_status_temp
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "branch": "origin/tanzania-development",
+  "tip_sha": "afb7bec237ebe4cf64219cf65a3ca654d74be020",
+  "tip_short": "afb7bec237",
+  "last_author": "Kenneth McCormick",
+  "last_commit_date": "2026-10-21T20:05:13-04:00",
+  "last_commit_subject": "fixed an issue",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "0225ae017d880b1b8f589e6e9af742b1621f289e",
+  "diverging_files_3dot": 91,
+  "archived_files": 91,
+  "deleted_paths": []
+}

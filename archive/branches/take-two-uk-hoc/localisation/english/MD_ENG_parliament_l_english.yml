@@ -1,0 +1,170 @@
+﻿l_english:
+ # Seat display
+ ENG_hoc_suffix: " Seat(s) held by "
+ ENG_hoc_party_0: "[?ROOT.ENG_hoc_seats^0|Y0]$ENG_hoc_suffix$§Y[ENG.Western_Autocracy_L]§!\n\n"
+ ENG_hoc_party_1: "[?ROOT.ENG_hoc_seats^1|Y0]$ENG_hoc_suffix$§Y[ENG.conservatism_L]§!\n\n"
+ ENG_hoc_party_2: "[?ROOT.ENG_hoc_seats^2|Y0]$ENG_hoc_suffix$§Y[ENG.liberalism_L]§!\n\n"
+ ENG_hoc_party_3: "[?ROOT.ENG_hoc_seats^3|Y0]$ENG_hoc_suffix$§Y[ENG.socialism_L]§!\n\n"
+ ENG_hoc_party_4: "[?ROOT.ENG_hoc_seats^4|Y0]$ENG_hoc_suffix$§Y[ENG.Communist-State_L]§!\n\n"
+ ENG_hoc_party_5: "[?ROOT.ENG_hoc_seats^5|Y0]$ENG_hoc_suffix$§Y[ENG.anarchist_communism_L]§!\n\n"
+ ENG_hoc_party_6: "[?ROOT.ENG_hoc_seats^6|Y0]$ENG_hoc_suffix$§Y[ENG.Conservative_L]§!\n\n"
+ ENG_hoc_party_7: "[?ROOT.ENG_hoc_seats^7|Y0]$ENG_hoc_suffix$§Y[ENG.Autocracy_L]§!\n\n"
+ ENG_hoc_party_8: "[?ROOT.ENG_hoc_seats^8|Y0]$ENG_hoc_suffix$§Y[ENG.Mod_Vilayat_e_Faqih_L]§! (Moderates)\n\n"
+ ENG_hoc_party_9: "[?ROOT.ENG_hoc_seats^9|Y0]$ENG_hoc_suffix$§Y[ENG.Vilayat_e_Faqih_L]§! (Hardliners)\n\n"
+ ENG_hoc_party_10: "[?ROOT.ENG_hoc_seats^10|Y0]$ENG_hoc_suffix$§Y[ENG.Kingdom_L]§!\n\n"
+ ENG_hoc_party_11: "[?ROOT.ENG_hoc_seats^11|Y0]$ENG_hoc_suffix$§Y[ENG.Caliphate_L]§!\n\n"
+ ENG_hoc_party_12: "[?ROOT.ENG_hoc_seats^12|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_Muslim_Brotherhood_L]§!\n\n"
+ ENG_hoc_party_13: "[?ROOT.ENG_hoc_seats^13|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_Autocracy_L]§!\n\n"
+ ENG_hoc_party_14: "[?ROOT.ENG_hoc_seats^14|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_conservatism_L]§!\n\n"
+ ENG_hoc_party_15: "[?ROOT.ENG_hoc_seats^15|Y0]$ENG_hoc_suffix$§Y[ENG.oligarchism_L]§!\n\n"
+ ENG_hoc_party_16: "[?ROOT.ENG_hoc_seats^16|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_Libertarian_L]§!\n\n"
+ ENG_hoc_party_17: "[?ROOT.ENG_hoc_seats^17|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_green_L]§!\n\n"
+ ENG_hoc_party_18: "[?ROOT.ENG_hoc_seats^18|Y0]$ENG_hoc_suffix$§Y[ENG.neutral_Social_L]§!\n\n"
+ ENG_hoc_party_19: "[?ROOT.ENG_hoc_seats^19|Y0]$ENG_hoc_suffix$§Y[ENG.Neutral_Communism_L]§!\n\n"
+ ENG_hoc_party_20: "[?ROOT.ENG_hoc_seats^20|Y0]$ENG_hoc_suffix$§Y[ENG.Nat_Populism_L]§!\n\n"
+ ENG_hoc_party_21: "[?ROOT.ENG_hoc_seats^21|Y0]$ENG_hoc_suffix$§Y[ENG.Nat_Fascism_L]§!\n\n"
+ ENG_hoc_party_snp: "[?ROOT.ENG_hoc_snp_seats|Y0]$ENG_hoc_suffix$§YScottish National Party§!\n"
+ ENG_hoc_party_pc: "[?ROOT.ENG_hoc_pc_seats|Y0]$ENG_hoc_suffix$§YPlaid Cymru§!\n"
+ ENG_hoc_party_dup: "[?ROOT.ENG_hoc_dup_seats|Y0]$ENG_hoc_suffix$§YDemocratic Unionist Party§!\n"
+ ENG_hoc_party_uup: "[?ROOT.ENG_hoc_uup_seats|Y0]$ENG_hoc_suffix$§YUlster Unionist Party§!\n"
+ ENG_hoc_party_sf: "[?ROOT.ENG_hoc_sf_seats|Y0]$ENG_hoc_suffix$§YSinn Fein§!\n"
+ ENG_hoc_party_sdlp: "[?ROOT.ENG_hoc_sdlp_seats|Y0]$ENG_hoc_suffix$§YSDLP§!\n"
+ ENG_hoc_party_ind: "[?ROOT.ENG_hoc_independent_seats|Y0]$ENG_hoc_suffix$§YIndependents§!\n"
+
+ # Government status
+ ENG_hoc_status_majority: "§GMajority Government§!"
+ ENG_hoc_status_hung: "§RHung Parliament§!"
+ ENG_hoc_status_coalition: "§YCoalition Government§!"
+ ENG_hoc_status_opposition: "§RIn Opposition§!"
+
+ # Tooltips
+ ENG_hoc_election_TT: "The House of Commons will receive new Members of Parliament."
+ ENG_hoc_accept_monarch_TT: "The Sovereign will invite the next largest non-extremist party to form a government."
+ ENG_hoc_defy_monarch_TT: "You will govern without the Sovereign's approval, triggering a constitutional crisis. You will be unable to pass most legislation and face severe political penalties."
+
+ # Decision category
+ ENG_house_of_commons: "House of Commons"
+ ENG_house_of_commons_desc: "§H--- How It Works ---§!\nGeneral elections are held automatically every 5 years. Seats are distributed across §YEngland§! (533), §YScotland§! (59), §YWales§! (40), and §YNorthern Ireland§! (18) using first-past-the-post voting, which favours the largest parties at the expense of smaller ones. Electoral reform removes this distortion.\n\nIf a party wins §H326+§! seats, it forms a §GMajority Government§!. If no party reaches that threshold, a §RHung Parliament§! occurs and you must either negotiate a §YCoalition§! with a minor party or attempt to govern as a §RMinority Government§!.\n\nCoalition partners will periodically make demands. Refusing too many will cause the coalition to collapse. You may also call a §YSnap Election§! to seek a fresh mandate.\n\nThe §YSovereign§! will refuse to invite extremist parties to form a government. You may accept the monarch's decision or defy the Crown, triggering a §RConstitutional Crisis§! with severe penalties. Right-wing extremists may eventually win the Sovereign's support; left-wing extremists cannot.\n\nRegional nationalist parties (§YSNP§!, §YPlaid Cymru§!) grow stronger as nationalism rises in Scotland and Wales. Northern Ireland has its own sectarian party system with §YUnionist§! and §YNationalist§! blocs.\n\n§YHouse of Commons§! (650 Seats)\n§HMajority needed: 326§!\nGovernment: [ENG_hoc_gov_status]\n\n§H--- Seat Distribution ---§!\n[ENG_hoc_1][ENG_hoc_2][ENG_hoc_3][ENG_hoc_4][ENG_hoc_5][ENG_hoc_6][ENG_hoc_7][ENG_hoc_8][ENG_hoc_9][ENG_hoc_10][ENG_hoc_11][ENG_hoc_12][ENG_hoc_17][ENG_hoc_20][ENG_hoc_21][ENG_hoc_16][ENG_hoc_18][ENG_hoc_19][ENG_hoc_13][ENG_hoc_14][ENG_hoc_15][ENG_hoc_0]\n§H--- Regional Parties ---§!\n[ENG_hoc_snp][ENG_hoc_pc][ENG_hoc_dup][ENG_hoc_uup][ENG_hoc_sf][ENG_hoc_sdlp][ENG_hoc_ind]\n§HTotal Seats: [?ROOT.ENG_hoc_total_seats|Y0]§!\nRuling Party Seats: [?ROOT.ENG_hoc_ruling_seats|Y0]\n§HNext Election: [?ROOT.ENG_hoc_election_var|Y0] Month(s)§!"
+
+ # Ideas
+ ENG_strong_majority_spirit: "Strong Majority Government"
+ ENG_strong_majority_spirit_desc: "The governing party commands a comfortable majority in the House of Commons, allowing it to pass legislation with ease."
+ ENG_slim_majority_spirit: "Slim Majority Government"
+ ENG_slim_majority_spirit_desc: "The governing party holds a narrow majority, requiring careful party management to ensure legislation passes."
+ ENG_hung_parliament_spirit: "Hung Parliament"
+ ENG_hung_parliament_spirit_desc: "No party has achieved a majority of 326 seats. The government struggles to pass legislation without cross-party support."
+ ENG_minority_government_spirit: "Minority Government"
+ ENG_minority_government_spirit_desc: "The government lacks a majority and has no coalition partners. Passing legislation is extremely difficult and the government faces constant threat of a vote of no confidence."
+ ENG_coalition_government_spirit: "Coalition Government"
+ ENG_coalition_government_spirit_desc: "The government governs with the support of a coalition partner. Compromises must be made to keep the coalition together."
+ ENG_constitutional_crisis: "Constitutional Crisis"
+ ENG_constitutional_crisis_desc: "The government has defied the Sovereign's wishes, triggering a constitutional crisis. The establishment is actively working to undermine the government."
+ ENG_ni_troubles_reignited_spirit: "The Troubles Reignited"
+ ENG_ni_troubles_reignited_spirit_desc: "The reintroduction of first-past-the-post voting in Northern Ireland has reignited sectarian tensions and violence."
+
+ # Election events
+ ENG_parliament.1.t: "General Election"
+ ENG_parliament.1.d: "The United Kingdom goes to the polls to elect 650 Members of Parliament to the House of Commons. The eyes of the nation are on the ballot boxes."
+ ENG_parliament.1.a: "Let the people decide"
+
+ ENG_parliament.2.t: "Election Results"
+ ENG_parliament.2.d: "The votes have been counted and the results are in.\n\n§YHouse of Commons§! (650 Seats)\n§HMajority needed: 326§!\n\n[ENG_hoc_1][ENG_hoc_2][ENG_hoc_3][ENG_hoc_4][ENG_hoc_5][ENG_hoc_6][ENG_hoc_7][ENG_hoc_8][ENG_hoc_9][ENG_hoc_10][ENG_hoc_11][ENG_hoc_12][ENG_hoc_17][ENG_hoc_20][ENG_hoc_21][ENG_hoc_16][ENG_hoc_18][ENG_hoc_19][ENG_hoc_13][ENG_hoc_14][ENG_hoc_15][ENG_hoc_0][ENG_hoc_snp][ENG_hoc_pc][ENG_hoc_dup][ENG_hoc_uup][ENG_hoc_sf][ENG_hoc_sdlp][ENG_hoc_ind]\n§HTotal: [?ROOT.ENG_hoc_total_seats|Y0] Seats§!"
+ ENG_parliament.2.a: "A strong mandate"
+ ENG_parliament.2.b: "A hung parliament..."
+ ENG_parliament.2.c: "The Sovereign intervenes"
+
+ # Monarchy intervention
+ ENG_parliament.3.t: "The Sovereign Refuses"
+ ENG_parliament.3.d: "The Sovereign has refused to invite the winning party to form a government, deeming their platform incompatible with the constitutional order. The Crown has instead indicated that the next largest mainstream party should be invited to form a government."
+ ENG_parliament.3.a: "Respect the Sovereign's wishes"
+ ENG_parliament.3.b: "Defy the Crown"
+
+ ENG_parliament.4.t: "Establishment Resistance"
+ ENG_parliament.4.d: "The civil service, judiciary, and military establishment continue to resist our government's agenda. Without the Sovereign's approval, every policy initiative faces obstruction at every turn."
+ ENG_parliament.4.a: "We must endure"
+ ENG_parliament.4.b: "Call new elections"
+
+ ENG_parliament.5.t: "The Sovereign Relents"
+ ENG_parliament.5.d: "After months of political struggle, the Sovereign has reluctantly agreed to accept the legitimacy of our government. The constitutional crisis is over, though tensions remain."
+ ENG_parliament.5.a: "A new chapter begins"
+
+ # Majority government
+ ENG_parliament.10.t: "Government Formed"
+ ENG_parliament.10.d: "The winning party has formed a new government with a working majority in the House of Commons."
+ ENG_parliament.10.a: "Very well"
+
+ # Hung parliament
+ ENG_parliament.20.t: "Hung Parliament"
+ ENG_parliament.20.d: "No party has achieved the 326 seats needed for a majority. We must either seek coalition partners or attempt to govern as a minority."
+ ENG_parliament.20.a: "Approach the Liberal Democrats"
+ ENG_parliament.20.b: "Approach the SNP"
+ ENG_parliament.20.c: "Approach the DUP"
+ ENG_parliament.20.d: "Govern as a minority"
+
+ # Coalition events
+ ENG_parliament.30.t: "Coalition Talks: Liberal Democrats"
+ ENG_parliament.30.d: "The Liberal Democrats are willing to enter a coalition agreement. They will expect progress on electoral reform and continued cooperation with Europe in exchange for their support."
+ ENG_parliament.30.a: "Form the coalition"
+ ENG_parliament.30.b: "Look elsewhere"
+
+ ENG_parliament.31.t: "Coalition Talks: SNP"
+ ENG_parliament.31.d: "The Scottish National Party is willing to support the government in exchange for greater Scottish devolution and investment north of the border."
+ ENG_parliament.31.a: "Form the coalition"
+ ENG_parliament.31.b: "Look elsewhere"
+
+ ENG_parliament.32.t: "Coalition Talks: DUP"
+ ENG_parliament.32.d: "The Democratic Unionist Party is willing to support the government in exchange for increased investment in Northern Ireland and guarantees on the union."
+ ENG_parliament.32.a: "Form the coalition"
+ ENG_parliament.32.b: "Look elsewhere"
+
+ # Coalition assessment
+ ENG_parliament.35.t: "Coalition Assessment"
+ ENG_parliament.35.d: "Our coalition now commands [?ROOT.ENG_hoc_ruling_seats|Y0] seats. The largest opposition party holds [?ROOT.ENG_hoc_largest_party_seats|Y0] seats."
+ ENG_parliament.35.a: "A working coalition"
+ ENG_parliament.35.b: "We need more partners"
+ ENG_parliament.35.c: "Govern as a minority"
+
+ # Coalition demands
+ ENG_parliament.50.t: "Lib Dem Demand: Electoral Reform"
+ ENG_parliament.50.d: "Our Liberal Democrat coalition partners are pressing for progress on electoral reform. They want a commitment to hold a referendum on proportional representation."
+ ENG_parliament.50.a: "Commit to a referendum"
+ ENG_parliament.50.b: "Now is not the time"
+
+ ENG_parliament.52.t: "SNP Demand: Scottish Devolution"
+ ENG_parliament.52.d: "The SNP is demanding further devolution of powers to the Scottish Parliament. They want more tax-raising powers and control over welfare policy."
+ ENG_parliament.52.a: "Grant further devolution"
+ ENG_parliament.52.b: "We cannot go further"
+
+ ENG_parliament.54.t: "DUP Demand: NI Investment"
+ ENG_parliament.54.d: "The DUP is pressing for increased infrastructure spending in Northern Ireland. They want a commitment to major investment in roads, hospitals, and schools."
+ ENG_parliament.54.a: "Commit the funding"
+ ENG_parliament.54.b: "The budget cannot stretch"
+
+ # Coalition warnings and collapse
+ ENG_parliament.60.t: "Coalition Under Strain"
+ ENG_parliament.60.d: "Our coalition partner is growing increasingly dissatisfied with the direction of government policy. If we do not address their concerns, they may withdraw their support."
+ ENG_parliament.60.a: "Make concessions"
+ ENG_parliament.60.b: "They will have to accept it"
+
+ ENG_parliament.61.t: "Coalition Collapse"
+ ENG_parliament.61.d: "Our coalition partner has withdrawn their support for the government. We must now either govern as a minority or call a snap election."
+ ENG_parliament.61.a: "Govern as a minority"
+ ENG_parliament.61.b: "Call a snap election"
+
+ # Snap election
+ ENG_parliament.70.t: "Snap Election Called"
+ ENG_parliament.70.d: "A snap general election has been called. The nation will go to the polls once more to determine who will govern."
+ ENG_parliament.70.a: "Back to the ballot box"
+
+ # By-election
+ ENG_parliament.100.t: "By-Election"
+ ENG_parliament.100.d: "A by-election has been called following the resignation of a sitting MP. The result may shift the balance of power in the House of Commons."
+ ENG_parliament.100.a: "Note the result"
+
+ # Parliament decisions
+ ENG_hoc_call_snap_election: "Call Snap Election"
+ ENG_hoc_call_snap_election_desc: "Dissolve Parliament and call an early general election."
+ ENG_hoc_vote_no_confidence: "Vote of No Confidence"
+ ENG_hoc_vote_no_confidence_desc: "Force a vote of no confidence in the current government."
+ ENG_hoc_win_sovereign_support: "Win the Sovereign's Support"
+ ENG_hoc_win_sovereign_support_desc: "Attempt to convince the Sovereign to accept the legitimacy of our government."

@@ -1,0 +1,423 @@
+add_namespace = morocco
+add_namespace = morocco_bop
+add_namespace = morocco_focus
+# Morocco Focus Tree
+country_event = {
+	id = morocco.1
+	title = morocco.1.t
+	desc = morocco.1.d
+	# TODO: Add an event image here
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# Conservative Growth
+	option = {
+		name = morocco.1.a
+		log = "[GetDateText]: [This.GetName]: event morocco.1.a executed"
+		set_country_flag = MOR_conservative_resource_exploitation
+	}
+
+	# Exploit Every Reserve!
+	option = {
+		name = morocco.1.b
+		log = "[GetDateText]: [This.GetName]: event morocco.1.b executed"
+		set_country_flag = MOR_aggressive_resource_exploitation
+	}
+
+	option = {
+		name = morocco.1.c
+		log = "[GetDateText]: [This.GetName]: event morocco.1.c executed"
+		trigger = {
+			# TODO: Add a trigger that you are an authoritarian monarch
+		}
+		set_country_flag = MOR_corrupted_aggressive_resource_exploitation
+	}
+}
+
+
+# 400 - Random Yearly event
+
+# 2003 - Casablanca Bombings
+country_event = {
+	id = morocco.400
+	title = morocco.400.t
+	desc = morocco.400.d
+	# TODO: Add an event image here
+	is_triggered_only = yes
+
+	# Truly a Tragedy
+	option = {
+		name = morocco.400.a
+		log = "[GetDateText]: [This.GetName]: event morocco.400.a executed"
+		set_temp_variable = { party_popularity_increase = -0.02 }
+		set_temp_variable = { temp_outlook_increase = -0.02 }
+		add_relative_party_popularity = yes
+
+		set_temp_variable = { party_index = 11 }
+		set_temp_variable = { party_popularity_increase = 0.03 }
+		set_temp_variable = { temp_outlook_increase = 0.03 }
+		add_relative_party_popularity = yes
+
+		add_stability = -0.04
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Pay for the Funerals
+	option = {
+		name = morocco.400.b
+		log = "[GetDateText]: [This.GetName]: event morocco.400.b executed"
+		set_temp_variable = { party_popularity_increase = 0.02 }
+		set_temp_variable = { temp_outlook_increase = 0.02 }
+		add_relative_party_popularity = yes
+
+		set_temp_variable = { party_index = 11 }
+		set_temp_variable = { party_popularity_increase = 0.01 }
+		set_temp_variable = { temp_outlook_increase = 0.01 }
+		add_relative_party_popularity = yes
+
+		add_stability = -0.02
+
+		set_temp_variable = { treasury_change = gdp_total }
+		multiply_temp_variable = { treasury_change = -0.01 }
+		modify_treasury_effect = yes
+
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_active_mission = bankruptcy_incoming_collapse
+			}
+		}
+	}
+}
+
+# Morocco Balance of Power
+# The Title of the King
+country_event = {
+	id = morocco_bop.1
+	title = morocco_bop.1.t
+	desc = morocco_bop.1.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# Remain the King
+	option = {
+		name = morocco_bop.1.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.1.a executed"
+		set_country_flag = MOR_the_title_of_king
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Take the Title of Sultan
+	option = {
+		name = morocco_bop.1.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.1.b executed"
+		set_country_flag = MOR_the_title_of_sultan
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Take the Title of Shah
+	option = {
+		name = morocco_bop.1.c
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.1.c executed"
+		trigger = {
+			OR = {
+				PER = { has_completed_focus = PER_rastakhiz_empowerment }
+				nationalist_monarchists_are_in_power = yes
+			}
+			PER = { has_completed_focus = PER_the_revolution }
+		}
+		set_country_flag = MOR_the_title_of_shah
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Take the Title of Caliph
+	option = {
+		name = morocco_bop.1.e
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.1.e executed"
+		set_country_flag = MOR_the_title_of_caliph
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# The Role of the Crown
+country_event = {
+	id = morocco_bop.2
+	title = morocco_bop.2.t
+	desc = morocco_bop.2.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# An Active Role
+	option = {
+		name = morocco_bop.2.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.2.a executed"
+		set_country_flag = MOR_king_an_active_role_in_government
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# A Hybrid Role
+	option = {
+		name = morocco_bop.2.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.2.b executed"
+		set_country_flag = MOR_king_a_hybrid_role_in_government
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# The Parliament Above All
+	option = {
+		name = morocco_bop.2.c
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.2.c executed"
+		set_country_flag = MOR_king_the_parliament_role_in_government
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# The King and the Parliament
+country_event = {
+	id = morocco_bop.3
+	title = morocco_bop.3.t
+	desc = morocco_bop.3.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# Direct Parliament Control
+	option = {
+		name = morocco_bop.3.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.3.a executed"
+		set_country_flag = MOR_king_direct_parliament_control
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = 0.05
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Limited Parliament Control
+	option = {
+		name = morocco_bop.3.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.3.b executed"
+		set_country_flag = MOR_king_limited_parliament_control
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = 0.02
+		}
+	}
+
+	# True Democracy
+	option = {
+		name = morocco_bop.3.c
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.3.b executed"
+		set_country_flag = MOR_king_parliament_true_democracy
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = -0.05
+		}
+	}
+}
+
+# Status of the Amazigh Language
+country_event = {
+	id = morocco_bop.4
+	title = morocco_bop.4.t
+	desc = morocco_bop.4.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# The Amazigh Language is Official
+	option = {
+		name = morocco_bop.4.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.4.a executed"
+		set_country_flag = MOR_amazigh_language_official
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = -0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# The Amazigh Language is Not Official
+	option = {
+		name = morocco_bop.4.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.4.b executed"
+		set_country_flag = MOR_amazigh_language_not_official
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = 0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# The Amazigh Language is a Minority Language
+	option = {
+		name = morocco_bop.4.c
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.4.c executed"
+		set_country_flag = MOR_amazigh_language_minority
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# Enshrine the Hassaniya Language
+country_event = {
+	id = morocco_bop.5
+	title = morocco_bop.5.t
+	desc = morocco_bop.5.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# The Hassaniya Language is Official
+	option = {
+		name = morocco_bop.5.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.5.a executed"
+		set_country_flag = MOR_hassaniya_language_official
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = -0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# The Amazigh Language is Not Official
+	option = {
+		name = morocco_bop.5.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.5.b executed"
+		set_country_flag = MOR_hassaniya_language_not_official
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = 0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# The Hassaniya Language is a Minority Language
+	option = {
+		name = morocco_bop.5.c
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.5.c executed"
+		set_country_flag = MOR_hassaniya_language_minority
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# The Power of Amnesty
+country_event = {
+	id = morocco_bop.6
+	title = morocco_bop.6.t
+	desc = morocco_bop.6.d
+	is_triggered_only = yes
+	trigger = {
+		original_tag = MOR
+	}
+
+	# Retain the Power of Amnesty
+	option = {
+		name = morocco_bop.6.a
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.6.a executed"
+		set_country_flag = MOR_retain_amnesty
+
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = -0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+
+	# Allow the Parliament to Grant Amnesty
+	option = {
+		name = morocco_bop.6.b
+		log = "[GetDateText]: [This.GetName]: event morocco_bop.6.b executed"
+		set_country_flag = MOR_allow_parliament_amnesty
+
+		add_power_balance_value = {
+			id = MOR_the_moroccan_role_of_the_king_category
+			value = 0.03
+		}
+
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+# 401 - The National Unity Collective (CUN) forms, taking the Nat_Fascism slot.
+# Idempotent and hidden; scheduled from the ETD year hook (forward play) and the startup
+# catch-up (mid-game starts) in common/scripted_effects/00_yearly_effects.txt.
+country_event = {
+	id = morocco.401
+	hidden = yes
+	is_triggered_only = yes
+	trigger = { NOT = { has_country_flag = MOR_cun_formed } }
+
+	immediate = {
+		log = "[GetDateText]: [This.GetName]: morocco.401 - National Unity Collective takes the Nat_Fascism slot"
+		set_country_flag = MOR_cun_formed
+		hidden_effect = { update_party_name = yes }
+	}
+}

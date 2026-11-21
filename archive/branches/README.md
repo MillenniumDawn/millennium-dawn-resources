@@ -1,28 +1,19 @@
 # Archived branches
 
-Snapshot of diverging files from stale upstream branches that we are no longer
-maintaining. Each subdirectory is a one-to-one copy of the files that the
-branch changed relative to `main`, preserving the original repo path layout
-under the branch name.
-
-The source branch tip is recorded in each subdirectory's `<branch>.json`
-metadata. The branch refs themselves are deleted; the data lives here so the
-work isn't lost if anyone needs to revive or rebase it later.
-
-The generator lives in the Millennium-Dawn repo, since it reads that repo's
-branch refs. It regenerates this tree from the original refs if they still
-exist locally (`origin/<name>`), and writes here by default:
-
-```bash
-cd /path/to/Millennium-Dawn
-python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/archive/branches
-```
+These snapshots preserve changed files from retired Millennium Dawn branches,
+not full Git history or complete branches. Each copy keeps the file's path
+within the original repo.
 
 ## Layout
 
-- `<branch>/<repo-path>`: file as it appeared on the branch
-- `<branch>/<branch>.json`: branch metadata (tip commit, last author,
-  last-commit date, diverging file count)
+- `<folder>/<repo-path>`: original branch file
+- `<folder>/<folder>.json`: source branch name, tip commit, last author, last
+  commit date, and archived file count
+
+For the November 2026 snapshots, the metadata also records the `main` commit,
+merge base, and paths deleted by the source branch. Files are selected from
+changes since the merge base. `.gitignore` and files already identical on
+`main` are omitted. A slash in a branch name becomes `--` in the folder name.
 
 ## Branches archived
 
@@ -37,7 +28,6 @@ python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/ar
 | iraqi-gui                  | 2025-10-06    | 20               |
 | military-strength          | 2025-11-06    | 1                |
 | 3D-tank-models-to-check    | 2025-12-13    | 113              |
-| md-railway-guns            | 2025-10-09    | 8                |
 | didi                       | 2025-11-28    | 146              |
 | Irish-Development          | 2025-12-23    | 107              |
 | import-venezuela-import-fork  | 2026-02-21    | 23               |
@@ -53,3 +43,26 @@ filter handles this. didi has 2 files identical to main for the same reason.
 yemen-development's `MD_focus_​HOU_l_english.yml` has a zero-width space in
 its filename, which `git diff --name-only` quotes and our normal path loop
 drops. It is recovered out-of-band via the script's post-step.
+
+## November 2026 snapshots
+
+| Branch | Last activity | Archived files |
+| --- | --- | ---: |
+| `feat/internal-faction-opinion-decisions-459` | 2026-09-23 | 45 |
+| `md-railway-guns` | 2026-10-29 | 11 |
+| `chad-overhaul` | 2026-09-15 | 108 |
+| `feature/government-workforce` | 2026-10-21 | 8 |
+| `australian-content-old` | 2026-08-11 | 93 |
+| `isis-development` | 2026-10-21 | 24 |
+| `morocco-development` | 2026-07-12 | 15 |
+| `corporations-and-companies` | 2026-05-19 | 142 |
+| `tanzania-development` | 2026-10-21 | 91 |
+| `usoe-rework` | 2026-10-08 | 143 |
+| `uk-gui-work` | 2026-06-23 | 9 |
+| `tst-ter-org` | 2026-06-17 | 3 |
+| `malawian-development` | 2026-08-17 | 137 |
+| `tutorial-dev2` | 2026-09-05 | 14 |
+| `let-me-try-sum` | 2026-06-15 | 51 |
+| `tunisia-development` | 2026-03-25 | 4 |
+| `take-two-uk-hoc` | 2026-03-17 | 11 |
+| `menu-visual-edit` | 2026-02-23 | 9 |

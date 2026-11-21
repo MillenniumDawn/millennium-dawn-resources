@@ -1,0 +1,3130 @@
+# Primary On actions File
+# For a relatively up-to-date available set of information regarding available on_actions please go to the following link:
+# https://hoi4.paradoxwikis.com/On_actions
+
+on_actions = {
+	on_naval_invasion = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_tech = beachhead_raiding_parties
+						divisions_in_state = {
+							unit = L_Marine_Cdo_Bat
+							size > 0
+							state = PREV
+						}
+					}
+					NOT = { has_state_flag = marines_commando_effect }
+					OWNER = { NOT = { tag = ROOT } }
+				}
+				SF_marine_modern_demolition_effect = yes # Note that the state flag condition is not preventing it from doing 1 damage per division
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_tech = marine_raider_groups
+						divisions_in_state = {
+							unit = L_Marine_Cdo_Bat
+							size > 0
+							state = PREV
+						}
+					}
+					NOT = { has_state_flag = marines_commando_effect }
+					OWNER = { NOT = { tag = ROOT } }
+				}
+				SF_marine_logistics_raiding_effect = yes
+			}
+		}
+	}
+	on_units_paradropped_in_state = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_tech = dedicated_saboteurs
+						divisions_in_state = {
+							unit = L_Air_Inf_Bat
+							size > 0
+							state = PREV
+						}
+						divisions_in_state = {
+							unit = pathfinder_company
+							size > 0
+							state = PREV
+						}
+					}
+					NOT = { has_state_flag = para_drop_effect }
+					CONTROLLER = { NOT = { tag = FROM } }
+				}
+				SF_PARA_sabotage_effect = yes
+			}
+			if = {
+				limit = {
+					FROM = {
+						has_tech = coordinated_combat_jumps
+						OR = {
+							divisions_in_state = {
+								unit = L_Air_Inf_Bat
+								size > 0
+								state = PREV
+							}
+							divisions_in_state = {
+								unit = Mot_Air_Inf_Bat
+								size > 0
+								state = PREV
+							}
+						}
+					}
+					NOT = { has_state_flag = para_drop_effect }
+				}
+				SF_PARA_combat_effect = yes
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			energy_on_daily = yes
+			resource_storage_system = yes
+			faction_goal_update_daily_caches = yes
+			# INFO: If you are a player and updating the UI for the research one for the next 90 days
+			if = { limit = { is_ai = no }
+				set_party_positions = yes
+				add_to_variable = { BI_topbar_update = 1 }
+				if = {
+					limit = {
+						OR = {
+							has_country_flag = automation_combat_foreign_influence
+							has_country_flag = automation_attack_foreign_influencers
+						}
+					}
+					automation_influence_daily = yes
+				}
+				if = {
+					limit = { has_country_flag = automation_internal_investments }
+					automation_internal_investments_daily = yes
+				}
+				if = {
+					limit = { has_decision = gdp_gain_slot }
+					add_to_variable = { global.research_screen_ui = 1 }
+				}
+				if = {
+					limit = { has_decision = gdp_c_gain_slot }
+					add_to_variable = { global.research_screen_ui = 1 }
+				}
+			}
+		}
+	}
+
+	on_new_term_election = {
+		random_events = {
+			100 = MD4_election_campaign.0
+
+			#County specials
+			1000 = brazil.39
+			1000 = spain.500
+			1000 = taiwan.3
+			1000 = singapore_elections.0
+			1000 = romania_elections.1
+			1000 = thailand.19
+		}
+	}
+
+	on_unit_leader_created = { # This uses the UNIT LEADER sub scope of a character, FROM = country
+		effect = {
+			character = {
+				if = {
+					limit = {
+						is_army_leader = yes
+					}
+					if = {
+						limit = {
+							FROM = { has_doctrine = mission_command } #done here instead of the trait file to avoid some oddness with generating assignable traits under certain circumstances, makes it easier to control probabilities
+						}
+						ROOT = {
+							add_unit_leader_trait = advanced_officer_training
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Ace pilots
+	# country, FROM = ace
+	on_ace_promoted = {
+		random_events = {
+			100 = MD_ace_promoted.1
+		}
+	}
+
+	# country, FROM = ace, PREV = enemy ace
+	# This event fires twice, once for each ace.
+	on_aces_killed_each_other = {
+		random_events = {
+			100 = MD_aces_killed_each_other.1
+		}
+	}
+
+	# country, FROM = our ace,
+	# PREV = enemy ace, has killed FROM
+	on_ace_killed_by_ace = {
+		random_events = {
+			100 = MD_ace_killed_by_ace.1
+		}
+	}
+
+	# country, FROM = our ace,
+	# PREV = enemy ace, killed by FROM
+	on_ace_killed_other_ace = {
+		random_events = {
+			100 = MD_ace_killed_other_ace.1
+		}
+	}
+
+	# country, FROM = ace
+	on_ace_killed = {
+		random_events = {
+			100 = MD_ace_died.1
+		}
+	}
+
+	# During justifying wargoals
+	# triggered daily, so make sure there is a sink somewhere not firing events
+	# country, FROM = target nation
+	on_justifying_wargoal_pulse = {
+		effect = {
+			# reset every day, stays lingering for some time after justification is finished
+			set_country_flag = { flag = country_is_justified_on_flag value = 1 days = 70 }
+		}
+	}
+
+	#ROOT = attacking side
+	#FROM = defending side
+	on_war_relation_added = { # ---> Fires in 2nd place (1st is on_declare_war) -> This one is triggered ALWAYS
+		effect = {
+			ROOT = {
+				if = { limit = { is_ai = yes }
+					ai_division_limiter_refresh = yes
+				}
+			}
+			FROM = {
+				if = { limit = { is_ai = yes }
+					ai_division_limiter_refresh = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = { is_in_array = { global.un_sc_pressure_end_war = ROOT } }
+				}
+				add_to_array = { global.un_sc_pressure_end_war = ROOT }
+			}
+		}
+	}
+	#ROOT - Winner
+	#FROM - Loser
+	#FIRES FOR ALL SIDES
+	on_peaceconference_ended = {
+		effect = {
+			ROOT = {
+				if = {
+					limit = { is_ai = yes has_war = no }
+					ai_division_limiter_refresh = yes
+				}
+			}
+			FROM = {
+				if = {
+					limit = { is_ai = yes has_war = no }
+					ai_division_limiter_refresh = yes
+				}
+			}
+
+			# Remove capitulation ally-call suppression on peace
+			ROOT = {
+				if = {
+					limit = { has_idea = capitulated_nation_no_call_ally }
+					remove_ideas = capitulated_nation_no_call_ally
+				}
+			}
+			FROM = {
+				if = {
+					limit = { has_idea = capitulated_nation_no_call_ally }
+					remove_ideas = capitulated_nation_no_call_ally
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = { has_offensive_war = no }
+				}
+				ROOT = {
+					if = {
+						limit = {
+							has_idea = unsc_restricted_volunteers_too
+						}
+						remove_ideas = unsc_restricted_volunteers_too
+					}
+					if = {
+						limit = {
+							has_idea = unsc_arms_embargo
+						}
+						remove_ideas = unsc_arms_embargo
+					}
+				}
+				if = {
+					limit = {
+						is_in_array = { global.un_sc_pressure_end_war = ROOT }
+					}
+					remove_from_array = { global.un_sc_pressure_end_war = ROOT }
+				}
+			}
+			if = {
+				limit = {
+					FROM = { has_offensive_war = no }
+				}
+				FROM = {
+					if = {
+						limit = {
+							has_idea = unsc_restricted_volunteers_too
+						}
+						remove_ideas = unsc_restricted_volunteers_too
+					}
+					if = {
+						limit = {
+							has_idea = unsc_arms_embargo
+						}
+						remove_ideas = unsc_arms_embargo
+					}
+				}
+				if = {
+					limit = {
+						is_in_array = { global.un_sc_pressure_end_war = FROM }
+					}
+					remove_from_array = { global.un_sc_pressure_end_war = FROM }
+				}
+			}
+		}
+	}
+
+	on_wargoal_expire = { }
+
+	#FROM is state #ROOT is broken as hell
+	on_nuke_drop = { }
+
+	on_border_war_lost = { }
+
+	on_leave_faction = { }
+
+	#ROOT is the country creating the faction
+	on_create_faction = {
+		effect = {
+			country_event = { id = faction_goal_cache.2 hours = 1 }
+		}
+	}
+
+	#FROM is country getting invited.
+	on_offer_join_faction = { }
+
+	#FROM is faction leader on join faction requests.
+	on_join_faction = {
+		effect = {
+			if = {
+				limit = { FROM = { tag = CHI } }
+				#CHI_chinese_aggression lives on CHI; unscoped it lands on the joiner and is never read
+				FROM = { add_to_variable = { CHI_chinese_aggression = 1 } }
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_resistance_axis_member }
+				}
+				add_ideas = faction_resistance_axis_member
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_cento_alliance }
+				}
+				add_ideas = faction_cento_alliance
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_aso_alliance }
+				}
+				add_ideas = faction_aso_alliance
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_seato_alliance }
+				}
+				add_ideas = faction_seato_alliance
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_imperial_bloc_alliance }
+				}
+				add_ideas = faction_imperial_bloc_alliance
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_brics_alliance }
+				}
+				add_ideas = faction_brics_alliance
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = faction_warsaw_pact_idea }
+				}
+				add_ideas = faction_warsaw_pact_idea
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = CSTO_member }
+				}
+				add_ideas = CSTO_member
+				ROOT = { add_to_tech_sharing_group = CSTO_Tech_Share }
+			}
+			if = {
+				limit = { FROM = { has_idea = UNASUL_member } }
+				add_ideas = UNASUL_member
+			}
+			if = {
+				limit = { FROM = { has_idea = S0V_russian_sphere_idea } }
+				add_ideas = S0V_russian_sphere_idea
+			}
+			hidden_effect = { FROM = { faction_goal_refresh_all_caches = yes } }
+		}
+	}
+
+	#FROM is country getting invited, ROOT is inviting country
+	on_offer_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					has_idea = faction_resistance_axis_member
+				}
+				FROM = { add_ideas = faction_resistance_axis_member }
+			}
+			if = {
+				limit = {
+					has_idea = faction_cento_alliance
+				}
+				FROM = { add_ideas = faction_cento_alliance }
+			}
+			if = {
+				limit = {
+					has_idea = faction_aso_alliance
+				}
+				FROM = { add_ideas = faction_aso_alliance }
+			}
+			if = {
+				limit = {
+					has_idea = faction_seato_alliance
+				}
+				FROM = { add_ideas = faction_seato_alliance }
+			}
+			if = {
+				limit = {
+					has_idea = faction_imperial_bloc_alliance
+				}
+				FROM = { add_ideas = faction_imperial_bloc_alliance }
+			}
+			if = {
+				limit = {
+					has_idea = faction_brics_alliance
+				}
+				FROM = { add_ideas = faction_brics_alliance }
+			}
+			if = {
+				limit = {
+					has_idea = faction_warsaw_pact_idea
+				}
+				FROM = { add_ideas = faction_warsaw_pact_idea }
+			}
+			if = {
+				limit = {
+					has_idea = CSTO_member
+				}
+				FROM = {
+					add_ideas = CSTO_member
+					add_to_tech_sharing_group = CSTO_Tech_Share
+				}
+			}
+		}
+	}
+
+	on_leave_faction = {
+		effect = {
+			if = {
+				limit = { has_idea = faction_resistance_axis_member }
+				remove_ideas = faction_resistance_axis_member
+			}
+			if = {
+				limit = { has_idea = faction_cento_alliance }
+				remove_ideas = faction_cento_alliance
+			}
+			if = {
+				limit = { has_idea = faction_aso_alliance }
+				remove_ideas = faction_aso_alliance
+			}
+			if = {
+				limit = { has_idea = faction_imperial_bloc_alliance }
+				remove_ideas = faction_imperial_bloc_alliance
+			}
+			if = {
+				limit = { has_idea = faction_seato_alliance }
+				remove_ideas = faction_seato_alliance
+			}
+			if = {
+				limit = { has_idea = faction_brics_alliance }
+				remove_ideas = faction_brics_alliance
+			}
+			if = {
+				limit = {
+					has_idea = faction_warsaw_pact_idea
+				}
+				remove_ideas = faction_warsaw_pact_idea
+			}
+			if = {
+				limit = { has_idea = CSTO_member }
+				remove_ideas = CSTO_member
+				ROOT = { remove_from_tech_sharing_group = CSTO_Tech_Share }
+			}
+			if = {
+				limit = { has_idea = UNASUL_member }
+				remove_ideas = UNASUL_member
+			}
+			hidden_effect = { FROM = { faction_goal_refresh_all_caches = yes } }
+		}
+	}
+
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation = {
+		effect = {
+			if = { limit = { ROOT = { original_tag = SOV } }
+				FROM = {
+					country_event = {
+						id = department_of_state.42
+						days = 2
+					}
+				}
+				if = {
+					limit = {
+						country_exists = CHI
+						CHI = { is_subject = no }
+						547 = { # Checking to see if China controls Beijing
+							is_owned_and_controlled_by = CHI
+						}
+					}
+					CHI = {
+						country_event = {
+							id = department_of_state.35
+							days = 20
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = { original_tag = ESB }
+					FROM = { original_tag = CHI }
+				}
+				ESB = {
+					set_cosmetic_tag = ESB_chinese_puppet
+				}
+			}
+			#Tamel Tigers Clean up
+			if = {
+				limit = {
+					ROOT = { original_tag = TML }
+					FROM = { original_tag = SRI }
+				}
+				news_event = {
+					id = news.91
+					days = 1
+					random_hours = 6
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = { original_tag = SRI }
+					FROM = { original_tag = TML }
+				}
+				news_event = {
+					id = news.92
+					days = 1
+					random_hours = 6
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SOL
+						has_country_flag = SOL_IFM_id
+					}
+					FROM = {
+						original_tag = SOL
+						NOT = { has_country_flag = SOL_IFM_id }
+					}
+				}
+				FROM = {
+					set_cosmetic_tag = SOL
+					news_event = {
+						id = Solomon_IslandsNews.1005
+						days = 1
+						random_hours = 6
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SOL
+						NOT = { has_country_flag = SOL_IFM_id }
+					}
+					FROM = {
+						original_tag = SOL
+						has_country_flag = SOL_IFM_id
+					}
+				}
+				FROM = {
+					set_cosmetic_tag = SOL
+					news_event = {
+						id = Solomon_IslandsNews.1004
+						days = 1
+						random_hours = 6
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = { original_tag = GEO }
+					FROM = { original_tag = SOV }
+				}
+				every_country = {
+					limit = {
+						has_country_flag = georgian_conflict
+					}
+					remove_mission = GEO_the_conflict
+					clr_country_flag = georgian_conflict
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = BLR }
+					FROM = { original_tag = BLG }
+				}
+				SOV = {
+					country_event = department_of_state.31
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = BLG }
+					FROM = { original_tag = BLR }
+					BLR = { has_country_flag = BLR_was_in_CSTO }
+				}
+				BLR = { add_to_faction = SOV }
+			}
+			if = { limit = { original_tag = SAU }
+				if = { limit = { PER = { has_completed_focus = PER_musandam_gambit } }
+					425 = { add_core_of = PER }
+				}
+				if = { limit = { PER = { has_completed_focus = PER_agitate_shias_in_bahrain } }
+					423 = { add_core_of = PER }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = PER_akhoond_flag
+				}
+				PER = {
+					country_event = iranian_events.236
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = PER_syrian_civil_war_FSA
+				}
+				PER = {
+					country_event = iranian_focus.68
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = TAJ_civil_war_time
+				}
+				TAJ = {
+					country_event = tajik_focus.30
+				}
+			}
+			# Iraq civil war capitulation logic — skip entirely for non-Iraq capitulations
+			if = { limit = { has_country_flag = is_IRAQ }
+
+				if = { # IAI Victory
+					limit = {
+						IRQ = { has_war = no }
+						has_country_flag = IRQ_Islamic_Army_in_Iraq
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = GMC
+								country_exists = AWD
+								country_exists = NTR
+								country_exists = ATC
+								country_exists = HII
+							}
+						}
+					}
+					news_event = axis_of_resistance_events.42
+					IRQ = {
+						annex_country = { target = ISI transfer_troops = yes }
+						annex_country = { target = GMC transfer_troops = yes }
+						annex_country = { target = AWD transfer_troops = yes }
+						annex_country = { target = NTR transfer_troops = yes }
+						annex_country = { target = ATC transfer_troops = yes }
+						annex_country = { target = HII transfer_troops = yes }
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+						clr_country_flag = IRQ_Islamic_Army_in_Iraq
+						set_temp_variable = { rul_party_temp = 10 }
+						change_ruling_party_effect = yes
+						set_political_party = {
+							ideology = fascism
+							popularity = 48
+						}
+						set_cosmetic_tag = IRQ
+						set_temp_variable = { percent_change = 3.50 }
+						set_temp_variable = { tag_index = SAU }
+						set_temp_variable = { influence_target = IRQ }
+						change_influence_percentage = yes
+					}
+				}
+				if = { # Hamas of Iraq
+					limit = {
+						has_country_flag = IRQ_hamas_of_iraq
+						IRQ = { has_war = no }
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = GMC
+								country_exists = AWD
+								country_exists = NTR
+								country_exists = ATC
+								#country_exists = HII
+								country_exists = IAI
+							}
+						}
+					}
+					news_event = axis_of_resistance_events.43
+					IRQ = {
+						annex_country = { target = ISI transfer_troops = yes }
+						annex_country = { target = GMC transfer_troops = yes }
+						annex_country = { target = AWD transfer_troops = yes }
+						annex_country = { target = NTR transfer_troops = yes }
+						annex_country = { target = ATC transfer_troops = yes }
+						#annex_country = { target = HII transfer_troops = yes }
+						annex_country = { target = IAI transfer_troops = yes }
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+						clr_country_flag = IRQ_hamas_of_iraq
+						set_temp_variable = { rul_party_temp = 12 }
+						change_ruling_party_effect = yes
+						set_political_party = {
+							ideology = neutrality
+							popularity = 48
+						}
+						set_cosmetic_tag = IRQ
+						set_temp_variable = { percent_change = 3.50 }
+						set_temp_variable = { tag_index = EGY }
+						set_temp_variable = { influence_target = IRQ }
+						change_influence_percentage = yes
+					}
+				}
+				if = { # 1920 RB
+					limit = {
+						has_country_flag = IRQ_1920_revolution_brigades
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = IRQ
+								country_exists = GMC
+								country_exists = AWD
+								country_exists = ATC
+								country_exists = HII
+								country_exists = IAI
+							}
+						}
+					}
+					news_event = axis_of_resistance_events.44
+					IRQ = {
+						annex_country = { target = ISI transfer_troops = yes }
+						annex_country = { target = GMC transfer_troops = yes }
+						annex_country = { target = AWD transfer_troops = yes }
+						annex_country = { target = ATC transfer_troops = yes }
+						annex_country = { target = HII transfer_troops = yes }
+						annex_country = { target = IAI transfer_troops = yes }
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+						clr_country_flag = IRQ_1920_revolution_brigades
+						set_temp_variable = { rul_party_temp = 12 }
+						change_ruling_party_effect = yes
+						set_political_party = {
+							ideology = neutrality
+							popularity = 48
+						}
+						set_cosmetic_tag = IRQ
+						set_temp_variable = { percent_change = 1.50 }
+						set_temp_variable = { tag_index = EGY }
+						set_temp_variable = { influence_target = IRQ }
+						change_influence_percentage = yes
+					}
+				}
+				if = { # GMCIR
+					limit = {
+						has_country_flag = IRQ_GMCIR
+						IRQ = { has_war = no }
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = AWD
+								country_exists = NTR
+								country_exists = ATC
+								country_exists = HII
+								country_exists = IAI
+							}
+						}
+					}
+					annex_country = { target = ISI transfer_troops = yes }
+					#annex_country = { target = GMC transfer_troops = yes }
+					annex_country = { target = AWD transfer_troops = yes }
+					annex_country = { target = NTR transfer_troops = yes }
+					annex_country = { target = ATC transfer_troops = yes }
+					annex_country = { target = HII transfer_troops = yes }
+					annex_country = { target = IAI transfer_troops = yes }
+					drop_cosmetic_tag = yes
+					clear_variable = dynamic_flag_variant
+					clr_country_flag = is_IRAQ
+					clr_country_flag = IRQ_GMCIR
+					set_temp_variable = { rul_party_temp = 21 }
+					change_ruling_party_effect = yes
+					set_political_party = {
+						ideology = nationalist
+						popularity = 48
+					}
+					set_temp_variable = { rul_party_temp = 21 }
+					change_ruling_party_effect = yes
+					set_cosmetic_tag = IRQ
+					IRQ = {
+						if = {
+							limit = {
+								PREV = {
+									has_country_leader = {
+										name = "Izzat Ibrahim al-Douri"
+										ruling_only = yes
+									}
+								}
+							}
+							news_event = axis_of_resistance_events.41
+							retire_country_leader = yes
+							create_country_leader = {
+								name = "Izzat Ibrahim al-Douri"
+								picture = "gfx/leaders/IRQ/Izzat_Ibrahim_al-Douri.dds"
+								ideology = Nat_Fascism
+								traits = {
+									nationalist_Nat_Populism
+									military_career
+									anti_zionist
+								}
+							}
+						}
+						else = {
+							retire_country_leader = yes
+							random_list = {
+								50 = {
+									news_event = axis_of_resistance_events.41
+									create_country_leader = {
+										name = "Tariq Aziz"
+										picture = "gfx/leaders/IRQ/IRQ_Tariq_Aziz2.dds"
+										ideology = Nat_Fascism
+										traits = {
+											nationalist_Nat_Populism
+											anti_zionist
+										}
+									}
+								}
+								50 = {
+									news_event = axis_of_resistance_events.41
+									create_country_leader = {
+										name = "Ali Hassan al-Majid"
+										picture = "gfx/leaders/IRQ/Ali_Hassan_al_Majid_polical.dds"
+										ideology = Nat_Fascism
+										traits = {
+											nationalist_Nat_Populism
+											military_career
+											anti_zionist
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				if = { # Baathist Mods
+					limit = {
+						has_country_flag = IRQ_AlAwda
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = IRQ
+								country_exists = GMC
+								#country_exists = AWD
+								#country_exists = NTR
+								country_exists = ATC
+								country_exists = HII
+								country_exists = IAI
+							}
+						}
+					}
+					annex_country = { target = ISI transfer_troops = yes }
+					annex_country = { target = GMC transfer_troops = yes }
+					#annex_country = { target = AWD transfer_troops = yes }
+					#annex_country = { target = NTR transfer_troops = yes }
+					annex_country = { target = ATC transfer_troops = yes }
+					annex_country = { target = HII transfer_troops = yes }
+					annex_country = { target = IAI transfer_troops = yes }
+					drop_cosmetic_tag = yes
+					clear_variable = dynamic_flag_variant
+					clr_country_flag = is_IRAQ
+					clr_country_flag = IRQ_AlAwda
+					set_temp_variable = { rul_party_temp = 7 }
+					change_ruling_party_effect = yes
+					set_political_party = {
+						ideology = communism
+						popularity = 48
+					}
+					set_cosmetic_tag = IRQ
+					IRQ = {
+						retire_country_leader = yes
+						random_list = {
+							65 = {
+								news_event = axis_of_resistance_events.45
+								create_country_leader = {
+									name = "Younis al-Ahmed"
+									picture = "gfx/leaders/IRQ/IRQ_muhammad_yunis_al_ahmad.dds"
+									ideology = Autocracy
+									traits = {
+										emerging_Autocracy
+									}
+								}
+							}
+							35 = {
+								news_event = iraqi_flavor_events.9
+								create_country_leader = {
+									name = "Huda Salih Mahdi Ammash"
+									picture = "gfx/leaders/IRQ/IRQ_Huda_Salih_Mahdi_Ammash.dds"
+									ideology = Autocracy
+									traits = {
+										emerging_Autocracy
+									}
+								}
+							}
+						}
+					}
+				}
+				if = { # Badr Victory
+					limit = {
+						has_country_flag = IRQ_badr_oponent
+						has_war = no
+					}
+					news_event = iraqi_flavor_events.9
+					IRQ = {
+						annex_country = {
+							target = MDA
+							transfer_troops = yes
+						}
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+						clr_global_flag = IRQ_has_shia_civil_war
+						set_temp_variable = { add_col_one = 9 }
+						add_coalition_members_effect = yes
+						set_temp_variable = { add_col_two = 6 }
+						add_coalition_members_effect = yes
+						set_temp_variable = { rul_party_temp = 8 }
+						change_ruling_party_effect = yes
+						set_political_party = {
+							ideology = communism
+							popularity = 48
+						}
+						set_cosmetic_tag = IRQ_NEW
+						set_variable = { dynamic_flag_variant = 1 }
+						set_temp_variable = { percent_change = 3.50 }
+						set_temp_variable = { tag_index = PER }
+						set_temp_variable = { influence_target = IRQ }
+						change_influence_percentage = yes
+					}
+				}
+				if = { # Sadrist Victory
+					limit = {
+						has_country_flag = IRQ_sadr_oponent
+					}
+					news_event = iraqi_flavor_events.8
+					IRQ = {
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+						clr_global_flag = IRQ_has_shia_civil_war
+					}
+				}
+				if = { # Iraqi Government Victory: no insurgent faction remains
+					limit = {
+						IRQ = { has_war = no }
+						NOT = {
+							OR = {
+								has_country_flag = IRQ_Islamic_Army_in_Iraq
+								has_country_flag = IRQ_hamas_of_iraq
+								has_country_flag = IRQ_1920_revolution_brigades
+								has_country_flag = IRQ_GMCIR
+								has_country_flag = IRQ_AlAwda
+								has_country_flag = IRQ_badr_oponent
+								has_country_flag = IRQ_sadr_oponent
+							}
+						}
+						NOT = {
+							OR = {
+								country_exists = ISI
+								country_exists = GMC
+								country_exists = AWD
+								country_exists = NTR
+								country_exists = ATC
+								country_exists = HII
+								country_exists = IAI
+							}
+						}
+					}
+					news_event = axis_of_resistance_events.33
+					IRQ = {
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clr_country_flag = is_IRAQ
+					}
+				}
+			}
+			# Iraqi Forces Scatter
+			if = {
+				limit = {
+					has_country_flag = IRQ_war_with_america
+					ROOT = {
+						original_tag = IRQ
+						NOT = { has_country_flag = is_iraq_mnf }
+					}
+					FROM = {
+						OR = {
+							original_tag = USA
+							has_country_flag = is_iraq_mnf
+						}
+					}
+				}
+				IRQ = {
+					if = {
+						limit = { NOT = { has_country_flag = IRQ_iraqi_forces_scatter } }
+						set_country_flag = IRQ_iraqi_forces_scatter
+						country_event = { id = iraq_war.9 days = 1 }
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = ETH_victory_ERI }
+						ROOT = { original_tag = ERI }
+						FROM = { original_tag = ETH }
+					}
+					ERI = {
+						kill_country_leader = yes
+						every_owned_state = { ETH = { transfer_state = PREV } }
+					}
+					set_global_flag = ETH_victory_ERI
+				}
+				else = {
+					news_event = { id = country_capitulated.0 days = 1 }
+				}
+
+			if = {
+				limit = {
+					ROOT = { original_tag = ISR }
+					FROM = { original_tag = PER }
+				}
+
+				PER = {
+					country_event = {
+						id = iranian_events.7
+						days = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = HEZ }
+					FROM = { original_tag = ARM }
+				}
+
+				if = {
+					limit = {
+						NKR = { is_subject_of = AZE }
+					}
+
+					AZE = {
+						end_puppet = NKR
+						white_peace = ARM
+					}
+					ARM = { puppet = NKR }
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { original_tag = NKR }
+					FROM = { original_tag = AZE }
+				}
+
+				if = {
+					limit = {
+						NKR = { is_subject_of = ARM }
+					}
+
+					ARM = { end_puppet = NKR }
+					AZE = {
+						puppet = NKR
+						white_peace = ARM
+						remove_ideas = {
+							AZE_karabakh_revanchism
+							AZE_karabakh_defeat
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					has_game_rule = { rule = rule_md_annex option = yes }
+				}
+				country_event = {
+					id = annex_game_rule.3
+					days = 2
+				}
+			}
+
+			#Fuck your shitty dynamic tag system pdx
+			FROM = {
+				if = {
+					limit = {
+						has_country_flag = dynamic_flag
+						has_civil_war = yes
+						NOT = {
+							OR = {
+								TAG = original_tag
+								has_country_flag = is_civil_war_faction
+							}
+						}
+					}
+					clr_country_flag = dynamic_flag
+					clr_country_flag = dynamic_rebel_flag
+					set_country_flag = fix_your_broken_dynamic_tags
+					if = {
+						limit = {
+							OR = {
+								western_autocrats_are_in_power = yes
+								check_variable = { ruling_party = 7 }
+								check_variable = { ruling_party = 13 }
+								check_variable = { ruling_party = 22 }
+							}
+						}
+						meta_effect = {
+							text = { set_cosmetic_tag = [ROOTTAG]_AUTH }
+							ROOTTAG = "[?original_tag.GetTag]"
+						}
+						set_variable = { dynamic_flag_variant = 2 }
+					}
+					else_if = {
+						limit = {
+							OR = {
+								western_autocrats_are_in_power = yes
+								check_variable = { ruling_party = 7 }
+								check_variable = { ruling_party = 13 }
+								check_variable = { ruling_party = 22 }
+							}
+						}
+						meta_effect = {
+							text = { set_cosmetic_tag = [ROOTTAG]_AUTH_S }
+							ROOTTAG = "[?original_tag.GetTag]"
+						}
+						set_variable = { dynamic_flag_variant = 3 }
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 4 }
+								check_variable = { ruling_party = 10 }
+								check_variable = { ruling_party = 19 }
+								check_variable = { ruling_party = 23 }
+							}
+						}
+						meta_effect = {
+							text = { set_cosmetic_tag = [ROOTTAG]_AUTH_S }
+							ROOTTAG = "[?original_tag.GetTag]"
+						}
+						set_variable = { dynamic_flag_variant = 3 }
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 9 }
+								check_variable = { ruling_party = 11 }
+								check_variable = { ruling_party = 21 }
+							}
+						}
+						meta_effect = {
+							text = { set_cosmetic_tag = [ROOTTAG]_AUTH_SS }
+							ROOTTAG = "[?original_tag.GetTag]"
+						}
+						set_variable = { dynamic_flag_variant = 4 }
+					}
+					else = {
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						clear_variable = dynamic_flag_variant
+					}
+				}
+			}
+
+			#Special capitulation for ISIS
+			if = { limit = { original_tag = ISI }
+				# Give Iraqi states first Kurdistan if they've capture them, otherwise return to Iraq
+				every_owned_state = {
+					limit = {
+						is_core_of = IRQ
+						is_controlled_by = KUR
+					}
+					KUR = {
+						set_state_owner = PREV
+					}
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = IRQ
+					}
+					IRQ = {
+						set_state_owner = PREV
+					}
+				}
+				# In Syria, give every non-capital state to its current controller
+				every_owned_state = {
+					limit = {
+						is_core_of = SYR
+					}
+					controller = {
+						transfer_state = PREV
+					}
+				}
+				# Rest to the winner
+				FROM = { annex_country = { target = ISI } }
+			}
+
+			if = {
+				limit = { ROOT = { original_tag = TUR } }
+				if = {
+					limit = { FROM = { original_tag = SER } }
+					ROOT = { set_country_flag = defeated_serbia_achievement }
+				}
+			}
+		}
+	}
+
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation_immediate = {
+		effect = {
+			# Suppress capitulated nations from calling/joining allies — prevents zombie war revivals
+			ROOT = {
+				if = {
+					limit = { NOT = { has_idea = capitulated_nation_no_call_ally } }
+					add_ideas = capitulated_nation_no_call_ally
+				}
+			}
+
+		}
+	}
+
+	#ROOT is winner, FROM is loser (called for all winners against all losers)
+	on_before_peace_conference_start = {
+		effect = {
+			ROOT = {
+				set_country_flag = { flag = peace_winner_flag value = 1 days = 180 }
+			}
+			#Special capitulation for the 2nd Sudanese civil war
+			if = {
+				limit = {
+					NOT = { has_global_flag = second_sudanese_civil_war_over }
+				}
+				#Sudan wins
+				if = {
+					limit = {
+						ROOT = { original_tag = SUD }
+						FROM = { original_tag = SSU }
+					}
+					SUD = {
+						annex_country = {
+							target = SSU
+						}
+					}
+					SSU = {
+						every_core_state = {
+							add_core_of = SUD
+							remove_core_of = SSU
+						}
+					}
+					every_state = {
+						limit = { is_claimed_by = SSU }
+						remove_claim_by = SSU
+					}
+					set_global_flag = second_sudanese_civil_war_over
+					SUD = { hidden_effect = { news_event = { id = SouthSudanNews.3 days = 1 } } }
+				}
+				#South Sudan wins
+				if = {
+					limit = {
+						ROOT = { original_tag = SSU }
+						FROM = { original_tag = SUD }
+					}
+					SSU = {
+						annex_country = {
+							target = SUD
+						}
+						set_capital = { state = 220 }
+					}
+					SUD = {
+						every_core_state = {
+							add_core_of = SSU
+							remove_core_of = SUD
+						}
+					}
+					SSU = {
+						drop_cosmetic_tag = yes
+						clear_variable = dynamic_flag_variant
+						set_cosmetic_tag = NEW_SUDAN
+						set_politics = {
+							ruling_party = ROOT
+							election_frequency = 60
+							elections_allowed = yes
+						}
+					}
+					every_state = {
+						limit = { is_claimed_by = SUD }
+						remove_claim_by = SUD
+					}
+					set_global_flag = second_sudanese_civil_war_over
+					SSU = { hidden_effect = { news_event = { id = SouthSudanNews.3 days = 1 } } }
+				}
+			}
+		}
+	}
+	#Ask for Mil access - FROM is target country
+	on_military_access = {
+		effect = {
+			if = {
+				limit = { ROOT = { tag = CHI } }
+				add_to_variable = { CHI_chinese_aggression = 1 }
+			}
+		}
+	}
+
+	#offer for Mil access to your country - From is target country
+	on_offer_military_access = {
+		effect = {
+		}
+	}
+
+	#From is
+	on_stage_coup = {
+		effect = {
+			FROM = {
+				update_neighbors_effects = yes
+			}
+		}
+	}
+
+	on_coup_succeeded = {
+		effect = {
+			ROOT = {
+				ingame_startup_nations_effect = yes
+			}
+		}
+	}
+
+	#ROOT is winner #FROM gets annexed
+	on_civil_war_end_before_annexation = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						FROM = { tag = ITA }
+						ROOT = { tag = ITA }
+					}
+				}
+				FROM = {
+					if = { limit = { has_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } } remove_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } }
+					delete_units = {
+						division_template = "Volontari"
+						disband = yes
+					}
+					transfer_units_fraction = {
+						target = ROOT
+						size = 1
+						stockpile_ratio = 1
+						army_ratio = 1
+						navy_ratio = 1
+						air_ratio = 1
+					}
+				}
+			}
+			if = { limit = { FROM = { tag = ITA } }
+				ROOT = {
+					if = { limit = { has_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } } remove_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } }
+					delete_units = {
+						division_template = "Volontari"
+						disband = yes
+					}
+					set_variable = { tag_to_grab = FROM.id }
+					update_missile_satellite_inventory = yes
+					country_event = { id = italy_md.68 days = 2 }
+					change_tag_from = FROM
+				}
+			}
+			if = { limit = { ROOT = { tag = ITA } }
+				ROOT = {
+					if = { limit = { has_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } } remove_dynamic_modifier = { modifier = ITA_civil_war_partisan_activity } }
+					delete_units = {
+						division_template = "Volontari"
+						disband = yes
+					}
+					set_variable = { tag_to_grab = FROM.id }
+					update_missile_satellite_inventory = yes
+				}
+			}
+			# Bosnia civil war end
+			if = {
+				limit = {
+					ROOT = { original_tag = BOS }
+					FROM = { original_tag = RSK }
+				}
+				ROOT = { country_event = { id = BOS_events.4 days = 2 } }
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = BOS }
+					FROM = { original_tag = HZG }
+				}
+				ROOT = {
+					set_country_flag = BOS_hzg_civil_war_recovery_pending
+					country_event = { id = BOS_political.20 days = 2 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = RSK }
+					FROM = { original_tag = BOS }
+				}
+				ROOT = {
+					set_country_flag = RSK_civil_war_recovery_pending
+					country_event = { id = BOS_political.20 days = 2 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = HZG }
+					FROM = { original_tag = BOS }
+				}
+				ROOT = {
+					set_country_flag = HZG_civil_war_recovery_pending
+					country_event = { id = BOS_political.20 days = 2 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = RSK
+						has_country_flag = RSK_civil_war_recovery_pending
+					}
+					FROM = { original_tag = HZG }
+				}
+				ROOT = { country_event = { id = BOS_political.20 days = 2 } }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = HZG
+						has_country_flag = HZG_civil_war_recovery_pending
+					}
+					FROM = { original_tag = RSK }
+				}
+				ROOT = { country_event = { id = BOS_political.20 days = 2 } }
+			}
+		}
+	}
+	#ROOT is winner #FROM gets annexed
+	on_civil_war_end = {
+		effect = {
+			if = { limit = { ROOT = { original_tag = ITA } }
+				ROOT = {
+					custom_effect_tooltip = { localization_key = modifies_dynamic_modifier_tt MODIFIER = ITA_multipurpose_modifier }
+					add_to_variable = { ITA_stability_factor_var = 0.6 tooltip = stability_factor_tt }
+					add_to_variable = { ITA_stability_weekly_var = 0.003 tooltip = stability_weekly_tt }
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = GER
+						has_country_flag = GER_constitutional_government
+					}
+				}
+				ROOT = {
+					complete_national_focus = GER_the_constitution_of_germany
+					complete_national_focus = GER_rule_out_article_twenty_one
+				}
+			}
+
+			ROOT = {
+				if = {
+					limit = {
+						check_variable = { debt < FROM.debt }
+					}
+					add_to_variable = { debt = FROM.debt }
+				}
+				if = {
+					limit = {
+						check_variable = { int_investments < FROM.int_investments } #less than
+					}
+					add_to_variable = { int_investments = FROM.int_investments }
+				}
+				if = {
+					limit = { NOT = { has_country_flag = generic_civil_war_skip_elections } }
+					if = {
+						limit = {
+							western_autocrats_are_in_power = yes
+						}
+						set_politics = {
+							ruling_party = democratic
+							elections_allowed = no
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 1 }
+								check_variable = { ruling_party = 2 }
+								check_variable = { ruling_party = 3 }
+							}
+						}
+						set_politics = {
+							ruling_party = democratic
+							elections_allowed = yes
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 4 }
+								check_variable = { ruling_party = 7 }
+								check_variable = { ruling_party = 9 }
+							}
+						}
+						set_politics = {
+							ruling_party = communism
+							elections_allowed = no
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 5 }
+								check_variable = { ruling_party = 6 }
+								check_variable = { ruling_party = 8 }
+							}
+						}
+						set_politics = {
+							ruling_party = communism
+							elections_allowed = yes
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 10 }
+								check_variable = { ruling_party = 11 }
+							}
+						}
+						set_politics = {
+							ruling_party = fascism
+							elections_allowed = no
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 13 }
+								check_variable = { ruling_party = 19 }
+							}
+						}
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 12 }
+								check_variable = { ruling_party = 14 }
+								check_variable = { ruling_party = 15 }
+								check_variable = { ruling_party = 16 }
+								check_variable = { ruling_party = 17 }
+								check_variable = { ruling_party = 18 }
+							}
+						}
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = yes
+						}
+					}
+					else_if = {
+						limit = {
+							OR = {
+								check_variable = { ruling_party = 21 }
+								check_variable = { ruling_party = 22 }
+								check_variable = { ruling_party = 23 }
+							}
+						}
+						set_politics = {
+							ruling_party = nationalist
+							elections_allowed = no
+						}
+					}
+					else_if = {
+						limit = {
+							check_variable = { ruling_party = 20 }
+						}
+						set_politics = {
+							ruling_party = nationalist
+							elections_allowed = yes
+						}
+					}
+				}
+				else = {
+					clr_country_flag = generic_civil_war_skip_elections
+				}
+
+				# Cartel Event
+				if = { limit = { has_dynamic_modifier = { modifier = narco_state_bonuses } }
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+				}
+			}
+
+			if = {
+				limit = { has_country_flag = civil_war_units_spawned_flag }
+
+				delete_units = {
+					division_template = "National Militia"
+					disband = yes
+				}
+			}
+			#South Sudanese civil war end
+			if = {
+				limit = {
+					original_tag = SSU
+					has_global_flag = South_Sudanese_Civil_War
+					NOT = { has_global_flag = South_Sudanese_Civil_War_Over }
+				}
+				hidden_effect = { news_event = { id = SouthSudanNews.1 hours = 6 } }
+				set_global_flag = South_Sudanese_Civil_War_Over
+			}
+			#Sudanese civil war end
+			if = {
+				limit = {
+					original_tag = SUD
+					has_global_flag = Sudan_Conflict_In_Blue_Nile
+					NOT = { has_global_flag = Sudan_Conflict_In_Blue_Nile_Over }
+				}
+				hidden_effect = { news_event = { id = SudanNews.1 hours = 6 } }
+				set_global_flag = Sudan_Conflict_In_Blue_Nile_Over
+				if = {
+					limit = {
+						OR = {
+							has_cosmetic_tag = SUD_SPLMN
+							has_cosmetic_tag = SUD_SRF
+						}
+					}
+					drop_cosmetic_tag = yes
+					clear_variable = dynamic_flag_variant
+					set_country_flag = dynamic_flag
+					set_country_flag = dynamic_rebel_flag
+				}
+			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			# Global System Initialization
+			# Month Configuration for Other Sources
+			set_variable = { global.month = 1 }
+			set_variable = { global.update_monie_ui = 1 }
+			set_variable = { global.storage_scripted_gui_var = 1 }
+			set_variable = { global.general_operating_budget_contribute_percent = 0.0001 }
+
+			ABK = {
+				# on_add does not fire for history-file ideas, so count them manually here.
+				# Must precede the every_country loop below, whose ingame_update_setup reads the counts.
+				recount_global_reserve_currency = yes
+				setup_ruling_party_idea_tokens = yes
+				set_buy_core_state_arrays = yes
+				set_all_prod_arrays = yes
+				set_all_sat_system_tech = yes
+				set_all_OLV_tech = yes
+				set_all_ASAT_tech = yes
+				set_all_KILLSAT_tech = yes
+				set_all_sat_mass = yes
+				set_all_spp_mass = yes
+				set_missile_display_stats = yes
+
+				setup_spending_ladders = yes
+				market_set_starting_values = yes
+				# Expected spending levels
+				setup_initial_expected_spending_by_party = yes
+				# Init Global Variables
+				setup_global_arrays = yes
+				setup_coalition_idea_tokens = yes
+				for_each_scope_loop = {
+					array = global.possible_muslim_brotherhood_nation
+					mb_refresh_relations_effect = yes
+					# on_add does not fire for history-file ideas, so seed the crackdown opinion web manually here
+					if = {
+						limit = { has_idea = muslim_brotherhood_crackdown }
+						mb_apply_crackdown_opinions_effect = yes
+					}
+				}
+				# PMC Setup
+				pmc_variables_setup = yes
+
+				# Missile Configuration
+				international_systems_update = yes
+				# Init Investment System
+				init_investment_system = yes
+
+				set_up_starting_missile_configurations = yes
+				set_initial_cost_resources = yes
+
+				#Trigger on Startup Events
+				MD_event_on_startup_events = yes
+				civil_war_startup_repairs = yes
+
+				# Renewable Randomization Variable Calculations
+				random_renewable_variable_calculation = yes
+
+				set_variable = { global.next_year = global.year }
+				add_to_variable = { global.next_year = 1 }
+			}
+			LBA = {
+				update_gaddafi_family_ideas = yes
+			}
+			HOL = {
+				HOL_evaluate_coalition_focus_loops = yes
+			}
+
+			### for topbar without LaR
+			if = {
+				limit = {
+					NOT = { has_dlc = "La Resistance" }
+				}
+				set_variable = { global.var_missiles_button_x = -57 }
+			}
+
+			# Initialize On Startup
+			set_variable = { global.average_world_productivity = 650 }
+			set_variable = { global.productivity_center = 1000 }
+			set_variable = { global.roi_rate_cap = 0.20 }
+			if = {
+				limit = { has_game_rule = { rule = rule_roi_cap option = point_10 } }
+				set_variable = { global.roi_rate_cap = 0.10 }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = rule_roi_cap option = point_15 } }
+				set_variable = { global.roi_rate_cap = 0.15 }
+			}
+			else_if = {
+				limit = { has_game_rule = { rule = rule_roi_cap option = point_25 } }
+				set_variable = { global.roi_rate_cap = 0.25 }
+			}
+
+			# Intelligence advisors are selected via faction intelligence tab popup - do not pre-activate
+
+			every_country = {
+				setup_employment_variables = yes
+				setup_starting_world_productivity = yes
+				# Bootstrap gdpc_converging_var before any GDP run.
+				# gdpc=0 causes 90% subsistence + near-zero GDP, making any post-run snap useless.
+				# Seeds: North America/Africa = 27.5, Europe = 50. Poor countries self-correct.
+				set_variable = { gdpc_converging_var = overall_productivity }
+				multiply_variable = { gdpc_converging_var = 0.05 }
+				clamp_variable = { var = gdpc_converging_var min = 2 }
+				calculate_influence_percentage = yes #set alignment drifts from influence
+				startup_politics = yes
+				cyber_nation_startup = yes #must precede ingame_update_setup so cyber_capability is set before update_military_rate checks it
+				set_law_vars = yes 	#vars for change laws secondary effects
+				currency_startup = yes #must precede ingame_update_setup so currency_strength is nonzero before income conversion
+				resize_array = { array = year_quarter_inflation_tracker value = inflation_rate_var size = 4 }
+				calculate_inflation_effects = yes
+				ingame_update_setup = yes 	#money system — single pass; fossil/composite plants pre-placed in history/states, reactor stockpile + nuclear-fuel flag pre-placed in history/countries
+				set_variable = { gdpc_converging_var = gdp_per_capita }	#snap for clean weekly-convergence baseline
+				productivity_growth_effect = yes
+				force_update_dynamic_modifier = yes
+				setup_init_factions = yes 	#Initializes the Faction System
+				internal_faction_seed_factions = yes
+				update_neighbors_effects = yes # Updates Neighbor Effects
+				economic_cycle_drift_popularity = yes #drift from neighbor
+				calculate_expected_spending = yes
+				recalculate_law_desires = yes
+				#Make sure all nations are setup for international systems
+				un_recog_setup_check = yes
+
+				set_static_state_modifier_on_game_start = yes
+
+				un_on_game_start_war_add = yes
+
+				#Sets modifiers for microchips and composites
+				microchip_startup = yes
+				add_dynamic_modifier = { modifier = inflation_dynamic_modifier }
+				add_dynamic_modifier = { modifier = currency_effects_modifier }
+
+				if = { limit = { check_variable = { gdp_total < 8 } }
+					multiply_variable = { debt = 0.0125 }
+				}
+
+				# Sets Global vars for investment then resizes array
+				set_variable = { project_build_amount^-1 = 1 }
+				set_variable = { constructable_buildings = 1 }
+				set_country_flag = investments_hide_investment_window
+
+				resize_array = { array = project_array value = 0 size = 15 } # Index starts at 0
+				init_auto_influence_array = yes
+				research_slot_init_for_country = yes
+				IP_idea_configuration = yes
+				mio_catalog_refresh_no_entries_yes = yes
+
+				# AGRICULTURE INIT
+				AGRI_plant_the_seeds = yes
+				# LITERACY RATES INIT
+				EDU_learn_your_ABCs_with_dread = yes
+
+				if = { limit = { has_idea = NATO_member }
+					add_to_tech_sharing_group = NATO_Tech_Share
+				}
+
+				# Implemented Cartel Nations
+				# HOL activates via the Mocro Maffia chain (~2012), not at startup
+				if = { limit = { set_cartel_nation = yes  NOT = { original_tag = HOL } }
+					set_country_flag = is_cartel_nation
+					calculate_cartel_penalty = yes
+				}
+
+				# AI Configuration
+				if = {
+					limit = {
+						is_ai = yes
+						NOT = { MD_special_countries = yes }
+					}
+					give_AI_templates = yes
+					if = { limit = { gifted_income_list = yes }
+						set_variable = { population_tax_rate = 25 }
+						set_variable = { corporate_tax_rate = 20 }
+						add_ideas = MICROSTATE_fix
+					}
+				}
+
+				if = {
+					limit = { is_ai = yes }
+					ai_division_limiter_refresh = yes
+				}
+
+				# Is Arabic Country
+				if = {
+					limit = { is_in_array = { global.arabic_countries = THIS.id } }
+					update_arabic_country_gdp_total_effect = yes
+				}
+
+				set_country_group_flags = yes
+
+				# Calculate Utilities
+				calculate_starting_utility_stockpile = yes
+
+				setup_missile_configuration_effect = yes
+
+				mio_catalog_rebuild_visible_yes = yes
+
+				# Needed for inflation initialization
+				set_variable = { last_quarter_gdp_total = gdp_total }
+				set_variable = { last_quarter_gdpc_total = gdp_per_capita }
+
+				if = { limit = { is_ai = no }
+					add_to_array = { global.player_nations = THIS.id }
+					graph_initial_setup = yes
+
+					set_variable = { MD_tradeview_tab_trade_state = 1 }
+					set_variable = { MD_tradeview_tab_economy_state = 2 }
+
+					country_event = systems.1
+
+					if = {
+						limit = { original_tag = ITA }
+						country_event = italy_md.23
+					}
+					if = {
+						limit = { original_tag = AST }
+						country_event = opening_info_ast.1
+						set_variable = { fossil_fuel_industry_opinion_min = 30 }
+					}
+
+					if = {
+						limit = {
+							has_game_rule = {
+								rule = rule_internal_faction_cost_reduction
+								option = yes
+							}
+						}
+						add_ideas = GAME_RULE_reduce_internal_factions_cost
+					}
+				}
+
+				if = {
+					limit = { is_faction_leader = yes }
+					country_event = { id = faction_goal_cache.2 hours = 1 }
+				}
+			}
+
+			ABK = {
+				# Once-only startup effects (moved from every_country loop)
+				international_systems_update = yes
+				on_startup_euu_action = yes
+				on_startup_international = yes
+				recompute_un_2_3_number = yes
+				recompute_un_sc_required_yes = yes
+				update_global_energy_ui = yes
+
+				# Must follow the every_country loop above, which sets the issuer globals.
+				calculate_reserve_projections = yes
+
+				set_power_ranking_ideas_for_every_country = yes
+
+				# Counter Terror global setup
+				#Moved here so the initilization will work properly
+				counter_terror_global_setup = yes
+
+				# Calculate United Nation's Base Budget'
+				# Flag suppresses the UN.30x revocation popups for recipients whose
+				# start economy already exceeds the thresholds (silent startup strip).
+				set_global_flag = un_initial_subsidy_pass
+				calculate_united_nations_base_budget = yes
+				clr_global_flag = un_initial_subsidy_pass
+
+				every_country = {
+					calculate_starting_mio_size = yes
+
+					if = { limit = { is_ai = yes }
+						yearly_investment_targets_routine = yes
+					}
+				}
+				rebuild_country_classification_arrays = yes
+			}
+		}
+	}
+
+	on_government_change = {
+		effect = {
+			update_government_classification_arrays = yes
+			update_neighbors_effects = yes
+			recalculate_law_desires = yes
+			add_own_ideology_drift = yes
+			# Clearing Economic Drifts
+			economic_cycle_drift_popularity = yes
+			mb_refresh_relations_effect = yes
+			if = {
+				limit = { has_country_flag = elections_in_progress }
+				clr_country_flag = elections_in_progress
+			}
+			# Updates for Cosmetic Tags
+			TUR_government_change = yes
+			GER_government_change = yes
+			IRQ_government_change = yes
+			SOV_government_change = yes
+			# Iranian Ayatollah's
+			PER_asadollah_change = yes
+			PER_saneei_change = yes
+			PER_montazeri_change = yes
+			if = { limit = { original_tag = HOL } HOL_evaluate_coalition_focus_loops = yes }
+			if = {
+				limit = {
+					original_tag = PER
+				}
+				if = {
+					limit = {
+						has_country_flag = PER_backbone_front
+						NOT = {
+							neutrality_neutral_conservatism_are_in_power = yes
+						}
+					}
+					clr_country_flag = PER_backbone_front
+				}
+				if = {
+					limit = {
+						has_country_flag = PER_access_to_this
+						NOT = {
+							OR = {
+								emerging_anarchist_communism_are_in_power = yes
+								has_completed_focus = PER_move_towards_westernization
+							}
+						}
+					}
+					clr_country_flag = PER_access_to_this
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						original_tag = KUW
+						original_tag = SAU
+						original_tag = UAE
+						original_tag = QAT
+						original_tag = BHR
+						original_tag = OMA
+						original_tag = JOR
+						has_cosmetic_tag = SAU_AQ
+						has_cosmetic_tag = SAU_ISI
+					}
+					NOT = {
+						OR = {
+							salafist_caliphate_are_in_power = yes
+							has_country_flag = dynamic_flag
+						}
+					}
+				}
+				set_country_flag = dynamic_flag
+				drop_cosmetic_tag = yes
+				clear_variable = dynamic_flag_variant
+			}
+			# Remove terrorist opinion modifiers when a country is no longer Salafist
+			if = {
+				limit = {
+					NOT = { has_government = fascism }
+				}
+				for_each_scope_loop = {
+					array = wot_terrorist_menace_holders
+					remove_opinion_modifier = {
+						target = ROOT
+						modifier = terrorist_menace
+					}
+					remove_opinion_modifier = {
+						target = ROOT
+						modifier = terrorist_menace_trade
+					}
+				}
+				clear_array = wot_terrorist_menace_holders
+			}
+		}
+	}
+
+	on_puppet = {
+		effect = {
+			if = { limit = { NOT = { has_variable = last_quarter_gdp_total } }
+				FROM = { ROOT = { ingame_startup_nations_effect = yes } }
+			}
+			if = {
+				limit = { is_debug = yes }
+				log = "[GetDateText]: [This.GetName]: country [ROOT.GetName]|[THIS.GetName] is puppeted by [FROM.GetName]"
+			}
+			if = {
+				limit = { FROM = { tag = CHI } }
+				FROM = { add_to_variable = { CHI_chinese_aggression = 5 } }
+			}
+			if = {
+				limit = {
+					FROM = { has_idea = lacks_international_recognition }
+				}
+				FROM = { remove_ideas = lacks_international_recognition }
+			}
+			# ROOT is the new subject, FROM the overlord: pull a puppet into CSTO when its overlord is a member
+			if = {
+				limit = {
+					FROM = { has_idea = CSTO_member }
+					NOT = { has_idea = CSTO_member }
+				}
+				CSTO_join = yes
+			}
+			if = {
+				limit = {
+					PMR = {
+						NOT = { has_cosmetic_tag = PMR_ROM_democratic_subject }
+						is_subject_of = ROM
+					}
+				}
+				PMR = {
+					set_cosmetic_tag = PMR_ROM_democratic_subject
+					add_state_claim = 695
+				}
+			}
+			if = {
+				limit = {
+					is_dynamic_country = yes
+					NOT = {
+						OR = {
+							has_idea = sunni
+							has_idea = shia
+							has_idea = shia_iranian_school
+							has_idea = sufi_islam
+							has_idea = ibadi
+							has_idea = christian
+							has_idea = orthodox_christian
+							has_idea = pluralist
+							has_idea = buddism
+							has_idea = hindu
+							has_idea = judaism
+							has_idea = shinto
+							has_idea = cheondo
+							has_idea = uniate_church
+							has_idea = zoroastrian
+						}
+					}
+				}
+
+				random_other_country = {
+					limit = {
+						is_dynamic_country = no
+						ROOT = { original_tag = PREV }
+					}
+
+					ROOT = {
+						civil_war_replication_effect = yes
+						update_laws_for_new_nation = yes
+
+						set_temp_variable = { nation_to_copy_from = PREV.id }
+						configure_religious_setup = yes
+					}
+				}
+			}
+			reapply_agreement_opinion_modifiers = yes
+
+			if = { limit = { original_tag = TAL } AFG_reapply_taliban_opinion_modifiers = yes }
+
+			# Free operatives held by the new subject.
+			every_country = {
+				limit = {
+					ROOT = { has_captured_operative = PREV }
+				}
+				free_random_operative = {
+					captured_by = ROOT
+					all = yes
+				}
+			}
+		}
+	}
+
+	# ROOT = attacker, FROM = defender
+	on_declare_war = {
+		effect = {
+			# Attacker AI adds defender to their cyber target list
+			if = {
+				limit = {
+					is_ai = yes
+					has_cyber_capability_1 = yes
+				}
+				FROM = { ai_cyber_add_target = yes }
+			}
+
+			# Defender AI adds attacker to their cyber target list
+			FROM = {
+				if = {
+					limit = {
+						is_ai = yes
+						has_cyber_capability_1 = yes
+						NOT = { is_in_array = { array = cyber_active_targets value = ROOT } }
+						check_variable = { cyber_active_targets^num < cyber_max_targets }
+					}
+					add_to_array = { cyber_active_targets = ROOT.id }
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = allow_enable_world_war
+							option = yes
+						}
+					}
+					if = {
+						limit = {
+							FROM = { original_tag = TAI }
+							ROOT = { original_tag = CHI }
+						}
+						USA = {
+							country_event = world_war.2
+						}
+					}
+					if = {
+						limit = {
+							FROM = { original_tag = UKR }
+							ROOT = { original_tag = SOV }
+						}
+						set_global_flag = world_war_russia_start
+						for_each_scope_loop = {
+							array = global.nato_members
+							tooltip = TT_ALL_NATO_MEMBER_NATIONS_GAIN
+							country_event = world_war.7
+						}
+					}
+				}
+
+				# Clears the Energy Load Share
+				if = {
+					limit = { NOT = { has_global_flag = GAME_RULE_disable_energy_load_sharing } }
+					if = {
+						limit = { is_in_array = { ROOT.energy_load_sharing_nations = FROM.id } }
+						FROM = { clr_country_flag = energy_load_sharing_recipient }
+						ROOT = { remove_from_array = { energy_load_sharing_nations = FROM.id } }
+					}
+					if = {
+						limit = { is_in_array = { FROM.energy_load_sharing_nations = ROOT.id } }
+						FROM = { remove_from_array = { energy_load_sharing_nations = ROOT.id } }
+						ROOT = { clr_country_flag = energy_load_sharing_recipient }
+					}
+				}
+
+				# Cancel projects in states controlled by new enemy
+				ROOT = {
+					if = { limit = { check_variable = { active_projects > 0 } }
+						for_each_loop = {
+							array = project_array
+							if = { limit = { check_variable = { v < 0 } }
+								set_variable = { project_type = i }
+								var:project_array^i = {
+									if = {
+										limit = { CONTROLLER = { has_war_with = ROOT } }
+										ROOT = {
+											set_variable = { project = i }
+											log = "AC Project Deletion - [GetDate] [This.GetTag] - on_declare_war - deleted invalid project [?project] in [?project_array^project] [?project_array^project.GetName]"
+											end_project = yes
+										}
+									}
+								}
+							}
+						}
+						clear_variable = project_type
+					}
+				}
+
+				# Civil War Content
+				if = {
+					limit = {
+						ROOT = { original_tag = FROM }
+					}
+					if = {
+						limit = { FROM = { original_tag = SOV } }
+						SOV = {
+							if = {
+								limit = {
+									has_civil_war = yes
+									check_variable = { global.WARSAW_PACT_member^num > 0 }
+								}
+								for_each_scope_loop = {
+									array = global.WARSAW_PACT_member
+									if = {
+										limit = { NOT = { original_tag = SOV } }
+										country_event = sov_warsaw_pact.15
+									}
+								}
+							}
+						}
+					}
+					#assumes ROOT = civil war tag
+					FROM = {
+						add_civil_war_debuff = yes
+						set_country_flag = original_owner_@ROOT
+					}
+					ROOT = {
+						add_civil_war_debuff = yes
+
+						#Politics
+						if = {
+							limit = {
+								NOT = { has_variable = ruling_party }
+							}
+							start_politics_input = yes
+
+							#copy politics
+							for_loop_effect = {
+								end = party_pop_array^num
+								value = v
+								set_variable = { party_pop_array^v = FROM.party_pop_array^v }
+							}
+
+							#realign with new outlook percentages
+							add_up_party_totals = yes
+							set_party_positions = yes
+
+							#check FROM for flag to NOT set leader
+							if = {
+								limit = {
+									FROM = { NOT = { has_country_flag = no_leader_change } }
+								}
+								set_failsafe_change_leader = yes
+								startup_politics = yes
+							}
+						}
+						#VARIABLES
+						set_variable = { var = corporate_tax_rate value = FROM.corporate_tax_rate }
+						set_variable = { var = population_tax_rate value = FROM.population_tax_rate }
+						set_variable = { treasury = FROM.treasury }
+
+						set_temp_variable = { nation_to_copy_from = FROM.id }
+						setup_employment_variables = yes
+
+						#don't get values of original yet - REMINDER -> add it on_civil_war_end
+						set_variable = { debt = 0 }
+						set_variable = { int_investments = 0 }
+
+						#influence
+						set_variable = { domestic_influence_amount = FROM.domestic_influence_amount }
+						if = {
+							limit = { check_variable = { domestic_influence_amount = 0 } }
+							add_to_variable = { domestic_influence_amount = 100 }
+						}
+						#just copy all
+						for_loop_effect = {
+							end = FROM.influence_array^num
+							value = v
+
+							if = {
+								limit = { NOT = { is_in_array = { influence_array = FROM.influence_array^v } } }
+								add_to_array = { influence_array = FROM.influence_array^v }
+								add_to_array = { influence_array_val = FROM.influence_array_val^v }
+							}
+						}
+						recalculate_influence = yes
+
+						#GAME VARIABLES
+						add_political_power = FROM.political_power
+						add_political_power = 400 #bonus
+
+						#LAWS
+						set_variable = { gdp_per_capita = FROM.gdp_per_capita }
+						set_variable = { gdpc_converging_var = FROM.gdpc_converging_var }
+
+						# Copy Internal Factions
+						set_temp_variable = { nation_to_copy_from = FROM.id }
+						copy_internal_factions = yes
+						internal_faction_copy_factions = yes
+
+						#copy leader throughput
+						set_temp_variable = { nation_to_copy_from = FROM.id }
+						copy_subideolgy_leader_throughput = yes
+
+						calculate_influence_percentage = yes #set alignment drifts from influence
+						ingame_update_setup = yes 	#money system
+						setup_init_factions = yes 	#flags for int. factions
+						internal_faction_seed_factions = yes
+						update_neighbors_effects = yes
+						economic_cycle_drift_popularity = yes #drift from neighbor
+
+						#Add into UAR array
+						if = {
+							limit = {
+								FROM = { is_in_array = { global.arabic_countries = THIS.id } }
+							}
+							add_to_array = { global.arabic_countries = THIS.id }
+						}
+
+						#Recognition
+						add_ideas = { lacks_international_recognition }
+
+						#Jihadist uprising
+						if = {
+							limit = {
+								has_government = fascism
+								NOT = { FROM = { has_cosmetic_tag = SAU_AQ } }
+							}
+							FROM = { set_country_flag = fighting_jihadis }
+							jihadist_conversion_setup = yes
+							apply_terrorism_opinion_to_world = yes
+							jihadist_regional_war_declarations = yes
+							if = {
+								limit = {
+									original_tag = AFG
+								}
+								FROM = {
+									every_core_state = {
+										add_core_of = TAL
+									}
+								}
+								TAL = {
+									annex_country = {
+										target = ROOT
+										transfer_troops = yes
+									}
+									declare_war_on = {
+										target = FROM
+										type = annex_everything
+									}
+									apply_terrorism_opinion_to_world = yes
+									add_ideas = intervention_neo_imperialism
+								}
+							}
+							if = {
+								limit = {
+									original_tag = SOM
+								}
+								FROM = {
+									every_core_state = {
+										add_core_of = SHB
+									}
+								}
+								SHB = {
+									annex_country = {
+										target = ROOT
+										transfer_troops = yes
+									}
+									declare_war_on = {
+										target = FROM
+										type = annex_everything
+									}
+									if = {
+										limit = { country_exists = SNA }
+										declare_war_on = {
+											target = SNA
+											type = annex_everything
+										}
+									}
+									if = {
+										limit = { country_exists = JUB }
+										declare_war_on = {
+											target = JUB
+											type = annex_everything
+										}
+									}
+									if = {
+										limit = { country_exists = SWS }
+										declare_war_on = {
+											target = SWS
+											type = annex_everything
+										}
+									}
+									apply_terrorism_opinion_to_world = yes
+									add_ideas = intervention_neo_imperialism
+								}
+							}
+							if = {
+								limit = {
+									country_exists = ISI
+									OR = {
+										original_tag = IRQ
+										original_tag = SYR
+										original_tag = LEB
+										original_tag = TUR
+										original_tag = JOR
+										original_tag = FSA
+										original_tag = KUR
+										original_tag = ROJ
+										original_tag = GNA
+										original_tag = GNC
+										original_tag = HOR
+										original_tag = EGY
+										original_tag = TUN
+									}
+								}
+								ISI = {
+									annex_country = {
+										target = ROOT
+										transfer_troops = yes
+									}
+									declare_war_on = {
+										target = FROM
+										type = annex_everything
+									}
+									every_state = {
+										limit = { is_core_of = FROM }
+										add_core_of = ISI
+									}
+									if = {
+										limit = { PREV = { original_tag = SYR } }
+										if = {
+											limit = { country_exists = FSA }
+											declare_war_on = {
+												target = FSA
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = ROJ }
+											declare_war_on = {
+												target = ROJ
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = FSA } }
+										if = {
+											limit = { country_exists = SYR }
+											declare_war_on = {
+												target = SYR
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = ROJ }
+											declare_war_on = {
+												target = ROJ
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = IRQ } }
+										if = {
+											limit = { country_exists = KUR }
+											declare_war_on = {
+												target = KUR
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = GNA } }
+										if = {
+											limit = { country_exists = GNC }
+											declare_war_on = {
+												target = GNC
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = HOR }
+											declare_war_on = {
+												target = HOR
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = GNC } }
+										if = {
+											limit = { country_exists = GNA }
+											declare_war_on = {
+												target = GNA
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = HOR }
+											declare_war_on = {
+												target = HOR
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = HOR } }
+										if = {
+											limit = { country_exists = GNC }
+											declare_war_on = {
+												target = GNC
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = GNA }
+											declare_war_on = {
+												target = GNA
+												type = annex_everything
+											}
+										}
+										if = {
+											limit = { country_exists = TUA }
+											declare_war_on = {
+												target = TUA
+												type = annex_everything
+											}
+										}
+									}
+									if = {
+										limit = { PREV = { original_tag = YEM } }
+										if = {
+											limit = { country_exists = HOU }
+											declare_war_on = {
+												target = HOU
+												type = annex_everything
+											}
+										}
+									}
+									apply_terrorism_opinion_to_world = yes
+									add_ideas = intervention_neo_imperialism
+								}
+							}
+							if = {
+								limit = { FROM = { has_government = fascism } }
+								set_cosmetic_tag = SAU_AQ
+							}
+						}
+						FROM = {
+							if = {
+								limit = {
+									has_government = fascism
+									if = {
+										limit = { ROOT = { has_government = fascism } }
+										has_cosmetic_tag = SAU_AQ
+									}
+								}
+								ROOT = { set_country_flag = fighting_jihadis }
+								jihadist_conversion_setup = yes
+								apply_terrorism_opinion_to_world = yes
+								jihadist_regional_war_declarations = yes
+							}
+							if = {
+								limit = {
+									original_tag = PER
+									OR = {
+										emerging_hardline_shiite_are_in_power = yes
+										emerging_moderate_shiite_are_in_power = yes
+									}
+								}
+								division_template = {
+									name = "IRGC Militia"
+									regiments = {
+										Mot_Militia_Bat = { x = 0 y = 0 }
+										Mot_Militia_Bat = { x = 0 y = 1 }
+										Mot_Inf_Bat = { x = 1 y = 0 }
+										L_Inf_Bat = { x = 1 y = 1 }
+									}
+									support = {
+										Mot_Recce_Comp = { x = 0 y = 0 }
+										H_Engi_Comp = { x = 0 y = 1 }
+									}
+									priority = 2
+								}
+								capital_scope = {
+									create_unit = {
+										division = "name = \"IRGC Militia\" division_template = \"IRGC Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+										owner = FROM
+										count = 7
+									}
+								}
+							}
+						}
+
+						# LITERACY RATES
+						EDU_learn_to_civil_war = yes
+						# AGRICULTURE
+						AGRI_civil_war = yes
+					}
+
+					# spawn some units in case there are too few
+					if = { limit = { FROM = { check_variable = { num_divisions < 6 } } }
+						FROM = {
+							division_template = {
+								name = "National Militia"
+								is_locked = yes
+								priority = 0
+								regiments = {
+									L_Inf_Bat = { x = 0 y = 0 }
+									L_Inf_Bat = { x = 0 y = 1 }
+									L_Inf_Bat = { x = 0 y = 2 }
+									L_Inf_Bat = { x = 0 y = 3 }
+									Arty_Bat = { x = 1 y = 0 }
+								}
+								support = {
+									L_Recce_Comp = { x = 0 y = 0 }
+									L_Engi_Comp = { x = 0 y = 1 }
+								}
+							}
+
+							set_temp_variable = { div_count = 5 }
+							subtract_from_temp_variable = { div_count = num_divisions }
+
+							if = {
+								limit = { capital_scope = { is_fully_controlled_by = FROM } }
+								capital_scope = {
+									create_unit = {
+										division = "name = \"National Militia\" division_template = \"National Militia\" start_experience_factor = 0.4"
+										owner = FROM
+										count = div_count
+									}
+								}
+							}
+							else = {
+								random_owned_controlled_state = {
+									create_unit = {
+										division = "name = \"National Militia\" division_template = \"National Militia\" start_experience_factor = 0.4"
+										owner = FROM
+										count = div_count
+									}
+								}
+							}
+
+							set_country_flag = civil_war_units_spawned_flag
+						}
+					}
+
+					# same for ROOT
+					if = { limit = { ROOT = { check_variable = { num_divisions < 6 } } }
+						ROOT = {
+							division_template = {
+								name = "National Militia"
+								is_locked = yes
+								priority = 0
+								regiments = {
+									L_Inf_Bat = { x = 0 y = 0 }
+									L_Inf_Bat = { x = 0 y = 1 }
+									L_Inf_Bat = { x = 0 y = 2 }
+									L_Inf_Bat = { x = 0 y = 3 }
+									Arty_Bat = { x = 0 y = 1 }
+								}
+								support = {
+									L_Recce_Comp = { x = 0 y = 0 }
+									L_Engi_Comp = { x = 0 y = 1 }
+								}
+							}
+
+							set_temp_variable = { div_count = 5 }
+							subtract_from_temp_variable = { div_count = num_divisions }
+
+							if = {
+								limit = { capital_scope = { is_fully_controlled_by = ROOT } }
+								capital_scope = {
+									create_unit = {
+										division = "name = \"National Militia\" division_template = \"National Militia\" start_experience_factor = 0.4"
+										owner = ROOT
+										count = div_count
+									}
+								}
+							}
+							else = {
+								random_owned_controlled_state = {
+									create_unit = {
+										division = "name = \"National Militia\" division_template = \"National Militia\" start_experience_factor = 0.4"
+										owner = ROOT
+										count = div_count
+									}
+								}
+							}
+
+							set_country_flag = civil_war_units_spawned_flag
+						}
+					}
+				}
+				FROM = {
+					update_military_rate = yes
+					update_neighbors_effects = yes
+
+					every_neighbor_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							NOT = { is_subject_of = ROOT }
+							NOT = { has_opinion = { target = ROOT value > 50 } }
+							NOT = { is_in_faction_with = ROOT }
+						}
+						set_temp_variable = { percent_change = -5 }
+						set_temp_variable = { tag_index = ROOT.id }
+						set_temp_variable = { influence_target = THIS.id }
+						change_influence_percentage = yes
+					}
+				}
+				ROOT = {
+					update_military_rate = yes
+					update_neighbors_effects = yes
+				}
+
+				# Reduce 15% Influence in This Nation
+				set_temp_variable = { percent_change = -15 }
+				set_temp_variable = { tag_index = ROOT.id }
+				set_temp_variable = { influence_target = FROM.id }
+				change_influence_percentage = yes
+
+				#Chinese aggression increase
+				if = {
+					limit = { ROOT = { tag = CHI } }
+					add_to_variable = { CHI_chinese_aggression = 10 }
+				}
+				# USA declares war on Iraq (OIF)
+				if = {
+					limit = {
+						USA = { has_country_flag = USA_wot_iraqi_freedom }
+						ROOT = { original_tag = USA }
+						FROM = { tag = IRQ }
+					}
+					IRQ = {
+						set_country_flag = IRQ_iraq_war_ongoing
+					}
+					USA = {
+						if = {
+							limit = {
+								NOT = { has_country_flag = USA_triggered_early_oil_crisis }
+							}
+							set_country_flag = USA_triggered_early_oil_crisis
+							country_event = { id = usa_economic_events.38 days = 65 random_days = 80 }
+						}
+					}
+				}
+
+				# Triggers the Anti Bully War Weariness Effect
+				public_war_weariness_effect = yes
+
+				if = {
+					limit = { check_variable = { penalty_factor > 0 } }
+					public_war_weariness_penalty_effect = yes
+				}
+
+				# Russia Foreign Policy/Contact
+				if = {
+					limit = { original_tag = SOV }
+					# Russia Attacking Azerbaijan
+					if = {
+						limit = { FROM = { original_tag = AZE } }
+						####Armenia reaction
+						if = {
+							limit = {
+								country_exists = ARM
+								ARM = {
+									has_war = no
+									OR = {
+										AND = {
+											is_subject = no
+											NOT = { is_in_faction = yes }
+										}
+										has_idea = CSTO_member
+									}
+								}
+							}
+							ARM = { country_event = SOV_Global.2 }
+						}
+						####Turkey reaction
+						if = {
+							limit = {
+								country_exists = TUR
+								TUR = {
+									has_war = no
+									is_subject = no
+								}
+							}
+							TUR = { country_event = SOV_Global.3 }
+						}
+						####Iran reaction
+						if = {
+							limit = {
+								country_exists = PER
+								NOT = { AZE = { is_subject_of = PER } }
+								PER = {
+									is_neighbor_of = AZE
+									has_war = no
+									is_subject = no
+								}
+							}
+							PER = { country_event = SOV_Global.4 }
+						}
+					}
+					# Russia attacking Tajikistan
+					if = {
+						limit = { FROM = { original_tag = TAJ } }
+						#Kyrgyzstan reaction
+						if = {
+							limit = {
+								country_exists = KYR
+								KYR = {
+									is_subject = no
+									NOT = { is_in_faction = yes }
+									has_war = no
+								}
+							}
+							KYR = { country_event = SOV_Global.7 }
+						}
+					}
+					# Russia Attacking Belarus
+					if = {
+						limit = { FROM = { original_tag = BLR } }
+						####Lithinia reaction
+						if = {
+							limit = {
+								country_exists = LIT
+								NOT = { LIT = { is_subject_of = SOV } }
+								LIT = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							LIT = { country_event = SOV_Global.5 }
+						}
+						####Latvia reaction
+						if = {
+							limit = {
+								country_exists = LAT
+								NOT = { LAT = { is_subject_of = SOV } }
+								LAT = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							LAT = { country_event = SOV_Global.5 }
+						}
+						####Estonia reaction
+						if = {
+							limit = {
+								country_exists = EST
+								NOT = { EST = { is_subject_of = SOV } }
+								EST = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							EST = { country_event = SOV_Global.5 }
+						}
+						####Ukraine reaction
+						if = {
+							limit = {
+								country_exists = UKR
+								NOT = { UKR = { is_subject_of = SOV } }
+								UKR = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							UKR = { country_event = SOV_Global.17 }
+						}
+					}
+					# Russia Attacking Kyrgyzstan
+					if = {
+						limit = { FROM = { original_tag = KYR } }
+						####Tajikistan reaction
+						if = {
+							limit = {
+								country_exists = TAJ
+								TAJ = {
+									is_subject = no
+									NOT = { is_in_faction = yes }
+									has_war = no
+								}
+							}
+							TAJ = { country_event = SOV_Global.8 }
+						}
+					}
+					# Russia Attacking Turkmenistan
+					if = {
+						limit = { FROM = { original_tag = TRK } }
+						####Iran reaction
+						if = {
+							limit = {
+								TRK = { NOT = { is_in_faction_with = PER } }
+								country_exists = PER
+								PER = {
+									is_subject = no
+									has_war = no
+								}
+							}
+							PER = { country_event = SOV_Global.9 }
+						}
+					}
+					# Russia Attacking Uzbekistan
+					if = {
+						limit = { FROM = { original_tag = UZB } }
+						####Kyrgystan reaction
+						if = {
+							limit = {
+								UZB = { NOT = { is_in_faction_with = KYR } }
+								country_exists = KYR
+								KYR = {
+									is_subject = no
+									has_war = no
+								}
+							}
+							KYR = { country_event = SOV_Global.11 }
+						}
+						####Iran reaction
+						if = {
+							limit = {
+								UZB = { NOT = { is_in_faction_with = PER } }
+								country_exists = PER
+								PER = {
+									is_subject = no
+									has_war = no
+								}
+							}
+							PER = { country_event = SOV_Global.12 }
+						}
+						####Turkey reaction
+						if = {
+							limit = {
+								UZB = { NOT = { is_in_faction_with = TUR } }
+								country_exists = TUR
+								TUR = {
+									is_subject = no
+									has_war = no
+								}
+							}
+							TUR = { country_event = SOV_Global.13 }
+						}
+					}
+					# Russia Attacking Lithuania
+					if = {
+						limit = { FROM = { original_tag = LIT } }
+						####Belarus Nationalists reaction
+						if = {
+							limit = {
+								country_exists = BLR
+								NOT = { BLR = { is_subject_of = SOV } }
+								NOT = { BLR = { is_subject_of = LIT } }
+								BLR = {
+									OR = {
+										nationalist_right_wing_populists_are_in_power = yes
+										nationalist_monarchists_are_in_power = yes
+									}
+									NOT = { is_in_faction_with = SOV }
+									NOT = { is_in_faction_with = LIT }
+									has_war = no
+								}
+							}
+							BLR = { country_event = SOV_Global.10 }
+						}
+					}
+					# Russia Attacks the Baltics
+					if = {
+						limit = { SOV = { has_completed_focus = SOV_zhirinovsky_secure_baltics } }
+						####Lithinia reaction
+						if = {
+							limit = {
+								country_exists = LIT
+								NOT = { LIT = { is_subject_of = SOV } }
+								LIT = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							LIT = { country_event = SOV_Global.5 }
+						}
+						####Latvia reaction
+						if = {
+							limit = {
+								country_exists = LAT
+								NOT = { LAT = { is_subject_of = SOV } }
+								LAT = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							LAT = { country_event = SOV_Global.5 }
+						}
+						####Estonia reaction
+						if = {
+							limit = {
+								country_exists = EST
+								NOT = { EST = { is_subject_of = SOV } }
+								EST = {
+									NOT = { is_in_faction_with = SOV }
+									has_war = no
+								}
+							}
+							EST = { country_event = SOV_Global.5 }
+						}
+					}
+					# Russia Invades Ukraine
+					if = {
+						limit = { FROM = { original_tag = UKR } }
+						####Belarus Reaction
+						if = {
+							limit = {
+								country_exists = BLR
+								NOT = { BLR = { is_subject_of = SOV } }
+								NOT = { BLR = { is_subject_of = UKR } }
+								BLR = {
+									OR = {
+										nationalist_right_wing_populists_are_in_power = yes
+										nationalist_monarchists_are_in_power = yes
+										has_government = democratic
+									}
+									NOT = { is_in_faction_with = SOV }
+									NOT = { is_in_faction_with = UKR }
+									has_war = no
+								}
+							}
+							BLR = { country_event = SOV_Global.15 }
+						}
+						####Belarus Try to Attack Ukraine
+						if = {
+							limit = {
+								country_exists = BLR
+								BLR = {
+									is_subject = no
+									NOT = {
+										is_in_faction = yes
+									}
+									has_war = no
+								}
+								UKR = {
+									surrender_progress > 0.6
+								}
+								OR = {
+									UKR = { owns_state = 669 }
+									UKR = { owns_state = 1110 }
+									UKR = { owns_state = 1248 }
+								}
+								BLR = {
+									nationalist_right_wing_populists_are_in_power = yes
+									NOT = { is_in_faction_with = SOV }
+									NOT = { is_in_faction_with = UKR }
+									has_war = no
+								}
+							}
+							BLR = { country_event = SOV_Global.19 }
+						}
+						####Transnistria attack?
+						if = {
+							limit = {
+								country_exists = PMR
+								UKR = { surrender_progress > 0.6 }
+								PMR = {
+									is_subject = no
+									NOT = { is_in_faction = yes }
+									NOT = { is_in_faction_with = SOV }
+									NOT = { is_in_faction_with = UKR }
+									has_war = no
+								}
+							}
+							PMR = { country_event = transnistria.44 }
+						}
+					}
+				}
+
+				if = {
+					limit = {
+						NOT = { is_in_array = { global.un_sc_pressure_end_war = ROOT } }
+					}
+					add_to_array = { global.un_sc_pressure_end_war = ROOT }
+				}
+			}
+		}
+	}
+}

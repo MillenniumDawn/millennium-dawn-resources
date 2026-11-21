@@ -1,0 +1,225 @@
+CHA_civil_war_category = {
+	icon = power_struggle
+
+	priority = 200
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_global_flag = CHA_second_civil_war
+			has_idea = CHA_second_civil_war
+			has_idea = CHA_post_war_recovery
+		}
+	}
+}
+
+CHA_sudan_proxy_war_category = {
+	icon = anti_colonial
+
+	priority = 150
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_country_flag = CHA_sudan_tensions
+			has_country_flag = CHA_supports_darfur_rebels
+		}
+	}
+}
+
+CHA_counter_terrorism_category = {
+	icon = infiltration
+
+	priority = 130
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_completed_focus = CHA_counter_terrorism
+			date > 2014.1.1
+		}
+	}
+}
+
+CHA_international_intervention_category = {
+	icon = generic_decision
+
+	priority = 180
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_global_flag = CHA_second_civil_war
+			has_idea = CHA_minurcat_presence
+			has_idea = CHA_eufor_presence
+			has_idea = CHA_french_air_support
+		}
+	}
+}
+
+CHA_tibesti_question_category = {
+	icon = anti_colonial
+
+	priority = 120
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_completed_focus = CHA_tibesti_question
+			has_country_flag = CHA_tibesti_tensions
+		}
+	}
+}
+
+CHA_oil_economy_category = {
+	icon = generic_prospect_for_resources
+
+	priority = 100
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_completed_focus = CHA_oil_economy
+	}
+}
+
+CHA_reconciliation_category = {
+	icon = generic_propaganda
+
+	priority = 160
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		OR = {
+			has_global_flag = CHA_second_civil_war
+			has_idea = CHA_post_war_recovery
+		}
+	}
+}
+
+CHA_economic_development_category = {
+	icon = generic_economy
+
+	priority = 90
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		NOT = { has_global_flag = CHA_second_civil_war }
+	}
+}
+
+CHA_military_modernization_category = {
+	icon = military_operation
+
+	priority = 85
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		always = yes
+	}
+}
+
+CHA_foreign_policy_category = {
+	icon = generic_political_actions
+
+	priority = 80
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		always = yes
+	}
+}
+
+CHA_democratic_governance_category = {
+	icon = generic_political_actions
+
+	priority = 70
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_democratic_path
+	}
+}
+
+CHA_islamist_governance_category = {
+	icon = generic_decision
+
+	priority = 70
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_islamist_path
+	}
+}
+
+CHA_junta_governance_category = {
+	icon = military_operation
+
+	priority = 70
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_junta_path
+	}
+}
+
+CHA_tribal_governance_category = {
+	icon = generic_decision
+
+	priority = 70
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_tribal_path
+	}
+}
+
+CHA_patron_management_category = {
+	icon = generic_political_actions
+
+	priority = 75
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_neocolonial_path
+	}
+}
+
+CHA_pan_african_diplomacy_category = {
+	icon = generic_political_actions
+
+	priority = 75
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_country_flag = CHA_panafrican_path
+	}
+}
+
+CHA_oil_management_category = {
+	icon = generic_prospect_for_resources
+
+	priority = 95
+
+	allowed = { original_tag = CHA }
+
+	visible = {
+		has_completed_focus = CHA_oil_economy
+	}
+}
+

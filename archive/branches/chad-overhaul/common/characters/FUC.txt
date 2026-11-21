@@ -1,0 +1,59 @@
+characters = {
+	FUC_mahamat_nour_abdelkerim = {
+		name = "Mahamat Nour Abdelkerim"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/DAR/small/DAR_air_chief_small.dds"
+				large = "gfx/leaders/DAR/DAR_air_chief.dds"
+			}
+			army = {
+				small = "gfx/leaders/DAR/small/DAR_air_chief_small.dds"
+				large = "gfx/leaders/DAR/DAR_air_chief.dds"
+			}
+		}
+		country_leader = {
+			ideology = Neutral_Autocracy
+			traits = { rebel_leader darfur_connection neutrality_Neutral_Autocracy }
+			expire = "2025.1.1"
+		}
+		corps_commander = {
+			traits = { desert_fox trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	FUC_general = {
+		name = "FUC Field Commander"
+		portraits = {
+			army = {
+				small = "gfx/leaders/DAR/small/DAR_air_chief_small.dds"
+				large = "gfx/leaders/DAR/DAR_air_chief.dds"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = FUC_army_chief
+			allowed = {
+				original_tag = FUC
+			}
+			traits = {
+				army_chief_offensive_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander = {
+			traits = { guerrilla_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+}

@@ -1,0 +1,43 @@
+state = {
+	id = 242
+	name = "STATE_242"
+
+	history = {
+		owner = KEN
+		victory_points = {
+			1939 10
+		}
+		victory_points = {
+			5079 1
+		}
+		victory_points = {
+			9172 1
+		}
+		buildings = {
+			infrastructure = 1
+			internet_station = 0
+			air_base = 4
+			offices = 1
+			arms_factory = 1
+			industrial_complex = 2
+			fossil_powerplant = 2
+
+			rail_terminal = 1
+		}
+		set_variable = { state_renewable_capacity_factor_modifier_var = 0.827 }
+		add_core_of = KEN
+		set_variable = { productivity_state_var = 750 }
+
+		add_province_modifier = {
+			static_modifiers = { terrain_nairobi }
+			province = { id = 1939 }
+		}
+	}
+
+	provinces = {
+		1939 6020 6739 2066 5079 9172 13691 13692 13693 13694 13695 13714
+	}
+	manpower = 10519192
+	buildings_max_level_factor = 1.000
+	state_category = state_09
+}

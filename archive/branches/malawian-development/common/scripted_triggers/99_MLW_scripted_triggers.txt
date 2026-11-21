@@ -1,0 +1,1972 @@
+MLW_GCC_nation = {
+	OR = {
+		is_in_array = { global.gcc_members = THIS }
+		is_in_array = { global.possible_gcc_members = THIS }
+	}
+}
+
+MLW_MSCC_worker_cost_trigger = {
+	if = {
+		limit = {
+			MLW = {
+				has_completed_focus = MLW_gcc_megaprojects
+				NOT = { has_completed_focus = MLW_gcc_constructors }
+			}
+		}
+		set_temp_variable = { MLW_GCC_worker_cost_temp = 6 }
+		if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = paralyzing_corruption
+						has_idea = crippling_corruption
+						has_idea = rampant_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 0.4 }
+		}
+		else_if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = unrestrained_corruption
+						has_idea = systematic_corruption
+						has_idea = widespread_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 0.8 }
+		}
+		else_if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = medium_corruption
+						has_idea = modest_corruption
+						has_idea = slight_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 1.2 }
+		}
+		else = { multiply_temp_variable = { MLW_GCC_worker_cost_temp = 1.6 } }
+	}
+	else_if = {
+		limit = {
+			MLW = {
+				has_completed_focus = MLW_gcc_megaprojects
+				has_completed_focus = MLW_gcc_constructors
+			}
+		}
+		set_temp_variable = { MLW_GCC_worker_cost_temp = 3 }
+		if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = paralyzing_corruption
+						has_idea = crippling_corruption
+						has_idea = rampant_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 0.8 }
+		}
+		else_if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = unrestrained_corruption
+						has_idea = systematic_corruption
+						has_idea = widespread_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 1.6 }
+		}
+		else_if = {
+			limit = {
+				MLW = {
+					OR = {
+						has_idea = medium_corruption
+						has_idea = modest_corruption
+						has_idea = slight_corruption
+					}
+				}
+			}
+			multiply_temp_variable = { MLW_GCC_worker_cost_temp = 2.4 }
+		}
+		else = { multiply_temp_variable = { MLW_GCC_worker_cost_temp = 3.2 } }
+	}
+}
+
+MLW_EU_nation = {
+	OR = {
+		is_in_array = { global.EU_member = THIS }
+		is_in_array = { global.EU_potential = THIS }
+	}
+}
+
+MLW_ZAM_has_continued_the_JPCC = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_ZAM_has_continued_the_JPCC_TT
+		ZAM = { has_country_flag = ZAM_JPCC_continues }
+	}
+}
+
+MLW_JPCC_conferences_not_underway = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_JPCC_conferences_not_underway_TT
+		NOT = { has_country_flag = MLW_JPCC_conferences_held }
+	}
+}
+
+MLW_JPCC_troop_coordination_not_underway = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_JPCC_troop_coordination_not_underway_TT
+		NOT = { has_country_flag = MLW_JPCC_coordination_underway }
+	}
+}
+
+MLW_JPCC_border_security_operation_not_underway = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_JPCC_border_security_operation_not_underway_TT
+		NOT = { has_country_flag = MLW_JPCC_border_security_operations }
+	}
+}
+
+MLW_JPCC_wargames_not_underway = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_JPCC_wargames_underway_TT
+		NOT = { has_country_flag = MLW_wargames_held }
+	}
+}
+
+MLW_LW_MBEYA = { check_variable = { ROOT.MLW_LW_state_selected = 1045.id } }
+MLW_LW_NJOMBE = { check_variable = { ROOT.MLW_LW_state_selected = 1046.id } }
+MLW_LW_WESTRUVUMA = { check_variable = { ROOT.MLW_LW_state_selected = 1047.id } }
+MLW_LW_WESTNIASSA = { check_variable = { ROOT.MLW_LW_state_selected = 1049.id } }
+
+MLW_LW_border_correction_visible_check = {
+	if = {
+		limit = { MLW_LW_MBEYA = yes }
+		1045 = { NOT = { has_state_flag = MLW_LW_border_corrected_FLAG } }
+	}
+	if = {
+		limit = {
+			OR = {
+				MLW_LW_NJOMBE = yes
+				MLW_LW_WESTRUVUMA = yes
+			}
+		}
+		always = no
+	}
+	if = {
+		limit = { MLW_LW_WESTNIASSA = yes }
+		1049 = { NOT = { has_state_flag = MLW_LW_border_corrected_FLAG } }
+	}
+}
+
+MLW_LW_city_twinning_available_check = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_LW_city_twinning_available_check_TT
+		if = {
+			limit = { MLW_LW_MBEYA = yes }
+			1045 = { NOT = { has_state_flag = MLW_LW_twinned_city } }
+		}
+		if = {
+			limit = { MLW_LW_NJOMBE = yes }
+			1046 = { NOT = { has_state_flag = MLW_LW_twinned_city } }
+		}
+		if = {
+			limit = { MLW_LW_WESTRUVUMA = yes }
+			1047 = { NOT = { has_state_flag = MLW_LW_twinned_city } }
+		}
+		if = {
+			limit = { MLW_LW_WESTNIASSA = yes }
+			1049 = { NOT = { has_state_flag = MLW_LW_twinned_city } }
+		}
+	}
+}
+
+MLW_LW_encourage_immigration_visible_check = {
+	if = {
+		limit = { MLW_LW_MBEYA = yes }
+		1045 = { has_state_flag = MLW_LW_twinned_city }
+	}
+	if = {
+		limit = { MLW_LW_NJOMBE = yes }
+		1046 = { has_state_flag = MLW_LW_twinned_city }
+	}
+	if = {
+		limit = { MLW_LW_WESTRUVUMA = yes }
+		1047 = { has_state_flag = MLW_LW_twinned_city }
+	}
+	if = {
+		limit = { MLW_LW_WESTNIASSA = yes }
+		1049 = { has_state_flag = MLW_LW_twinned_city }
+	}
+}
+
+MLW_LW_special_economic_zone_available_check = {
+	if = {
+		limit = {
+			OR = {
+				MLW_LW_MBEYA = yes
+				MLW_LW_NJOMBE = yes
+				MLW_LW_WESTRUVUMA = yes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_special_economic_zone_available_check_TNZ_TT
+			TNZ = { has_country_flag = trade_agreement@ROOT }
+		}
+	}
+	if = {
+		limit = { MLW_LW_WESTNIASSA = yes }
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_special_economic_zone_available_check_MOZ_TT
+			MOZ = { has_country_flag = trade_agreement@ROOT }
+		}
+	}
+}
+
+# MLW_LW_diplomatic_progress
+# MLW_LW_militarist_progress
+
+MLW_LW_10_diplo_check = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_LW_10_diplo_check_TT
+		if = {
+			limit = { MLW_LW_MBEYA = yes }
+			1045 = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_NJOMBE = yes }
+			1046 = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_WESTRUVUMA = yes }
+			1047 = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_WESTNIASSA = yes }
+			1049 = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+		}
+	}
+}
+
+MLW_LW_10_military_check = {
+	custom_trigger_tooltip = {
+		tooltip = MLW_LW_10_military_check_TT
+		if = {
+			limit = { MLW_LW_MBEYA = yes }
+			1045 = { check_variable = { MLW_LW_militarist_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_NJOMBE = yes }
+			1046 = { check_variable = { MLW_LW_militarist_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_WESTRUVUMA = yes }
+			1047 = { check_variable = { MLW_LW_militarist_progress > 9 } }
+		}
+		if = {
+			limit = { MLW_LW_WESTNIASSA = yes }
+			1049 = { check_variable = { MLW_LW_militarist_progress > 9 } }
+		}
+	}
+}
+
+
+MLW_LW_bordering_state_visible_check = {
+	if = {
+		limit = { MLW_LW_MBEYA = yes }
+		OR = {
+			259 = { is_controlled_by = MLW }
+			1046 = { is_controlled_by = MLW }
+		}
+	}
+	if = {
+		limit = { MLW_LW_NJOMBE = yes }
+		OR = {
+			1045 = { is_controlled_by = MLW }
+			1047 = { is_controlled_by = MLW }
+		}
+	}
+	if = {
+		limit = { MLW_LW_WESTRUVUMA = yes }
+		OR = {
+			1046 = { is_controlled_by = MLW }
+			1049 = { is_controlled_by = MLW }
+		}
+	}
+	if = {
+		limit = { MLW_LW_WESTNIASSA = yes }
+		OR = {
+			260 = { is_controlled_by = MLW }
+			1047 = { is_controlled_by = MLW }
+		}
+	}
+}
+
+MLW_LW_hybrid_warfare_available_check = {
+	if = {
+		limit = { MLW_LW_MBEYA = yes }
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_1045_TT
+			1045 = { NOT = { has_state_flag = MLW_LW_hybrid_warfare_FLAG } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_variable_for_1045_TT
+			1045 = { check_variable = { MLW_LW_hybrid_warfare < 5 } }
+		}
+	}
+	if = {
+		limit = { MLW_LW_NJOMBE = yes }
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_1046_TT
+			1046 = { NOT = { has_state_flag = MLW_LW_hybrid_warfare_FLAG } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_variable_for_1046_TT
+			1046 = { check_variable = { MLW_LW_hybrid_warfare < 5 } }
+		}
+	}
+	if = {
+		limit = { MLW_LW_WESTRUVUMA = yes }
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_1047_TT
+			1047 = { NOT = { has_state_flag = MLW_LW_hybrid_warfare_FLAG } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_variable_for_1047_TT
+			1047 = { check_variable = { MLW_LW_hybrid_warfare < 5 } }
+		}
+	}
+	if = {
+		limit = { MLW_LW_WESTNIASSA = yes }
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_1049_TT
+			1049 = { NOT = { has_state_flag = MLW_LW_hybrid_warfare_FLAG } }
+		}
+		custom_trigger_tooltip = {
+			tooltip = MLW_LW_hybrid_warfare_available_check_variable_for_1049_TT
+			1049 = { check_variable = { MLW_LW_hybrid_warfare < 5 } }
+		}
+	}
+}
+
+# LAKESIDE TRIGGERS
+	MLW_owns_no_lake_states = {
+		NOT = {
+			owns_state = 1045
+			owns_state = 1046
+			owns_state = 1047
+			owns_state = 1049
+		}
+	}
+
+	MLW_owns_one_lake_state = {
+		count_triggers = {
+			amount = 1
+			owns_state = 1045
+			owns_state = 1046
+			owns_state = 1047
+			owns_state = 1049
+		}
+	}
+
+	MLW_owns_two_lake_states = {
+		count_triggers = {
+			amount = 2
+			owns_state = 1045
+			owns_state = 1046
+			owns_state = 1047
+			owns_state = 1049
+		}
+	}
+
+	MLW_owns_three_lake_states = {
+		count_triggers = {
+			amount = 3
+			owns_state = 1045
+			owns_state = 1046
+			owns_state = 1047
+			owns_state = 1049
+		}
+	}
+
+	MLW_owns_all_lake_states = {
+		owns_state = 1045
+		owns_state = 1046
+		owns_state = 1048
+		owns_state = 1049
+	}
+
+
+
+# CORRUPTION
+	MLW_corruption_lock_checker = {
+		if = {
+			limit = { original_tag = MLW }
+			custom_trigger_tooltip = {
+				tooltip = MLW_UDF_corruption_lock_TT
+				NOT = { has_country_flag = MLW_UDF_press_freedoms_FLAG }
+			}
+		}
+	}
+
+# POLICE SPENDING
+	MLW_UDF_police_lock_checker = {
+		if = {
+			limit = { original_tag = MLW }
+			if = {
+				limit = {
+					OR = {
+						has_country_flag = MLW_UDF_citizen_spying
+						has_country_flag = MLW_UDF_police_quotas
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = MLW_police_blocks_TT
+					NOT = {
+						OR = {
+							has_country_flag = MLW_UDF_citizen_spying
+							has_country_flag = MLW_UDF_police_quotas
+						}
+					}
+				}
+			}
+		}
+	}
+	MLW_DPP_police_lock_checker = {
+		if = {
+			limit = { original_tag = MLW }
+			if = {
+				limit = { has_country_flag = MLW_DPP_police_locked }
+				custom_trigger_tooltip = {
+					tooltip = MLW_DPP_police_locked_TT
+					NOT = { has_country_flag = MLW_DPP_police_locked }
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# INDUSTRY
+	# PROSPECTING
+		MLW_able_to_prospect = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_can_prospect_TT
+				NOT = { has_country_flag = MLW_prospecting_underway }
+			}
+		}
+	# CATCH UP
+		ready_to_catch_up_4K = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_catch_up_4K_TT
+				check_variable = { gdp_per_capita > 3.999 }
+			}
+		}
+		ready_to_catch_up_12K = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_catch_up_12K_TT
+				check_variable = { gdp_per_capita > 11.999 }
+			}
+		}
+		ready_to_catch_up_18K = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_catch_up_18K_TT
+				check_variable = { gdp_per_capita > 17.999 }
+			}
+		}
+	# ECO CLEANUPS
+		MLW_not_doing_cleanups = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_not_doing_cleanups_TT
+				NOT = { has_country_flag = MLW_eco_cleanups_occuring }
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+MLW_AIO_GUI_something_is_wrong = {
+	OR = {
+		has_country_flag = MLW_MZ_orders_unfulfilled
+	}
+}
+
+# MZUZU TRIGGERS
+MLW_mzuzu_motors_exists = { # fix
+	custom_trigger_tooltip = {
+		has_country_flag = MLW_mzuzu_motors_founded
+		tooltip = MLW_mzuzu_motors_exists_TT
+	}
+}
+#
+# MLW_MZUZU_buyout_button_visible_check = { always = yes }
+# MLW_MZUZU_buyout_button_enable_check = { always = yes }
+# MLW_MZUZU_industrialise_button_visible_check = { always = yes }
+# MLW_MZUZU_industrialise_button_enable_check = { always = yes }
+# MLW_MZUZU_purchase_land_button_visible_check = {
+# 	if = {
+# 		limit = { has_global_flag = GAME_RULE_MLW_hyper_capitalism }
+# 		always = yes
+# 	}
+# 	else = { THIS = { original_tag = STH } }
+# }
+# MLW_MZUZU_purchase_land_button_enable_check = {
+# 	NOT = { has_mission = MLW_MZ_land_purchase_mission }
+# }
+
+# SADC TRIGGERS
+#
+MLW_SADC_can_decrease_imports = {
+	custom_trigger_tooltip = {
+		check_variable = { MLW_SADC_imports_stored > 0 }
+		tooltip = MLW_SADC_can_decrease_imports_TT
+	}
+}
+MLW_SADC_can_increase_imports = {
+	custom_trigger_tooltip = {
+		check_variable = { MLW_SADC_imports_stored < 50000 }
+		tooltip = MLW_SADC_can_increase_imports_TT
+	}
+}
+MLW_SADC_not_importing_from_self = {
+	custom_trigger_tooltip = {
+		NOT = { check_variable = { ROOT.SADC_tag_selected = ROOT.id } }
+		tooltip = MLW_SADC_not_importing_from_self_TT
+	}
+}
+
+# POLITICAL TRIGGERS # fix
+	# fix
+	#
+	# need to convert these to using the proper TAG_XXX format as above
+
+	# AFORD # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		MLW_AFORD_has_investors = {
+			OR = {
+				has_country_flag = MLW_investors_W1_PAST
+				has_country_flag = MLW_investors_W2_PAST
+				has_country_flag = MLW_investors_W3_PAST
+				has_country_flag = MLW_investors_E1_PAST
+				has_country_flag = MLW_investors_E2_PAST
+				has_country_flag = MLW_investors_A1_PAST
+				has_country_flag = MLW_investors_A2_PAST
+			}
+		}
+		MLW_AFORD_does_not_have_investors = {
+			NOT = { MLW_AFORD_has_investors = yes }
+		}
+		AFORD_is_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_AFORD_is_IG_TT
+				OR = {
+					AFORD_is_tertiary_partner = yes
+					AFORD_is_junior_partner = yes
+					AFORD_is_ruling_party = yes
+					AFORD_is_only_party = yes
+				}
+			}
+		}
+		AFORD_is_NOT_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_AFORD_is_NOT_IG_TT
+				NOT = { AFORD_is_in_government = yes }
+			}
+		}
+		MLW_has_any_policy_enacted_from_AFORD = {
+			custom_trigger_tooltip = {
+				tooltip = has_any_policy_enacted_from_AFORD_TT
+				OR = {
+					has_country_flag = MLW_AFORD_new_generation_ACTIVE
+					has_country_flag = MLW_AFORD_trade_unionism_ACTIVE
+					has_country_flag = MLW_AFORD_MRTU_deals_ACTIVE
+					has_country_flag = MLW_AFORD_education_reforms_ACTIVE
+					has_country_flag = MLW_AFORD_enforced_secularism_ACTIVE
+					has_country_flag = MLW_AFORD_pan_african_unions_ACTIVE
+					has_country_flag = MLW_AFORD_new_schooling_methods_ACTIVE
+					has_country_flag = MLW_AFORD_anticolonialism_ACTIVE
+					has_country_flag = MLW_AFORD_ban_bandaists_ACTIVE
+					has_country_flag = MLW_AFORD_decolonising_the_curriculum_ACTIVE
+				}
+			}
+		}
+		# SPECIFIC SLOTS
+			AFORD_is_tertiary_partner = { # TIER 1
+				NOT = { is_in_array = { gov_coalition_array^0 = 18 } }
+				is_in_array = { gov_coalition_array = 18 }
+			}
+			AFORD_is_NOT_tertiary_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_is_NOT_tertiary_partner_TT
+					NOT = {
+						AFORD_is_in_government = yes
+					}
+				}
+			}
+			AFORD_is_junior_partner = { # TIER 2
+				is_in_array = { gov_coalition_array^0 = 18 }
+			}
+			AFORD_is_NOT_junior_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_is_NOT_junior_partner_TT
+					NOT = {
+						AFORD_is_junior_partner = yes
+						AFORD_is_ruling_party = yes
+						AFORD_is_only_party = yes
+					}
+				}
+			}
+			AFORD_is_ruling_party = { # TIER 3
+				is_in_array = { ruling_party = 18 }
+			}
+			AFORD_is_NOT_ruling_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_is_NOT_ruling_party_TT
+					NOT = {
+						AFORD_is_ruling_party = yes
+						AFORD_is_only_party = yes
+					}
+				}
+			}
+			AFORD_is_only_party = { # TIER 4
+				is_in_array = { ruling_party = 18 }
+				check_variable = { gov_coalition_array^0 = 0 }
+			}
+			AFORD_is_NOT_only_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_is_NOT_only_party_TT
+					NOT = {
+						AFORD_is_only_party = yes
+					}
+				}
+			}
+		# POLICY TIERS
+			AFORD_policy_tier_1 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_T1_TT
+					AFORD_is_in_government = yes
+				}
+			}
+			AFORD_policy_tier_2 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_T2_TT
+					OR = {
+						AFORD_is_ruling_party = yes
+						AFORD_is_junior_partner = yes
+					}
+					NOT = { AFORD_is_tertiary_partner = yes }
+				}
+			}
+			AFORD_policy_tier_3 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_T3_TT
+					AFORD_is_ruling_party = yes
+				}
+			}
+			AFORD_policy_tier_4 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_AFORD_T4_TT
+					AFORD_is_only_party = yes
+				}
+			}
+		# PARTY MECHANIC CHECKS
+			# INTERNAL PARTY POLITICS
+				AFORD_can_resolve_with_moderates_STRENGTH = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_can_resolve_with_moderates_STRENGTH_TT
+						check_variable = { MLW_AFORD_faction_strength^0 > 0.899 }
+					}
+				}
+				AFORD_can_resolve_with_moderates_THREAT = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_can_resolve_with_moderates_THREAT_TT
+						check_variable = { MLW_AFORD_faction_threat^1 < 0.0259 }
+					}
+				}
+				AFORD_radicals_chops_arent_being_busted = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_radicals_chops_arent_being_busted_TT
+						NOT = { has_country_flag = MLW_anti_radical_operation_underway }
+					}
+				}
+				AFORD_solved_infighting = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_infighting_resolved_TT
+						has_country_flag = MLW_AFORD_infighting_resolved
+					}
+				}
+				AFORD_infighting_dissolved_party = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_infighting_tore_us_apart_TT
+						has_country_flag = MLW_AFORD_infighting_tore_us_apart
+					}
+				}
+			# STRONGHOLD
+				# ISOLATIONIST STUFF
+					AFORD_not_doing_isolationist_stuff = {
+						custom_trigger_tooltip = {
+							tooltip = MLW_AFORD_isolationist_stuff_TT
+							NOT = { has_country_flag = MLW_AFORD_doing_isolationist_stuff }
+						}
+					}
+					AFORD_can_stay_isolationist = {
+						custom_trigger_tooltip = {
+							tooltip = MLW_AFORD_can_stay_isolationist_TT
+							check_variable = { MLW_AFORD_strategy_influence^0 > 0.949 }
+						}
+					}
+				# NATIONALIST STUFF
+					AFORD_not_doing_nationalist_stuff = {
+						custom_trigger_tooltip = {
+							tooltip = MLW_AFORD_nationalist_stuff_TT
+							NOT = { has_country_flag = MLW_AFORD_doing_nationalist_stuff }
+						}
+					}
+					AFORD_can_go_nationalist = {
+						custom_trigger_tooltip = {
+							tooltip = MLW_AFORD_can_go_nationalist_TT
+							check_variable = { MLW_AFORD_strategy_influence^1 > 0.799 }
+						}
+					}
+				AFORD_broken_the_stronghold = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_broken_the_stronghold_TT
+						has_country_flag = MLW_AFORD_out_the_north
+					}
+				}
+				AFORD_reclused_to_north = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_reclused_in_the_stronghold_TT
+						has_country_flag = MLW_AFORD_stayed_in_the_north
+					}
+				}
+			# AFORD/MCP FEUD
+				AFORD_MCP_feud_ongoing = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_historic_feud_ongoing_TT
+						has_country_flag = MLW_AFORD_historic_feud_ongoing
+					}
+				}
+				AFORD_MCP_feud_resolved = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_AFORD_historic_feud_ended_TT
+						has_country_flag = MLW_AFORD_historic_feud_ended
+					}
+				}
+	# DPP # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		DPP_is_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_DPP_is_IG_TT
+				OR = {
+					DPP_is_tertiary_partner = yes
+					DPP_is_junior_partner = yes
+					DPP_is_ruling_party = yes
+					DPP_is_only_party = yes
+				}
+			}
+		}
+		DPP_is_NOT_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_DPP_is_NOT_IG_TT
+				NOT = { DPP_is_in_government = yes }
+			}
+		}
+		MLW_has_any_policy_enacted_from_DPP = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_has_any_policy_enacted_from_DPP_TT
+				OR = {}
+			}
+		}
+		# SPECIFIC SLOTS
+			DPP_is_tertiary_partner = { # TIER 1
+				NOT = { is_in_array = { gov_coalition_array^0 = 3 } }
+				is_in_array = { gov_coalition_array = 3 }
+			}
+			DPP_is_NOT_tertiary_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_is_NOT_tertiary_partner_TT
+					NOT = {
+						DPP_is_in_government = yes
+					}
+				}
+			}
+			DPP_is_junior_partner = { # TIER 2
+				is_in_array = { gov_coalition_array^0 = 3 }
+			}
+			DPP_is_NOT_junior_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_is_NOT_junior_partner_TT
+					NOT = {
+						DPP_is_junior_partner = yes
+						DPP_is_ruling_party = yes
+						DPP_is_only_party = yes
+					}
+				}
+			}
+			DPP_is_ruling_party = { # TIER 3
+				is_in_array = { ruling_party = 3 }
+			}
+			DPP_is_NOT_ruling_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_is_NOT_ruling_party_TT
+					NOT = {
+						DPP_is_ruling_party = yes
+						DPP_is_only_party = yes
+					}
+				}
+			}
+			DPP_is_only_party = { # TIER 4
+				is_in_array = { ruling_party = 3 }
+				check_variable = { gov_coalition_array^0 = 0 }
+			}
+			DPP_is_NOT_only_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_is_NOT_only_party_TT
+					NOT = {
+						DPP_is_only_party = yes
+					}
+				}
+			}
+		# POLICY TIERS
+			DPP_policy_tier_1 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_T1_TT
+					DPP_is_in_government = yes
+				}
+			}
+			DPP_policy_tier_2 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_T2_TT
+					OR = {
+						DPP_is_ruling_party = yes
+						DPP_is_junior_partner = yes
+					}
+					NOT = { DPP_is_tertiary_partner = yes }
+				}
+			}
+			DPP_policy_tier_3 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_T3_TT
+					DPP_is_ruling_party = yes
+				}
+			}
+			DPP_policy_tier_4 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_DPP_T4_TT
+					DPP_is_only_party = yes
+				}
+			}
+	# LESOMA # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		LESOMA_is_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_LESOMA_is_IG_TT
+				OR = {
+					LESOMA_is_tertiary_partner = yes
+					LESOMA_is_junior_partner = yes
+					LESOMA_is_ruling_party = yes
+					LESOMA_is_only_party = yes
+				}
+			}
+		}
+		LESOMA_is_NOT_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_LESOMA_is_NOT_IG_TT
+				NOT = { LESOMA_is_in_government = yes }
+			}
+		}
+		# SPECIFIC SLOTS
+			LESOMA_is_tertiary_partner = {
+				NOT = {
+					OR = {
+						is_in_array = { gov_coalition_array^0 = 4 }
+						is_in_array = { gov_coalition_array^0 = 5 }
+						is_in_array = { gov_coalition_array^0 = 19 }
+					}
+				}
+				OR = {
+					is_in_array = { gov_coalition_array = 4 }
+					is_in_array = { gov_coalition_array = 5 }
+					is_in_array = { gov_coalition_array = 19 }
+				}
+			}
+			LESOMA_is_NOT_tertiary_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_is_NOT_tertiary_partner_TT
+					NOT = {
+						LESOMA_is_in_government = yes
+					}
+				}
+			}
+			LESOMA_is_junior_partner = {
+				OR = {
+					is_in_array = { gov_coalition_array^0 = 4 }
+					is_in_array = { gov_coalition_array^0 = 5 }
+					is_in_array = { gov_coalition_array^0 = 19 }
+				}
+			}
+			LESOMA_is_NOT_junior_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_is_NOT_junior_partner_TT
+					NOT = {
+						LESOMA_is_junior_partner = yes
+						LESOMA_is_ruling_party = yes
+						LESOMA_is_only_party = yes
+					}
+				}
+			}
+			LESOMA_is_ruling_party = {
+				OR = {
+					is_in_array = { ruling_party = 4 }
+					is_in_array = { ruling_party = 5 }
+					is_in_array = { ruling_party = 19 }
+				}
+			}
+			LESOMA_is_NOT_ruling_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_is_NOT_ruling_party_TT
+					NOT = {
+						LESOMA_is_ruling_party = yes
+						LESOMA_is_only_party = yes
+					}
+				}
+			}
+			LESOMA_is_only_party = {
+				OR = {
+					is_in_array = { ruling_party = 4 }
+					is_in_array = { ruling_party = 5 }
+					is_in_array = { ruling_party = 19 }
+				}
+				check_variable = { gov_coalition_array^0 = 0 }
+			}
+			LESOMA_is_NOT_only_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_is_NOT_only_party_TT
+					NOT = {
+						LESOMA_is_only_party = yes
+					}
+				}
+			}
+		# POLICY TIERS
+			LESOMA_policy_tier_1 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_T1_TT
+					LESOMA_is_in_government = yes
+				}
+			}
+			LESOMA_policy_tier_2 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_T2_TT
+					OR = {
+						LESOMA_is_ruling_party = yes
+						LESOMA_is_junior_partner = yes
+					}
+					NOT = { LESOMA_is_tertiary_partner = yes }
+				}
+			}
+			LESOMA_policy_tier_3 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_T3_TT
+					LESOMA_is_ruling_party = yes
+				}
+			}
+			LESOMA_policy_tier_4 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_LESOMA_T4_TT
+					LESOMA_is_only_party = yes
+				}
+			}
+	# MCP # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		MLW_has_any_policy_enacted_from_MCP = {
+			custom_trigger_tooltip = {
+				tooltip = has_any_policy_enacted_from_MCP_TT
+				OR = {
+					# TIER 1 POLICIES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1105 } # ANTI CORRUPTION AGENCY
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1112 } # COMMUNITY HEALTHCARE ACT
+					# TIER 2 POLICIES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1124 } # CCAM RENEWAL
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1129 } # MODESTY AND DECENCY LAWS
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1110 } # CONSERVATIVE DRESS CODES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1121 } # CONTRACEPTIVE BANS
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1125 } # ENSHRINED TRADITIONALISM
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1109 } # DECENTRALISED ACA OFFICES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1141 } # ACA TRANSPARENCY LAWS
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1142 } # CORRUPTION WATCHDOG
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1134 } # PRESS FREEDOMS
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1138 } # DOCTORAL FUNDING PROGRAMME
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1133 } # CHRISTIAN MEDICAL AID
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1143 } # ACCESS TO WATER SCHEME
+					# TIER 3 POLICIES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1137 } # RESTRICTIONS ON DEMOCRACY
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1117 } # ANTI PROTEST LAW
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1184 } # RELAUNCHING THE MYP
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1173 } # REARMING THE MYP
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1126 } # MCP MEMBERSHIP MANDATES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1128 } # CONSERVATIVE IMMIGRATION
+					# TIER 4 POLICIES
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1148 } # HERALDING THE NEW NGWAZI
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1150 } # ONE PARTY STATE
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1152 } # TOTAL MEDIA BLACKOUT
+						is_in_array = { MLW.MCP_policies_passed_parliament = 1131 } # CHRISTIAN NATIONALISM
+				}
+			}
+		}
+		# INTERNAL PARTY POLITICS
+			MCP_can_empower_moderates_STRENGTH = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_can_empower_moderates_STRENGTH_TT
+					check_variable = { MLW_MCP_faction_strength^0 > 0.549 }
+				}
+			}
+			MCP_moderates_chops_arent_being_busted = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_moderates_chops_arent_being_busted_TT
+					NOT = { has_country_flag = MLW_anti_moderate_operation_underway }
+				}
+			}
+			MCP_can_empower_hardliners_STRENGTH = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_can_empower_hardliners_STRENGTH_TT
+					check_variable = { MLW_MCP_faction_strength^1 > 0.549 }
+				}
+			}
+			MCP_hardliners_chops_arent_being_busted = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_hardliners_chops_arent_being_busted_TT
+					NOT = { has_country_flag = MLW_anti_hardliner_operation_underway }
+				}
+			}
+		# MCP HARDLINERS
+			MLW_MCP_has_a_commie_in_government = {
+				OR = {
+					is_in_array = { ruling_party = 4 }
+					is_in_array = { ruling_party = 5 }
+					is_in_array = { ruling_party = 18 }
+					is_in_array = { ruling_party = 19 }
+				}
+			}
+			MLW_MCP_has_a_commie_in_coalition = {
+				OR = {
+					is_in_array = { gov_coalition_array = 4 }
+					is_in_array = { gov_coalition_array = 5 }
+					is_in_array = { gov_coalition_array = 18 }
+					is_in_array = { gov_coalition_array = 19 }
+				}
+			}
+			MLW_MCP_is_not_running_interference = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_running_interference_check_TT
+					NOT = { has_country_flag = MLW_MCP_running_interference }
+				}
+			}
+			MLW_MCP_moderates_have_been_purged = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_moderates_purged_TT
+					has_country_flag = MLW_MCP_moderates_purged
+				}
+			}
+			MCP_H_is_in_government = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_MCP_H_is_IG_TT
+					OR = {
+						MCP_H_is_tertiary_partner = yes
+						MCP_H_is_junior_partner = yes
+						MCP_H_is_ruling_party = yes
+						MCP_H_is_only_party = yes
+					}
+				}
+			}
+			MCP_H_is_NOT_in_government = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_MCP_H_is_NOT_IG_TT
+					NOT = { MCP_H_is_in_government = yes }
+				}
+			}
+			MCP_H_population_rips_up_document = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_population_trigger_TT
+					has_country_flag = MLW_MCP_1993_referendum_POPULATION
+				}
+			}
+			MCP_H_judges_rips_up_document = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_judges_trigger_TT
+					has_country_flag = MLW_MCP_1993_referendum_JUDGES
+				}
+			}
+			MCP_H_both_rips_up_document = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_both_trigger_TT
+					has_country_flag = MLW_MCP_1993_referendum_BOTH
+				}
+			}
+			MCP_H_not_blocked_from_attempting_policy = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_not_blocked_from_policy_TT
+					NOT = {
+						OR = {
+							has_country_flag = MLW_MCP_supreme_court_intervention
+							has_country_flag = MLW_MCP_protestors_listened_to
+						}
+					}
+				}
+			}
+			# SPECIFIC SLOTS
+				MCP_H_is_tertiary_partner = { # TIER 1
+					NOT = { is_in_array = { gov_coalition_array^0 = 20 } }
+					is_in_array = { gov_coalition_array = 20 }
+				}
+				MCP_H_is_NOT_tertiary_partner = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_is_NOT_tertiary_partner_TT
+						NOT = { MCP_H_is_in_government = yes }
+					}
+				}
+				MCP_H_is_junior_partner = { # TIER 2
+					is_in_array = { gov_coalition_array^0 = 20 }
+				}
+				MCP_H_is_NOT_junior_partner = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_is_NOT_junior_partner_TT
+						NOT = {
+							MCP_H_is_junior_partner = yes
+							MCP_H_is_ruling_party = yes
+							MCP_H_is_only_party = yes
+						}
+					}
+				}
+				MCP_H_is_ruling_party = { # TIER 3
+					is_in_array = { ruling_party = 20 }
+				}
+				MCP_H_is_NOT_ruling_party = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_is_NOT_ruling_party_TT
+						NOT = {
+							MCP_H_is_ruling_party = yes
+							MCP_H_is_only_party = yes
+						}
+					}
+				}
+				MCP_H_is_only_party = { # TIER 4
+					is_in_array = { ruling_party = 20 }
+					check_variable = { gov_coalition_array^0 = 0 }
+				}
+				MCP_H_is_NOT_only_party = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_is_NOT_only_party_TT
+						NOT = { MCP_H_is_only_party = yes }
+					}
+				}
+			# POLICY TIERS
+				MCP_H_policy_tier_1 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_T1_TT
+						MCP_H_is_in_government = yes
+					}
+				}
+				MCP_H_policy_tier_2 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_T2_TT
+						OR = {
+							MCP_H_is_ruling_party = yes
+							MCP_H_is_junior_partner = yes
+						}
+						NOT = { MCP_H_is_tertiary_partner = yes }
+					}
+				}
+				MCP_H_policy_tier_3 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_T3_TT
+						MCP_H_is_ruling_party = yes
+					}
+				}
+				MCP_H_policy_tier_4 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_H_T4_TT
+						MCP_H_is_only_party = yes
+					}
+				}
+		# MCP MODERATES
+			MCP_M_is_in_government = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_MCP_M_is_IG_TT
+					OR = {
+						MCP_M_is_tertiary_partner = yes
+						MCP_M_is_junior_partner = yes
+						MCP_M_is_ruling_party = yes
+						MCP_M_is_only_party = yes
+					}
+				}
+			}
+			MCP_M_is_NOT_in_government = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_MCP_M_is_NOT_IG_TT
+					NOT = { MCP_M_is_in_government = yes }
+				}
+			}
+			MLW_MCP_hardliners_have_been_purged = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_MCP_hardliners_purged_TT
+					has_country_flag = MLW_MCP_hardliners_purged
+				}
+			}
+			# SPECIFIC SLOTS
+				MCP_M_is_tertiary_partner = { # TIER 1
+					NOT = { is_in_array = { gov_coalition_array^0 = 14 } }
+					is_in_array = { gov_coalition_array = 14 }
+				}
+				MCP_M_is_NOT_tertiary_partner = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_is_NOT_tertiary_partner_TT
+						NOT = { MCP_M_is_in_government = yes }
+					}
+				}
+				MCP_M_is_junior_partner = { # TIER 2
+					is_in_array = { gov_coalition_array^0 = 14 }
+				}
+				MCP_M_is_NOT_junior_partner = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_is_NOT_junior_partner_TT
+						NOT = {
+							MCP_M_is_junior_partner = yes
+							MCP_M_is_ruling_party = yes
+							MCP_M_is_only_party = yes
+						}
+					}
+				}
+				MCP_M_is_ruling_party = { # TIER 3
+					is_in_array = { ruling_party = 14 }
+				}
+				MCP_M_is_NOT_ruling_party = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_is_NOT_ruling_party_TT
+						NOT = {
+							MCP_M_is_ruling_party = yes
+							MCP_M_is_only_party = yes
+						}
+					}
+				}
+				MCP_M_is_only_party = { # TIER 4
+					is_in_array = { ruling_party = 14 }
+					check_variable = { gov_coalition_array^0 = 0 }
+				}
+				MCP_M_is_NOT_only_party = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_is_NOT_only_party_TT
+						NOT = { MCP_M_is_only_party = yes }
+					}
+				}
+			# POLICY TIERS
+				MCP_M_policy_tier_1 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_T1_TT
+						MCP_M_is_in_government = yes
+					}
+				}
+				MCP_M_policy_tier_2 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_T2_TT
+						OR = {
+							MCP_M_is_ruling_party = yes
+							MCP_M_is_junior_partner = yes
+						}
+						NOT = { MCP_M_is_tertiary_partner = yes }
+					}
+				}
+				MCP_M_policy_tier_3 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_T3_TT
+						MCP_M_is_ruling_party = yes
+					}
+				}
+				MCP_M_policy_tier_4 = {
+					custom_trigger_tooltip = {
+						tooltip = MLW_politics_MCP_M_T4_TT
+						MCP_M_is_only_party = yes
+					}
+				}
+		# MCP GUI TRIGGERS
+			# POLICY REENACT
+				MLW_AIO_GUI_MCP_can_reenact_law = {
+					if = {
+						limit = { has_variable = MLW_policy_selected }
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_can_reenact_law_TT
+							is_in_array = { MLW.MCP_repealed_policies = ROOT.MLW_policy_selected }
+						}
+					}
+					# TIER 1 POLICIES
+					# TIER 2 POLICIES
+					# TIER 3 POLICIES
+					# TIER 4 POLICIES
+					if = {
+						limit = { NOT = { has_variable = MLW_policy_selected } }
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_no_law_selected_TT
+							always = no
+						}
+					}
+				}
+			# POLICY REPEAL
+				MLW_AIO_GUI_MCP_can_repeal_law = {
+					if = {
+						limit = { has_variable = MLW_policy_selected }
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_can_repeal_law_TT
+							is_in_array = { MLW.MCP_policies_passed_parliament = ROOT.MLW_policy_selected }
+						}
+					}
+					# TIER 1 POLICIES
+						if = { # COMMUNITY HEALTHCARE ACT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+					# TIER 2 POLICIES
+						if = { # MODESTY AND DECENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+							MCP_H_is_NOT_junior_partner = yes
+						}
+						if = { # CONSERVATIVE DRESS CODES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+							MCP_H_is_NOT_junior_partner = yes
+						}
+						if = { # CONTRACEPTIVE BANS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+							MCP_H_is_NOT_junior_partner = yes
+						}
+						if = { # ENSHRINED TRADITIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+							MCP_H_is_NOT_junior_partner = yes
+						}
+						if = { # ACA TRANSPARENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+						if = { # CORRUPTION WATCHDOG
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+						if = { # PRESS FREEDOMS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+						if = { # CHRISTIAN MEDICAL AID
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+						if = { # ACCESS TO WATER SCHEME
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+							MCP_M_is_NOT_junior_partner = yes
+						}
+					# TIER 3 POLICIES
+						if = { # RESTRICTIONS ON DEMOCRACY
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # ANTI PROTEST LAW
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # RELAUNCHING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # REARMING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # MCP MEMBERSHIP MANDATES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # CONSERVATIVE IMMIGRATION
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+					# TIER 4 POLICIES
+						if = { # TOTAL MEDIA BLACKOUT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+						if = { # CHRISTIAN NATIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+							MCP_H_is_NOT_ruling_party = yes
+						}
+					if = {
+						limit = { NOT = { has_variable = MLW_policy_selected } }
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_no_law_selected_TT
+							always = no
+						}
+					}
+				}
+			# FACTIONALISM BUTTONS
+				# MODERATES
+					MLW_AIO_GUI_MCP_F_can_empower_moderates = {
+						MCP_hardliners_chops_arent_being_busted = yes
+						MCP_can_empower_moderates_STRENGTH = yes
+						nationalist_right_wing_populists_are_in_power = yes
+					}
+					MLW_AIO_GUI_MCP_F_can_criticise_bandas_reign = {
+						MCP_hardliners_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+					MLW_AIO_GUI_MCP_F_can_value_democracy = {
+						MCP_hardliners_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+					MLW_AIO_GUI_MCP_F_can_liberalise_conservatism = {
+						MCP_hardliners_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+				# HARDLINERS
+					MLW_AIO_GUI_MCP_F_can_empower_hardliners = {
+						MCP_moderates_chops_arent_being_busted = yes
+						MCP_can_empower_hardliners_STRENGTH = yes
+						neutrality_neutral_conservatism_are_in_power = yes
+					}
+					MLW_AIO_GUI_MCP_F_can_glorify_banda = {
+						MCP_moderates_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+					MLW_AIO_GUI_MCP_F_can_criticise_democracy = {
+						MCP_moderates_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+					MLW_AIO_GUI_MCP_F_can_radicalise_conservatism = {
+						MCP_moderates_chops_arent_being_busted = yes
+						OR = {
+							MCP_H_is_in_government = yes
+							MCP_M_is_in_government = yes
+						}
+					}
+			# REFERENDUM SUPPORT BUTTONS
+				# GENERAL CHECKER
+					MLW_AIO_GUI_MCP_RR_is_not_swaying = {
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_is_not_swaying_TT
+							NOT = { has_country_flag = MLW_MCP_RR_action_underway }
+						}
+					}
+				# JUDGES
+					MLW_AIO_GUI_MCP_RR_has_money_to_sway_judges = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_money_to_sway_judges_TT
+							check_variable = { treasury > 0.999 }
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_judges = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_judges_TT
+							has_political_power > 49
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_judges = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_judges_TT
+							command_power > 29
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_judges = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_judges_money_TT
+							check_variable = { treasury > 2.499 }
+						}
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_judges_pp_TT
+							has_political_power > 24
+						}
+					}
+				# POPULATION
+					MLW_AIO_GUI_MCP_RR_has_money_to_sway_population = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_money_to_sway_population_TT
+							check_variable = { treasury > 1.999 }
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_population = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_population_TT
+							has_political_power > 99
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_population = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_population_TT
+							command_power > 44
+						}
+					}
+					MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_population = {
+						MLW_AIO_GUI_MCP_RR_is_not_swaying = yes
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_population_money_TT
+							check_variable = { treasury > 3.999 }
+						}
+						custom_trigger_tooltip = {
+							tooltip = MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_population_pp_TT
+							has_political_power > 49
+						}
+					}
+	# PP # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		PP_needs_more_policing = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_PP_needs_more_policing_TT
+				NOT = {
+					has_idea = police_01
+					has_idea = police_02
+				}
+			}
+		}
+		PP_is_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_PP_is_IG_TT
+				OR = {
+					PP_is_tertiary_partner = yes
+					PP_is_junior_partner = yes
+					PP_is_ruling_party = yes
+					PP_is_only_party = yes
+				}
+			}
+		}
+		PP_is_NOT_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_PP_is_NOT_IG_TT
+				NOT = { PP_is_in_government = yes }
+			}
+		}
+		# SPECIFIC SLOTS
+			PP_is_tertiary_partner = {
+				NOT = { is_in_array = { gov_coalition_array^0 = 1 } }
+				is_in_array = { gov_coalition_array = 1 }
+			}
+			PP_is_NOT_tertiary_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_is_NOT_tertiary_partner_TT
+					NOT = {
+						PP_is_in_government = yes
+					}
+				}
+			}
+			PP_is_junior_partner = {
+				is_in_array = { gov_coalition_array^0 = 1 }
+			}
+			PP_is_NOT_junior_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_is_NOT_junior_partner_TT
+					NOT = {
+						PP_is_junior_partner = yes
+						PP_is_ruling_party = yes
+						PP_is_only_party = yes
+					}
+				}
+			}
+			PP_is_ruling_party = {
+				is_in_array = { ruling_party = 1 }
+			}
+			PP_is_NOT_ruling_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_is_NOT_ruling_party_TT
+					NOT = {
+						PP_is_ruling_party = yes
+						PP_is_only_party = yes
+					}
+				}
+			}
+			PP_is_only_party = {
+				is_in_array = { ruling_party = 1 }
+				check_variable = { gov_coalition_array^0 = 0 }
+			}
+			PP_is_NOT_only_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_is_NOT_only_party_TT
+					NOT = {
+						PP_is_only_party = yes
+					}
+				}
+			}
+		# POLICY TIERS
+			PP_policy_tier_1 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_T1_TT
+					PP_is_in_government = yes
+				}
+			}
+			PP_policy_tier_2 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_T2_TT
+					OR = {
+						PP_is_ruling_party = yes
+						PP_is_junior_partner = yes
+					}
+					NOT = { PP_is_tertiary_partner = yes }
+				}
+			}
+			PP_policy_tier_3 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_T3_TT
+					PP_is_ruling_party = yes
+				}
+			}
+			PP_policy_tier_4 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_PP_T4_TT
+					PP_is_only_party = yes
+				}
+			}
+	# UDF # fix
+		# fix
+		#
+		# this needs to be standardised, all standard checks up over, all party specific checks
+		# (special party mechanics, etc.) need to be under
+		#
+		#
+		#
+		UDF_follows_constitution = {
+			NOT = {
+				OR = {
+					has_country_flag = MLW_UDF_a_loophole_found
+					has_country_flag = MLW_UDF_no_loophole_for_you
+					has_country_flag = MLW_UDF_referendum_underway
+				}
+			}
+		}
+		UDF_bakili_court_trial_is_over = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_UDF_beginning_policies_finished_TT
+				OR = {
+					has_country_flag = MLW_UDF_bakili_out
+					has_country_flag = MLW_UDF_bakili_stays
+				}
+			}
+		}
+		UDF_has_muluzi_leader = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_UDF_muluzi_family_TT
+				OR = {
+					has_country_leader = { name = "Elson Bakili Muluzi" }
+					has_country_leader = { name = "Atupele Muluzi" }
+					has_country_leader = { name = "Angela Zachepa-Muluzi" }
+				}
+			}
+		}
+		MLW_housing_market_possible = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_housing_market_possible_TT
+				NOT = { has_country_flag = MLW_housing_market_possible_flag }
+			}
+		}
+		MLW_privatisation_interest_rate = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_privatisation_interest_rate_TT
+				check_variable = { interest_rate > 11.999 }
+			}
+		}
+		MLW_privatisation_treasury_contents = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_privatisation_treasury_contents_TT
+				check_variable = { treasury < 5.001 }
+			}
+		}
+		MLW_privatisation_underway = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_privatisation_underway_TT
+				NOT = { has_country_flag = MLW_privatisation_underway_flag }
+			}
+		}
+		MLW_not_aiding_chiefs = { # fix
+			custom_trigger_tooltip = {
+				tooltip = MLW_not_aiding_chiefs_TT # no tooltip loc
+				NOT = {
+					OR = {
+						has_country_flag = MLW_providing_chiefs_aid
+						has_country_flag = MLW_providing_chiefs_concessions
+					}
+				}
+			}
+		}
+		MLW_not_raiding_opposition = { # fix
+			custom_trigger_tooltip = {
+				tooltip = MLW_not_raiding_opposition_TT # no tooltip loc
+				NOT = { has_country_flag = MLW_raids_underway }
+			}
+		}
+		UDF_is_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_is_IG_TT
+				OR = {
+					UDF_is_tertiary_partner = yes
+					UDF_is_junior_partner = yes
+					UDF_is_ruling_party = yes
+					UDF_is_only_party = yes
+				}
+			}
+		}
+		UDF_is_NOT_in_government = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_is_NOT_IG_TT
+				NOT = { UDF_is_in_government = yes }
+			}
+		}
+		MLW_has_any_policy_enacted_from_UDF = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_has_any_policy_enacted_from_UDF_TT
+				OR = {
+					has_country_flag = MLW_UDF_tourist_healthcare_ACTIVE
+					has_country_flag = MLW_UDF_police_complaint_authority_ACTIVE
+					has_country_flag = MLW_UDF_DRC_refugee_visa_ACTIVE
+					has_country_flag = MLW_UDF_RWA_refugee_visa_ACTIVE
+					has_country_flag = MLW_UDF_BUR_refugee_visa_ACTIVE
+					has_country_flag = MLW_UDF_tevet_expansion_ACTIVE
+					has_country_flag = MLW_UDF_youth_ministry_ACTIVE
+					has_country_flag = MLW_UDF_community_health_workers_ACTIVE
+					has_country_flag = MLW_UDF_fishery_assistance_ACTIVE
+					has_country_flag = MLW_UDF_immigration_reform_ACTIVE
+					has_country_flag = MLW_UDF_UNHRC_guidelines_ACTIVE
+					has_country_flag = MLW_UDF_private_schools_ACTIVE
+					has_country_flag = MLW_UDF_teachers_housing_ACTIVE
+					has_country_flag = MLW_UDF_health_worker_benefits_ACTIVE
+					has_country_flag = MLW_UDF_business_outreach_centers_ACTIVE
+					has_country_flag = MLW_UDF_decentralised_police_ACTIVE
+					has_country_flag = MLW_UDF_monitor_the_chatter_ACTIVE
+					has_country_flag = MLW_UDF_private_police_ACTIVE
+					has_country_flag = MLW_UDF_continental_peacekeepers_ACTIVE
+				}
+			}
+		}
+		UDF_immigration_reforms_in_place = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_immigration_reformed_TT
+				has_country_flag = MLW_UDF_immigration_reform_ACTIVE
+			}
+		}
+		UDF_repealed_all_visas = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_no_visas_congo_TT
+				NOT = {
+					has_country_flag = MLW_UDF_DRC_refugee_visa_ACTIVE
+					has_country_flag = MLW_UDF_RWA_refugee_visa_ACTIVE
+					has_country_flag = MLW_UDF_BUR_refugee_visa_ACTIVE
+				}
+			}
+		}
+		UDF_following_UNHRC_guidelines = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_followed_UNHRC_guidelines_TT
+				has_country_flag = MLW_UDF_UNHRC_guidelines_ACTIVE
+			}
+		}
+		UDF_NOT_following_UNHRC_guidelines = {
+			custom_trigger_tooltip = {
+				tooltip = MLW_politics_UDF_NOT_followed_UNHRC_guidelines_TT
+				NOT = { UDF_following_UNHRC_guidelines = yes }
+			}
+		}
+		# SPECIFIC SLOTS
+			UDF_is_tertiary_partner = { # TIER 1
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_tertiary_partner_TT
+					NOT = { is_in_array = { gov_coalition_array^0 = 2 } }
+					is_in_array = { gov_coalition_array = 2 }
+				}
+			}
+			UDF_is_NOT_tertiary_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_NOT_tertiary_partner_TT
+					NOT = {
+						UDF_is_in_government = yes
+					}
+				}
+			}
+			UDF_is_junior_partner = { # TIER 2
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_junior_partner_TT
+					is_in_array = { gov_coalition_array^0 = 2 }
+				}
+			}
+			UDF_is_NOT_junior_partner = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_NOT_junior_partner_TT
+					NOT = {
+						UDF_is_junior_partner = yes
+						UDF_is_ruling_party = yes
+						UDF_is_only_party = yes
+					}
+				}
+			}
+			UDF_is_ruling_party = { # TIER 3
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_ruling_party_TT
+					is_in_array = { ruling_party = 2 }
+				}
+			}
+			UDF_is_NOT_ruling_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_NOT_ruling_party_TT
+					NOT = {
+						UDF_is_ruling_party = yes
+						UDF_is_only_party = yes
+					}
+				}
+			}
+			UDF_is_only_party = { # TIER 4
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_only_party_TT
+					is_in_array = { ruling_party = 2 }
+					check_variable = { gov_coalition_array^0 = 0 }
+				}
+			}
+			UDF_is_NOT_only_party = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_is_NOT_only_party_TT
+					NOT = {
+						UDF_is_only_party = yes
+					}
+				}
+			}
+		# POLICY TIERS
+			UDF_policy_tier_1 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_T1_TT
+					UDF_is_in_government = yes
+				}
+			}
+			UDF_policy_tier_2 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_T2_TT
+					OR = {
+						UDF_is_ruling_party = yes
+						UDF_is_junior_partner = yes
+					}
+					NOT = { UDF_is_tertiary_partner = yes }
+				}
+			}
+			UDF_policy_tier_3 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_T3_TT
+					UDF_is_ruling_party = yes
+				}
+			}
+			UDF_policy_tier_4 = {
+				custom_trigger_tooltip = {
+					tooltip = MLW_politics_UDF_T4_TT
+					UDF_is_only_party = yes
+				}
+			}
+#

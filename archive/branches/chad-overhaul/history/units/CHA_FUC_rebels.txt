@@ -1,0 +1,66 @@
+division_template = {
+	name = "FUC Quwwat Mutamarrida"
+
+	regiments = {
+		Militia_Bat = { x = 0 y = 0 }
+		Militia_Bat = { x = 0 y = 1 }
+		Militia_Bat = { x = 1 y = 0 }
+		Militia_Bat = { x = 1 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name = "1st FUC Brigade"
+		location = 14397
+		division_template = "FUC Quwwat Mutamarrida"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "2nd FUC Brigade"
+		location = 14397
+		division_template = "FUC Quwwat Mutamarrida"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "3rd FUC Brigade"
+		location = 14397
+		division_template = "FUC Quwwat Mutamarrida"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.7
+	}
+}
+
+instant_effect = {
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_1
+		amount = 3000
+		producer = SUD
+	}
+
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_1
+		amount = 1500
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = cnc_equipment_1
+		amount = 100
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = Anti_tank_0
+		amount = 50
+		producer = SOV
+	}
+
+	add_equipment_to_stockpile = {
+		type = util_vehicle_1
+		amount = 200
+		producer = CHA
+	}
+}

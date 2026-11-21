@@ -24,7 +24,7 @@ files keep their original BOMs and line endings.
 
 | Directory                | Contents                                                                                  |
 | ------------------------ | ----------------------------------------------------------------------------------------- |
-| `archive/branches/`      | Diverging files from 17 stale upstream branches, one directory per branch                 |
+| `archive/branches/`      | Diverging files from 34 stale upstream branches, one directory per branch                 |
 | `archive/content/`       | Cut and never-integrated country content, including the Dread submods and Wagner          |
 | `archive/systems/`       | Cut or prototype game systems: space, trade, internal factions, officer corps, and more   |
 | `archive/oobs/`          | Order-of-battle source material, mostly Military Balance PDFs and spreadsheets            |
@@ -32,18 +32,7 @@ files keep their original BOMs and line endings.
 | `archive/spreadsheets/`  | Balance and economy workbooks                                                             |
 | `archive/reference/`     | Loose reference: world map, state category cheat sheet, subideology guides, editor syntax |
 
-### Regenerating `archive/branches/`
-
-The generator still lives in the mod repo, because it reads that repo's branch
-refs. Point it here:
-
-```bash
-cd /path/to/Millennium-Dawn
-python3 tools/archive_stale_branches.py --output ../millennium-dawn-resources/archive/branches
-```
-
-It defaults to that path already, so a plain run works when the two checkouts
-are siblings.
+See the [branch archive index](archive/branches/README.md) for snapshot contents and source tips.
 
 ## Scripts
 

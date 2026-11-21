@@ -1,0 +1,31 @@
+#-------------------------# Great game Oil Control (%) #-------------------------#
+#-------------#  below 25% red, 25–60% amber, and above 60% green #--------------#
+#-------------# If you here and dont understand ask Sheep for help #-------------#
+spriteTypes = {
+	progressbartype = {
+		name = "GFX_oil_ring_danger"
+		steps = 1000
+		size = { x = 140 y = 140 }
+		effectFile = "gfx/FX/oilcontrolring.shader"
+		colortwo = { 0.08 0.08 0.06 0.55 }
+		color = { 0.0  0.0  0.0  1.0  }
+	}
+
+	progressbartype = {
+		name = "GFX_oil_ring_warning"
+		steps = 1000
+		size = { x = 140 y = 140 }
+		effectFile = "gfx/FX/oilcontrolring.shader"
+		colortwo = { 0.08 0.08 0.06 0.55 }
+		color = { 0.5  0.0  0.0  1.0  }
+	}
+
+	progressbartype = {
+		name = "GFX_oil_ring_healthy"
+		steps = 1000
+		size = { x = 140 y = 140 }
+		effectFile = "gfx/FX/oilcontrolring.shader"
+		colortwo = { 0.08 0.08 0.06 0.55 }
+		color = { 1.0  0.0  0.0  1.0  }
+	}
+}

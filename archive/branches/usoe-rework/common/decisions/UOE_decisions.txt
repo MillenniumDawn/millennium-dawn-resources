@@ -1,0 +1,1579 @@
+UOE_culture_balance_cat = {
+	UOE_encourage_western_media = {
+		fire_only_once = no
+		days_remove = 30
+		cost = 50
+		visible = {
+			NOT = { has_country_flag = banned_western_media }
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = -0.05
+			}
+			add_to_variable = { UOE_bop_cult_dif = 0.01 }
+		}
+	}
+	UOE_encourage_eastern_media = {
+		fire_only_once = no
+		days_remove = 30
+		cost = 50
+		visible = {
+			NOT = { has_country_flag = banned_eastern_media }
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = 0.05
+			}
+			add_to_variable = { UOE_bop_cult_dif = 0.01 }
+		}
+	}
+	UOE_ban_western_media_production = {
+		fire_only_once = yes
+		days_remove = 30
+		cost = 100
+		visible = {
+			NOT = { OR = { has_country_flag = banned_eastern_media has_country_flag = banned_western_media } }
+		}
+		complete_effect = {
+			set_country_flag = banned_western_media
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = -0.15
+			}
+			add_stability = -0.05
+			set_temp_variable = { mil_change = 0.10 }
+			UOE_mil_revolt_change = yes
+		}
+	}
+	UOE_ban_eastern_media_production = {
+		fire_only_once = yes
+		days_remove = 30
+		cost = 100
+		visible = {
+			NOT = { OR = { has_country_flag = banned_eastern_media has_country_flag = banned_western_media } }
+		}
+		complete_effect = {
+			set_country_flag = banned_eastern_media
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = 0.15
+			}
+			add_stability = -0.05
+			set_temp_variable = { mil_change = 0.10 }
+			UOE_mil_revolt_change = yes
+		}
+	}
+	UOE_allow_western_demonstrations = {
+		days_remove = 21
+		cost = 150
+		visible = { NOT = { has_country_flag = western_demonstrations_banned } has_country_flag = the_war_begins }
+		complete_effect = {
+			add_stability = 0.05
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = -0.1
+			}
+			every_controlled_state = {
+				add_resistance = -5
+			}
+		}
+	}
+	UOE_allow_eastern_demonstrations = {
+		days_remove = 21
+		cost = 150
+		visible = { NOT = { has_country_flag = eastern_demonstrations_banned } has_country_flag = the_war_begins }
+		complete_effect = {
+			add_stability = 0.05
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = 0.1
+			}
+			every_controlled_state = {
+				add_resistance = -5
+			}
+		}
+	}
+	UOE_prohibit_western_demonstrations = {
+		fire_only_once = yes
+		cost = 300
+		visible = { has_country_flag = the_war_begins }
+		complete_effect = {
+			add_power_balance_modifier = {
+				id = UOE_culture_balance
+				modifier = uoe_western_demonstrations_prohibited_modifier
+			}
+			set_country_flag = western_demonstrations_banned
+			add_stability = -0.15
+		}
+	}
+	UOE_prohibit_eastern_demonstrations = {
+		fire_only_once = yes
+		cost = 300
+		visible = { has_country_flag = the_war_begins }
+		complete_effect = {
+			add_power_balance_modifier = {
+				id = UOE_culture_balance
+				modifier = uoe_eastern_demonstrations_prohibited_modifier
+			}
+			set_country_flag = eastern_demonstrations_banned
+			add_stability = -0.15
+		}
+	}
+	UOE_western_grassroots_campaign = {
+		fire_only_once = no
+		days_remove = 60
+		cost = 100
+		visible = {
+			has_country_flag = the_war_begins
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = -0.05
+			}
+			add_to_variable = { UOE_bop_cult_dif = -0.03 }
+		}
+		modifier = {
+			democratic_drift = 0.01
+			neutrality_drift = 0.01
+			stability_weekly_factor = -0.001
+		}
+	}
+	UOE_eastern_grassroots_campaign = {
+		fire_only_once = no
+		days_remove = 60
+		cost = 100
+		visible = {
+			has_country_flag = the_war_begins
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = 0.05
+			}
+			add_to_variable = { UOE_bop_cult_dif = 0.03 }
+		}
+		modifier = {
+			communism_drift = 0.01
+			nationalist_drift = 0.01
+			stability_weekly_factor = -0.001
+		}
+	}
+	UOE_cultural_unity_event = {
+		fire_only_once = no
+		days_remove = 7
+		cost = 200
+		visible = {
+			has_completed_focus = UOE_Bridge_the_Gap
+		}
+		complete_effect = {
+			effect_tooltip = {
+				set_temp_variable = { treasury_change = -20 }
+				modify_treasury_effect = yes
+			}
+			if = { limit = { power_balance_value = { id = UOE_culture_balance value > 0 } }
+				add_power_balance_value = {
+					id = UOE_culture_balance
+					value = -0.05
+				}
+			}else = {
+				add_power_balance_value = {
+					id = UOE_culture_balance
+					value = 0.05
+				}
+			}
+			if = { limit = { check_variable = { UOE_bop_cult_dif > 0 } }
+				add_to_variable = { UOE_bop_cult_dif = -0.05 }
+			}else = {
+				add_to_variable = { UOE_bop_cult_dif = 0.05 }
+			}
+		}
+	}
+	UOE_american_assistance = {
+		fire_only_once = no
+		days_remove = 180
+		cost = 200
+		visible = {
+			has_completed_focus = UOE_Appeal_to_America
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = -0.1
+			}
+			add_to_variable = { UOE_bop_cult_dif = -0.05 }
+			set_temp_variable = { percent_change = 5 }
+			set_temp_variable = { tag_index = USA }
+			set_temp_variable = { influence_target = UOE }
+			change_influence_percentage = yes
+		}
+		modifier = {
+			stability_weekly_factor = -0.001
+			democratic_drift = 0.02
+		}
+	}
+	UOE_russian_assistance = {
+		fire_only_once = no
+		days_remove = 180
+		cost = 200
+		visible = {
+			has_completed_focus = UOE_Appeal_to_Russia
+		}
+		complete_effect = {
+			add_power_balance_value = {
+				id = UOE_culture_balance
+				value = 0.1
+			}
+			add_to_variable = { UOE_bop_cult_dif = 0.05 }
+			set_temp_variable = { percent_change = 5 }
+			set_temp_variable = { tag_index = SOV }
+			set_temp_variable = { influence_target = UOE }
+			change_influence_percentage = yes
+		}
+		modifier = {
+			stability_weekly_factor = -0.001
+			communism_drift = 0.02
+		}
+	}
+}
+
+UOE_forming_a_government_category = {
+	reassure_the_military = {
+		visible = {
+			NOT = { has_country_flag = military_appeased }
+			NOT = { has_country_flag = military_takeover }
+			has_country_flag = propaganda_machine_started
+		}
+
+		days_remove = 30
+		cost = 100
+
+		complete_effect = {
+			set_temp_variable = { mil_change = -0.05 }
+			UOE_mil_revolt_change = yes
+			add_stability = -0.02
+		}
+	}
+	form_a_government = {
+		available = {
+			has_country_flag = new_government_established
+			has_stability > 0.5
+			custom_trigger_tooltip = {
+				tooltip = recovered_economy_tt
+				NOT = { has_country_flag = unstable_economy }
+			}
+			custom_trigger_tooltip = {
+				tooltip = no_culture_war_tt
+				NOT = { has_power_balance = { id = UOE_culture_balance } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = military_cooperation_tt
+				check_variable = { military_revolt < 0.40 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = government_popularity_tt
+				check_variable = { government_coalition_strength > 0.4 }
+			}
+		}
+
+		activation = { always = no }
+
+		is_good = yes
+
+		selectable_mission = no
+		days_mission_timeout = 1460
+
+		complete_effect = {
+			#congrats, your government wont explode!
+			#grant a positive spirit here, to make people happy
+			set_country_flag = military_appeased
+			remove_mission = military_coup_start
+		}
+		timeout_effect = {
+			#damn, the military wants your face now
+			remove_mission = military_coup_start
+			UOE = {
+				country_event = UOEEvent.1
+			}
+		}
+	}
+	military_coup_start = {
+		available = {
+			OR = {
+				has_stability < 0.01
+				custom_trigger_tooltip = {
+					tooltip = military_revolting_tt
+					check_variable = { military_revolt > 0.99 }
+				}
+			}
+		}
+
+		activation = { always = no }
+
+		selectable_mission = no
+		days_mission_timeout = 365 #365 normally
+
+		complete_effect = {
+			#oops, your government exploded, time to panic
+			activate_mission = countdown_to_revolution
+		}
+
+		timeout_effect = {
+			if = { limit = { has_active_mission = form_a_government }
+				activate_mission = military_coup_start
+			}
+		}
+	}
+	countdown_to_revolution = {
+		available = {
+			has_stability > 0.1
+			custom_trigger_tooltip = {
+				tooltip = military_not_revolting_tt
+				check_variable = { military_revolt < 1 }
+			}
+		}
+
+		activation = { always = no }
+
+		selectable_mission = no
+		days_mission_timeout = 30
+
+		complete_effect = {
+			#you've recovered, but only just
+			activate_mission = military_coup_start
+		}
+
+		timeout_effect = {
+			#coup time!
+			UOE = {
+				country_event = UOEEvent.1
+			}
+		}
+	}
+}
+
+UOE_economic_instability_category = {
+	assist_low_state_growth = {
+		fire_only_once = no
+		days_remove = 180
+		cost = 50
+
+		visible = { has_country_flag = uoe_begin_eco_dev_phil }
+
+		complete_effect = {
+			UOE = { medium_expenditure = yes }
+			every_controlled_state = {
+				limit = { check_variable = { productivity_state_var < UOE.overall_productivity } }
+				add_state_modifier = {
+					modifier = {
+						state_productivity_growth_modifier = 0.1
+					}
+				}
+			}
+		}
+
+		remove_effect = {
+			every_controlled_state = {
+				limit = { check_variable = { productivity_state_var < UOE.overall_productivity } }
+				add_state_modifier = {
+					modifier = {
+						state_productivity_growth_modifier = -0.1
+					}
+				}
+			}
+			set_temp_variable = { unrest_change = -0.05 }
+			UOE_low_prod_unrest_change = yes
+
+			set_temp_variable = { unrest_change = 0.015 }
+			UOE_high_prod_unrest_change = yes
+		}
+	}
+	develop_low_prod_network_infra = {
+		fire_only_once = no
+		days_remove = 200
+		cost = 100
+
+		visible = { has_country_flag = uoe_begin_eco_dev_phil }
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = is_low_prod_tt
+				any_controlled_state = {
+					AND = {
+						check_variable = { productivity_state_var < UOE.overall_productivity }
+						free_building_slots = {
+							building = internet_station
+							size > 1
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			UOE = {
+				medium_expenditure = yes
+			}
+		}
+		remove_effect = {
+			every_controlled_state = {
+				limit = {
+					check_variable = { productivity_state_var < UOE.overall_productivity }
+				}
+				one_state_network_infrastructure = yes
+			}
+			set_temp_variable = { unrest_change = -0.15 }
+			UOE_low_prod_unrest_change = yes
+
+			set_temp_variable = { unrest_change = 0.07 }
+			UOE_high_prod_unrest_change = yes
+		}
+	}
+	country_productivity_program = {
+		fire_only_once = no
+		days_remove = 180
+		cost = 150
+
+		visible = { has_country_flag = uoe_begin_eco_dev_phil }
+
+		complete_effect = {
+			large_expenditure = yes
+		}
+
+		modifier = {
+			country_productivity_growth_modifier = 0.05
+		}
+
+		remove_effect = {
+			set_temp_variable = { unrest_change = -0.10 }
+			UOE_low_prod_unrest_change = yes
+
+			set_temp_variable = { unrest_change = -0.05 }
+			UOE_high_prod_unrest_change = yes
+		}
+	}
+	low_prod_public_campaigns = {
+		fire_only_once = no
+		days_remove = 60
+		cost = 150
+		complete_effect = {
+			medium_expenditure = yes
+			set_temp_variable = { unrest_change = -0.1 }
+			UOE_low_prod_unrest_change = yes
+		}
+	}
+	invest_in_developed_areas = {
+		fire_only_once = no
+		days_remove = 265
+		cost = 200
+
+		visible = { has_country_flag = uoe_begin_eco_dev_phil }
+
+		complete_effect = {
+			random_controlled_state = {
+				limit = { check_variable = { productivity_state_var > UOE.overall_productivity } }
+
+				three_state_office_construction = yes
+			}
+			set_temp_variable = { unrest_change = 0.10 }
+			UOE_low_prod_unrest_change = yes
+		}
+	}
+	encourage_educated_movement = {
+		fire_only_once = no
+		days_remove = 365
+		cost = 300
+
+		visible = { has_country_flag = uoe_begin_eco_dev_phil }
+
+		complete_effect = {
+			large_expenditure = yes
+		}
+		remove_effect = {
+			every_controlled_state = {
+				limit = { check_variable = { productivity_state_var > UOE.overall_productivity } }
+				set_temp_variable = { prod_reduce_var = 0.05 }
+				multiply_temp_variable = { prod_reduce_var = productivity_state_var }
+				subtract_from_variable = { productivity_state_var = prod_reduce_var }
+				UOE = {
+					add_to_temp_variable = { prod_add_var = prod_reduce_var }
+				}
+				custom_effect_tooltip = edu_move_high_tt
+			}
+			divide_temp_variable = { prod_add_var = low_prod_state_count }
+			every_controlled_state = {
+				limit = { check_variable = { productivity_state_var < UOE.overall_productivity } }
+				custom_effect_tooltip = edu_move_low_tt
+				add_to_variable = { productivity_state_var = UOE.prod_add_var }
+			}
+			set_temp_variable = { unrest_change = -0.15 }
+			UOE_low_prod_unrest_change = yes
+
+			set_temp_variable = { unrest_change = 0.2 }
+			UOE_high_prod_unrest_change = yes
+		}
+	}
+	end_economic_crisis = {
+		fire_only_once = yes
+
+		available = {
+			has_completed_focus = UOE_Economic_Expansion
+			custom_trigger_tooltip = {
+				tooltip = good_high_prod_unrest
+				check_variable = { high_prod_unrest < 0.5 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = good_low_prod_unrest
+				check_variable = { low_prod_unrest < 0.5 }
+			}
+
+		}
+
+		cost = 100
+		complete_effect = {
+			set_country_flag = resolved_eco_crisis
+			clr_country_flag = unstable_economy
+			remove_mission = low_prod_state_revolt
+			remove_mission = low_prod_states_leaving
+			remove_mission = high_prod_state_revolt
+			remove_mission = high_prod_states_leaving
+			remove_dynamic_modifier = { modifier = UOE_economic_turmoil_modifier }
+		}
+	}
+	low_prod_state_revolt = {
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = low_prod_states_revolting_now
+				check_variable = { low_prod_unrest > 0.99 }
+			}
+		}
+
+		activation = { always = no }
+
+		selectable_mission = no
+		days_mission_timeout = 365
+
+		complete_effect = {
+			activate_mission = low_prod_states_leaving
+		}
+		timeout_effect = {
+			if = {	limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				activate_mission = low_prod_state_revolt
+			}
+		}
+	}
+	low_prod_states_leaving = {
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = low_prod_state_revolt_stopped
+				check_variable = { low_prod_unrest < 0.95 }
+			}
+		}
+		activation = { always = no }
+
+		is_good = yes
+
+		selectable_mission = no
+		days_mission_timeout = 180
+		complete_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				activate_mission = low_prod_state_revolt
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				country_event = UOEEvent.2
+			}
+		}
+	}
+	high_prod_state_revolt = {
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = high_prod_states_revolting_now
+				check_variable = { high_prod_unrest > 0.99 }
+			}
+		}
+
+		activation = { always = no }
+
+		selectable_mission = no
+		days_mission_timeout = 365
+
+		complete_effect = {
+			activate_mission = high_prod_states_leaving
+		}
+		timeout_effect = {
+			if = { limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				activate_mission = high_prod_state_revolt
+			}
+		}
+	}
+	high_prod_states_leaving = {
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = high_prod_state_revolt_stopped
+				check_variable = { high_prod_unrest < 0.95 }
+			}
+		}
+		activation = { always = no }
+
+		is_good = yes
+
+		selectable_mission = no
+		days_mission_timeout = 2
+		complete_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				activate_mission = high_prod_state_revolt
+			}
+		}
+		timeout_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = resolved_eco_crisis } }
+				country_event = UOEEvent.3
+			}
+		}
+	}
+}
+
+UOE_resource_agency_category = {
+	UOE_union_efficiency_standards = {
+		cost = 75
+		fire_only_once = yes
+		days_remove = 180
+		visible = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		available = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_union_efficiency_standards"
+			set_temp_variable = { temp_change = -0.05 }
+			UOE_energy_use_change = yes
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_integrated_european_grid = {
+		cost = 100
+		fire_only_once = yes
+		days_remove = 180
+		visible = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		available = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_integrated_european_grid"
+			set_temp_variable = { temp_change = 0.05 }
+			UOE_energy_gain_change = yes
+			random_owned_controlled_state = {
+				limit = { renewable_energy_infra < 2 }
+				add_building_construction = {
+					type = renewable_energy_infra
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_household_electrification_program = {
+		cost = 75
+		fire_only_once = yes
+		days_remove = 180
+		visible = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		available = { has_dynamic_modifier = { modifier = UOE_the_energy_crisis_modifier } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_household_electrification_program"
+			set_temp_variable = { temp_change = -0.05 }
+			UOE_pop_energy_change = yes
+			set_temp_variable = { temp_change = -0.05 }
+			UOE_pop_fuel_change = yes
+		}
+		ai_will_do = { base = 1 }
+	}
+}
+
+UOE_transportation_agency_category = {
+	UOE_highway_through_europe_mission = {
+		available = {
+			check_variable = {
+				var = current_highway_level
+				value = target_highway_level
+				compare = greater_than_or_equals
+			}
+		}
+		activation = { always = no }
+		is_good = yes
+		selectable_mission = no
+		days_mission_timeout = 730
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_highway_through_europe_mission"
+			set_temp_variable = { temp_productivity_change = 0.02 }
+			every_controlled_state = {
+				limit = { is_core_of = UOE }
+				state_flat_productivity_change_effect = yes
+			}
+			add_ideas = UOE_superhighway
+			UOE_end_highway_project = yes
+		}
+		timeout_effect = {
+			add_stability = -0.1
+			add_timed_idea = { idea = UOE_failed_superhighway days = 730 }
+			UOE_end_highway_project = yes
+		}
+	}
+}
+
+UOE_construction_agency_category = {
+	UOE_regional_development_commission = {
+		cost = 35
+		days_re_enable = 180
+		available = {
+			check_variable = { treasury > 1 }
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = UOE
+				building@infrastructure < 5
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_regional_development_commission"
+			subtract_from_variable = { treasury = 1 }
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = UOE
+					building@infrastructure < 5
+				}
+				add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+				set_temp_variable = { temp_productivity_change = 0.01 }
+				state_flat_productivity_change_effect = yes
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_european_industrial_park = {
+		cost = 50
+		days_re_enable = 365
+		available = { check_variable = { treasury > 2 } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_european_industrial_park"
+			subtract_from_variable = { treasury = 2 }
+			random_owned_controlled_state = {
+				limit = { is_core_of = UOE }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_commercial_redevelopment_zone = {
+		cost = 40
+		days_re_enable = 270
+		available = { check_variable = { treasury > 2 } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_commercial_redevelopment_zone"
+			subtract_from_variable = { treasury = 2 }
+			random_owned_controlled_state = {
+				limit = { is_core_of = UOE }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = { type = office_park level = 1 instant_build = yes }
+				set_temp_variable = { temp_productivity_change = 0.01 }
+				state_flat_productivity_change_effect = yes
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+}
+
+UOE_military_industry_category = {
+	UOE_procurement_standardization = {
+		cost = 75
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_procurement_standardization"
+			set_temp_variable = { temp_change = -0.05 }
+			UOE_equipment_cost_change = yes
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_european_arms_export_bureau = {
+		cost = 75
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_european_arms_export_bureau"
+			set_temp_variable = { temp_change = 0.10 }
+			UOE_market_income_change = yes
+			set_temp_variable = { temp_change = -0.05 }
+			UOE_market_purchase_change = yes
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_production_coordination_board = {
+		cost = 100
+		fire_only_once = yes
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_production_coordination_board"
+			set_temp_variable = { temp_change = 0.05 }
+			UOE_mil_ind_complex_change = yes
+			set_temp_variable = { mio_upgrade = 2 }
+			upgrade_uoe_mios = yes
+		}
+		ai_will_do = { base = 1 }
+	}
+}
+
+EU_USoE_category = {
+	EU_USoE_create_eurosphere_decision = {
+		cost = 200
+		fire_only_once = yes
+		available = {
+			tag = UOE
+			has_country_flag = new_government_established
+		}
+		visible = {
+			tag = UOE
+			has_country_flag = new_government_established
+		}
+		days_remove = 14
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision EU_USoE_create_eurosphere_decision"
+			every_neighbor_country = {
+				limit = {
+					is_subject = no
+					NOT = { influence_higher_50 = yes }
+					capital_scope = {
+						OR = {
+							is_on_continent = europe
+							is_on_continent = middle_east
+							is_on_continent = africa
+						}
+					}
+				}
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { tag_index = UOE }
+				set_temp_variable = { influence_target = THIS.id }
+				change_influence_percentage = yes
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_extend_european_protection = {
+		cost = 50
+		target_root_trigger = { has_completed_focus = UOE_Protect_the_Rest }
+		target_array = global.PR_regional_or_greater_powers
+		target_trigger = {
+			FROM = {
+				NOT = { tag = ROOT }
+				is_subject = no
+				NOT = { is_in_faction_with = ROOT }
+				NOT = { is_guaranteed_by = ROOT }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_extend_european_protection"
+			diplomatic_relation = { country = FROM relation = guarantee active = yes }
+			FROM = {
+				set_temp_variable = { percent_change = 2 }
+				set_temp_variable = { tag_index = UOE }
+				set_temp_variable = { influence_target = THIS.id }
+				change_influence_percentage = yes
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_peaceful_coexistence_initiative = {
+		cost = 40
+		target_root_trigger = {
+			OR = {
+				has_completed_focus = UOE_Peaceful_Coexistance
+				has_completed_focus = UOE_A_Peaceful_Existance
+			}
+		}
+		target_array = global.PR_regional_or_greater_powers
+		target_trigger = {
+			FROM = {
+				NOT = { tag = ROOT }
+				is_subject = no
+				NOT = { has_non_aggression_pact_with = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_peaceful_coexistence_initiative"
+			diplomatic_relation = { country = FROM relation = non_aggression_pact active = yes }
+			FROM = {
+				set_temp_variable = { percent_change = 2 }
+				set_temp_variable = { tag_index = UOE }
+				set_temp_variable = { influence_target = THIS.id }
+				change_influence_percentage = yes
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_invite_to_global_rights_pact = {
+		cost = 50
+		target_root_trigger = { has_completed_focus = UOE_Establish_the_Global_Rights_Pact }
+		target_array = global.PR_regional_or_greater_powers
+		target_trigger = {
+			FROM = {
+				NOT = { tag = ROOT }
+				is_subject = no
+				NOT = { has_idea = UOE_global_rights_pact_member }
+				NOT = { has_country_flag = UOE_rights_pact_refused }
+			}
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_invite_to_global_rights_pact"
+			FROM = { country_event = { id = UOEEvent.22 } }
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_convene_economic_council = {
+		cost = 50
+		days_re_enable = 180
+		visible = { has_completed_focus = UOE_Establish_the_Council }
+		available = {
+			NOT = { has_idea = UOE_council_economic_agenda }
+			NOT = { has_idea = UOE_council_social_agenda }
+			NOT = { has_idea = UOE_council_security_agenda }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_convene_economic_council"
+			add_timed_idea = { idea = UOE_council_economic_agenda days = 180 }
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_convene_social_council = {
+		cost = 50
+		days_re_enable = 180
+		visible = { has_completed_focus = UOE_Establish_the_Council }
+		available = {
+			NOT = { has_idea = UOE_council_economic_agenda }
+			NOT = { has_idea = UOE_council_social_agenda }
+			NOT = { has_idea = UOE_council_security_agenda }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_convene_social_council"
+			add_timed_idea = { idea = UOE_council_social_agenda days = 180 }
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	UOE_convene_security_council = {
+		cost = 50
+		days_re_enable = 180
+		visible = { has_completed_focus = UOE_Establish_the_Council }
+		available = {
+			NOT = { has_idea = UOE_council_economic_agenda }
+			NOT = { has_idea = UOE_council_social_agenda }
+			NOT = { has_idea = UOE_council_security_agenda }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision UOE_convene_security_council"
+			add_timed_idea = { idea = UOE_council_security_agenda days = 180 }
+		}
+		ai_will_do = { base = 1 }
+	}
+}
+
+### Environmental Imperialism
+EU_environmental_imperialism_category = {
+
+	EU_USoE_environmental_imperialism_show_europe = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_europe
+			NOT = { has_country_flag = environmental_imperialism_europe }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_europe
+			set_country_flag = environmental_imperialism_europe
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_europe = {
+		available = {
+			has_country_flag = environmental_imperialism_europe
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_europe
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_europe
+			clr_country_flag = environmental_imperialism_europe
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_north_america = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_north_america
+			NOT = { has_country_flag = environmental_imperialism_north_america }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_na
+			set_country_flag = environmental_imperialism_north_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_north_america = {
+		available = {
+			has_country_flag = environmental_imperialism_north_america
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_north_america
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_na
+			clr_country_flag = environmental_imperialism_north_america
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_south_america = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_south_america
+			NOT = { has_country_flag = environmental_imperialism_south_america }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_sa
+			set_country_flag = environmental_imperialism_south_america
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_south_america = {
+		available = {
+			has_country_flag = environmental_imperialism_south_america
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_south_america
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_sa
+			clr_country_flag = environmental_imperialism_south_america
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_africa = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_africa
+			NOT = { has_country_flag = environmental_imperialism_africa }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_africa
+			set_country_flag = environmental_imperialism_africa
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_africa = {
+		available = {
+			has_country_flag = environmental_imperialism_africa
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_africa
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_africa
+			clr_country_flag = environmental_imperialism_africa
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_asia = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_asia
+			NOT = { has_country_flag = environmental_imperialism_asia }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_asia
+			set_country_flag = environmental_imperialism_asia
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_asia = {
+		available = {
+			has_country_flag = environmental_imperialism_asia
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_asia
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_asia
+			clr_country_flag = environmental_imperialism_asia
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_middle_east = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_middle_east
+			NOT = { has_country_flag = environmental_imperialism_middle_east }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_me
+			set_country_flag = environmental_imperialism_middle_east
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_middle_east = {
+		available = {
+			has_country_flag = environmental_imperialism_middle_east
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_middle_east
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_me
+			clr_country_flag = environmental_imperialism_middle_east
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_pacific = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_pacific
+			NOT = { has_country_flag = environmental_imperialism_pacific  }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_pac
+			set_country_flag = environmental_imperialism_pacific
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_pacific = {
+		available = {
+			has_country_flag = environmental_imperialism_pacific
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_pacific
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_pac
+			clr_country_flag = environmental_imperialism_pacific
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_show_oceania = {
+		available = {
+			has_country_flag = environmental_imperialism
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_global_flag = environmental_imperialism_oceania
+			NOT = { has_country_flag = environmental_imperialism_oceania  }
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_show_envir_imper_ocea
+			set_country_flag = environmental_imperialism_oceania
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	EU_USoE_environmental_imperialism_hide_oceania = {
+		available = {
+			has_country_flag = environmental_imperialism_oceania
+		}
+
+		visible = {
+			has_country_flag = environmental_imperialism_oceania
+		}
+		complete_effect = {
+			custom_effect_tooltip = tooltip_USoE_hide_envir_imper_ocea
+			clr_country_flag = environmental_imperialism_oceania
+		}
+
+	}
+
+	EU_USoE_environmental_imperialism_decision = {
+		allowed = {
+			OR = {
+				EU_is_potential = yes
+				original_tag = UOE
+			}
+		}
+		target_root_trigger = {
+			has_country_flag = environmental_imperialism
+		}
+		cost = 100
+		target_trigger = {
+			FROM = {
+				NOT = { tag = ROOT }
+				NOT = { has_country_flag = EU_USoE_environmental_imperialism_target }
+				NOT = { has_idea = USoE_environmental_sanctions }
+				OR = {
+					has_idea = regional_power
+					has_idea = large_power
+					has_idea = great_power
+					has_idea = super_power
+				}
+				renewable_energy_infra < num_owned_states
+				OR = {
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_europe
+						}
+						capital_scope = {
+							is_on_continent = europe
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_north_america
+						}
+						capital_scope = {
+							is_on_continent = north_america
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_south_america
+						}
+						capital_scope = {
+							is_on_continent = south_america
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_africa
+						}
+						capital_scope = {
+							is_on_continent = africa
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_asia
+						}
+						capital_scope = {
+							is_on_continent = asia
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_middle_east
+						}
+						capital_scope = {
+							is_on_continent = middle_east
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_pacific
+						}
+						capital_scope = {
+							is_on_continent = pacific
+						}
+					}
+					AND = {
+						ROOT = {
+							has_country_flag = environmental_imperialism_oceania
+						}
+						capital_scope = {
+							is_on_continent = oceania
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			has_country_flag = environmental_imperialism
+			has_country_flag = USoE
+			FROM = {
+				NOT = { has_country_flag = EU_USoE_environmental_imperialism_target }
+				NOT = { has_country_flag = UOE_environmental_demands_met }
+				NOT = { has_idea = USoE_environmental_sanctions }
+			}
+			FROM = {
+				NOT = { has_country_flag = fossil_energy_pact }
+			}
+			FROM = {
+				NOT = { has_country_flag = break_environmental_sanctions }
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				activate_mission = EU_USoE_environmental_imperialism_mission
+				set_country_flag = EU_USoE_environmental_imperialism_target
+				custom_effect_tooltip = tooltip_EU_no_mission_complete
+				show_ideas_tooltip = USoE_environmental_sanctions
+			}
+		}
+		target_array = global.PR_regional_or_greater_powers
+		ai_will_do = { base = 1 }
+	}
+
+	EU_USoE_environmental_imperialism_mission = {
+		allowed = {
+			always = yes
+		}
+		available = {
+			NOT = { renewable_energy_infra < num_owned_states }
+		}
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 30
+		is_good = no
+		selectable_mission = yes
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_temp_variable = { party_index = 17 }
+			set_temp_variable = { party_popularity_increase = 0.05 }
+			set_temp_variable = { temp_outlook_increase = 0.05 }
+			change_relative_party_popularity = yes
+			set_country_flag = UOE_environmental_demands_met
+			if = {
+				limit = { country_exists = UOE }
+				UOE = { country_event = USoEevent.5 }
+			}
+			clr_country_flag = EU_USoE_environmental_imperialism_target
+		}
+		timeout_effect = {
+			add_ideas = USoE_environmental_sanctions
+			clr_country_flag = EU_USoE_environmental_imperialism_target
+			if = {
+				limit = { country_exists = UOE }
+				UOE = { country_event = USoEevent.6 }
+			}
+		}
+		ai_will_do = { base = 1 }
+	}
+
+	# Green Energy Reconstruction
+	EU_USoE_environmental_imperialism_restructure_industry_decision = {
+		cost = 100
+		available = {
+			has_country_flag = EU_USoE_environmental_imperialism_target
+		}
+
+		visible = {
+			has_country_flag = EU_USoE_environmental_imperialism_target
+			any_owned_state = {
+				renewable_energy_infra < 2
+				industrial_complex > 0
+			}
+		}
+		complete_effect = {
+			set_temp_variable = { temp1 = 0 }
+			every_owned_state = {
+				limit = {
+					renewable_energy_infra < 2
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_building_construction = {
+					type = renewable_energy_infra
+					level = 1
+					instant_build = yes
+				}
+				add_to_temp_variable = { temp1 = 1 }
+			}
+			subtract_from_variable = { treasury = temp1 }
+			custom_effect_tooltip = tooltip_green_energy_reconstruction
+			for_loop_effect = {
+				end = temp1
+				if = {
+					limit = {
+						check_variable = { party_pop_array^17 < 0.50 }
+					}
+					set_temp_variable = { party_index = 17 }
+					set_temp_variable = { party_popularity_increase = 0.05 }
+					set_temp_variable = { temp_outlook_increase = 0.05 }
+					change_relative_party_popularity = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	EU_USoE_break_environmental_sanctions_decision = {
+		target_root_trigger = {
+			has_idea = USoE_environmental_sanctions
+		}
+		target_trigger = {
+			FROM = {
+				has_country_flag = USoE
+			}
+		}
+		target_array = global.EU_potential
+		cost = 100
+
+		complete_effect = {
+			remove_ideas = USoE_environmental_sanctions
+			set_country_flag = break_environmental_sanctions
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = betrayed_our_cause
+				}
+				reverse_add_opinion_modifier = {
+					target = ROOT
+					modifier = betrayed_our_cause
+				}
+			}
+			FROM = {
+				create_wargoal = {
+					type = topple_government
+					target = ROOT
+				}
+			}
+			FROM = {
+				country_event = {
+					id = USoEevent.7
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = fossil_energy_pact }
+					NOT = {	is_in_faction = yes }
+				}
+				create_faction = Fossil_Energy_Pact_faction
+				set_global_flag = fossil_energy_pact
+				set_country_flag = fossil_energy_pact
+			}
+			else_if = {
+				limit = {
+					has_global_flag = fossil_energy_pact
+					NOT = {	is_in_faction = yes }
+				}
+				random_country = {
+					limit = {
+						has_country_flag = fossil_energy_pact
+						is_faction_leader = yes
+					}
+					THIS = { add_to_faction = ROOT }
+				}
+				set_country_flag = fossil_energy_pact
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				strength_ratio = {
+					tag = FROM
+					ratio > 0.7
+				}
+			}
+			modifier = {
+				add = 1
+				any_country = {
+					if = {
+						limit = {
+							has_country_flag = fossil_energy_pact
+							is_faction_leader = yes
+						}
+						strength_ratio = {
+							tag = FROM
+							ratio > 0.5
+						}
+					}
+				}
+				strength_ratio = {
+					tag = FROM
+					ratio > 0.1
+				}
+			}
+			modifier = {
+				add = 1
+				any_country = {
+					if = {
+						limit = {
+							has_country_flag = fossil_energy_pact
+							is_faction_leader = yes
+						}
+						strength_ratio = {
+							tag = FROM
+							ratio > 0.7
+						}
+					}
+				}
+			}
+			modifier = {
+				add = 1
+				ic_ratio = {
+					tag = FROM
+					ratio > 0.6
+				}
+			}
+		}
+	}
+}

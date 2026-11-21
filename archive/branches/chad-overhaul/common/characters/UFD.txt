@@ -1,0 +1,76 @@
+characters = {
+	UFD_mahamat_nouri = {
+		name = "Mahamat Nouri"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/TIE/small/TIE_air_chief_small.dds"
+				large = "gfx/leaders/TIE/Mahamat_Nouri.dds"
+			}
+			army = {
+				small = "gfx/leaders/TIE/small/TIE_air_chief_small.dds"
+				large = "gfx/leaders/TIE/Mahamat_Nouri.dds"
+			}
+		}
+		country_leader = {
+			ideology = Neutral_Autocracy
+			traits = { former_defense_minister exile_network neutrality_Neutral_Autocracy }
+			expire = "2025.1.1"
+		}
+		field_marshal = {
+			traits = { desert_fox organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	UFD_timane_erdimi = {
+		name = "Timane Erdimi"
+		portraits = {
+			army = {
+				small = "gfx/leaders/LGN/small/Mahamat_Al_Khatim_small.dds"
+				large = "gfx/leaders/LGN/Mahamat_Al_Khatim.dds"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = UFD_army_chief
+			allowed = {
+				original_tag = UFD
+			}
+			traits = {
+				army_chief_morale_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander = {
+			traits = { trickster guerrilla_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	UFD_field_commander = {
+		name = "UFDD Field Commander"
+		portraits = {
+			army = {
+				small = "gfx/leaders/LGN/small/LGN_air_chief_small.dds"
+				large = "gfx/leaders/LGN/LGN_air_chief.dds"
+			}
+		}
+		corps_commander = {
+			traits = { guerrilla_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+}

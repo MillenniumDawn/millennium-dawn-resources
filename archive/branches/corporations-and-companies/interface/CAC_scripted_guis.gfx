@@ -1,0 +1,183 @@
+spriteTypes = {
+	# UI
+	spriteType = {
+		name = "GFX_cnc_generic_bg"
+		textureFile = "gfx/interface/companies_and_corporations/cnc_generic_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_cac_branch_vertical"
+		texturefile = "gfx/interface/companies_and_corporations/cac_branch_vertical.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_cac_branch_horizontally"
+		texturefile = "gfx/interface/companies_and_corporations/cac_branch_horizontally.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_ceo_button"
+		texturefile = "gfx/interface/companies_and_corporations/cac_ceo_button.dds"
+	}
+
+	spriteType = {
+		name = "GFX_foreign_companies_entry_bg"
+		texturefile = "gfx/interface/companies_and_corporations/foreign_companies_entry_bg.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_has_ceo_icon"
+		texturefile = "gfx/interface/companies_and_corporations/cac_has_ceo_icon.dds"
+	}
+
+	# texticons
+	spriteType = {
+		name = "GFX_complex_texticon"
+		texturefile = "gfx/texticons/complex.dds"
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_value_texticon"
+		texturefile = "gfx/texticons/value.dds"
+		legacy_lazy_load = no
+	}
+
+	# Upgrades Icons
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_unknown"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_unknown.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_bills"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_bills.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_blueprints"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_blueprints.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_blueprints2"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_blueprints2.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_documents"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_documents.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_documents2"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_documents2.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_factory"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_factory.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_gold"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_gold.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_silver"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_silver.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_trade"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_trade.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_cash"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_cash.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_cash2"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_cash2.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_circular_arrows"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_circular_arrows.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_circular_arrows2"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_circular_arrows2.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_fallen_piece"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_fallen_piece.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_handshake"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_handshake.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_paper"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_paper.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_people"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_people.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_people2"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_people2.dds"
+	}
+	spriteType = {
+		name = "GFX_cac_upgrade_icon_white_house"
+		texturefile = "gfx/interface/companies_and_corporations/upgrades/cac_upgrade_icon_white_house.dds"
+	}
+
+	# COMPANIES ICONS
+
+	spriteType = {
+		name = "GFX_pko_logo"
+		texturefile = "gfx/interface/companies_and_corporations/companies_logos/pko.dds"
+	}
+	spriteType = {
+		name = "GFX_pgnig_logo"
+		texturefile = "gfx/interface/companies_and_corporations/companies_logos/pgnig.dds"
+	}
+
+	# CEO
+
+	spriteType = {
+		name = "GFX_portrait_generic_ceo_0"
+		texturefile = "gfx/interface/companies_and_corporations/ceo/portrait_generic_ceo_0.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_generic_ceo_1"
+		texturefile = "gfx/interface/companies_and_corporations/ceo/portrait_generic_ceo_1.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_generic_ceo_2"
+		texturefile = "gfx/interface/companies_and_corporations/ceo/portrait_generic_ceo_2.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_generic_ceo_3"
+		texturefile = "gfx/interface/companies_and_corporations/ceo/portrait_generic_ceo_3.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_generic_ceo_4"
+		texturefile = "gfx/interface/companies_and_corporations/ceo/portrait_generic_ceo_4.dds"
+	}
+
+	# CEO TYPE ICON
+
+	spriteType = {
+		name = "GFX_ceo_type_0"
+		texturefile = "gfx/interface/companies_and_corporations/ceo_type_icon_0.dds"
+	}
+	spriteType = {
+		name = "GFX_ceo_type_1"
+		texturefile = "gfx/interface/companies_and_corporations/ceo_type_icon_1.dds"
+	}
+	spriteType = {
+		name = "GFX_ceo_type_2"
+		texturefile = "gfx/interface/companies_and_corporations/ceo_type_icon_2.dds"
+	}
+	spriteType = {
+		name = "GFX_ceo_type_3"
+		texturefile = "gfx/interface/companies_and_corporations/ceo_type_icon_3.dds"
+	}
+}

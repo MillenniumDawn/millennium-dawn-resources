@@ -1,0 +1,106 @@
+UOE_culture_balance_cat = {
+	icon = GFX_decision_generic_scorched_earth
+	priority = 200
+	allowed = {
+		tag = UOE
+	}
+	visible = {
+		has_power_balance = {
+			id = UOE_culture_balance
+		}
+	}
+}
+
+UOE_forming_a_government_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+
+	priority = 300
+
+	allowed = {
+		tag = UOE
+	}
+	visible = {
+		NOT = { has_country_flag = military_takeover }
+		OR = {
+			has_active_mission = form_a_government
+			has_active_mission = military_coup_start
+			has_active_mission = countdown_to_revolution
+		}
+	}
+}
+
+UOE_economic_instability_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+
+	priority = 290
+
+	allowed = {
+		tag = UOE
+	}
+	visible = {
+		has_country_flag = unstable_economy
+		NOT = { has_country_flag = states_exited_due_eco }
+	}
+	visible_when_empty = no
+	scripted_gui = UOE_eco_scripted
+}
+
+UOE_resource_agency_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+	priority = 125
+
+	allowed = {
+		original_tag = UOE
+	}
+
+	visible = {
+		has_completed_focus = UOE_The_European_Resource_Agency
+	}
+}
+
+UOE_construction_agency_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+	priority = 126
+	allowed = {
+		original_tag = UOE
+	}
+
+	visible = {
+		has_completed_focus = UOE_The_European_Construction_Agency
+	}
+}
+
+UOE_transportation_agency_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+	priority = 127
+	allowed = {
+		original_tag = UOE
+	}
+
+	visible = {
+		has_country_flag = UOE_euro_transpo_agency
+	}
+}
+
+UOE_military_industry_category = {
+	icon = GFX_decision_generic_european_union
+
+	picture = GFX_voting_european_union
+	priority = 128
+	allowed = {
+		original_tag = UOE
+	}
+	visible = {
+		has_completed_focus = UOE_Military_Industrial_Complex
+	}
+}

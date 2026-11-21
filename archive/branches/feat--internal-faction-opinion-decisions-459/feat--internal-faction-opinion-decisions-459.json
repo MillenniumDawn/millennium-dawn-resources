@@ -1,0 +1,15 @@
+{
+  "branch": "origin/feat/internal-faction-opinion-decisions-459",
+  "tip_sha": "b2e6f1d58c3adf636e5fa44c4f1c3ec04dbeac54",
+  "tip_short": "b2e6f1d58c",
+  "last_author": "The General",
+  "last_commit_date": "2026-09-23T22:00:39+02:00",
+  "last_commit_subject": "Route internal faction window tooltips through loc keys and make the icon non-clickable",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "2a9a67f25c8456553dbc2ed923dfb97b55028500",
+  "diverging_files_3dot": 46,
+  "archived_files": 45,
+  "deleted_paths": [
+    "common/decisions/Internal Factions.txt"
+  ]
+}

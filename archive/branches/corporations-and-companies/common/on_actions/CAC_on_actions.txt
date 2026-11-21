@@ -1,0 +1,57 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				# SETUP VARIABLES #
+				# ui variables
+				set_variable = { opened_company_details = -1 }
+				set_variable = { companies_upgrades_tab = 1 }
+
+				# Skip intermediate CAC_update_variables calls while adding companies —
+				# only the final call (after all 7 are present) needs to produce valid output.
+				set_temp_variable = { cac_skip_all_updates = 1 }
+
+				# generic industries
+				if = {
+					limit = {
+						check_variable = { CAC_companies^num < 1 }
+					}
+
+					set_temp_variable = { cac_selected_company = 0 }
+					set_temp_variable = { cac_company_type = 0 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 1 }
+					set_temp_variable = { cac_company_type = 1 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 2 }
+					set_temp_variable = { cac_company_type = 2 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 3 }
+					set_temp_variable = { cac_company_type = 3 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 4 }
+					set_temp_variable = { cac_company_type = 4 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 5 }
+					set_temp_variable = { cac_company_type = 5 }
+					CAC_add_company = yes
+
+					set_temp_variable = { cac_selected_company = 6 }
+					set_temp_variable = { cac_company_type = 6 }
+					CAC_add_company = yes
+				}
+
+				set_temp_variable = { cac_skip_all_updates = 0 }
+
+				CAC_update_building_stats = yes
+				CAC_update_variables = yes
+				update_display = yes
+			}
+		}
+	}
+}

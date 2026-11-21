@@ -1,0 +1,17 @@
+{
+  "branch": "origin/usoe-rework",
+  "tip_sha": "076b1a2e2899317594037077a0106eaad1795b89",
+  "tip_short": "076b1a2e28",
+  "last_author": "dolittle",
+  "last_commit_date": "2026-10-08T16:01:10-05:00",
+  "last_commit_subject": "more work",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "8d7700eb4a351dc4d95b9f799e48947019d7928e",
+  "diverging_files_3dot": 146,
+  "archived_files": 143,
+  "deleted_paths": [
+    "common/decisions/EU_USoE_decisions.txt",
+    "common/scripted_effects/USoE_political_leaders.txt",
+    "gfx/flags/USoE_democratic.tga"
+  ]
+}

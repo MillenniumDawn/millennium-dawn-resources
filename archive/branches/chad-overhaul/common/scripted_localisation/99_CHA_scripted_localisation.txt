@@ -1,0 +1,125 @@
+# Chad Tribal Loyalty Scripted Localisation
+
+# Zaghawa Status
+defined_text = {
+	name = CHA_GetZaghawaStatus
+	text = {
+		trigger = {
+			check_variable = { CHA_zaghawa_loyalty < 26 }
+		}
+		localization_key = CHA_tribal_status_hostile
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_zaghawa_loyalty > 25 }
+			check_variable = { CHA_zaghawa_loyalty < 51 }
+		}
+		localization_key = CHA_tribal_status_disloyal
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_zaghawa_loyalty > 50 }
+			check_variable = { CHA_zaghawa_loyalty < 76 }
+		}
+		localization_key = CHA_tribal_status_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_zaghawa_loyalty > 75 }
+		}
+		localization_key = CHA_tribal_status_loyal
+	}
+}
+
+# Arab Status
+defined_text = {
+	name = CHA_GetArabStatus
+	text = {
+		trigger = {
+			check_variable = { CHA_arab_loyalty < 26 }
+		}
+		localization_key = CHA_tribal_status_hostile
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_arab_loyalty > 25 }
+			check_variable = { CHA_arab_loyalty < 51 }
+		}
+		localization_key = CHA_tribal_status_disloyal
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_arab_loyalty > 50 }
+			check_variable = { CHA_arab_loyalty < 76 }
+		}
+		localization_key = CHA_tribal_status_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_arab_loyalty > 75 }
+		}
+		localization_key = CHA_tribal_status_loyal
+	}
+}
+
+# Sara Status
+defined_text = {
+	name = CHA_GetSaraStatus
+	text = {
+		trigger = {
+			check_variable = { CHA_sara_loyalty < 26 }
+		}
+		localization_key = CHA_tribal_status_hostile
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_sara_loyalty > 25 }
+			check_variable = { CHA_sara_loyalty < 51 }
+		}
+		localization_key = CHA_tribal_status_disloyal
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_sara_loyalty > 50 }
+			check_variable = { CHA_sara_loyalty < 76 }
+		}
+		localization_key = CHA_tribal_status_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_sara_loyalty > 75 }
+		}
+		localization_key = CHA_tribal_status_loyal
+	}
+}
+
+# Toubou Status
+defined_text = {
+	name = CHA_GetToubouStatus
+	text = {
+		trigger = {
+			check_variable = { CHA_toubou_loyalty < 26 }
+		}
+		localization_key = CHA_tribal_status_hostile
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_toubou_loyalty > 25 }
+			check_variable = { CHA_toubou_loyalty < 51 }
+		}
+		localization_key = CHA_tribal_status_disloyal
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_toubou_loyalty > 50 }
+			check_variable = { CHA_toubou_loyalty < 76 }
+		}
+		localization_key = CHA_tribal_status_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = { CHA_toubou_loyalty > 75 }
+		}
+		localization_key = CHA_tribal_status_loyal
+	}
+}

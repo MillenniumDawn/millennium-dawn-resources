@@ -1,0 +1,436 @@
+on_actions = {
+	on_monthly_CHA = {
+		effect = {
+			# Pre-war tension buildup with Sudan
+			if = {
+				limit = {
+					date > 2003.1.1
+					date < 2005.12.1
+					NOT = { has_country_flag = CHA_sudan_tensions_started }
+				}
+				random = {
+					chance = 30
+					country_event = { id = chad.1 days = 30 random_days = 60 }
+					set_country_flag = CHA_sudan_tensions_started
+				}
+			}
+
+			# Support for Darfur rebels chain
+			if = {
+				limit = {
+					date > 2003.6.1
+					date < 2005.12.1
+					has_country_flag = CHA_sudan_tensions
+					NOT = { has_country_flag = CHA_darfur_support_offered }
+				}
+				random = {
+					chance = 40
+					country_event = { id = chad.5 days = 30 random_days = 90 }
+					set_country_flag = CHA_darfur_support_offered
+				}
+			}
+
+			# Constitutional referendum 2005
+			if = {
+				limit = {
+					date > 2005.4.1
+					date < 2005.8.1
+					NOT = { has_country_flag = CHA_constitutional_referendum_held }
+				}
+				random = {
+					chance = 50
+					country_event = { id = chad.10 days = 14 random_days = 30 }
+					set_country_flag = CHA_constitutional_referendum_held
+				}
+			}
+
+			# Opposition protests after referendum
+			if = {
+				limit = {
+					date > 2005.7.1
+					has_country_flag = CHA_term_limits_removed
+					NOT = { has_country_flag = CHA_opposition_protests_occurred }
+				}
+				random = {
+					chance = 40
+					country_event = { id = chad.15 days = 14 random_days = 45 }
+					set_country_flag = CHA_opposition_protests_occurred
+				}
+			}
+
+			# Civil war outbreak - Attack on Adré (December 2005)
+			if = {
+				limit = {
+					date > 2005.12.1
+					date < 2006.3.1
+					has_country_flag = CHA_sudan_tensions
+					NOT = { has_global_flag = CHA_second_civil_war }
+					NOT = { has_country_flag = CHA_civil_war_averted }
+				}
+				random = {
+					chance = 70
+					country_event = { id = chad.20 days = 7 random_days = 30 }
+				}
+			}
+
+			# FUC Formation after war starts
+			if = {
+				limit = {
+					date > 2005.12.15
+					has_global_flag = CHA_second_civil_war
+					NOT = { has_global_flag = CHA_fuc_formed }
+				}
+				country_event = { id = chad.41 days = 7 random_days = 14 }
+				set_global_flag = CHA_fuc_formed
+			}
+
+			# Sudan arms the rebels
+			if = {
+				limit = {
+					date > 2006.1.1
+					has_global_flag = CHA_second_civil_war
+					has_global_flag = CHA_fuc_formed
+					NOT = { has_country_flag = CHA_sudan_arms_rebels_event }
+				}
+				random = {
+					chance = 50
+					country_event = { id = chad.45 days = 14 random_days = 30 }
+					set_country_flag = CHA_sudan_arms_rebels_event
+				}
+			}
+
+			# Rebel advance
+			if = {
+				limit = {
+					date > 2006.2.1
+					date < 2006.4.1
+					has_global_flag = CHA_second_civil_war
+					has_global_flag = CHA_fuc_formed
+					NOT = { has_country_flag = CHA_rebel_advance_event }
+				}
+				random = {
+					chance = 60
+					country_event = { id = chad.50 days = 7 random_days = 21 }
+					set_country_flag = CHA_rebel_advance_event
+				}
+			}
+
+			# First Battle of N'Djamena (April 2006)
+			if = {
+				limit = {
+					date > 2006.4.1
+					date < 2006.5.1
+					has_global_flag = CHA_second_civil_war
+					has_global_flag = CHA_fuc_formed
+					NOT = { has_country_flag = CHA_first_battle_ndjamena }
+				}
+				country_event = { id = chad.71 days = 3 random_days = 10 }
+				set_country_flag = CHA_first_battle_ndjamena
+			}
+
+			# UFDD formation after FUC defeat (October 2006)
+			if = {
+				limit = {
+					date > 2006.10.1
+					has_global_flag = CHA_second_civil_war
+					has_country_flag = CHA_first_battle_ndjamena
+					NOT = { has_global_flag = CHA_ufdd_formed }
+				}
+				random = {
+					chance = 70
+					country_event = { id = chad.101 days = 7 random_days = 21 }
+					set_global_flag = CHA_ufdd_formed
+				}
+			}
+
+			# Tripoli Peace Talks (2007)
+			if = {
+				limit = {
+					date > 2007.3.1
+					date < 2007.12.1
+					has_global_flag = CHA_second_civil_war
+					has_global_flag = CHA_ufdd_formed
+					NOT = { has_country_flag = CHA_tripoli_talks }
+				}
+				random = {
+					chance = 50
+					country_event = { id = chad.110 days = 14 random_days = 60 }
+					set_country_flag = CHA_tripoli_talks
+				}
+			}
+
+			# Sirte Agreement collapse
+			if = {
+				limit = {
+					date > 2007.10.1
+					has_country_flag = CHA_tripoli_talks
+					NOT = { has_country_flag = CHA_sirte_collapsed }
+				}
+				random = {
+					chance = 60
+					country_event = { id = chad.115 days = 14 random_days = 30 }
+					set_country_flag = CHA_sirte_collapsed
+				}
+			}
+
+			# Second Battle of N'Djamena (February 2008)
+			if = {
+				limit = {
+					date > 2008.2.1
+					date < 2008.3.1
+					has_global_flag = CHA_second_civil_war
+					has_global_flag = CHA_ufdd_formed
+					NOT = { has_country_flag = CHA_second_battle_ndjamena }
+				}
+				country_event = { id = chad.131 days = 1 random_days = 7 }
+				set_country_flag = CHA_second_battle_ndjamena
+			}
+
+			# Path to reconciliation (2009)
+			if = {
+				limit = {
+					date > 2009.1.1
+					has_global_flag = CHA_second_civil_war
+					NOT = { has_country_flag = CHA_reconciliation_path }
+				}
+				random = {
+					chance = 50
+					country_event = { id = chad.191 days = 30 random_days = 90 }
+					set_country_flag = CHA_reconciliation_path
+				}
+			}
+
+			# War cleanup - if rebels no longer exist
+			if = {
+				limit = {
+					has_global_flag = CHA_second_civil_war
+					NOT = { has_war = yes }
+					NOT = { country_exists = FUC has_war_with = FUC }
+					NOT = { country_exists = UFD has_war_with = UFD }
+					NOT = { has_country_flag = CHA_war_cleanup_done }
+				}
+				country_event = { id = chad.200 days = 7 }
+				set_country_flag = CHA_war_cleanup_done
+			}
+
+			# FACT Rebellion and Déby succession (April 2021)
+			if = {
+				limit = {
+					date > 2021.4.1
+					date < 2021.5.1
+					has_country_leader = { name = "Idriss Déby" ruling_only = yes }
+					NOT = { has_country_flag = CHA_fact_rebellion_occurred }
+				}
+				country_event = { id = chad.221 days = 1 random_days = 14 }
+				set_country_flag = CHA_fact_rebellion_occurred
+			}
+
+			# Boko Haram threat
+			if = {
+				limit = {
+					has_global_flag = NIG_RISE_OF_BOKO_HARAM_PATH
+					NOT = { has_idea = CHA_boko_haram_threat }
+					NOT = { has_country_flag = CHA_boko_haram_threat_handled }
+				}
+				add_ideas = CHA_boko_haram_threat
+			}
+
+			# Sovereignty threshold events
+			if = {
+				limit = {
+					has_country_flag = CHA_neocolonial_path
+					check_variable = { CHA_sovereignty < 60 }
+					NOT = { has_country_flag = CHA_sovereignty_event_60 }
+				}
+				country_event = { id = chad.1400 days = 14 random_days = 30 }
+				set_country_flag = CHA_sovereignty_event_60
+			}
+			if = {
+				limit = {
+					has_country_flag = CHA_neocolonial_path
+					check_variable = { CHA_sovereignty < 40 }
+					NOT = { has_country_flag = CHA_sovereignty_event_40 }
+				}
+				country_event = { id = chad.1401 days = 14 random_days = 30 }
+				set_country_flag = CHA_sovereignty_event_40
+			}
+			if = {
+				limit = {
+					has_country_flag = CHA_neocolonial_path
+					check_variable = { CHA_sovereignty < 20 }
+					NOT = { has_country_flag = CHA_sovereignty_event_20 }
+				}
+				country_event = { id = chad.1402 days = 14 random_days = 30 }
+				set_country_flag = CHA_sovereignty_event_20
+			}
+
+			if = {
+				limit = {
+					has_completed_focus = CHA_tribal_balance
+					NOT = { CHA_tribal_rebellion_active = yes }
+					NOT = { has_country_flag = CHA_tribal_mgmt_cooldown }
+				}
+				random = {
+					chance = 25
+					set_country_flag = { flag = CHA_tribal_mgmt_cooldown days = 120 }
+					random_list = {
+						10 = { country_event = { id = chad_tribal.202 } }
+						10 = { country_event = { id = chad_tribal.204 } }
+						10 = { country_event = { id = chad_tribal.211 } }
+						10 = { country_event = { id = chad_tribal.214 } }
+						10 = { country_event = { id = chad_tribal.222 } }
+						10 = { country_event = { id = chad_tribal.224 } }
+						10 = { country_event = { id = chad_tribal.230 } }
+						10 = {
+							trigger = { CAR = { has_war = yes } }
+							country_event = { id = chad_tribal.231 }
+						}
+						10 = {
+							trigger = {
+								check_variable = { CHA_zaghawa_loyalty > 40 }
+								check_variable = { CHA_arab_loyalty > 40 }
+								check_variable = { CHA_sara_loyalty > 40 }
+								check_variable = { CHA_toubou_loyalty > 40 }
+							}
+							country_event = { id = chad_tribal.232 }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			# Initialize Chad civil war variables
+			CHA = {
+				if = {
+					limit = {
+						NOT = { has_variable = CHA_sudan_tension_level }
+					}
+					set_variable = { CHA_sudan_tension_level = 0 }
+				}
+				# Initialize tribal loyalty (same values as CHA_tribal_balance focus)
+				if = {
+					limit = { NOT = { has_variable = CHA_zaghawa_loyalty } }
+					set_variable = { CHA_zaghawa_loyalty = 60 }
+					set_variable = { CHA_arab_loyalty = 40 }
+					set_variable = { CHA_sara_loyalty = 50 }
+					set_variable = { CHA_toubou_loyalty = 30 }
+				}
+				# Initialize tribal system infrastructure
+				CHA_init_tribal_system = yes
+			}
+		}
+	}
+
+	on_civil_war_end = {
+		effect = {
+			# Handle Chad civil war ending
+			if = {
+				limit = {
+					OR = {
+						ROOT = { original_tag = CHA }
+						FROM = { original_tag = CHA }
+					}
+					has_global_flag = CHA_second_civil_war
+				}
+				CHA = {
+					if = {
+						limit = { exists = yes }
+						country_event = { id = chad.200 days = 7 }
+					}
+				}
+			}
+		}
+	}
+
+	on_annex = {
+		effect = {
+			# Handle rebel annexation
+			if = {
+				limit = {
+					ROOT = { original_tag = CHA }
+					FROM = {
+						OR = {
+							tag = FUC
+							tag = UFD
+						}
+					}
+				}
+				ROOT = {
+					add_stability = 0.05
+					add_war_support = 0.10
+				}
+			}
+
+			# Handle tribal rebel annexation - Zaghawa
+			if = {
+				limit = {
+					ROOT = { original_tag = CHA }
+					FROM = { tag = ZGW }
+				}
+				ROOT = {
+					add_stability = 0.05
+					add_war_support = 0.10
+					clr_country_flag = CHA_zaghawa_rebellion_active
+					set_variable = { CHA_zaghawa_rebellion_level = 0 }
+					add_to_variable = { CHA_zaghawa_loyalty = 20 }
+					clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+					CHA_update_tribal_resource_modifiers = yes
+				}
+			}
+
+			# Handle tribal rebel annexation - Arab
+			if = {
+				limit = {
+					ROOT = { original_tag = CHA }
+					FROM = { tag = ARC }
+				}
+				ROOT = {
+					add_stability = 0.05
+					add_war_support = 0.10
+					clr_country_flag = CHA_arab_rebellion_active
+					set_variable = { CHA_arab_rebellion_level = 0 }
+					add_to_variable = { CHA_arab_loyalty = 20 }
+					clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+					CHA_update_tribal_resource_modifiers = yes
+				}
+			}
+
+			# Handle tribal rebel annexation - Sara
+			if = {
+				limit = {
+					ROOT = { original_tag = CHA }
+					FROM = { tag = SRR }
+				}
+				ROOT = {
+					add_stability = 0.05
+					add_war_support = 0.10
+					clr_country_flag = CHA_sara_rebellion_active
+					set_variable = { CHA_sara_rebellion_level = 0 }
+					add_to_variable = { CHA_sara_loyalty = 20 }
+					clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+					CHA_update_tribal_resource_modifiers = yes
+				}
+			}
+
+			# Handle tribal rebel annexation - Toubou
+			if = {
+				limit = {
+					ROOT = { original_tag = CHA }
+					FROM = { tag = TBU }
+				}
+				ROOT = {
+					add_stability = 0.05
+					add_war_support = 0.10
+					clr_country_flag = CHA_toubou_rebellion_active
+					set_variable = { CHA_toubou_rebellion_level = 0 }
+					add_to_variable = { CHA_toubou_loyalty = 20 }
+					clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+					CHA_update_tribal_resource_modifiers = yes
+				}
+			}
+		}
+	}
+}

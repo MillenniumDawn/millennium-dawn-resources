@@ -1,0 +1,6 @@
+# UFDD - Union of Forces for Democracy and Development (Union des Forces pour la Democratie et le Developpement)
+# Chadian rebel faction active October 2006 - January 2010
+graphical_culture = african_gfx
+graphical_culture_2d = african_2d
+
+color = { 178 34 34 }

@@ -1,0 +1,2085 @@
+﻿defined_text = {
+	name = CAC_companies_slot_TT
+
+	text = { trigger = { check_variable = { v < 0 } }
+		localization_key = "COMPANY_EMPTY_SLOT_TOOLTIP"
+	}
+	text = { localization_key = "COMPANY_OCCUPIED_SLOT_TOOLTIP" }
+}
+
+defined_text = {
+	name = CAC_companies_slot_TT_delayed
+
+	text = { trigger = { check_variable = { v < 0 } }
+		localization_key = "COMPANY_EMPTY_SLOT_TOOLTIP_DELAYED"
+	}
+	text = { localization_key = "COMPANY_OCCUPIED_SLOT_TOOLTIP_DELAYED" }
+}
+
+defined_text = {
+	name = CAC_name_of_company
+	text = { trigger = { check_variable = { v = 0 } }
+		localization_key = "CAC_COMPANY_NAME_0"
+	}
+	text = { trigger = { check_variable = { v = 1 } }
+		localization_key = "CAC_COMPANY_NAME_1"
+	}
+	text = { trigger = { check_variable = { v = 2 } }
+		localization_key = "CAC_COMPANY_NAME_2"
+	}
+	text = { trigger = { check_variable = { v = 3 } }
+		localization_key = "CAC_COMPANY_NAME_3"
+	}
+	text = { trigger = { check_variable = { v = 4 } }
+		localization_key = "CAC_COMPANY_NAME_4"
+	}
+	text = { trigger = { check_variable = { v = 5 } }
+		localization_key = "CAC_COMPANY_NAME_5"
+	}
+	text = { trigger = { check_variable = { v = 6 } }
+		localization_key = "CAC_COMPANY_NAME_6"
+	}
+	text = { trigger = { check_variable = { v = 7 } }
+		localization_key = "CAC_COMPANY_NAME_7"
+	}
+	text = { trigger = { check_variable = { v = 8 } }
+		localization_key = "CAC_COMPANY_NAME_8"
+	}
+	text = { trigger = { check_variable = { v = 9 } }
+		localization_key = "CAC_COMPANY_NAME_9"
+	}
+	text = { trigger = { check_variable = { v = 10 } }
+		localization_key = "CAC_COMPANY_NAME_10"
+	}
+	text = { trigger = { check_variable = { v = 11 } }
+		localization_key = "CAC_COMPANY_NAME_11"
+	}
+	text = { trigger = { check_variable = { v = 12 } }
+		localization_key = "CAC_COMPANY_NAME_12"
+	}
+	text = { trigger = { check_variable = { v = 13 } }
+		localization_key = "CAC_COMPANY_NAME_13"
+	}
+	text = { trigger = { check_variable = { v = 14 } }
+		localization_key = "CAC_COMPANY_NAME_14"
+	}
+	text = { trigger = { check_variable = { v = 15 } }
+		localization_key = "CAC_COMPANY_NAME_15"
+	}
+	text = { trigger = { check_variable = { v = 16 } }
+		localization_key = "CAC_COMPANY_NAME_16"
+	}
+	text = { trigger = { check_variable = { v = 17 } }
+		localization_key = "CAC_COMPANY_NAME_17"
+	}
+	text = { trigger = { check_variable = { v = 18 } }
+		localization_key = "CAC_COMPANY_NAME_18"
+	}
+	text = { trigger = { check_variable = { v = 19 } }
+		localization_key = "CAC_COMPANY_NAME_19"
+	}
+	text = { trigger = { check_variable = { v = 20 } }
+		localization_key = "CAC_COMPANY_NAME_20"
+	}
+	text = { trigger = { check_variable = { v = 21 } }
+		localization_key = "CAC_COMPANY_NAME_21"
+	}
+	text = { trigger = { check_variable = { v = 22 } }
+		localization_key = "CAC_COMPANY_NAME_22"
+	}
+	text = { trigger = { check_variable = { v = 23 } }
+		localization_key = "CAC_COMPANY_NAME_23"
+	}
+	text = { trigger = { check_variable = { v = 24 } }
+		localization_key = "CAC_COMPANY_NAME_24"
+	}
+	text = { trigger = { check_variable = { v = 25 } }
+		localization_key = "CAC_COMPANY_NAME_25"
+	}
+	text = { trigger = { check_variable = { v = 26 } }
+		localization_key = "CAC_COMPANY_NAME_26"
+	}
+	text = { trigger = { check_variable = { v = 27 } }
+		localization_key = "CAC_COMPANY_NAME_27"
+	}
+	text = { trigger = { check_variable = { v = 28 } }
+		localization_key = "CAC_COMPANY_NAME_28"
+	}
+	text = { trigger = { check_variable = { v = 29 } }
+		localization_key = "CAC_COMPANY_NAME_29"
+	}
+	text = { trigger = { check_variable = { v = 30 } }
+		localization_key = "CAC_COMPANY_NAME_30"
+	}
+	text = { trigger = { check_variable = { v = 31 } }
+		localization_key = "CAC_COMPANY_NAME_31"
+	}
+	text = { trigger = { check_variable = { v = 32 } }
+		localization_key = "CAC_COMPANY_NAME_32"
+	}
+	text = { trigger = { check_variable = { v = 33 } }
+		localization_key = "CAC_COMPANY_NAME_33"
+	}
+	text = { trigger = { check_variable = { v = 34 } }
+		localization_key = "CAC_COMPANY_NAME_34"
+	}
+	text = { trigger = { check_variable = { v = 35 } }
+		localization_key = "CAC_COMPANY_NAME_35"
+	}
+	text = { trigger = { check_variable = { v = 36 } }
+		localization_key = "CAC_COMPANY_NAME_36"
+	}
+	text = { trigger = { check_variable = { v = 37 } }
+		localization_key = "CAC_COMPANY_NAME_37"
+	}
+	text = { trigger = { check_variable = { v = 38 } }
+		localization_key = "CAC_COMPANY_NAME_38"
+	}
+	text = { trigger = { check_variable = { v = 39 } }
+		localization_key = "CAC_COMPANY_NAME_39"
+	}
+	text = { trigger = { check_variable = { v = 40 } }
+		localization_key = "CAC_COMPANY_NAME_40"
+	}
+	text = { trigger = { check_variable = { v = 41 } }
+		localization_key = "CAC_COMPANY_NAME_41"
+	}
+	text = { trigger = { check_variable = { v = 42 } }
+		localization_key = "CAC_COMPANY_NAME_42"
+	}
+	text = { trigger = { check_variable = { v = 43 } }
+		localization_key = "CAC_COMPANY_NAME_43"
+	}
+	text = { trigger = { check_variable = { v = 44 } }
+		localization_key = "CAC_COMPANY_NAME_44"
+	}
+	text = { trigger = { check_variable = { v = 45 } }
+		localization_key = "CAC_COMPANY_NAME_45"
+	}
+	text = { trigger = { check_variable = { v = 46 } }
+		localization_key = "CAC_COMPANY_NAME_46"
+	}
+	text = { trigger = { check_variable = { v = 47 } }
+		localization_key = "CAC_COMPANY_NAME_47"
+	}
+	text = { trigger = { check_variable = { v = 48 } }
+		localization_key = "CAC_COMPANY_NAME_48"
+	}
+	text = { trigger = { check_variable = { v = 49 } }
+		localization_key = "CAC_COMPANY_NAME_49"
+	}
+	text = { trigger = { check_variable = { v = 50 } }
+		localization_key = "CAC_COMPANY_NAME_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_name_of_company_by_index
+	text = { trigger = { check_variable = { i = 0 } }
+		localization_key = "CAC_COMPANY_NAME_0"
+	}
+	text = { trigger = { check_variable = { i = 1 } }
+		localization_key = "CAC_COMPANY_NAME_1"
+	}
+	text = { trigger = { check_variable = { i = 2 } }
+		localization_key = "CAC_COMPANY_NAME_2"
+	}
+	text = { trigger = { check_variable = { i = 3 } }
+		localization_key = "CAC_COMPANY_NAME_3"
+	}
+	text = { trigger = { check_variable = { i = 4 } }
+		localization_key = "CAC_COMPANY_NAME_4"
+	}
+	text = { trigger = { check_variable = { i = 5 } }
+		localization_key = "CAC_COMPANY_NAME_5"
+	}
+	text = { trigger = { check_variable = { i = 6 } }
+		localization_key = "CAC_COMPANY_NAME_6"
+	}
+	text = { trigger = { check_variable = { i = 7 } }
+		localization_key = "CAC_COMPANY_NAME_7"
+	}
+	text = { trigger = { check_variable = { i = 8 } }
+		localization_key = "CAC_COMPANY_NAME_8"
+	}
+	text = { trigger = { check_variable = { i = 9 } }
+		localization_key = "CAC_COMPANY_NAME_9"
+	}
+	text = { trigger = { check_variable = { i = 10 } }
+		localization_key = "CAC_COMPANY_NAME_10"
+	}
+	text = { trigger = { check_variable = { i = 11 } }
+		localization_key = "CAC_COMPANY_NAME_11"
+	}
+	text = { trigger = { check_variable = { i = 12 } }
+		localization_key = "CAC_COMPANY_NAME_12"
+	}
+	text = { trigger = { check_variable = { i = 13 } }
+		localization_key = "CAC_COMPANY_NAME_13"
+	}
+	text = { trigger = { check_variable = { i = 14 } }
+		localization_key = "CAC_COMPANY_NAME_14"
+	}
+	text = { trigger = { check_variable = { i = 15 } }
+		localization_key = "CAC_COMPANY_NAME_15"
+	}
+	text = { trigger = { check_variable = { i = 16 } }
+		localization_key = "CAC_COMPANY_NAME_16"
+	}
+	text = { trigger = { check_variable = { i = 17 } }
+		localization_key = "CAC_COMPANY_NAME_17"
+	}
+	text = { trigger = { check_variable = { i = 18 } }
+		localization_key = "CAC_COMPANY_NAME_18"
+	}
+	text = { trigger = { check_variable = { i = 19 } }
+		localization_key = "CAC_COMPANY_NAME_19"
+	}
+	text = { trigger = { check_variable = { i = 20 } }
+		localization_key = "CAC_COMPANY_NAME_20"
+	}
+	text = { trigger = { check_variable = { i = 21 } }
+		localization_key = "CAC_COMPANY_NAME_21"
+	}
+	text = { trigger = { check_variable = { i = 22 } }
+		localization_key = "CAC_COMPANY_NAME_22"
+	}
+	text = { trigger = { check_variable = { i = 23 } }
+		localization_key = "CAC_COMPANY_NAME_23"
+	}
+	text = { trigger = { check_variable = { i = 24 } }
+		localization_key = "CAC_COMPANY_NAME_24"
+	}
+	text = { trigger = { check_variable = { i = 25 } }
+		localization_key = "CAC_COMPANY_NAME_25"
+	}
+	text = { trigger = { check_variable = { i = 26 } }
+		localization_key = "CAC_COMPANY_NAME_26"
+	}
+	text = { trigger = { check_variable = { i = 27 } }
+		localization_key = "CAC_COMPANY_NAME_27"
+	}
+	text = { trigger = { check_variable = { i = 28 } }
+		localization_key = "CAC_COMPANY_NAME_28"
+	}
+	text = { trigger = { check_variable = { i = 29 } }
+		localization_key = "CAC_COMPANY_NAME_29"
+	}
+	text = { trigger = { check_variable = { i = 30 } }
+		localization_key = "CAC_COMPANY_NAME_30"
+	}
+	text = { trigger = { check_variable = { i = 31 } }
+		localization_key = "CAC_COMPANY_NAME_31"
+	}
+	text = { trigger = { check_variable = { i = 32 } }
+		localization_key = "CAC_COMPANY_NAME_32"
+	}
+	text = { trigger = { check_variable = { i = 33 } }
+		localization_key = "CAC_COMPANY_NAME_33"
+	}
+	text = { trigger = { check_variable = { i = 34 } }
+		localization_key = "CAC_COMPANY_NAME_34"
+	}
+	text = { trigger = { check_variable = { i = 35 } }
+		localization_key = "CAC_COMPANY_NAME_35"
+	}
+	text = { trigger = { check_variable = { i = 36 } }
+		localization_key = "CAC_COMPANY_NAME_36"
+	}
+	text = { trigger = { check_variable = { i = 37 } }
+		localization_key = "CAC_COMPANY_NAME_37"
+	}
+	text = { trigger = { check_variable = { i = 38 } }
+		localization_key = "CAC_COMPANY_NAME_38"
+	}
+	text = { trigger = { check_variable = { i = 39 } }
+		localization_key = "CAC_COMPANY_NAME_39"
+	}
+	text = { trigger = { check_variable = { i = 40 } }
+		localization_key = "CAC_COMPANY_NAME_40"
+	}
+	text = { trigger = { check_variable = { i = 41 } }
+		localization_key = "CAC_COMPANY_NAME_41"
+	}
+	text = { trigger = { check_variable = { i = 42 } }
+		localization_key = "CAC_COMPANY_NAME_42"
+	}
+	text = { trigger = { check_variable = { i = 43 } }
+		localization_key = "CAC_COMPANY_NAME_43"
+	}
+	text = { trigger = { check_variable = { i = 44 } }
+		localization_key = "CAC_COMPANY_NAME_44"
+	}
+	text = { trigger = { check_variable = { i = 45 } }
+		localization_key = "CAC_COMPANY_NAME_45"
+	}
+	text = { trigger = { check_variable = { i = 46 } }
+		localization_key = "CAC_COMPANY_NAME_46"
+	}
+	text = { trigger = { check_variable = { i = 47 } }
+		localization_key = "CAC_COMPANY_NAME_47"
+	}
+	text = { trigger = { check_variable = { i = 48 } }
+		localization_key = "CAC_COMPANY_NAME_48"
+	}
+	text = { trigger = { check_variable = { i = 49 } }
+		localization_key = "CAC_COMPANY_NAME_49"
+	}
+	text = { trigger = { check_variable = { i = 50 } }
+		localization_key = "CAC_COMPANY_NAME_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_name_of_company_detail
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 0 } }
+		localization_key = "CAC_COMPANY_NAME_0"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 1 } }
+		localization_key = "CAC_COMPANY_NAME_1"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 2 } }
+		localization_key = "CAC_COMPANY_NAME_2"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 3 } }
+		localization_key = "CAC_COMPANY_NAME_3"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 4 } }
+		localization_key = "CAC_COMPANY_NAME_4"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 5 } }
+		localization_key = "CAC_COMPANY_NAME_5"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 6 } }
+		localization_key = "CAC_COMPANY_NAME_6"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 7 } }
+		localization_key = "CAC_COMPANY_NAME_7"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 8 } }
+		localization_key = "CAC_COMPANY_NAME_8"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 9 } }
+		localization_key = "CAC_COMPANY_NAME_9"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 10 } }
+		localization_key = "CAC_COMPANY_NAME_10"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 11 } }
+		localization_key = "CAC_COMPANY_NAME_11"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 12 } }
+		localization_key = "CAC_COMPANY_NAME_12"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 13 } }
+		localization_key = "CAC_COMPANY_NAME_13"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 14 } }
+		localization_key = "CAC_COMPANY_NAME_14"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 15 } }
+		localization_key = "CAC_COMPANY_NAME_15"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 16 } }
+		localization_key = "CAC_COMPANY_NAME_16"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 17 } }
+		localization_key = "CAC_COMPANY_NAME_17"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 18 } }
+		localization_key = "CAC_COMPANY_NAME_18"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 19 } }
+		localization_key = "CAC_COMPANY_NAME_19"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 20 } }
+		localization_key = "CAC_COMPANY_NAME_20"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 21 } }
+		localization_key = "CAC_COMPANY_NAME_21"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 22 } }
+		localization_key = "CAC_COMPANY_NAME_22"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 23 } }
+		localization_key = "CAC_COMPANY_NAME_23"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 24 } }
+		localization_key = "CAC_COMPANY_NAME_24"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 25 } }
+		localization_key = "CAC_COMPANY_NAME_25"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 26 } }
+		localization_key = "CAC_COMPANY_NAME_26"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 27 } }
+		localization_key = "CAC_COMPANY_NAME_27"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 28 } }
+		localization_key = "CAC_COMPANY_NAME_28"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 29 } }
+		localization_key = "CAC_COMPANY_NAME_29"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 30 } }
+		localization_key = "CAC_COMPANY_NAME_30"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 31 } }
+		localization_key = "CAC_COMPANY_NAME_31"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 32 } }
+		localization_key = "CAC_COMPANY_NAME_32"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 33 } }
+		localization_key = "CAC_COMPANY_NAME_33"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 34 } }
+		localization_key = "CAC_COMPANY_NAME_34"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 35 } }
+		localization_key = "CAC_COMPANY_NAME_35"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 36 } }
+		localization_key = "CAC_COMPANY_NAME_36"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 37 } }
+		localization_key = "CAC_COMPANY_NAME_37"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 38 } }
+		localization_key = "CAC_COMPANY_NAME_38"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 39 } }
+		localization_key = "CAC_COMPANY_NAME_39"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 40 } }
+		localization_key = "CAC_COMPANY_NAME_40"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 41 } }
+		localization_key = "CAC_COMPANY_NAME_41"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 42 } }
+		localization_key = "CAC_COMPANY_NAME_42"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 43 } }
+		localization_key = "CAC_COMPANY_NAME_43"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 44 } }
+		localization_key = "CAC_COMPANY_NAME_44"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 45 } }
+		localization_key = "CAC_COMPANY_NAME_45"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 46 } }
+		localization_key = "CAC_COMPANY_NAME_46"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 47 } }
+		localization_key = "CAC_COMPANY_NAME_47"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 48 } }
+		localization_key = "CAC_COMPANY_NAME_48"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 49 } }
+		localization_key = "CAC_COMPANY_NAME_49"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 50 } }
+		localization_key = "CAC_COMPANY_NAME_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_name_of_company_by_cac_slot
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 0 } }
+		localization_key = "CAC_COMPANY_NAME_0"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 1 } }
+		localization_key = "CAC_COMPANY_NAME_1"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 2 } }
+		localization_key = "CAC_COMPANY_NAME_2"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 3 } }
+		localization_key = "CAC_COMPANY_NAME_3"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 4 } }
+		localization_key = "CAC_COMPANY_NAME_4"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 5 } }
+		localization_key = "CAC_COMPANY_NAME_5"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 6 } }
+		localization_key = "CAC_COMPANY_NAME_6"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 7 } }
+		localization_key = "CAC_COMPANY_NAME_7"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 8 } }
+		localization_key = "CAC_COMPANY_NAME_8"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 9 } }
+		localization_key = "CAC_COMPANY_NAME_9"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 10 } }
+		localization_key = "CAC_COMPANY_NAME_10"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 11 } }
+		localization_key = "CAC_COMPANY_NAME_11"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 12 } }
+		localization_key = "CAC_COMPANY_NAME_12"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 13 } }
+		localization_key = "CAC_COMPANY_NAME_13"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 14 } }
+		localization_key = "CAC_COMPANY_NAME_14"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 15 } }
+		localization_key = "CAC_COMPANY_NAME_15"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 16 } }
+		localization_key = "CAC_COMPANY_NAME_16"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 17 } }
+		localization_key = "CAC_COMPANY_NAME_17"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 18 } }
+		localization_key = "CAC_COMPANY_NAME_18"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 19 } }
+		localization_key = "CAC_COMPANY_NAME_19"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 20 } }
+		localization_key = "CAC_COMPANY_NAME_20"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 21 } }
+		localization_key = "CAC_COMPANY_NAME_21"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 22 } }
+		localization_key = "CAC_COMPANY_NAME_22"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 23 } }
+		localization_key = "CAC_COMPANY_NAME_23"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 24 } }
+		localization_key = "CAC_COMPANY_NAME_24"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 25 } }
+		localization_key = "CAC_COMPANY_NAME_25"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 26 } }
+		localization_key = "CAC_COMPANY_NAME_26"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 27 } }
+		localization_key = "CAC_COMPANY_NAME_27"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 28 } }
+		localization_key = "CAC_COMPANY_NAME_28"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 29 } }
+		localization_key = "CAC_COMPANY_NAME_29"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 30 } }
+		localization_key = "CAC_COMPANY_NAME_30"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 31 } }
+		localization_key = "CAC_COMPANY_NAME_31"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 32 } }
+		localization_key = "CAC_COMPANY_NAME_32"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 33 } }
+		localization_key = "CAC_COMPANY_NAME_33"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 34 } }
+		localization_key = "CAC_COMPANY_NAME_34"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 35 } }
+		localization_key = "CAC_COMPANY_NAME_35"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 36 } }
+		localization_key = "CAC_COMPANY_NAME_36"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 37 } }
+		localization_key = "CAC_COMPANY_NAME_37"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 38 } }
+		localization_key = "CAC_COMPANY_NAME_38"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 39 } }
+		localization_key = "CAC_COMPANY_NAME_39"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 40 } }
+		localization_key = "CAC_COMPANY_NAME_40"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 41 } }
+		localization_key = "CAC_COMPANY_NAME_41"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 42 } }
+		localization_key = "CAC_COMPANY_NAME_42"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 43 } }
+		localization_key = "CAC_COMPANY_NAME_43"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 44 } }
+		localization_key = "CAC_COMPANY_NAME_44"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 45 } }
+		localization_key = "CAC_COMPANY_NAME_45"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 46 } }
+		localization_key = "CAC_COMPANY_NAME_46"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 47 } }
+		localization_key = "CAC_COMPANY_NAME_47"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 48 } }
+		localization_key = "CAC_COMPANY_NAME_48"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 49 } }
+		localization_key = "CAC_COMPANY_NAME_49"
+	}
+	text = { trigger = { check_variable = { CAC_companies^cac_slot = 50 } }
+		localization_key = "CAC_COMPANY_NAME_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_type_name_of_company
+
+	text = { trigger = { check_variable = { CAC_companies_type^v = 0 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_0"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 1 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_1"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 2 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_2"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 3 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_3"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 4 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_4"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 5 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_5"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 6 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_6"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 7 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_7"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 8 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_8"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 9 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_9"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 10 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_10"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 11 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_11"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 12 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_12"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 13 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_13"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 14 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_14"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 15 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_15"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 16 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_16"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 17 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_17"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 18 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_18"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 19 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_19"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 20 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_20"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 21 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_21"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 22 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_22"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 23 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_23"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 24 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_24"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 25 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_25"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 26 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_26"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 27 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_27"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 28 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_28"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 29 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_29"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^v = 30 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_30"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_type_name_of_company_by_index
+
+	text = { trigger = { check_variable = { CAC_companies_type^i = 0 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_0"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 1 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_1"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 2 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_2"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 3 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_3"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 4 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_4"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 5 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_5"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 6 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_6"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 7 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_7"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 8 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_8"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 9 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_9"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 10 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_10"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 11 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_11"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 12 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_12"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 13 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_13"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 14 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_14"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 15 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_15"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 16 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_16"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 17 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_17"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 18 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_18"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 19 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_19"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 20 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_20"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 21 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_21"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 22 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_22"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 23 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_23"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 24 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_24"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 25 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_25"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 26 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_26"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 27 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_27"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 28 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_28"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 29 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_29"
+	}
+	text = { trigger = { check_variable = { CAC_companies_type^i = 30 } }
+		localization_key = "CAC_COMPANY_TYPE_NAME_30"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_icon_of_company
+	text = { trigger = { check_variable = { v = -1 } }
+		localization_key = "GFX_idea_slot_industrial_concern"
+	}
+	text = { trigger = { check_variable = { v = 0 } }
+		localization_key = "CAC_COMPANY_ICON_0"
+	}
+	text = { trigger = { check_variable = { v = 1 } }
+		localization_key = "CAC_COMPANY_ICON_1"
+	}
+	text = { trigger = { check_variable = { v = 2 } }
+		localization_key = "CAC_COMPANY_ICON_2"
+	}
+	text = { trigger = { check_variable = { v = 3 } }
+		localization_key = "CAC_COMPANY_ICON_3"
+	}
+	text = { trigger = { check_variable = { v = 4 } }
+		localization_key = "CAC_COMPANY_ICON_4"
+	}
+	text = { trigger = { check_variable = { v = 5 } }
+		localization_key = "CAC_COMPANY_ICON_5"
+	}
+	text = { trigger = { check_variable = { v = 6 } }
+		localization_key = "CAC_COMPANY_ICON_6"
+	}
+	text = { trigger = { check_variable = { v = 7 } }
+		localization_key = "CAC_COMPANY_ICON_7"
+	}
+	text = { trigger = { check_variable = { v = 8 } }
+		localization_key = "CAC_COMPANY_ICON_8"
+	}
+	text = { trigger = { check_variable = { v = 9 } }
+		localization_key = "CAC_COMPANY_ICON_9"
+	}
+	text = { trigger = { check_variable = { v = 10 } }
+		localization_key = "CAC_COMPANY_ICON_10"
+	}
+	text = { trigger = { check_variable = { v = 11 } }
+		localization_key = "CAC_COMPANY_ICON_11"
+	}
+	text = { trigger = { check_variable = { v = 12 } }
+		localization_key = "CAC_COMPANY_ICON_12"
+	}
+	text = { trigger = { check_variable = { v = 13 } }
+		localization_key = "CAC_COMPANY_ICON_13"
+	}
+	text = { trigger = { check_variable = { v = 14 } }
+		localization_key = "CAC_COMPANY_ICON_14"
+	}
+	text = { trigger = { check_variable = { v = 15 } }
+		localization_key = "CAC_COMPANY_ICON_15"
+	}
+	text = { trigger = { check_variable = { v = 16 } }
+		localization_key = "CAC_COMPANY_ICON_16"
+	}
+	text = { trigger = { check_variable = { v = 17 } }
+		localization_key = "CAC_COMPANY_ICON_17"
+	}
+	text = { trigger = { check_variable = { v = 18 } }
+		localization_key = "CAC_COMPANY_ICON_18"
+	}
+	text = { trigger = { check_variable = { v = 19 } }
+		localization_key = "CAC_COMPANY_ICON_19"
+	}
+	text = { trigger = { check_variable = { v = 20 } }
+		localization_key = "CAC_COMPANY_ICON_20"
+	}
+	text = { trigger = { check_variable = { v = 21 } }
+		localization_key = "CAC_COMPANY_ICON_21"
+	}
+	text = { trigger = { check_variable = { v = 22 } }
+		localization_key = "CAC_COMPANY_ICON_22"
+	}
+	text = { trigger = { check_variable = { v = 23 } }
+		localization_key = "CAC_COMPANY_ICON_23"
+	}
+	text = { trigger = { check_variable = { v = 24 } }
+		localization_key = "CAC_COMPANY_ICON_24"
+	}
+	text = { trigger = { check_variable = { v = 25 } }
+		localization_key = "CAC_COMPANY_ICON_25"
+	}
+	text = { trigger = { check_variable = { v = 26 } }
+		localization_key = "CAC_COMPANY_ICON_26"
+	}
+	text = { trigger = { check_variable = { v = 27 } }
+		localization_key = "CAC_COMPANY_ICON_27"
+	}
+	text = { trigger = { check_variable = { v = 28 } }
+		localization_key = "CAC_COMPANY_ICON_28"
+	}
+	text = { trigger = { check_variable = { v = 29 } }
+		localization_key = "CAC_COMPANY_ICON_29"
+	}
+	text = { trigger = { check_variable = { v = 30 } }
+		localization_key = "CAC_COMPANY_ICON_30"
+	}
+	text = { trigger = { check_variable = { v = 31 } }
+		localization_key = "CAC_COMPANY_ICON_31"
+	}
+	text = { trigger = { check_variable = { v = 32 } }
+		localization_key = "CAC_COMPANY_ICON_32"
+	}
+	text = { trigger = { check_variable = { v = 33 } }
+		localization_key = "CAC_COMPANY_ICON_33"
+	}
+	text = { trigger = { check_variable = { v = 34 } }
+		localization_key = "CAC_COMPANY_ICON_34"
+	}
+	text = { trigger = { check_variable = { v = 35 } }
+		localization_key = "CAC_COMPANY_ICON_35"
+	}
+	text = { trigger = { check_variable = { v = 36 } }
+		localization_key = "CAC_COMPANY_ICON_36"
+	}
+	text = { trigger = { check_variable = { v = 37 } }
+		localization_key = "CAC_COMPANY_ICON_37"
+	}
+	text = { trigger = { check_variable = { v = 38 } }
+		localization_key = "CAC_COMPANY_ICON_38"
+	}
+	text = { trigger = { check_variable = { v = 39 } }
+		localization_key = "CAC_COMPANY_ICON_39"
+	}
+	text = { trigger = { check_variable = { v = 40 } }
+		localization_key = "CAC_COMPANY_ICON_40"
+	}
+	text = { trigger = { check_variable = { v = 41 } }
+		localization_key = "CAC_COMPANY_ICON_41"
+	}
+	text = { trigger = { check_variable = { v = 42 } }
+		localization_key = "CAC_COMPANY_ICON_42"
+	}
+	text = { trigger = { check_variable = { v = 43 } }
+		localization_key = "CAC_COMPANY_ICON_43"
+	}
+	text = { trigger = { check_variable = { v = 44 } }
+		localization_key = "CAC_COMPANY_ICON_44"
+	}
+	text = { trigger = { check_variable = { v = 45 } }
+		localization_key = "CAC_COMPANY_ICON_45"
+	}
+	text = { trigger = { check_variable = { v = 46 } }
+		localization_key = "CAC_COMPANY_ICON_46"
+	}
+	text = { trigger = { check_variable = { v = 47 } }
+		localization_key = "CAC_COMPANY_ICON_47"
+	}
+	text = { trigger = { check_variable = { v = 48 } }
+		localization_key = "CAC_COMPANY_ICON_48"
+	}
+	text = { trigger = { check_variable = { v = 49 } }
+		localization_key = "CAC_COMPANY_ICON_49"
+	}
+	text = { trigger = { check_variable = { v = 50 } }
+		localization_key = "CAC_COMPANY_ICON_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_icon_of_company_by_index
+	text = { trigger = { check_variable = { i = -1 } }
+		localization_key = "GFX_idea_slot_industrial_concern"
+	}
+	text = { trigger = { check_variable = { i = 0 } }
+		localization_key = "CAC_COMPANY_ICON_0"
+	}
+	text = { trigger = { check_variable = { i = 1 } }
+		localization_key = "CAC_COMPANY_ICON_1"
+	}
+	text = { trigger = { check_variable = { i = 2 } }
+		localization_key = "CAC_COMPANY_ICON_2"
+	}
+	text = { trigger = { check_variable = { i = 3 } }
+		localization_key = "CAC_COMPANY_ICON_3"
+	}
+	text = { trigger = { check_variable = { i = 4 } }
+		localization_key = "CAC_COMPANY_ICON_4"
+	}
+	text = { trigger = { check_variable = { i = 5 } }
+		localization_key = "CAC_COMPANY_ICON_5"
+	}
+	text = { trigger = { check_variable = { i = 6 } }
+		localization_key = "CAC_COMPANY_ICON_6"
+	}
+	text = { trigger = { check_variable = { i = 7 } }
+		localization_key = "CAC_COMPANY_ICON_7"
+	}
+	text = { trigger = { check_variable = { i = 8 } }
+		localization_key = "CAC_COMPANY_ICON_8"
+	}
+	text = { trigger = { check_variable = { i = 9 } }
+		localization_key = "CAC_COMPANY_ICON_9"
+	}
+	text = { trigger = { check_variable = { i = 10 } }
+		localization_key = "CAC_COMPANY_ICON_10"
+	}
+	text = { trigger = { check_variable = { i = 11 } }
+		localization_key = "CAC_COMPANY_ICON_11"
+	}
+	text = { trigger = { check_variable = { i = 12 } }
+		localization_key = "CAC_COMPANY_ICON_12"
+	}
+	text = { trigger = { check_variable = { i = 13 } }
+		localization_key = "CAC_COMPANY_ICON_13"
+	}
+	text = { trigger = { check_variable = { i = 14 } }
+		localization_key = "CAC_COMPANY_ICON_14"
+	}
+	text = { trigger = { check_variable = { i = 15 } }
+		localization_key = "CAC_COMPANY_ICON_15"
+	}
+	text = { trigger = { check_variable = { i = 16 } }
+		localization_key = "CAC_COMPANY_ICON_16"
+	}
+	text = { trigger = { check_variable = { i = 17 } }
+		localization_key = "CAC_COMPANY_ICON_17"
+	}
+	text = { trigger = { check_variable = { i = 18 } }
+		localization_key = "CAC_COMPANY_ICON_18"
+	}
+	text = { trigger = { check_variable = { i = 19 } }
+		localization_key = "CAC_COMPANY_ICON_19"
+	}
+	text = { trigger = { check_variable = { i = 20 } }
+		localization_key = "CAC_COMPANY_ICON_20"
+	}
+	text = { trigger = { check_variable = { i = 21 } }
+		localization_key = "CAC_COMPANY_ICON_21"
+	}
+	text = { trigger = { check_variable = { i = 22 } }
+		localization_key = "CAC_COMPANY_ICON_22"
+	}
+	text = { trigger = { check_variable = { i = 23 } }
+		localization_key = "CAC_COMPANY_ICON_23"
+	}
+	text = { trigger = { check_variable = { i = 24 } }
+		localization_key = "CAC_COMPANY_ICON_24"
+	}
+	text = { trigger = { check_variable = { i = 25 } }
+		localization_key = "CAC_COMPANY_ICON_25"
+	}
+	text = { trigger = { check_variable = { i = 26 } }
+		localization_key = "CAC_COMPANY_ICON_26"
+	}
+	text = { trigger = { check_variable = { i = 27 } }
+		localization_key = "CAC_COMPANY_ICON_27"
+	}
+	text = { trigger = { check_variable = { i = 28 } }
+		localization_key = "CAC_COMPANY_ICON_28"
+	}
+	text = { trigger = { check_variable = { i = 29 } }
+		localization_key = "CAC_COMPANY_ICON_29"
+	}
+	text = { trigger = { check_variable = { i = 30 } }
+		localization_key = "CAC_COMPANY_ICON_30"
+	}
+	text = { trigger = { check_variable = { i = 31 } }
+		localization_key = "CAC_COMPANY_ICON_31"
+	}
+	text = { trigger = { check_variable = { i = 32 } }
+		localization_key = "CAC_COMPANY_ICON_32"
+	}
+	text = { trigger = { check_variable = { i = 33 } }
+		localization_key = "CAC_COMPANY_ICON_33"
+	}
+	text = { trigger = { check_variable = { i = 34 } }
+		localization_key = "CAC_COMPANY_ICON_34"
+	}
+	text = { trigger = { check_variable = { i = 35 } }
+		localization_key = "CAC_COMPANY_ICON_35"
+	}
+	text = { trigger = { check_variable = { i = 36 } }
+		localization_key = "CAC_COMPANY_ICON_36"
+	}
+	text = { trigger = { check_variable = { i = 37 } }
+		localization_key = "CAC_COMPANY_ICON_37"
+	}
+	text = { trigger = { check_variable = { i = 38 } }
+		localization_key = "CAC_COMPANY_ICON_38"
+	}
+	text = { trigger = { check_variable = { i = 39 } }
+		localization_key = "CAC_COMPANY_ICON_39"
+	}
+	text = { trigger = { check_variable = { i = 40 } }
+		localization_key = "CAC_COMPANY_ICON_40"
+	}
+	text = { trigger = { check_variable = { i = 41 } }
+		localization_key = "CAC_COMPANY_ICON_41"
+	}
+	text = { trigger = { check_variable = { i = 42 } }
+		localization_key = "CAC_COMPANY_ICON_42"
+	}
+	text = { trigger = { check_variable = { i = 43 } }
+		localization_key = "CAC_COMPANY_ICON_43"
+	}
+	text = { trigger = { check_variable = { i = 44 } }
+		localization_key = "CAC_COMPANY_ICON_44"
+	}
+	text = { trigger = { check_variable = { i = 45 } }
+		localization_key = "CAC_COMPANY_ICON_45"
+	}
+	text = { trigger = { check_variable = { i = 46 } }
+		localization_key = "CAC_COMPANY_ICON_46"
+	}
+	text = { trigger = { check_variable = { i = 47 } }
+		localization_key = "CAC_COMPANY_ICON_47"
+	}
+	text = { trigger = { check_variable = { i = 48 } }
+		localization_key = "CAC_COMPANY_ICON_48"
+	}
+	text = { trigger = { check_variable = { i = 49 } }
+		localization_key = "CAC_COMPANY_ICON_49"
+	}
+	text = { trigger = { check_variable = { i = 50 } }
+		localization_key = "CAC_COMPANY_ICON_50"
+	}
+
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CAC_icon_of_company_detail
+
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 0 } }
+		localization_key = "CAC_COMPANY_ICON_0"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 1 } }
+		localization_key = "CAC_COMPANY_ICON_1"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 2 } }
+		localization_key = "CAC_COMPANY_ICON_2"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 3 } }
+		localization_key = "CAC_COMPANY_ICON_3"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 4 } }
+		localization_key = "CAC_COMPANY_ICON_4"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 5 } }
+		localization_key = "CAC_COMPANY_ICON_5"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 6 } }
+		localization_key = "CAC_COMPANY_ICON_6"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 7 } }
+		localization_key = "CAC_COMPANY_ICON_7"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 8 } }
+		localization_key = "CAC_COMPANY_ICON_8"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 9 } }
+		localization_key = "CAC_COMPANY_ICON_9"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 10 } }
+		localization_key = "CAC_COMPANY_ICON_10"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 11 } }
+		localization_key = "CAC_COMPANY_ICON_11"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 12 } }
+		localization_key = "CAC_COMPANY_ICON_12"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 13 } }
+		localization_key = "CAC_COMPANY_ICON_13"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 14 } }
+		localization_key = "CAC_COMPANY_ICON_14"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 15 } }
+		localization_key = "CAC_COMPANY_ICON_15"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 16 } }
+		localization_key = "CAC_COMPANY_ICON_16"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 17 } }
+		localization_key = "CAC_COMPANY_ICON_17"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 18 } }
+		localization_key = "CAC_COMPANY_ICON_18"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 19 } }
+		localization_key = "CAC_COMPANY_ICON_19"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 20 } }
+		localization_key = "CAC_COMPANY_ICON_20"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 21 } }
+		localization_key = "CAC_COMPANY_ICON_21"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 22 } }
+		localization_key = "CAC_COMPANY_ICON_22"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 23 } }
+		localization_key = "CAC_COMPANY_ICON_23"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 24 } }
+		localization_key = "CAC_COMPANY_ICON_24"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 25 } }
+		localization_key = "CAC_COMPANY_ICON_25"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 26 } }
+		localization_key = "CAC_COMPANY_ICON_26"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 27 } }
+		localization_key = "CAC_COMPANY_ICON_27"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 28 } }
+		localization_key = "CAC_COMPANY_ICON_28"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 29 } }
+		localization_key = "CAC_COMPANY_ICON_29"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 30 } }
+		localization_key = "CAC_COMPANY_ICON_30"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 31 } }
+		localization_key = "CAC_COMPANY_ICON_31"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 32 } }
+		localization_key = "CAC_COMPANY_ICON_32"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 33 } }
+		localization_key = "CAC_COMPANY_ICON_33"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 34 } }
+		localization_key = "CAC_COMPANY_ICON_34"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 35 } }
+		localization_key = "CAC_COMPANY_ICON_35"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 36 } }
+		localization_key = "CAC_COMPANY_ICON_36"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 37 } }
+		localization_key = "CAC_COMPANY_ICON_37"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 38 } }
+		localization_key = "CAC_COMPANY_ICON_38"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 39 } }
+		localization_key = "CAC_COMPANY_ICON_39"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 40 } }
+		localization_key = "CAC_COMPANY_ICON_40"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 41 } }
+		localization_key = "CAC_COMPANY_ICON_41"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 42 } }
+		localization_key = "CAC_COMPANY_ICON_42"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 43 } }
+		localization_key = "CAC_COMPANY_ICON_43"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 44 } }
+		localization_key = "CAC_COMPANY_ICON_44"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 45 } }
+		localization_key = "CAC_COMPANY_ICON_45"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 46 } }
+		localization_key = "CAC_COMPANY_ICON_46"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 47 } }
+		localization_key = "CAC_COMPANY_ICON_47"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 48 } }
+		localization_key = "CAC_COMPANY_ICON_48"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 49 } }
+		localization_key = "CAC_COMPANY_ICON_49"
+	}
+	text = { trigger = { check_variable = { CAC_companies^opened_company_details = 50 } }
+		localization_key = "CAC_COMPANY_ICON_50"
+	}
+
+	text = { localization_key = "" }
+}
+defined_text = {
+	name = Get_upgrade_0_icon_frame
+
+	text = { localization_key = 3 }
+}
+defined_text = {
+	name = Get_upgrade_1_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 1 }
+
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+
+		localization_key = 2
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 1 }
+
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+
+		localization_key = 1
+	}
+
+	text = { localization_key = 3 }
+}
+defined_text = {
+	name = Get_upgrade_2_icon_frame
+
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 2 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 2 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_3_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 3 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 3 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_4_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 4 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 4 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_5_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 5 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 5 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_6_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 6 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 6 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_7_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 7 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 7 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_8_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 8 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 8 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_9_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 9 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 9 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_10_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 10 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 10 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_11_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 11 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 11 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_12_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 12 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 12 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_13_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 13 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 13 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_14_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 14 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 14 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_15_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 15 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 15 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_16_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 16 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 16 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_17_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 17 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 17 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_18_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 18 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 18 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_19_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 19 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 19 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_20_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 20 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 20 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_21_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 21 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 21 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_22_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 22 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 22 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_23_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 23 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 23 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_24_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 24 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 24 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_25_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 25 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 25 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_26_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 26 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 26 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_27_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 27 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 27 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_28_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 28 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 28 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_29_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 29 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 29 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+defined_text = {
+	name = Get_upgrade_30_icon_frame
+
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 30 }
+			check_variable = { CAC_companies_upgrades_2d^index = 1 }
+		}
+		localization_key = "2"
+	}
+	text = {
+		trigger = {
+			set_temp_variable = { index = CAC_companies^opened_company_details }
+			multiply_temp_variable = { index = 31 }
+			add_to_temp_variable = { index = 30 }
+			check_variable = { CAC_companies_upgrades_2d^index = 2 }
+		}
+		localization_key = "1"
+	}
+
+	text = { localization_key = "3" }
+}
+
+defined_text = {
+	name = CAC_income_sector_details
+	text = {
+		trigger = { check_variable = { CAC_companies_type^opened_company_details = 6 } }
+		localization_key = "CAC_income_sector_details_healthcare"
+	}
+	text = { localization_key = "CAC_income_sector_details_empty" }
+}
+
+defined_text = {
+	name = CAC_healthcare_sector_label
+	text = {
+		trigger = { check_variable = { CAC_companies_type^opened_company_details = 6 } }
+		localization_key = "CAC_healthcare_sector_label_content"
+	}
+	text = { localization_key = "CAC_income_sector_details_empty" }
+}

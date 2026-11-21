@@ -1,0 +1,80 @@
+ideas = {
+	country = {
+		ENG_strong_majority_spirit = {
+			name = ENG_strong_majority_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		ENG_slim_majority_spirit = {
+			name = ENG_slim_majority_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = -0.05
+			}
+		}
+
+		ENG_hung_parliament_spirit = {
+			name = ENG_hung_parliament_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = -0.15
+				stability_factor = -0.05
+			}
+		}
+
+		ENG_minority_government_spirit = {
+			name = ENG_minority_government_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = -0.25
+				stability_factor = -0.10
+				political_power_cost = 0.25
+			}
+		}
+
+		ENG_coalition_government_spirit = {
+			name = ENG_coalition_government_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = -0.05
+			}
+		}
+
+		ENG_constitutional_crisis = {
+			name = ENG_constitutional_crisis
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				political_power_factor = -0.50
+				stability_factor = -0.20
+				war_support_factor = -0.10
+			}
+		}
+
+		ENG_ni_troubles_reignited_spirit = {
+			name = ENG_ni_troubles_reignited_spirit
+			allowed_civil_war = { always = yes }
+			picture = generic_parliament
+
+			modifier = {
+				stability_factor = -0.10
+				weekly_manpower = -100
+			}
+		}
+	}
+}

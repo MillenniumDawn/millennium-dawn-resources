@@ -1,0 +1,1433 @@
+###########################
+# Chad Tribal Rebellion Events
+# Escalation System: Protests -> Partisans -> Separatism -> Civil War
+###########################
+
+add_namespace = chad_tribal
+add_namespace = chad
+
+#####################################
+# ZAGHAWA REBELLION EVENTS
+#####################################
+
+# Zaghawa Protests (Level 1)
+country_event = {
+	id = chad_tribal.1
+	title = chad_tribal.1.t
+	desc = chad_tribal.1.desc
+	picture = GFX_african_demonstration
+
+	trigger = {
+		original_tag = CHA
+		CHA_zaghawa_protest_level = yes
+		NOT = { has_country_flag = CHA_zaghawa_protest_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_zaghawa_protest_warning
+	}
+
+	option = {
+		name = chad_tribal.1.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.1.a executed"
+		add_political_power = -50
+		add_to_variable = { CHA_zaghawa_loyalty = 10 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 70 }
+	}
+
+	option = {
+		name = chad_tribal.1.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.1.b executed"
+		add_stability = -0.03
+		add_to_variable = { CHA_zaghawa_loyalty = -5 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		add_timed_idea = { idea = CHA_tribal_protests days = 180 }
+		ai_chance = { base = 30 }
+	}
+}
+
+# Zaghawa Partisans (Level 2)
+country_event = {
+	id = chad_tribal.2
+	title = chad_tribal.2.t
+	desc = chad_tribal.2.desc
+	picture = GFX_african_rebels
+
+	trigger = {
+		original_tag = CHA
+		CHA_zaghawa_partisan_level = yes
+		NOT = { has_country_flag = CHA_zaghawa_partisan_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+
+	immediate = {
+		set_country_flag = CHA_zaghawa_partisan_warning
+		add_ideas = CHA_zaghawa_partisans
+	}
+
+	option = {
+		name = chad_tribal.2.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.2.a executed"
+		add_political_power = -75
+		add_war_support = 0.05
+		add_to_variable = { CHA_zaghawa_loyalty = -10 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.2.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.2.b executed"
+		add_political_power = -100
+		add_to_variable = { CHA_zaghawa_loyalty = 15 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		remove_ideas = CHA_zaghawa_partisans
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Zaghawa Separatism (Level 3)
+country_event = {
+	id = chad_tribal.3
+	title = chad_tribal.3.t
+	desc = chad_tribal.3.desc
+	picture = GFX_politics_failed_negotiations
+
+	trigger = {
+		original_tag = CHA
+		CHA_zaghawa_separatism_level = yes
+		NOT = { has_country_flag = CHA_zaghawa_separatism_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_zaghawa_separatism_warning
+		remove_ideas = CHA_zaghawa_partisans
+		add_ideas = CHA_zaghawa_separatism
+	}
+
+	option = {
+		name = chad_tribal.3.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.3.a executed"
+		add_political_power = -150
+		add_stability = -0.05
+		add_to_variable = { CHA_zaghawa_loyalty = 30 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		set_country_flag = CHA_zaghawa_autonomous
+		remove_ideas = CHA_zaghawa_separatism
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.3.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.3.b executed"
+		add_stability = -0.10
+		add_war_support = 0.10
+		add_to_variable = { CHA_zaghawa_loyalty = -5 }
+		clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		ai_chance = { base = 50 }
+	}
+}
+
+# Zaghawa Civil War (Level 4)
+country_event = {
+	id = chad_tribal.4
+	title = chad_tribal.4.t
+	desc = chad_tribal.4.desc
+	picture = GFX_african_combat
+
+	trigger = {
+		original_tag = CHA
+		CHA_zaghawa_civil_war_level = yes
+		NOT = { has_country_flag = CHA_zaghawa_rebellion_active }
+	}
+
+	mean_time_to_happen = {
+		days = 14
+	}
+
+	immediate = {
+		remove_ideas = CHA_zaghawa_separatism
+	}
+
+	option = {
+		name = chad_tribal.4.a
+		CHA_spawn_zaghawa_rebels = yes
+	}
+}
+
+#####################################
+# ARAB REBELLION EVENTS
+#####################################
+
+# Arab Protests (Level 1)
+country_event = {
+	id = chad_tribal.11
+	title = chad_tribal.11.t
+	desc = chad_tribal.11.desc
+	picture = GFX_african_demonstration
+
+	trigger = {
+		original_tag = CHA
+		CHA_arab_protest_level = yes
+		NOT = { has_country_flag = CHA_arab_protest_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_arab_protest_warning
+	}
+
+	option = {
+		name = chad_tribal.11.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.11.a executed"
+		add_political_power = -50
+		add_to_variable = { CHA_arab_loyalty = 10 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 70 }
+	}
+
+	option = {
+		name = chad_tribal.11.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.11.b executed"
+		add_stability = -0.03
+		add_to_variable = { CHA_arab_loyalty = -5 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		add_timed_idea = { idea = CHA_tribal_protests days = 180 }
+		ai_chance = { base = 30 }
+	}
+}
+
+# Arab Partisans (Level 2)
+country_event = {
+	id = chad_tribal.12
+	title = chad_tribal.12.t
+	desc = chad_tribal.12.desc
+	picture = GFX_african_rebels
+
+	trigger = {
+		original_tag = CHA
+		CHA_arab_partisan_level = yes
+		NOT = { has_country_flag = CHA_arab_partisan_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+
+	immediate = {
+		set_country_flag = CHA_arab_partisan_warning
+		add_ideas = CHA_arab_partisans
+	}
+
+	option = {
+		name = chad_tribal.12.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.12.a executed"
+		add_political_power = -75
+		add_war_support = 0.05
+		add_to_variable = { CHA_arab_loyalty = -10 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.12.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.12.b executed"
+		add_political_power = -100
+		add_to_variable = { CHA_arab_loyalty = 15 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		remove_ideas = CHA_arab_partisans
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Arab Separatism (Level 3)
+country_event = {
+	id = chad_tribal.13
+	title = chad_tribal.13.t
+	desc = chad_tribal.13.desc
+	picture = GFX_politics_failed_negotiations
+
+	trigger = {
+		original_tag = CHA
+		CHA_arab_separatism_level = yes
+		NOT = { has_country_flag = CHA_arab_separatism_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_arab_separatism_warning
+		remove_ideas = CHA_arab_partisans
+		add_ideas = CHA_arab_separatism
+	}
+
+	option = {
+		name = chad_tribal.13.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.13.a executed"
+		add_political_power = -150
+		add_stability = -0.05
+		add_to_variable = { CHA_arab_loyalty = 30 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		set_country_flag = CHA_arab_autonomous
+		remove_ideas = CHA_arab_separatism
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.13.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.13.b executed"
+		add_stability = -0.10
+		add_war_support = 0.10
+		add_to_variable = { CHA_arab_loyalty = -5 }
+		clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		ai_chance = { base = 50 }
+	}
+}
+
+# Arab Civil War (Level 4)
+country_event = {
+	id = chad_tribal.14
+	title = chad_tribal.14.t
+	desc = chad_tribal.14.desc
+	picture = GFX_african_combat
+
+	trigger = {
+		original_tag = CHA
+		CHA_arab_civil_war_level = yes
+		NOT = { has_country_flag = CHA_arab_rebellion_active }
+	}
+
+	mean_time_to_happen = {
+		days = 14
+	}
+
+	immediate = {
+		remove_ideas = CHA_arab_separatism
+	}
+
+	option = {
+		name = chad_tribal.14.a
+		CHA_spawn_arab_rebels = yes
+	}
+}
+
+#####################################
+# SARA REBELLION EVENTS
+#####################################
+
+# Sara Protests (Level 1)
+country_event = {
+	id = chad_tribal.21
+	title = chad_tribal.21.t
+	desc = chad_tribal.21.desc
+	picture = GFX_african_demonstration
+
+	trigger = {
+		original_tag = CHA
+		CHA_sara_protest_level = yes
+		NOT = { has_country_flag = CHA_sara_protest_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_sara_protest_warning
+	}
+
+	option = {
+		name = chad_tribal.21.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.21.a executed"
+		add_political_power = -50
+		add_to_variable = { CHA_sara_loyalty = 10 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 70 }
+	}
+
+	option = {
+		name = chad_tribal.21.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.21.b executed"
+		add_stability = -0.03
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		add_timed_idea = { idea = CHA_tribal_protests days = 180 }
+		ai_chance = { base = 30 }
+	}
+}
+
+# Sara Partisans (Level 2)
+country_event = {
+	id = chad_tribal.22
+	title = chad_tribal.22.t
+	desc = chad_tribal.22.desc
+	picture = GFX_african_rebels
+
+	trigger = {
+		original_tag = CHA
+		CHA_sara_partisan_level = yes
+		NOT = { has_country_flag = CHA_sara_partisan_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+
+	immediate = {
+		set_country_flag = CHA_sara_partisan_warning
+		add_ideas = CHA_sara_partisans
+	}
+
+	option = {
+		name = chad_tribal.22.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.22.a executed"
+		add_political_power = -75
+		add_war_support = 0.05
+		add_to_variable = { CHA_sara_loyalty = -10 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.22.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.22.b executed"
+		add_political_power = -100
+		add_to_variable = { CHA_sara_loyalty = 15 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		remove_ideas = CHA_sara_partisans
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Sara Separatism (Level 3)
+country_event = {
+	id = chad_tribal.23
+	title = chad_tribal.23.t
+	desc = chad_tribal.23.desc
+	picture = GFX_politics_failed_negotiations
+
+	trigger = {
+		original_tag = CHA
+		CHA_sara_separatism_level = yes
+		NOT = { has_country_flag = CHA_sara_separatism_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_sara_separatism_warning
+		remove_ideas = CHA_sara_partisans
+		add_ideas = CHA_sara_separatism
+	}
+
+	option = {
+		name = chad_tribal.23.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.23.a executed"
+		add_political_power = -150
+		add_stability = -0.05
+		add_to_variable = { CHA_sara_loyalty = 30 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		set_country_flag = CHA_sara_autonomous
+		remove_ideas = CHA_sara_separatism
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.23.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.23.b executed"
+		add_stability = -0.10
+		add_war_support = 0.10
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		ai_chance = { base = 50 }
+	}
+}
+
+# Sara Civil War (Level 4)
+country_event = {
+	id = chad_tribal.24
+	title = chad_tribal.24.t
+	desc = chad_tribal.24.desc
+	picture = GFX_african_combat
+
+	trigger = {
+		original_tag = CHA
+		CHA_sara_civil_war_level = yes
+		NOT = { has_country_flag = CHA_sara_rebellion_active }
+	}
+
+	mean_time_to_happen = {
+		days = 14
+	}
+
+	immediate = {
+		remove_ideas = CHA_sara_separatism
+	}
+
+	option = {
+		name = chad_tribal.24.a
+		CHA_spawn_sara_rebels = yes
+	}
+}
+
+#####################################
+# TOUBOU REBELLION EVENTS
+#####################################
+
+# Toubou Protests (Level 1)
+country_event = {
+	id = chad_tribal.31
+	title = chad_tribal.31.t
+	desc = chad_tribal.31.desc
+	picture = GFX_african_demonstration
+
+	trigger = {
+		original_tag = CHA
+		CHA_toubou_protest_level = yes
+		NOT = { has_country_flag = CHA_toubou_protest_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_toubou_protest_warning
+	}
+
+	option = {
+		name = chad_tribal.31.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.31.a executed"
+		add_political_power = -50
+		add_to_variable = { CHA_toubou_loyalty = 10 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 70 }
+	}
+
+	option = {
+		name = chad_tribal.31.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.31.b executed"
+		add_stability = -0.03
+		add_to_variable = { CHA_toubou_loyalty = -5 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		add_timed_idea = { idea = CHA_tribal_protests days = 180 }
+		ai_chance = { base = 30 }
+	}
+}
+
+# Toubou Partisans (Level 2)
+country_event = {
+	id = chad_tribal.32
+	title = chad_tribal.32.t
+	desc = chad_tribal.32.desc
+	picture = GFX_african_rebels
+
+	trigger = {
+		original_tag = CHA
+		CHA_toubou_partisan_level = yes
+		NOT = { has_country_flag = CHA_toubou_partisan_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+
+	immediate = {
+		set_country_flag = CHA_toubou_partisan_warning
+		add_ideas = CHA_toubou_partisans
+	}
+
+	option = {
+		name = chad_tribal.32.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.32.a executed"
+		add_political_power = -75
+		add_war_support = 0.05
+		add_to_variable = { CHA_toubou_loyalty = -10 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.32.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.32.b executed"
+		add_political_power = -100
+		add_to_variable = { CHA_toubou_loyalty = 15 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		remove_ideas = CHA_toubou_partisans
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Toubou Separatism (Level 3)
+country_event = {
+	id = chad_tribal.33
+	title = chad_tribal.33.t
+	desc = chad_tribal.33.desc
+	picture = GFX_politics_failed_negotiations
+
+	trigger = {
+		original_tag = CHA
+		CHA_toubou_separatism_level = yes
+		NOT = { has_country_flag = CHA_toubou_separatism_warning }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		set_country_flag = CHA_toubou_separatism_warning
+		remove_ideas = CHA_toubou_partisans
+		add_ideas = CHA_toubou_separatism
+	}
+
+	option = {
+		name = chad_tribal.33.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.33.a executed"
+		add_political_power = -150
+		add_stability = -0.05
+		add_to_variable = { CHA_toubou_loyalty = 30 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		set_country_flag = CHA_toubou_autonomous
+		remove_ideas = CHA_toubou_separatism
+		CHA_update_tribal_resource_modifiers = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.33.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.33.b executed"
+		add_stability = -0.10
+		add_war_support = 0.10
+		add_to_variable = { CHA_toubou_loyalty = -5 }
+		clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		ai_chance = { base = 50 }
+	}
+}
+
+# Toubou Civil War (Level 4)
+country_event = {
+	id = chad_tribal.34
+	title = chad_tribal.34.t
+	desc = chad_tribal.34.desc
+	picture = GFX_african_combat
+
+	trigger = {
+		original_tag = CHA
+		CHA_toubou_civil_war_level = yes
+		NOT = { has_country_flag = CHA_toubou_rebellion_active }
+	}
+
+	mean_time_to_happen = {
+		days = 14
+	}
+
+	immediate = {
+		remove_ideas = CHA_toubou_separatism
+	}
+
+	option = {
+		name = chad_tribal.34.a
+		CHA_spawn_toubou_rebels = yes
+	}
+}
+
+#####################################
+# NEWS EVENTS FOR TRIBAL REBELLIONS
+#####################################
+
+# Zaghawa Rebellion News
+news_event = {
+	id = chad.1050
+	title = chad.1050.t
+	desc = chad.1050.d
+	picture = GFX_news_african_conflict
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad.1050.a
+	}
+}
+
+# Arab Rebellion News
+news_event = {
+	id = chad.1051
+	title = chad.1051.t
+	desc = chad.1051.d
+	picture = GFX_news_african_conflict
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad.1051.a
+	}
+}
+
+# Sara Rebellion News
+news_event = {
+	id = chad.1052
+	title = chad.1052.t
+	desc = chad.1052.d
+	picture = GFX_news_african_conflict
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad.1052.a
+	}
+}
+
+# Toubou Rebellion News
+news_event = {
+	id = chad.1053
+	title = chad.1053.t
+	desc = chad.1053.d
+	picture = GFX_news_african_conflict
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad.1053.a
+	}
+}
+
+#####################################
+# REBELLION END EVENTS
+#####################################
+
+# Tribal rebellion defeated
+country_event = {
+	id = chad_tribal.100
+	title = chad_tribal.100.t
+	desc = chad_tribal.100.desc
+	picture = GFX_african_victory
+
+	trigger = {
+		original_tag = CHA
+		CHA_tribal_rebellion_active = yes
+		NOT = { country_exists = ZGW }
+		NOT = { country_exists = ARC }
+		NOT = { country_exists = SRR }
+		NOT = { country_exists = TBU }
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	option = {
+		name = chad_tribal.100.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.100.a executed"
+		CHA_end_tribal_rebellion = yes
+		add_stability = 0.05
+		add_war_support = 0.05
+	}
+}
+
+#####################################
+# TRIBAL NEGOTIATION EVENTS
+# Triggered by focus tree decisions
+#####################################
+
+#####################################
+# ZAGHAWA NEGOTIATION CHAIN
+#####################################
+
+# Zaghawa Elders Demand Concessions
+country_event = {
+	id = chad_tribal.200
+	title = chad_tribal.200.t
+	desc = chad_tribal.200.desc
+	picture = GFX_african_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.200.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.200 option A - Grant military positions"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_10
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_5
+		add_to_variable = { CHA_zaghawa_loyalty = 10 }
+		add_to_variable = { CHA_arab_loyalty = -5 }
+		army_experience = 10
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.200.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.200 option B - Offer wealth redistribution"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_5
+		custom_effect_tooltip = CHA_sara_loyalty_increase_3
+		add_to_variable = { CHA_zaghawa_loyalty = 5 }
+		add_to_variable = { CHA_sara_loyalty = 3 }
+		set_temp_variable = { treasury_change = -5 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Zaghawa Arms Dealers
+country_event = {
+	id = chad_tribal.201
+	title = chad_tribal.201.t
+	desc = chad_tribal.201.desc
+	picture = GFX_african_conflict
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.201.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.201 option A - Arm the militia"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_8
+		add_to_variable = { CHA_zaghawa_loyalty = 8 }
+		army_experience = 15
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_1
+			amount = 500
+			producer = CHA
+		}
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.201.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.201 option B - Civilian investment instead"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_3
+		add_to_variable = { CHA_zaghawa_loyalty = 3 }
+		one_random_infrastructure = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Zaghawa Gold Rush
+country_event = {
+	id = chad_tribal.202
+	title = chad_tribal.202.t
+	desc = chad_tribal.202.desc
+	picture = GFX_african_trade
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.202.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.202 option A - Grant exclusive mining rights"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_15
+		add_to_variable = { CHA_zaghawa_loyalty = 15 }
+		set_temp_variable = { treasury_change = 8 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.202.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.202 option B - Nationalize the gold deposits"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_decrease_10
+		add_to_variable = { CHA_zaghawa_loyalty = -10 }
+		set_temp_variable = { treasury_change = 15 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Zaghawa Officer Promotion
+country_event = {
+	id = chad_tribal.203
+	title = chad_tribal.203.t
+	desc = chad_tribal.203.desc
+	picture = GFX_african_military
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.203.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.203 option A - Fast-track Zaghawa officers"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_10
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_5
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_5
+		add_to_variable = { CHA_zaghawa_loyalty = 10 }
+		add_to_variable = { CHA_arab_loyalty = -5 }
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		army_experience = 10
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.203.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.203 option B - Merit-based promotion"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_decrease_5
+		add_to_variable = { CHA_zaghawa_loyalty = -5 }
+		army_experience = 20
+		add_command_power = 15
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Zaghawa Borderlands
+country_event = {
+	id = chad_tribal.204
+	title = chad_tribal.204.t
+	desc = chad_tribal.204.desc
+	picture = GFX_african_demonstration
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.204.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.204 option A - Grant autonomy"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_20
+		add_to_variable = { CHA_zaghawa_loyalty = 20 }
+		add_to_variable = { CHA_sovereignty = -5 }
+		CHA_update_sovereignty = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.204.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.204 option B - Centralize control"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_decrease_10
+		add_to_variable = { CHA_zaghawa_loyalty = -10 }
+		add_stability = 0.02
+		add_political_power = 25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+#####################################
+# ARAB NEGOTIATION CHAIN
+#####################################
+
+# Arab Traders' Council
+country_event = {
+	id = chad_tribal.210
+	title = chad_tribal.210.t
+	desc = chad_tribal.210.desc
+	picture = GFX_african_trade
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.210.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.210 option A - Grant trade concessions"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_10
+		add_to_variable = { CHA_arab_loyalty = 10 }
+		set_temp_variable = { treasury_change = 5 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.210.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.210 option B - Regulate the markets"
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_5
+		add_to_variable = { CHA_arab_loyalty = -5 }
+		set_temp_variable = { treasury_change = 10 }
+		modify_treasury_effect = yes
+		add_stability = 0.02
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Cross-Border Smuggling Networks
+country_event = {
+	id = chad_tribal.211
+	title = chad_tribal.211.t
+	desc = chad_tribal.211.desc
+	picture = GFX_african_conflict
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.211.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.211 option A - Crack down on smuggling"
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_10
+		add_to_variable = { CHA_arab_loyalty = -10 }
+		add_stability = 0.03
+		add_political_power = 25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.211.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.211 option B - Tax the smugglers"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_5
+		add_to_variable = { CHA_arab_loyalty = 5 }
+		set_temp_variable = { treasury_change = 8 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Arab Media Demands
+country_event = {
+	id = chad_tribal.212
+	title = chad_tribal.212.t
+	desc = chad_tribal.212.desc
+	picture = GFX_african_demonstration
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.212.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.212 option A - Launch Arabic language TV"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_15
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_8
+		add_to_variable = { CHA_arab_loyalty = 15 }
+		add_to_variable = { CHA_sara_loyalty = -8 }
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.212.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.212 option B - Maintain bilingual media"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_3
+		custom_effect_tooltip = CHA_sara_loyalty_increase_3
+		add_to_variable = { CHA_arab_loyalty = 3 }
+		add_to_variable = { CHA_sara_loyalty = 3 }
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Arab Minister Scandal
+country_event = {
+	id = chad_tribal.213
+	title = chad_tribal.213.t
+	desc = chad_tribal.213.desc
+	picture = GFX_african_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.213.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.213 option A - Cover up the scandal"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_5
+		add_to_variable = { CHA_arab_loyalty = 5 }
+		add_stability = -0.03
+		add_political_power = -25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.213.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.213 option B - Prosecute the minister"
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_15
+		add_to_variable = { CHA_arab_loyalty = -15 }
+		add_stability = 0.05
+		add_political_power = 25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Arab Merchant Fleet
+country_event = {
+	id = chad_tribal.214
+	title = chad_tribal.214.t
+	desc = chad_tribal.214.desc
+	picture = GFX_african_trade
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.214.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.214 option A - Grant Lake Chad trade monopoly"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_15
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_5
+		add_to_variable = { CHA_arab_loyalty = 15 }
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		set_temp_variable = { treasury_change = 5 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.214.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.214 option B - Open market access"
+		custom_effect_tooltip = CHA_arab_loyalty_increase_3
+		custom_effect_tooltip = CHA_sara_loyalty_increase_5
+		add_to_variable = { CHA_arab_loyalty = 3 }
+		add_to_variable = { CHA_sara_loyalty = 5 }
+		set_temp_variable = { treasury_change = 8 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+#####################################
+# SARA NEGOTIATION CHAIN
+#####################################
+
+# Southern Development Conference
+country_event = {
+	id = chad_tribal.220
+	title = chad_tribal.220.t
+	desc = chad_tribal.220.desc
+	picture = GFX_african_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.220.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.220 option A - Invest in the South"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_15
+		add_to_variable = { CHA_sara_loyalty = 15 }
+		set_temp_variable = { treasury_change = -10 }
+		modify_treasury_effect = yes
+		326 = {
+			one_state_infrastructure = yes
+		}
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.220.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.220 option B - Prioritize national projects"
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_5
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		one_random_industrial_complex = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Sara Cotton Cooperative
+country_event = {
+	id = chad_tribal.221
+	title = chad_tribal.221.t
+	desc = chad_tribal.221.desc
+	picture = GFX_african_trade
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.221.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.221 option A - Subsidize the cooperative"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_10
+		add_to_variable = { CHA_sara_loyalty = 10 }
+		set_temp_variable = { treasury_change = -5 }
+		modify_treasury_effect = yes
+		add_ideas = CHA_rural_electrification
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.221.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.221 option B - Privatize cotton industry"
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_5
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		set_temp_variable = { treasury_change = 8 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Christian Mission Schools
+country_event = {
+	id = chad_tribal.222
+	title = chad_tribal.222.t
+	desc = chad_tribal.222.desc
+	picture = GFX_african_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.222.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.222 option A - Support mission schools"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_12
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_8
+		add_to_variable = { CHA_sara_loyalty = 12 }
+		add_to_variable = { CHA_arab_loyalty = -8 }
+		add_ideas = CHA_literacy_campaign
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = chad_tribal.222.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.222 option B - Establish secular schools"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_5
+		custom_effect_tooltip = CHA_arab_loyalty_increase_3
+		add_to_variable = { CHA_sara_loyalty = 5 }
+		add_to_variable = { CHA_arab_loyalty = 3 }
+		add_ideas = CHA_research_initiative
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+}
+
+# Sara Veterans' Demands
+country_event = {
+	id = chad_tribal.223
+	title = chad_tribal.223.t
+	desc = chad_tribal.223.desc
+	picture = GFX_african_military
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.223.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.223 option A - Grant pensions"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_10
+		add_to_variable = { CHA_sara_loyalty = 10 }
+		set_temp_variable = { treasury_change = -5 }
+		modify_treasury_effect = yes
+		add_manpower = 3000
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.223.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.223 option B - Offer land instead"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_5
+		add_to_variable = { CHA_sara_loyalty = 5 }
+		one_random_agriculture_district = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Sara Cultural Revival
+country_event = {
+	id = chad_tribal.224
+	title = chad_tribal.224.t
+	desc = chad_tribal.224.desc
+	picture = GFX_african_demonstration
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.224.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.224 option A - Fund the festival"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_10
+		add_to_variable = { CHA_sara_loyalty = 10 }
+		add_stability = 0.03
+		set_temp_variable = { treasury_change = -3 }
+		modify_treasury_effect = yes
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = chad_tribal.224.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.224 option B - Suppress cultural expression"
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_15
+		custom_effect_tooltip = CHA_arab_loyalty_increase_5
+		add_to_variable = { CHA_sara_loyalty = -15 }
+		add_to_variable = { CHA_arab_loyalty = 5 }
+		add_political_power = 25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+}
+
+#####################################
+# CROSS-TRIBAL EVENTS
+#####################################
+
+# Inter-Tribal Water Dispute
+country_event = {
+	id = chad_tribal.230
+	title = chad_tribal.230.t
+	desc = chad_tribal.230.desc
+	picture = GFX_african_demonstration
+
+	is_triggered_only = yes
+
+	option = {
+		name = chad_tribal.230.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.230 option A - Mediate fairly"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_5
+		custom_effect_tooltip = CHA_arab_loyalty_increase_5
+		custom_effect_tooltip = CHA_sara_loyalty_increase_5
+		custom_effect_tooltip = CHA_toubou_loyalty_increase_5
+		add_to_variable = { CHA_zaghawa_loyalty = 5 }
+		add_to_variable = { CHA_arab_loyalty = 5 }
+		add_to_variable = { CHA_sara_loyalty = 5 }
+		add_to_variable = { CHA_toubou_loyalty = 5 }
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = chad_tribal.230.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.230 option B - Ignore the dispute"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_decrease_3
+		custom_effect_tooltip = CHA_arab_loyalty_decrease_3
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_3
+		custom_effect_tooltip = CHA_toubou_loyalty_decrease_3
+		add_to_variable = { CHA_zaghawa_loyalty = -3 }
+		add_to_variable = { CHA_arab_loyalty = -3 }
+		add_to_variable = { CHA_sara_loyalty = -3 }
+		add_to_variable = { CHA_toubou_loyalty = -3 }
+		add_political_power = 25
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+}
+
+# CAR Refugee Crisis
+country_event = {
+	id = chad_tribal.231
+	title = chad_tribal.231.t
+	desc = chad_tribal.231.desc
+	picture = GFX_african_conflict
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				CAR = { has_war = yes }
+			}
+			set_country_flag = CHA_car_war_refugees
+		}
+	}
+
+	option = {
+		name = chad_tribal.231.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.231 option A - Accept refugees"
+		custom_effect_tooltip = CHA_sara_loyalty_increase_5
+		add_to_variable = { CHA_sara_loyalty = 5 }
+		add_stability = -0.03
+		add_manpower = 2000
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+
+	option = {
+		name = chad_tribal.231.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.231 option B - Close the border"
+		custom_effect_tooltip = CHA_sara_loyalty_decrease_5
+		add_to_variable = { CHA_sara_loyalty = -5 }
+		CAR = {
+			add_opinion_modifier = {
+				target = CHA
+				modifier = border_tensions
+			}
+		}
+		add_stability = 0.02
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 50 }
+	}
+}
+
+# Tribal Unity Summit
+country_event = {
+	id = chad_tribal.232
+	title = chad_tribal.232.t
+	desc = chad_tribal.232.desc
+	picture = GFX_african_council
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_variable = { CHA_zaghawa_loyalty > 40 }
+		check_variable = { CHA_arab_loyalty > 40 }
+		check_variable = { CHA_sara_loyalty > 40 }
+		check_variable = { CHA_toubou_loyalty > 40 }
+	}
+
+	option = {
+		name = chad_tribal.232.a
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.232 option A - Grand bargain"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_8
+		custom_effect_tooltip = CHA_arab_loyalty_increase_8
+		custom_effect_tooltip = CHA_sara_loyalty_increase_8
+		custom_effect_tooltip = CHA_toubou_loyalty_increase_8
+		add_to_variable = { CHA_zaghawa_loyalty = 8 }
+		add_to_variable = { CHA_arab_loyalty = 8 }
+		add_to_variable = { CHA_sara_loyalty = 8 }
+		add_to_variable = { CHA_toubou_loyalty = 8 }
+		add_stability = 0.05
+		add_political_power = 50
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 60 }
+	}
+
+	option = {
+		name = chad_tribal.232.b
+		log = "[GetDateText]: [Root.GetName]: chad_tribal.232 option B - Modest proposals"
+		custom_effect_tooltip = CHA_zaghawa_loyalty_increase_3
+		custom_effect_tooltip = CHA_arab_loyalty_increase_3
+		custom_effect_tooltip = CHA_sara_loyalty_increase_3
+		custom_effect_tooltip = CHA_toubou_loyalty_increase_3
+		add_to_variable = { CHA_zaghawa_loyalty = 3 }
+		add_to_variable = { CHA_arab_loyalty = 3 }
+		add_to_variable = { CHA_sara_loyalty = 3 }
+		add_to_variable = { CHA_toubou_loyalty = 3 }
+		add_stability = 0.02
+		CHA_update_tribal_loyalty = yes
+		ai_chance = { base = 40 }
+	}
+}

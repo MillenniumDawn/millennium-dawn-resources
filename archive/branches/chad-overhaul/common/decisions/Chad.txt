@@ -1,0 +1,3653 @@
+CHA_civil_war_category = {
+
+	CHA_mobilize_republican_guard = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+		}
+
+		available = {
+			has_war = yes
+			has_manpower > 1000
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_mobilize_republican_guard"
+			army_experience = 10
+			add_manpower = -1000
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_mobilize_republican_guard"
+			division_template = {
+				name = "Republican Guard"
+				regiments = {
+					Militia_Bat = { x = 0 y = 0 }
+					Militia_Bat = { x = 0 y = 1 }
+					Militia_Bat = { x = 1 y = 0 }
+					Militia_Bat = { x = 1 y = 1 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Republican Guard\" division_template = \"Republican Guard\" start_experience_factor = 0.5 start_equipment_factor = 0.8"
+					owner = CHA
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				has_idea = CHA_battle_for_ndjamena
+			}
+		}
+	}
+
+	CHA_request_french_intervention = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+			NOT = { has_idea = CHA_french_air_support }
+		}
+
+		available = {
+			has_war = yes
+			NOT = { has_war_with = FRA }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_request_french_intervention"
+			CHA_french_intervention = yes
+			hidden_effect = {
+				news_event = { id = chad.1004 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = {
+				factor = 2
+				has_idea = CHA_battle_for_ndjamena
+			}
+		}
+	}
+
+	CHA_military_offensive = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 120
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+		}
+
+		available = {
+			has_war = yes
+			has_army_manpower = { size > 5000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_military_offensive"
+			add_war_support = 0.05
+			army_experience = 5
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_military_offensive"
+			add_timed_idea = {
+				idea = CHA_military_offensive_idea
+				days = 60
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_defend_capital = {
+		icon = generic_decision
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+			has_idea = CHA_battle_for_ndjamena
+		}
+
+		available = {
+			controls_state = 328
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_defend_capital"
+			add_political_power = -25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_defend_capital"
+			328 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 2081
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+		}
+	}
+}
+
+CHA_sudan_proxy_war_category = {
+
+	CHA_support_darfur_rebels_decision = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_supports_darfur_rebels
+			NOT = { has_country_flag = CHA_normalized_sudan_relations }
+		}
+
+		available = {
+			NOT = { has_war_with = SUD }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_support_darfur_rebels_decision"
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_support_darfur_rebels_decision"
+			add_political_power = 25
+			SUD = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_decrease
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = CHA_sudan_tensions_high } }
+				set_country_flag = CHA_sudan_tensions_high
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				date > 2009.1.1
+			}
+		}
+	}
+
+	CHA_arm_jem_forces = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_supports_darfur_rebels
+			NOT = { has_country_flag = CHA_normalized_sudan_relations }
+		}
+
+		available = {
+			NOT = { has_war_with = SUD }
+			has_equipment = { infantry_weapons_1 > 500 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_arm_jem_forces"
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_1
+				amount = -500
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_arm_jem_forces"
+			SUD = {
+				add_stability = -0.02
+				add_opinion_modifier = {
+					target = CHA
+					modifier = large_decrease
+				}
+			}
+			CHA_escalate_sudan_proxy_war = yes
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 0
+				date > 2008.1.1
+			}
+		}
+	}
+
+	CHA_cross_border_operations = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_supports_darfur_rebels
+			NOT = { has_country_flag = CHA_normalized_sudan_relations }
+		}
+
+		available = {
+			NOT = { has_war_with = SUD }
+			has_army_manpower = { size > 3000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_cross_border_operations"
+			add_command_power = -25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_cross_border_operations"
+			army_experience = 10
+			SUD = {
+				add_war_support = -0.02
+				add_opinion_modifier = {
+					target = CHA
+					modifier = large_decrease
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	CHA_expel_darfur_rebels = {
+		icon = generic_decision
+
+		cost = 150
+
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = CHA_supports_darfur_rebels
+		}
+
+		available = {
+			NOT = { has_global_flag = CHA_second_civil_war }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_expel_darfur_rebels"
+			clr_country_flag = CHA_supports_darfur_rebels
+			add_stability = 0.05
+			SUD = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 2009.1.1
+			}
+		}
+	}
+
+	CHA_normalize_sudan_relations = {
+		icon = generic_decision
+
+		cost = 200
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = { has_country_flag = CHA_normalized_sudan_relations }
+			NOT = { has_war_with = SUD }
+		}
+
+		available = {
+			date > 2009.6.1
+			NOT = { has_war_with = SUD }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_normalize_sudan_relations"
+			CHA_normalize_sudan_relations = yes
+			country_event = { id = chad.195 days = 7 }
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = {
+				factor = 0
+				date < 2010.1.1
+			}
+		}
+	}
+}
+
+CHA_counter_terrorism_category = {
+
+	CHA_lake_chad_security_operation = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			OR = {
+				has_completed_focus = CHA_anti_boko_haram_operations
+				date > 2014.1.1
+			}
+		}
+
+		available = {
+			has_army_manpower = { size > 2000 }
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 327
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_lake_chad_security_operation"
+			add_command_power = -15
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_lake_chad_security_operation"
+			add_stability = 0.02
+			army_experience = 5
+			327 = {
+				add_compliance = 5
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_joint_patrol_with_nigeria = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			OR = {
+				has_completed_focus = CHA_sahel_coalition
+				date > 2015.1.1
+			}
+		}
+
+		available = {
+			NIG = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_joint_patrol_with_nigeria"
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_joint_patrol_with_nigeria"
+			army_experience = 5
+			NIG = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_anti_boko_haram_coalition = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			OR = {
+				has_completed_focus = CHA_sahel_coalition
+				date > 2015.1.1
+			}
+			NOT = { has_idea = CHA_sahel_force_member }
+		}
+
+		available = {
+			country_exists = NIG
+			country_exists = CAM
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_anti_boko_haram_coalition"
+			add_ideas = CHA_sahel_force_member
+			NIG = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+			CAM = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+}
+
+CHA_international_intervention_category = {
+
+	CHA_request_minurcat = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+			NOT = { has_idea = CHA_minurcat_presence }
+		}
+
+		available = {
+			has_war = yes
+			date > 2007.6.1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_request_minurcat"
+			CHA_deploy_minurcat = yes
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_request_eufor = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+			NOT = { has_idea = CHA_eufor_presence }
+		}
+
+		available = {
+			has_war = yes
+			date > 2008.1.1
+			NOT = { has_war_with = FRA }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_request_eufor"
+			CHA_deploy_eufor = yes
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_french_military_cooperation = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_war_with = FRA }
+		}
+
+		available = {
+			FRA = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_french_military_cooperation"
+			set_temp_variable = { treasury_change = -0.25 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_french_military_cooperation"
+			army_experience = 10
+			add_ideas = CHA_french_trained_army
+			FRA = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_chinese_infrastructure_deal = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = CHA_chinese_oil_investment
+		}
+
+		available = {
+			CHI = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_chinese_infrastructure_deal"
+			set_temp_variable = { percent_change = 3 }
+			set_temp_variable = { tag_index = CHI.id }
+			set_temp_variable = { influence_target = CHA.id }
+			change_influence_percentage = yes
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			CHI = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+CHA_tibesti_question_category = {
+
+	CHA_negotiate_with_toubou = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_tibesti_tensions
+		}
+
+		available = {
+			NOT = { has_war_with = TIE }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_negotiate_with_toubou"
+			add_political_power = -25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_negotiate_with_toubou"
+			add_stability = 0.02
+			if = {
+				limit = { country_exists = TIE }
+				TIE = {
+					add_opinion_modifier = {
+						target = CHA
+						modifier = small_increase
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_military_presence_tibesti = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_tibesti_tensions
+		}
+
+		available = {
+			has_army_manpower = { size > 1000 }
+			owns_state = 580
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 580
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_military_presence_tibesti"
+			add_command_power = -10
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_military_presence_tibesti"
+			580 = {
+				add_compliance = 10
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_development_program_tibesti = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = CHA_tibesti_question
+		}
+
+		available = {
+			owns_state = 580
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 580
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_development_program_tibesti"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+			580 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			clr_country_flag = CHA_tibesti_tensions
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+CHA_oil_economy_category = {
+
+	CHA_expand_doba_production = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_oil_economy
+		}
+
+		available = {
+			owns_state = 326
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 326
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_expand_doba_production"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_expand_doba_production"
+			add_resource = {
+				type = oil
+				amount = 2
+				state = 326
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				check_variable = { treasury > 5 }
+			}
+		}
+	}
+
+	CHA_upgrade_pipeline = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = CHA_cameroon_pipeline_upgrade
+		}
+
+		available = {
+			CAM = {
+				NOT = { has_war_with = CHA }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_upgrade_pipeline"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+			add_ideas = CHA_oil_boom
+			CAM = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_world_bank_program = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = CHA_oil_revenue_management
+		}
+
+		available = {
+			NOT = {
+				has_idea = CHA_managed_oil_economy
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_world_bank_program"
+			add_ideas = CHA_managed_oil_economy
+			add_stability = 0.03
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+CHA_economic_development_category = {
+
+	CHA_cotton_export_initiative = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_global_flag = CHA_second_civil_war }
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_cotton_export_initiative"
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_cotton_export_initiative"
+			add_ideas = CHA_cotton_exports_bonus
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_gum_arabic_development = {
+		icon = generic_decision
+
+		cost = 40
+
+		fire_only_once = no
+		days_remove = 120
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_global_flag = CHA_second_civil_war }
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_gum_arabic_development"
+			set_temp_variable = { treasury_change = -0.3 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_gum_arabic_development"
+			add_stability = 0.02
+			set_temp_variable = { treasury_change = 0.5 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_lake_chad_fisheries = {
+		icon = generic_decision
+
+		cost = 35
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 270
+
+		visible = {
+			owns_state = 327
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 327
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_lake_chad_fisheries"
+			set_temp_variable = { treasury_change = -0.25 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_lake_chad_fisheries"
+			327 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			add_stability = 0.01
+		}
+
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	CHA_ndjamena_urban_development = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 365
+		days_re_enable = 730
+
+		visible = {
+			owns_state = 328
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 328
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_ndjamena_urban_development"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_ndjamena_urban_development"
+			328 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_rural_electrification = {
+		icon = generic_decision
+
+		cost = 60
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_global_flag = CHA_second_civil_war }
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_rural_electrification"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_rural_electrification"
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_establish_free_trade_zone = {
+		icon = GFX_decision_generic_trade
+
+		allowed = {
+			original_tag = CHA
+		}
+
+		available = {
+			has_completed_focus = CHA_ndjamena_modernization
+			NOT = { has_idea = CHA_ndjamena_free_trade_zone }
+		}
+
+		visible = {
+			has_completed_focus = CHA_ndjamena_modernization
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_establish_free_trade_zone"
+			add_timed_idea = { idea = CHA_ndjamena_free_trade_zone days = 730 }
+			add_stability = 0.03
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+CHA_military_modernization_category = {
+
+	CHA_desert_warfare_training = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			has_army_manpower = { size > 3000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_desert_warfare_training"
+			add_command_power = -15
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_desert_warfare_training"
+			army_experience = 15
+			add_tech_bonus = {
+				name = CHA_desert_warfare_bonus
+				bonus = 1.0
+				uses = 1
+				category = CAT_land_doctrine
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_toyota_war_tactics = {
+		icon = generic_decision
+
+		cost = 40
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = { has_country_flag = CHA_toyota_tactics_developed }
+		}
+
+		available = {
+			has_army_experience > 25
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_toyota_war_tactics"
+			army_experience = -25
+			add_ideas = CHA_toyota_war_doctrine
+			set_country_flag = CHA_toyota_tactics_developed
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_expand_air_force = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			owns_state = 328
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_expand_air_force"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_expand_air_force"
+			328 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+			air_experience = 15
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_border_security_forces = {
+		icon = generic_decision
+
+		cost = 60
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 270
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			has_army_manpower = { size > 2000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_border_security_forces"
+			add_manpower = -500
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_border_security_forces"
+			add_ideas = CHA_border_patrol_active
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_french_equipment_purchase = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_war_with = FRA }
+		}
+
+		available = {
+			FRA = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_french_equipment_purchase"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_french_equipment_purchase"
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_1
+				amount = 500
+				producer = FRA
+			}
+			FRA = {
+				country_event = { id = chad.743 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+CHA_foreign_policy_category = {
+
+	CHA_francophonie_summit = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 730
+
+		visible = {
+			NOT = { has_war_with = FRA }
+		}
+
+		available = {
+			NOT = { has_war = yes }
+			country_exists = FRA
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_francophonie_summit"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_francophonie_summit"
+			FRA = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+			add_stability = 0.02
+			add_political_power = 50
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_african_union_contribution = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			has_army_manpower = { size > 5000 }
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_african_union_contribution"
+			add_command_power = -20
+			army_experience = 5
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_african_union_contribution"
+			add_stability = 0.03
+			add_political_power = 50
+			every_country = {
+				limit = {
+					is_in_africa = yes
+					NOT = { tag = CHA }
+					NOT = { has_war_with = CHA }
+				}
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_cemac_economic_integration = {
+		icon = generic_decision
+
+		cost = 60
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = { has_idea = CHA_cemac_member }
+		}
+
+		available = {
+			NOT = { has_war = yes }
+			CAM = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_cemac_economic_integration"
+			add_ideas = CHA_cemac_member
+			CAM = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+			CAR = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+			GAB = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_approach_china = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 365
+
+		visible = {
+			NOT = { has_war_with = CHI }
+		}
+
+		available = {
+			CHI = {
+				NOT = { has_war_with = CHA }
+				exists = yes
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_approach_china"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_approach_china"
+			CHI = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_increase
+				}
+			}
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_regional_security_dialogue = {
+		icon = generic_decision
+
+		cost = 40
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			always = yes
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_regional_security_dialogue"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_regional_security_dialogue"
+			NIG = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+			CAR = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+			SUD = {
+				if = {
+					limit = { NOT = { has_war_with = CHA } }
+					add_opinion_modifier = {
+						target = CHA
+						modifier = small_increase
+					}
+				}
+			}
+			add_stability = 0.02
+			army_experience = 5
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+CHA_reconciliation_category = {
+
+	CHA_negotiate_with_rebels = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+		}
+
+		available = {
+			has_war = yes
+			date > 2008.1.1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_negotiate_with_rebels"
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_negotiate_with_rebels"
+			add_stability = 0.02
+			add_war_support = -0.05
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				date > 2009.1.1
+			}
+		}
+	}
+
+	CHA_offer_amnesty = {
+		icon = generic_decision
+
+		cost = 150
+
+		fire_only_once = yes
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+		}
+
+		available = {
+			date > 2009.6.1
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_offer_amnesty"
+			add_stability = 0.05
+			add_war_support = -0.10
+			set_country_flag = CHA_amnesty_offered
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 0
+				date < 2009.6.1
+			}
+		}
+	}
+
+	CHA_end_civil_war_decision = {
+		icon = generic_decision
+
+		cost = 200
+
+		fire_only_once = yes
+
+		visible = {
+			has_global_flag = CHA_second_civil_war
+		}
+
+		available = {
+			date > 2010.1.1
+			has_country_flag = CHA_normalized_sudan_relations
+			OR = {
+				has_country_flag = CHA_amnesty_offered
+				NOT = { country_exists = FUC has_war_with = FUC }
+				NOT = { country_exists = UFD has_war_with = UFD }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_end_civil_war_decision"
+			CHA_end_civil_war = yes
+			country_event = { id = chad.200 days = 3 }
+		}
+
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+	CHA_post_war_reconstruction = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_idea = CHA_post_war_recovery
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_post_war_reconstruction"
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_post_war_reconstruction"
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_stability = 0.01
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_withdraw_minurcat = {
+		icon = GFX_decision_generic_diplomacy
+
+		allowed = {
+			original_tag = CHA
+		}
+
+		available = {
+			has_idea = CHA_minurcat_presence
+		}
+
+		visible = {
+			has_idea = CHA_minurcat_presence
+		}
+
+		cost = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_withdraw_minurcat"
+			remove_ideas = CHA_minurcat_presence
+			add_stability = 0.03
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_withdraw_eufor = {
+		icon = GFX_decision_generic_diplomacy
+
+		allowed = {
+			original_tag = CHA
+		}
+
+		available = {
+			has_idea = CHA_eufor_presence
+		}
+
+		visible = {
+			has_idea = CHA_eufor_presence
+		}
+
+		cost = 50
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_withdraw_eufor"
+			remove_ideas = CHA_eufor_presence
+			add_stability = 0.03
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+CHA_tribal_politics_category = {
+
+	CHA_hold_tribal_congress = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_hold_tribal_congress"
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_hold_tribal_congress"
+			add_stability = 0.03
+			add_to_variable = { CHA_zaghawa_loyalty = 5 }
+			add_to_variable = { CHA_arab_loyalty = 5 }
+			add_to_variable = { CHA_sara_loyalty = 5 }
+			add_to_variable = { CHA_toubou_loyalty = 5 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			country_event = { id = chad.405 days = 1 }
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = {
+				factor = 2
+				OR = {
+					check_variable = { CHA_zaghawa_loyalty < 40 }
+					check_variable = { CHA_arab_loyalty < 40 }
+					check_variable = { CHA_sara_loyalty < 40 }
+					check_variable = { CHA_toubou_loyalty < 40 }
+				}
+			}
+			modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+	}
+
+	CHA_distribute_patronage_zaghawa = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_distribute_patronage_zaghawa"
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_distribute_patronage_zaghawa"
+			add_to_variable = { CHA_zaghawa_loyalty = 15 }
+			add_to_variable = { CHA_arab_loyalty = -3 }
+			add_to_variable = { CHA_sara_loyalty = -3 }
+			add_to_variable = { CHA_toubou_loyalty = -3 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				check_variable = { CHA_zaghawa_loyalty < 30 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { CHA_zaghawa_loyalty < 40 }
+			}
+			modifier = {
+				factor = 1.5
+				has_country_flag = CHA_authoritarian_path
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { CHA_zaghawa_loyalty > 70 }
+			}
+		}
+	}
+
+	CHA_distribute_patronage_arab = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_distribute_patronage_arab"
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_distribute_patronage_arab"
+			add_to_variable = { CHA_arab_loyalty = 15 }
+			add_to_variable = { CHA_zaghawa_loyalty = -3 }
+			add_to_variable = { CHA_sara_loyalty = -3 }
+			add_to_variable = { CHA_toubou_loyalty = -3 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				check_variable = { CHA_arab_loyalty < 30 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { CHA_arab_loyalty < 40 }
+			}
+			modifier = {
+				factor = 1.5
+				has_country_flag = CHA_islamist_path
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { CHA_arab_loyalty > 70 }
+			}
+		}
+	}
+
+	CHA_distribute_patronage_sara = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_distribute_patronage_sara"
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_distribute_patronage_sara"
+			add_to_variable = { CHA_sara_loyalty = 15 }
+			add_to_variable = { CHA_zaghawa_loyalty = -3 }
+			add_to_variable = { CHA_arab_loyalty = -3 }
+			add_to_variable = { CHA_toubou_loyalty = -3 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				check_variable = { CHA_sara_loyalty < 30 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { CHA_sara_loyalty < 40 }
+			}
+			modifier = {
+				factor = 1.5
+				has_country_flag = CHA_democratic_path
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { CHA_sara_loyalty > 70 }
+			}
+		}
+	}
+
+	CHA_distribute_patronage_toubou = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_distribute_patronage_toubou"
+			set_temp_variable = { treasury_change = -1 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_distribute_patronage_toubou"
+			add_to_variable = { CHA_toubou_loyalty = 15 }
+			add_to_variable = { CHA_zaghawa_loyalty = -3 }
+			add_to_variable = { CHA_arab_loyalty = -3 }
+			add_to_variable = { CHA_sara_loyalty = -3 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				check_variable = { CHA_toubou_loyalty < 30 }
+			}
+			modifier = {
+				factor = 2
+				check_variable = { CHA_toubou_loyalty < 40 }
+			}
+			modifier = {
+				factor = 0.5
+				check_variable = { CHA_toubou_loyalty > 70 }
+			}
+			modifier = {
+				factor = 1.3
+				has_war_with = LBA
+			}
+		}
+	}
+
+	CHA_suppress_tribe = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		available = {
+			has_army_manpower = { size > 2000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_suppress_tribe"
+			add_command_power = -25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_suppress_tribe"
+			add_stability = -0.05
+			add_to_variable = { CHA_zaghawa_loyalty = -10 }
+			add_to_variable = { CHA_arab_loyalty = -10 }
+			add_to_variable = { CHA_sara_loyalty = -10 }
+			add_to_variable = { CHA_toubou_loyalty = -10 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_war_support = 0.05
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				has_stability > 0.5
+			}
+		}
+	}
+
+	# ========== HIGH LOYALTY BONUSES ==========
+
+	CHA_zaghawa_elite_guard = {
+		icon = generic_army_support
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_zaghawa_loyalty > 75 }
+		}
+
+		available = {
+			NOT = { has_idea = CHA_zaghawa_elite_guard_idea }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_zaghawa_elite_guard"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_zaghawa_elite_guard"
+			add_ideas = CHA_zaghawa_elite_guard_idea
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_arab_cavalry_auxiliaries = {
+		icon = generic_cavalry
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_arab_loyalty > 75 }
+		}
+
+		available = {
+			NOT = { has_idea = CHA_arab_cavalry_idea }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_arab_cavalry_auxiliaries"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_arab_cavalry_auxiliaries"
+			add_ideas = CHA_arab_cavalry_idea
+			add_manpower = 5000
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_sara_agricultural_boom = {
+		icon = generic_industry
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_sara_loyalty > 75 }
+		}
+
+		available = {
+			NOT = { has_idea = CHA_sara_prosperity_idea }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_sara_agricultural_boom"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_sara_agricultural_boom"
+			add_ideas = CHA_sara_prosperity_idea
+			set_temp_variable = { treasury_change = 5 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_toubou_desert_guides = {
+		icon = generic_desert
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_toubou_loyalty > 75 }
+		}
+
+		available = {
+			NOT = { has_idea = CHA_toubou_guides_idea }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_toubou_desert_guides"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_toubou_desert_guides"
+			add_ideas = CHA_toubou_guides_idea
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	# ========== LOW LOYALTY PENALTIES ==========
+
+	CHA_address_zaghawa_grievances = {
+		icon = generic_crisis
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_zaghawa_loyalty < 26 }
+		}
+
+		modifier = {
+			stability_factor = -0.10
+			political_power_factor = -0.15
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_address_zaghawa_grievances"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_address_zaghawa_grievances"
+			add_to_variable = { CHA_zaghawa_loyalty = 20 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+			add_stability = 0.05
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_address_arab_grievances = {
+		icon = generic_crisis
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_arab_loyalty < 26 }
+		}
+
+		modifier = {
+			stability_factor = -0.10
+			war_support_factor = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_address_arab_grievances"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_address_arab_grievances"
+			add_to_variable = { CHA_arab_loyalty = 20 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+			add_stability = 0.05
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_address_sara_grievances = {
+		icon = generic_crisis
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_sara_loyalty < 26 }
+		}
+
+		modifier = {
+			stability_factor = -0.10
+			production_factory_efficiency_gain_factor = -0.10
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_address_sara_grievances"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_address_sara_grievances"
+			add_to_variable = { CHA_sara_loyalty = 20 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+			add_stability = 0.05
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_address_toubou_grievances = {
+		icon = generic_crisis
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_toubou_loyalty < 26 }
+		}
+
+		modifier = {
+			stability_factor = -0.10
+			army_org_factor = -0.05
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_address_toubou_grievances"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_address_toubou_grievances"
+			add_to_variable = { CHA_toubou_loyalty = 20 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+			add_stability = 0.05
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	# ========== TRIBAL MILITIA RECRUITMENT ==========
+
+	CHA_recruit_zaghawa_militia = {
+		icon = generic_army_support
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_zaghawa_loyalty > 50 }
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_recruit_zaghawa_militia"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_recruit_zaghawa_militia"
+			add_manpower = 2000
+			army_experience = 5
+			add_to_variable = { CHA_zaghawa_loyalty = -5 }
+			clamp_variable = { var = CHA_zaghawa_loyalty min = 0 max = 100 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				has_manpower < 10000
+			}
+		}
+	}
+
+	CHA_recruit_arab_militia = {
+		icon = generic_cavalry
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_arab_loyalty > 50 }
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_recruit_arab_militia"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_recruit_arab_militia"
+			add_manpower = 2000
+			army_experience = 5
+			add_to_variable = { CHA_arab_loyalty = -5 }
+			clamp_variable = { var = CHA_arab_loyalty min = 0 max = 100 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				has_manpower < 10000
+			}
+		}
+	}
+
+	CHA_recruit_sara_militia = {
+		icon = generic_army_support
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_sara_loyalty > 50 }
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_recruit_sara_militia"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_recruit_sara_militia"
+			add_manpower = 3000
+			add_to_variable = { CHA_sara_loyalty = -5 }
+			clamp_variable = { var = CHA_sara_loyalty min = 0 max = 100 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				has_manpower < 10000
+			}
+		}
+	}
+
+	CHA_recruit_toubou_scouts = {
+		icon = generic_desert
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 90
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			check_variable = { CHA_toubou_loyalty > 50 }
+		}
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_recruit_toubou_scouts"
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_recruit_toubou_scouts"
+			add_manpower = 1000
+			army_experience = 10
+			add_to_variable = { CHA_toubou_loyalty = -5 }
+			clamp_variable = { var = CHA_toubou_loyalty min = 0 max = 100 }
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				has_manpower < 10000
+			}
+		}
+	}
+
+	CHA_grand_tribal_council = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_grand_tribal_council"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_grand_tribal_council"
+			add_to_variable = { CHA_zaghawa_loyalty = 5 }
+			add_to_variable = { CHA_arab_loyalty = 5 }
+			add_to_variable = { CHA_sara_loyalty = 5 }
+			add_to_variable = { CHA_toubou_loyalty = 5 }
+			CHA_update_tribal_loyalty = yes
+			add_stability = 0.03
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_tribal_levy = {
+		icon = generic_army_support
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			has_war = yes
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_tribal_levy"
+			country_event = { id = chad.723 }
+		}
+
+		ai_will_do = {
+			base = 8
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+	}
+
+	CHA_resolve_dispute = {
+		icon = generic_crisis
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+			OR = {
+				check_variable = { CHA_zaghawa_loyalty < 30 }
+				check_variable = { CHA_arab_loyalty < 30 }
+				check_variable = { CHA_sara_loyalty < 30 }
+				check_variable = { CHA_toubou_loyalty < 30 }
+			}
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_resolve_dispute"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_resolve_dispute"
+			if = {
+				limit = { check_variable = { CHA_zaghawa_loyalty < 30 } }
+				add_to_variable = { CHA_zaghawa_loyalty = 10 }
+			}
+			if = {
+				limit = { check_variable = { CHA_arab_loyalty < 30 } }
+				add_to_variable = { CHA_arab_loyalty = 10 }
+			}
+			if = {
+				limit = { check_variable = { CHA_sara_loyalty < 30 } }
+				add_to_variable = { CHA_sara_loyalty = 10 }
+			}
+			if = {
+				limit = { check_variable = { CHA_toubou_loyalty < 30 } }
+				add_to_variable = { CHA_toubou_loyalty = 10 }
+			}
+			CHA_update_tribal_loyalty = yes
+		}
+
+		ai_will_do = {
+			base = 15
+		}
+	}
+
+	CHA_tribal_festival = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 7
+		days_re_enable = 180
+
+		visible = {
+			has_completed_focus = CHA_tribal_balance
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_tribal_festival"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_tribal_festival"
+			add_stability = 0.03
+			add_to_variable = { CHA_zaghawa_loyalty = 3 }
+			add_to_variable = { CHA_arab_loyalty = 3 }
+			add_to_variable = { CHA_sara_loyalty = 3 }
+			add_to_variable = { CHA_toubou_loyalty = 3 }
+			CHA_update_tribal_loyalty = yes
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+#####################################
+# DEMOCRATIC GOVERNANCE DECISIONS
+#####################################
+CHA_democratic_governance_category = {
+
+	CHA_hold_elections = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_democratic_path
+		}
+
+		available = {
+			has_government = democratic
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_hold_elections"
+			add_stability = 0.05
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_hold_elections"
+			add_stability = 0.05
+			add_political_power = 50
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				has_stability > 0.5
+			}
+		}
+	}
+
+	CHA_fund_campaign = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_democratic_path
+		}
+
+		available = {
+			has_government = democratic
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_fund_campaign"
+			add_popularity = { ideology = democratic popularity = 0.03 }
+			recalculate_party = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_fund_campaign"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 3
+		}
+	}
+
+	CHA_press_conference = {
+		icon = generic_decision
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 14
+		days_re_enable = 90
+
+		visible = {
+			has_country_flag = CHA_democratic_path
+		}
+
+		available = {
+			has_government = democratic
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_press_conference"
+			add_political_power = 25
+			add_stability = 0.02
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_press_conference"
+			add_war_support = 0.02
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+#####################################
+# ISLAMIST GOVERNANCE DECISIONS
+#####################################
+CHA_islamist_governance_category = {
+
+	CHA_enforce_sharia = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		available = {
+			has_government = fascism
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_enforce_sharia"
+			add_stability = -0.03
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			recalculate_party = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_enforce_sharia"
+			add_stability = 0.03
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_collect_zakat = {
+		icon = generic_decision
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		available = {
+			has_government = fascism
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_collect_zakat"
+			set_temp_variable = { treasury_change = 5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_collect_zakat"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_religious_festival = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 7
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_religious_festival"
+			add_stability = 0.05
+			add_political_power = -25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_religious_festival"
+			add_war_support = 0.03
+		}
+
+		ai_will_do = {
+			base = 4
+		}
+	}
+
+	CHA_build_mosque = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 270
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_build_mosque"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_build_mosque"
+			add_to_variable = { CHA_religious_tension = 5 }
+			CHA_update_religious_tension = yes
+			add_popularity = { ideology = fascism popularity = 0.02 }
+			recalculate_party = yes
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+
+	CHA_islamic_charity_fund = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_islamic_charity_fund"
+			set_temp_variable = { treasury_change = -3 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_islamic_charity_fund"
+			add_stability = 0.05
+			add_to_variable = { CHA_religious_tension = 2 }
+			CHA_update_religious_tension = yes
+		}
+
+		ai_will_do = {
+			base = 7
+		}
+	}
+
+	CHA_religious_police_patrol = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_religious_police_patrol"
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_religious_police_patrol"
+			add_popularity = { ideology = fascism popularity = 0.03 }
+			recalculate_party = yes
+			add_to_variable = { CHA_religious_tension = 8 }
+			CHA_update_religious_tension = yes
+		}
+
+		ai_will_do = {
+			base = 4
+		}
+	}
+
+	CHA_fund_moderate_imams = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 270
+
+		visible = {
+			has_country_flag = CHA_islamist_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_fund_moderate_imams"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_fund_moderate_imams"
+			subtract_from_variable = { CHA_religious_tension = 8 }
+			CHA_update_religious_tension = yes
+			add_popularity = { ideology = fascism popularity = -0.01 }
+			recalculate_party = yes
+		}
+
+		ai_will_do = {
+			base = 6
+			modifier = {
+				factor = 3
+				check_variable = { CHA_religious_tension > 50 }
+			}
+		}
+	}
+}
+
+#####################################
+# JUNTA GOVERNANCE DECISIONS
+#####################################
+CHA_junta_governance_category = {
+
+	CHA_declare_martial_law = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_junta_path
+		}
+
+		available = {
+			has_government = neutrality
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_declare_martial_law"
+			add_stability = -0.05
+			add_war_support = 0.10
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_declare_martial_law"
+			add_political_power = 50
+			add_stability = 0.03
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+	}
+
+	CHA_military_parade = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 7
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_junta_path
+		}
+
+		available = {
+			has_government = neutrality
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_military_parade"
+			add_war_support = 0.05
+			add_stability = 0.02
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_military_parade"
+			army_experience = 5
+		}
+
+		ai_will_do = {
+			base = 6
+		}
+	}
+
+	CHA_officer_promotions = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_junta_path
+		}
+
+		available = {
+			has_government = neutrality
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_officer_promotions"
+			army_experience = 10
+			add_political_power = 25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_officer_promotions"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 7
+		}
+	}
+}
+
+#####################################
+# TRIBAL GOVERNANCE DECISIONS
+#####################################
+CHA_tribal_governance_category = {
+
+	CHA_tribal_council_meeting = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 14
+		days_re_enable = 120
+
+		visible = {
+			has_country_flag = CHA_tribal_path
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_tribal_council_meeting"
+			add_stability = 0.03
+			add_political_power = 25
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_tribal_council_meeting"
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_inter_tribal_marriages = {
+		icon = generic_decision
+
+		cost = 25
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_tribal_path
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_inter_tribal_marriages"
+			add_stability = 0.05
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_inter_tribal_marriages"
+			add_political_power = 15
+		}
+
+		ai_will_do = {
+			base = 6
+		}
+	}
+
+	CHA_nomad_routes = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_tribal_path
+		}
+
+		available = {
+			NOT = { has_war = yes }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_nomad_routes"
+			set_temp_variable = { treasury_change = 3 }
+			modify_treasury_effect = yes
+			add_stability = 0.02
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_nomad_routes"
+			set_temp_variable = { treasury_change = 2 }
+			modify_treasury_effect = yes
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+#####################################
+# PATRON MANAGEMENT DECISIONS
+#####################################
+CHA_patron_management_category = {
+
+	CHA_request_military_aid = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_neocolonial_path
+		}
+
+		available = {
+			has_variable = CHA_sovereignty
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_request_military_aid"
+			subtract_from_variable = { CHA_sovereignty = 8 }
+			CHA_update_sovereignty = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_request_military_aid"
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_1
+				amount = 2000
+				producer = CHA
+			}
+			army_experience = 5
+		}
+
+		ai_will_do = {
+			base = 8
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+	}
+
+	CHA_renegotiate_terms = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_neocolonial_path
+		}
+
+		available = {
+			has_variable = CHA_sovereignty
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_renegotiate_terms"
+			random_list = {
+				50 = {
+					add_to_variable = { CHA_sovereignty = 10 }
+					add_political_power = 50
+				}
+				50 = {
+					subtract_from_variable = { CHA_sovereignty = 5 }
+					add_stability = -0.03
+				}
+			}
+			CHA_update_sovereignty = yes
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 2
+				check_variable = { CHA_sovereignty > 50 }
+			}
+		}
+	}
+
+	CHA_resist_patron_demands = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 180
+
+		visible = {
+			has_country_flag = CHA_neocolonial_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_resist_patron_demands"
+			add_to_variable = { CHA_sovereignty = 8 }
+			CHA_update_sovereignty = yes
+			FRA = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = medium_decrease
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 3
+				check_variable = { CHA_sovereignty > 60 }
+			}
+		}
+	}
+
+	CHA_nationalize_foreign_assets = {
+		icon = generic_decision
+
+		cost = 200
+
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = CHA_neocolonial_path
+			check_variable = { CHA_sovereignty > 60 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_nationalize_foreign_assets"
+			add_to_variable = { CHA_sovereignty = 25 }
+			CHA_update_sovereignty = yes
+			FRA = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = large_decrease
+				}
+			}
+			CHI = {
+				add_opinion_modifier = {
+					target = CHA
+					modifier = large_decrease
+				}
+			}
+			set_temp_variable = { treasury_change = -10 }
+			modify_treasury_effect = yes
+			add_stability = -0.10
+		}
+
+		ai_will_do = {
+			base = 1
+		}
+	}
+}
+
+#####################################
+# PAN-AFRICAN DIPLOMACY DECISIONS
+#####################################
+CHA_pan_african_diplomacy_category = {
+
+	CHA_host_regional_summit = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 30
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_panafrican_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_host_regional_summit"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_host_regional_summit"
+			add_to_variable = { CHA_pan_african_prestige = 10 }
+			CHA_update_pan_african_prestige = yes
+			every_neighbor_country = {
+				limit = {
+					NOT = { has_war_with = CHA }
+				}
+				add_opinion_modifier = {
+					target = CHA
+					modifier = small_increase
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 8
+		}
+	}
+
+	CHA_propose_trade_bloc = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = yes
+
+		visible = {
+			has_country_flag = CHA_panafrican_path
+			check_variable = { CHA_pan_african_prestige > 30 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_propose_trade_bloc"
+			subtract_from_variable = { CHA_pan_african_prestige = 10 }
+			CHA_update_pan_african_prestige = yes
+			random_list = {
+				60 = {
+					add_ideas = CHA_regional_trade_hub
+					add_stability = 0.05
+				}
+				40 = {
+					add_stability = -0.03
+					add_political_power = -25
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_deploy_peacekeepers_decision = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_country_flag = CHA_panafrican_path
+		}
+
+		available = {
+			has_army_manpower = { size > 5000 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_deploy_peacekeepers_decision"
+			add_manpower = -3000
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_deploy_peacekeepers_decision"
+			add_to_variable = { CHA_pan_african_prestige = 8 }
+			CHA_update_pan_african_prestige = yes
+			army_experience = 10
+			add_political_power = 25
+		}
+
+		ai_will_do = {
+			base = 6
+		}
+	}
+
+	CHA_cultural_exchange_program = {
+		icon = generic_decision
+
+		cost = 40
+
+		fire_only_once = no
+		days_remove = 90
+		days_re_enable = 270
+
+		visible = {
+			has_country_flag = CHA_panafrican_path
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_cultural_exchange_program"
+			set_temp_variable = { treasury_change = -2 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_cultural_exchange_program"
+			add_to_variable = { CHA_pan_african_prestige = 5 }
+			CHA_update_pan_african_prestige = yes
+			add_stability = 0.02
+		}
+
+		ai_will_do = {
+			base = 5
+		}
+	}
+}
+
+#####################################
+# OIL MANAGEMENT DECISIONS
+#####################################
+CHA_oil_management_category = {
+
+	CHA_increase_oil_production = {
+		icon = generic_decision
+
+		cost = 75
+
+		fire_only_once = no
+		days_remove = 180
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_oil_economy
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_increase_oil_production"
+			set_temp_variable = { treasury_change = -5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_increase_oil_production"
+			add_resource = {
+				type = oil
+				amount = 3
+				state = 326
+			}
+			country_event = { id = chad.741 days = 90 random_days = 90 }
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_renegotiate_oil_contracts = {
+		icon = generic_decision
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 60
+		days_re_enable = 365
+
+		visible = {
+			has_completed_focus = CHA_oil_economy
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_renegotiate_oil_contracts"
+			add_political_power = -50
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove CHA_renegotiate_oil_contracts"
+			random_list = {
+				50 = {
+					set_temp_variable = { treasury_change = 8 }
+					modify_treasury_effect = yes
+				}
+				50 = {
+					set_temp_variable = { treasury_change = -3 }
+					modify_treasury_effect = yes
+					add_stability = -0.03
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 6
+		}
+	}
+
+	CHA_oil_revenue_fund = {
+		icon = generic_decision
+
+		cost = 50
+
+		fire_only_once = yes
+
+		visible = {
+			has_completed_focus = CHA_oil_revenue_management
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_oil_revenue_fund"
+			set_temp_variable = { treasury_change = -10 }
+			modify_treasury_effect = yes
+			set_country_flag = CHA_oil_fund_established
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	CHA_oil_price_hedging = {
+		icon = GFX_decision_generic_economy
+
+		allowed = {
+			original_tag = CHA
+		}
+
+		available = {
+			has_completed_focus = CHA_oil_revenue_management
+			NOT = { has_idea = CHA_oil_price_insurance }
+		}
+
+		visible = {
+			has_completed_focus = CHA_oil_revenue_management
+		}
+
+		fire_only_once = yes
+
+		cost = 75
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision CHA_oil_price_hedging"
+			add_ideas = CHA_oil_price_insurance
+		}
+
+		ai_will_do = {
+			base = 3
+		}
+	}
+}

@@ -1,0 +1,215 @@
+# Chad Tribal Loyalty GUI
+
+@TRIBE_NAME_X = 55
+@LOYALTY_VALUE_X = 200
+@LOYALTY_STATUS_X = 300
+@TRIBE_ICON_X = 10
+@HEADERS_Y = 10
+
+guiTypes = {
+
+	containerWindowType = {
+		name = "CHA_tribal_loyalty_gui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 200 }
+
+		# Title
+		instantTextBoxType = {
+			name = "tribal_loyalty_title"
+			position = { x = 10 y = @HEADERS_Y }
+			font = "hoi_18mbs"
+			text = "CHA_tribal_loyalty_title"
+			format = left
+			maxWidth = 250
+			maxHeight = 24
+		}
+
+		# Headers
+		instantTextBoxType = {
+			name = "tribe_header"
+			position = { x = @TRIBE_NAME_X y = 35 }
+			font = "hoi_16mbs"
+			text = "CHA_tribe_header"
+			format = left
+			maxWidth = 120
+			maxHeight = 20
+		}
+
+		instantTextBoxType = {
+			name = "loyalty_header"
+			position = { x = @LOYALTY_VALUE_X y = 35 }
+			font = "hoi_16mbs"
+			text = "CHA_loyalty_header"
+			format = center
+			maxWidth = 60
+			maxHeight = 20
+		}
+
+		instantTextBoxType = {
+			name = "status_header"
+			position = { x = @LOYALTY_STATUS_X y = 35 }
+			font = "hoi_16mbs"
+			text = "CHA_status_header"
+			format = center
+			maxWidth = 100
+			maxHeight = 20
+		}
+
+		# ========== ZAGHAWA ROW ==========
+		iconType = {
+			name = "zaghawa_icon"
+			spriteType = "GFX_idea_african_tribalism"
+			position = { x = @TRIBE_ICON_X y = 55 }
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "zaghawa_name"
+			position = { x = @TRIBE_NAME_X y = 60 }
+			font = "hoi_18mbs"
+			text = "CHA_zaghawa_tribe"
+			format = left
+			maxWidth = 140
+			maxHeight = 24
+			pdx_tooltip = CHA_zaghawa_tooltip
+		}
+
+		instantTextBoxType = {
+			name = "zaghawa_loyalty_value"
+			position = { x = @LOYALTY_VALUE_X y = 60 }
+			font = "hoi_18mbs"
+			text = "[?CHA_zaghawa_loyalty|0]"
+			format = center
+			maxWidth = 60
+			maxHeight = 24
+		}
+
+		instantTextBoxType = {
+			name = "zaghawa_status"
+			position = { x = @LOYALTY_STATUS_X y = 60 }
+			font = "hoi_18mbs"
+			text = "[CHA_GetZaghawaStatus]"
+			format = center
+			maxWidth = 100
+			maxHeight = 24
+		}
+
+		# ========== ARAB ROW ==========
+		iconType = {
+			name = "arab_icon"
+			spriteType = "GFX_idea_arab_workers_union"
+			position = { x = @TRIBE_ICON_X y = 90 }
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "arab_name"
+			position = { x = @TRIBE_NAME_X y = 95 }
+			font = "hoi_18mbs"
+			text = "CHA_arab_tribe"
+			format = left
+			maxWidth = 140
+			maxHeight = 24
+			pdx_tooltip = CHA_arab_tooltip
+		}
+
+		instantTextBoxType = {
+			name = "arab_loyalty_value"
+			position = { x = @LOYALTY_VALUE_X y = 95 }
+			font = "hoi_18mbs"
+			text = "[?CHA_arab_loyalty|0]"
+			format = center
+			maxWidth = 60
+			maxHeight = 24
+		}
+
+		instantTextBoxType = {
+			name = "arab_status"
+			position = { x = @LOYALTY_STATUS_X y = 95 }
+			font = "hoi_18mbs"
+			text = "[CHA_GetArabStatus]"
+			format = center
+			maxWidth = 100
+			maxHeight = 24
+		}
+
+		# ========== SARA ROW ==========
+		iconType = {
+			name = "sara_icon"
+			spriteType = "GFX_idea_agrarian_economy_idea"
+			position = { x = @TRIBE_ICON_X y = 125 }
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "sara_name"
+			position = { x = @TRIBE_NAME_X y = 130 }
+			font = "hoi_18mbs"
+			text = "CHA_sara_tribe"
+			format = left
+			maxWidth = 140
+			maxHeight = 24
+			pdx_tooltip = CHA_sara_tooltip
+		}
+
+		instantTextBoxType = {
+			name = "sara_loyalty_value"
+			position = { x = @LOYALTY_VALUE_X y = 130 }
+			font = "hoi_18mbs"
+			text = "[?CHA_sara_loyalty|0]"
+			format = center
+			maxWidth = 60
+			maxHeight = 24
+		}
+
+		instantTextBoxType = {
+			name = "sara_status"
+			position = { x = @LOYALTY_STATUS_X y = 130 }
+			font = "hoi_18mbs"
+			text = "[CHA_GetSaraStatus]"
+			format = center
+			maxWidth = 100
+			maxHeight = 24
+		}
+
+		# ========== TOUBOU ROW ==========
+		iconType = {
+			name = "toubou_icon"
+			spriteType = "GFX_idea_tribal_primacy"
+			position = { x = @TRIBE_ICON_X y = 160 }
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "toubou_name"
+			position = { x = @TRIBE_NAME_X y = 165 }
+			font = "hoi_18mbs"
+			text = "CHA_toubou_tribe"
+			format = left
+			maxWidth = 140
+			maxHeight = 24
+			pdx_tooltip = CHA_toubou_tooltip
+		}
+
+		instantTextBoxType = {
+			name = "toubou_loyalty_value"
+			position = { x = @LOYALTY_VALUE_X y = 165 }
+			font = "hoi_18mbs"
+			text = "[?CHA_toubou_loyalty|0]"
+			format = center
+			maxWidth = 60
+			maxHeight = 24
+		}
+
+		instantTextBoxType = {
+			name = "toubou_status"
+			position = { x = @LOYALTY_STATUS_X y = 165 }
+			font = "hoi_18mbs"
+			text = "[CHA_GetToubouStatus]"
+			format = center
+			maxWidth = 100
+			maxHeight = 24
+		}
+
+	}
+}
