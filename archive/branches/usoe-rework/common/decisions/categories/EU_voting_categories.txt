@@ -1,0 +1,88 @@
+EU_voting_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_USoE_category = {
+	allowed = {
+		OR = {
+			EU_is_potential = yes
+			original_tag = UOE
+		}
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+	visible = {
+		has_country_flag = USoE
+	}
+}
+
+EU_environmental_imperialism_category = {
+	allowed = {
+		OR = {
+			EU_is_potential = yes
+			original_tag = UOE
+		}
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_office_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_fiscal_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_exit_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_defense_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}
+
+EU_apply_for_membership_category = {
+	allowed = {
+		EU_is_potential = yes
+		NOT = { has_global_flag = GAME_RULE_eu_disabled }
+	}
+
+	icon = GFX_decision_generic_european_union
+	priority = 125
+}

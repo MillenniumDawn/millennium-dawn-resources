@@ -1,0 +1,96 @@
+﻿l_english:
+  # NAMES
+
+  # GENERIC
+  CAC_COMPANY_NAME_0: "Banking & Finance Sector"
+  CAC_COMPANY_NAME_1: "Mining & Resources Sector"
+  CAC_COMPANY_NAME_2: "Energy & Utilities Sector"
+  CAC_COMPANY_NAME_3: "Defense Sector"
+  CAC_COMPANY_NAME_4: "Technology & Communications Sector"
+  CAC_COMPANY_NAME_5: "Construction & Infrastructure Sector"
+  CAC_COMPANY_NAME_6: "Pharmaceuticals & Healthcare Sector"
+
+  # ICONS
+
+  # GENERIC
+  CAC_COMPANY_ICON_0: "GFX_idea_tur_balkan_central_bank_wealthy_greece"
+  CAC_COMPANY_ICON_1: "GFX_idea_generic_refining_concern_1"
+  CAC_COMPANY_ICON_2: "GFX_idea_generic_energy_concern"
+  CAC_COMPANY_ICON_3: "GFX_idea_generic_motorized_equipment_manufacturer_1"
+  CAC_COMPANY_ICON_4: "GFX_idea_generic_electronics_concern_1"
+  CAC_COMPANY_ICON_5: "GFX_idea_generic_industrial_concern_2"
+  CAC_COMPANY_ICON_6: "GFX_idea_PAR_president_carlos_antonio_lopez_railways"
+
+  # CEO
+
+  # GENERIC
+  CAC_COMPANY_CEO_0_0: "Alexander Korrin"
+  CAC_COMPANY_CEO_0_1: "Victor Dalmere"
+  CAC_COMPANY_CEO_0_2: "Sophia Arkwright"
+  CAC_COMPANY_CEO_0_3: "Haruto Ishikawa"
+
+  CAC_COMPANY_CEO_IMAGE_0_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_0_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_0_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_0_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_1_0: "Elena Vorstin"
+  CAC_COMPANY_CEO_1_1: "Marcus Delacroix"
+  CAC_COMPANY_CEO_1_2: "Renata Alvarez"
+  CAC_COMPANY_CEO_1_3: "Kenjiro Tanaka"
+
+  CAC_COMPANY_CEO_IMAGE_1_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_1_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_1_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_1_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_2_0: "Isabella Grekov"
+  CAC_COMPANY_CEO_2_1: "Nathaniel Cross"
+  CAC_COMPANY_CEO_2_2: "Yasmin Haddad"
+  CAC_COMPANY_CEO_2_3: "Tobias Mertens"
+
+  CAC_COMPANY_CEO_IMAGE_2_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_2_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_2_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_2_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_3_0: "Amira Solano"
+  CAC_COMPANY_CEO_3_1: "Gregor Steinwald"
+  CAC_COMPANY_CEO_3_2: "Lucien Moretti"
+  CAC_COMPANY_CEO_3_3: "Chun Wei"
+
+  CAC_COMPANY_CEO_IMAGE_3_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_3_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_3_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_3_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_4_0: "Santiago Ribeiro"
+  CAC_COMPANY_CEO_4_1: "Katarina Novak"
+  CAC_COMPANY_CEO_4_2: "Omar Al-Mansouri"
+  CAC_COMPANY_CEO_4_3: "Richard Holmgren"
+
+  CAC_COMPANY_CEO_IMAGE_4_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_4_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_4_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_4_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_5_0: "Clara Voss"
+  CAC_COMPANY_CEO_5_1: "Alejandro Cortés"
+  CAC_COMPANY_CEO_5_2: "Dmitri Sokolov"
+  CAC_COMPANY_CEO_5_3: "Fatima Rahmani"
+
+  CAC_COMPANY_CEO_IMAGE_5_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_5_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_5_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_5_3: "GFX_portrait_generic_ceo_3"
+
+  CAC_COMPANY_CEO_6_0: "Leopold Krauss"
+  CAC_COMPANY_CEO_6_1: "Anika Deshpande"
+  CAC_COMPANY_CEO_6_2: "Pierre Dumont"
+  CAC_COMPANY_CEO_6_3: "Zhang Rui"
+
+  CAC_COMPANY_CEO_IMAGE_6_0: "GFX_portrait_generic_ceo_0"
+  CAC_COMPANY_CEO_IMAGE_6_1: "GFX_portrait_generic_ceo_1"
+  CAC_COMPANY_CEO_IMAGE_6_2: "GFX_portrait_generic_ceo_2"
+  CAC_COMPANY_CEO_IMAGE_6_3: "GFX_portrait_generic_ceo_3"
+

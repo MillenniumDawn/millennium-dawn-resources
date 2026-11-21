@@ -1,0 +1,344 @@
+#By IranianMaggot
+add_namespace = Timor
+add_namespace = Timor_news
+
+country_event = {
+	id = Timor_news.1 #make this unique for IND, and slightly for AST and maybe some other nations based on governments
+	title = Timor_news.1.t
+	desc = Timor_news.1.desc
+	picture = GFX_timor_independence
+
+	is_triggered_only = yes
+
+	major = yes
+
+	##East Timor Gains Independence
+	option = {
+		name = Timor_news.1.o1
+		log = "[GetDateText]: [Root.GetName]: event Timor_news.1.o1"
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+country_event = { #UN Sets East Timor Election Date with Indonesian approval
+	id = Timor.26
+	title = Timor.26.t
+	desc = Timor.27.d1
+	picture = GFX_timor_election
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { original_tag = TIM }
+				country_event = { id = Timor.27 days = 123 }
+			}
+		}
+	}
+
+	trigger = {
+		IND = { has_country_flag = gave_east_timor_permission }
+		OR = {
+			original_tag = AST
+			original_tag = TIM
+		}
+	}
+
+	option = {
+		name = Timor.26.o1 #Onward to democracy!
+		if = {
+			limit = { original_tag = TIM }
+			add_stability = 0.05
+		}
+		else = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.05
+			}
+			add_stability = 0.03
+		}
+		ai_chance = {
+			base = 10
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.26.o1 executed"
+	}
+}
+country_event = { #Actual first election for Timor-Leste
+	id = Timor.27
+	title = Timor.27.t
+	desc = {
+		text = Timor.27.d2 #Same as original but includes comments on "Having previously received the go ahead from the UN for the new East Timorese government..." and the war with Indonesia
+		trigger = {
+			date > 2002.7.1
+		}
+	}
+	desc = { text = Timor.27.d1 } #original
+
+	picture = GFX_timor_election
+
+	is_triggered_only = yes #THE DESC WILL INCLUDE SOMETHING ABOUT "We are free! Now to legitimise our new government, we must choose a leader..."
+
+	immediate = {
+		country_event = { id = Timor_news.1 days = 0 }
+		add_ideas = TIM_Mari_Alkatiri
+		remove_ideas = Non_State_Actor
+	}
+
+	option = {
+		name = Timor.27.o1 #Xanana will lead the people
+		set_country_flag = set_socialism
+		if = {
+			limit = { has_country_flag = set_socialism }
+			add_to_array = { ruling_party = 3 }
+			add_popularity = { ideology = democratic popularity = 0.35 }
+		}
+		hidden_effect = {
+			clr_country_flag = TIM_ruled_by_UNTAET
+			drop_cosmetic_tag = yes
+			clear_array = ruling_party
+			clear_array = gov_coalition_array
+			add_to_array = { ruling_party = 3 }
+			update_government_coalition_strength = yes
+			set_coalition_drift = yes
+			set_ruling_leader = yes
+			set_leader = yes
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			create_country_leader = {
+				name = "Xanana Gusmão"
+				picture = "xanana_gusmao.dds"
+				ideology = socialism
+				traits = {
+					western_socialism
+					military_career
+					guerrilla_leader
+					capable
+				}
+			}
+		}
+		custom_effect_tooltip = Timor.27.tt.a
+		ai_chance = {
+			base = 20
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.27.o1 executed"
+	}
+	option = {
+		name = Timor.27.o2 #Francisco Xavier do Amaral is our hero!
+		add_stability = 0.05
+		set_country_flag = set_socialism
+		if = {
+			limit = { has_country_flag = set_neutral_Social }
+			add_to_array = { ruling_party = 18 }
+			add_popularity = { ideology = neutrality popularity = 0.15 }
+		}
+		hidden_effect = {
+			clr_country_flag = TIM_ruled_by_UNTAET
+			drop_cosmetic_tag = yes
+			clear_array = ruling_party
+			clear_array = gov_coalition_array
+			add_to_array = { ruling_party = 18 }
+			update_government_coalition_strength = yes
+			set_coalition_drift = yes
+			set_ruling_leader = yes
+			set_leader = yes
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+			create_country_leader = {
+				name = "Francisco Xavier do Amaral"
+				picture = "francisco_xavier_do_amaral.dds" #need this
+				expire = 2012.3.6
+				ideology = neutral_Social
+				traits = {
+					neutrality_neutral_Social
+					humble
+					likeable
+					guerrilla_leader
+				}
+			}
+		}
+		country_event = { id = Timor.33 days = 3536 } # ~2012, matching Amaral's historical death and create_country_leader expire date above
+		custom_effect_tooltip = Timor.27.tt.b
+		ai_chance = {
+			base = 5
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.27.o2 executed"
+	}
+}
+country_event = { #The War is Over! (If East Timor wins the war with Indonesia) (for the war I stole Droid's Iraq-US war mechanic so the war doesn't go on forever and so it is challenging for Indonesia)
+	id = Timor.31
+	title = Timor.31.t
+	desc = Timor.31.desc
+	picture = GFX_timor_resist
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TIM
+		NOT = {
+			has_war_with = IND
+		}
+	}
+
+	option = {
+		name = Timor.31.o1 #Prosperity to East Timor!
+		add_stability = 0.05
+		country_event = { id = Timor.27 days = 14 }
+		add_stability = 0.05
+		ai_chance = {
+			base = 10
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.31.o1 executed"
+	}
+}
+country_event = { #Francisco Xavier do Amaral passes away
+	id = Timor.33
+	title = Timor.33.t
+	desc = Timor.33.desc
+	picture = GFX_amaral_death
+
+	is_triggered_only = yes
+
+	option = {
+		name = Timor.33.o1 #The ASDT and a hero, finally put to rest
+		clr_country_flag = TIM_ASDT_together
+		if = {
+			limit = { neutrality_neutral_social_are_in_power = yes }
+			country_event = { id = MD4_election_campaign.0 }
+		}
+		add_stability = -0.02
+		ai_chance = {
+			base = 10
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.33.o1 executed"
+	}
+}
+country_event = { #East Timor takes over the rest of the island
+	id = Timor.35
+	title = Timor.35.t
+	desc = Timor.35.desc #We are getting our asses whooped...
+
+	is_triggered_only = yes
+
+	option = {
+		name = Timor.35.o1 #White peace?
+		country_event = { id = Timor.31 days = 7 }
+		add_stability = -0.03
+		add_war_support = -0.10
+		white_peace = TIM
+		ai_chance = {
+			base = 10
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.35.o1 executed"
+	}
+}
+country_event = { #Inconclusive Result in the War
+	id = Timor.36
+	title = Timor.36.t
+	desc = Timor.36.desc
+
+	is_triggered_only = yes
+
+	option = {
+		name = Timor.36.o1 #Our efforts in East Timor have been in vain
+		white_peace = TIM
+		country_event = { id = Timor.31 days = 7 }
+		add_stability = -0.05
+		add_war_support = -0.15
+		log = "[GetDateText]: [This.GetName]: Timor.36.o1 executed"
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = Timor.36.o2 #I don't care about those westerners and their silly games!!!
+		add_stability = -0.10
+		add_war_support = 0.20
+		add_popularity = {
+			ideology = nationalist
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.15
+		}
+		custom_effect_tooltip = Timor.36.tt.b #This will warrant an invasion from the West
+		hidden_effect = {
+			if = {
+				limit = { USA = { NOT = { has_country_flag = collapsed_nation } } }
+				USA = { country_event = { id = Timor.37 days = 0 } }
+			}
+		}
+		ai_chance = {
+			base = 0
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.36.o2 executed"
+	}
+}
+country_event = { #The US response to Indonesia not pulling out of East Timor after 4 months
+	id = Timor.37
+	title = Timor.37.t
+	desc = Timor.37.desc #Indonesia has insisted on ignoring the international community, shall we help East Timor?
+	picture = GFX_timor_resist
+
+	is_triggered_only = yes
+
+	option = {
+		name = Timor.37.o1 #They've gone too far
+		declare_war_on = { target = IND type = liberate_wargoal }
+		add_named_threat = {
+			threat = -2
+			name = USA_intervened_in_timor_crisis
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.02
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.37.o1 executed"
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = Timor.37.o2 #We shouldn't get too involved in everything
+		every_other_country = {
+			if = {
+				limit = { has_government = democratic }
+				add_opinion_modifier = { modifier = failed_to_help_timor_in_their_time_of_need target = USA}
+				add_opinion_modifier = { modifier = failed_to_help_timor_in_their_time_of_need_trade target = USA }
+			}
+		}
+		add_stability = -0.05
+		add_war_support = -0.10
+		decrease_intervention_law_effect = yes
+		decrease_intervention_law_effect = yes
+		add_popularity = {
+			ideology = nationalist
+			popularity = 0.04
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.06
+		}
+		ai_chance = {
+			base = 0
+		}
+		log = "[GetDateText]: [This.GetName]: Timor.37.o2 executed"
+	}
+}

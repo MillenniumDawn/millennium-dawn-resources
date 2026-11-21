@@ -1,0 +1,197 @@
+#By Iranian Maggot, Zei33
+opinion_modifiers = {
+
+	old_wounds1_mod = {
+		value = -15
+		decay = 0.3
+	}
+
+	not_forgotten1_mod = {
+		value = -15
+		decay = 0.3
+	}
+
+	australia_new_zealand_rugby_mod = {
+		value = 15
+		decay = 0
+	}
+
+	whaling_dispute_mod = {
+		value = -15
+		decay = 0.5
+	}
+
+	AST_Support_PRC_good_mod = {
+		value = 20
+		decay = 0.1
+	}
+
+	AST_Support_PRC_bad_mod = {
+		value = -20
+		decay = 0.1
+	}
+
+	AST_Support_Taiwan_bad_mod = {
+		value = -20
+		decay = 0.2
+	}
+
+	AST_Support_Taiwan_good_mod = {
+		value = 20
+		decay = 0.1
+	}
+
+	AST_Chinese_Immigrants1_mod = {
+		value = 15
+		decay = 0.2
+	}
+
+	AST_Chinese_Immigrants2_mod = {
+		value = 15
+	}
+
+	supported_china_daiyou_mod = {
+		value = 15
+		decay = 0
+	}
+
+	supported_china_senkaku_mod = {
+		value = -20
+		decay = 0.2
+	}
+
+	japanese_language = {
+		value = 15
+		decay = 0
+	}
+
+	developed_sangara_mod = {
+		value = 20
+		decay = 0.3
+	}
+
+	shared_colonial_history_mod = {
+		value = 25
+		decay = 0
+	}
+
+	withdraw_from_paris_accord_mod = {
+		value = -20
+		decay = 1
+	}
+
+	long_term_trading_partner_mod = {
+		value = 20
+		decay = 0
+	}
+	cancelled_our_port_lease_mod = {
+		value = -25
+		decay = 0.3
+	}
+
+	chinese_security_risk_mod = {
+		value = -25
+		decay = 0.2
+	}
+	continue_our_port_lease_mod = {
+		value = 20
+		decay = 0.1
+	}
+	chinese_port_operations_mod = {
+		value = 20
+		decay = 0.1
+	}
+
+	anzac_commitments_mod = {
+		value = 30
+		decay = 0
+	}
+
+	australia_new_zealand_peaceful_unification = {
+		value = 15
+		decay = 0.5
+	}
+
+	import_tariffs_mod = {
+		value = -15
+		decay = 1
+	}
+
+	france_lightly_offended_by_recent_actions = {
+		value = -10
+		decay = 1
+	}
+	france_lightly_offended_by_recent_actions2 = {
+		trade = yes
+		value = -50
+		decay = 5
+	}
+	australian_american_military_trade_relations = {
+		trade = yes
+		value = 50
+	}
+	ditched_france = {
+		value = -20
+		decay = 0.5
+	}
+	ditched_france2 = {
+		trade = yes
+		value = -40
+		decay = 0.5
+	}
+	france_feeling_good_about_future_business_cooperations = {
+		value = 20
+		decay = 0.1
+	}
+	france_feeling_good_about_future_business_cooperations2 = {
+		trade = yes
+		value = 100
+	}
+	cooperation_with_rheinmetall = {
+		trade = yes
+		value = 50
+	}
+	afghanistan_trade = {
+		trade = yes
+		value = 150
+	}
+	AST_bali_trauma = {
+		value = 20
+		decay = 0.1
+	}
+	failed_to_help_timor_in_their_time_of_need = {
+		value = -15
+		decay = 0.5
+	}
+	failed_to_help_timor_in_their_time_of_need_trade = {
+		value = -100
+		decay = 1.5
+		trade = yes
+	}
+	AST_caused_mh17_crash = {
+		value = -40
+		decay = 0.1
+	}
+	SOL_ramsi_support = {
+		value = 40
+		decay = 0.1
+	}
+	SOL_abandoned_us = {
+		value = -20
+	}
+	SOL_pacific_partner = {
+		value = 80
+	}
+	AST_papua_partnership_mod = {
+		value = 25
+		decay = 0.05
+	}
+	AST_papua_revanchism_mod = {
+		value = -20
+		decay = 0.2
+	}
+	AST_west_papua_recognition_mod = {
+		value = -30
+		decay = 0.1
+	}
+}

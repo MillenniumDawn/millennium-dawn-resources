@@ -1,0 +1,486 @@
+# Chad Scripted Triggers
+
+# Check if the Second Chadian Civil War is active
+CHA_civil_war_active = {
+	has_global_flag = CHA_second_civil_war
+}
+
+# Check if Chad is at peace (no civil war)
+CHA_at_peace = {
+	NOT = { has_global_flag = CHA_second_civil_war }
+	NOT = { has_war = yes }
+}
+
+# Check if Chad can start the civil war
+CHA_can_trigger_civil_war = {
+	original_tag = CHA
+	NOT = { has_global_flag = CHA_second_civil_war }
+	NOT = { has_country_flag = CHA_civil_war_ended }
+	date > 2005.12.1
+	OR = {
+		has_country_flag = CHA_sudan_tensions
+		has_country_flag = CHA_supports_darfur
+		check_variable = { CHA_civil_war_tension > 50 }
+	}
+}
+
+# Check if tensions with Sudan are high
+CHA_high_sudan_tensions = {
+	OR = {
+		has_country_flag = CHA_sudan_tensions
+		has_war_with = SUD
+		has_opinion = {
+			target = SUD
+			value < -50
+		}
+	}
+}
+
+# Check if Chad prevented the civil war
+CHA_prevented_civil_war = {
+	original_tag = CHA
+	date > 2010.1.1
+	NOT = { has_global_flag = CHA_second_civil_war }
+	NOT = { has_country_flag = CHA_civil_war_ended }
+	has_country_flag = CHA_addressed_grievances
+}
+
+# Check if Déby is still in power
+CHA_deby_in_power = {
+	original_tag = CHA
+	has_country_leader = {
+		name = "Idriss Déby"
+		ruling_only = yes
+	}
+}
+
+# Check if Chad has international support
+CHA_has_international_support = {
+	OR = {
+		has_country_flag = CHA_french_intervened
+		has_country_flag = CHA_minurcat_deployed
+		has_country_flag = CHA_eufor_deployed
+	}
+}
+
+# Check if rebel factions exist
+CHA_rebels_exist = {
+	OR = {
+		country_exists = FUC
+		country_exists = UFD
+	}
+}
+
+# Check if FUC is active
+CHA_fuc_active = {
+	country_exists = FUC
+	FUC = { has_war_with = CHA }
+}
+
+# Check if UFDD is active
+CHA_ufdd_active = {
+	country_exists = UFD
+	UFD = { has_war_with = CHA }
+}
+
+# Check if Chad can request French support
+CHA_can_request_french_support = {
+	original_tag = CHA
+	has_global_flag = CHA_second_civil_war
+	NOT = { has_country_flag = CHA_french_intervened }
+	NOT = { has_war_with = FRA }
+	FRA = {
+		has_opinion = {
+			target = CHA
+			value > -20
+		}
+	}
+}
+
+# Check if Chad is winning the civil war
+CHA_winning_civil_war = {
+	original_tag = CHA
+	has_global_flag = CHA_second_civil_war
+	OR = {
+		AND = {
+			country_exists = FUC
+			FUC = {
+				surrender_progress > 0.5
+			}
+		}
+		AND = {
+			country_exists = UFD
+			UFD = {
+				surrender_progress > 0.5
+			}
+		}
+	}
+}
+
+# Check if Chad is losing the civil war
+CHA_losing_civil_war = {
+	original_tag = CHA
+	has_global_flag = CHA_second_civil_war
+	surrender_progress > 0.3
+}
+
+# Check if the battle for N'Djamena is happening
+CHA_battle_for_ndjamena = {
+	original_tag = CHA
+	has_global_flag = CHA_second_civil_war
+	328 = {
+		is_controlled_by = CHA
+		any_neighbor_state = {
+			OR = {
+				is_controlled_by = FUC
+				is_controlled_by = UFD
+			}
+		}
+	}
+}
+
+# Check if Chad can reconcile
+CHA_can_reconcile = {
+	original_tag = CHA
+	has_global_flag = CHA_second_civil_war
+	date > 2009.1.1
+	OR = {
+		CHA_winning_civil_war = yes
+		has_country_flag = CHA_french_intervened
+	}
+	NOT = { has_country_flag = CHA_reconciliation_failed }
+}
+
+# Check if democratic path is available
+CHA_democratic_path_available = {
+	original_tag = CHA
+	NOT = { has_country_flag = CHA_term_limits_removed }
+	OR = {
+		has_elections = yes
+		has_government = democratic
+	}
+}
+
+# Check if authoritarian path is available
+CHA_authoritarian_path_available = {
+	original_tag = CHA
+	OR = {
+		has_government = neutrality
+		has_government = nationalist
+		has_country_flag = CHA_term_limits_removed
+	}
+}
+
+# Check if oil economy is developed
+CHA_oil_economy_developed = {
+	original_tag = CHA
+	OR = {
+		has_completed_focus = CHA_doba_basin_expansion
+		has_completed_focus = CHA_chinese_oil_investment
+		326 = {
+			infrastructure > 3
+		}
+	}
+}
+
+# Tibesti autonomy trigger
+CHA_tibesti_autonomous = {
+	original_tag = CHA
+	has_country_flag = CHA_granted_tibesti_autonomy
+}
+
+#####################################
+# TRIBAL REBELLION SYSTEM TRIGGERS
+#####################################
+
+# Check if a tribe is at protest level (loyalty 20-25)
+CHA_zaghawa_protest_level = {
+	original_tag = CHA
+	check_variable = { CHA_zaghawa_loyalty < 26 }
+	check_variable = { CHA_zaghawa_loyalty > 19 }
+	NOT = { has_country_flag = CHA_zaghawa_rebellion_active }
+}
+
+CHA_arab_protest_level = {
+	original_tag = CHA
+	check_variable = { CHA_arab_loyalty < 26 }
+	check_variable = { CHA_arab_loyalty > 19 }
+	NOT = { has_country_flag = CHA_arab_rebellion_active }
+}
+
+CHA_sara_protest_level = {
+	original_tag = CHA
+	check_variable = { CHA_sara_loyalty < 26 }
+	check_variable = { CHA_sara_loyalty > 19 }
+	NOT = { has_country_flag = CHA_sara_rebellion_active }
+}
+
+CHA_toubou_protest_level = {
+	original_tag = CHA
+	check_variable = { CHA_toubou_loyalty < 26 }
+	check_variable = { CHA_toubou_loyalty > 19 }
+	NOT = { has_country_flag = CHA_toubou_rebellion_active }
+}
+
+# Check if a tribe is at partisan level (loyalty 10-19)
+CHA_zaghawa_partisan_level = {
+	original_tag = CHA
+	check_variable = { CHA_zaghawa_loyalty < 20 }
+	check_variable = { CHA_zaghawa_loyalty > 9 }
+	NOT = { has_country_flag = CHA_zaghawa_rebellion_active }
+}
+
+CHA_arab_partisan_level = {
+	original_tag = CHA
+	check_variable = { CHA_arab_loyalty < 20 }
+	check_variable = { CHA_arab_loyalty > 9 }
+	NOT = { has_country_flag = CHA_arab_rebellion_active }
+}
+
+CHA_sara_partisan_level = {
+	original_tag = CHA
+	check_variable = { CHA_sara_loyalty < 20 }
+	check_variable = { CHA_sara_loyalty > 9 }
+	NOT = { has_country_flag = CHA_sara_rebellion_active }
+}
+
+CHA_toubou_partisan_level = {
+	original_tag = CHA
+	check_variable = { CHA_toubou_loyalty < 20 }
+	check_variable = { CHA_toubou_loyalty > 9 }
+	NOT = { has_country_flag = CHA_toubou_rebellion_active }
+}
+
+# Check if a tribe is at separatism level (loyalty 5-9)
+CHA_zaghawa_separatism_level = {
+	original_tag = CHA
+	check_variable = { CHA_zaghawa_loyalty < 10 }
+	check_variable = { CHA_zaghawa_loyalty > 4 }
+	NOT = { has_country_flag = CHA_zaghawa_rebellion_active }
+}
+
+CHA_arab_separatism_level = {
+	original_tag = CHA
+	check_variable = { CHA_arab_loyalty < 10 }
+	check_variable = { CHA_arab_loyalty > 4 }
+	NOT = { has_country_flag = CHA_arab_rebellion_active }
+}
+
+CHA_sara_separatism_level = {
+	original_tag = CHA
+	check_variable = { CHA_sara_loyalty < 10 }
+	check_variable = { CHA_sara_loyalty > 4 }
+	NOT = { has_country_flag = CHA_sara_rebellion_active }
+}
+
+CHA_toubou_separatism_level = {
+	original_tag = CHA
+	check_variable = { CHA_toubou_loyalty < 10 }
+	check_variable = { CHA_toubou_loyalty > 4 }
+	NOT = { has_country_flag = CHA_toubou_rebellion_active }
+}
+
+# Check if a tribe is at civil war level (loyalty < 5)
+CHA_zaghawa_civil_war_level = {
+	original_tag = CHA
+	check_variable = { CHA_zaghawa_loyalty < 5 }
+	NOT = { has_country_flag = CHA_zaghawa_rebellion_active }
+}
+
+CHA_arab_civil_war_level = {
+	original_tag = CHA
+	check_variable = { CHA_arab_loyalty < 5 }
+	NOT = { has_country_flag = CHA_arab_rebellion_active }
+}
+
+CHA_sara_civil_war_level = {
+	original_tag = CHA
+	check_variable = { CHA_sara_loyalty < 5 }
+	NOT = { has_country_flag = CHA_sara_rebellion_active }
+}
+
+CHA_toubou_civil_war_level = {
+	original_tag = CHA
+	check_variable = { CHA_toubou_loyalty < 5 }
+	NOT = { has_country_flag = CHA_toubou_rebellion_active }
+}
+
+# Check if any tribal rebellion is active
+CHA_tribal_rebellion_active = {
+	original_tag = CHA
+	OR = {
+		has_country_flag = CHA_zaghawa_rebellion_active
+		has_country_flag = CHA_arab_rebellion_active
+		has_country_flag = CHA_sara_rebellion_active
+		has_country_flag = CHA_toubou_rebellion_active
+	}
+}
+
+# Check tribal resource levels for modifiers
+CHA_zaghawa_high_loyalty = {
+	check_variable = { CHA_zaghawa_loyalty > 74 }
+}
+
+CHA_zaghawa_medium_loyalty = {
+	check_variable = { CHA_zaghawa_loyalty > 49 }
+	check_variable = { CHA_zaghawa_loyalty < 75 }
+}
+
+CHA_zaghawa_low_loyalty = {
+	check_variable = { CHA_zaghawa_loyalty > 24 }
+	check_variable = { CHA_zaghawa_loyalty < 50 }
+}
+
+CHA_zaghawa_critical_loyalty = {
+	check_variable = { CHA_zaghawa_loyalty < 25 }
+}
+
+CHA_arab_high_loyalty = {
+	check_variable = { CHA_arab_loyalty > 74 }
+}
+
+CHA_arab_medium_loyalty = {
+	check_variable = { CHA_arab_loyalty > 49 }
+	check_variable = { CHA_arab_loyalty < 75 }
+}
+
+CHA_arab_low_loyalty = {
+	check_variable = { CHA_arab_loyalty > 24 }
+	check_variable = { CHA_arab_loyalty < 50 }
+}
+
+CHA_arab_critical_loyalty = {
+	check_variable = { CHA_arab_loyalty < 25 }
+}
+
+CHA_sara_high_loyalty = {
+	check_variable = { CHA_sara_loyalty > 74 }
+}
+
+CHA_sara_medium_loyalty = {
+	check_variable = { CHA_sara_loyalty > 49 }
+	check_variable = { CHA_sara_loyalty < 75 }
+}
+
+CHA_sara_low_loyalty = {
+	check_variable = { CHA_sara_loyalty > 24 }
+	check_variable = { CHA_sara_loyalty < 50 }
+}
+
+CHA_sara_critical_loyalty = {
+	check_variable = { CHA_sara_loyalty < 25 }
+}
+
+CHA_toubou_high_loyalty = {
+	check_variable = { CHA_toubou_loyalty > 74 }
+}
+
+CHA_toubou_medium_loyalty = {
+	check_variable = { CHA_toubou_loyalty > 49 }
+	check_variable = { CHA_toubou_loyalty < 75 }
+}
+
+CHA_toubou_low_loyalty = {
+	check_variable = { CHA_toubou_loyalty > 24 }
+	check_variable = { CHA_toubou_loyalty < 50 }
+}
+
+CHA_toubou_critical_loyalty = {
+	check_variable = { CHA_toubou_loyalty < 25 }
+}
+
+# Check if tribal influence can be reduced
+CHA_can_reduce_tribal_influence = {
+	original_tag = CHA
+	check_variable = { CHA_tribal_influence > 0 }
+	OR = {
+		has_completed_focus = CHA_address_ethnic_grievances
+		has_completed_focus = CHA_ndjamena_modernization
+		has_completed_focus = CHA_education_reform
+		has_completed_focus = CHA_sara_in_army
+	}
+}
+
+# Check tribal influence level
+CHA_high_tribal_influence = {
+	check_variable = { CHA_tribal_influence > 74 }
+}
+
+CHA_medium_tribal_influence = {
+	check_variable = { CHA_tribal_influence > 49 }
+	check_variable = { CHA_tribal_influence < 75 }
+}
+
+CHA_low_tribal_influence = {
+	check_variable = { CHA_tribal_influence < 50 }
+}
+
+#####################################
+# PATH DETECTION TRIGGERS
+#####################################
+
+CHA_is_democratic_path = {
+	original_tag = CHA
+	has_country_flag = CHA_democratic_path
+}
+
+CHA_is_islamist_path = {
+	original_tag = CHA
+	has_country_flag = CHA_islamist_path
+}
+
+CHA_is_socialist_path = {
+	original_tag = CHA
+	has_country_flag = CHA_socialist_path
+}
+
+CHA_is_junta_path = {
+	original_tag = CHA
+	has_country_flag = CHA_junta_path
+}
+
+CHA_is_tribal_path = {
+	original_tag = CHA
+	has_country_flag = CHA_tribal_path
+}
+
+CHA_is_panafrican_path = {
+	original_tag = CHA
+	has_country_flag = CHA_panafrican_path
+}
+
+CHA_is_neocolonial_path = {
+	original_tag = CHA
+	has_country_flag = CHA_neocolonial_path
+}
+
+CHA_is_authoritarian_path = {
+	original_tag = CHA
+	has_country_flag = CHA_authoritarian_path
+}
+
+CHA_post_deby_era = {
+	original_tag = CHA
+	OR = {
+		has_country_flag = CHA_deby_dead
+		NOT = { has_country_leader = { name = "Idriss Déby" ruling_only = yes } }
+		date > 2021.4.20
+	}
+}
+
+CHA_boko_haram_era = {
+	date > 2010.1.1
+	OR = {
+		has_country_flag = CHA_boko_haram_active
+		has_completed_focus = CHA_boko_haram_war
+		has_completed_focus = CHA_anti_boko_haram_operations
+	}
+}
+
+CHA_libyan_crisis_era = {
+	date > 2011.2.1
+	OR = {
+		has_country_flag = CHA_libyan_crisis
+		NOT = { LBA = { has_country_leader = { name = "Muammar al-Gaddafi" ruling_only = yes } } }
+	}
+}

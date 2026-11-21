@@ -1,0 +1,13 @@
+{
+  "branch": "origin/tst-ter-org",
+  "tip_sha": "5da829bb985d7153e2b7c4294065e582002f9c72",
+  "tip_short": "5da829bb98",
+  "last_author": "Sheep",
+  "last_commit_date": "2026-06-17T17:02:03+10:00",
+  "last_commit_subject": "sheep dump work",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "08484a0a85e709b245a05edc68dabd581c4e9540",
+  "diverging_files_3dot": 3,
+  "archived_files": 3,
+  "deleted_paths": []
+}

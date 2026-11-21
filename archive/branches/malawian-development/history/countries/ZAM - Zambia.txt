@@ -1,0 +1,295 @@
+capital = 292
+2000.1.1 = {
+	set_variable = { currency_strength = 0.5 }
+	set_cosmetic_tag = ZAM
+	set_country_flag = dynamic_flag
+	set_country_flag = dynamic_rebel_flag
+	set_country_flag = is_getting_cdf_subsidies
+	add_to_array = { global.uncdf_recipients = THIS }
+	add_dynamic_modifier = { modifier = un_aid_subsidies_modifier }
+	set_variable = { gdp_per_capita = 2.096 }
+
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_oob = "ZAM_2000_nsb"
+		set_technology = {
+			mbt_tech_ops = 1
+			mbt_tech = 1
+			nsb_artillery_0 = 1
+			nsb_Anti_Air_0 = 1
+		}
+
+		else = {
+			set_oob = "ZAM_2000_nonnsb"
+			set_technology = {
+				Early_APC = 1
+				APC_1 = 1
+				MBT_1 = 1
+				IFV_1 = 1
+				SP_R_arty_0 = 1
+				tech_arty_0 = 1
+				SP_Anti_Air_0 = 1
+				Anti_Air_0 = 1
+				Rec_tank_0 = 1
+			}
+		}
+	}
+	if = {
+		limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "ZAM_2000_bba"
+		else = {
+			set_air_oob = "ZAM_2000_nonbba"
+		}
+	}
+
+	add_ideas = {
+		# NATIONAL STATISTICS
+		partially_privatized_healthcare
+		economic_motivated_mining
+		standard_maintenance
+		us_dollar
+		light_regulations
+
+		multi_ethnic_state_idea
+		corruption_level_07
+
+		christian
+		stagnation
+		# INTERNAL FACTIONS
+		international_bankers
+		industrial_conglomerates
+		farmers
+		# SPENDING LAWS
+		bureau_02
+		defence_02
+		police_03
+		edu_01
+		health_02
+		social_01
+		# POLICIES
+		export_economy
+		volunteer_army
+		volunteer_women
+		intervention_local_security
+
+		semi_consumption_economy
+		officer_basic_training
+		# ADDITIONAL IDEAS
+		OAU_member
+		commonwealth_of_nations_member
+		SADC_member_state
+		multi_ethnic_state_idea
+		# AIDS IDEA (SOON DEPRECATED)
+		rising_level_of_aids
+	}
+	add_dynamic_modifier = { modifier = Commonwealth_member_modifier }
+	add_to_array = { global.commonwealth_member = THIS }
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 45 }
+	add_to_array = { influence_array = SAF.id }
+	add_to_array = { influence_array_val = 40 }
+	add_to_array = { influence_array = ENG.id }
+	add_to_array = { influence_array_val = 15 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	# Starting tech
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		infantry_mass_assault = 1
+
+		###FOR TEMPLATES###
+		infantry_weapons_1 = 1
+		cnc_equipment_1 = 1
+		Anti_tank_0 = 1
+		combat_eng_equipment = 1
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		radar = 1
+		fuel_silos = 1
+		Heavy_Anti_tank_0 = 1
+	}
+
+	if = {
+		limit = { NOT = { has_dlc = "La Resistance" } }
+		set_technology = {
+			decryption1 = 1
+			encryption1 = 1
+		}
+	}
+
+	#Economics
+	set_variable = { var = debt value = 54 }
+	set_variable = { var = corporate_tax_rate value = 35 }
+	set_variable = { var = population_tax_rate value = 35 }
+
+	set_popularities = {
+		democratic = 75.0
+		communism = 7.9
+		fascism = 0.0
+		neutrality = 13.5
+		nationalist = 3.6
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1996.8.11"
+		election_frequency = 60
+		elections_allowed = yes
+	}
+	start_politics_input = yes
+
+	set_variable = { election_threshold = 0.01 }
+
+	### Party Popularities
+	set_variable = { party_pop_array^0 = 0 } #Western_Autocracy - Party for Poor People
+	set_variable = { party_pop_array^1 = 0.067 } #conservatism - ZAP
+	set_variable = { party_pop_array^2 = 0.176 } #liberalism - UPND
+	set_variable = { party_pop_array^3 = 0.507 } #socialism - MMD
+	set_variable = { party_pop_array^4 = 0 } #Communist-State
+	set_variable = { party_pop_array^5 = 0.079 } #anarchist_communism - UNIP
+	set_variable = { party_pop_array^6 = 0 } #Conservative - Heritage
+	set_variable = { party_pop_array^7 = 0 } #Autocracy
+	set_variable = { party_pop_array^8 = 0 } #Mod_Vilayat_e_Faqih
+	set_variable = { party_pop_array^9 = 0 } #Vilayat_e_Faqih
+	set_variable = { party_pop_array^10 = 0 } #Kingdom
+	set_variable = { party_pop_array^11 = 0 } #Caliphate
+	set_variable = { party_pop_array^12 = 0 } #Neutral_Muslim_Brotherhood
+	set_variable = { party_pop_array^13 = 0 } #Neutral_Autocracy
+	set_variable = { party_pop_array^14 = 0 } #Neutral_conservatism - NAREP
+	set_variable = { party_pop_array^15 = 0 } #oligarchism
+	set_variable = { party_pop_array^16 = 0 } #Neutral_Libertarian
+	set_variable = { party_pop_array^17 = 0.114 } #Neutral_green - FDD
+	set_variable = { party_pop_array^18 = 0.021 } #neutral_Social - PF
+	set_variable = { party_pop_array^19 = 0 } #Neutral_Communism - Rainbow Party
+	set_variable = { party_pop_array^20 = 0.036 } #Nat_Populism - NP
+	set_variable = { party_pop_array^21 = 0 } #Nat_Fascism
+	set_variable = { party_pop_array^22 = 0 } #Nat_Autocracy
+	set_variable = { party_pop_array^23 = 0 } #Monarchist
+
+	### Ruling Party
+	add_to_array = { ruling_party = 3 }
+
+	#1996 election results
+	set_variable = { party_pop_elect_array^0 = 0 } #Western_Autocracy - Party for Poor People
+	set_variable = { party_pop_elect_array^1 = 0.138 } #conservatism - ZADECO
+	set_variable = { party_pop_elect_array^2 = 0 } #liberalism - UPND
+	set_variable = { party_pop_elect_array^3 = 0.609 } #socialist - MMD
+	set_variable = { party_pop_elect_array^5 = 0 } #anarchist_communism - UNIP
+	set_variable = { party_pop_elect_array^6 = 0 } #Conservative - Heritage
+	set_variable = { party_pop_elect_array^14 = 0 } #Neutral_conservatism - NAREP
+	set_variable = { party_pop_elect_array^17 = 0 } #Neutral_green - FDD
+	set_variable = { party_pop_elect_array^18 = 0 } #neutral_Social - PF
+	set_variable = { party_pop_elect_array^19 = 0 } #Neutral_Communism - Rainbow Party
+	set_variable = { party_pop_elect_array^20 = 0.071 } #Nat_Populism - NP
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Frederick Chiluba"
+		picture = "Frederick_Chiluba.dds"
+		expire = "2001.12.01"
+		ideology = socialism
+		traits = {
+			western_socialism
+		}
+	}
+
+	recruit_character = ZAM_edgar_lungu
+	recruit_character = ZAM_Nathan_Mulenga
+	recruit_character = ZAM_Eric_Chimese
+	recruit_character = ZAM_Kakoma_Knganja
+	recruit_character = ZAM_Martin_Banda
+	recruit_character = ZAM_Paul_Mihova
+
+	set_variable = { term_limit = 2 }
+	set_variable = { current_term = 2 }
+
+	set_variable = { literacy_rate = 0.680 }
+
+	set_variable = { overall_productivity = 444 }
+
+
+	# Relation Starting Configuration (moved from on_startup)
+	add_opinion_modifier = { target = CUB modifier = sanctions }
+	add_relation_modifier = { target = USA modifier = USA_World_Economical_Relations }
+	add_relation_modifier = { target = SOV modifier = SOV_World_Economical_Relations }
+	add_relation_modifier = { target = CHI modifier = CHI_World_Economical_Relations }
+	add_relation_modifier = { target = FRA modifier = FRA_World_Economical_Relations }
+	add_relation_modifier = { target = GER modifier = GER_World_Economical_Relations }
+	add_relation_modifier = { target = ENG modifier = ENG_World_Economical_Relations }
+	add_relation_modifier = { target = SPR modifier = SPR_World_Economical_Relations }
+	add_relation_modifier = { target = ITA modifier = ITA_World_Economical_Relations }
+	add_relation_modifier = { target = UKR modifier = UKR_World_Economical_Relations }
+	add_relation_modifier = { target = ISR modifier = ISR_World_Economical_Relations }
+	add_opinion_modifier = { target = TTP modifier = AlQaida_Are_Terrorists }
+	add_opinion_modifier = { target = TTP modifier = AlQaida_Are_Terrorists_Trade }
+	add_opinion_modifier = { target = TAL modifier = Taliban_Are_Terrorists }
+	add_opinion_modifier = { target = TAL modifier = Taliban_Are_Terrorists_Trade }
+	add_opinion_modifier = { target = GAH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SIE modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MOR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ALG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TUN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAL modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GUB modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GUI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CDI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BFA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TOG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NIG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NGR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CAR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CHA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SUD modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SSU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ERI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = DJI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SOM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = EGU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SAO modifier = African_Union_Relations }
+	add_opinion_modifier = { target = KEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = UGA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TNZ modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GAB modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CNG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = RWA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BUR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = DRC modifier = African_Union_Relations }
+	add_opinion_modifier = { target = AGL modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ZAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MLW modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MOZ modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ZIM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BOT modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SWA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = LES modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SML modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAD modifier = African_Union_Relations }
+	add_opinion_modifier = { target = COM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MRT modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SEY modifier = African_Union_Relations }
+	add_opinion_modifier = { target = STH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = VER modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CNR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SHA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ETH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SAF modifier = African_Union_Relations }
+	add_opinion_modifier = { target = LBA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = EGY modifier = African_Union_Relations }
+}

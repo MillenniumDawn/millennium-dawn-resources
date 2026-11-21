@@ -1,0 +1,13 @@
+{
+  "branch": "origin/uk-gui-work",
+  "tip_sha": "ff9ff4a326a7eccb51a54de387ab4a2c6590a5e8",
+  "tip_short": "ff9ff4a326",
+  "last_author": "Sheep",
+  "last_commit_date": "2026-06-23T21:01:43+10:00",
+  "last_commit_subject": "duno",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "e5214356c009d399e275aae4c65ca333e901b0ac",
+  "diverging_files_3dot": 9,
+  "archived_files": 9,
+  "deleted_paths": []
+}

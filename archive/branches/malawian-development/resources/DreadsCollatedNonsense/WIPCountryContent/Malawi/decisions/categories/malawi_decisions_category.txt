@@ -1,0 +1,260 @@
+# ECONOMY
+	# AGRICULTURAL
+		MLW_tea_company = {
+			icon = GFX_crisis
+			priority = 125
+			visible = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+			allowed = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+		}
+		MLW_tobacco_company = {
+			icon = GFX_crisis
+			priority = 125
+			visible = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+			allowed = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+		}
+	# ECO-FRIENDLY
+		MLW_eco_cleanups = {
+			icon = GFX_crisis
+			priority = 200
+			visible = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+			allowed = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+		}
+	# RESOURCES
+		MLW_prospecting = {
+			icon = GFX_crisis
+			priority = 125
+			visible = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+			allowed = {
+				original_tag = MLW
+				#has_completed_focus = MLW_dig_a_hole
+			}
+		}
+# FOREIGN POLICY - FOPOL
+	# EUROPEAN
+		MLW_foreign_relations_cat = {
+			icon = GFX_crisis
+			priority = 140
+
+			allowed = { original_tag = MLW }
+			visible = { original_tag = MLW }
+		}
+	# GCC
+		MLW_FOPOL_GCC_MLW_decisions_category = {
+			icon = crisis
+			priority = 120
+
+			allowed = { original_tag = MLW }
+			visible = {
+				OR = {
+					has_completed_focus = MLW_the_arab_world
+					is_debug = yes
+				}
+			}
+
+			visible_when_empty = yes
+
+			scripted_gui = MLW_FOPOL_GCC_CAT
+		}
+		MLW_FOPOL_GCC_GCC_decisions_category = {
+			icon = crisis
+			priority = 130
+
+			allowed = { MLW_GCC_nation = yes }
+			visible = {
+				OR = {
+					AND = {
+						MLW = { has_completed_focus = MLW_gcc_megaprojects }
+						NOT = { has_country_flag = MLW_GCC_opt_out_FLAG }
+					}
+					is_debug = yes
+				}
+			}
+		}
+	# RAIL CONNECTIONS
+		MLW_local_rail_laying = {
+			icon = crisis
+			priority = 125
+
+			allowed = { original_tag = MLW }
+			visible = {
+				OR = {
+					has_completed_focus = MLW_malawi_rail_building
+					is_debug = yes
+				}
+			}
+		}
+	# LAKE WARS
+		MLW_lake_wars = {
+			icon = crisis
+			priority = 130
+
+			allowed = { original_tag = MLW }
+			visible = { original_tag = MLW }
+
+			scripted_gui = MLW_FOPOL_lake_wars_CAT
+		}
+	# MLW-ZAM JPCC
+		MLW_ZAM_JPCC = {
+			icon = crisis
+			priority = 130
+
+			allowed = { original_tag = MLW }
+			visible = { MLW_ZAM_has_continued_the_JPCC = yes }
+			# visible = { has_completed_focus = MLW_ZAM_maintain_JPCC } # fix this later
+		}
+
+
+
+
+
+
+
+	# LAKE WARS - fix
+		# MLW_lake_wars_border_conflict = {
+		# 	icon = crisis
+		# 	priority = 125
+		# 	visible = { original_tag = MLW }
+		# 	allowed = { original_tag = MLW }
+		# }
+		# MLW_lake_wars_conflict_preparation = {
+		# 	icon = crisis
+		# 	priority = 125
+		# 	visible = { original_tag = MLW }
+		# 	allowed = { original_tag = MLW }
+		# }
+		# MLW_lake_wars_peace_efforts = {
+		# 	icon = crisis
+		# 	priority = 125
+		# 	visible = { original_tag = MLW }
+		# 	allowed = { original_tag = MLW }
+		# }
+		# MLW_lake_wars_victory = {
+		# 	icon = crisis
+		# 	priority = 125
+		# 	visible = {
+		# 		original_tag = MLW
+		# 		OR = {
+		# 			owns_state = 1045
+		# 			owns_state = 1046
+		# 			owns_state = 1047
+		# 			owns_state = 1049
+		# 		}
+		# 	}
+		# 	allowed = {
+		# 		original_tag = MLW
+		# 		OR = {
+		# 			owns_state = 1045
+		# 			owns_state = 1046
+		# 			owns_state = 1047
+		# 			owns_state = 1049
+		# 		}
+		# 	}
+		# }
+	# MISCELLANEOUS - fix
+
+# MISCELLANEOUS POLICIES - fix
+	MLW_GEN_missed_policies = {
+		icon = GFX_crisis
+		priority = 300
+		allowed = { original_tag = MLW }
+		visible = { always = yes }
+		visible_when_empty = yes
+	}
+	MLW_internal_migration_category = {
+		icon = generic_independence
+		priority = 10
+		allowed = { original_tag = MLW }
+		visible_when_empty = yes
+	}
+	# MLW_GEN_policies_cat = {
+	# 	icon = GFX_crisis
+	# 	priority = 126
+	# 	visible = { original_tag = MLW }
+	# 	allowed = { original_tag = MLW }
+	# }
+	# CURING MALAWI
+	# FEEDING MALAWI
+	# LOGGING - fix
+		MLW_logging_cat = {
+			icon = GFX_crisis
+			priority = 200
+			allowed = { original_tag = MLW }
+			visible = {
+				OR = {
+					has_completed_focus = MLW_UDF_illegal_logging
+					is_debug = yes
+				}
+			}
+		}
+	# URBANISATION - fix
+		# MLW_urbanisation_cat = {
+		# 	icon = GFX_crisis
+		# 	priority = 125
+		# 	visible = { original_tag = MLW }
+		# 	allowed = { original_tag = MLW }
+		# }
+# POLITICAL PARTIES - fix
+	# ALLIANCE FOR DEMOCRACY (AFORD) - fix
+		# MLW_AFORD_policies_cat = {
+		# 	scripted_gui = MLW_AFORD_party_status_GUI
+		# 	icon = GFX_crisis
+		# 	priority = 131
+		# 	visible = {
+		# 		original_tag = MLW
+		# 		#has_dynamic_modifier = { modifier = MLW_AFORD_policies_DM }
+		# 	}
+		# 	allowed = { original_tag = MLW }
+		# }
+	# MALAWI CONGRESS PARTY (MCP) - fix
+		# MLW_MCP_policies_cat = {
+		# 	scripted_gui = MLW_MCP_party_status_GUI
+		# 	icon = GFX_crisis
+		# 	priority = 129
+		# 	visible = {
+		# 		original_tag = MLW
+		# 		#has_dynamic_modifier = { modifier = MLW_MCP_policies_DM }
+		# 	}
+		# 	allowed = { original_tag = MLW }
+		# }
+	# UNITED DEMOCRATIC FRONT (UDF) - fix
+		MLW_UDF_policies_cat = {
+			icon = GFX_crisis
+			priority = 127
+			visible = {
+				original_tag = MLW
+				has_dynamic_modifier = { modifier = MLW_UDF_policies_DM }
+			}
+			allowed = { original_tag = MLW }
+		}
+		MLW_privatisation_decision_CAT = {
+			icon = GFX_crisis
+			priority = 125
+			visible = {
+				OR = {
+					has_completed_focus = MLW_UDF_privatisation
+					is_debug = yes
+				}
+			}
+			allowed = { original_tag = MLW }
+		}

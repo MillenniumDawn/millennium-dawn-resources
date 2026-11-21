@@ -1,0 +1,770 @@
+# Opinion Triggers for Internal Factions
+# Created to clean up code.
+
+# Small Medium business Owners
+enthusiastic_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion > 79 }
+}
+positive_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion < 80 }
+	check_variable = { small_medium_business_owners_opinion > 59 }
+}
+indifferent_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion < 61 }
+	check_variable = { small_medium_business_owners_opinion > 39 }
+}
+negative_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion < 40 }
+	check_variable = { small_medium_business_owners_opinion > 19 }
+}
+hostile_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion < 20 }
+}
+non_indifferent_small_medium_business_owners = {
+	check_variable = { small_medium_business_owners_opinion > 61 }
+	check_variable = { small_medium_business_owners_opinion < 39 }
+}
+small_medium_business_owners_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = small_medium_business_owners_at_least_enthusiastic_tt
+		check_variable = { small_medium_business_owners_opinion > 74.99 }
+	}
+}
+
+# International Bankers
+enthusiastic_international_bankers = {
+	check_variable = { international_bankers_opinion > 79 }
+}
+positive_international_bankers = {
+	check_variable = { international_bankers_opinion < 80 }
+	check_variable = { international_bankers_opinion > 59 }
+}
+indifferent_international_bankers = {
+	check_variable = { international_bankers_opinion < 61 }
+	check_variable = { international_bankers_opinion > 39 }
+}
+negative_international_bankers = {
+	check_variable = { international_bankers_opinion < 40 }
+	check_variable = { international_bankers_opinion > 19 }
+}
+hostile_international_bankers = {
+	check_variable = { international_bankers_opinion < 20 }
+}
+non_indifferent_international_bankers = {
+	check_variable = { international_bankers_opinion > 61 }
+	check_variable = { international_bankers_opinion < 39 }
+}
+international_bankers_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = international_bankers_at_least_enthusiastic_tt
+		check_variable = { international_bankers_opinion > 74.99 }
+	}
+}
+
+# Oligarchs
+enthusiastic_oligarchs = {
+	check_variable = { oligarchs_opinion > 79 }
+}
+positive_oligarchs = {
+	check_variable = { oligarchs_opinion < 80 }
+	check_variable = { oligarchs_opinion > 59 }
+}
+indifferent_oligarchs = {
+	check_variable = { oligarchs_opinion < 61 }
+	check_variable = { oligarchs_opinion > 39 }
+}
+negative_oligarchs = {
+	check_variable = { oligarchs_opinion < 40 }
+	check_variable = { oligarchs_opinion > 19 }
+}
+hostile_oligarchs = {
+	check_variable = { oligarchs_opinion < 20 }
+}
+non_indifferent_oligarchs = {
+	check_variable = { oligarchs_opinion > 61 }
+	check_variable = { oligarchs_opinion < 39 }
+}
+oligarchs_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = oli_at_least_enthusiastic_tt
+		check_variable = { oligarchs_opinion > 74.99 }
+	}
+}
+oligarchs_at_least_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = oli_at_least_positive_tt
+		check_variable = { oligarchs_opinion > 50 }
+	}
+}
+oligarchs_not_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = oli_not_positive_tt
+		check_variable = { oligarchs_opinion < 50 }
+	}
+}
+oligarchs_opinion_higher_45 = {
+	custom_trigger_tooltip = {
+		tooltip = oli_higher_45_tt
+		check_variable = { oligarchs_opinion > 45 }
+	}
+}
+
+# Industrial Conglomerates
+enthusiastic_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion > 79 }
+}
+positive_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion < 80 }
+	check_variable = { industrial_conglomerates_opinion > 59 }
+}
+indifferent_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion < 61 }
+	check_variable = { industrial_conglomerates_opinion > 39 }
+}
+negative_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion < 40 }
+	check_variable = { industrial_conglomerates_opinion > 19 }
+}
+hostile_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion < 20 }
+}
+non_indifferent_industrial_conglomerates = {
+	check_variable = { industrial_conglomerates_opinion > 61 }
+	check_variable = { industrial_conglomerates_opinion < 39 }
+}
+industrial_conglomerates_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = industrial_conglomerates_at_least_enthusiastic_tt
+		check_variable = { industrial_conglomerates_opinion > 74.99 }
+	}
+}
+
+# Fossil Fuel Industry
+enthusiastic_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion > 79 }
+}
+positive_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion < 80 }
+	check_variable = { fossil_fuel_industry_opinion > 59 }
+}
+indifferent_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion < 61 }
+	check_variable = { fossil_fuel_industry_opinion > 39 }
+}
+negative_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion < 40 }
+	check_variable = { fossil_fuel_industry_opinion > 19 }
+}
+hostile_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion < 20 }
+}
+non_indifferent_fossil_fuel_industry = {
+	check_variable = { fossil_fuel_industry_opinion > 61 }
+	check_variable = { fossil_fuel_industry_opinion < 39 }
+}
+fossil_fuel_industry_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = fossil_fuel_industry_at_least_enthusiastic_tt
+		check_variable = { fossil_fuel_industry_opinion > 74.99 }
+	}
+}
+
+## Militaristic Factions
+# Intelligence Community
+enthusiastic_intelligence_community = {
+	check_variable = { intelligence_community_opinion > 79 }
+}
+positive_intelligence_community = {
+	check_variable = { intelligence_community_opinion < 80 }
+	check_variable = { intelligence_community_opinion > 59 }
+}
+indifferent_intelligence_community = {
+	check_variable = { intelligence_community_opinion < 61 }
+	check_variable = { intelligence_community_opinion > 39 }
+}
+negative_intelligence_community = {
+	check_variable = { intelligence_community_opinion < 40 }
+	check_variable = { intelligence_community_opinion > 19 }
+}
+hostile_intelligence_community = {
+	check_variable = { intelligence_community_opinion < 20 }
+}
+non_indifferent_intelligence_community = {
+	check_variable = { intelligence_community_opinion > 61 }
+	check_variable = { intelligence_community_opinion < 39 }
+}
+intelligence_community_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = intelligence_community_at_least_enthusiastic_tt
+		check_variable = { intelligence_community_opinion > 74.99 }
+	}
+}
+intelligence_community_at_least_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = intc_at_least_positive_tt
+		check_variable = { intelligence_community_opinion > 59 }
+	}
+}
+intelligence_community_not_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = intc_not_positive_tt
+		check_variable = { intelligence_community_opinion < 59 }
+	}
+}
+
+# The Military
+enthusiastic_the_military = {
+	check_variable = { the_military_opinion > 79 }
+}
+positive_the_military = {
+	check_variable = { the_military_opinion < 80 }
+	check_variable = { the_military_opinion > 59 }
+}
+indifferent_the_military = {
+	check_variable = { the_military_opinion < 61 }
+	check_variable = { the_military_opinion > 39 }
+}
+negative_the_military = {
+	check_variable = { the_military_opinion < 40 }
+	check_variable = { the_military_opinion > 19 }
+}
+hostile_the_military = {
+	check_variable = { the_military_opinion < 20 }
+}
+non_indifferent_the_military = {
+	check_variable = { the_military_opinion > 61 }
+	check_variable = { the_military_opinion < 39 }
+}
+military_at_least_enthusiastic_opinion = {
+	if = {
+		limit = { has_idea = the_military }
+		custom_override_tooltip = {
+			tooltip = military_at_least_enthusiastic_tt
+			check_variable = { the_military_opinion > 74.99 }
+		}
+	}
+}
+military_at_least_positive_opinion = {
+	if = {
+		limit = { has_idea = the_military }
+		custom_override_tooltip = {
+			tooltip = military_at_least_positive_tt
+			check_variable = { the_military_opinion > 50 }
+		}
+	}
+}
+
+# Defense Industry
+enthusiastic_defense_industry = {
+	check_variable = { defense_industry_opinion > 79 }
+}
+positive_defense_industry = {
+	check_variable = { defense_industry_opinion < 80 }
+	check_variable = { defense_industry_opinion > 59 }
+}
+indifferent_defense_industry = {
+	check_variable = { defense_industry_opinion < 61 }
+	check_variable = { defense_industry_opinion > 39 }
+}
+negative_defense_industry = {
+	check_variable = { defense_industry_opinion < 40 }
+	check_variable = { defense_industry_opinion > 19 }
+}
+hostile_defense_industry = {
+	check_variable = { defense_industry_opinion < 20 }
+}
+non_indifferent_defense_industry = {
+	check_variable = { defense_industry_opinion > 61 }
+	check_variable = { defense_industry_opinion < 39 }
+}
+defense_industry_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = defense_industry_at_least_enthusiastic_tt
+		check_variable = { defense_industry_opinion > 74.99 }
+	}
+}
+
+# Maritime Industry
+enthusiastic_maritime_industry = {
+	check_variable = { maritime_industry_opinion > 79 }
+}
+positive_maritime_industry = {
+	check_variable = { maritime_industry_opinion < 80 }
+	check_variable = { maritime_industry_opinion > 59 }
+}
+indifferent_maritime_industry = {
+	check_variable = { maritime_industry_opinion < 61 }
+	check_variable = { maritime_industry_opinion > 39 }
+}
+negative_maritime_industry = {
+	check_variable = { maritime_industry_opinion < 40 }
+	check_variable = { maritime_industry_opinion > 19 }
+}
+hostile_maritime_industry = {
+	check_variable = { maritime_industry_opinion < 20 }
+}
+non_indifferent_maritime_industry = {
+	check_variable = { maritime_industry_opinion > 61 }
+	check_variable = { maritime_industry_opinion < 39 }
+}
+maritime_industry_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = maritime_industry_at_least_enthusiastic_tt
+		check_variable = { maritime_industry_opinion > 74.99 }
+	}
+}
+
+# Wahabi Ulema
+enthusiastic_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion > 79 }
+}
+positive_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion < 80 }
+	check_variable = { wahabi_ulema_opinion > 59 }
+}
+indifferent_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion < 61 }
+	check_variable = { wahabi_ulema_opinion > 39 }
+}
+negative_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion < 40 }
+	check_variable = { wahabi_ulema_opinion > 19 }
+}
+hostile_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion < 20 }
+}
+non_indifferent_wahabi_ulema = {
+	check_variable = { wahabi_ulema_opinion > 61 }
+	check_variable = { wahabi_ulema_opinion < 39 }
+}
+wahabi_ulema_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = wahabi_ulema_at_least_enthusiastic_tt
+		check_variable = { wahabi_ulema_opinion > 74.99 }
+	}
+}
+wahule_at_least_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = wahule_at_least_positive_tt
+		check_variable = { wahabi_ulema_opinion > 59 }
+	}
+}
+
+# The Priesthood
+enthusiastic_the_priesthood = {
+	check_variable = { the_priesthood_opinion > 79 }
+}
+positive_the_priesthood = {
+	check_variable = { the_priesthood_opinion < 80 }
+	check_variable = { the_priesthood_opinion > 59 }
+}
+indifferent_the_priesthood = {
+	check_variable = { the_priesthood_opinion < 61 }
+	check_variable = { the_priesthood_opinion > 39 }
+}
+negative_the_priesthood = {
+	check_variable = { the_priesthood_opinion < 40 }
+	check_variable = { the_priesthood_opinion > 19 }
+}
+hostile_the_priesthood = {
+	check_variable = { the_priesthood_opinion < 20 }
+}
+non_indifferent_the_priesthood = {
+	check_variable = { the_priesthood_opinion > 61 }
+	check_variable = { the_priesthood_opinion < 39 }
+}
+the_priesthood_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = the_priesthood_at_least_enthusiastic_tt
+		check_variable = { the_priesthood_opinion > 74.99 }
+	}
+}
+the_priesthood_at_least_indifferent_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = the_priesthood_at_least_indifferent_tt
+		check_variable = { the_priesthood_opinion > 49.99 }
+	}
+}
+
+# The Ulema
+enthusiastic_the_ulema = {
+	check_variable = { the_ulema_opinion > 79 }
+}
+positive_the_ulema = {
+	check_variable = { the_ulema_opinion < 80 }
+	check_variable = { the_ulema_opinion > 59 }
+}
+indifferent_the_ulema = {
+	check_variable = { the_ulema_opinion < 61 }
+	check_variable = { the_ulema_opinion > 39 }
+}
+negative_the_ulema = {
+	check_variable = { the_ulema_opinion < 40 }
+	check_variable = { the_ulema_opinion > 19 }
+}
+hostile_the_ulema = {
+	check_variable = { the_ulema_opinion < 20 }
+}
+non_indifferent_the_ulema = {
+	check_variable = { the_ulema_opinion > 61 }
+	check_variable = { the_ulema_opinion < 39 }
+}
+the_ulema_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = the_ulema_at_least_enthusiastic_tt
+		check_variable = { the_ulema_opinion > 74.99 }
+	}
+}
+the_ulema_at_least_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = ule_at_least_positive_tt
+		check_variable = { the_ulema_opinion > 59 }
+	}
+}
+
+# The Clergy
+enthusiastic_the_clergy = {
+	check_variable = { the_clergy_opinion > 79 }
+}
+positive_the_clergy = {
+	check_variable = { the_clergy_opinion < 80 }
+	check_variable = { the_clergy_opinion > 59 }
+}
+indifferent_the_clergy = {
+	check_variable = { the_clergy_opinion < 61 }
+	check_variable = { the_clergy_opinion > 39 }
+}
+negative_the_clergy = {
+	check_variable = { the_clergy_opinion < 40 }
+	check_variable = { the_clergy_opinion > 19 }
+}
+hostile_the_clergy = {
+	check_variable = { the_clergy_opinion < 20 }
+}
+non_indifferent_the_clergy = {
+	check_variable = { the_clergy_opinion > 61 }
+	check_variable = { the_clergy_opinion < 39 }
+}
+the_clergy_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = the_clergy_at_least_enthusiastic_tt
+		check_variable = { the_clergy_opinion > 74.99 }
+	}
+}
+
+# Communist Cadres
+enthusiastic_communist_cadres = {
+	check_variable = { communist_cadres_opinion > 79 }
+}
+positive_communist_cadres = {
+	check_variable = { communist_cadres_opinion < 80 }
+	check_variable = { communist_cadres_opinion > 59 }
+}
+indifferent_communist_cadres = {
+	check_variable = { communist_cadres_opinion < 61 }
+	check_variable = { communist_cadres_opinion > 39 }
+}
+negative_communist_cadres = {
+	check_variable = { communist_cadres_opinion < 40 }
+	check_variable = { communist_cadres_opinion > 19 }
+}
+hostile_communist_cadres = {
+	check_variable = { communist_cadres_opinion < 20 }
+}
+non_indifferent_communist_cadres = {
+	check_variable = { communist_cadres_opinion > 61 }
+	check_variable = { communist_cadres_opinion < 39 }
+}
+communist_cadres_at_least_enthusiastic_opinion = {
+	if = {
+		limit = { has_idea = communist_cadres }
+		custom_override_tooltip = {
+			tooltip = communist_cadres_at_least_enthusiastic_tt
+			check_variable = { communist_cadres_opinion > 74.99 }
+		}
+	}
+}
+communist_cadres_at_least_positive_opinion = {
+	if = {
+		limit = { has_idea = communist_cadres }
+		custom_override_tooltip = {
+			tooltip = communist_cadres_at_least_positive_tt
+			check_variable = { communist_cadres_opinion > 50 }
+		}
+	}
+}
+
+# Farmers
+enthusiastic_farmers = {
+	check_variable = { farmers_opinion > 79 }
+}
+positive_farmers = {
+	check_variable = { farmers_opinion < 80 }
+	check_variable = { farmers_opinion > 59 }
+}
+indifferent_farmers = {
+	check_variable = { farmers_opinion < 61 }
+	check_variable = { farmers_opinion > 39 }
+}
+negative_farmers = {
+	check_variable = { farmers_opinion < 40 }
+	check_variable = { farmers_opinion > 19 }
+}
+hostile_farmers = {
+	check_variable = { farmers_opinion < 20 }
+}
+non_indifferent_farmers = {
+	check_variable = { farmers_opinion > 61 }
+	check_variable = { farmers_opinion < 39 }
+}
+farmers_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = farmers_at_least_enthusiastic_tt
+		check_variable = { farmers_opinion > 74.99 }
+	}
+}
+
+# Landowners
+enthusiastic_landowners = {
+	check_variable = { landowners_opinion > 79 }
+}
+positive_landowners = {
+	check_variable = { landowners_opinion < 80 }
+	check_variable = { landowners_opinion > 59 }
+}
+indifferent_landowners = {
+	check_variable = { landowners_opinion < 61 }
+	check_variable = { landowners_opinion > 39 }
+}
+negative_landowners = {
+	check_variable = { landowners_opinion < 40 }
+	check_variable = { landowners_opinion > 19 }
+}
+hostile_landowners = {
+	check_variable = { landowners_opinion < 20 }
+}
+non_indifferent_landowners = {
+	check_variable = { landowners_opinion > 61 }
+	check_variable = { landowners_opinion < 39 }
+}
+landowners_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = landowners_at_least_enthusiastic_tt
+		check_variable = { landowners_opinion > 74.99 }
+	}
+}
+
+# Labour Unions
+enthusiastic_labour_unions = {
+	check_variable = { labour_unions_opinion > 79 }
+}
+positive_labour_unions = {
+	check_variable = { labour_unions_opinion < 80 }
+	check_variable = { labour_unions_opinion > 59 }
+}
+indifferent_labour_unions = {
+	check_variable = { labour_unions_opinion < 61 }
+	check_variable = { labour_unions_opinion > 39 }
+}
+negative_labour_unions = {
+	check_variable = { labour_unions_opinion < 40 }
+	check_variable = { labour_unions_opinion > 19 }
+}
+hostile_labour_unions = {
+	check_variable = { labour_unions_opinion < 20 }
+}
+non_indifferent_labour_unions = {
+	check_variable = { labour_unions_opinion > 61 }
+	check_variable = { labour_unions_opinion < 39 }
+}
+labour_unions_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = labour_unions_at_least_enthusiastic_tt
+		check_variable = { labour_unions_opinion > 74.99 }
+	}
+}
+
+# Foreign Jihadists
+enthusiastic_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion > 79 }
+}
+positive_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion < 80 }
+	check_variable = { foreign_jihadis_opinion > 59 }
+}
+indifferent_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion < 61 }
+	check_variable = { foreign_jihadis_opinion > 39 }
+}
+negative_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion < 40 }
+	check_variable = { foreign_jihadis_opinion > 19 }
+}
+hostile_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion < 20 }
+}
+non_indifferent_foreign_jihadis = {
+	check_variable = { foreign_jihadis_opinion > 61 }
+	check_variable = { foreign_jihadis_opinion < 39 }
+}
+foreign_jihadis_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = foreign_jihadis_at_least_enthusiastic_tt
+		check_variable = { foreign_jihadis_opinion > 74.99 }
+	}
+}
+
+# Iranian Quds Force
+enthusiastic_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion > 79 }
+}
+positive_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion < 80 }
+	check_variable = { iranian_quds_force_opinion > 59 }
+}
+indifferent_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion < 61 }
+	check_variable = { iranian_quds_force_opinion > 39 }
+}
+negative_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion < 40 }
+	check_variable = { iranian_quds_force_opinion > 19 }
+}
+hostile_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion < 20 }
+}
+non_indifferent_iranian_quds_force = {
+	check_variable = { iranian_quds_force_opinion > 61 }
+	check_variable = { iranian_quds_force_opinion < 39 }
+}
+iranian_quds_force_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = iranian_quds_force_at_least_enthusiastic_tt
+		check_variable = { iranian_quds_force_opinion > 74.99 }
+	}
+}
+
+# Saudi Royal Family
+enthusiastic_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion > 79 }
+}
+positive_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion < 80 }
+	check_variable = { saudi_royal_family_opinion > 59 }
+}
+indifferent_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion < 61 }
+	check_variable = { saudi_royal_family_opinion > 39 }
+}
+negative_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion < 40 }
+	check_variable = { saudi_royal_family_opinion > 19 }
+}
+hostile_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion < 20 }
+}
+non_indifferent_saudi_royal_family = {
+	check_variable = { saudi_royal_family_opinion > 61 }
+	check_variable = { saudi_royal_family_opinion < 39 }
+}
+saudi_royal_family_at_least_enthusiastic_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = saudi_royal_family_at_least_enthusiastic_tt
+		check_variable = { saudi_royal_family_opinion > 74.99 }
+	}
+}
+sarf_at_least_positive_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = sarf_at_least_positive_tt
+		check_variable = { saudi_royal_family_opinion > 59 }
+	}
+}
+sarf_at_least_indifferent_opinion = {
+	custom_trigger_tooltip = {
+		tooltip = sarf_at_least_indifferent_tt
+		check_variable = { saudi_royal_family_opinion > 49 }
+	}
+}
+
+# Chaebols
+enthusiastic_chaebols = {
+	check_variable = { chaebols_opinion > 79 }
+}
+positive_chaebols = {
+	check_variable = { chaebols_opinion < 80 }
+	check_variable = { chaebols_opinion > 59 }
+}
+indifferent_chaebols = {
+	check_variable = { chaebols_opinion < 61 }
+	check_variable = { chaebols_opinion > 39 }
+}
+negative_chaebols = {
+	check_variable = { chaebols_opinion < 40 }
+	check_variable = { chaebols_opinion > 19 }
+}
+hostile_chaebols = {
+	check_variable = { chaebols_opinion < 20 }
+}
+non_indifferent_chaebols = {
+	check_variable = { chaebols_opinion > 61 }
+	check_variable = { chaebols_opinion < 39 }
+}
+
+# Wall Street
+enthusiastic_wall_street = {
+	check_variable = { wall_street_opinion > 79 }
+}
+positive_wall_street = {
+	check_variable = { wall_street_opinion < 80 }
+	check_variable = { wall_street_opinion > 59 }
+}
+indifferent_wall_street = {
+	check_variable = { wall_street_opinion < 61 }
+	check_variable = { wall_street_opinion > 39 }
+}
+negative_wall_street = {
+	check_variable = { wall_street_opinion < 40 }
+	check_variable = { wall_street_opinion > 19 }
+}
+hostile_wall_street = {
+	check_variable = { wall_street_opinion < 20 }
+}
+non_indifferent_wall_street = {
+	check_variable = { wall_street_opinion > 61 }
+	check_variable = { wall_street_opinion < 39 }
+}
+
+# The Donju
+enthusiastic_the_donju = {
+	check_variable = { the_donju_opinion > 79 }
+}
+positive_the_donju = {
+	check_variable = { the_donju_opinion < 80 }
+	check_variable = { the_donju_opinion > 59 }
+}
+indifferent_the_donju = {
+	check_variable = { the_donju_opinion < 61 }
+	check_variable = { the_donju_opinion > 39 }
+}
+negative_the_donju = {
+	check_variable = { the_donju_opinion < 40 }
+	check_variable = { the_donju_opinion > 19 }
+}
+hostile_the_donju = {
+	check_variable = { the_donju_opinion < 20 }
+}
+non_indifferent_the_donju = {
+	check_variable = { the_donju_opinion > 61 }
+	check_variable = { the_donju_opinion < 39 }
+}
+
+# Per-country locks on reshuffling internal factions. The if-wrapper keeps this silent for every country not listed.
+internal_faction_swap_allowed = {
+	if = {
+		limit = {
+			original_tag = JAP
+			has_idea = industrial_conglomerates
+		}
+		JAP_zombie_companies_resolved = yes
+	}
+}

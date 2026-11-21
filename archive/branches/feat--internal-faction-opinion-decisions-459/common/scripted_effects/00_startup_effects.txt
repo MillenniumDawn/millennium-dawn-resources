@@ -1,0 +1,1709 @@
+# This file is used for all global on_startup scripted effects.
+#
+# © Millenium Dawn 2016-2026
+
+#############################################################################################################################
+
+# This scripted effect calculates starting utility equipment for nations to help support the new upcoming changes.
+calculate_starting_utility_stockpile = {
+	# Calculate Starting Convoys
+	set_temp_variable = { base = 100 }
+	set_temp_variable = { dockyard_increase = 25 } # Alter this if you wish to change the value of the starting convoy distribution
+	multiply_temp_variable = { dockyard_increase = num_of_naval_factories }
+	add_to_temp_variable = { dockyard_increase = base }
+
+	add_equipment_to_stockpile = {
+		type = convoy
+		amount = dockyard_increase
+	}
+
+	# Calcualte Starting Trains
+	if = { limit = { has_tech = railway_system_03 }
+		set_temp_variable = { base = 50 }
+		set_temp_variable = { factory = num_of_factories }
+		add_to_temp_variable = { factory = base }
+
+		add_equipment_to_stockpile = {
+			type = train_equipment
+			amount = factory
+		}
+	}
+}
+
+calculate_starting_mio_size = {
+	# Calculate Starting MIO Size
+	set_temp_variable = { tmp_lvl = 0 }
+
+	if = { limit = { has_idea = super_power }
+		add_to_temp_variable = { tmp_lvl = 4 }
+	}
+	else_if = { limit = { has_idea = great_power }
+		add_to_temp_variable = { tmp_lvl = 3 }
+	}
+	else_if = { limit = { has_idea = large_power }
+		add_to_temp_variable = { tmp_lvl = 2 }
+	}
+	else_if = { limit = { has_idea = regional_power }
+		add_to_temp_variable = { tmp_lvl = 1 }
+	}
+	if = { limit = { has_idea = defense_industry }
+		add_to_temp_variable = { tmp_lvl = 1 }
+	}
+	if = { limit = { has_idea = NATO_member }
+		add_to_temp_variable = { tmp_lvl = 1 }
+	}
+	if = {
+		limit = {
+			OR = {
+				original_tag = CHI
+				original_tag = ISR
+				original_tag = SWE
+				original_tag = KOR
+			}
+		}
+		add_to_temp_variable = { tmp_lvl = 1 }
+	}
+
+	every_military_industrial_organization = {
+		set_variable = { free_trait_picks = tmp_lvl }
+		add_mio_size = tmp_lvl
+	}
+}
+
+# Init Global Arrays
+setup_global_arrays = {
+	# IP policy group IDs: communist 1, socialist 2, green socialist 3, conservative 4,
+	# religious conservative 5, liberal 6, autocrat 7, oligarch 8, fascist 9,
+	# monarchist 10, emerging fundamentalist 11, salafist fundamentalist 12.
+	resize_array = { array = global.ip_party_policy_group value = 0 size = 24 }
+	resize_array = { array = global.ip_policy_idea_groups value = 0 size = 38 }
+	resize_array = { array = global.ip_policy_idea_tokens value = 0 size = 38 }
+	set_variable = { global.ip_party_policy_group^0 = 7 }
+	set_variable = { global.ip_party_policy_group^1 = 4 }
+	set_variable = { global.ip_party_policy_group^2 = 6 }
+	set_variable = { global.ip_party_policy_group^3 = 2 }
+	set_variable = { global.ip_party_policy_group^4 = 1 }
+	set_variable = { global.ip_party_policy_group^5 = 2 }
+	set_variable = { global.ip_party_policy_group^6 = 4 }
+	set_variable = { global.ip_party_policy_group^7 = 7 }
+	set_variable = { global.ip_party_policy_group^8 = 5 }
+	set_variable = { global.ip_party_policy_group^9 = 11 }
+	set_variable = { global.ip_party_policy_group^10 = 10 }
+	set_variable = { global.ip_party_policy_group^11 = 12 }
+	set_variable = { global.ip_party_policy_group^12 = 5 }
+	set_variable = { global.ip_party_policy_group^13 = 7 }
+	set_variable = { global.ip_party_policy_group^14 = 4 }
+	set_variable = { global.ip_party_policy_group^15 = 8 }
+	set_variable = { global.ip_party_policy_group^16 = 6 }
+	set_variable = { global.ip_party_policy_group^17 = 3 }
+	set_variable = { global.ip_party_policy_group^18 = 2 }
+	set_variable = { global.ip_party_policy_group^19 = 1 }
+	set_variable = { global.ip_party_policy_group^20 = 4 }
+	set_variable = { global.ip_party_policy_group^21 = 9 }
+	set_variable = { global.ip_party_policy_group^22 = 7 }
+	set_variable = { global.ip_party_policy_group^23 = 10 }
+
+	# Parallel arrays form the authoritative policy group -> idea token table.
+	set_variable = { global.ip_policy_idea_groups^0 = 1 }
+	set_variable = { global.ip_policy_idea_tokens^0 = token:IP_spread_the_revolution }
+	set_variable = { global.ip_policy_idea_groups^1 = 1 }
+	set_variable = { global.ip_policy_idea_tokens^1 = token:IP_hard_labour }
+	set_variable = { global.ip_policy_idea_groups^2 = 2 }
+	set_variable = { global.ip_policy_idea_tokens^2 = token:IP_welfare_state }
+	set_variable = { global.ip_policy_idea_groups^3 = 2 }
+	set_variable = { global.ip_policy_idea_tokens^3 = token:IP_economic_interventionism }
+	set_variable = { global.ip_policy_idea_groups^4 = 2 }
+	set_variable = { global.ip_policy_idea_tokens^4 = token:IP_naive_worldview }
+	set_variable = { global.ip_policy_idea_groups^5 = 3 }
+	set_variable = { global.ip_policy_idea_tokens^5 = token:IP_welfare_state }
+	set_variable = { global.ip_policy_idea_groups^6 = 3 }
+	set_variable = { global.ip_policy_idea_tokens^6 = token:IP_economic_interventionism_green }
+	set_variable = { global.ip_policy_idea_groups^7 = 3 }
+	set_variable = { global.ip_policy_idea_tokens^7 = token:IP_naive_worldview }
+	set_variable = { global.ip_policy_idea_groups^8 = 4 }
+	set_variable = { global.ip_policy_idea_tokens^8 = token:IP_good_old_days }
+	set_variable = { global.ip_policy_idea_groups^9 = 4 }
+	set_variable = { global.ip_policy_idea_tokens^9 = token:IP_stable_society }
+	set_variable = { global.ip_policy_idea_groups^10 = 4 }
+	set_variable = { global.ip_policy_idea_tokens^10 = token:IP_patriotism }
+	set_variable = { global.ip_policy_idea_groups^11 = 4 }
+	set_variable = { global.ip_policy_idea_tokens^11 = token:IP_homefront_first }
+	set_variable = { global.ip_policy_idea_groups^12 = 5 }
+	set_variable = { global.ip_policy_idea_tokens^12 = token:IP_good_old_days }
+	set_variable = { global.ip_policy_idea_groups^13 = 5 }
+	set_variable = { global.ip_policy_idea_tokens^13 = token:IP_stable_society }
+	set_variable = { global.ip_policy_idea_groups^14 = 5 }
+	set_variable = { global.ip_policy_idea_tokens^14 = token:IP_patriotism_religious }
+	set_variable = { global.ip_policy_idea_groups^15 = 5 }
+	set_variable = { global.ip_policy_idea_tokens^15 = token:IP_homefront_first }
+	set_variable = { global.ip_policy_idea_groups^16 = 6 }
+	set_variable = { global.ip_policy_idea_tokens^16 = token:IP_high_risk_investment }
+	set_variable = { global.ip_policy_idea_groups^17 = 6 }
+	set_variable = { global.ip_policy_idea_tokens^17 = token:IP_invisible_hand }
+	set_variable = { global.ip_policy_idea_groups^18 = 6 }
+	set_variable = { global.ip_policy_idea_tokens^18 = token:IP_business_friendly_environment }
+	set_variable = { global.ip_policy_idea_groups^19 = 6 }
+	set_variable = { global.ip_policy_idea_tokens^19 = token:IP_anti_military }
+	set_variable = { global.ip_policy_idea_groups^20 = 7 }
+	set_variable = { global.ip_policy_idea_tokens^20 = token:IP_emergency_powers }
+	set_variable = { global.ip_policy_idea_groups^21 = 7 }
+	set_variable = { global.ip_policy_idea_tokens^21 = token:IP_yes_men_army }
+	set_variable = { global.ip_policy_idea_groups^22 = 8 }
+	set_variable = { global.ip_policy_idea_tokens^22 = token:IP_good_connections }
+	set_variable = { global.ip_policy_idea_groups^23 = 8 }
+	set_variable = { global.ip_policy_idea_tokens^23 = token:IP_emergency_powers }
+	set_variable = { global.ip_policy_idea_groups^24 = 8 }
+	set_variable = { global.ip_policy_idea_tokens^24 = token:IP_yes_men_army }
+	set_variable = { global.ip_policy_idea_groups^25 = 9 }
+	set_variable = { global.ip_policy_idea_tokens^25 = token:IP_yes_men_army }
+	set_variable = { global.ip_policy_idea_groups^26 = 10 }
+	set_variable = { global.ip_policy_idea_tokens^26 = token:IP_keep_it_in_the_family }
+	set_variable = { global.ip_policy_idea_groups^27 = 10 }
+	set_variable = { global.ip_policy_idea_tokens^27 = token:IP_for_king_and_queen }
+	set_variable = { global.ip_policy_idea_groups^28 = 10 }
+	set_variable = { global.ip_policy_idea_tokens^28 = token:IP_crown_estate }
+	set_variable = { global.ip_policy_idea_groups^29 = 10 }
+	set_variable = { global.ip_policy_idea_tokens^29 = token:IP_outdated_ideals }
+	set_variable = { global.ip_policy_idea_groups^30 = 11 }
+	set_variable = { global.ip_policy_idea_tokens^30 = token:IP_religious_law_emerging }
+	set_variable = { global.ip_policy_idea_groups^31 = 11 }
+	set_variable = { global.ip_policy_idea_tokens^31 = token:IP_recruitment_campaign }
+	set_variable = { global.ip_policy_idea_groups^32 = 11 }
+	set_variable = { global.ip_policy_idea_tokens^32 = token:IP_nationalist_liberation_movements }
+	set_variable = { global.ip_policy_idea_groups^33 = 11 }
+	set_variable = { global.ip_policy_idea_tokens^33 = token:IP_international_pariah }
+	set_variable = { global.ip_policy_idea_groups^34 = 12 }
+	set_variable = { global.ip_policy_idea_tokens^34 = token:IP_religious_law_salafist }
+	set_variable = { global.ip_policy_idea_groups^35 = 12 }
+	set_variable = { global.ip_policy_idea_tokens^35 = token:IP_recruitment_campaign }
+	set_variable = { global.ip_policy_idea_groups^36 = 12 }
+	set_variable = { global.ip_policy_idea_tokens^36 = token:IP_nationalist_liberation_movements }
+	set_variable = { global.ip_policy_idea_groups^37 = 12 }
+	set_variable = { global.ip_policy_idea_tokens^37 = token:IP_international_pariah }
+
+	# Economic cycle drift ideas: cycle ID * 5 + outlook ID
+	resize_array = { array = global.economic_cycle_drift_tokens value = 0 size = 25 }
+	set_variable = { global.economic_cycle_drift_tokens^0 = token:depression_western }
+	set_variable = { global.economic_cycle_drift_tokens^1 = token:depression_nationalist }
+	set_variable = { global.economic_cycle_drift_tokens^2 = token:depression_emerging }
+	set_variable = { global.economic_cycle_drift_tokens^3 = token:depression_non_alligned }
+	set_variable = { global.economic_cycle_drift_tokens^4 = token:depression_salafist }
+	set_variable = { global.economic_cycle_drift_tokens^5 = token:recession_western }
+	set_variable = { global.economic_cycle_drift_tokens^6 = token:recession_nationalist }
+	set_variable = { global.economic_cycle_drift_tokens^7 = token:recession_emerging }
+	set_variable = { global.economic_cycle_drift_tokens^8 = token:recession_non_alligned }
+	set_variable = { global.economic_cycle_drift_tokens^9 = token:recession_salafist }
+	set_variable = { global.economic_cycle_drift_tokens^10 = token:stagnation_western }
+	set_variable = { global.economic_cycle_drift_tokens^11 = token:stagnation_nationalist }
+	set_variable = { global.economic_cycle_drift_tokens^12 = token:stagnation_emerging }
+	set_variable = { global.economic_cycle_drift_tokens^13 = token:stagnation_non_alligned }
+	set_variable = { global.economic_cycle_drift_tokens^14 = token:stagnation_salafist }
+	set_variable = { global.economic_cycle_drift_tokens^15 = token:fast_growth_western }
+	set_variable = { global.economic_cycle_drift_tokens^16 = token:fast_growth_nationalist }
+	set_variable = { global.economic_cycle_drift_tokens^17 = token:fast_growth_emerging }
+	set_variable = { global.economic_cycle_drift_tokens^18 = token:fast_growth_non_alligned }
+	set_variable = { global.economic_cycle_drift_tokens^19 = token:fast_growth_salafist }
+	set_variable = { global.economic_cycle_drift_tokens^20 = token:economic_boom_western }
+	set_variable = { global.economic_cycle_drift_tokens^21 = token:economic_boom_nationalist }
+	set_variable = { global.economic_cycle_drift_tokens^22 = token:economic_boom_emerging }
+	set_variable = { global.economic_cycle_drift_tokens^23 = token:economic_boom_non_alligned }
+	set_variable = { global.economic_cycle_drift_tokens^24 = token:economic_boom_salafist }
+
+	# Internal factions v3 registry, see .claude/docs/internal-factions-reference.md
+	# internal_faction_affinity index = faction id * 13 + policy group (-1 opposed, +1 backed)
+	resize_array = { array = global.internal_faction_token value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_category value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_base_influence value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_affinity value = 0 size = 312 }
+	resize_array = { array = global.internal_faction_pref_military_law value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_pref_police_law value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_pref_education_law value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_pref_social_law value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_pref_corporate_tax value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_pref_population_tax value = 0 size = 24 }
+	resize_array = { array = global.internal_faction_policy_faction value = 0 size = 93 }
+	resize_array = { array = global.internal_faction_policy_kind value = 0 size = 93 }
+	set_variable = { global.internal_faction_token^1 = token:small_medium_business_owners }
+	set_variable = { global.internal_faction_token^2 = token:international_bankers }
+	set_variable = { global.internal_faction_token^3 = token:fossil_fuel_industry }
+	set_variable = { global.internal_faction_token^4 = token:industrial_conglomerates }
+	set_variable = { global.internal_faction_token^5 = token:oligarchs }
+	set_variable = { global.internal_faction_token^6 = token:maritime_industry }
+	set_variable = { global.internal_faction_token^7 = token:the_military }
+	set_variable = { global.internal_faction_token^8 = token:defense_industry }
+	set_variable = { global.internal_faction_token^9 = token:intelligence_community }
+	set_variable = { global.internal_faction_token^10 = token:labour_unions }
+	set_variable = { global.internal_faction_token^11 = token:landowners }
+	set_variable = { global.internal_faction_token^12 = token:farmers }
+	set_variable = { global.internal_faction_token^13 = token:communist_cadres }
+	set_variable = { global.internal_faction_token^14 = token:the_priesthood }
+	set_variable = { global.internal_faction_token^15 = token:the_ulema }
+	set_variable = { global.internal_faction_token^16 = token:the_clergy }
+	set_variable = { global.internal_faction_token^17 = token:wahabi_ulema }
+	set_variable = { global.internal_faction_token^18 = token:the_donju }
+	set_variable = { global.internal_faction_token^19 = token:saudi_royal_family }
+	set_variable = { global.internal_faction_token^20 = token:iranian_quds_force }
+	set_variable = { global.internal_faction_token^21 = token:foreign_jihadis }
+	set_variable = { global.internal_faction_token^22 = token:wall_street }
+	set_variable = { global.internal_faction_token^23 = token:chaebols }
+	set_variable = { global.internal_faction_category^1 = 1 }
+	set_variable = { global.internal_faction_category^2 = 1 }
+	set_variable = { global.internal_faction_category^3 = 1 }
+	set_variable = { global.internal_faction_category^4 = 1 }
+	set_variable = { global.internal_faction_category^5 = 1 }
+	set_variable = { global.internal_faction_category^6 = 2 }
+	set_variable = { global.internal_faction_category^7 = 2 }
+	set_variable = { global.internal_faction_category^8 = 2 }
+	set_variable = { global.internal_faction_category^9 = 2 }
+	set_variable = { global.internal_faction_category^10 = 3 }
+	set_variable = { global.internal_faction_category^11 = 3 }
+	set_variable = { global.internal_faction_category^12 = 3 }
+	set_variable = { global.internal_faction_category^13 = 3 }
+	set_variable = { global.internal_faction_category^14 = 4 }
+	set_variable = { global.internal_faction_category^15 = 4 }
+	set_variable = { global.internal_faction_category^16 = 4 }
+	set_variable = { global.internal_faction_category^17 = 4 }
+	set_variable = { global.internal_faction_category^18 = 5 }
+	set_variable = { global.internal_faction_category^19 = 5 }
+	set_variable = { global.internal_faction_category^20 = 5 }
+	set_variable = { global.internal_faction_category^21 = 5 }
+	set_variable = { global.internal_faction_category^22 = 5 }
+	set_variable = { global.internal_faction_category^23 = 5 }
+	set_variable = { global.internal_faction_base_influence^1 = 30 }
+	set_variable = { global.internal_faction_base_influence^2 = 30 }
+	set_variable = { global.internal_faction_base_influence^3 = 25 }
+	set_variable = { global.internal_faction_base_influence^4 = 35 }
+	set_variable = { global.internal_faction_base_influence^5 = 40 }
+	set_variable = { global.internal_faction_base_influence^6 = 20 }
+	set_variable = { global.internal_faction_base_influence^7 = 40 }
+	set_variable = { global.internal_faction_base_influence^8 = 30 }
+	set_variable = { global.internal_faction_base_influence^9 = 30 }
+	set_variable = { global.internal_faction_base_influence^10 = 30 }
+	set_variable = { global.internal_faction_base_influence^11 = 25 }
+	set_variable = { global.internal_faction_base_influence^12 = 25 }
+	set_variable = { global.internal_faction_base_influence^13 = 40 }
+	set_variable = { global.internal_faction_base_influence^14 = 25 }
+	set_variable = { global.internal_faction_base_influence^15 = 30 }
+	set_variable = { global.internal_faction_base_influence^16 = 25 }
+	set_variable = { global.internal_faction_base_influence^17 = 35 }
+	set_variable = { global.internal_faction_base_influence^18 = 25 }
+	set_variable = { global.internal_faction_base_influence^19 = 40 }
+	set_variable = { global.internal_faction_base_influence^20 = 35 }
+	set_variable = { global.internal_faction_base_influence^21 = 20 }
+	set_variable = { global.internal_faction_base_influence^22 = 40 }
+	set_variable = { global.internal_faction_base_influence^23 = 40 }
+	set_variable = { global.internal_faction_affinity^14 = -1 }
+	set_variable = { global.internal_faction_affinity^17 = 1 }
+	set_variable = { global.internal_faction_affinity^19 = 1 }
+	set_variable = { global.internal_faction_affinity^21 = -1 }
+	set_variable = { global.internal_faction_affinity^27 = -1 }
+	set_variable = { global.internal_faction_affinity^28 = -1 }
+	set_variable = { global.internal_faction_affinity^30 = 1 }
+	set_variable = { global.internal_faction_affinity^32 = 1 }
+	set_variable = { global.internal_faction_affinity^35 = -1 }
+	set_variable = { global.internal_faction_affinity^40 = -1 }
+	set_variable = { global.internal_faction_affinity^42 = -1 }
+	set_variable = { global.internal_faction_affinity^43 = 1 }
+	set_variable = { global.internal_faction_affinity^46 = 1 }
+	set_variable = { global.internal_faction_affinity^47 = 1 }
+	set_variable = { global.internal_faction_affinity^53 = -1 }
+	set_variable = { global.internal_faction_affinity^55 = -1 }
+	set_variable = { global.internal_faction_affinity^56 = 1 }
+	set_variable = { global.internal_faction_affinity^58 = 1 }
+	set_variable = { global.internal_faction_affinity^59 = 1 }
+	set_variable = { global.internal_faction_affinity^66 = -1 }
+	set_variable = { global.internal_faction_affinity^71 = -1 }
+	set_variable = { global.internal_faction_affinity^72 = 1 }
+	set_variable = { global.internal_faction_affinity^73 = 1 }
+	set_variable = { global.internal_faction_affinity^79 = -1 }
+	set_variable = { global.internal_faction_affinity^82 = 1 }
+	set_variable = { global.internal_faction_affinity^84 = 1 }
+	set_variable = { global.internal_faction_affinity^92 = -1 }
+	set_variable = { global.internal_faction_affinity^93 = -1 }
+	set_variable = { global.internal_faction_affinity^94 = -1 }
+	set_variable = { global.internal_faction_affinity^95 = 1 }
+	set_variable = { global.internal_faction_affinity^98 = 1 }
+	set_variable = { global.internal_faction_affinity^100 = 1 }
+	set_variable = { global.internal_faction_affinity^101 = 1 }
+	set_variable = { global.internal_faction_affinity^106 = -1 }
+	set_variable = { global.internal_faction_affinity^107 = -1 }
+	set_variable = { global.internal_faction_affinity^108 = 1 }
+	set_variable = { global.internal_faction_affinity^111 = 1 }
+	set_variable = { global.internal_faction_affinity^113 = 1 }
+	set_variable = { global.internal_faction_affinity^120 = -1 }
+	set_variable = { global.internal_faction_affinity^121 = 1 }
+	set_variable = { global.internal_faction_affinity^123 = -1 }
+	set_variable = { global.internal_faction_affinity^124 = 1 }
+	set_variable = { global.internal_faction_affinity^126 = 1 }
+	set_variable = { global.internal_faction_affinity^131 = 1 }
+	set_variable = { global.internal_faction_affinity^132 = 1 }
+	set_variable = { global.internal_faction_affinity^133 = 1 }
+	set_variable = { global.internal_faction_affinity^136 = -1 }
+	set_variable = { global.internal_faction_affinity^138 = -1 }
+	set_variable = { global.internal_faction_affinity^139 = -1 }
+	set_variable = { global.internal_faction_affinity^144 = -1 }
+	set_variable = { global.internal_faction_affinity^145 = -1 }
+	set_variable = { global.internal_faction_affinity^147 = 1 }
+	set_variable = { global.internal_faction_affinity^151 = 1 }
+	set_variable = { global.internal_faction_affinity^153 = 1 }
+	set_variable = { global.internal_faction_affinity^158 = 1 }
+	set_variable = { global.internal_faction_affinity^160 = 1 }
+	set_variable = { global.internal_faction_affinity^161 = 1 }
+	set_variable = { global.internal_faction_affinity^164 = -1 }
+	set_variable = { global.internal_faction_affinity^170 = 1 }
+	set_variable = { global.internal_faction_affinity^175 = -1 }
+	set_variable = { global.internal_faction_affinity^177 = -1 }
+	set_variable = { global.internal_faction_affinity^178 = -1 }
+	set_variable = { global.internal_faction_affinity^183 = -1 }
+	set_variable = { global.internal_faction_affinity^185 = -1 }
+	set_variable = { global.internal_faction_affinity^186 = 1 }
+	set_variable = { global.internal_faction_affinity^187 = 1 }
+	set_variable = { global.internal_faction_affinity^192 = 1 }
+	set_variable = { global.internal_faction_affinity^196 = -1 }
+	set_variable = { global.internal_faction_affinity^200 = 1 }
+	set_variable = { global.internal_faction_affinity^201 = -1 }
+	set_variable = { global.internal_faction_affinity^206 = 1 }
+	set_variable = { global.internal_faction_affinity^209 = -1 }
+	set_variable = { global.internal_faction_affinity^211 = -1 }
+	set_variable = { global.internal_faction_affinity^212 = 1 }
+	set_variable = { global.internal_faction_affinity^213 = 1 }
+	set_variable = { global.internal_faction_affinity^218 = 1 }
+	set_variable = { global.internal_faction_affinity^222 = -1 }
+	set_variable = { global.internal_faction_affinity^223 = -1 }
+	set_variable = { global.internal_faction_affinity^227 = -1 }
+	set_variable = { global.internal_faction_affinity^231 = 1 }
+	set_variable = { global.internal_faction_affinity^232 = 1 }
+	set_variable = { global.internal_faction_affinity^233 = 1 }
+	set_variable = { global.internal_faction_affinity^235 = 1 }
+	set_variable = { global.internal_faction_affinity^240 = -1 }
+	set_variable = { global.internal_faction_affinity^241 = 1 }
+	set_variable = { global.internal_faction_affinity^249 = -1 }
+	set_variable = { global.internal_faction_affinity^252 = 1 }
+	set_variable = { global.internal_faction_affinity^253 = -1 }
+	set_variable = { global.internal_faction_affinity^257 = 1 }
+	set_variable = { global.internal_faction_affinity^259 = -1 }
+	set_variable = { global.internal_faction_affinity^261 = 1 }
+	set_variable = { global.internal_faction_affinity^266 = -1 }
+	set_variable = { global.internal_faction_affinity^271 = 1 }
+	set_variable = { global.internal_faction_affinity^274 = -1 }
+	set_variable = { global.internal_faction_affinity^275 = -1 }
+	set_variable = { global.internal_faction_affinity^276 = -1 }
+	set_variable = { global.internal_faction_affinity^277 = -1 }
+	set_variable = { global.internal_faction_affinity^278 = -1 }
+	set_variable = { global.internal_faction_affinity^279 = -1 }
+	set_variable = { global.internal_faction_affinity^280 = -1 }
+	set_variable = { global.internal_faction_affinity^281 = -1 }
+	set_variable = { global.internal_faction_affinity^282 = -1 }
+	set_variable = { global.internal_faction_affinity^283 = -1 }
+	set_variable = { global.internal_faction_affinity^285 = 1 }
+	set_variable = { global.internal_faction_affinity^287 = -1 }
+	set_variable = { global.internal_faction_affinity^288 = -1 }
+	set_variable = { global.internal_faction_affinity^290 = 1 }
+	set_variable = { global.internal_faction_affinity^292 = 1 }
+	set_variable = { global.internal_faction_affinity^295 = -1 }
+	set_variable = { global.internal_faction_affinity^300 = -1 }
+	set_variable = { global.internal_faction_affinity^302 = -1 }
+	set_variable = { global.internal_faction_affinity^303 = 1 }
+	set_variable = { global.internal_faction_affinity^305 = 1 }
+	set_variable = { global.internal_faction_affinity^306 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^1 = 1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^1 = -1 }
+	set_variable = { global.internal_faction_pref_population_tax^1 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^2 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^2 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^2 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^3 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^3 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^4 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^4 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^4 = -1 }
+	set_variable = { global.internal_faction_pref_police_law^5 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^5 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^5 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^6 = 1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^6 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^7 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^7 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^7 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^8 = 1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^8 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^9 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^9 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^10 = 1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^10 = 1 }
+	set_variable = { global.internal_faction_pref_population_tax^10 = -1 }
+	set_variable = { global.internal_faction_pref_police_law^11 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^11 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^11 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^12 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^12 = 1 }
+	set_variable = { global.internal_faction_pref_population_tax^12 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^13 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^13 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^13 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^14 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^14 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^15 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^15 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^15 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^16 = -1 }
+	set_variable = { global.internal_faction_pref_social_law^16 = 1 }
+	set_variable = { global.internal_faction_pref_military_law^17 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^17 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^17 = -1 }
+	set_variable = { global.internal_faction_pref_police_law^18 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^18 = 1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^18 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^19 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^19 = 1 }
+	set_variable = { global.internal_faction_pref_population_tax^19 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^20 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^20 = 1 }
+	set_variable = { global.internal_faction_pref_education_law^20 = -1 }
+	set_variable = { global.internal_faction_pref_military_law^21 = 1 }
+	set_variable = { global.internal_faction_pref_police_law^21 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^21 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^22 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^22 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^22 = -1 }
+	set_variable = { global.internal_faction_pref_education_law^23 = 1 }
+	set_variable = { global.internal_faction_pref_social_law^23 = -1 }
+	set_variable = { global.internal_faction_pref_corporate_tax^23 = -1 }
+	for_loop_effect = {
+		start = 1
+		end = 24
+		value = internal_faction_id
+		set_temp_variable = { internal_faction_p = internal_faction_id }
+		subtract_from_temp_variable = { internal_faction_p = 1 }
+		multiply_temp_variable = { internal_faction_p = 4 }
+		add_to_temp_variable = { internal_faction_p = 1 }
+		set_variable = { global.internal_faction_policy_faction^internal_faction_p = internal_faction_id }
+		set_variable = { global.internal_faction_policy_kind^internal_faction_p = 1 }
+		add_to_temp_variable = { internal_faction_p = 1 }
+		set_variable = { global.internal_faction_policy_faction^internal_faction_p = internal_faction_id }
+		set_variable = { global.internal_faction_policy_kind^internal_faction_p = 1 }
+		add_to_temp_variable = { internal_faction_p = 1 }
+		set_variable = { global.internal_faction_policy_faction^internal_faction_p = internal_faction_id }
+		set_variable = { global.internal_faction_policy_kind^internal_faction_p = 1 }
+		add_to_temp_variable = { internal_faction_p = 1 }
+		set_variable = { global.internal_faction_policy_faction^internal_faction_p = internal_faction_id }
+		set_variable = { global.internal_faction_policy_kind^internal_faction_p = 2 }
+	}
+
+	resize_array = { array = global.internal_faction_policy_name value = 0 size = 93 }
+	resize_array = { array = global.internal_faction_policy_desc value = 0 size = 93 }
+	set_variable = { global.internal_faction_policy_name^1 = token:internal_faction_policy_smbo_startup_grants }
+	set_variable = { global.internal_faction_policy_desc^1 = token:internal_faction_policy_smbo_startup_grants_desc }
+	set_variable = { global.internal_faction_policy_name^2 = token:internal_faction_policy_smbo_deregulation }
+	set_variable = { global.internal_faction_policy_desc^2 = token:internal_faction_policy_smbo_deregulation_desc }
+	set_variable = { global.internal_faction_policy_name^3 = token:internal_faction_policy_smbo_procurement_quota }
+	set_variable = { global.internal_faction_policy_desc^3 = token:internal_faction_policy_smbo_procurement_quota_desc }
+	set_variable = { global.internal_faction_policy_name^4 = token:internal_faction_policy_smbo_licensing_crackdown }
+	set_variable = { global.internal_faction_policy_desc^4 = token:internal_faction_policy_smbo_licensing_crackdown_desc }
+	set_variable = { global.internal_faction_policy_name^5 = token:internal_faction_policy_bankers_deregulation }
+	set_variable = { global.internal_faction_policy_desc^5 = token:internal_faction_policy_bankers_deregulation_desc }
+	set_variable = { global.internal_faction_policy_name^6 = token:internal_faction_policy_bankers_bailout_guarantee }
+	set_variable = { global.internal_faction_policy_desc^6 = token:internal_faction_policy_bankers_bailout_guarantee_desc }
+	set_variable = { global.internal_faction_policy_name^7 = token:internal_faction_policy_bankers_capital_freedom }
+	set_variable = { global.internal_faction_policy_desc^7 = token:internal_faction_policy_bankers_capital_freedom_desc }
+	set_variable = { global.internal_faction_policy_name^8 = token:internal_faction_policy_bankers_capital_controls }
+	set_variable = { global.internal_faction_policy_desc^8 = token:internal_faction_policy_bankers_capital_controls_desc }
+	set_variable = { global.internal_faction_policy_name^9 = token:internal_faction_policy_fossil_drilling_permits }
+	set_variable = { global.internal_faction_policy_desc^9 = token:internal_faction_policy_fossil_drilling_permits_desc }
+	set_variable = { global.internal_faction_policy_name^10 = token:internal_faction_policy_fossil_fuel_subsidy }
+	set_variable = { global.internal_faction_policy_desc^10 = token:internal_faction_policy_fossil_fuel_subsidy_desc }
+	set_variable = { global.internal_faction_policy_name^11 = token:internal_faction_policy_fossil_export_terminals }
+	set_variable = { global.internal_faction_policy_desc^11 = token:internal_faction_policy_fossil_export_terminals_desc }
+	set_variable = { global.internal_faction_policy_name^12 = token:internal_faction_policy_fossil_windfall_tax }
+	set_variable = { global.internal_faction_policy_desc^12 = token:internal_faction_policy_fossil_windfall_tax_desc }
+	set_variable = { global.internal_faction_policy_name^13 = token:internal_faction_policy_conglomerates_industrial_policy }
+	set_variable = { global.internal_faction_policy_desc^13 = token:internal_faction_policy_conglomerates_industrial_policy_desc }
+	set_variable = { global.internal_faction_policy_name^14 = token:internal_faction_policy_conglomerates_export_credits }
+	set_variable = { global.internal_faction_policy_desc^14 = token:internal_faction_policy_conglomerates_export_credits_desc }
+	set_variable = { global.internal_faction_policy_name^15 = token:internal_faction_policy_conglomerates_infrastructure_contracts }
+	set_variable = { global.internal_faction_policy_desc^15 = token:internal_faction_policy_conglomerates_infrastructure_contracts_desc }
+	set_variable = { global.internal_faction_policy_name^16 = token:internal_faction_policy_conglomerates_antitrust }
+	set_variable = { global.internal_faction_policy_desc^16 = token:internal_faction_policy_conglomerates_antitrust_desc }
+	set_variable = { global.internal_faction_policy_name^17 = token:internal_faction_policy_oligarchs_privatisation_deals }
+	set_variable = { global.internal_faction_policy_desc^17 = token:internal_faction_policy_oligarchs_privatisation_deals_desc }
+	set_variable = { global.internal_faction_policy_name^18 = token:internal_faction_policy_oligarchs_resource_concessions }
+	set_variable = { global.internal_faction_policy_desc^18 = token:internal_faction_policy_oligarchs_resource_concessions_desc }
+	set_variable = { global.internal_faction_policy_name^19 = token:internal_faction_policy_oligarchs_media_holdings }
+	set_variable = { global.internal_faction_policy_desc^19 = token:internal_faction_policy_oligarchs_media_holdings_desc }
+	set_variable = { global.internal_faction_policy_name^20 = token:internal_faction_policy_oligarchs_asset_seizure }
+	set_variable = { global.internal_faction_policy_desc^20 = token:internal_faction_policy_oligarchs_asset_seizure_desc }
+	set_variable = { global.internal_faction_policy_name^21 = token:internal_faction_policy_maritime_shipbuilding_subsidy }
+	set_variable = { global.internal_faction_policy_desc^21 = token:internal_faction_policy_maritime_shipbuilding_subsidy_desc }
+	set_variable = { global.internal_faction_policy_name^22 = token:internal_faction_policy_maritime_cabotage_law }
+	set_variable = { global.internal_faction_policy_desc^22 = token:internal_faction_policy_maritime_cabotage_law_desc }
+	set_variable = { global.internal_faction_policy_name^23 = token:internal_faction_policy_maritime_port_authority }
+	set_variable = { global.internal_faction_policy_desc^23 = token:internal_faction_policy_maritime_port_authority_desc }
+	set_variable = { global.internal_faction_policy_name^24 = token:internal_faction_policy_maritime_tonnage_levy }
+	set_variable = { global.internal_faction_policy_desc^24 = token:internal_faction_policy_maritime_tonnage_levy_desc }
+	set_variable = { global.internal_faction_policy_name^25 = token:internal_faction_policy_military_officer_pay_rise }
+	set_variable = { global.internal_faction_policy_desc^25 = token:internal_faction_policy_military_officer_pay_rise_desc }
+	set_variable = { global.internal_faction_policy_name^26 = token:internal_faction_policy_military_procurement_priority }
+	set_variable = { global.internal_faction_policy_desc^26 = token:internal_faction_policy_military_procurement_priority_desc }
+	set_variable = { global.internal_faction_policy_name^27 = token:internal_faction_policy_military_promotion_autonomy }
+	set_variable = { global.internal_faction_policy_desc^27 = token:internal_faction_policy_military_promotion_autonomy_desc }
+	set_variable = { global.internal_faction_policy_name^28 = token:internal_faction_policy_military_political_commissars }
+	set_variable = { global.internal_faction_policy_desc^28 = token:internal_faction_policy_military_political_commissars_desc }
+	set_variable = { global.internal_faction_policy_name^29 = token:internal_faction_policy_defense_domestic_procurement }
+	set_variable = { global.internal_faction_policy_desc^29 = token:internal_faction_policy_defense_domestic_procurement_desc }
+	set_variable = { global.internal_faction_policy_name^30 = token:internal_faction_policy_defense_export_licenses }
+	set_variable = { global.internal_faction_policy_desc^30 = token:internal_faction_policy_defense_export_licenses_desc }
+	set_variable = { global.internal_faction_policy_name^31 = token:internal_faction_policy_defense_rnd_grants }
+	set_variable = { global.internal_faction_policy_desc^31 = token:internal_faction_policy_defense_rnd_grants_desc }
+	set_variable = { global.internal_faction_policy_name^32 = token:internal_faction_policy_defense_contractor_audit }
+	set_variable = { global.internal_faction_policy_desc^32 = token:internal_faction_policy_defense_contractor_audit_desc }
+	set_variable = { global.internal_faction_policy_name^33 = token:internal_faction_policy_intel_surveillance_powers }
+	set_variable = { global.internal_faction_policy_desc^33 = token:internal_faction_policy_intel_surveillance_powers_desc }
+	set_variable = { global.internal_faction_policy_name^34 = token:internal_faction_policy_intel_black_budget }
+	set_variable = { global.internal_faction_policy_desc^34 = token:internal_faction_policy_intel_black_budget_desc }
+	set_variable = { global.internal_faction_policy_name^35 = token:internal_faction_policy_intel_covert_action_authority }
+	set_variable = { global.internal_faction_policy_desc^35 = token:internal_faction_policy_intel_covert_action_authority_desc }
+	set_variable = { global.internal_faction_policy_name^36 = token:internal_faction_policy_intel_service_purge }
+	set_variable = { global.internal_faction_policy_desc^36 = token:internal_faction_policy_intel_service_purge_desc }
+	set_variable = { global.internal_faction_policy_name^37 = token:internal_faction_policy_unions_collective_bargaining }
+	set_variable = { global.internal_faction_policy_desc^37 = token:internal_faction_policy_unions_collective_bargaining_desc }
+	set_variable = { global.internal_faction_policy_name^38 = token:internal_faction_policy_unions_strike_protection }
+	set_variable = { global.internal_faction_policy_desc^38 = token:internal_faction_policy_unions_strike_protection_desc }
+	set_variable = { global.internal_faction_policy_name^39 = token:internal_faction_policy_unions_board_seats }
+	set_variable = { global.internal_faction_policy_desc^39 = token:internal_faction_policy_unions_board_seats_desc }
+	set_variable = { global.internal_faction_policy_name^40 = token:internal_faction_policy_unions_strike_ban }
+	set_variable = { global.internal_faction_policy_desc^40 = token:internal_faction_policy_unions_strike_ban_desc }
+	set_variable = { global.internal_faction_policy_name^41 = token:internal_faction_policy_landowners_estate_tax_relief }
+	set_variable = { global.internal_faction_policy_desc^41 = token:internal_faction_policy_landowners_estate_tax_relief_desc }
+	set_variable = { global.internal_faction_policy_name^42 = token:internal_faction_policy_landowners_tenancy_law }
+	set_variable = { global.internal_faction_policy_desc^42 = token:internal_faction_policy_landowners_tenancy_law_desc }
+	set_variable = { global.internal_faction_policy_name^43 = token:internal_faction_policy_landowners_land_registry }
+	set_variable = { global.internal_faction_policy_desc^43 = token:internal_faction_policy_landowners_land_registry_desc }
+	set_variable = { global.internal_faction_policy_name^44 = token:internal_faction_policy_landowners_land_reform }
+	set_variable = { global.internal_faction_policy_desc^44 = token:internal_faction_policy_landowners_land_reform_desc }
+	set_variable = { global.internal_faction_policy_name^45 = token:internal_faction_policy_farmers_price_supports }
+	set_variable = { global.internal_faction_policy_desc^45 = token:internal_faction_policy_farmers_price_supports_desc }
+	set_variable = { global.internal_faction_policy_name^46 = token:internal_faction_policy_farmers_rural_credit }
+	set_variable = { global.internal_faction_policy_desc^46 = token:internal_faction_policy_farmers_rural_credit_desc }
+	set_variable = { global.internal_faction_policy_name^47 = token:internal_faction_policy_farmers_draft_exemption }
+	set_variable = { global.internal_faction_policy_desc^47 = token:internal_faction_policy_farmers_draft_exemption_desc }
+	set_variable = { global.internal_faction_policy_name^48 = token:internal_faction_policy_farmers_land_tax }
+	set_variable = { global.internal_faction_policy_desc^48 = token:internal_faction_policy_farmers_land_tax_desc }
+	set_variable = { global.internal_faction_policy_name^49 = token:internal_faction_policy_cadres_party_schools }
+	set_variable = { global.internal_faction_policy_desc^49 = token:internal_faction_policy_cadres_party_schools_desc }
+	set_variable = { global.internal_faction_policy_name^50 = token:internal_faction_policy_cadres_nomenklatura_posts }
+	set_variable = { global.internal_faction_policy_desc^50 = token:internal_faction_policy_cadres_nomenklatura_posts_desc }
+	set_variable = { global.internal_faction_policy_name^51 = token:internal_faction_policy_cadres_mass_mobilisation }
+	set_variable = { global.internal_faction_policy_desc^51 = token:internal_faction_policy_cadres_mass_mobilisation_desc }
+	set_variable = { global.internal_faction_policy_name^52 = token:internal_faction_policy_cadres_anti_corruption_purge }
+	set_variable = { global.internal_faction_policy_desc^52 = token:internal_faction_policy_cadres_anti_corruption_purge_desc }
+	set_variable = { global.internal_faction_policy_name^53 = token:internal_faction_policy_priesthood_religious_schools }
+	set_variable = { global.internal_faction_policy_desc^53 = token:internal_faction_policy_priesthood_religious_schools_desc }
+	set_variable = { global.internal_faction_policy_name^54 = token:internal_faction_policy_priesthood_morality_laws }
+	set_variable = { global.internal_faction_policy_desc^54 = token:internal_faction_policy_priesthood_morality_laws_desc }
+	set_variable = { global.internal_faction_policy_name^55 = token:internal_faction_policy_priesthood_tax_exemption }
+	set_variable = { global.internal_faction_policy_desc^55 = token:internal_faction_policy_priesthood_tax_exemption_desc }
+	set_variable = { global.internal_faction_policy_name^56 = token:internal_faction_policy_priesthood_secularisation }
+	set_variable = { global.internal_faction_policy_desc^56 = token:internal_faction_policy_priesthood_secularisation_desc }
+	set_variable = { global.internal_faction_policy_name^57 = token:internal_faction_policy_ulema_religious_schools }
+	set_variable = { global.internal_faction_policy_desc^57 = token:internal_faction_policy_ulema_religious_schools_desc }
+	set_variable = { global.internal_faction_policy_name^58 = token:internal_faction_policy_ulema_morality_laws }
+	set_variable = { global.internal_faction_policy_desc^58 = token:internal_faction_policy_ulema_morality_laws_desc }
+	set_variable = { global.internal_faction_policy_name^59 = token:internal_faction_policy_ulema_tax_exemption }
+	set_variable = { global.internal_faction_policy_desc^59 = token:internal_faction_policy_ulema_tax_exemption_desc }
+	set_variable = { global.internal_faction_policy_name^60 = token:internal_faction_policy_ulema_secularisation }
+	set_variable = { global.internal_faction_policy_desc^60 = token:internal_faction_policy_ulema_secularisation_desc }
+	set_variable = { global.internal_faction_policy_name^61 = token:internal_faction_policy_clergy_religious_schools }
+	set_variable = { global.internal_faction_policy_desc^61 = token:internal_faction_policy_clergy_religious_schools_desc }
+	set_variable = { global.internal_faction_policy_name^62 = token:internal_faction_policy_clergy_morality_laws }
+	set_variable = { global.internal_faction_policy_desc^62 = token:internal_faction_policy_clergy_morality_laws_desc }
+	set_variable = { global.internal_faction_policy_name^63 = token:internal_faction_policy_clergy_tax_exemption }
+	set_variable = { global.internal_faction_policy_desc^63 = token:internal_faction_policy_clergy_tax_exemption_desc }
+	set_variable = { global.internal_faction_policy_name^64 = token:internal_faction_policy_clergy_secularisation }
+	set_variable = { global.internal_faction_policy_desc^64 = token:internal_faction_policy_clergy_secularisation_desc }
+	set_variable = { global.internal_faction_policy_name^65 = token:internal_faction_policy_wahabi_religious_schools }
+	set_variable = { global.internal_faction_policy_desc^65 = token:internal_faction_policy_wahabi_religious_schools_desc }
+	set_variable = { global.internal_faction_policy_name^66 = token:internal_faction_policy_wahabi_religious_police }
+	set_variable = { global.internal_faction_policy_desc^66 = token:internal_faction_policy_wahabi_religious_police_desc }
+	set_variable = { global.internal_faction_policy_name^67 = token:internal_faction_policy_wahabi_charity_exemption }
+	set_variable = { global.internal_faction_policy_desc^67 = token:internal_faction_policy_wahabi_charity_exemption_desc }
+	set_variable = { global.internal_faction_policy_name^68 = token:internal_faction_policy_wahabi_secularisation }
+	set_variable = { global.internal_faction_policy_desc^68 = token:internal_faction_policy_wahabi_secularisation_desc }
+	set_variable = { global.internal_faction_policy_name^69 = token:internal_faction_policy_donju_market_tolerance }
+	set_variable = { global.internal_faction_policy_desc^69 = token:internal_faction_policy_donju_market_tolerance_desc }
+	set_variable = { global.internal_faction_policy_name^70 = token:internal_faction_policy_donju_trade_permits }
+	set_variable = { global.internal_faction_policy_desc^70 = token:internal_faction_policy_donju_trade_permits_desc }
+	set_variable = { global.internal_faction_policy_name^71 = token:internal_faction_policy_donju_foreign_currency_shops }
+	set_variable = { global.internal_faction_policy_desc^71 = token:internal_faction_policy_donju_foreign_currency_shops_desc }
+	set_variable = { global.internal_faction_policy_name^72 = token:internal_faction_policy_donju_market_closures }
+	set_variable = { global.internal_faction_policy_desc^72 = token:internal_faction_policy_donju_market_closures_desc }
+	set_variable = { global.internal_faction_policy_name^73 = token:internal_faction_policy_sarf_royal_stipends }
+	set_variable = { global.internal_faction_policy_desc^73 = token:internal_faction_policy_sarf_royal_stipends_desc }
+	set_variable = { global.internal_faction_policy_name^74 = token:internal_faction_policy_sarf_court_appointments }
+	set_variable = { global.internal_faction_policy_desc^74 = token:internal_faction_policy_sarf_court_appointments_desc }
+	set_variable = { global.internal_faction_policy_name^75 = token:internal_faction_policy_sarf_family_council }
+	set_variable = { global.internal_faction_policy_desc^75 = token:internal_faction_policy_sarf_family_council_desc }
+	set_variable = { global.internal_faction_policy_name^76 = token:internal_faction_policy_sarf_anti_corruption_detentions }
+	set_variable = { global.internal_faction_policy_desc^76 = token:internal_faction_policy_sarf_anti_corruption_detentions_desc }
+	set_variable = { global.internal_faction_policy_name^77 = token:internal_faction_policy_quds_proxy_funding }
+	set_variable = { global.internal_faction_policy_desc^77 = token:internal_faction_policy_quds_proxy_funding_desc }
+	set_variable = { global.internal_faction_policy_name^78 = token:internal_faction_policy_quds_training_camps }
+	set_variable = { global.internal_faction_policy_desc^78 = token:internal_faction_policy_quds_training_camps_desc }
+	set_variable = { global.internal_faction_policy_name^79 = token:internal_faction_policy_quds_smuggling_networks }
+	set_variable = { global.internal_faction_policy_desc^79 = token:internal_faction_policy_quds_smuggling_networks_desc }
+	set_variable = { global.internal_faction_policy_name^80 = token:internal_faction_policy_quds_operations_freeze }
+	set_variable = { global.internal_faction_policy_desc^80 = token:internal_faction_policy_quds_operations_freeze_desc }
+	set_variable = { global.internal_faction_policy_name^81 = token:internal_faction_policy_jihadis_recruitment_drive }
+	set_variable = { global.internal_faction_policy_desc^81 = token:internal_faction_policy_jihadis_recruitment_drive_desc }
+	set_variable = { global.internal_faction_policy_name^82 = token:internal_faction_policy_jihadis_frontline_autonomy }
+	set_variable = { global.internal_faction_policy_desc^82 = token:internal_faction_policy_jihadis_frontline_autonomy_desc }
+	set_variable = { global.internal_faction_policy_name^83 = token:internal_faction_policy_jihadis_martyr_glorification }
+	set_variable = { global.internal_faction_policy_desc^83 = token:internal_faction_policy_jihadis_martyr_glorification_desc }
+	set_variable = { global.internal_faction_policy_name^84 = token:internal_faction_policy_jihadis_foreign_fighter_purge }
+	set_variable = { global.internal_faction_policy_desc^84 = token:internal_faction_policy_jihadis_foreign_fighter_purge_desc }
+	set_variable = { global.internal_faction_policy_name^85 = token:internal_faction_policy_wall_street_deregulation }
+	set_variable = { global.internal_faction_policy_desc^85 = token:internal_faction_policy_wall_street_deregulation_desc }
+	set_variable = { global.internal_faction_policy_name^86 = token:internal_faction_policy_wall_street_bailout_guarantee }
+	set_variable = { global.internal_faction_policy_desc^86 = token:internal_faction_policy_wall_street_bailout_guarantee_desc }
+	set_variable = { global.internal_faction_policy_name^87 = token:internal_faction_policy_wall_street_dollar_diplomacy }
+	set_variable = { global.internal_faction_policy_desc^87 = token:internal_faction_policy_wall_street_dollar_diplomacy_desc }
+	set_variable = { global.internal_faction_policy_name^88 = token:internal_faction_policy_wall_street_financial_regulation }
+	set_variable = { global.internal_faction_policy_desc^88 = token:internal_faction_policy_wall_street_financial_regulation_desc }
+	set_variable = { global.internal_faction_policy_name^89 = token:internal_faction_policy_chaebols_industrial_policy }
+	set_variable = { global.internal_faction_policy_desc^89 = token:internal_faction_policy_chaebols_industrial_policy_desc }
+	set_variable = { global.internal_faction_policy_name^90 = token:internal_faction_policy_chaebols_export_credits }
+	set_variable = { global.internal_faction_policy_desc^90 = token:internal_faction_policy_chaebols_export_credits_desc }
+	set_variable = { global.internal_faction_policy_name^91 = token:internal_faction_policy_chaebols_cross_shareholding }
+	set_variable = { global.internal_faction_policy_desc^91 = token:internal_faction_policy_chaebols_cross_shareholding_desc }
+	set_variable = { global.internal_faction_policy_name^92 = token:internal_faction_policy_chaebols_governance_reform }
+	set_variable = { global.internal_faction_policy_desc^92 = token:internal_faction_policy_chaebols_governance_reform_desc }
+	set_variable = { global.internal_faction_cost_grant_pp = 100 }
+	set_variable = { global.internal_faction_cost_grant_gdp_share = 0.001 }
+	set_variable = { global.internal_faction_cost_revoke = 25 }
+	set_variable = { global.internal_faction_cost_crackdown = 150 }
+	set_variable = { global.internal_faction_cost_lift = 50 }
+	set_variable = { global.internal_faction_cost_appease = 75 }
+	set_variable = { global.internal_faction_cost_support = 75 }
+	set_variable = { global.internal_faction_policy_cooldown_months = 12 }
+	set_variable = { global.internal_faction_active_count = 3 }
+	set_variable = { global.internal_faction_active_threshold = 25 }
+	# internal_faction_rival index = faction id * 24 + other id: 1 when the other faction opposes a group this one backs
+	resize_array = { array = global.internal_faction_rival value = 0 size = 576 }
+	for_loop_effect = {
+		start = 1
+		end = 24
+		value = internal_faction_i
+		for_loop_effect = {
+			start = 1
+			end = 24
+			value = internal_faction_j
+			for_loop_effect = {
+				start = 1
+				end = 13
+				value = internal_faction_g
+				set_temp_variable = { internal_faction_a = internal_faction_i }
+				multiply_temp_variable = { internal_faction_a = 13 }
+				add_to_temp_variable = { internal_faction_a = internal_faction_g }
+				set_temp_variable = { internal_faction_b = internal_faction_j }
+				multiply_temp_variable = { internal_faction_b = 13 }
+				add_to_temp_variable = { internal_faction_b = internal_faction_g }
+				if = {
+					limit = {
+						check_variable = { global.internal_faction_affinity^internal_faction_a = 1 }
+						check_variable = { global.internal_faction_affinity^internal_faction_b = -1 }
+					}
+					set_temp_variable = { internal_faction_r = internal_faction_i }
+					multiply_temp_variable = { internal_faction_r = 24 }
+					add_to_temp_variable = { internal_faction_r = internal_faction_j }
+					set_variable = { global.internal_faction_rival^internal_faction_r = 1 }
+				}
+			}
+		}
+	}
+
+	# Organizational Arrays & Continent Arrays
+	#GCC
+	#All Potential Nations
+	add_to_array = { global.possible_gcc_member_state = SAU }
+	add_to_array = { global.possible_gcc_member_state = QAT }
+	add_to_array = { global.possible_gcc_member_state = UAE }
+	add_to_array = { global.possible_gcc_member_state = BHR }
+	add_to_array = { global.possible_gcc_member_state = KUW }
+	add_to_array = { global.possible_gcc_member_state = OMA }
+	add_to_array = { global.possible_gcc_member_state = MOR }
+	add_to_array = { global.possible_gcc_member_state = JOR }
+	add_to_array = { global.possible_gcc_member_state = IRQ }
+	add_to_array = { global.possible_gcc_member_state = YEM }
+	add_to_array = { global.possible_gcc_member_state = EGY }
+
+	#Starting GCC Member States
+	add_to_array = { global.gcc_member_state = SAU }
+	add_to_array = { global.gcc_member_state = QAT }
+	add_to_array = { global.gcc_member_state = UAE }
+	add_to_array = { global.gcc_member_state = BHR }
+	add_to_array = { global.gcc_member_state = KUW }
+	add_to_array = { global.gcc_member_state = OMA }
+
+	# Continent Arrays — mirrors is_african_nation / is_middle_eastern_nation triggers
+	# African nations
+	add_to_array = { global.is_african_nation = AFR }
+	add_to_array = { global.is_african_nation = AGL }
+	add_to_array = { global.is_african_nation = ALG }
+	add_to_array = { global.is_african_nation = ANJ }
+	add_to_array = { global.is_african_nation = BAL }
+	add_to_array = { global.is_african_nation = BEN }
+	add_to_array = { global.is_african_nation = BFA }
+	add_to_array = { global.is_african_nation = BOT }
+	add_to_array = { global.is_african_nation = BUR }
+	add_to_array = { global.is_african_nation = CAB }
+	add_to_array = { global.is_african_nation = CAM }
+	add_to_array = { global.is_african_nation = CAR }
+	add_to_array = { global.is_african_nation = CDI }
+	add_to_array = { global.is_african_nation = CHA }
+	add_to_array = { global.is_african_nation = CNG }
+	add_to_array = { global.is_african_nation = CNR }
+	add_to_array = { global.is_african_nation = COM }
+	add_to_array = { global.is_african_nation = CSM }
+	add_to_array = { global.is_african_nation = CYR }
+	add_to_array = { global.is_african_nation = DAR }
+	add_to_array = { global.is_african_nation = DJI }
+	add_to_array = { global.is_african_nation = DRC }
+	add_to_array = { global.is_african_nation = EGU }
+	add_to_array = { global.is_african_nation = EGY }
+	add_to_array = { global.is_african_nation = ERI }
+	add_to_array = { global.is_african_nation = ETH }
+	add_to_array = { global.is_african_nation = FEZ }
+	add_to_array = { global.is_african_nation = FNC }
+	add_to_array = { global.is_african_nation = GAB }
+	add_to_array = { global.is_african_nation = GAH }
+	add_to_array = { global.is_african_nation = GAM }
+	add_to_array = { global.is_african_nation = GNA }
+	add_to_array = { global.is_african_nation = GNC }
+	add_to_array = { global.is_african_nation = GUB }
+	add_to_array = { global.is_african_nation = GUI }
+	add_to_array = { global.is_african_nation = HOR }
+	add_to_array = { global.is_african_nation = JUB }
+	add_to_array = { global.is_african_nation = KEN }
+	add_to_array = { global.is_african_nation = LBA }
+	add_to_array = { global.is_african_nation = LES }
+	add_to_array = { global.is_african_nation = LIB }
+	add_to_array = { global.is_african_nation = LGN }
+	add_to_array = { global.is_african_nation = LUR }
+	add_to_array = { global.is_african_nation = MAD }
+	add_to_array = { global.is_african_nation = MAL }
+	add_to_array = { global.is_african_nation = MAU }
+	add_to_array = { global.is_african_nation = MLC }
+	add_to_array = { global.is_african_nation = MLW }
+	add_to_array = { global.is_african_nation = MTE }
+	add_to_array = { global.is_african_nation = MOR }
+	add_to_array = { global.is_african_nation = MOZ }
+	add_to_array = { global.is_african_nation = MRT }
+	add_to_array = { global.is_african_nation = NAM }
+	add_to_array = { global.is_african_nation = NGR }
+	add_to_array = { global.is_african_nation = NIG }
+	add_to_array = { global.is_african_nation = PUN }
+	add_to_array = { global.is_african_nation = RCD }
+	add_to_array = { global.is_african_nation = RWA }
+	add_to_array = { global.is_african_nation = SAF }
+	add_to_array = { global.is_african_nation = SAO }
+	add_to_array = { global.is_african_nation = SEL }
+	add_to_array = { global.is_african_nation = SEN }
+	add_to_array = { global.is_african_nation = SEY }
+	add_to_array = { global.is_african_nation = SHA }
+	add_to_array = { global.is_african_nation = SHB }
+	add_to_array = { global.is_african_nation = SIE }
+	add_to_array = { global.is_african_nation = SML }
+	add_to_array = { global.is_african_nation = SNA }
+	add_to_array = { global.is_african_nation = SOM }
+	add_to_array = { global.is_african_nation = SSU }
+	add_to_array = { global.is_african_nation = STH }
+	add_to_array = { global.is_african_nation = SUD }
+	add_to_array = { global.is_african_nation = SWA }
+	add_to_array = { global.is_african_nation = SWS }
+	add_to_array = { global.is_african_nation = TIE }
+	add_to_array = { global.is_african_nation = TNZ }
+	add_to_array = { global.is_african_nation = TOG }
+	add_to_array = { global.is_african_nation = TRP }
+	add_to_array = { global.is_african_nation = TUA }
+	add_to_array = { global.is_african_nation = TUN }
+	add_to_array = { global.is_african_nation = UGA }
+	add_to_array = { global.is_african_nation = UNI }
+	add_to_array = { global.is_african_nation = VER }
+	add_to_array = { global.is_african_nation = ZAN }
+	add_to_array = { global.is_african_nation = ZAM }
+	add_to_array = { global.is_african_nation = ZIM }
+
+	# Middle Eastern nations
+	add_to_array = { global.is_middle_eastern_nation = ABK }
+	add_to_array = { global.is_middle_eastern_nation = ADJ }
+	add_to_array = { global.is_middle_eastern_nation = ADY }
+	add_to_array = { global.is_middle_eastern_nation = ALA }
+	add_to_array = { global.is_middle_eastern_nation = ALG }
+	add_to_array = { global.is_middle_eastern_nation = AQY }
+	add_to_array = { global.is_middle_eastern_nation = ARA }
+	add_to_array = { global.is_middle_eastern_nation = ARM }
+	add_to_array = { global.is_middle_eastern_nation = AZE }
+	add_to_array = { global.is_middle_eastern_nation = BHR }
+	add_to_array = { global.is_middle_eastern_nation = CHE }
+	add_to_array = { global.is_middle_eastern_nation = CNR }
+	add_to_array = { global.is_middle_eastern_nation = DAG }
+	add_to_array = { global.is_middle_eastern_nation = DRU }
+	add_to_array = { global.is_middle_eastern_nation = EGY }
+	add_to_array = { global.is_middle_eastern_nation = FSA }
+	add_to_array = { global.is_middle_eastern_nation = GEO }
+	add_to_array = { global.is_middle_eastern_nation = GNA }
+	add_to_array = { global.is_middle_eastern_nation = GNC }
+	add_to_array = { global.is_middle_eastern_nation = GOR }
+	add_to_array = { global.is_middle_eastern_nation = HAM }
+	add_to_array = { global.is_middle_eastern_nation = HEJ }
+	add_to_array = { global.is_middle_eastern_nation = HAZ }
+	add_to_array = { global.is_middle_eastern_nation = HEZ }
+	add_to_array = { global.is_middle_eastern_nation = HOR }
+	add_to_array = { global.is_middle_eastern_nation = HOU }
+	add_to_array = { global.is_middle_eastern_nation = IKR }
+	add_to_array = { global.is_middle_eastern_nation = ING }
+	add_to_array = { global.is_middle_eastern_nation = IRQ }
+	add_to_array = { global.is_middle_eastern_nation = ISI }
+	add_to_array = { global.is_middle_eastern_nation = ISR }
+	add_to_array = { global.is_middle_eastern_nation = JOR }
+	add_to_array = { global.is_middle_eastern_nation = KCC }
+	add_to_array = { global.is_middle_eastern_nation = KBK }
+	add_to_array = { global.is_middle_eastern_nation = KUB }
+	add_to_array = { global.is_middle_eastern_nation = KUR }
+	add_to_array = { global.is_middle_eastern_nation = PUK }
+	add_to_array = { global.is_middle_eastern_nation = KUW }
+	add_to_array = { global.is_middle_eastern_nation = LBA }
+	add_to_array = { global.is_middle_eastern_nation = LEB }
+	add_to_array = { global.is_middle_eastern_nation = LOR }
+	add_to_array = { global.is_middle_eastern_nation = MOR }
+	add_to_array = { global.is_middle_eastern_nation = NCY }
+	add_to_array = { global.is_middle_eastern_nation = NEJ }
+	add_to_array = { global.is_middle_eastern_nation = NKR }
+	add_to_array = { global.is_middle_eastern_nation = NUS }
+	add_to_array = { global.is_middle_eastern_nation = OMA }
+	add_to_array = { global.is_middle_eastern_nation = PAL }
+	add_to_array = { global.is_middle_eastern_nation = PER }
+	add_to_array = { global.is_middle_eastern_nation = PKK }
+	add_to_array = { global.is_middle_eastern_nation = QAT }
+	add_to_array = { global.is_middle_eastern_nation = QTF }
+	add_to_array = { global.is_middle_eastern_nation = ROJ }
+	add_to_array = { global.is_middle_eastern_nation = SAU }
+	add_to_array = { global.is_middle_eastern_nation = SAZ }
+	add_to_array = { global.is_middle_eastern_nation = SHA }
+	add_to_array = { global.is_middle_eastern_nation = SOO }
+	add_to_array = { global.is_middle_eastern_nation = SYR }
+	add_to_array = { global.is_middle_eastern_nation = TAB }
+	add_to_array = { global.is_middle_eastern_nation = TLS }
+	add_to_array = { global.is_middle_eastern_nation = TUN }
+	add_to_array = { global.is_middle_eastern_nation = TUR }
+	add_to_array = { global.is_middle_eastern_nation = UAE }
+	add_to_array = { global.is_middle_eastern_nation = YEM }
+
+	# Combined Middle East + Africa array
+	# African nations
+	add_to_array = { global.is_middle_eastern_africa_nations = AFR }
+	add_to_array = { global.is_middle_eastern_africa_nations = AGL }
+	add_to_array = { global.is_middle_eastern_africa_nations = ALG }
+	add_to_array = { global.is_middle_eastern_africa_nations = ANJ }
+	add_to_array = { global.is_middle_eastern_africa_nations = BAL }
+	add_to_array = { global.is_middle_eastern_africa_nations = BEN }
+	add_to_array = { global.is_middle_eastern_africa_nations = BFA }
+	add_to_array = { global.is_middle_eastern_africa_nations = BOT }
+	add_to_array = { global.is_middle_eastern_africa_nations = BUR }
+	add_to_array = { global.is_middle_eastern_africa_nations = CAB }
+	add_to_array = { global.is_middle_eastern_africa_nations = CAM }
+	add_to_array = { global.is_middle_eastern_africa_nations = CAR }
+	add_to_array = { global.is_middle_eastern_africa_nations = CDI }
+	add_to_array = { global.is_middle_eastern_africa_nations = CHA }
+	add_to_array = { global.is_middle_eastern_africa_nations = CNG }
+	add_to_array = { global.is_middle_eastern_africa_nations = CNR }
+	add_to_array = { global.is_middle_eastern_africa_nations = COM }
+	add_to_array = { global.is_middle_eastern_africa_nations = CSM }
+	add_to_array = { global.is_middle_eastern_africa_nations = CYR }
+	add_to_array = { global.is_middle_eastern_africa_nations = DAR }
+	add_to_array = { global.is_middle_eastern_africa_nations = DJI }
+	add_to_array = { global.is_middle_eastern_africa_nations = DRC }
+	add_to_array = { global.is_middle_eastern_africa_nations = EGU }
+	add_to_array = { global.is_middle_eastern_africa_nations = EGY }
+	add_to_array = { global.is_middle_eastern_africa_nations = ERI }
+	add_to_array = { global.is_middle_eastern_africa_nations = ETH }
+	add_to_array = { global.is_middle_eastern_africa_nations = FEZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = FNC }
+	add_to_array = { global.is_middle_eastern_africa_nations = GAB }
+	add_to_array = { global.is_middle_eastern_africa_nations = GAH }
+	add_to_array = { global.is_middle_eastern_africa_nations = GAM }
+	add_to_array = { global.is_middle_eastern_africa_nations = GNA }
+	add_to_array = { global.is_middle_eastern_africa_nations = GNC }
+	add_to_array = { global.is_middle_eastern_africa_nations = GUB }
+	add_to_array = { global.is_middle_eastern_africa_nations = GUI }
+	add_to_array = { global.is_middle_eastern_africa_nations = HOR }
+	add_to_array = { global.is_middle_eastern_africa_nations = JUB }
+	add_to_array = { global.is_middle_eastern_africa_nations = KEN }
+	add_to_array = { global.is_middle_eastern_africa_nations = LBA }
+	add_to_array = { global.is_middle_eastern_africa_nations = LES }
+	add_to_array = { global.is_middle_eastern_africa_nations = LIB }
+	add_to_array = { global.is_middle_eastern_africa_nations = LGN }
+	add_to_array = { global.is_middle_eastern_africa_nations = LUR }
+	add_to_array = { global.is_middle_eastern_africa_nations = MAD }
+	add_to_array = { global.is_middle_eastern_africa_nations = MAL }
+	add_to_array = { global.is_middle_eastern_africa_nations = MAU }
+	add_to_array = { global.is_middle_eastern_africa_nations = MLC }
+	add_to_array = { global.is_middle_eastern_africa_nations = MLW }
+	add_to_array = { global.is_middle_eastern_africa_nations = MTE }
+	add_to_array = { global.is_middle_eastern_africa_nations = MOR }
+	add_to_array = { global.is_middle_eastern_africa_nations = MOZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = MRT }
+	add_to_array = { global.is_middle_eastern_africa_nations = NAM }
+	add_to_array = { global.is_middle_eastern_africa_nations = NGR }
+	add_to_array = { global.is_middle_eastern_africa_nations = NIG }
+	add_to_array = { global.is_middle_eastern_africa_nations = PUN }
+	add_to_array = { global.is_middle_eastern_africa_nations = RCD }
+	add_to_array = { global.is_middle_eastern_africa_nations = RWA }
+	add_to_array = { global.is_middle_eastern_africa_nations = SAF }
+	add_to_array = { global.is_middle_eastern_africa_nations = SAO }
+	add_to_array = { global.is_middle_eastern_africa_nations = SEL }
+	add_to_array = { global.is_middle_eastern_africa_nations = SEN }
+	add_to_array = { global.is_middle_eastern_africa_nations = SEY }
+	add_to_array = { global.is_middle_eastern_africa_nations = SHA }
+	add_to_array = { global.is_middle_eastern_africa_nations = SHB }
+	add_to_array = { global.is_middle_eastern_africa_nations = SIE }
+	add_to_array = { global.is_middle_eastern_africa_nations = SML }
+	add_to_array = { global.is_middle_eastern_africa_nations = SNA }
+	add_to_array = { global.is_middle_eastern_africa_nations = SOM }
+	add_to_array = { global.is_middle_eastern_africa_nations = SSU }
+	add_to_array = { global.is_middle_eastern_africa_nations = STH }
+	add_to_array = { global.is_middle_eastern_africa_nations = SUD }
+	add_to_array = { global.is_middle_eastern_africa_nations = SWA }
+	add_to_array = { global.is_middle_eastern_africa_nations = SWS }
+	add_to_array = { global.is_middle_eastern_africa_nations = TIE }
+	add_to_array = { global.is_middle_eastern_africa_nations = TNZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = TOG }
+	add_to_array = { global.is_middle_eastern_africa_nations = TRP }
+	add_to_array = { global.is_middle_eastern_africa_nations = TUA }
+	add_to_array = { global.is_middle_eastern_africa_nations = TUN }
+	add_to_array = { global.is_middle_eastern_africa_nations = UGA }
+	add_to_array = { global.is_middle_eastern_africa_nations = UNI }
+	add_to_array = { global.is_middle_eastern_africa_nations = VER }
+	add_to_array = { global.is_middle_eastern_africa_nations = ZAN }
+	add_to_array = { global.is_middle_eastern_africa_nations = ZAM }
+	add_to_array = { global.is_middle_eastern_africa_nations = ZIM }
+	# Middle Eastern nations not already in Africa (ALG, CNR, EGY, GNA, GNC, HOR, LBA, MOR, SHA, TUN overlap)
+	add_to_array = { global.is_middle_eastern_africa_nations = ABK }
+	add_to_array = { global.is_middle_eastern_africa_nations = ADJ }
+	add_to_array = { global.is_middle_eastern_africa_nations = ADY }
+	add_to_array = { global.is_middle_eastern_africa_nations = ALA }
+	add_to_array = { global.is_middle_eastern_africa_nations = AQY }
+	add_to_array = { global.is_middle_eastern_africa_nations = ARA }
+	add_to_array = { global.is_middle_eastern_africa_nations = ARM }
+	add_to_array = { global.is_middle_eastern_africa_nations = AZE }
+	add_to_array = { global.is_middle_eastern_africa_nations = BHR }
+	add_to_array = { global.is_middle_eastern_africa_nations = CHE }
+	add_to_array = { global.is_middle_eastern_africa_nations = DAG }
+	add_to_array = { global.is_middle_eastern_africa_nations = DRU }
+	add_to_array = { global.is_middle_eastern_africa_nations = FSA }
+	add_to_array = { global.is_middle_eastern_africa_nations = GEO }
+	add_to_array = { global.is_middle_eastern_africa_nations = GOR }
+	add_to_array = { global.is_middle_eastern_africa_nations = HAM }
+	add_to_array = { global.is_middle_eastern_africa_nations = HEJ }
+	add_to_array = { global.is_middle_eastern_africa_nations = HAZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = HEZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = HOU }
+	add_to_array = { global.is_middle_eastern_africa_nations = IKR }
+	add_to_array = { global.is_middle_eastern_africa_nations = ING }
+	add_to_array = { global.is_middle_eastern_africa_nations = IRQ }
+	add_to_array = { global.is_middle_eastern_africa_nations = ISI }
+	add_to_array = { global.is_middle_eastern_africa_nations = ISR }
+	add_to_array = { global.is_middle_eastern_africa_nations = JOR }
+	add_to_array = { global.is_middle_eastern_africa_nations = KCC }
+	add_to_array = { global.is_middle_eastern_africa_nations = KBK }
+	add_to_array = { global.is_middle_eastern_africa_nations = KUB }
+	add_to_array = { global.is_middle_eastern_africa_nations = KUR }
+	add_to_array = { global.is_middle_eastern_africa_nations = PUK }
+	add_to_array = { global.is_middle_eastern_africa_nations = KUW }
+	add_to_array = { global.is_middle_eastern_africa_nations = LEB }
+	add_to_array = { global.is_middle_eastern_africa_nations = LOR }
+	add_to_array = { global.is_middle_eastern_africa_nations = NCY }
+	add_to_array = { global.is_middle_eastern_africa_nations = NEJ }
+	add_to_array = { global.is_middle_eastern_africa_nations = NKR }
+	add_to_array = { global.is_middle_eastern_africa_nations = NUS }
+	add_to_array = { global.is_middle_eastern_africa_nations = OMA }
+	add_to_array = { global.is_middle_eastern_africa_nations = PAL }
+	add_to_array = { global.is_middle_eastern_africa_nations = PER }
+	add_to_array = { global.is_middle_eastern_africa_nations = PKK }
+	add_to_array = { global.is_middle_eastern_africa_nations = QAT }
+	add_to_array = { global.is_middle_eastern_africa_nations = QTF }
+	add_to_array = { global.is_middle_eastern_africa_nations = ROJ }
+	add_to_array = { global.is_middle_eastern_africa_nations = SAU }
+	add_to_array = { global.is_middle_eastern_africa_nations = SAZ }
+	add_to_array = { global.is_middle_eastern_africa_nations = SOO }
+	add_to_array = { global.is_middle_eastern_africa_nations = SYR }
+	add_to_array = { global.is_middle_eastern_africa_nations = TAB }
+	add_to_array = { global.is_middle_eastern_africa_nations = TLS }
+	add_to_array = { global.is_middle_eastern_africa_nations = TUR }
+	add_to_array = { global.is_middle_eastern_africa_nations = UAE }
+	add_to_array = { global.is_middle_eastern_africa_nations = YEM }
+
+	# Possible Muslim Brotherhood nations
+	add_to_array = { global.possible_muslim_brotherhood_nation = JOR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = TUR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = SYR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = FSA }
+	add_to_array = { global.possible_muslim_brotherhood_nation = NUS }
+	add_to_array = { global.possible_muslim_brotherhood_nation = AFG }
+	add_to_array = { global.possible_muslim_brotherhood_nation = TAL }
+	add_to_array = { global.possible_muslim_brotherhood_nation = HAM }
+	add_to_array = { global.possible_muslim_brotherhood_nation = SAU }
+	add_to_array = { global.possible_muslim_brotherhood_nation = BHR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = UAE }
+	add_to_array = { global.possible_muslim_brotherhood_nation = YEM }
+	add_to_array = { global.possible_muslim_brotherhood_nation = EGY }
+	add_to_array = { global.possible_muslim_brotherhood_nation = SUD }
+	add_to_array = { global.possible_muslim_brotherhood_nation = LBA }
+	add_to_array = { global.possible_muslim_brotherhood_nation = GNC }
+	add_to_array = { global.possible_muslim_brotherhood_nation = HOR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = GNA }
+	add_to_array = { global.possible_muslim_brotherhood_nation = ALG }
+	add_to_array = { global.possible_muslim_brotherhood_nation = MOR }
+	add_to_array = { global.possible_muslim_brotherhood_nation = TUN }
+	add_to_array = { global.possible_muslim_brotherhood_nation = QAT }
+
+	# Literacy rate nations — countries with literacy_rate set in history files
+	add_to_array = { global.literacy_rate_nation = AFR }
+	add_to_array = { global.literacy_rate_nation = AGL }
+	add_to_array = { global.literacy_rate_nation = AIA }
+	add_to_array = { global.literacy_rate_nation = ALG }
+	add_to_array = { global.literacy_rate_nation = ANJ }
+	add_to_array = { global.literacy_rate_nation = BEN }
+	add_to_array = { global.literacy_rate_nation = BFA }
+	add_to_array = { global.literacy_rate_nation = BOT }
+	add_to_array = { global.literacy_rate_nation = BUR }
+	add_to_array = { global.literacy_rate_nation = CAM }
+	add_to_array = { global.literacy_rate_nation = CAR }
+	add_to_array = { global.literacy_rate_nation = CDI }
+	add_to_array = { global.literacy_rate_nation = CHA }
+	add_to_array = { global.literacy_rate_nation = CNG }
+	add_to_array = { global.literacy_rate_nation = COM }
+	add_to_array = { global.literacy_rate_nation = CSM }
+	add_to_array = { global.literacy_rate_nation = CYR }
+	add_to_array = { global.literacy_rate_nation = DAR }
+	add_to_array = { global.literacy_rate_nation = DJI }
+	add_to_array = { global.literacy_rate_nation = DRC }
+	add_to_array = { global.literacy_rate_nation = EGU }
+	add_to_array = { global.literacy_rate_nation = EGY }
+	add_to_array = { global.literacy_rate_nation = ERI }
+	add_to_array = { global.literacy_rate_nation = ETH }
+	add_to_array = { global.literacy_rate_nation = FEZ }
+	add_to_array = { global.literacy_rate_nation = FNC }
+	add_to_array = { global.literacy_rate_nation = GAB }
+	add_to_array = { global.literacy_rate_nation = GAH }
+	add_to_array = { global.literacy_rate_nation = GAM }
+	add_to_array = { global.literacy_rate_nation = GUB }
+	add_to_array = { global.literacy_rate_nation = GUI }
+	add_to_array = { global.literacy_rate_nation = JUB }
+	add_to_array = { global.literacy_rate_nation = KBY }
+	add_to_array = { global.literacy_rate_nation = KEN }
+	add_to_array = { global.literacy_rate_nation = LBA }
+	add_to_array = { global.literacy_rate_nation = LES }
+	add_to_array = { global.literacy_rate_nation = LIB }
+	add_to_array = { global.literacy_rate_nation = LUR }
+	add_to_array = { global.literacy_rate_nation = MAD }
+	add_to_array = { global.literacy_rate_nation = MAL }
+	add_to_array = { global.literacy_rate_nation = MAU }
+	add_to_array = { global.literacy_rate_nation = MLC }
+	add_to_array = { global.literacy_rate_nation = MLW }
+	add_to_array = { global.literacy_rate_nation = MOR }
+	add_to_array = { global.literacy_rate_nation = MOZ }
+	add_to_array = { global.literacy_rate_nation = MRT }
+	add_to_array = { global.literacy_rate_nation = MTE }
+	add_to_array = { global.literacy_rate_nation = NAM }
+	add_to_array = { global.literacy_rate_nation = NGR }
+	add_to_array = { global.literacy_rate_nation = NIG }
+	add_to_array = { global.literacy_rate_nation = PUN }
+	add_to_array = { global.literacy_rate_nation = RCD }
+	add_to_array = { global.literacy_rate_nation = RWA }
+	add_to_array = { global.literacy_rate_nation = SAF }
+	add_to_array = { global.literacy_rate_nation = SAO }
+	add_to_array = { global.literacy_rate_nation = SEN }
+	add_to_array = { global.literacy_rate_nation = SHB }
+	add_to_array = { global.literacy_rate_nation = SML }
+	add_to_array = { global.literacy_rate_nation = SNA }
+	add_to_array = { global.literacy_rate_nation = SOM }
+	add_to_array = { global.literacy_rate_nation = SSU }
+	add_to_array = { global.literacy_rate_nation = SUD }
+	add_to_array = { global.literacy_rate_nation = SWA }
+	add_to_array = { global.literacy_rate_nation = SWS }
+	add_to_array = { global.literacy_rate_nation = TIE }
+	add_to_array = { global.literacy_rate_nation = TNZ }
+	add_to_array = { global.literacy_rate_nation = TOG }
+	add_to_array = { global.literacy_rate_nation = TRP }
+	add_to_array = { global.literacy_rate_nation = TUN }
+	add_to_array = { global.literacy_rate_nation = UGA }
+	add_to_array = { global.literacy_rate_nation = UNI }
+	add_to_array = { global.literacy_rate_nation = VER }
+	add_to_array = { global.literacy_rate_nation = ZAM }
+	add_to_array = { global.literacy_rate_nation = ZIM }
+
+	# SCO
+	add_to_array = { global.possible_sco_member_state = CHI }
+	add_to_array = { global.possible_sco_member_state = SOV }
+	add_to_array = { global.possible_sco_member_state = KAZ }
+	add_to_array = { global.possible_sco_member_state = KYR }
+	add_to_array = { global.possible_sco_member_state = TAJ }
+	add_to_array = { global.possible_sco_member_state = UZB }
+	add_to_array = { global.possible_sco_member_state = RAJ }
+	add_to_array = { global.possible_sco_member_state = PAK }
+	add_to_array = { global.possible_sco_member_state = BHU }
+	add_to_array = { global.possible_sco_member_state = NEP }
+	add_to_array = { global.possible_sco_member_state = BLR }
+	add_to_array = { global.possible_sco_member_state = AFG }
+	add_to_array = { global.possible_sco_member_state = BRM }
+	add_to_array = { global.possible_sco_member_state = CBD }
+	add_to_array = { global.possible_sco_member_state = LAO }
+	add_to_array = { global.possible_sco_member_state = SIA }
+	add_to_array = { global.possible_sco_member_state = VIE }
+	add_to_array = { global.possible_sco_member_state = PHI }
+	add_to_array = { global.possible_sco_member_state = BRU }
+	add_to_array = { global.possible_sco_member_state = IND }
+	add_to_array = { global.possible_sco_member_state = MAY }
+	add_to_array = { global.possible_sco_member_state = SIN }
+	add_to_array = { global.possible_sco_member_state = MON }
+	add_to_array = { global.possible_sco_member_state = NKO }
+	add_to_array = { global.possible_sco_member_state = KOR }
+	add_to_array = { global.possible_sco_member_state = ARM }
+	add_to_array = { global.possible_sco_member_state = AZE }
+	add_to_array = { global.possible_sco_member_state = PER }
+	add_to_array = { global.possible_sco_member_state = TUR }
+	add_to_array = { global.possible_sco_member_state = BHR }
+	add_to_array = { global.possible_sco_member_state = EGY }
+	add_to_array = { global.possible_sco_member_state = IRQ }
+	add_to_array = { global.possible_sco_member_state = ISR }
+	add_to_array = { global.possible_sco_member_state = JOR }
+	add_to_array = { global.possible_sco_member_state = KUW }
+	add_to_array = { global.possible_sco_member_state = QAT }
+	add_to_array = { global.possible_sco_member_state = SAU }
+	add_to_array = { global.possible_sco_member_state = SYR }
+	add_to_array = { global.possible_sco_member_state = UAE }
+	add_to_array = { global.possible_sco_member_state = YEM }
+	add_to_array = { global.possible_sco_member_state = LBA }
+	add_to_array = { global.possible_sco_member_state = SUD }
+	add_to_array = { global.possible_sco_member_state = ETH }
+	add_to_array = { global.possible_sco_member_state = SAF }
+	add_to_array = { global.possible_sco_member_state = DRC }
+	add_to_array = { global.possible_sco_member_state = NIG }
+	add_to_array = { global.possible_sco_member_state = CAM }
+	add_to_array = { global.possible_sco_member_state = BRA }
+	add_to_array = { global.possible_sco_member_state = CUB }
+	add_to_array = { global.possible_sco_member_state = VEN }
+
+	# Nato Member Array Configuration
+	if = { limit = { has_start_date < 2000.1.2 }
+		add_to_array = { global.nato_members = BEL }
+		add_to_array = { global.nato_members = CAN }
+		add_to_array = { global.nato_members = CZE }
+		add_to_array = { global.nato_members = DEN }
+		add_to_array = { global.nato_members = FRA }
+		add_to_array = { global.nato_members = GER }
+		add_to_array = { global.nato_members = GRE }
+		add_to_array = { global.nato_members = HOL }
+		add_to_array = { global.nato_members = HUN }
+		add_to_array = { global.nato_members = ICE }
+		add_to_array = { global.nato_members = ITA }
+		add_to_array = { global.nato_members = LUX }
+		add_to_array = { global.nato_members = NRY }
+		add_to_array = { global.nato_members = POL }
+		add_to_array = { global.nato_members = POR }
+		add_to_array = { global.nato_members = SPR }
+		add_to_array = { global.nato_members = TUR }
+		add_to_array = { global.nato_members = ENG }
+		add_to_array = { global.nato_members = USA }
+	}
+	else = { # 2000-2016 and 2017+ starts
+		add_to_array = { global.nato_members = ALB }
+		add_to_array = { global.nato_members = BEL }
+		add_to_array = { global.nato_members = BUL }
+		add_to_array = { global.nato_members = CAN }
+		add_to_array = { global.nato_members = CRO }
+		add_to_array = { global.nato_members = CZE }
+		add_to_array = { global.nato_members = DEN }
+		add_to_array = { global.nato_members = EST }
+		add_to_array = { global.nato_members = FRA }
+		add_to_array = { global.nato_members = GER }
+		add_to_array = { global.nato_members = GRE }
+		add_to_array = { global.nato_members = HOL }
+		add_to_array = { global.nato_members = HUN }
+		add_to_array = { global.nato_members = ICE }
+		add_to_array = { global.nato_members = ITA }
+		add_to_array = { global.nato_members = LAT }
+		add_to_array = { global.nato_members = LIT }
+		add_to_array = { global.nato_members = LUX }
+		add_to_array = { global.nato_members = NRY }
+		add_to_array = { global.nato_members = POL }
+		add_to_array = { global.nato_members = POR }
+		add_to_array = { global.nato_members = ROM }
+		add_to_array = { global.nato_members = SLO }
+		add_to_array = { global.nato_members = SLV }
+		add_to_array = { global.nato_members = SPR }
+		add_to_array = { global.nato_members = TUR }
+		add_to_array = { global.nato_members = ENG }
+		add_to_array = { global.nato_members = USA }
+	}
+	if = { limit = { NOT = { has_start_date < 2000.1.2 } }
+		AZE = { activate_mission = AZE_aliev_countdown }
+	}
+
+	#CSTO
+	add_to_array = { global.CSTO_member = ARM }
+	add_to_array = { global.CSTO_member = BLR }
+	add_to_array = { global.CSTO_member = KAZ }
+	add_to_array = { global.CSTO_member = KYR }
+	add_to_array = { global.CSTO_member = SOV }
+	add_to_array = { global.CSTO_member = TAJ }
+
+	# Arab League Members
+	add_to_array = { global.arab_league_members = ALG }
+	add_to_array = { global.arab_league_members = BHR }
+	add_to_array = { global.arab_league_members = COM }
+	add_to_array = { global.arab_league_members = DJI }
+	add_to_array = { global.arab_league_members = EGY }
+	add_to_array = { global.arab_league_members = IRQ }
+	add_to_array = { global.arab_league_members = JOR }
+	add_to_array = { global.arab_league_members = KUW }
+	add_to_array = { global.arab_league_members = LBA }
+	add_to_array = { global.arab_league_members = LEB }
+	add_to_array = { global.arab_league_members = MAU }
+	add_to_array = { global.arab_league_members = MOR }
+	add_to_array = { global.arab_league_members = OMA }
+	add_to_array = { global.arab_league_members = PAL }
+	add_to_array = { global.arab_league_members = QAT }
+	add_to_array = { global.arab_league_members = SAU }
+	add_to_array = { global.arab_league_members = SOM }
+	add_to_array = { global.arab_league_members = SUD }
+	add_to_array = { global.arab_league_members = SYR }
+	add_to_array = { global.arab_league_members = TUN }
+	add_to_array = { global.arab_league_members = UAE }
+	add_to_array = { global.arab_league_members = YEM }
+
+	#African Union
+	add_to_array = { global.AU_member = AGL }
+	add_to_array = { global.AU_member = ALG }
+	add_to_array = { global.AU_member = BEN }
+	add_to_array = { global.AU_member = BFA }
+	add_to_array = { global.AU_member = BOT }
+	add_to_array = { global.AU_member = BUR }
+	add_to_array = { global.AU_member = CAM }
+	add_to_array = { global.AU_member = CAR }
+	add_to_array = { global.AU_member = CDI }
+	add_to_array = { global.AU_member = CHA }
+	add_to_array = { global.AU_member = CNG }
+	add_to_array = { global.AU_member = COM }
+	add_to_array = { global.AU_member = DJI }
+	add_to_array = { global.AU_member = DRC }
+	add_to_array = { global.AU_member = EGU }
+	add_to_array = { global.AU_member = EGY }
+	add_to_array = { global.AU_member = ERI }
+	add_to_array = { global.AU_member = ETH }
+	add_to_array = { global.AU_member = GAB }
+	add_to_array = { global.AU_member = GAH }
+	add_to_array = { global.AU_member = GAM }
+	add_to_array = { global.AU_member = GUB }
+	add_to_array = { global.AU_member = GUI }
+	add_to_array = { global.AU_member = KEN }
+	add_to_array = { global.AU_member = LBA }
+	add_to_array = { global.AU_member = LES }
+	add_to_array = { global.AU_member = LIB }
+	add_to_array = { global.AU_member = MAD }
+	add_to_array = { global.AU_member = MAL }
+	add_to_array = { global.AU_member = MAU }
+	add_to_array = { global.AU_member = MLW }
+	add_to_array = { global.AU_member = MOR }
+	add_to_array = { global.AU_member = MOZ }
+	add_to_array = { global.AU_member = MRT }
+	add_to_array = { global.AU_member = NAM }
+	add_to_array = { global.AU_member = NGR }
+	add_to_array = { global.AU_member = NIG }
+	add_to_array = { global.AU_member = RWA }
+	add_to_array = { global.AU_member = SAF }
+	add_to_array = { global.AU_member = SAO }
+	add_to_array = { global.AU_member = SEN }
+	add_to_array = { global.AU_member = SEY }
+	add_to_array = { global.AU_member = SHA }
+	add_to_array = { global.AU_member = SIE }
+	add_to_array = { global.AU_member = SOM }
+	add_to_array = { global.AU_member = SSU }
+	add_to_array = { global.AU_member = SUD }
+	add_to_array = { global.AU_member = SWA }
+	add_to_array = { global.AU_member = TNZ }
+	add_to_array = { global.AU_member = TOG }
+	add_to_array = { global.AU_member = TUN }
+	add_to_array = { global.AU_member = UGA }
+	add_to_array = { global.AU_member = VER }
+	add_to_array = { global.AU_member = ZAM }
+	add_to_array = { global.AU_member = ZIM }
+
+	#ECOWAS
+	add_to_array = { global.ECOWAS_member = BEN }
+	add_to_array = { global.ECOWAS_member = BFA }
+	add_to_array = { global.ECOWAS_member = CDI }
+	add_to_array = { global.ECOWAS_member = GAH }
+	add_to_array = { global.ECOWAS_member = GAM }
+	add_to_array = { global.ECOWAS_member = GUB }
+	add_to_array = { global.ECOWAS_member = GUI }
+	add_to_array = { global.ECOWAS_member = LIB }
+	add_to_array = { global.ECOWAS_member = MAL }
+	add_to_array = { global.ECOWAS_member = NGR }
+	add_to_array = { global.ECOWAS_member = NIG }
+	add_to_array = { global.ECOWAS_member = SEN }
+	add_to_array = { global.ECOWAS_member = SIE }
+	add_to_array = { global.ECOWAS_member = TOG }
+	add_to_array = { global.ECOWAS_member = VER }
+
+	# Starting ASEAN Members
+	add_to_array = { global.ASEAN_Member = BRM }
+	add_to_array = { global.ASEAN_Member = BRU }
+	add_to_array = { global.ASEAN_Member = CBD }
+	add_to_array = { global.ASEAN_Member = IND }
+	add_to_array = { global.ASEAN_Member = LAO }
+	add_to_array = { global.ASEAN_Member = MAY }
+	add_to_array = { global.ASEAN_Member = PHI }
+	add_to_array = { global.ASEAN_Member = SIA }
+	add_to_array = { global.ASEAN_Member = SIN }
+	add_to_array = { global.ASEAN_Member = VIE }
+
+	# Saudi GCC crisis invitees
+	add_to_array = { global.SAU_gcc_crisis_QAT = BHR }
+	add_to_array = { global.SAU_gcc_crisis_QAT = CHA }
+	add_to_array = { global.SAU_gcc_crisis_QAT = COM }
+	add_to_array = { global.SAU_gcc_crisis_QAT = EGY }
+	add_to_array = { global.SAU_gcc_crisis_QAT = MLD }
+	add_to_array = { global.SAU_gcc_crisis_QAT = MAU }
+	add_to_array = { global.SAU_gcc_crisis_QAT = SEN }
+	add_to_array = { global.SAU_gcc_crisis_QAT = UAE }
+	add_to_array = { global.SAU_gcc_crisis_QAT = YEM }
+	add_to_array = { global.SAU_gcc_crisis_QAT = KUW }
+	add_to_array = { global.SAU_gcc_crisis_QAT = SAU }
+
+	add_to_array = { global.SAU_gcc_crisis_BHR = QAT }
+	add_to_array = { global.SAU_gcc_crisis_BHR = CHA }
+	add_to_array = { global.SAU_gcc_crisis_BHR = COM }
+	add_to_array = { global.SAU_gcc_crisis_BHR = EGY }
+	add_to_array = { global.SAU_gcc_crisis_BHR = MLD }
+	add_to_array = { global.SAU_gcc_crisis_BHR = MAU }
+	add_to_array = { global.SAU_gcc_crisis_BHR = SEN }
+	add_to_array = { global.SAU_gcc_crisis_BHR = UAE }
+	add_to_array = { global.SAU_gcc_crisis_BHR = YEM }
+	add_to_array = { global.SAU_gcc_crisis_BHR = KUW }
+	add_to_array = { global.SAU_gcc_crisis_BHR = SAU }
+
+	add_to_array = { global.SAU_gcc_crisis_KUW = QAT }
+	add_to_array = { global.SAU_gcc_crisis_KUW = CHA }
+	add_to_array = { global.SAU_gcc_crisis_KUW = COM }
+	add_to_array = { global.SAU_gcc_crisis_KUW = EGY }
+	add_to_array = { global.SAU_gcc_crisis_KUW = MLD }
+	add_to_array = { global.SAU_gcc_crisis_KUW = MAU }
+	add_to_array = { global.SAU_gcc_crisis_KUW = SEN }
+	add_to_array = { global.SAU_gcc_crisis_KUW = UAE }
+	add_to_array = { global.SAU_gcc_crisis_KUW = YEM }
+	add_to_array = { global.SAU_gcc_crisis_KUW = BHR }
+	add_to_array = { global.SAU_gcc_crisis_KUW = SAU }
+
+	add_to_array = { global.SAU_gcc_crisis_OMA = QAT }
+	add_to_array = { global.SAU_gcc_crisis_OMA = CHA }
+	add_to_array = { global.SAU_gcc_crisis_OMA = COM }
+	add_to_array = { global.SAU_gcc_crisis_OMA = EGY }
+	add_to_array = { global.SAU_gcc_crisis_OMA = MLD }
+	add_to_array = { global.SAU_gcc_crisis_OMA = MAU }
+	add_to_array = { global.SAU_gcc_crisis_OMA = SEN }
+	add_to_array = { global.SAU_gcc_crisis_OMA = UAE }
+	add_to_array = { global.SAU_gcc_crisis_OMA = YEM }
+	add_to_array = { global.SAU_gcc_crisis_OMA = BHR }
+	add_to_array = { global.SAU_gcc_crisis_OMA = SAU }
+
+	add_to_array = { global.SAU_gcc_crisis_SAU = QAT }
+	add_to_array = { global.SAU_gcc_crisis_SAU = CHA }
+	add_to_array = { global.SAU_gcc_crisis_SAU = COM }
+	add_to_array = { global.SAU_gcc_crisis_SAU = EGY }
+	add_to_array = { global.SAU_gcc_crisis_SAU = MLD }
+	add_to_array = { global.SAU_gcc_crisis_SAU = MAU }
+	add_to_array = { global.SAU_gcc_crisis_SAU = SEN }
+	add_to_array = { global.SAU_gcc_crisis_SAU = UAE }
+	add_to_array = { global.SAU_gcc_crisis_SAU = YEM }
+	add_to_array = { global.SAU_gcc_crisis_SAU = BHR }
+
+	add_to_array = { global.SAU_gcc_crisis_UAE = QAT }
+	add_to_array = { global.SAU_gcc_crisis_UAE = CHA }
+	add_to_array = { global.SAU_gcc_crisis_UAE = COM }
+	add_to_array = { global.SAU_gcc_crisis_UAE = EGY }
+	add_to_array = { global.SAU_gcc_crisis_UAE = MLD }
+	add_to_array = { global.SAU_gcc_crisis_UAE = MAU }
+	add_to_array = { global.SAU_gcc_crisis_UAE = SEN }
+	add_to_array = { global.SAU_gcc_crisis_UAE = SAU }
+	add_to_array = { global.SAU_gcc_crisis_UAE = YEM }
+	add_to_array = { global.SAU_gcc_crisis_UAE = BHR }
+
+	# French Africa Members
+	add_to_array = { global.french_africa_nation = MOR.id } # Morocco
+	add_to_array = { global.french_africa_nation = ALG.id } # Algeria
+	add_to_array = { global.french_africa_nation = TUN.id } # Tunisia
+	add_to_array = { global.french_africa_nation = DJI.id } # Djibouti
+	add_to_array = { global.french_africa_nation = MAD.id } # Madagascar
+	add_to_array = { global.french_africa_nation = CDI.id } # Ivory Coast
+	add_to_array = { global.french_africa_nation = BEN.id } # Benin
+	add_to_array = { global.french_africa_nation = TOG.id } # Togo
+	add_to_array = { global.french_africa_nation = SEN.id } # Senegal
+	add_to_array = { global.french_africa_nation = NGR.id } # Niger
+	add_to_array = { global.french_africa_nation = MAL.id } # Mali
+	add_to_array = { global.french_africa_nation = BFA.id } # Burkino Faso
+	add_to_array = { global.french_africa_nation = CAM.id } # Cameroon
+	add_to_array = { global.french_africa_nation = CAR.id } # Central African Republic
+	add_to_array = { global.french_africa_nation = CHA.id } # Chad
+	add_to_array = { global.french_africa_nation = CNG.id } # Congo
+	add_to_array = { global.french_africa_nation = COM.id } # Comoros
+	add_to_array = { global.french_africa_nation = SEY.id } # Seychelles
+	add_to_array = { global.french_africa_nation = MAU.id } # Mauritania
+	add_to_array = { global.french_africa_nation = GUB.id } # Guinea-Bissau
+	add_to_array = { global.french_africa_nation = GAB.id } # Gabon
+
+	# Potential BRICS Members
+	add_to_array = { global.BRICS_potential = RAJ } # India
+	add_to_array = { global.BRICS_potential = BRA } # Brazil
+	add_to_array = { global.BRICS_potential = SOV } # Russia
+	add_to_array = { global.BRICS_potential = CHI } # China
+	add_to_array = { global.BRICS_potential = SAF } # South Africa
+	add_to_array = { global.BRICS_potential = EGY } # Egypt
+	add_to_array = { global.BRICS_potential = ETH } # Ethiopia
+	add_to_array = { global.BRICS_potential = SAU } # Saudi Arabia
+	add_to_array = { global.BRICS_potential = UAE } # UAE
+	add_to_array = { global.BRICS_potential = ARG } # Argentina
+	add_to_array = { global.BRICS_potential = IND } # Indonesia
+	add_to_array = { global.BRICS_potential = KAZ } # Kazakhstan
+	add_to_array = { global.BRICS_potential = TUR } # Turkey
+	add_to_array = { global.BRICS_potential = BLR } # Belarus
+	add_to_array = { global.BRICS_potential = UZB } # Uzbekistan
+	add_to_array = { global.BRICS_potential = TAJ } # Tajikistan
+	add_to_array = { global.BRICS_potential = TRK } # Turkmenistan
+	add_to_array = { global.BRICS_potential = CUB } # Cuba
+	add_to_array = { global.BRICS_potential = ALG } # Algeria
+	add_to_array = { global.BRICS_potential = SWE } # Sweden
+	add_to_array = { global.BRICS_potential = VEN } # Venezuela
+	add_to_array = { global.BRICS_potential = DEN } # Denmark
+	add_to_array = { global.BRICS_potential = SIN } # Singapore
+
+	# BRI eligible countries: recipients that can receive Belt and Road projects
+	add_to_array = { global.bri_eligible_countries = AFG }
+	add_to_array = { global.bri_eligible_countries = AGL }
+	add_to_array = { global.bri_eligible_countries = ALB }
+	add_to_array = { global.bri_eligible_countries = ALG }
+	add_to_array = { global.bri_eligible_countries = ANT }
+	add_to_array = { global.bri_eligible_countries = ARG }
+	add_to_array = { global.bri_eligible_countries = ARM }
+	add_to_array = { global.bri_eligible_countries = AUS }
+	add_to_array = { global.bri_eligible_countries = AZE }
+	add_to_array = { global.bri_eligible_countries = BAN }
+	add_to_array = { global.bri_eligible_countries = BAR }
+	add_to_array = { global.bri_eligible_countries = BEN }
+	add_to_array = { global.bri_eligible_countries = BHR }
+	add_to_array = { global.bri_eligible_countries = BLR }
+	add_to_array = { global.bri_eligible_countries = BOL }
+	add_to_array = { global.bri_eligible_countries = BOS }
+	add_to_array = { global.bri_eligible_countries = BOT }
+	add_to_array = { global.bri_eligible_countries = BRM }
+	add_to_array = { global.bri_eligible_countries = BRU }
+	add_to_array = { global.bri_eligible_countries = BUL }
+	add_to_array = { global.bri_eligible_countries = BUR }
+	add_to_array = { global.bri_eligible_countries = CAM }
+	add_to_array = { global.bri_eligible_countries = CAR }
+	add_to_array = { global.bri_eligible_countries = CBD }
+	add_to_array = { global.bri_eligible_countries = CDI }
+	add_to_array = { global.bri_eligible_countries = CHA }
+	add_to_array = { global.bri_eligible_countries = CHL }
+	add_to_array = { global.bri_eligible_countries = CNG }
+	add_to_array = { global.bri_eligible_countries = COL }
+	add_to_array = { global.bri_eligible_countries = COM }
+	add_to_array = { global.bri_eligible_countries = COS }
+	add_to_array = { global.bri_eligible_countries = CRO }
+	add_to_array = { global.bri_eligible_countries = CUB }
+	add_to_array = { global.bri_eligible_countries = CYP }
+	add_to_array = { global.bri_eligible_countries = CZE }
+	add_to_array = { global.bri_eligible_countries = DJI }
+	add_to_array = { global.bri_eligible_countries = DOM }
+	add_to_array = { global.bri_eligible_countries = DRC }
+	add_to_array = { global.bri_eligible_countries = ECU }
+	add_to_array = { global.bri_eligible_countries = EGU }
+	add_to_array = { global.bri_eligible_countries = EGY }
+	add_to_array = { global.bri_eligible_countries = ELS }
+	add_to_array = { global.bri_eligible_countries = ERI }
+	add_to_array = { global.bri_eligible_countries = EST }
+	add_to_array = { global.bri_eligible_countries = ETH }
+	add_to_array = { global.bri_eligible_countries = FIJ }
+	add_to_array = { global.bri_eligible_countries = FYR }
+	add_to_array = { global.bri_eligible_countries = GAB }
+	add_to_array = { global.bri_eligible_countries = GAH }
+	add_to_array = { global.bri_eligible_countries = GAM }
+	add_to_array = { global.bri_eligible_countries = GEO }
+	add_to_array = { global.bri_eligible_countries = GRA }
+	add_to_array = { global.bri_eligible_countries = GRE }
+	add_to_array = { global.bri_eligible_countries = GUB }
+	add_to_array = { global.bri_eligible_countries = GUI }
+	add_to_array = { global.bri_eligible_countries = GUY }
+	add_to_array = { global.bri_eligible_countries = HON }
+	add_to_array = { global.bri_eligible_countries = HUN }
+	add_to_array = { global.bri_eligible_countries = IND }
+	add_to_array = { global.bri_eligible_countries = IRQ }
+	add_to_array = { global.bri_eligible_countries = ITA }
+	add_to_array = { global.bri_eligible_countries = JAM }
+	add_to_array = { global.bri_eligible_countries = JOR }
+	add_to_array = { global.bri_eligible_countries = KAZ }
+	add_to_array = { global.bri_eligible_countries = KEN }
+	add_to_array = { global.bri_eligible_countries = KIR }
+	add_to_array = { global.bri_eligible_countries = KOR }
+	add_to_array = { global.bri_eligible_countries = KUW }
+	add_to_array = { global.bri_eligible_countries = KYR }
+	add_to_array = { global.bri_eligible_countries = LAO }
+	add_to_array = { global.bri_eligible_countries = LAT }
+	add_to_array = { global.bri_eligible_countries = LBA }
+	add_to_array = { global.bri_eligible_countries = LEB }
+	add_to_array = { global.bri_eligible_countries = LES }
+	add_to_array = { global.bri_eligible_countries = LIB }
+	add_to_array = { global.bri_eligible_countries = LIT }
+	add_to_array = { global.bri_eligible_countries = LUX }
+	add_to_array = { global.bri_eligible_countries = MAD }
+	add_to_array = { global.bri_eligible_countries = MAL }
+	add_to_array = { global.bri_eligible_countries = MAU }
+	add_to_array = { global.bri_eligible_countries = MAY }
+	add_to_array = { global.bri_eligible_countries = MIC }
+	add_to_array = { global.bri_eligible_countries = MLD }
+	add_to_array = { global.bri_eligible_countries = MLT }
+	add_to_array = { global.bri_eligible_countries = MLV }
+	add_to_array = { global.bri_eligible_countries = MLW }
+	add_to_array = { global.bri_eligible_countries = MNT }
+	add_to_array = { global.bri_eligible_countries = MON }
+	add_to_array = { global.bri_eligible_countries = MOR }
+	add_to_array = { global.bri_eligible_countries = MOZ }
+	add_to_array = { global.bri_eligible_countries = NAM }
+	add_to_array = { global.bri_eligible_countries = NEP }
+	add_to_array = { global.bri_eligible_countries = NGR }
+	add_to_array = { global.bri_eligible_countries = NIC }
+	add_to_array = { global.bri_eligible_countries = NIG }
+	add_to_array = { global.bri_eligible_countries = NZL }
+	add_to_array = { global.bri_eligible_countries = OMA }
+	add_to_array = { global.bri_eligible_countries = PAK }
+	add_to_array = { global.bri_eligible_countries = PAP }
+	add_to_array = { global.bri_eligible_countries = PER }
+	add_to_array = { global.bri_eligible_countries = PHI }
+	add_to_array = { global.bri_eligible_countries = POL }
+	add_to_array = { global.bri_eligible_countries = POR }
+	add_to_array = { global.bri_eligible_countries = PRU }
+	add_to_array = { global.bri_eligible_countries = QAT }
+	add_to_array = { global.bri_eligible_countries = ROM }
+	add_to_array = { global.bri_eligible_countries = RWA }
+	add_to_array = { global.bri_eligible_countries = SAF }
+	add_to_array = { global.bri_eligible_countries = SAM }
+	add_to_array = { global.bri_eligible_countries = SAU }
+	add_to_array = { global.bri_eligible_countries = SEN }
+	add_to_array = { global.bri_eligible_countries = SER }
+	add_to_array = { global.bri_eligible_countries = SEY }
+	add_to_array = { global.bri_eligible_countries = SIA }
+	add_to_array = { global.bri_eligible_countries = SIE }
+	add_to_array = { global.bri_eligible_countries = SIN }
+	add_to_array = { global.bri_eligible_countries = SLO }
+	add_to_array = { global.bri_eligible_countries = SLV }
+	add_to_array = { global.bri_eligible_countries = SOL }
+	add_to_array = { global.bri_eligible_countries = SOM }
+	add_to_array = { global.bri_eligible_countries = SOV }
+	add_to_array = { global.bri_eligible_countries = SRI }
+	add_to_array = { global.bri_eligible_countries = SSU }
+	add_to_array = { global.bri_eligible_countries = SUD }
+	add_to_array = { global.bri_eligible_countries = SUR }
+	add_to_array = { global.bri_eligible_countries = SYR }
+	add_to_array = { global.bri_eligible_countries = TAJ }
+	add_to_array = { global.bri_eligible_countries = TIM }
+	add_to_array = { global.bri_eligible_countries = TNZ }
+	add_to_array = { global.bri_eligible_countries = TOG }
+	add_to_array = { global.bri_eligible_countries = TON }
+	add_to_array = { global.bri_eligible_countries = TRI }
+	add_to_array = { global.bri_eligible_countries = TRK }
+	add_to_array = { global.bri_eligible_countries = TUN }
+	add_to_array = { global.bri_eligible_countries = TUR }
+	add_to_array = { global.bri_eligible_countries = UAE }
+	add_to_array = { global.bri_eligible_countries = UGA }
+	add_to_array = { global.bri_eligible_countries = UKR }
+	add_to_array = { global.bri_eligible_countries = URG }
+	add_to_array = { global.bri_eligible_countries = UZB }
+	add_to_array = { global.bri_eligible_countries = VAN }
+	add_to_array = { global.bri_eligible_countries = VEN }
+	add_to_array = { global.bri_eligible_countries = VER }
+	add_to_array = { global.bri_eligible_countries = VIE }
+	add_to_array = { global.bri_eligible_countries = YEM }
+	add_to_array = { global.bri_eligible_countries = ZAM }
+	add_to_array = { global.bri_eligible_countries = ZIM }
+
+	# Potential MERCOSUR Members
+	add_to_array = { global.mercosur_potential = BRA } # Brazil
+	add_to_array = { global.mercosur_potential = ARG } # Argentina
+	add_to_array = { global.mercosur_potential = PAR } # Paraguay
+	add_to_array = { global.mercosur_potential = URG } # Uruguay
+	add_to_array = { global.mercosur_potential = BOL } # Bolivia
+	add_to_array = { global.mercosur_potential = CHL } # Chile
+	add_to_array = { global.mercosur_potential = COL } # Colombia
+	add_to_array = { global.mercosur_potential = ECU } # Ecuador
+	add_to_array = { global.mercosur_potential = GUY } # Guyana
+	add_to_array = { global.mercosur_potential = PRU } # Peru
+	add_to_array = { global.mercosur_potential = SUR } # Suriname
+	add_to_array = { global.mercosur_potential = VEN } # Venezuela
+	add_to_array = { global.mercosur_potential = MEX } # Mexico
+	add_to_array = { global.mercosur_potential = PAN } # Panama
+
+	# Possible NATO members, mirrors the NATO_possible_countries scripted trigger
+	every_country = {
+		limit = { NATO_possible_countries = yes }
+		add_to_array = { global.NATO_possible_countries = THIS }
+	}
+
+	# Starting GLobal GDP Values
+	set_variable = { GLOBAL.gdp_slot^1 = 0 }
+	set_variable = { GLOBAL.gdp_slot^2 = 500 }
+	set_variable = { GLOBAL.gdp_slot^3 = 1000 }
+	set_variable = { GLOBAL.gdp_slot^4 = 2000 }
+	set_variable = { GLOBAL.gdp_slot^5 = 4000 }
+	set_variable = { GLOBAL.gdp_slot^6 = 10000 }
+	set_variable = { GLOBAL.gdp_slot^7 = 15000 }
+	set_variable = { GLOBAL.gdp_slot^8 = 20000 }
+	set_variable = { GLOBAL.gdp_slot^9 = 30000 }
+
+	set_variable = { GLOBAL.gdp_c_slot^1 = 0.000 }
+	set_variable = { GLOBAL.gdp_c_slot^2 = 10.000 }
+	set_variable = { GLOBAL.gdp_c_slot^3 = 20.000 }
+	set_variable = { GLOBAL.gdp_c_slot^4 = 30.000 }
+	set_variable = { GLOBAL.gdp_c_slot^5 = 50.000 }
+	set_variable = { GLOBAL.gdp_c_slot^6 = 60.000 }
+
+	# MIO Unlock Catalog — master token array. Index 0 is a reserved, never-read slot so the real
+	# entries sit at indices 1..23, matching the 1-based `v` every dispatcher uses (scripted_loc,
+	# unlock cascade, and the `^v` meta substitutions). HOI4 add_to_array is 0-based; do not remove
+	# the reserved slot. Order is load-bearing: adding a MIO = append a token here + new branches downstream.
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_krepost_state_defense_bureau } # index 0 — reserved, unread
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_krepost_state_defense_bureau }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_north_plains_heavy_industries }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_sentinel_grid_networks }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_brunn_heavy_engineering_werke }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_reichswerke_konstrukt_dynamik }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_vector_defense_labs }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_marshall_tractor_works }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_vanderlind_hartwell_systems }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_mil_kamov_rotorworks }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_helitech_avionique }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_aurora_aerodynamics_corporation }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_societe_europeenne_daerostructures }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_southwestern_aerospace_dynamics_bureau }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_skyforge_autonomous_systems }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_compagnie_aeronatique_darmement }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_whitehall_strategic_solutions }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_triton_maritime_defense_group }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_eastern_maritime_shipbuilding_group }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_sevmorprom_submarine_yards }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_halland_civic_engineering_group }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_second_academy_missile_bureau }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_western_orbital_systems_bureau }
+	add_to_array = { global.mio_catalog_all_tokens = token:GENERIC_central_heavy_atomics_power }
+
+	update_mio_catalog_dirty_variable = yes
+}

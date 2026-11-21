@@ -1,0 +1,1915 @@
+# Written by HansNery
+# Rewritten and improved byBird on 03/30/2021
+#INDEX:
+# Economic Boom - Level 6
+# Fast Growth - Level 5
+# Stable Growth - Level 4
+# Stagnation - Level 3
+# Recession - Level 2
+# Depression - Level 1
+
+# Increase Economic Growth - Rewritten
+increase_economic_growth = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = depression }
+		swap_ideas = { remove_idea = depression add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = economic_boom }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		add_political_power = 100 #if desired economic level is reached before PP is rewarded instead
+		add_stability = 0.05
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Decrease Economic Growth
+decrease_economic_growth = {
+	set_country_flag = disable_cycle_costs
+	if = { limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = fast_growth }
+	}
+	else_if = { limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = stable_growth }
+	}
+	else_if = { limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = stagnation }
+	}
+	else_if = { limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = recession }
+	}
+	else_if = { limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = depression }
+	}
+	else_if = { limit = { has_idea = depression }
+		add_political_power = -100
+		add_stability = -0.05
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+decrease_two_level_economic_growth = {
+	set_country_flag = disable_cycle_costs
+	if = { limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = stable_growth }
+	}
+	else_if = { limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = stagnation }
+	}
+	else_if = { limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = recession }
+	}
+	else_if = { limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = depression }
+	}
+	else_if = { limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = depression }
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+#Bureau Adjustment - Decrease Bureau Law
+decrease_centralization = {
+	if = {
+		limit = { has_idea = bureau_05 }
+		swap_ideas = { remove_idea = bureau_05 add_idea = bureau_04 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_03 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_02 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		swap_ideas = { remove_idea = bureau_02 add_idea = bureau_01 }
+	}
+}
+decrease_centralization_2 = {
+	if = {
+		limit = { has_idea = bureau_05 }
+		swap_ideas = { remove_idea = bureau_05 add_idea = bureau_03 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_02 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_01 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = bureau_01 }
+		add_political_power = 150
+	}
+}
+#Increases Bureau Law
+increase_centralization = {
+	if = {
+		limit = { has_idea = bureau_01 }
+		swap_ideas = { remove_idea = bureau_01 add_idea = bureau_02 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		swap_ideas = { remove_idea = bureau_02 add_idea = bureau_03 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_04 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_05 }
+	}
+}
+
+increase_centralization_2 = {
+	if = {
+		limit = { has_idea = bureau_01 }
+		swap_ideas = { remove_idea = bureau_01 add_idea = bureau_03 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		swap_ideas = { remove_idea = bureau_02 add_idea = bureau_04 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_05 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_05 }
+		add_political_power = 75
+	}
+}
+
+increase_centralization_3 = {
+	if = {
+		limit = { has_idea = bureau_01 }
+		swap_ideas = { remove_idea = bureau_01 add_idea = bureau_04 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		swap_ideas = { remove_idea = bureau_02 add_idea = bureau_05 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_05 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_05 }
+		add_political_power = 150
+	}
+}
+
+increase_centralization_4 = {
+	if = {
+		limit = { has_idea = bureau_01 }
+		swap_ideas = { remove_idea = bureau_01 add_idea = bureau_05 }
+	}
+	else_if = {
+		limit = { has_idea = bureau_02 }
+		swap_ideas = { remove_idea = bureau_02 add_idea = bureau_05 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = bureau_03 }
+		swap_ideas = { remove_idea = bureau_03 add_idea = bureau_05 }
+		add_political_power = 150
+	}
+	else_if = {
+		limit = { has_idea = bureau_04 }
+		swap_ideas = { remove_idea = bureau_04 add_idea = bureau_05 }
+		add_political_power = 225
+	}
+}
+
+
+# Increase Social Spending
+increase_social_spending = {
+	if = {
+		limit = { has_idea = social_01 }
+		swap_ideas = { remove_idea = social_01 add_idea = social_02 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_03 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_04 }
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_05 }
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_06 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_social_spending_2 = {
+	if = {
+		limit = { has_idea = social_01 }
+		swap_ideas = { remove_idea = social_01 add_idea = social_03 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_04 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_05 }
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_06 }
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_06 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_social_spending_3 = {
+	if = {
+		limit = { has_idea = social_01 }
+		swap_ideas = { remove_idea = social_01 add_idea = social_04 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_05 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_06 }
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_06 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_06 }
+		add_political_power = 150
+	}
+	else = {
+		add_political_power = 225
+	}
+}
+
+increase_social_spending_4 = {
+	if = {
+		limit = { has_idea = social_01 }
+		swap_ideas = { remove_idea = social_01 add_idea = social_05 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_06 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_06 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_06 }
+		add_political_power = 150
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_06 }
+		add_political_power = 225
+	}
+	else = {
+		add_political_power = 300
+	}
+}
+
+# Decrease Social Spending
+decrease_social_spending = {
+	if = {
+		limit = { has_idea = social_06 }
+		swap_ideas = { remove_idea = social_06 add_idea = social_05 }
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_04 }
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_03 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_02 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_01 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+decrease_social_spending_2 = {
+	if = {
+		limit = { has_idea = social_06 }
+		swap_ideas = { remove_idea = social_06 add_idea = social_04 }
+	}
+	else_if = {
+		limit = { has_idea = social_05 }
+		swap_ideas = { remove_idea = social_05 add_idea = social_03 }
+	}
+	else_if = {
+		limit = { has_idea = social_04 }
+		swap_ideas = { remove_idea = social_04 add_idea = social_02 }
+	}
+	else_if = {
+		limit = { has_idea = social_03 }
+		swap_ideas = { remove_idea = social_03 add_idea = social_01 }
+	}
+	else_if = {
+		limit = { has_idea = social_02 }
+		swap_ideas = { remove_idea = social_02 add_idea = social_01 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+# Increase Education Budget
+increase_education_budget = {
+	if = {
+		limit = { has_idea = edu_01 }
+		swap_ideas = { remove_idea = edu_01 add_idea = edu_02 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_03 }
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_04 }
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_05 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_education_budget_2 = {
+	if = {
+		limit = { has_idea = edu_01 }
+		swap_ideas = { remove_idea = edu_01 add_idea = edu_03 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_04 }
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_05 }
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_05 }
+		add_political_power = 75
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_education_budget_3 = {
+	if = {
+		limit = { has_idea = edu_01 }
+		swap_ideas = { remove_idea = edu_01 add_idea = edu_04 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_05 }
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_05 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_05 }
+		add_political_power = 150
+	}
+	else = {
+		add_political_power = 225
+	}
+}
+
+increase_education_budget_4 = {
+	if = {
+		limit = { has_idea = edu_01 }
+		swap_ideas = { remove_idea = edu_01 add_idea = edu_05 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_05 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_05 }
+		add_political_power = 150
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_05 }
+		add_political_power = 225
+	}
+	else = {
+		add_political_power = 300
+	}
+}
+
+# Decrease Education Budget
+decrease_education_budget = {
+	if = {
+		limit = { has_idea = edu_05 }
+		swap_ideas = { remove_idea = edu_05 add_idea = edu_04 }
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_03 }
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_02 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_01 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+decrease_education_budget_2 = {
+	if = {
+		limit = { has_idea = edu_05 }
+		swap_ideas = { remove_idea = edu_05 add_idea = edu_03 }
+	}
+	else_if = {
+		limit = { has_idea = edu_04 }
+		swap_ideas = { remove_idea = edu_04 add_idea = edu_02 }
+	}
+	else_if = {
+		limit = { has_idea = edu_03 }
+		swap_ideas = { remove_idea = edu_03 add_idea = edu_01 }
+	}
+	else_if = {
+		limit = { has_idea = edu_02 }
+		swap_ideas = { remove_idea = edu_02 add_idea = edu_01 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+# Increase Healthcare Budget
+increase_healthcare_budget = {
+	if = {
+		limit = { has_idea = health_01 }
+		swap_ideas = { remove_idea = health_01 add_idea = health_02 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_03 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_04 }
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_05 }
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_06 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_healthcare_budget_2 = {
+	if = {
+		limit = { has_idea = health_01 }
+		swap_ideas = { remove_idea = health_01 add_idea = health_03 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_04 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_05 }
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_06 }
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_06 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+increase_healthcare_budget_3 = {
+	if = {
+		limit = { has_idea = health_01 }
+		swap_ideas = { remove_idea = health_01 add_idea = health_04 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_05 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_06 }
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_06 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_06 }
+		add_political_power = 150
+	}
+	else = {
+		add_political_power = 225
+	}
+}
+
+increase_healthcare_budget_4 = {
+	if = {
+		limit = { has_idea = health_01 }
+		swap_ideas = { remove_idea = health_01 add_idea = health_05 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_06 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_06 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_06 }
+		add_political_power = 150
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_06 }
+		add_political_power = 225
+	}
+	else = {
+		add_political_power = 300
+	}
+}
+
+# Decrease Healthcare Budget
+decrease_healthcare_budget = {
+	if = {
+		limit = { has_idea = health_06 }
+		swap_ideas = { remove_idea = health_06 add_idea = health_05 }
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_04 }
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_03 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_02 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_01 }
+	}
+	else = {
+		add_political_power = 150
+	}
+}
+
+decrease_healthcare_budget_2 = {
+	if = {
+		limit = { has_idea = health_06 }
+		swap_ideas = { remove_idea = health_06 add_idea = health_04 }
+	}
+	else_if = {
+		limit = { has_idea = health_05 }
+		swap_ideas = { remove_idea = health_05 add_idea = health_03 }
+	}
+	else_if = {
+		limit = { has_idea = health_04 }
+		swap_ideas = { remove_idea = health_04 add_idea = health_02 }
+	}
+	else_if = {
+		limit = { has_idea = health_03 }
+		swap_ideas = { remove_idea = health_03 add_idea = health_01 }
+	}
+	else_if = {
+		limit = { has_idea = health_02 }
+		swap_ideas = { remove_idea = health_02 add_idea = health_01 }
+	}
+}
+
+# Increase Corruption
+increase_corruption = {
+	if = {
+		limit = { has_idea = corruption_level_01 }
+		swap_ideas = { remove_idea = corruption_level_01 add_idea = corruption_level_02 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_02 }
+		swap_ideas = { remove_idea = corruption_level_02 add_idea = corruption_level_03 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_03 }
+		swap_ideas = { remove_idea = corruption_level_03 add_idea = corruption_level_04 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_04 }
+		swap_ideas = { remove_idea = corruption_level_04 add_idea = corruption_level_05 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_05 }
+		swap_ideas = { remove_idea = corruption_level_05 add_idea = corruption_level_06 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_06 }
+		swap_ideas = { remove_idea = corruption_level_06 add_idea = corruption_level_07 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_07 }
+		swap_ideas = { remove_idea = corruption_level_07 add_idea = corruption_level_08 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_08 }
+		swap_ideas = { remove_idea = corruption_level_08 add_idea = corruption_level_09 }
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_09 }
+		swap_ideas = { remove_idea = corruption_level_09 add_idea = corruption_level_10 }
+	}
+}
+decrease_corruption2 = {
+	if = {
+		limit = { has_idea = corruption_level_10 }
+		swap_ideas = {
+			remove_idea = corruption_level_10
+			add_idea = corruption_level_08
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_09 }
+		swap_ideas = {
+			remove_idea = corruption_level_09
+			add_idea = corruption_level_07
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_08 }
+		swap_ideas = {
+			remove_idea = corruption_level_08
+			add_idea = corruption_level_06
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_07 }
+		swap_ideas = {
+			remove_idea = corruption_level_07
+			add_idea = corruption_level_05
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_06 }
+		swap_ideas = {
+			remove_idea = corruption_level_06
+			add_idea = corruption_level_04
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_05 }
+		swap_ideas = {
+			remove_idea = corruption_level_05
+			add_idea = corruption_level_03
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_04 }
+		swap_ideas = {
+			remove_idea = corruption_level_04
+			add_idea = corruption_level_02
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_03 }
+		swap_ideas = {
+			remove_idea = corruption_level_03
+			add_idea = corruption_level_01
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_02 }
+		swap_ideas = {
+			remove_idea = corruption_level_02
+			add_idea = corruption_level_01
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_01 }
+		add_political_power = 150
+	}
+}
+
+decrease_corruption = {
+	if = {
+		limit = { has_idea = corruption_level_10 }
+		swap_ideas = {
+			remove_idea = corruption_level_10
+			add_idea = corruption_level_09
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_09 }
+		swap_ideas = {
+			remove_idea = corruption_level_09
+			add_idea = corruption_level_08
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_08 }
+		swap_ideas = {
+			remove_idea = corruption_level_08
+			add_idea = corruption_level_07
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_07 }
+		swap_ideas = {
+			remove_idea = corruption_level_07
+			add_idea = corruption_level_06
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_06 }
+		swap_ideas = {
+			remove_idea = corruption_level_06
+			add_idea = corruption_level_05
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_05 }
+		swap_ideas = {
+			remove_idea = corruption_level_05
+			add_idea = corruption_level_04
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_04 }
+		swap_ideas = {
+			remove_idea = corruption_level_04
+			add_idea = corruption_level_03
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_03 }
+		swap_ideas = {
+			remove_idea = corruption_level_03
+			add_idea = corruption_level_02
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_02 }
+		swap_ideas = {
+			remove_idea = corruption_level_02
+			add_idea = corruption_level_01
+		}
+	}
+	else_if = {
+		limit = { has_idea = corruption_level_01 }
+		add_political_power = 150
+	}
+}
+
+increase_corruption_chance = {
+	custom_effect_tooltip = random_chance_corruption_TT
+	hidden_effect = {
+		random = {
+			chance = 5
+			increase_corruption = yes
+		}
+	}
+}
+
+# Increase Military Spending
+increase_military_spending = {
+	if = {
+		limit = { has_idea = defence_00 }
+		swap_ideas = { remove_idea = defence_00 add_idea = defence_01 }
+	}
+	else_if = {
+		limit = { has_idea = defence_01 }
+		swap_ideas = { remove_idea = defence_01 add_idea = defence_02 }
+	}
+	else_if = {
+		limit = { has_idea = defence_02 }
+		swap_ideas = { remove_idea = defence_02 add_idea = defence_03 }
+	}
+	else_if = {
+		limit = { has_idea = defence_03 }
+		swap_ideas = { remove_idea = defence_03 add_idea = defence_04 }
+	}
+	else_if = {
+		limit = { has_idea = defence_04 }
+		swap_ideas = { remove_idea = defence_04 add_idea = defence_05 }
+	}
+	else_if = {
+		limit = { has_idea = defence_05 }
+		swap_ideas = { remove_idea = defence_05 add_idea = defence_06 }
+	}
+	if = {
+		limit = {
+			has_war = no
+			# Fascists and Caliph can go higher
+			nationalist_fascist_are_in_power = no
+			salafist_caliphate_are_in_power = no
+			OR = {
+				has_idea = defence_09
+				has_idea = defence_08
+				has_idea = defence_07
+				has_idea = defence_06
+			}
+		}
+		add_political_power = 150
+	}
+	else = {
+		if = {
+			limit = { has_idea = defence_06 }
+			swap_ideas = { remove_idea = defence_06 add_idea = defence_07 }
+		}
+		else_if = {
+			limit = { has_idea = defence_07 }
+			swap_ideas = { remove_idea = defence_07 add_idea = defence_08 }
+		}
+		else_if = {
+			limit = { has_idea = defence_08 }
+			swap_ideas = { remove_idea = defence_08 add_idea = defence_09 }
+		}
+		else_if = {
+			limit = { has_idea = defence_09 }
+			add_political_power = 150	#If country has maximum level it earns political power instead.
+		}
+	}
+}
+
+# Decrease Military Spending
+decrease_military_spending = {
+	if = {
+		limit = { has_idea = defence_09 }
+		swap_ideas = { remove_idea = defence_09 add_idea = defence_08 }
+	}
+	else_if = {
+		limit = { has_idea = defence_08 }
+		swap_ideas = { remove_idea = defence_08 add_idea = defence_07 }
+	}
+	else_if = {
+		limit = { has_idea = defence_07 }
+		swap_ideas = { remove_idea = defence_07 add_idea = defence_06 }
+	}
+	else_if = {
+		limit = { has_idea = defence_06 }
+		swap_ideas = { remove_idea = defence_06 add_idea = defence_05 }
+	}
+	else_if = {
+		limit = { has_idea = defence_05 }
+		swap_ideas = { remove_idea = defence_05 add_idea = defence_04 }
+	}
+	else_if = {
+		limit = { has_idea = defence_04 }
+		swap_ideas = { remove_idea = defence_04 add_idea = defence_03 }
+	}
+	else_if = {
+		limit = { has_idea = defence_03 }
+		swap_ideas = { remove_idea = defence_03 add_idea = defence_02 }
+	}
+	else_if = {
+		limit = { has_idea = defence_02 }
+		swap_ideas = { remove_idea = defence_02 add_idea = defence_01 }
+	}
+	else_if = {
+		limit = { has_idea = defence_01 }
+		add_political_power = 150	#If country has maximum level it earns political power instead.
+	}
+}
+decrease_military_spending_2 = {
+	if = {
+		limit = { has_idea = defence_09 }
+		swap_ideas = { remove_idea = defence_09 add_idea = defence_07 }
+	}
+	else_if = {
+		limit = { has_idea = defence_08 }
+		swap_ideas = { remove_idea = defence_08 add_idea = defence_06 }
+	}
+	else_if = {
+		limit = { has_idea = defence_07 }
+		swap_ideas = { remove_idea = defence_07 add_idea = defence_05 }
+	}
+	else_if = {
+		limit = { has_idea = defence_06 }
+		swap_ideas = { remove_idea = defence_06 add_idea = defence_04 }
+	}
+	else_if = {
+		limit = { has_idea = defence_05 }
+		swap_ideas = { remove_idea = defence_05 add_idea = defence_03 }
+	}
+	else_if = {
+		limit = { has_idea = defence_04 }
+		swap_ideas = { remove_idea = defence_04 add_idea = defence_02 }
+	}
+	else_if = {
+		limit = { has_idea = defence_03 }
+		swap_ideas = { remove_idea = defence_03 add_idea = defence_01 }
+	}
+	else_if = {
+		limit = { has_idea = defence_02 }
+		swap_ideas = { remove_idea = defence_02 add_idea = defence_01 }
+		add_political_power = 75	#If country has maximum level it earns political power instead.
+	}
+	else_if = {
+		limit = { has_idea = defence_01 }
+		add_political_power = 150	#If country has maximum level it earns political power instead.
+	}
+}
+
+#Increase Policing
+increase_policing_budget = {
+	if = {
+		limit = { has_idea = police_01 }
+		swap_ideas = { remove_idea = police_01 add_idea = police_02 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		swap_ideas = { remove_idea = police_02 add_idea = police_03 }
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_04 }
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_05 }
+	}
+	else_if = {
+		limit = { has_idea = police_05 }
+		add_political_power = 100
+	}
+}
+increase_policing_budget_2 = {
+	if = {
+		limit = { has_idea = police_01 }
+		swap_ideas = { remove_idea = police_01 add_idea = police_03 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		swap_ideas = { remove_idea = police_02 add_idea = police_04 }
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_05 }
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_05 }
+		add_political_power = 50
+	}
+	else_if = {
+		limit = { has_idea = police_05 }
+		add_political_power = 100
+	}
+}
+
+increase_policing_budget_3 = {
+	if = {
+		limit = { has_idea = police_01 }
+		swap_ideas = { remove_idea = police_01 add_idea = police_04 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		swap_ideas = { remove_idea = police_02 add_idea = police_05 }
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_05 }
+		add_political_power = 50
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_05 }
+		add_political_power = 100
+	}
+	else_if = {
+		limit = { has_idea = police_05 }
+		add_political_power = 150
+	}
+}
+
+increase_policing_budget_4 = {
+	if = {
+		limit = { has_idea = police_01 }
+		swap_ideas = { remove_idea = police_01 add_idea = police_05 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		swap_ideas = { remove_idea = police_02 add_idea = police_05 }
+		add_political_power = 50
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_05 }
+		add_political_power = 100
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_05 }
+		add_political_power = 150
+	}
+	else_if = {
+		limit = { has_idea = police_05 }
+		add_political_power = 200
+	}
+}
+
+decrease_policing_budget = {
+	if = {
+		limit = { has_idea = police_05 }
+		swap_ideas = { remove_idea = police_05 add_idea = police_04 }
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_03 }
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_02 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		swap_ideas = { remove_idea = police_02 add_idea = police_01 }
+	}
+	else_if = {
+		limit = { has_idea = police_01 }
+		add_political_power = 150
+	}
+}
+
+decrease_policing_budget_2 = {
+	if = {
+		limit = { has_idea = police_05 }
+		swap_ideas = { remove_idea = police_05 add_idea = police_03 }
+	}
+	else_if = {
+		limit = { has_idea = police_04 }
+		swap_ideas = { remove_idea = police_04 add_idea = police_02 }
+	}
+	else_if = {
+		limit = { has_idea = police_03 }
+		swap_ideas = { remove_idea = police_03 add_idea = police_01 }
+	}
+	else_if = {
+		limit = { has_idea = police_02 }
+		add_political_power = 75
+	}
+	else_if = {
+		limit = { has_idea = police_01 }
+		add_political_power = 150
+	}
+}
+
+
+# Set Economic Growth to Depression
+depression = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = depression }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = depression }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = depression }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = depression }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = depression }
+	}
+	else_if = {
+		limit = { has_idea = depression }
+		add_political_power = -150	#If country has maximum level it loses political power instead.
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Set Economic Growth to Recession
+recession = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = depression }
+		swap_ideas = { remove_idea = depression add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = recession }
+	}
+	else_if = {
+		limit = { has_idea = recession }
+		add_political_power = -150	#If country has maximum level it loses political power instead.
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Set Economic Growth to Stagnation
+stagnation = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = depression }
+		swap_ideas = { remove_idea = depression add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = stagnation }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		add_political_power = -150	#If country has maximum level it loses political power instead.
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Set Economic Growth to Stable Growth
+stable_growth = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = depression }
+		swap_ideas = { remove_idea = depression add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		swap_ideas = { remove_idea = fast_growth add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = stable_growth }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		add_political_power = 150	#If country has maximum level it earns political power instead.
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Set Economic Growth to Fast Growth
+fast_growth = {
+	set_country_flag = disable_cycle_costs
+	if = {
+		limit = { has_idea = depression }
+		swap_ideas = { remove_idea = depression add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = recession }
+		swap_ideas = { remove_idea = recession add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = stagnation }
+		swap_ideas = { remove_idea = stagnation add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = stable_growth }
+		swap_ideas = { remove_idea = stable_growth add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = economic_boom }
+		swap_ideas = { remove_idea = economic_boom add_idea = fast_growth }
+	}
+	else_if = {
+		limit = { has_idea = fast_growth }
+		add_political_power = 150	#If country has maximum level it earns political power instead.
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+# Set Economic Growth to Economic Boom
+economic_boom = {
+	set_country_flag = disable_cycle_costs
+	hidden_effect = {
+		remove_ideas = {
+			depression
+			recession
+			stagnation
+			stable_growth
+			fast_growth
+		}
+	}
+	if = { limit = { NOT = { has_idea = economic_boom } }
+		add_ideas = economic_boom
+	}
+	else = {
+		add_political_power = 150
+	}
+	clr_country_flag = disable_cycle_costs
+}
+
+set_exports_to_max = {
+	if = { limit = { has_idea = md_closed_economy }
+		swap_ideas = {
+			remove_idea = md_closed_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else_if = { limit = { has_idea = consumption_economy }
+		swap_ideas = {
+			remove_idea = consumption_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else_if = { limit = { has_idea = semi_consumption_economy }
+		swap_ideas = {
+			remove_idea = semi_consumption_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else_if = { limit = { has_idea = mixed_economy }
+		swap_ideas = {
+			remove_idea = mixed_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else_if = { limit = { has_idea = export_economy }
+		swap_ideas = {
+			remove_idea = export_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else = {
+		add_political_power = 100
+	}
+}
+
+set_exports_to_min = {
+	if = { limit = { has_idea = md_closed_economy }
+		add_political_power = 100
+	}
+	else_if = { limit = { has_idea = consumption_economy }
+		swap_ideas = {
+			remove_idea = consumption_economy
+			add_idea = md_closed_economy
+		}
+	}
+	else_if = { limit = { has_idea = semi_consumption_economy }
+		swap_ideas = {
+			remove_idea = semi_consumption_economy
+			add_idea = md_closed_economy
+		}
+	}
+	else_if = { limit = { has_idea = mixed_economy }
+		swap_ideas = {
+			remove_idea = mixed_economy
+			add_idea = md_closed_economy
+		}
+	}
+	else_if = { limit = { has_idea = export_economy }
+		swap_ideas = {
+			remove_idea = export_economy
+			add_idea = md_closed_economy
+		}
+	}
+	else_if = { limit = { has_idea = globalized_trade_economy }
+		swap_ideas = {
+			remove_idea = globalized_trade_economy
+			add_idea = md_closed_economy
+		}
+	}
+}
+
+increase_exports = {
+	if = { limit = { has_idea = md_closed_economy }
+		swap_ideas = {
+			remove_idea = md_closed_economy
+			add_idea = consumption_economy
+		}
+	}
+	else_if = { limit = { has_idea = consumption_economy }
+		swap_ideas = {
+			remove_idea = consumption_economy
+			add_idea = semi_consumption_economy
+		}
+	}
+	else_if = { limit = { has_idea = semi_consumption_economy }
+		swap_ideas = {
+			remove_idea = semi_consumption_economy
+			add_idea = mixed_economy
+		}
+	}
+	else_if = { limit = { has_idea = mixed_economy }
+		swap_ideas = {
+			remove_idea = mixed_economy
+			add_idea = export_economy
+		}
+	}
+	else_if = { limit = { has_idea = export_economy }
+		swap_ideas = {
+			remove_idea = export_economy
+			add_idea = globalized_trade_economy
+		}
+	}
+	else_if = { limit = { has_idea = globalized_trade_economy }
+		add_political_power = 100
+	}
+}
+
+decrease_exports = {
+	if = { limit = { has_idea = md_closed_economy }
+		add_political_power = 100
+	}
+	else_if = { limit = { has_idea = consumption_economy }
+		swap_ideas = {
+			remove_idea = consumption_economy
+			add_idea = md_closed_economy
+		}
+	}
+	else_if = { limit = { has_idea = semi_consumption_economy }
+		swap_ideas = {
+			remove_idea = semi_consumption_economy
+			add_idea = consumption_economy
+		}
+	}
+	else_if = { limit = { has_idea = mixed_economy }
+		swap_ideas = {
+			remove_idea = mixed_economy
+			add_idea = semi_consumption_economy
+		}
+	}
+	else_if = { limit = { has_idea = export_economy }
+		swap_ideas = {
+			remove_idea = export_economy
+			add_idea = mixed_economy
+		}
+	}
+	else_if = { limit = { has_idea = globalized_trade_economy }
+		swap_ideas = {
+			remove_idea = globalized_trade_economy
+			add_idea = export_economy
+		}
+	}
+}
+
+# Small Expenditure
+small_expenditure = {
+	# Small Expenditure is set to 0.2% of your GDP
+	set_temp_variable = { treasury_change = { value = gdp_total multiply = -0.002 } }
+	modify_treasury_effect = yes
+}
+
+medium_expenditure = {
+	# Medium Expenditure is set to 0.4% of your GDP
+	set_temp_variable = { treasury_change = { value = gdp_total multiply = -0.004 } }
+	modify_treasury_effect = yes
+}
+
+large_expenditure = {
+	# Large Expenditure is set to 0.6% of your GDP
+	set_temp_variable = { treasury_change = { value = gdp_total multiply = -0.006 } }
+	modify_treasury_effect = yes
+}
+
+# modify_treasury_effect
+# Required Input: treasury_change
+# Purpose: Adds the treasury_change value to the nation's current treasury
+# Set country flag MD_skip_treasury_cost to skip the charge (used by history-file
+# upgrade_intelligence_agency calls so pre-granted upgrades don't drain treasury at start).
+modify_treasury_effect = {
+	if = {
+		limit = { NOT = { has_country_flag = MD_skip_treasury_cost } }
+		custom_effect_tooltip = modify_treasury_effect_tt
+		add_to_variable = { treasury = treasury_change }
+		update_money_dirty_variable = yes
+	}
+}
+
+# modify_debt_effect
+# Required Input: debt_change
+# Purpose: Adds the debt_change value to the nation's current debt
+modify_debt_effect = {
+	custom_effect_tooltip = modify_debt_effect_tt
+	add_to_variable = { debt = debt_change }
+	clamp_variable = { var = debt min = 0 }
+	update_money_dirty_variable = yes
+}
+
+# imf_debt_relief_accepted_effect
+# Purpose: Applies an accepted IMF bailout offer - cuts debt by debt_bailout and starts the relief idea
+imf_debt_relief_accepted_effect = {
+	custom_effect_tooltip = bailout_given_tt
+	set_temp_variable = { debt_change = { value = debt_bailout  multiply = -1 } }
+	hidden_effect = {
+		modify_debt_effect = yes
+		clear_variable = debt_bailout
+	}
+	add_timed_idea = { idea = IMF_debt_relief_received days = 360 }
+	ingame_update_setup = yes
+}
+
+# imf_debt_relief_rejected_effect
+# Purpose: Declines an IMF bailout offer - discards it and starts the rejected idea
+imf_debt_relief_rejected_effect = {
+	hidden_effect = { clear_variable = debt_bailout }
+	add_timed_idea = { idea = IMF_debt_relief_rejected days = 360 }
+	ingame_update_setup = yes
+}
+
+# modify_international_investment_effect
+# Required Input: int_investment_change
+# Purpose: Adds the int_investment_change value to the nation's current international investments
+modify_international_investment_effect = {
+	custom_effect_tooltip = modify_international_investment_effect_tt
+	add_to_variable = { int_investments = int_investment_change }
+	update_money_dirty_variable = yes
+}
+
+# disable_debt_rate_payments
+# Purpose: Disables the debt rate payments for the next year
+disable_debt_rate_payments = {
+	set_country_flag = { flag = paused_debt_repayment days = 365 value = 1 }
+	ingame_update_setup = yes
+}
+
+# enable_debt_rate_payments
+# Purpose: Enables the debt rate payments
+enable_debt_rate_payments = {
+	clr_country_flag = paused_debt_repayment
+	ingame_update_setup = yes
+}
+
+# modify_corporate_tax_rate_effect
+# Required Input: corp_change
+# Purpose: Calculates the difference between the current corporate_tax_rate and then adds the desired corp_change or adds the full value of the corp_change
+modify_corporate_tax_rate_effect = {
+	set_temp_variable = { calculator = corporate_tax_rate }
+	set_temp_variable = { calculator_diff = 0 } # Distance to Value
+
+	if = { limit = { check_variable = { corp_change < 0 } }
+		subtract_from_temp_variable = { calculator_diff = calculator }
+		subtract_from_temp_variable = { calculator_diff = corp_change }
+		multiply_temp_variable = { calculator_diff = 1 }
+		if = { limit = { check_variable = { calculator_diff > 0 } }
+			add_to_temp_variable = { corp_change = calculator_diff }
+		}
+	}
+	if = { limit = { check_variable = { corp_change > 0 } }
+		subtract_from_temp_variable = { calculator_diff = calculator }
+		subtract_from_temp_variable = { calculator_diff = corp_change }
+		add_to_temp_variable = { calculator_diff = 50 }
+		multiply_temp_variable = { calculator_diff = -1 }
+		if = { limit = { check_variable = { calculator_diff > 0 } }
+			subtract_from_temp_variable = { corp_change = calculator_diff }
+		}
+	}
+
+	if = { limit = { NOT = { check_variable = { corp_change = 0 } } }
+		custom_effect_tooltip = modify_corporate_tax_rate_tt
+		add_to_variable = { var = corporate_tax_rate value = corp_change }
+		clamp_variable = {
+			var = corporate_tax_rate
+			min = 0
+			max = 50
+		}
+		set_temp_variable = { law_kind = 5 }
+		set_temp_variable = { law_delta = corp_change }
+		internal_faction_react_to_law = yes
+		ingame_update_setup = yes
+	}
+}
+
+# modify_population_tax_rate_effect
+# Required Input: pop_change
+# Purpose: Calculates the difference between the current population_tax_rate and then adds the desired pop_change or adds the full value of the pop_change
+modify_population_tax_rate_effect = {
+	set_temp_variable = { calculator = population_tax_rate }
+	set_temp_variable = { calculator_diff = 0 } # Distance to Value
+
+	if = { limit = { check_variable = { pop_change < 0 } }
+		subtract_from_temp_variable = { calculator_diff = calculator }
+		subtract_from_temp_variable = { calculator_diff = pop_change }
+		multiply_temp_variable = { calculator_diff = 1 }
+		if = { limit = { check_variable = { calculator_diff > 0 } }
+			add_to_temp_variable = { pop_change = calculator_diff }
+		}
+	}
+	if = { limit = { check_variable = { pop_change > 0 } }
+		subtract_from_temp_variable = { calculator_diff = calculator }
+		subtract_from_temp_variable = { calculator_diff = pop_change }
+		add_to_temp_variable = { calculator_diff = 50 }
+		multiply_temp_variable = { calculator_diff = -1 }
+		if = { limit = { check_variable = { calculator_diff > 0 } }
+			subtract_from_temp_variable = { pop_change = calculator_diff }
+		}
+	}
+
+	if = { limit = { NOT = { check_variable = { pop_change = 0 } } }
+		custom_effect_tooltip = modify_population_tax_rate_tt
+		add_to_variable = { var = population_tax_rate value = pop_change }
+		clamp_variable = {
+			var = population_tax_rate
+			min = 0
+			max = 50
+		}
+		set_temp_variable = { law_kind = 6 }
+		set_temp_variable = { law_delta = pop_change }
+		internal_faction_react_to_law = yes
+		ingame_update_setup = yes
+	}
+}
+
+# New Nation Law set
+update_laws_for_new_nation = {
+	if = {
+		limit = {
+			check_variable = { PREV.bureau_law > 0 }
+			check_variable = { PREV.bureau_law < 6 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.bureau_law }
+		set_temp_variable = { inherited_law_token = global.bureau_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+	if = {
+		limit = {
+			check_variable = { PREV.police_law > 0 }
+			check_variable = { PREV.police_law < 6 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.police_law }
+		set_temp_variable = { inherited_law_token = global.police_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+	if = {
+		limit = {
+			check_variable = { PREV.education_law > 0 }
+			check_variable = { PREV.education_law < 6 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.education_law }
+		set_temp_variable = { inherited_law_token = global.edu_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+	if = {
+		limit = {
+			check_variable = { PREV.health_law > 0 }
+			check_variable = { PREV.health_law < 7 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.health_law }
+		set_temp_variable = { inherited_law_token = global.health_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+	if = {
+		limit = {
+			check_variable = { PREV.social_law > 0 }
+			check_variable = { PREV.social_law < 7 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.social_law }
+		set_temp_variable = { inherited_law_token = global.social_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+	if = {
+		limit = {
+			check_variable = { PREV.military_law > 0 }
+			check_variable = { PREV.military_law < 11 }
+		}
+		set_temp_variable = { inherited_law_index = PREV.military_law }
+		set_temp_variable = { inherited_law_token = global.defence_law_idea^inherited_law_index }
+		add_ideas = var:inherited_law_token
+	}
+
+	# Set Migration Law
+	if = { limit = { PREV = { has_idea = open_borders } }
+		add_ideas = open_borders
+	}
+	else_if = { limit = { PREV = { has_idea = slightly_regulated_immigration } }
+		add_ideas = slightly_regulated_immigration
+	}
+	else_if = { limit = { PREV = { has_idea = regulated_immigration } }
+		add_ideas = regulated_immigration
+	}
+	else_if = { limit = { PREV = { has_idea = heavily_regulated_immigration } }
+		add_ideas = heavily_regulated_immigration
+	}
+	else_if = { limit = { PREV = { has_idea = closed_borders } }
+		add_ideas = closed_borders
+	}
+
+	if = { limit = { PREV = { has_idea = depression } }
+		add_ideas = depression
+	}
+	else_if = { limit = { PREV = { has_idea = recession } }
+		add_ideas = recession
+	}
+	else_if = { limit = { PREV = { has_idea = stagnation } }
+		add_ideas = stagnation
+	}
+	else_if = { limit = { PREV = { has_idea = stable_growth } }
+		add_ideas = stable_growth
+	}
+	else_if = { limit = { PREV = { has_idea = fast_growth } }
+		add_ideas = fast_growth
+	}
+	else_if = { limit = { PREV = { has_idea = economic_boom } }
+		add_ideas = economic_boom
+	}
+
+	if = { limit = { PREV = { has_idea = corruption_level_10 } }
+		add_ideas = corruption_level_10
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_09 } }
+		add_ideas = corruption_level_09
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_08 } }
+		add_ideas = corruption_level_08
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_07 } }
+		add_ideas = corruption_level_07
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_06 } }
+		add_ideas = corruption_level_06
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_05 } }
+		add_ideas = corruption_level_05
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_04 } }
+		add_ideas = corruption_level_04
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_03 } }
+		add_ideas = corruption_level_03
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_02 } }
+		add_ideas = corruption_level_02
+	}
+	else_if = { limit = { PREV = { has_idea = corruption_level_01 } }
+		add_ideas = corruption_level_01
+	}
+
+	if = { limit = { PREV = { has_idea = consumption_economy } }
+		add_ideas = consumption_economy
+	}
+	else_if = { limit = { PREV = { has_idea = mixed_economy } }
+		add_ideas = mixed_economy
+	}
+	else_if = { limit = { PREV = { has_idea = export_economy } }
+		add_ideas = export_economy
+	}
+
+	if = { limit = { PREV = { has_idea = no_military } }
+		add_ideas = no_military
+	}
+	else_if = { limit = { PREV = { has_idea = volunteer_army } }
+		add_ideas = volunteer_army
+	}
+	else_if = { limit = { PREV = { has_idea = partial_draft_army } }
+		add_ideas = partial_draft_army
+	}
+	else_if = { limit = { PREV = { has_idea = draft_army } }
+		add_ideas = draft_army
+	}
+
+	if = { limit = { PREV = { has_idea = no_women_in_military } }
+		add_ideas = no_women_in_military
+	}
+	else_if = { limit = { PREV = { has_idea = volunteer_women } }
+		add_ideas = volunteer_women
+	}
+	else_if = { limit = { PREV = { has_idea = drafted_women } }
+		add_ideas = drafted_women
+	}
+
+	if = { limit = { PREV = { has_idea = intervention_isolation } }
+		add_ideas = intervention_isolation
+	}
+	else_if = { limit = { PREV = { has_idea = intervention_local_security } }
+		add_ideas = intervention_local_security
+	}
+	else_if = { limit = { PREV = { has_idea = intervention_limited_interventionism } }
+		add_ideas = intervention_limited_interventionism
+	}
+	else_if = { limit = { PREV = { has_idea = intervention_regional_interventionism } }
+		add_ideas = intervention_regional_interventionism
+	}
+	else_if = { limit = { PREV = { has_idea = intervention_global_interventionism } }
+		add_ideas = intervention_global_interventionism
+	}
+	else_if = { limit = { PREV = { has_idea = intervention_neo_imperialism } }
+		add_ideas = intervention_neo_imperialism
+	}
+
+	if = { limit = { PREV = { has_idea = officer_baptism_by_fire } }
+		add_ideas = officer_baptism_by_fire
+	}
+	else_if = { limit = { PREV = { has_idea = officer_basic_training } }
+		add_ideas = officer_basic_training
+	}
+	else_if = { limit = { PREV = { has_idea = officer_advanced_training } }
+		add_ideas = officer_advanced_training
+	}
+	else_if = { limit = { PREV = { has_idea = officer_military_school } }
+		add_ideas = officer_military_school
+	}
+	else_if = { limit = { PREV = { has_idea = officer_military_academy } }
+		add_ideas = officer_military_academy
+	}
+	else_if = { limit = { PREV = { has_idea = officer_international_education } }
+		add_ideas = officer_international_education
+	}
+}
+
+# Change Migration Law
+increase_migration_law = {
+	if = {
+		limit = { has_idea = open_borders }
+		swap_ideas = {
+			remove_idea = open_borders
+			add_idea = slightly_regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = slightly_regulated_immigration }
+		swap_ideas = {
+			remove_idea = slightly_regulated_immigration
+			add_idea = regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = regulated_immigration }
+		swap_ideas = {
+			remove_idea = regulated_immigration
+			add_idea = heavily_regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = heavily_regulated_immigration }
+		swap_ideas = {
+			remove_idea = heavily_regulated_immigration
+			add_idea = closed_borders
+		}
+	}
+	else = {
+		add_political_power = 100
+	}
+}
+
+decrease_migration_law = {
+	if = {
+		limit = { has_idea = closed_borders }
+		swap_ideas = {
+			remove_idea = closed_borders
+			add_idea = heavily_regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = heavily_regulated_immigration }
+		swap_ideas = {
+			remove_idea = heavily_regulated_immigration
+			add_idea = regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = regulated_immigration }
+		swap_ideas = {
+			remove_idea = regulated_immigration
+			add_idea = slightly_regulated_immigration
+		}
+	}
+	else_if = {
+		limit = { has_idea = slightly_regulated_immigration }
+		swap_ideas = {
+			remove_idea = slightly_regulated_immigration
+			add_idea = open_borders
+		}
+	}
+	else = {
+		add_political_power = 100
+	}
+}
+increase_Free_Market_Economy = {
+	if = {
+		limit = { has_idea = Socialist_Market_Economy_free_2 }
+		swap_ideas = { remove_idea = Socialist_Market_Economy_free_2 add_idea = Free_Market_Economy }
+	}
+	else_if = {
+		limit = { has_idea = Socialist_Market_Economy_free_1 }
+		swap_ideas = { remove_idea = Socialist_Market_Economy_free_1 add_idea = Socialist_Market_Economy_free_2 }
+	}
+	else_if = {
+		limit = { has_idea = Socialist_Market_Economy_planned_1 }
+		swap_ideas = { remove_idea = Socialist_Market_Economy_planned_1 add_idea = Socialist_Market_Economy_free_1 }
+	}
+	else_if = {
+		limit = { has_idea = Socialist_Market_Economy_planned_2 }
+		swap_ideas = { remove_idea = Socialist_Market_Economy_planned_2 add_idea = Socialist_Market_Economy_planned_1 }
+	}
+	else_if = {
+		limit = { has_idea = Planned_Economy }
+		swap_ideas = { remove_idea = Planned_Economy add_idea = Socialist_Market_Economy_planned_2 }
+	}
+}

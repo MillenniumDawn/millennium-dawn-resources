@@ -1,0 +1,16 @@
+{
+  "branch": "origin/australian-content-old",
+  "tip_sha": "648a77215576577091b6e15cdccbfe6b6a60f173",
+  "tip_short": "648a772155",
+  "last_author": "Zei33",
+  "last_commit_date": "2026-08-11T01:46:00+10:00",
+  "last_commit_subject": "Rebuild the Solomon Islands storyline into a three-way AST/China/USA competition",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "b6c09e033d3b59496081526cb7ce95817c8d0c31",
+  "diverging_files_3dot": 95,
+  "archived_files": 93,
+  "deleted_paths": [
+    "common/ai_strategy/AUS.txt",
+    "gfx/event_pictures/oceania/australia - AST/ship_sailing5.dds"
+  ]
+}

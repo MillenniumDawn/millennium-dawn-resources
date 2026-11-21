@@ -1,0 +1,281 @@
+
+capital = 302
+2000.1.1 = {
+	set_variable = { currency_strength = 0.4 }
+	oob = "DRC_2000"
+	set_cosmetic_tag = DRC_OLD
+	set_country_flag = is_getting_ido_subsidies
+	add_dynamic_modifier = { modifier = un_aid_subsidies_modifier }
+	add_to_array = { global.unido_recipients = THIS }
+	set_country_flag = is_getting_esco_subsidies
+	add_to_array = { global.unesco_recipients = THIS }
+	set_country_flag = is_getting_cdf_subsidies
+	add_to_array = { global.uncdf_recipients = THIS }
+
+	set_variable = { gdp_per_capita = 0.728 }
+
+	add_ideas = {
+		# NATIONAL STATISTICS
+
+		partially_privatized_healthcare
+		economic_motivated_mining
+		minimal_maintenance
+		us_dollar
+		minimal_regulations
+
+		corruption_level_09
+		christian
+		stagnation
+		# INTERNAL FACTIONS
+		industrial_conglomerates
+		international_bankers
+		the_clergy
+		# SPENDING LAWS
+		bureau_03
+		defence_07
+		police_05
+		edu_02
+		health_01
+		social_01
+		# POLICIES
+		export_economy
+		volunteer_army
+		volunteer_women
+		intervention_local_security
+		officer_baptism_by_fire
+		# ADDITIONAL IDEAS
+		OAU_member
+		SADC_member_state
+		child_soldiers
+		multi_ethnic_state_idea
+		rentier_state
+	}
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 40 }
+	add_to_array = { influence_array = FRA.id }
+	add_to_array = { influence_array_val = 110 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 60 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 5 }
+	add_to_array = { influence_array = AGL.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = ZIM.id }
+	add_to_array = { influence_array_val = 10 }
+	add_to_array = { influence_array = LBA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_variable = { var = debt value = 51 }
+	set_variable = { var = treasury value = 3 }
+	set_variable = { var = corporate_tax_rate value = 25 }
+	set_variable = { var = population_tax_rate value = 27 }
+	set_variable = { var = int_investments value = 0.4 }
+
+	#Child Soldiers
+	set_country_flag = Conscripting_Child_Soldiers
+	set_variable = { var = child_soldiers value = 10000 }
+	set_variable = { var = child_soldiers_recruitment value = 10 }
+
+	add_opinion_modifier = { target = MAD modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = MAD modifier = french_speaking }
+	add_opinion_modifier = { target = CAM modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = CAM modifier = french_speaking }
+	add_opinion_modifier = { target = NGR modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = NGR modifier = french_speaking }
+	add_opinion_modifier = { target = BFA modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = BFA modifier = french_speaking }
+	add_opinion_modifier = { target = MAL modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = MAL modifier = french_speaking }
+	add_opinion_modifier = { target = SEN modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = SEN modifier = french_speaking }
+	add_opinion_modifier = { target = CHA modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = CHA modifier = french_speaking }
+	add_opinion_modifier = { target = GUI modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = GUI modifier = french_speaking }
+	add_opinion_modifier = { target = RWA modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = RWA modifier = french_speaking }
+	add_opinion_modifier = { target = BUR modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = BUR modifier = french_speaking }
+	add_opinion_modifier = { target = BEN modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = BEN modifier = french_speaking }
+	add_opinion_modifier = { target = HAI modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = HAI modifier = french_speaking }
+	add_opinion_modifier = { target = TOG modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = TOG modifier = french_speaking }
+	add_opinion_modifier = { target = CAR modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = CAR modifier = french_speaking }
+	add_opinion_modifier = { target = GAB modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = GAB modifier = french_speaking }
+	add_opinion_modifier = { target = DJI modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = DJI modifier = french_speaking }
+	add_opinion_modifier = { target = COM modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = COM modifier = french_speaking }
+	add_opinion_modifier = { target = SEY modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = SEY modifier = french_speaking }
+	add_opinion_modifier = { target = BAL modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = BAL modifier = french_speaking }
+	add_opinion_modifier = { target = LGN modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = LGN modifier = french_speaking }
+	add_opinion_modifier = { target = SEL modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = SEL modifier = french_speaking }
+	add_opinion_modifier = { target = BEL modifier = french_speaking }
+	reverse_add_opinion_modifier = { target = BEL modifier = french_speaking }
+
+	set_technology = {
+		integrated_transportation_system = 1
+		post_conventional_rail = 1
+		early_freight_locomotive = 1
+
+		infantry_mass_assault = 1
+
+		infantry_weapons_1 = 1
+		cnc_equipment_1 = 1
+		Anti_tank_0 = 1
+
+		basic_computing = 1
+		integrated_circuit = 1
+		computing1 = 1
+		radar = 1
+		fuel_silos = 1
+	}
+
+	if = {
+		limit = { NOT = { has_dlc = "La Resistance" } }
+		set_technology = {
+			decryption1 = 1
+			encryption1 = 1
+		}
+	}
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_technology = {
+			nsb_Anti_Air_0 = 1
+		}
+		else = {
+			set_technology = {
+				Anti_Air_0 = 1
+			}
+		}
+	}
+
+	set_popularities = {
+		democratic = 20.0
+		communism = 65.0
+		fascism = 0.0
+		neutrality = 15.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1997.5.20"
+		election_frequency = 60
+		elections_allowed = no
+	}
+	start_politics_input = yes
+	set_variable = { party_pop_array^5 = 1.0 } #anarchist_communism
+	add_to_array = { ruling_party = 5 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Laurent-Désiré Kabila"
+		picture = "DRC_Laurent_Desire_Kabila.dds"
+		ideology = anarchist_communism
+		traits = {
+			emerging_anarchist_communism
+		}
+	}
+
+	recruit_character = DRC_dieudonne_kayembe
+	recruit_character = DRC_sylvain_buki
+	recruit_character = DRC_faustin_munene
+	recruit_character = DRC_john_numbi
+	recruit_character = DRC_baudouin_liwanga_mata
+	recruit_character = DRC_dieudonne_amuli_bahigwa
+	recruit_character = DRC_sylvestre_lwetcha
+	recruit_character = DRC_kisempia_sungilanga
+	recruit_character = DRC_didier_etumba_longomba
+	recruit_character = DRC_jean_claude_kifwa
+	recruit_character = DRC_francois_olenga
+
+	set_variable = { literacy_rate = 0.672 }
+
+	set_variable = { overall_productivity = 472 }
+
+	# Relation Starting Configuration (moved from on_startup)
+	add_opinion_modifier = { target = CUB modifier = sanctions }
+	add_relation_modifier = { target = USA modifier = USA_World_Economical_Relations }
+	add_relation_modifier = { target = SOV modifier = SOV_World_Economical_Relations }
+	add_relation_modifier = { target = CHI modifier = CHI_World_Economical_Relations }
+	add_relation_modifier = { target = FRA modifier = FRA_World_Economical_Relations }
+	add_relation_modifier = { target = GER modifier = GER_World_Economical_Relations }
+	add_relation_modifier = { target = ENG modifier = ENG_World_Economical_Relations }
+	add_relation_modifier = { target = SPR modifier = SPR_World_Economical_Relations }
+	add_relation_modifier = { target = ITA modifier = ITA_World_Economical_Relations }
+	add_relation_modifier = { target = UKR modifier = UKR_World_Economical_Relations }
+	add_relation_modifier = { target = ISR modifier = ISR_World_Economical_Relations }
+	add_opinion_modifier = { target = TTP modifier = AlQaida_Are_Terrorists }
+	add_opinion_modifier = { target = TTP modifier = AlQaida_Are_Terrorists_Trade }
+	add_opinion_modifier = { target = TAL modifier = Taliban_Are_Terrorists }
+	add_opinion_modifier = { target = TAL modifier = Taliban_Are_Terrorists_Trade }
+	add_opinion_modifier = { target = GAH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SIE modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MOR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ALG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TUN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAL modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GUB modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GUI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CDI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BFA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TOG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NIG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NGR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CAR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CHA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SUD modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SSU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ERI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = DJI modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SOM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = EGU modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SAO modifier = African_Union_Relations }
+	add_opinion_modifier = { target = KEN modifier = African_Union_Relations }
+	add_opinion_modifier = { target = UGA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = TNZ modifier = African_Union_Relations }
+	add_opinion_modifier = { target = GAB modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CNG modifier = African_Union_Relations }
+	add_opinion_modifier = { target = RWA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BUR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = DRC modifier = African_Union_Relations }
+	add_opinion_modifier = { target = AGL modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ZAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MLW modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MOZ modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ZIM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = BOT modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SWA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = LES modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SML modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MAD modifier = African_Union_Relations }
+	add_opinion_modifier = { target = COM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = MRT modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SEY modifier = African_Union_Relations }
+	add_opinion_modifier = { target = STH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = VER modifier = African_Union_Relations }
+	add_opinion_modifier = { target = CNR modifier = African_Union_Relations }
+	add_opinion_modifier = { target = NAM modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SHA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = ETH modifier = African_Union_Relations }
+	add_opinion_modifier = { target = SAF modifier = African_Union_Relations }
+	add_opinion_modifier = { target = LBA modifier = African_Union_Relations }
+	add_opinion_modifier = { target = EGY modifier = African_Union_Relations }
+}

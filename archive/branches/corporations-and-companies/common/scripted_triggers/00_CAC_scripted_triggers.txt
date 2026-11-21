@@ -1,0 +1,50 @@
+cac_needed_money_for_upgrade = {
+	set_temp_variable = { cac_needed_money_modifier = 1 }
+    add_to_temp_variable = { cac_needed_money_modifier = CAC_companies_modifier_from_size^cac_slot }
+
+	set_temp_variable = { cac_needed_money = cac_needed_money_base }
+    multiply_temp_variable = { cac_needed_money = cac_needed_money_modifier }
+
+	custom_override_tooltip = {
+		tooltip = CAC_needed_money_for_upgrade_tooltip
+		check_variable = {
+			var = CAC_companies_money^cac_slot
+			value = cac_needed_money
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+cac_needed_money_for_action = {
+	set_temp_variable = { cac_needed_money_modifier = 1 }
+    add_to_temp_variable = { cac_needed_money_modifier = CAC_companies_modifier_from_size^cac_slot }
+
+	set_temp_variable = { cac_needed_money = cac_needed_money_base }
+    multiply_temp_variable = { cac_needed_money = cac_needed_money_modifier }
+
+	custom_override_tooltip = {
+		tooltip = CAC_needed_money_for_upgrade_tooltip
+		check_variable = {
+			var = CAC_companies_money^cac_slot
+			value = cac_needed_money
+			compare = greater_than_or_equals
+		}
+	}
+}
+
+cac_needed_money_for_factory = {
+	set_temp_variable = { cac_needed_money_modifier = 1 }
+    add_to_temp_variable = { cac_needed_money_modifier = CAC_companies_modifier_from_size^cac_slot }
+
+	set_temp_variable = { cac_needed_money = cac_needed_money_base }
+    multiply_temp_variable = { cac_needed_money = cac_needed_money_modifier }
+
+	custom_override_tooltip = {
+		tooltip = CAC_needed_money_for_upgrade_tooltip
+		check_variable = {
+			var = CAC_companies_money^cac_slot
+			value = cac_needed_money
+			compare = greater_than_or_equals
+		}
+	}
+}

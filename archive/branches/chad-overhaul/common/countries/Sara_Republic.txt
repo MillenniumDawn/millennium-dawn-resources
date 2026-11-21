@@ -1,0 +1,7 @@
+# SRR - Sara Republic (République Sara)
+# Tribal rebel faction - Southern Chad
+# Spawns when Sara loyalty drops below 5
+graphical_culture = african_gfx
+graphical_culture_2d = african_2d
+
+color = { 76 153 76 }

@@ -1,0 +1,67 @@
+# Division template historical names system for UFD
+# Union des Forces pour la Démocratie (Union of Forces for Democracy)
+
+UFD_REBEL_01 = {
+	name = "UFD Rebel Forces"
+
+	for_countries = { UFD }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" "Mot_Inf_Bat" }
+
+	fallback_name = "%d. Brigade UFD"
+
+	ordered = {
+		1 = { "Brigade de la Liberté" }
+		2 = { "Brigade de la Démocratie" }
+		3 = { "Brigade du Changement" }
+		4 = { "Brigade de l'Union" }
+	}
+}
+
+UFD_TECHNICAL_UNITS = {
+	name = "UFD Technical Units"
+
+	for_countries = { UFD }
+
+	division_types = { "Mot_Militia_Bat" "Mot_Inf_Bat" }
+
+	fallback_name = "%d. Unité Technique UFD"
+
+	ordered = {
+		1 = { "Colonne Technique Principale" }
+		2 = { "Groupe Mobile d'Assaut" }
+		3 = { "Unité de Reconnaissance" }
+	}
+}
+
+UFD_OPPOSITION_MILITIA = {
+	name = "Opposition Militia"
+
+	for_countries = { UFD }
+
+	division_types = { "Militia_Bat" }
+
+	fallback_name = "%d. Milice d'Opposition"
+
+	ordered = {
+		1 = { "Milice pour la Démocratie" }
+		2 = { "Milice Anti-Régime" }
+		3 = { "Forces Populaires d'Opposition" }
+	}
+}
+
+UFD_COALITION_FORCES = {
+	name = "Coalition Forces"
+
+	for_countries = { UFD }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Forces de Coalition"
+
+	ordered = {
+		1 = { "Coalition du Nord" }
+		2 = { "Coalition de l'Est" }
+		3 = { "Alliance Démocratique" }
+	}
+}

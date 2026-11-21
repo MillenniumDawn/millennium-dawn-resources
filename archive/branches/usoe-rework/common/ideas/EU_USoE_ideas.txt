@@ -1,0 +1,1021 @@
+ideas = {
+
+	country = {
+		uoe_the_propaganda_machine = {
+			picture = GFX_idea_USoE_heart_of_iron
+			allowed = {
+				original_tag = UOE
+				has_idea = uoe_the_culture_war
+			}
+			modifier = {
+				stability_factor = -0.02
+				political_power_factor = 0.04
+				drift_defence_factor = -0.025
+				democratic_drift = 0.01
+				communism_drift = 0.01
+				nationalist_drift = 0.01
+			}
+		}
+
+		USoE_heart_of_iron = {
+
+			picture = generic_military_industry
+			modifier = {
+				political_power_factor = 0.3
+				stability_factor = 0.3
+			}
+		}
+
+		USoE_digital_democracy = {
+
+			picture = democracy
+			modifier = {
+				propaganda_campaign_cost_modifier = -0.25
+				drift_defence_factor = 0.15
+				stability_factor = 0.05
+			}
+		}
+
+		uoe_bridging_the_gap = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea uoe_bridging_the_gap" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+				has_power_balance = { id = UOE_culture_balance }
+			}
+			modifier = {
+				drift_defence_factor = 0.10
+				foreign_subversive_activites = -0.10
+			}
+		}
+
+		uoe_the_culture_war = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea uoe_the_culture_war" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+				has_power_balance = { id = UOE_culture_balance }
+			}
+			modifier = {
+				stability_factor = -0.05
+				drift_defence_factor = -0.15
+				democratic_drift = 0.01
+				communism_drift = 0.01
+				nationalist_drift = 0.01
+			}
+		}
+
+		uoe_embraced_balanced_cultures = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea uoe_embraced_balanced_cultures" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				stability_factor = 0.05
+				drift_defence_factor = 0.25
+			}
+		}
+
+		uoe_embraced_western_culture = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea uoe_embraced_western_culture" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				stability_factor = 0.075
+				drift_defence_factor = 0.35
+			}
+		}
+
+		uoe_embraced_eastern_culture = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea uoe_embraced_eastern_culture" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				stability_factor = 0.075
+				drift_defence_factor = 0.35
+			}
+		}
+
+		UOE_new_government_progress = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_new_government_progress" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+				NOT = { has_country_flag = military_takeover }
+			}
+			modifier = {
+				stability_weekly_factor = 0.001
+			}
+		}
+
+		UOE_military_modernization_program = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_military_modernization_program" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				land_doctrine_cost_factor = -0.25
+				naval_doctrine_cost_factor = -0.25
+				air_doctrine_cost_factor = -0.25
+				land_equipment_upgrade_xp_cost = -0.25
+				naval_equipment_upgrade_xp_cost = -0.25
+				air_equipment_upgrade_xp_cost = -0.25
+			}
+		}
+
+		UOE_cyber_command_lar = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_cyber_command_lar" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				civilian_intel_decryption_bonus = 25
+				army_intel_decryption_bonus = 25
+				navy_intel_decryption_bonus = 25
+				airforce_intel_decryption_bonus = 25
+				crypto_strength = 1
+				decryption_power_factor = 0.25
+			}
+		}
+
+		UOE_heavy_combat_teams = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_heavy_combat_teams" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				army_armor_attack_factor = 0.10
+				army_armor_defence_factor = 0.05
+				unit_armor_Bat_design_cost_factor = -0.25
+				unit_Arm_Inf_Bat_design_cost_factor = -0.25
+			}
+		}
+
+		UOE_light_combat_teams = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_light_combat_teams" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				army_infantry_attack_factor = 0.15
+				army_infantry_defence_factor = 0.15
+				unit_L_Inf_Bat_design_cost_factor = -0.25
+				unit_Mot_Inf_Bat_design_cost_factor = -0.25
+				unit_Mech_Inf_Bat_design_cost_factor = -0.25
+				medium_tank_amphibious_chassis_design_cost_factor = -0.25
+			}
+		}
+
+		UOE_armored_vehicle_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_armored_vehicle_designs" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				medium_tank_chassis_design_cost_factor = -0.25
+				medium_tank_flame_chassis_design_cost_factor = -0.25
+			}
+		}
+
+		UOE_airmobile_forces = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_airmobile_forces" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				heavy_tank_chassis_design_cost_factor = -0.25
+				unit_L_Air_assault_Bat_design_cost_factor = -0.25
+			}
+		}
+
+		UOE_motorized_infantry_forces = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_motorized_infantry_forces" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			equipment_bonus = {
+				util_vehicle_type = {
+					instant = yes
+					maximum_speed = 0.25
+					breakthrough = 0.10
+					hard_attack = 0.05
+					soft_attack = 0.10
+				}
+				H_AT_Equipment = {
+					instant = yes
+					hard_attack = 0.25
+					ap_attack = 0.25
+				}
+			}
+		}
+
+		UOE_light_infantry_focus = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_light_infantry_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			equipment_bonus = {
+				L_AT_Equipment = {
+					instant = yes
+					hard_attack = 0.25
+					ap_attack = 0.25
+				}
+				infantry_weapons_type = {
+					instant = yes
+					soft_attack = 0.15
+					defense = 0.25
+					breakthrough = 0.25
+				}
+				AA_Equipment = {
+					instant = yes
+					air_attack = 0.25
+				}
+			}
+		}
+
+		UOE_fire_support_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_fire_support_designs" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				medium_tank_destroyer_chassis_design_cost_factor = -0.25
+				medium_tank_artillery_chassis_design_cost_factor = -0.25
+			}
+		}
+
+		UOE_army_focus = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_army_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				army_fuel_consumption_factor = -0.20
+				air_fuel_consumption_factor = 0.10
+				navy_fuel_consumption_factor = 0.10
+				experience_gain_army_factor = 0.50
+				max_command_power_mult = 0.25
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				breakthrough_factor = 0.05
+				experience_gain_army_unit_factor = 0.25
+				experience_loss_factor = -0.25
+				terrain_penalty_reduction = 0.05
+			}
+		}
+		UOE_force_projection_navy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				sortie_efficiency = 0.1
+				naval_coordination = 0.1
+				spotting_chance = 0.05
+				navy_fuel_consumption_factor = -0.05
+			}
+		}
+		UOE_costal_defence_navy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				convoy_escort_efficiency = 0.15
+				screening_efficiency = 0.1
+				spotting_chance = 0.1
+			}
+		}
+		UOE_destroyer_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				destroyer_design_cost_factor = -0.25
+				stealth_destroyer_design_cost_factor = -0.25
+			}
+			equipment_bonus = {
+				destroyer = {
+					build_cost_ic = -0.10
+				}
+				stealth_destroyer = {
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		UOE_corvette_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				corvette_design_cost_factor = -0.25
+			}
+			equipment_bonus = {
+				corvette = {
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		UOE_frigate_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				frigate_design_cost_factor = -0.25
+			}
+			equipment_bonus = {
+				frigate = {
+					build_cost_ic = -0.10
+				}
+				heavy_frigate = {
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		UOE_carrier_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				carrier_design_cost_factor = -0.25
+				helicopter_operator_design_cost_factor = -0.25
+				sortie_efficiency = 0.25
+			}
+			equipment_bonus = {
+				carrier = {
+					build_cost_ic = -0.10
+				}
+				helicopter_operator = {
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		UOE_cruiser_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				cruiser_design_cost_factor = -0.25
+				naval_torpedo_hit_chance_factor = 0.15
+				naval_torpedo_cooldown_factor = 0.15
+			}
+			equipment_bonus = {
+				cruiser = {
+					build_cost_ic = -0.10
+				}
+			}
+		}
+		UOE_submarine_force = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				convoy_raiding_efficiency_factor = 0.25
+				sub_retreat_speed = 0.10
+				submarine_attack = 0.10
+				attack_submarine_design_cost_factor = -0.25
+				missile_submarine_design_cost_factor = -0.25
+			}
+			equipment_bonus = {
+				attack_submarine = {
+					build_cost_ic = -0.10
+				}
+				missile_submarine = {
+					build_cost_ic = -0.05
+				}
+			}
+		}
+		UOE_naval_focus = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				army_fuel_consumption_factor = 0.10
+				air_fuel_consumption_factor = 0.10
+				navy_fuel_consumption_factor = -0.20
+				experience_gain_navy_factor = 0.50
+				max_command_power_mult = 0.25
+				convoy_escort_efficiency = 0.25
+				spotting_chance = 0.25
+				screening_efficiency = 0.25
+				navy_anti_air_attack_factor = 0.25
+				naval_coordination = 0.25
+			}
+		}
+
+		UOE_a_modern_air_force = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_a_modern_air_force" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				air_doctrine_cost_factor = -0.25
+				air_wing_xp_loss_when_killed_factor = -0.25
+			}
+		}
+		UOE_expanded_space_command = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				civilian_intel_decryption_bonus = 10
+				army_intel_decryption_bonus = 10
+				navy_intel_decryption_bonus = 10
+				airforce_intel_decryption_bonus = 10
+			}
+		}
+		UOE_modern_fighter_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				medium_plane_fighter_airframe_design_cost_factor = -0.25
+				small_plane_airframe_design_cost_factor = -0.25
+			}
+		}
+		UOE_cyberdefense = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				crypto_strength = 2
+				intelligence_agency_defense = 1
+			}
+		}
+		UOE_heavy_bomber_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				large_plane_airframe_design_cost_factor = -0.25
+			}
+		}
+		UOE_strike_fighter_designs = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				medium_plane_airframe_design_cost_factor = -0.25
+			}
+		}
+		UOE_offensive_cyberwarfare = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				intel_network_gain_factor = 0.25
+				subversive_activites_upkeep = -0.25
+			}
+		}
+		UOE_space_battle_doctrine = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_naval_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				olv_production_speed_modifier = 0.25
+				gnss_production_speed_modifier = 0.25
+				comsat_production_speed_modifier = 0.25
+				spysat_production_speed_modifier = 0.25
+			}
+		}
+		UOE_air_focus = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_air_focus" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				army_fuel_consumption_factor = 0.10
+				air_fuel_consumption_factor = -0.20
+				navy_fuel_consumption_factor = 0.10
+				experience_gain_air_factor = 0.50
+				max_command_power_mult = 0.25
+				air_interception_detect_factor = 0.15
+				naval_strike_targetting_factor = 0.15
+				air_bombing_Targetting = 0.25
+				air_cas_efficiency = 0.25
+				air_escort_efficiency = 0.25
+			}
+		}
+
+		UOE_grow_civ_industry = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_grow_civ_industry" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_industrial_complex_factor = 0.25
+				production_cost_industrial_complex_factor = -0.05
+				civilian_industry_tax_modifier = 0.05
+				civilian_factories_productivity = 0.05
+			}
+		}
+
+		UOE_grow_office_industry = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_grow_office_industry" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_offices_factor = 0.25
+				production_cost_offices_factor = -0.05
+				office_park_income_tax_modifier = 0.05
+				offices_productivity = 0.05
+			}
+		}
+
+		UOE_grow_mic = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_grow_mic" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_arms_factory_factor = 0.25
+				production_speed_dockyard_factor = 0.25
+				military_industry_tax_modifier = 0.05
+				dockyard_income_tax_modifier = 0.05
+				military_factories_productivity = 0.05
+				dockyard_productivity = 0.05
+			}
+		}
+
+		UOE_free_growth_eco = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_free_growth_eco" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_buildings_factor = -0.50
+				offices_productivity = 0.20
+				military_factories_productivity = 0.20
+				civilian_factories_productivity = 0.20
+				agricolture_productivity_modifier = 0.20
+				dockyard_productivity = 0.20
+			}
+		}
+
+		UOE_steered_growth_eco = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_steered_growth_eco" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_buildings_factor = 0.25
+				offices_productivity = -0.20
+				military_factories_productivity = -0.20
+				civilian_factories_productivity = -0.20
+				agricolture_productivity_modifier = -0.20
+				dockyard_productivity = -0.20
+			}
+		}
+
+		UOE_maximized_business_growth = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_maximized_business_growth" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				offices_productivity = 0.20
+				military_factories_productivity = 0.20
+				civilian_factories_productivity = 0.20
+				agricolture_productivity_modifier = 0.20
+				dockyard_productivity = 0.20
+				civilian_industry_tax_modifier = 0.10
+				office_park_income_tax_modifier = 0.10
+			}
+		}
+
+		UOE_infrastructure_growth = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_infrastructure_growth" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				production_speed_internet_station_factor = 0.15
+				production_speed_infrastructure_factor = 0.15
+				production_speed_supply_node_factor = 0.15
+				production_speed_rail_way_factor = 0.15
+			}
+		}
+
+		UOE_supported_mining_industry = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_supported_mining_industry" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				resource_sector_workers_modifier = 0.15
+				resource_export_multiplier_modifier = 0.15
+			}
+		}
+
+		UOE_fossil_fuel_production_growth = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_fossil_fuel_production_growth" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+
+			modifier = {
+				fossil_pp_energy_generation_modifier = 0.25
+				fossil_pp_fuel_consumption_modifier = 0.35
+			}
+		}
+
+		UOE_a_new_economy = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_a_new_economy" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				interest_rate_multiplier_modifier = -1
+				energy_use_multiplier = 0.15
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		UOE_fusing_the_atom = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_fusing_the_atom" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				nuclear_energy_generation_modifier = 0.35
+				production_speed_nuclear_reactor_factor = 0.25
+			}
+		}
+
+		UOE_the_sea_sky = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_the_sea_sky" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				renewable_energy_gain_multiplier = 0.75
+				fossil_pp_energy_generation_modifier = -0.25
+				production_speed_synthetic_refinery_factor = 0.35
+			}
+		}
+
+		UOE_the_coal_empire = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_the_coal_empire" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				renewable_energy_gain_multiplier = -0.50
+				fossil_pp_energy_generation_modifier = 0.50
+				fossil_pp_fuel_consumption_modifier = 0.45
+				production_speed_fossil_powerplant_factor = 0.25
+			}
+		}
+
+		UOE_cyber_command_non_lar = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_cyber_command_non_lar" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				encryption_factor = 0.25
+				decryption_factor = 0.25
+			}
+		}
+
+		UOE_special_forces_command = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_special_forces_command" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				special_forces_training_time_factor = -0.1
+				special_forces_cap = 0.1
+			}
+		}
+
+		UOE_space_command = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_space_command" }
+			picture = GFX_idea_democracy
+			allowed = {
+				has_country_flag = USoE
+			}
+			modifier = {
+				intel_network_gain_factor = 0.15
+				intel_from_combat_factor = 0.15
+			}
+		}
+
+		UOE_the_rise_of_the_government = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_the_rise_of_the_government" }
+			picture = GFX_idea_USoE_heart_of_iron
+			allowed = {
+				has_country_flag = USoE
+				NOT = { has_country_flag = military_takeover }
+			}
+			modifier = {
+				stability_factor = 0.10
+				political_power_factor = 0.10
+				drift_defence_factor = 0.10
+			}
+		}
+
+		USoE_environmental_sanctions = {
+
+			picture = USoE_environmental_sanctions
+			modifier = {
+				political_power_factor = -0.05
+				consumer_goods_factor = 0.10
+				stability_factor = -0.05
+				production_speed_buildings_factor = -0.05
+				trade_opinion_factor = -0.25
+			}
+		}
+		UOE_office_const_boost = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_office_const_boost" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_offices_factor = 0.15
+			}
+		}
+		UOE_expand_civ_market = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_expand_civ_market" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+		UOE_expanded_migration_incentives = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_expanded_migration_incentives" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				migration_rate_value_factor = 0.15
+			}
+		}
+		UOE_growing_european_markets = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_growing_european_markets" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				international_market_income_modifier = 0.15
+				return_on_investment_modifier = 0.03
+			}
+		}
+		UOE_spread_of_markets = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_spread_of_markets" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				investment_cost_modifier = -0.05
+			}
+		}
+		UOE_tax_gain_from_bus = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_tax_gain_from_bus" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				tax_gain_multiplier_modifier = 0.02
+				foreign_influence_modifier = 0.05
+			}
+		}
+		UOE_infra_dev_program = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_infra_dev_program" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_internet_station_factor = 0.05
+				production_speed_infrastructure_factor = 0.05
+				production_cost_internet_station_factor = -0.05
+				production_cost_infrastructure_factor = -0.05
+
+			}
+		}
+		UOE_roads_and_railways = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_roads_and_railways" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_rail_way_factor = 0.10
+				production_speed_infrastructure_factor = 0.10
+			}
+		}
+		UOE_education_improvements = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_education_improvements" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				education_cost_multiplier_modifier = -0.02
+			}
+		}
+		UOE_workforce_growth = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_workforce_growth" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				productivity_growth_modifier = 0.02
+				civ_facs_worker_requirement_modifier = 0.02
+				offices_worker_requirement_modifier = 0.02
+			}
+		}
+		UOE_rapid_railway_growth = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_rapid_railway_growth" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_rail_way_factor = 0.15
+				production_cost_rail_way_factor = -0.15
+			}
+		}
+		UOE_rapid_railway_growth_2 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_rapid_railway_growth_2" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			modifier = {
+				production_speed_rail_way_factor = 0.35
+			}
+		}
+		UOE_trains_trucks_ships = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_trains_trucks_ships" }
+			picture = GFX_idea_USoE_environmental_sanctions
+			equipment_bonus = {
+				util_vehicle_type = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				convoy = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+				train_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		UOE_international_business_support = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_international_business_support" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			modifier = {
+				receiving_investment_duration_modifier = -0.1
+				receiving_investment_cost_modifier = -0.1
+			}
+		}
+		UOE_superhighway = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_superhighway" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			modifier = {
+				country_productivity_growth_modifier = 0.1
+			}
+		}
+		UOE_failed_superhighway = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_failed_superhighway" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			modifier = {
+				country_productivity_growth_modifier = -0.15
+			}
+		}
+		UOE_the_concrete_barrier = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_the_concrete_barrier" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			modifier = {
+				land_bunker_effectiveness_factor = 0.05
+				coastal_bunker_effectiveness_factor = 0.05
+				production_speed_bunker_factor = 0.05
+				production_speed_coastal_bunker_factor = 0.05
+			}
+		}
+		UOE_airbase_construction_initiative = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_airbase_construction_initiative" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			modifier = {
+				production_speed_air_base_factor = 0.1
+				production_cost_air_base_factor = -0.025
+			}
+		}
+		UOE_air_missile_defense_initiative = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea UOE_airbase_construction_initiative" }
+			picture = GFX_idea_USoE_environmental_sanctions
+
+			allowed = { has_dlc = "Gotterdammerung" original_tag = UOE }
+
+			modifier = {
+				production_speed_anti_air_building_factor = 0.1
+				production_cost_anti_air_building_factor = -0.025
+				production_speed_rocket_site_factor = 0.1
+				production_cost_rocket_site_factor = -0.025
+			}
+
+			equipment_bonus = {
+				sam_missile_equipment = {
+					build_cost_ic = -0.15
+				}
+			}
+		}
+		UOE_rights_intervention_policy = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = { justify_war_goal_time = -0.25 }
+		}
+		UOE_outward_policy = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = { justify_war_goal_time = -0.10 }
+		}
+		UOE_external_defence_contracts = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = {
+				industrial_capacity_factory = -0.10
+				production_factory_efficiency_gain_factor = -0.05
+				international_market_purchase_modifier = -0.05
+			}
+		}
+		UOE_council_economic_agenda = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				country_productivity_growth_modifier = 0.05
+			}
+		}
+		UOE_council_social_agenda = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = {
+				stability_factor = 0.05
+				political_power_factor = 0.05
+			}
+		}
+		UOE_council_security_agenda = {
+			picture = democracy
+			allowed = { original_tag = UOE }
+			modifier = {
+				war_support_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+		UOE_global_rights_pact_member = {
+			picture = democracy
+			allowed = { always = yes }
+			modifier = {
+				stability_factor = 0.03
+				drift_defence_factor = 0.10
+				trade_opinion_factor = 0.10
+			}
+		}
+	}
+}

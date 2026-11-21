@@ -1,0 +1,14 @@
+# Chad Tribal Loyalty Scripted GUI
+
+scripted_gui = {
+
+	CHA_tribal_loyalty_gui = {
+		context_type = decision_category
+		window_name = "CHA_tribal_loyalty_gui_window"
+
+		dirty = CHA_tribal_loyalty_dirty
+
+		# No interactive elements needed - just display
+	}
+
+}

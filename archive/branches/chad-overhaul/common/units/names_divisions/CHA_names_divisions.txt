@@ -1,0 +1,195 @@
+# Division template historical names system for Chad
+# Chad Armed Forces (Forces Armées et de Sécurité) naming conventions
+
+CHA_INF_01 = {
+	name = "Chadian Infantry Brigades"
+
+	for_countries = { CHA }
+
+	division_types = { "L_Inf_Bat" "Mot_Inf_Bat" "Mech_Inf_Bat" }
+
+	fallback_name = "%d. Liwa' al-Mushaa Tchadi"
+
+	ordered = {
+		1 = { "1ère Brigade d'Infanterie" }
+		2 = { "2ème Brigade d'Infanterie" }
+		3 = { "3ème Brigade d'Infanterie" }
+		4 = { "4ème Brigade d'Infanterie" }
+		5 = { "5ème Brigade d'Infanterie" }
+		6 = { "6ème Brigade d'Infanterie" }
+		7 = { "7ème Brigade d'Infanterie" }
+		8 = { "8ème Brigade d'Infanterie" }
+	}
+}
+
+CHA_ARM_01 = {
+	name = "Chadian Armored Units"
+
+	for_countries = { CHA }
+
+	division_types = { "Arm_Inf_Bat" "armor_Bat" }
+
+	fallback_name = "%d. Régiment Blindé"
+
+	ordered = {
+		1 = { "1er Régiment Blindé" }
+		2 = { "2ème Régiment Blindé" }
+		3 = { "3ème Régiment Blindé" }
+	}
+}
+
+CHA_GARDE_PRESIDENTIELLE = {
+	name = "Presidential Guard"
+
+	for_countries = { CHA }
+
+	can_use = { NOT = { has_government = democratic } }
+
+	division_types = { "Mech_Inf_Bat" "Arm_Inf_Bat" "Special_Forces" }
+
+	fallback_name = "%d. Garde Présidentielle"
+
+	ordered = {
+		1 = { "Garde Présidentielle" }
+		2 = { "Direction Générale des Services de Sécurité" }
+	}
+}
+
+CHA_DGSSIE = {
+	name = "DGSSIE Units"
+
+	for_countries = { CHA }
+
+	can_use = {
+		OR = {
+			has_idea = CHA_zaghawa_dominance
+			has_country_leader = { name = "Idriss Déby" ruling_only = yes }
+			has_country_leader = { name = "Mahamat Idriss Déby" ruling_only = yes }
+		}
+	}
+
+	division_types = { "Special_Forces" "Mech_Inf_Bat" }
+
+	fallback_name = "%d. DGSSIE"
+
+	ordered = {
+		1 = { "DGSSIE - Groupe d'Intervention" }
+		2 = { "DGSSIE - Unité de Protection" }
+	}
+}
+
+CHA_SPECIAL_FORCES = {
+	name = "Chadian Special Forces"
+
+	for_countries = { CHA }
+
+	division_types = { "Special_Forces" }
+
+	fallback_name = "%d. Forces Spéciales"
+
+	ordered = {
+		1 = { "Groupement Anti-Terroriste" }
+		2 = { "Commandos de Ndjamena" }
+		3 = { "Forces Spéciales Tchadiennes" }
+	}
+}
+
+CHA_NOMAD_GUARD = {
+	name = "Nomad and National Guard"
+
+	for_countries = { CHA }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" "Mot_Inf_Bat" }
+
+	fallback_name = "%d. Garde Nomade et Nationale"
+
+	ordered = {
+		1 = { "Garde Nomade - Nord" }
+		2 = { "Garde Nomade - Est" }
+		3 = { "Garde Nationale - Centre" }
+		4 = { "Garde Nationale - Sud" }
+	}
+}
+
+CHA_GENDARMERIE = {
+	name = "Chadian Gendarmerie"
+
+	for_countries = { CHA }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Légion de Gendarmerie"
+
+	ordered = {
+		1 = { "1ère Légion de Gendarmerie - Ndjamena" }
+		2 = { "2ème Légion de Gendarmerie - Moundou" }
+		3 = { "3ème Légion de Gendarmerie - Abéché" }
+		4 = { "4ème Légion de Gendarmerie - Sarh" }
+	}
+}
+
+CHA_TRIBAL_MILITIA = {
+	name = "Tribal Militia Forces"
+
+	for_countries = { CHA }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d. Milice Tribale"
+
+	ordered = {
+		1 = { "Milice Zaghawa" }
+		2 = { "Milice Arabe du Ouaddaï" }
+		3 = { "Milice Sara du Sud" }
+		4 = { "Milice Toubou du Tibesti" }
+		5 = { "Milice Gorane" }
+		6 = { "Milice Hadjarai" }
+	}
+}
+
+CHA_DESERT_UNITS = {
+	name = "Desert Combat Units"
+
+	for_countries = { CHA }
+
+	division_types = { "Mot_Inf_Bat" "Mech_Inf_Bat" }
+
+	fallback_name = "%d. Unité de Combat du Désert"
+
+	ordered = {
+		1 = { "Groupement Tactique Nord" }
+		2 = { "Groupement Tactique Est" }
+		3 = { "Colonne Mobile du BET" }
+		4 = { "Forces du Désert - Tibesti" }
+	}
+}
+
+CHA_AIR_CAV_BRIGADES = {
+	name = "Airborne Brigades"
+
+	for_countries = { CHA }
+
+	division_types = { "L_Air_assault_Bat" "L_Air_Inf_Bat" "Mot_Air_Inf_Bat" }
+
+	fallback_name = "%d Brigade Aeroportee"
+}
+
+CHA_MAR = {
+	name = "Lake Chad Battalions"
+
+	for_countries = { CHA }
+
+	division_types = { "L_Marine_Bat" "Mot_Marine_Bat" "Mech_Marine_Bat" "Arm_Marine_Bat" }
+
+	fallback_name = "%d Bataillon du Lac Tchad"
+}
+
+CHA_MIL = {
+	name = "Nomad Guard Brigades"
+
+	for_countries = { CHA }
+
+	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
+
+	fallback_name = "%d Brigade Nomade"
+}

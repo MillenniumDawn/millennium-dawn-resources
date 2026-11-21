@@ -1,0 +1,562 @@
+UOE_eoc_prod_track = {
+	UOE = {
+		clear_array = high_prod_state
+		clear_array = low_prod_state
+		every_owned_state = {
+			log = "Info [THIS.GetName] [?THIS.productivity_state_var]"
+			if = { limit = { check_variable = { productivity_state_var > UOE.overall_productivity } }
+				UOE = {
+					add_to_array = { high_prod_state = PREV }
+				}
+				log = "adding to high states [THIS.GetID]"
+			}else = {
+				UOE = {
+					add_to_array = { low_prod_state = PREV }
+				}
+				log = "adding to low states"
+			}
+		}
+		set_variable = { high_prod_state_count = 0 }
+		set_variable = { low_prod_state_count = 0 }
+
+		if = { limit = { check_variable = { gdp_per_capita_tracker = 0 } }
+			set_variable = { gdp_per_capita_tracker = gdp_per_capita }
+			set_variable = { gdp_capita_increase = 0 }
+		} else = {
+			set_variable = { gdp_capita_increase = 0 }
+			monthly_gdp_c_percent_increase = yes
+			set_variable = { gdp_capita_increase = gdp_math_tracker }
+		}
+
+		for_each_loop = {
+			array = high_prod_state
+			add_to_variable = { high_prod_state_count = 1 }
+		}
+
+		for_each_loop = {
+			array = low_prod_state
+			add_to_variable = { low_prod_state_count = 1 }
+		}
+
+		if = { limit = { check_variable = { low_prod_state_count > high_prod_state_count } }
+			add_to_temp_variable = { total_state = low_prod_state_count }
+			add_to_temp_variable = { total_state = high_prod_state_count }
+			set_temp_variable = { low_prod_add = low_prod_state_count }
+			divide_temp_variable = { low_prod_add = total_state }
+			divide_temp_variable = { low_prod_add = 25 }
+			add_to_variable = { low_prod_unrest = low_prod_add }
+			clamp_variable = {
+				var = low_prod_unrest
+				max = 1
+			}
+		}else = {
+			add_to_temp_variable = { total_state = low_prod_state_count }
+			add_to_temp_variable = { total_state = high_prod_state_count }
+			set_temp_variable = { low_prod_remove = low_prod_state_count }
+			divide_temp_variable = { low_prod_remove = total_state }
+			divide_temp_variable = { low_prod_remove = 25 }
+			subtract_from_variable = { low_prod_unrest = low_prod_remove }
+			clamp_variable = {
+				var = low_prod_unrest
+				min = 0
+			}
+		}
+
+		if = { limit = { check_variable = { gdp_capita_increase < 0.02 } }
+			set_temp_variable = { high_prod_add = 0.02 }
+			subtract_from_temp_variable = { high_prod_add = gdp_capita_increase }
+			add_to_variable = { high_prod_unrest = high_prod_add }
+			clamp_variable = {
+				var = high_prod_unrest
+				max = 1
+			}
+		}else = {
+			set_temp_variable = { high_prod_remove = 0.02 }
+			set_temp_variable = { gdp_cap_move = gdp_capita_increase }
+			subtract_from_temp_variable = { gdp_cap_move = high_prod_remove }
+			subtract_from_variable = { high_prod_unrest = gdp_cap_move }
+			clamp_variable = {
+				var = high_prod_unrest
+				min = 0
+			}
+		}
+	}
+}
+UOE_mil_revolt_track = {
+	#Adjust the revolt for nation stability
+	set_temp_variable = { stab_adjust = 0.5 }
+	subtract_from_temp_variable = { stab_adjust = stability }
+	divide_temp_variable = { stab_adjust = 2 }
+	add_to_variable = { military_revolt = stab_adjust }
+
+	log = "Military revolt after stability is: [?military_revolt]"
+
+	#Adjust the revolt for economic stability
+	if = { limit = { has_country_flag = unstable_economy }
+		set_temp_variable = { econ_stab_adjust = low_prod_unrest }
+		add_to_temp_variable = { econ_stab_adjust = high_prod_unrest }
+		if = { limit = { OR = { check_variable = { econ_stab_adjust = 0 } has_country_flag = resolved_eco_crisis } }
+			add_to_variable = { military_revolt = -0.05 }
+		}else = {
+			divide_temp_variable = { econ_stab_adjust = 6 }
+			add_to_variable = { military_revolt = econ_stab_adjust }
+		}
+	}else = {
+		add_to_variable = { military_revolt = -0.025 }
+	}
+
+	log = "Military revolt after econ is: [?military_revolt]"
+
+	#Adjust the revolt for government popularity
+	set_temp_variable = { gov_pop_adjust = 0.4 }
+	subtract_from_temp_variable = { gov_pop_adjust = government_coalition_strength }
+	divide_temp_variable = { gov_pop_adjust = 2 }
+	add_to_variable = { military_revolt = gov_pop_adjust }
+
+	log = "Military revolt after gov pop is: [?military_revolt]"
+
+	#Adjust the revolt for the people being pissed
+	set_temp_variable = { protest_str_adjust = protest_strength }
+	divide_temp_variable = { protest_str_adjust = 100 }
+	set_temp_variable = { protest_rad_adjust = protest_radicalisation }
+	divide_temp_variable = { protest_rad_adjust = 100 }
+	multiply_temp_variable = { protest_str_adjust = protest_rad_adjust }
+	if = { limit = { check_variable = { protest_str_adjust = 0 } }
+		add_to_variable = { military_revolt = -0.01 }
+	}else = {
+		add_to_variable = { military_revolt = protest_str_adjust }
+	}
+
+	log = "Military revolt after protest is: [?military_revolt]"
+
+	#Adjust the revolt for cultural balance number
+	if = { limit = { has_power_balance = { id = UOE_culture_balance } }
+		if = {
+			limit = {
+				NOT = {
+					is_power_balance_in_range = {
+						id = UOE_culture_balance
+						range = mid_range
+					}
+				}
+			}
+			set_temp_variable = { cult_bop_adjust = cult_start_bias }
+			if = { limit = { check_variable = { cult_bop_adjust < 0 } }
+				multiply_temp_variable = { cult_bop_adjust = -1 }
+			}
+			divide_temp_variable = { cult_bop_adjust = 30 }
+			add_to_variable = { military_revolt = cult_bop_adjust }
+		}else = {
+			add_to_variable = { military_revolt = -0.005}
+		}
+	}else = {
+		add_to_variable = { military_revolt = -0.005}
+	}
+
+	log = "Military revolt after culture is: [?military_revolt]"
+
+	#clamp at end to ensure that military revolt stays between 0-100%
+	clamp_variable = {
+		var = military_revolt
+		min = 0
+		max = 1
+	}
+
+	log = "Final Clamped Military Revolt Value is: [?military_revolt]"
+}
+
+UOE_project_cost_change = {
+	add_to_variable = { UOE_project_cost_var = temp_change }
+	custom_effect_tooltip = UOE_change_project_cost_tooltip
+	force_update_dynamic_modifier = yes
+}
+
+UOE_tax_gain_change = {
+	add_to_variable = { UOE_tax_gain_var = temp_change }
+	custom_effect_tooltip = UOE_change_tax_gain_tooltip
+	force_update_dynamic_modifier = yes
+}
+
+UOE_consumer_goods_change = {
+	add_to_variable = { UOE_goods_var = temp_change }
+	custom_effect_tooltip = UOE_change_consumer_goods_tooltip
+	force_update_dynamic_modifier = yes
+}
+
+UOE_producitivty_grow_change = {
+	add_to_variable = { UOE_prod_grow_var = temp_change }
+	custom_effect_tooltip = UOE_change_productivity_grow_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_const_speed_building_change = {
+	add_to_variable = { UOE_const_speed_var = temp_change }
+	custom_effect_tooltip = UOE_change_const_speed_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_trade_opinion_change = {
+	add_to_variable = { UOE_trade_op_var = temp_change }
+	custom_effect_tooltip = UOE_change_trade_opinion_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_stab_fac_change = {
+	add_to_variable = { UOE_stab_var = temp_change }
+	custom_effect_tooltip = UOE_change_stab_fac_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_foreign_inf_defense_change = {
+	add_to_variable = { UOE_foreign_inf_def_var = temp_change }
+	custom_effect_tooltip = UOE_change_foreign_inf_def_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_pol_power_change = {
+	add_to_variable = { UOE_pol_power_var = temp_change }
+	custom_effect_tooltip = UOE_change_pol_power_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_energy_use_change = {
+	add_to_variable = { UOE_energy_use_var = temp_change }
+	custom_effect_tooltip = UOE_change_energy_use_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_energy_gain_change = {
+	add_to_variable = { UOE_energy_gain_var = temp_change }
+	custom_effect_tooltip = UOE_change_energy_gain_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_pop_energy_change = {
+	add_to_variable = { UOE_pop_energy_var = temp_change }
+	custom_effect_tooltip = UOE_change_pop_energy_use_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_pop_fuel_change = {
+	add_to_variable = { UOE_pop_fuel_var = temp_change }
+	custom_effect_tooltip = UOE_change_fuel_use_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_prod_lack_change = {
+	add_to_variable = { UOE_prod_recs_lack_var = temp_change }
+	custom_effect_tooltip = UOE_change_prod_lack_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_local_resource_change = {
+	add_to_variable = { UOE_loc_recs_var = temp_change }
+	custom_effect_tooltip = UOE_change_local_resource_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_army_change = {
+	add_to_variable = { UOE_army_var = temp_change }
+	custom_effect_tooltip = UOE_change_army_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_air_change = {
+	add_to_variable = { UOE_air_var = temp_change }
+	custom_effect_tooltip = UOE_change_air_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_navy_change = {
+	add_to_variable = { UOE_navy_var = temp_change }
+	custom_effect_tooltip = UOE_change_navy_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_equip_cost_change = {
+	add_to_variable = { UOE_mil_cost_var = temp_change }
+	custom_effect_tooltip = UOE_change_mil_cost_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_eco_mig_change = {
+	add_to_variable = { UOE_eco_mig_var = temp_change }
+	custom_effect_tooltip = UOE_change_eco_mig_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_market_income_change = {
+	add_to_variable = { UOE_market_income_var = temp_change }
+	custom_effect_tooltip = UOE_change_market_income_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_equipment_cost_change = {
+	add_to_variable = { UOE_equipment_cost_var = temp_change }
+	custom_effect_tooltip = UOE_change_equipment_cost_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_market_purchase_change = {
+	add_to_variable = { UOE_market_purchase_var = temp_change }
+	custom_effect_tooltip = UOE_change_market_purchase_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_mil_ind_complex_change = {
+	add_to_variable = { UOE_mil_indust_complex_var = temp_change }
+	custom_effect_tooltip = UOE_change_mil_indust_tooltip
+	force_update_dynamic_modifier = yes
+}
+UOE_pol_mig_change = {
+	add_to_variable = { UOE_pol_mig_var = temp_change }
+	custom_effect_tooltip = UOE_change_pol_mig_tooltip
+	force_update_dynamic_modifier = yes
+}
+
+UOE_mil_revolt_change = {
+	add_to_variable = { military_revolt = mil_change }
+	custom_effect_tooltip = UOE_mil_revolt_change_tooltip
+}
+
+UOE_train_time_change = {
+	add_to_variable = { UOE_mil_train_time_var = mil_change }
+	custom_effect_tooltip = UOE_change_train_time_tooltip
+}
+
+UOE_recruit_pop_change = {
+	add_to_variable = { UOE_mil_recruit_var = mil_change }
+	custom_effect_tooltip = UOE_change_recruit_pop_tooltip
+}
+
+UOE_low_prod_unrest_change = {
+	add_to_variable = { low_prod_unrest = unrest_change }
+	clamp_variable = {
+		var = low_prod_unrest
+		min = 0
+		max = 1
+	}
+	custom_effect_tooltip = low_prod_unrest_change_tooltip
+}
+
+UOE_high_prod_unrest_change = {
+	add_to_variable = { high_prod_unrest = unrest_change }
+	clamp_variable = {
+		var = high_prod_unrest
+		min = 0
+		max = 1
+	}
+	custom_effect_tooltip = high_prod_unrest_change_tooltip
+}
+
+monthly_gdp_c_percent_increase = {
+	set_temp_variable = { gdp_math_tracker = gdp_per_capita }
+	subtract_from_temp_variable = { gdp_math_tracker = gdp_per_capita_tracker }
+	divide_temp_variable = { gdp_math_tracker = gdp_per_capita_tracker }
+	set_variable = { gdp_per_capita_tracker = gdp_per_capita }
+}
+
+upgrade_uoe_mios = {
+	every_military_industrial_organization = {
+		add_mio_size = mio_upgrade
+	}
+}
+
+remove_all_internal_factions = {
+	hidden_effect = {
+		if = { limit = { has_idea = small_medium_business_owners }
+			remove_ideas = small_medium_business_owners
+		}
+		if = { limit = { has_idea = international_bankers }
+			remove_ideas = international_bankers
+		}
+		if = { limit = { has_idea = fossil_fuel_industry }
+			remove_ideas = fossil_fuel_industry
+		}
+		if = { limit = { has_idea = industrial_conglomerates }
+			remove_ideas = industrial_conglomerates
+		}
+		if = { limit = { has_idea = oligarchs }
+			remove_ideas = oligarchs
+		}
+		if = { limit = { has_idea = maritime_industry }
+			remove_ideas = maritime_industry
+		}
+		if = { limit = { has_idea = defense_industry }
+			remove_ideas = defense_industry
+		}
+		if = { limit = { has_idea = the_military }
+			remove_ideas = the_military
+		}
+		if = { limit = { has_idea = intelligence_community }
+			remove_ideas = intelligence_community
+		}
+		if = { limit = { has_idea = labour_unions }
+			remove_ideas = labour_unions
+		}
+		if = { limit = { has_idea = landowners }
+			remove_ideas = landowners
+		}
+		if = { limit = { has_idea = farmers }
+			remove_ideas = farmers
+		}
+		if = { limit = { has_idea = communist_cadres }
+			remove_ideas = communist_cadres
+		}
+		if = { limit = { has_idea = the_priesthood }
+			remove_ideas = the_priesthood
+		}
+		if = { limit = { has_idea = the_ulema }
+			remove_ideas = the_ulema
+		}
+		if = { limit = { has_idea = the_clergy }
+			remove_ideas = the_clergy
+		}
+		if = { limit = { has_idea = wahabi_ulema }
+			remove_ideas = wahabi_ulema
+		}
+	}
+	custom_effect_tooltip = UOE_remove_all_int_fac_tooltip
+	hidden_effect = {
+		UOE = {
+			country_event = UOEEvent.4
+		}
+	}
+}
+
+UOE_ruling_party_pop_increase = {
+	for_each_loop = {
+		array = ruling_party
+		value = party_num
+
+		set_temp_variable = { party_index = ruling_party^party_num }
+		set_temp_variable = { party_popularity_increase = party_increase }
+		change_relative_party_popularity = yes
+	}
+	custom_effect_tooltip = increase_party_popularity_tooltip
+}
+
+reset_int_fac_vals = {
+	set_variable = { small_medium_business_owners_opinion = small_medium_bus_op_track }
+	set_variable = { international_bankers_opinion = international_bankers_op_track }
+	set_variable = { fossil_fuel_industry_opinion = fossil_fuel_industry_op_track }
+	set_variable = { industrial_conglomerates_opinion = industrial_conglomerates_op_track }
+	set_variable = { oligarchs_opinion = oligarchs_op_track }
+	set_variable = { maritime_industry_opinion = maritime_industry_op_track }
+	set_variable = { defense_industry_opinion = defense_industry_op_track }
+	set_variable = { the_military_opinion = the_military_op_track }
+	set_variable = { intelligence_community_opinion = intelligence_community_op_track }
+	set_variable = { labour_unions_opinion = labour_unions_op_track }
+	set_variable = { landowners_opinion = landowners_op_track }
+	set_variable = { farmers_opinion = farmers_op_track }
+	set_variable = { communist_cadres_opinion = communist_cadres_op_track }
+	set_variable = { the_priesthood_opinion = the_priesthood_op_track }
+	set_variable = { the_ulema_opinion = the_ulema_op_track }
+	set_variable = { the_clergy_opinion = the_clergy_op_track }
+	set_variable = { wahabi_ulema_opinion = wahabi_ulema_op_track }
+}
+
+UOE_increase_int_fac_op = {
+	if = { limit = { has_idea = small_medium_business_owners }
+		add_to_variable = { small_medium_business_owners_opinion = op_change }
+	}
+	if = { limit = { has_idea = international_bankers }
+		add_to_variable = { international_bankers_opinion = op_change }
+	}
+	if = { limit = { has_idea = fossil_fuel_industry }
+		add_to_variable = { fossil_fuel_industry_opinion = op_change }
+	}
+	if = { limit = { has_idea = industrial_conglomerates }
+		add_to_variable = { industrial_conglomerates_opinion = op_change }
+	}
+	if = { limit = { has_idea = oligarchs }
+		add_to_variable = { oligarchs_opinion = op_change }
+	}
+	if = { limit = { has_idea = maritime_industry }
+		add_to_variable = { maritime_industry_opinion = op_change }
+	}
+	if = { limit = { has_idea = defense_industry }
+		add_to_variable = { defense_industry_opinion = op_change }
+	}
+	if = { limit = { has_idea = the_military }
+		add_to_variable = { the_military_opinion = op_change }
+	}
+	if = { limit = { has_idea = intelligence_community }
+		add_to_variable = { intelligence_community_opinion = op_change }
+	}
+	if = { limit = { has_idea = labour_unions }
+		add_to_variable = { labour_unions_opinion = op_change }
+	}
+	if = { limit = { has_idea = landowners }
+		add_to_variable = { landowners_opinion = op_change }
+	}
+	if = { limit = { has_idea = farmers }
+		add_to_variable = { farmers_opinion = op_change }
+	}
+	if = { limit = { has_idea = communist_cadres }
+		add_to_variable = { communist_cadres_opinion = op_change }
+	}
+	if = { limit = { has_idea = the_priesthood }
+		add_to_variable = { the_priesthood_opinion = op_change }
+	}
+	if = { limit = { has_idea = the_ulema }
+		add_to_variable = { the_ulema_opinion = op_change }
+	}
+	if = { limit = { has_idea = the_clergy }
+		add_to_variable = { the_clergy_opinion = op_change }
+	}
+	if = { limit = { has_idea = wahabi_ulema }
+		add_to_variable = { wahabi_ulema_opinion = op_change }
+	}
+	custom_effect_tooltip = all_int_fac_op_change_tooltip
+}
+
+UOE_stabilize_eco_start = {
+	set_temp_variable = { civ_fac_total = num_of_civilian_factories }
+	set_temp_variable = { mil_fac_total = num_of_military_factories }
+	set_temp_variable = { nav_fac_total = num_of_naval_factories }
+	set_temp_variable = { off_park_total = office_park_total }
+
+	multiply_temp_variable = { civ_fac_total = 0.4 }
+	multiply_temp_variable = { mil_fac_total = 0.2 }
+	multiply_temp_variable = { nav_fac_total = 0.2 }
+	multiply_temp_variable = { off_park_total = 0.2 }
+
+	round_temp_variable = civ_fac_total
+	round_temp_variable = mil_fac_total
+	round_temp_variable = nav_fac_total
+	round_temp_variable = off_park_total
+
+	set_temp_variable = { civ_sub_cost = civ_fac_total }
+	set_temp_variable = { mil_sub_cost = mil_fac_total }
+	set_temp_variable = { nav_fac_cost = nav_fac_total }
+	set_temp_variable = { off_park_cost = off_park_total }
+
+	multiply_temp_variable = { civ_sub_cost = 7.5 }
+	multiply_temp_variable = { mil_sub_cost = 7.5 }
+	multiply_temp_variable = { nav_fac_cost = 7.5 }
+	multiply_temp_variable = { off_park_cost = 12 }
+
+	add_to_variable = { UOE_subsidy_budget_weekly = civ_sub_cost }
+	add_to_variable = { UOE_subsidy_budget_weekly = mil_sub_cost }
+	add_to_variable = { UOE_subsidy_budget_weekly = nav_fac_cost }
+	add_to_variable = { UOE_subsidy_budget_weekly = off_park_cost }
+
+	divide_variable = { UOE_subsidy_budget_weekly = 52 }
+}
+
+grab_current_highway_infra = {
+	set_variable = { current_highway_level = 0 }
+
+	every_controlled_state = {
+		limit = { is_core_of = UOE }
+		add_to_variable = { current_highway_level = building@infrastructure }
+	}
+
+	if = {
+		limit = { NOT = { has_country_flag = working_on_superhighway } }
+		set_variable = { target_highway_level = current_highway_level }
+		every_controlled_state = {
+			limit = {
+				is_core_of = UOE
+				building@infrastructure < 5
+			}
+			add_to_variable = { UOE.target_highway_level = 1 }
+		}
+		set_variable = {
+			UOE_highway_weekly_cost = {
+				value = gdp_total
+				multiply = 0.005
+				divide = 52
+			}
+		}
+		set_country_flag = working_on_superhighway
+	}
+}
+
+UOE_end_highway_project = {
+	clr_country_flag = working_on_superhighway
+	clear_variable = current_highway_level
+	clear_variable = target_highway_level
+	clear_variable = UOE_highway_weekly_cost
+}

@@ -1,0 +1,2268 @@
+
+
+
+
+
+
+
+# INTERNAL MIGRATION
+	defined_text = {
+		name = MLW_selected_region_place
+		text = {
+			trigger = { check_variable = { region_place = 0 } }
+			localization_key = MLW_int_mig_rural
+		}
+		text = {
+			trigger = { check_variable = { region_place = 1 } }
+			localization_key = MLW_int_mig_urban
+		}
+	}
+	defined_text = {
+		name = MLW_selected_region_place_patterns
+		text = {
+			trigger = { check_variable = { region_place = 0 } }
+			localization_key = "[?MLW_internal_migration^0|%Y2]"
+		}
+		text = {
+			trigger = { check_variable = { region_place = 1 } }
+			localization_key = "[?MLW_internal_migration^1|%Y2]"
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+# POLITICAL PARTIES
+	# policy grouping is using some funky numbers
+	#
+	# the math of the acronyms are the policy id
+	#
+	# prefixes
+	# 9 is AFORD
+	# 12 is DPP
+	# 13 is LESOMA
+	# 11 is MCP
+	# 16 is PP
+	# 10 is UDF
+	#
+	# AFORD
+		# POLICIES CHECKER
+			defined_text = {
+				name = MLW_AFORD_policy_name
+			}
+	# MCP
+		# GUI
+			# PARTY LEADER
+				defined_text = { # PARTY LEADER
+					name = MCP_party_leader
+					text = {
+						trigger = { check_variable = { MLW_MCP_party_leader = 0 } }
+						localization_key = MCP_gwanda_chakuamba
+					}
+					text = {
+						trigger = { check_variable = { MLW_MCP_party_leader = 1 } }
+						localization_key = MCP_john_tembo
+					}
+					text = {
+						trigger = { check_variable = { MLW_MCP_party_leader = 2 } }
+						localization_key = MCP_lazarus_chakwera
+					}
+					text = {
+						trigger = { check_variable = { MLW_MCP_party_leader = 3 } }
+						localization_key = MCP_jumani_johansson
+					}
+				}
+			# MODERATE HARDLINER SPLIT
+				# POWER STRUGGLE VICTORIES
+					defined_text = { # HARDLINER WIN POWER STRUGGLE
+						name = MCP_faction_hardliners_victory
+						text = {
+							trigger = { has_country_flag = MLW_MCP_moderates_purged }
+							localization_key = MCP_faction_hardliners_victory_text
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_moderates_purged } }
+							localization_key = ""
+						}
+					}
+					defined_text = { # MODERATES WIN POWER STRUGGLE
+						name = MCP_faction_moderates_victory
+						text = {
+							trigger = { has_country_flag = MLW_MCP_hardliners_purged }
+							localization_key = MCP_faction_moderates_victory_text
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_hardliners_purged } }
+							localization_key = ""
+						}
+					}
+				# FACTION NAME DISPLAY
+					defined_text = { # MODERATES FACTION NAME DISPLAY
+						name = MCP_display_faction_name_moderates
+						text = {
+							trigger = { has_country_flag = MLW_MCP_moderates_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_moderates_purged } }
+							localization_key = MCP_faction_moderates_GUI
+						}
+					}
+					defined_text = { # HARDLINERS FACTION NAME DISPLAY
+						name = MCP_display_faction_name_hardliners
+						text = {
+							trigger = { has_country_flag = MLW_MCP_hardliners_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_hardliners_purged } }
+							localization_key = MCP_faction_hardliners_GUI
+						}
+					}
+				# FACTION STRENGTH DISPLAY
+					defined_text = { # MCP MODERATES STRENGTH SLOT
+						name = MCP_faction_strength_slot_1
+						text = {
+							trigger = { has_country_flag = MLW_MCP_moderates_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_moderates_purged } }
+							localization_key = "[?MLW_MCP_faction_strength^0|%Y2]"
+						}
+					}
+					defined_text = { # MCP HARDLINERS STRENGTH SLOT
+						name = MCP_faction_strength_slot_2
+						text = {
+							trigger = { has_country_flag = MLW_MCP_hardliners_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_hardliners_purged } }
+							localization_key = "[?MLW_MCP_faction_strength^1|%Y2]"
+						}
+					}
+				# FACTION THREAT DISPLAY
+					defined_text = { # MCP MODERATES THREAT SLOT
+						name = MCP_faction_threat_slot_1
+						text = {
+							trigger = { has_country_flag = MLW_MCP_moderates_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_moderates_purged } }
+							localization_key = "[?MLW_MCP_faction_threat^0|%R2]"
+						}
+					}
+					defined_text = { # MCP HARDLINERS THREAT SLOT
+						name = MCP_faction_threat_slot_2
+						text = {
+							trigger = { has_country_flag = MLW_MCP_hardliners_purged }
+							localization_key = ""
+						}
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_hardliners_purged } }
+							localization_key = "[?MLW_MCP_faction_threat^1|%R2]"
+						}
+					}
+			# LIBERAL CONSERVATIVE SPLIT
+				# UNLOCK CRITERIA DISPLAY
+					defined_text = { # LIBERAL/CONSERVATIVE SPLIT UNLOCK CRITERIA
+						name = MCP_LC_split_unlock
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_conservatism_unlocked } }
+							localization_key = MCP_LC_split_how_to_unlock
+						}
+						text = {
+							trigger = { has_country_flag = MLW_MCP_conservatism_unlocked }
+							localization_key = ""
+						}
+					}
+			# 1993 REFERENDUM REPEAL
+				# UNLOCK CRITERIA DISPLAY
+					defined_text = { # REFERENDUM REPEAL EFFORTS
+						name = MCP_RR_unlock
+						text = {
+							trigger = { NOT = { has_country_flag = MLW_MCP_referendum_unlocked } }
+							localization_key = MCP_RR_how_to_unlock
+						}
+						text = {
+							trigger = { has_country_flag = MLW_MCP_referendum_unlocked }
+							localization_key = ""
+						}
+					}
+				# SUPPORT/SUSPICION
+					# TITLES
+						defined_text = { # JUDGES BACKERS TITLE
+							name = MCP_RR_judges_name_title
+							text = {
+								trigger = {
+									OR = {
+										NOT = { has_country_flag = MLW_MCP_referendum_unlocked }
+										OR = {
+											has_country_flag = MLW_MCP_1993_referendum_annulled
+											has_country_flag = MLW_MCP_1993_referendum_upheld
+										}
+									}
+									is_debug = no
+								}
+								localization_key = ""
+							}
+							text = {
+								trigger = {
+									OR = {
+										has_country_flag = MLW_MCP_referendum_unlocked
+										is_debug = yes
+									}
+								}
+								localization_key = MCP_RR_judges_name_title_text
+							}
+						}
+						defined_text = { # POPULATION BACKERS TITLE
+							name = MCP_RR_population_name_title
+							text = {
+								trigger = {
+									OR = {
+										NOT = { has_country_flag = MLW_MCP_referendum_unlocked }
+										OR = {
+											has_country_flag = MLW_MCP_1993_referendum_annulled
+											has_country_flag = MLW_MCP_1993_referendum_upheld
+										}
+									}
+									is_debug = no
+								}
+								localization_key = ""
+							}
+							text = {
+								trigger = {
+									OR = {
+										has_country_flag = MLW_MCP_referendum_unlocked
+										is_debug = yes
+									}
+								}
+								localization_key = MCP_RR_population_name_title_text
+							}
+						}
+					# OUTCOME
+						defined_text = { # REFERENDUM REPEALED
+							name = MCP_RR_repealed
+							text = {
+								trigger = { NOT = { has_country_flag = MLW_MCP_1993_referendum_annulled } }
+								localization_key = ""
+							}
+							text = {
+								trigger = { has_country_flag = MLW_MCP_1993_referendum_annulled }
+								localization_key = MCP_RR_repealed_text
+							}
+						}
+						defined_text = { # REFERENDUM UPHELD
+							name = MCP_RR_upheld
+							text = {
+								trigger = { NOT = { has_country_flag = MLW_MCP_1993_referendum_upheld } }
+								localization_key = ""
+							}
+							text = {
+								trigger = { has_country_flag = MLW_MCP_1993_referendum_upheld }
+								localization_key = MCP_RR_upheld_text
+							}
+						}
+
+
+
+
+
+
+
+
+
+
+
+
+		# EFFECTS
+			# FACTIONALISM
+				defined_text = { # FACTION NAME
+					name = selected_MCP_faction
+					text = {
+						trigger = { check_variable = { faction_place = 0 } }
+						localization_key = MCP_faction_moderates_GUI
+					}
+					text = {
+						trigger = { check_variable = { faction_place = 1 } }
+						localization_key = MCP_faction_hardliners_GUI
+					}
+				}
+				defined_text = { # INVERSE FACTION NAME
+					name = inverse_selected_MCP_faction
+					text = {
+						trigger = { check_variable = { faction_place = 1 } }
+						localization_key = MCP_faction_moderates_GUI
+					}
+					text = {
+						trigger = { check_variable = { faction_place = 0 } }
+						localization_key = MCP_faction_hardliners_GUI
+					}
+				}
+				defined_text = { # MCP FACTION STRENGTH
+					name = selected_MCP_faction_strength
+					text = {
+						trigger = { check_variable = { faction_place = 0 } }
+						localization_key = "[?MLW_MCP_faction_strength^0|%Y2]"
+					}
+					text = {
+						trigger = { check_variable = { faction_place = 1 } }
+						localization_key = "[?MLW_MCP_faction_strength^1|%Y2]"
+					}
+				}
+				defined_text = { # INVERSE MCP FACTION STRENGTH
+					name = inverse_selected_MCP_faction_strength
+					text = {
+						trigger = { check_variable = { faction_place = 1 } }
+						localization_key = "[?MLW_MCP_faction_strength^0|%Y2]"
+					}
+					text = {
+						trigger = { check_variable = { faction_place = 0 } }
+						localization_key = "[?MLW_MCP_faction_strength^1|%Y2]"
+					}
+				}
+				defined_text = { # MCP THREAT STRENGTH
+					name = selected_MCP_faction_threat
+					text = {
+						trigger = { check_variable = { faction_place = 0 } }
+						localization_key = "[?MLW_MCP_faction_threat^0|%Y2]"
+					}
+					text = {
+						trigger = { check_variable = { faction_place = 1 } }
+						localization_key = "[?MLW_MCP_faction_threat^1|%Y2]"
+					}
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		# LIBERALISM/CONSERVATISM
+			defined_text = { # LC GROUP NAME
+				name = selected_LC_group
+				text = {
+					trigger = { check_variable = { LC_group = 0 } }
+					localization_key = MCP_LC_society_conservative_name_title_text
+				}
+				text = {
+					trigger = { check_variable = { LC_group = 1 } }
+					localization_key = MCP_LC_society_liberals_name_title_text
+				}
+			}
+			defined_text = { # INVERSE LC GROUP NAME
+				name = inverse_selected_LC_group
+				text = {
+					trigger = { check_variable = { LC_group = 1 } }
+					localization_key = MCP_LC_society_conservative_name_title_text
+				}
+				text = {
+					trigger = { check_variable = { LC_group = 0 } }
+					localization_key = MCP_LC_society_liberals_name_title_text
+				}
+			}
+			defined_text = { # LC GROUP SPLIT
+				name = selected_LC_group_split
+				text = {
+					trigger = { check_variable = { LC_group = 0 } }
+					localization_key = "[?MLW_MCP_population_LC^0|%Y2]"
+				}
+				text = {
+					trigger = { check_variable = { LC_group = 1 } }
+					localization_key = "[?MLW_MCP_population_LC^1|%Y2]"
+				}
+			}
+			defined_text = { # INVERSE LC GROUP SPLIT
+				name = inverse_selected_LC_group_split
+				text = {
+					trigger = { check_variable = { LC_group = 1 } }
+					localization_key = "[?MLW_MCP_population_LC^0|%Y2]"
+				}
+				text = {
+					trigger = { check_variable = { LC_group = 0 } }
+					localization_key = "[?MLW_MCP_population_LC^1|%Y2]"
+				}
+			}
+		# POLICIES CHECKER
+			defined_text = {
+				name = MLW_MCP_policy_name
+				# TIER 1 POLICIES
+					text = { # ANTI CORRUPTION AGENCY
+						trigger = { check_variable = { v = 1105 } }
+						localization_key = MLW_MCP_ACA_POLICY
+					}
+					text = { # COMMUNITY HEALTHCARE ACT
+						trigger = { check_variable = { v = 1112 } }
+						localization_key = MLW_MCP_CHA_POLICY
+					}
+				# TIER 2 POLICIES
+					text = { # CCAM RENEWAL
+						trigger = { check_variable = { v = 1124 } }
+						localization_key = MLW_MCP_CCR_POLICY
+					}
+					text = { # MODESTY AND DECENCY LAWS
+						trigger = { check_variable = { v = 1129 } }
+						localization_key = MLW_MCP_MDL_POLICY
+					}
+					text = { # CONSERVATIVE DRESS CODES
+						trigger = { check_variable = { v = 1110 } }
+						localization_key = MLW_MCP_CDC_POLICY
+					}
+					text = { # CONTRACEPTIVE BANS
+						trigger = { check_variable = { v = 1121 } }
+						localization_key = MLW_MCP_CB_POLICY
+					}
+					text = { # ENSHRINED TRADITIONALISM
+						trigger = { check_variable = { v = 1125 } }
+						localization_key = MLW_MCP_ET_POLICY
+					}
+					text = { # DECENTRALISED ACA OFFICES
+						trigger = { check_variable = { v = 1109 } }
+						localization_key = MLW_MCP_DACAO_POLICY
+					}
+					text = { # ACA TRANSPARENCY LAWS
+						trigger = { check_variable = { v = 1141 } }
+						localization_key = MLW_MCP_ACATL_POLICY
+					}
+					text = { # CORRUPTION WATCHDOG
+						trigger = { check_variable = { v = 1142 } }
+						localization_key = MLW_MCP_CW_POLICY
+					}
+					text = { # PRESS FREEDOMS
+						trigger = { check_variable = { v = 1134 } }
+						localization_key = MLW_MCP_PF_POLICY
+					}
+					text = { # DOCTORAL FUNDING PROGRAMME
+						trigger = { check_variable = { v = 1138 } }
+						localization_key = MLW_MCP_DFP_POLICY
+					}
+					text = { # CHRISTIAN MEDICAL AID
+						trigger = { check_variable = { v = 1133 } }
+						localization_key = MLW_MCP_CMA_POLICY
+					}
+					text = { # ACCESS TO WATER SCHEME
+						trigger = { check_variable = { v = 1143 } }
+						localization_key = MLW_MCP_AWS_POLICY
+					}
+				# TIER 3 POLICIES
+					text = { # RESTRICTIONS ON DEMOCRACY
+						trigger = { check_variable = { v = 1137 } }
+						localization_key = MLW_MCP_ROD_POLICY
+					}
+					text = { # ANTI PROTEST LAW
+						trigger = { check_variable = { v = 1117 } }
+						localization_key = MLW_MCP_APL_POLICY
+					}
+					text = { # RELAUNCHING THE MYP
+						trigger = { check_variable = { v = 1184 } }
+						localization_key = MLW_MCP_RLMYP_POLICY
+					}
+					text = { # REARMING THE MYP
+						trigger = { check_variable = { v = 1173 } }
+						localization_key = MLW_MCP_RAMYP_POLICY
+					}
+					text = { # MCP MEMBERSHIP MANDATES
+						trigger = { check_variable = { v = 1126 } }
+						localization_key = MLW_MCP_MM_POLICY
+					}
+					text = { # CONSERVATIVE IMMIGRATION
+						trigger = { check_variable = { v = 1128 } }
+						localization_key = MLW_MCP_CI_POLICY
+					}
+				# TIER 4 POLICIES
+					text = { # HERALDING THE NEW NGWAZI
+						trigger = { check_variable = { v = 1148 } }
+						localization_key = MLW_MCP_TNN_POLICY
+					}
+					text = { # ONE PARTY STATE
+						trigger = { check_variable = { v = 1150 } }
+						localization_key = MLW_MCP_OPS_POLICY
+					}
+					text = { # TOTAL MEDIA BLACKOUT
+						trigger = { check_variable = { v = 1152 } }
+						localization_key = MLW_MCP_TMS_POLICY
+					}
+					text = { # CHRISTIAN NATIONALISM
+						trigger = { check_variable = { v = 1131 } }
+						localization_key = MLW_MCP_CN_POLICY
+					}
+			}
+			defined_text = {
+				name = MLW_MCP_selected_policy_TITLE
+				# TIER 1 POLICIES
+					text = { # ANTI-CORRUPTION AGENCY
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1105 } }
+						localization_key = MLW_MCP_ACA_POLICY
+					}
+					text = { # COMMUNITY HEALTHCARE ACT
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+						localization_key = MLW_MCP_CHA_POLICY
+					}
+				# TIER 2 POLICIES
+					text = { # CCAM RENEWAL
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1124 } }
+						localization_key = MLW_MCP_CCR_POLICY
+					}
+					text = { # MODESTY AND DECENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+						localization_key = MLW_MCP_MDL_POLICY
+					}
+					text = { # CONSERVATIVE DRESS CODES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+						localization_key = MLW_MCP_CDC_POLICY
+					}
+					text = { # CONTRACEPTIVE BANS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+						localization_key = MLW_MCP_CB_POLICY
+					}
+					text = { # ENSHRINED TRADITIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+						localization_key = MLW_MCP_ET_POLICY
+					}
+					text = { # DECENTRALISED ACA OFFICES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1109 } }
+						localization_key = MLW_MCP_DACAO_POLICY
+					}
+					text = { # ACA TRANSPARENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+						localization_key = MLW_MCP_ACATL_POLICY
+					}
+					text = { # CORRUPTION WATCHDOG
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+						localization_key = MLW_MCP_CW_POLICY
+					}
+					text = { # PRESS FREEDOMS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+						localization_key = MLW_MCP_PF_POLICY
+					}
+					text = { # DOCTORAL FUNDING PROGRAMME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1138 } }
+						localization_key = MLW_MCP_DFP_POLICY
+					}
+					text = { # CHRISTIAN MEDICAL AID
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+						localization_key = MLW_MCP_CMA_POLICY
+					}
+					text = { # ACCESS TO WATER SCHEME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+						localization_key = MLW_MCP_AWS_POLICY
+					}
+				# TIER 3 POLICIES
+					text = { # RESTRICTIONS ON DEMOCRACY
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+						localization_key = MLW_MCP_ROD_POLICY
+					}
+					text = { # ANTI PROTEST LAW
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+						localization_key = MLW_MCP_APL_POLICY
+					}
+					text = { # RELAUNCHING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+						localization_key = MLW_MCP_RLMYP_POLICY
+					}
+					text = { # REARMING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+						localization_key = MLW_MCP_RAMYP_POLICY
+					}
+					text = { # MCP MEMBERSHIP MANDATES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+						localization_key = MLW_MCP_MM_POLICY
+					}
+					text = { # CONSERVATIVE IMMIGRATION
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+						localization_key = MLW_MCP_CI_POLICY
+					}
+				# TIER 4 POLICIES
+					text = { # HERALDING THE NEW NGWAZI
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1148 } }
+						localization_key = MLW_MCP_TNN_POLICY
+					}
+					text = { # ONE PARTY STATE
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1150 } }
+						localization_key = MLW_MCP_OPS_POLICY
+					}
+					text = { # TOTAL MEDIA BLACKOUT
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+						localization_key = MLW_MCP_TMS_POLICY
+					}
+					text = { # CHRISTIAN NATIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+						localization_key = MLW_MCP_CN_POLICY
+					}
+			}
+			defined_text = {
+				name = MLW_MCP_selected_policy_DESC_REPEAL
+				# TIER 1 POLICIES
+					text = {
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1105 } }
+						localization_key = MLW_MCP_ACA_POLICY_desc_repeal
+					}
+					text = {
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+						localization_key = MLW_MCP_CHA_POLICY_desc_repeal
+					}
+				# TIER 2 POLICIES
+					text = { # CCAM RENEWAL
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1124 } }
+						localization_key = MLW_MCP_CCR_POLICY_desc_repeal
+					}
+					text = { # MODESTY AND DECENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+						localization_key = MLW_MCP_MDL_POLICY_desc_repeal
+					}
+					text = { # CONSERVATIVE DRESS CODES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+						localization_key = MLW_MCP_CDC_POLICY_desc_repeal
+					}
+					text = { # CONTRACEPTIVE BANS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+						localization_key = MLW_MCP_CB_POLICY_desc_repeal
+					}
+					text = { # ENSHRINED TRADITIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+						localization_key = MLW_MCP_ET_POLICY_desc_repeal
+					}
+					text = { # DECENTRALISED ACA OFFICES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1109 } }
+						localization_key = MLW_MCP_DACAO_POLICY_desc_repeal
+					}
+					text = { # ACA TRANSPARENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+						localization_key = MLW_MCP_ACATL_POLICY_desc_repeal
+					}
+					text = { # CORRUPTION WATCHDOG
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+						localization_key = MLW_MCP_CW_POLICY_desc_repeal
+					}
+					text = { # PRESS FREEDOMS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+						localization_key = MLW_MCP_PF_POLICY_desc_repeal
+					}
+					text = { # DOCTORAL FUNDING PROGRAMME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1138 } }
+						localization_key = MLW_MCP_DFP_POLICY_desc_repeal
+					}
+					text = { # CHRISTIAN MEDICAL AID
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+						localization_key = MLW_MCP_CMA_POLICY_desc_repeal
+					}
+					text = { # ACCESS TO WATER SCHEME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+						localization_key = MLW_MCP_AWS_POLICY_desc_repeal
+					}
+				# TIER 3 POLICIES
+					text = { # RESTRICTIONS ON DEMOCRACY
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+						localization_key = MLW_MCP_ROD_POLICY_desc_repeal
+					}
+					text = { # ANTI PROTEST LAW
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+						localization_key = MLW_MCP_APL_POLICY_desc_repeal
+					}
+					text = { # RELAUNCHING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+						localization_key = MLW_MCP_RLMYP_POLICY_desc_repeal
+					}
+					text = { # REARMING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+						localization_key = MLW_MCP_RAMYP_POLICY_desc_repeal
+					}
+					text = { # MCP MEMBERSHIP MANDATES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+						localization_key = MLW_MCP_MM_POLICY_desc_repeal
+					}
+					text = { # CONSERVATIVE IMMIGRATION
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+						localization_key = MLW_MCP_CI_POLICY_desc_repeal
+					}
+				# TIER 4 POLICIES
+					text = { # HERALDING THE NEW NGWAZI
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1148 } }
+						localization_key = MLW_MCP_TNN_POLICY_desc_repeal
+					}
+					text = { # ONE PARTY STATE
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1150 } }
+						localization_key = MLW_MCP_OPS_POLICY_desc_repeal
+					}
+					text = { # TOTAL MEDIA BLACKOUT
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+						localization_key = MLW_MCP_TMS_POLICY_desc_repeal
+					}
+					text = { # CHRISTIAN NATIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+						localization_key = MLW_MCP_CN_POLICY_desc_repeal
+					}
+			}
+			defined_text = {
+				name = MLW_MCP_selected_policy_DESC_REENACT
+				# TIER 1 POLICIES
+					text = {
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1105 } }
+						localization_key = MLW_MCP_ACA_POLICY_desc_reenact
+					}
+					text = {
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+						localization_key = MLW_MCP_CHA_POLICY_desc_reenact
+					}
+				# TIER 2 POLICIES
+					text = { # CCAM RENEWAL
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1124 } }
+						localization_key = MLW_MCP_CCR_POLICY_desc_reenact
+					}
+					text = { # MODESTY AND DECENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+						localization_key = MLW_MCP_MDL_POLICY_desc_reenact
+					}
+					text = { # CONSERVATIVE DRESS CODES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+						localization_key = MLW_MCP_CDC_POLICY_desc_reenact
+					}
+					text = { # CONTRACEPTIVE BANS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+						localization_key = MLW_MCP_CB_POLICY_desc_reenact
+					}
+					text = { # ENSHRINED TRADITIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+						localization_key = MLW_MCP_ET_POLICY_desc_reenact
+					}
+					text = { # DECENTRALISED ACA OFFICES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1109 } }
+						localization_key = MLW_MCP_DACAO_POLICY_desc_reenact
+					}
+					text = { # ACA TRANSPARENCY LAWS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+						localization_key = MLW_MCP_ACATL_POLICY_desc_reenact
+					}
+					text = { # CORRUPTION WATCHDOG
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+						localization_key = MLW_MCP_CW_POLICY_desc_reenact
+					}
+					text = { # PRESS FREEDOMS
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+						localization_key = MLW_MCP_PF_POLICY_desc_reenact
+					}
+					text = { # DOCTORAL FUNDING PROGRAMME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1138 } }
+						localization_key = MLW_MCP_DFP_POLICY_desc_reenact
+					}
+					text = { # CHRISTIAN MEDICAL AID
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+						localization_key = MLW_MCP_CMA_POLICY_desc_reenact
+					}
+					text = { # ACCESS TO WATER SCHEME
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+						localization_key = MLW_MCP_AWS_POLICY_desc_reenact
+					}
+				# TIER 3 POLICIES
+					text = { # RESTRICTIONS ON DEMOCRACY
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+						localization_key = MLW_MCP_ROD_POLICY_desc_reenact
+					}
+					text = { # ANTI PROTEST LAW
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+						localization_key = MLW_MCP_APL_POLICY_desc_reenact
+					}
+					text = { # RELAUNCHING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+						localization_key = MLW_MCP_RLMYP_POLICY_desc_reenact
+					}
+					text = { # REARMING THE MYP
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+						localization_key = MLW_MCP_RAMYP_POLICY_desc_reenact
+					}
+					text = { # MCP MEMBERSHIP MANDATES
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+						localization_key = MLW_MCP_MM_POLICY_desc_reenact
+					}
+					text = { # CONSERVATIVE IMMIGRATION
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+						localization_key = MLW_MCP_CI_POLICY_desc_reenact
+					}
+				# TIER 4 POLICIES
+					text = { # HERALDING THE NEW NGWAZI
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1148 } }
+						localization_key = MLW_MCP_TNN_POLICY_desc_reenact
+					}
+					text = { # ONE PARTY STATE
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1150 } }
+						localization_key = MLW_MCP_OPS_POLICY_desc_reenact
+					}
+					text = { # TOTAL MEDIA BLACKOUT
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+						localization_key = MLW_MCP_TMS_POLICY_desc_reenact
+					}
+					text = { # CHRISTIAN NATIONALISM
+						trigger = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+						localization_key = MLW_MCP_CN_POLICY_desc_reenact
+					}
+			}
+	# UDF
+		defined_text = {
+			name = MLW_UDF_DM_incomes
+			text = {
+				trigger = { check_variable = { MLW_UDF_policies_additional_income > 0 } }
+				localization_key = MLW_UDF_incomes_DM_tt
+			}
+			text = {
+				trigger = { check_variable = { MLW_UDF_policies_additional_income = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_UDF_DM_expenses
+			text = {
+				trigger = { check_variable = { MLW_UDF_policies_additional_expenses > 0 } }
+				localization_key = MLW_UDF_expenses_DM_tt
+			}
+			text = {
+				trigger = { check_variable = { MLW_UDF_policies_additional_expenses = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = { # MULUZI CHECK
+			name = MLW_UDF_muluzi_check
+			text = {
+				trigger = { UDF_has_muluzi_leader = yes }
+				localization_key = MLW_UDF_muluzi_modifier_active
+			}
+			text = {
+				trigger = { NOT = { UDF_has_muluzi_leader = yes } }
+				localization_key = ""
+			}
+		}
+		# POLICIES CHECKER
+			defined_text = {
+				name = MLW_UDF_policy_name
+				# TIER 1 POLICIES
+					text = { # TOURIST HEALTHCARE
+						trigger = { check_variable = { v = 1033 } }
+						localization_key = MLW_UDF_THE_POLICY
+					}
+					text = { # POLICE COMPLAINT AUTHORITY
+						trigger = { check_variable = { v = 1020 } }
+						localization_key = MLW_UDF_PCA_POLICY
+					}
+					text = { # CONGOLESE (DRC) REFUGEE VISA
+						trigger = { check_variable = { v = 1044 } }
+						localization_key = MLW_UDF_DRV_POLICY
+					}
+					text = { # RWANDAN (RWA) REFUGEE VISA
+						trigger = { check_variable = { v = 1058 } }
+						localization_key = MLW_UDF_RRV_POLICY
+					}
+					text = { # BURUNDI (BUR) REFUGEE VISA
+						trigger = { check_variable = { v = 1042 } }
+						localization_key = MLW_UDF_BRV_POLICY
+					}
+				# TIER 2 POLICIES
+					text = { # TEVET EXPANSION
+						trigger = { check_variable = { v = 1066 } }
+						localization_key = MLW_UDF_TVX_POLICY
+					}
+					text = { # YOUTH MINISTRY
+						trigger = { check_variable = { v = 1038 } }
+						localization_key = MLW_UDF_YM_POLICY
+					}
+					text = { # COMMUNITY HEALTH WORKERS
+						trigger = { check_variable = { v = 1024 } }
+						localization_key = MLW_UDF_CHM_POLICY
+					}
+					text = { # FISHERY ASSISTANCE
+						trigger = { check_variable = { v = 1007 } }
+						localization_key = MLW_UDF_FA_POLICY
+					}
+					text = { # IMMIGRATION REFORM
+						trigger = { check_variable = { v = 1027 } }
+						localization_key = MLW_UDF_IR_POLICY
+					}
+					text = { # UNHRC GUIDELINES
+						trigger = { check_variable = { v = 1028 } }
+						localization_key = MLW_UDF_UG_POLICY
+					}
+				# TIER 3 POLICIES
+					text = { # PRIVATE SCHOOLING
+						trigger = { check_variable = { v = 1035 } }
+						localization_key = MLW_UDF_PS_POLICY
+					}
+					text = { # TEACHERS HOUSING
+						trigger = { check_variable = { v = 1043 } }
+						localization_key = MLW_UDF_THO_POLICY
+					}
+					text = { # BENEFITS FOR HEALTH WORKERS
+						trigger = { check_variable = { v = 1039 } }
+						localization_key = MLW_UDF_HWB_POLICY
+					}
+					text = { # BUSINESS OUTREACH CENTERS
+						trigger = { check_variable = { v = 1036 } }
+						localization_key = MLW_UDF_BOC_POLICY
+					}
+					text = { # DECENTRALISED POLICE
+						trigger = { check_variable = { v = 1023 } }
+						localization_key = MLW_UDF_DP_POLICY
+					}
+				# TIER 4 POLICIES
+					text = { # MONITOR THE CHATTER
+						trigger = { check_variable = { v = 1052 } }
+						localization_key = MLW_UDF_MTC_POLICY
+					}
+					text = { # PRIVATE POLICING
+						trigger = { check_variable = { v = 1048 } }
+						localization_key = MLW_UDF_PP_POLICY
+					}
+					text = { # CONTINENTAL PEACEKEEPRS
+						trigger = { check_variable = { v = 1019 } }
+						localization_key = MLW_UDF_CP_POLICY
+					}
+			}
+
+
+
+
+
+
+
+
+# FOREIGN POLICY
+	# LAKE WARS LOC
+		# DIPLOMATIC PROGRESS
+			defined_text = { # LEVEL 1
+				name = MLW_LW_diplomatic_progress_1
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 0 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 1 TOOLTIP
+				name = MLW_LW_D1_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 0 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_1
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 2
+				name = MLW_LW_diplomatic_progress_2
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 1 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 2 TOOLTIP
+				name = MLW_LW_D2_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 1 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_2
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 3
+				name = MLW_LW_diplomatic_progress_3
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 2 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 3 TOOLTIP
+				name = MLW_LW_D3_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 2 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_3
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 4
+				name = MLW_LW_diplomatic_progress_4
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 3 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 4 TOOLTIP
+				name = MLW_LW_D4_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 3 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_4
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 5
+				name = MLW_LW_diplomatic_progress_5
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 4 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 5 TOOLTIP
+				name = MLW_LW_D5_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 4 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_5
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 6
+				name = MLW_LW_diplomatic_progress_6
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 5 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 6 TOOLTIP
+				name = MLW_LW_D6_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 5 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_6
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 7
+				name = MLW_LW_diplomatic_progress_7
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 6 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 7 TOOLTIP
+				name = MLW_LW_D7_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 6 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_7
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 8
+				name = MLW_LW_diplomatic_progress_8
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 7 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 8 TOOLTIP
+				name = MLW_LW_D8_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 7 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_8
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 9
+				name = MLW_LW_diplomatic_progress_9
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 8 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 9 TOOLTIP
+				name = MLW_LW_D9_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 8 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_9
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 10
+				name = MLW_LW_diplomatic_progress_10
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+					}
+					localization_key = "GFX_war_escalation_level_green"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 10 TOOLTIP
+				name = MLW_LW_D10_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_diplomatic_progress > 9 } }
+						}
+						localization_key = MLW_LW_diplomatic_approach_level_10
+					}
+				text = { localization_key = "" }
+			}
+		# MILITARIST PROGRESS
+			defined_text = { # LEVEL 1
+				name = MLW_LW_militarist_progress_1
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 0 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 1 TOOLTIP
+				name = MLW_LW_M1_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 0 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_1
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 2
+				name = MLW_LW_militarist_progress_2
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 1 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 2 TOOLTIP
+				name = MLW_LW_M2_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 1 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_2
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 3
+				name = MLW_LW_militarist_progress_3
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 2 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 3 TOOLTIP
+				name = MLW_LW_M3_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 2 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_3
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 4
+				name = MLW_LW_militarist_progress_4
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 3 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 4 TOOLTIP
+				name = MLW_LW_M4_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 3 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_4
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 5
+				name = MLW_LW_militarist_progress_5
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 4 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 5 TOOLTIP
+				name = MLW_LW_M5_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 4 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_5
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 6
+				name = MLW_LW_militarist_progress_6
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 5 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 6 TOOLTIP
+				name = MLW_LW_M6_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 5 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_6
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 7
+				name = MLW_LW_militarist_progress_7
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 6 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 7 TOOLTIP
+				name = MLW_LW_M7_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 6 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_7
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 8
+				name = MLW_LW_militarist_progress_8
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 7 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 8 TOOLTIP
+				name = MLW_LW_M8_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 7 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_8
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 9
+				name = MLW_LW_militarist_progress_9
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 8 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 9 TOOLTIP
+				name = MLW_LW_M9_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 8 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_9
+					}
+				text = { localization_key = "" }
+			}
+			defined_text = { # LEVEL 10
+				name = MLW_LW_militarist_progress_10
+				text = {
+					trigger = {
+						var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 9 } }
+					}
+					localization_key = "GFX_war_escalation_level_red"
+				}
+				text = { localization_key = "GFX_war_escalation_level_white" }
+			}
+			defined_text = { # LEVEL 10 TOOLTIP
+				name = MLW_LW_M10_approach_TT
+					text = {
+						trigger = {
+							var:MLW_LW_state_selected = { check_variable = { MLW_LW_militarist_progress > 9 } }
+						}
+						localization_key = MLW_LW_militarist_approach_level_10
+					}
+				text = { localization_key = "" }
+			}
+		# HYBRID WARFARE CHECK
+			defined_text = {
+				name = MLW_LW_hybrid_warfare_MBEYA_check
+				text = {
+					trigger = { has_country_flag = MLW_LW_hybrid_warfare_1045_FLAG }
+					localization_key = MLW_LW_hybrid_warfare_border_patrols_1045_TT
+				}
+				text = {
+					trigger = { NOT = { has_country_flag = MLW_LW_hybrid_warfare_1045_FLAG } }
+					localization_key = MLW_LW_hybrid_warfare_clear_for_migration_TT
+				}
+			}
+			defined_text = {
+				name = MLW_LW_hybrid_warfare_NJOMBE_check
+				text = {
+					trigger = { has_country_flag = MLW_LW_hybrid_warfare_1046_FLAG }
+					localization_key = MLW_LW_hybrid_warfare_border_patrols_1046_TT
+				}
+				text = {
+					trigger = { NOT = { has_country_flag = MLW_LW_hybrid_warfare_1046_FLAG } }
+					localization_key = MLW_LW_hybrid_warfare_clear_for_migration_TT
+				}
+			}
+			defined_text = {
+				name = MLW_LW_hybrid_warfare_WESTRUVUMA_check
+				text = {
+					trigger = { has_country_flag = MLW_LW_hybrid_warfare_1047_FLAG }
+					localization_key = MLW_LW_hybrid_warfare_border_patrols_1047_TT
+				}
+				text = {
+					trigger = { NOT = { has_country_flag = MLW_LW_hybrid_warfare_1047_FLAG } }
+					localization_key = MLW_LW_hybrid_warfare_clear_for_migration_TT
+				}
+			}
+			defined_text = {
+				name = MLW_LW_hybrid_warfare_WESTNIASSA_check
+				text = {
+					trigger = { has_country_flag = MLW_LW_hybrid_warfare_1049_FLAG }
+					localization_key = MLW_LW_hybrid_warfare_border_patrols_1049_TT
+				}
+				text = {
+					trigger = { NOT = { has_country_flag = MLW_LW_hybrid_warfare_1049_FLAG } }
+					localization_key = MLW_LW_hybrid_warfare_clear_for_migration_1049_TT
+				}
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	# MSCC COST LOC
+		defined_text = {
+			name = MLW_MSCC_cost_decision_display
+			text = {
+				trigger = {
+					MLW = {
+						OR = {
+							has_idea = paralyzing_corruption
+							has_idea = crippling_corruption
+							has_idea = rampant_corruption
+						}
+					}
+				}
+				localization_key = "MLW_MSCC_cost_decision_display_HC"
+			}
+			text = {
+				trigger = {
+					MLW = {
+						OR = {
+							has_idea = unrestrained_corruption
+							has_idea = systematic_corruption
+							has_idea = widespread_corruption
+						}
+					}
+				}
+				localization_key = "MLW_MSCC_cost_decision_display_MC"
+			}
+			text = {
+				trigger = {
+					MLW = {
+						OR = {
+							has_idea = medium_corruption
+							has_idea = modest_corruption
+							has_idea = slight_corruption
+						}
+					}
+				}
+				localization_key = "MLW_MSCC_cost_decision_display_LC"
+			}
+			text = { localization_key = "MLW_MSCC_cost_decision_display_NC" }
+		}
+	# SADC LOC
+		defined_text = { # AGL
+			name = MLW_SADC_AGL_construction_checker
+			text = {
+				trigger = {
+					AGL = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[AGL.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # BOT
+			name = MLW_SADC_BOT_construction_checker
+			text = {
+				trigger = {
+					BOT = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[BOT.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # BUR
+			name = MLW_SADC_BUR_construction_checker
+			text = {
+				trigger = {
+					BUR = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[BUR.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # COM
+			name = MLW_SADC_COM_construction_checker
+			text = {
+				trigger = {
+					COM = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[COM.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # DRC
+			name = MLW_SADC_DRC_construction_checker
+			text = {
+				trigger = {
+					DRC = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[DRC.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # LES
+			name = MLW_SADC_LES_construction_checker
+			text = {
+				trigger = {
+					LES = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[LES.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # MAD
+			name = MLW_SADC_MAD_construction_checker
+			text = {
+				trigger = {
+					MAD = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[MAD.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # MOR
+			name = MLW_SADC_MOR_construction_checker
+			text = {
+				trigger = {
+					MOR = {
+						exists = yes
+						is_in_array = { global.SADC_member = THIS }
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[MOR.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # MOZ
+			name = MLW_SADC_MOZ_construction_checker
+			text = {
+				trigger = {
+					MOZ = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[MOZ.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # MRT
+			name = MLW_SADC_MRT_construction_checker
+			text = {
+				trigger = {
+					MRT = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[MRT.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # NAM
+			name = MLW_SADC_NAM_construction_checker
+			text = {
+				trigger = {
+					NAM = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[NAM.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # SAF
+			name = MLW_SADC_SAF_construction_checker
+			text = {
+				trigger = {
+					SAF = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[SAF.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # SEY
+			name = MLW_SADC_SEY_construction_checker
+			text = {
+				trigger = {
+					SEY = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[SEY.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # SWA
+			name = MLW_SADC_SWA_construction_checker
+			text = {
+				trigger = {
+					SWA = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[SWA.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # TNZ
+			name = MLW_SADC_TNZ_construction_checker
+			text = {
+				trigger = {
+					TNZ = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[TNZ.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # UNI
+			name = MLW_SADC_UNI_construction_checker
+			text = {
+				trigger = {
+					UNI = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[UNI.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # ZAM
+			name = MLW_SADC_ZAM_construction_checker
+			text = {
+				trigger = {
+					ZAM = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[ZAM.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+		defined_text = { # ZIM
+			name = MLW_SADC_ZIM_construction_checker
+			text = {
+				trigger = {
+					ZIM = {
+						exists = yes
+						is_in_array = { MLW.MSCC_crew_hired = THIS }
+					}
+				}
+				localization_key = "[ZIM.GetNameWithFlag]"
+			}
+			text = { localization_key = "" }
+		}
+	# SOUTH AFRICAN LOC
+		defined_text = {
+			name = MLW_SAF_DM_incomes
+			text = {
+				trigger = { check_variable = { MLW_SAF_additional_income > 0 } }
+				localization_key = MLW_SAF_DM_incomes_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_SAF_additional_income = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_SAF_DM_expenses
+			text = {
+				trigger = { check_variable = { MLW_SAF_additional_expense > 0 } }
+				localization_key = MLW_SAF_DM_expenses_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_SAF_additional_expense = 0 } }
+				localization_key = ""
+			}
+		}
+	# ZAMBIAN LOC
+		defined_text = {
+			name = MLW_JPCC_conference_flag_check
+			text = {
+				trigger = { has_country_flag = MLW_JPCC_conferences_held }
+				localization_key = MLW_JPCC_conference_flag_check_TT
+			}
+			text = {
+				trigger = { NOT = { has_country_flag = MLW_JPCC_conferences_held } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_JPCC_coordination_flag_check
+			text = {
+				trigger = { has_country_flag = MLW_JPCC_coordination_underway }
+				localization_key = MLW_JPCC_coordination_flag_check_TT
+			}
+			text = {
+				trigger = { NOT = { has_country_flag = MLW_JPCC_coordination_underway } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_JPCC_border_operation_flag_check
+			text = {
+				trigger = { has_country_flag = MLW_JPCC_border_security_operations }
+				localization_key = MLW_JPCC_border_operation_flag_check_TT
+			}
+			text = {
+				trigger = { NOT = { has_country_flag = MLW_JPCC_border_security_operations } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_JPCC_wargames_flag_check
+			text = {
+				trigger = { has_country_flag = MLW_wargames_held }
+				localization_key = MLW_JPCC_wargames_flag_check_TT
+			}
+			text = {
+				trigger = { NOT = { has_country_flag = MLW_wargames_held } }
+				localization_key = ""
+			}
+		}
+# SADC SELF/OTHER CHECKS
+	# SADC ORDER CLICKER TITLE
+		defined_text = {
+			name = SADC_order_clicker_select_orders_TEXT_check
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ROOT.id } }
+				localization_key = SADC_order_clicker_select_orders_TEXT_self
+			}
+			text = {
+				localization_key = SADC_order_clicker_select_orders_TEXT_other
+			}
+		}
+		defined_text = {
+			name = SADC_order_clicker_select_orders_TT_check
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ROOT.id } }
+				localization_key = SADC_order_clicker_select_orders_TT_self
+			}
+			text = {
+				localization_key = SADC_order_clicker_select_orders_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_order_clicker_select_orders_TT_delayed_check
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ROOT.id } }
+				localization_key = SADC_order_clicker_select_orders_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_order_clicker_select_orders_TT_delayed_other
+			}
+		}
+	# SADC TRADE GOOD CHECK
+		defined_text = {
+			name = SADC_trade_good_check
+			text = {
+				trigger = { has_country_flag = SADC_luxury_import_FLAG }
+				localization_key = SADC_trade_good_check_LUX
+			}
+			text = {
+				localization_key = SADC_trade_good_check_COM
+			}
+		}
+	# SADC TRADE FLAVOUR LOC
+		defined_text = {
+			name = SADC_tag_consumer_good
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = AGL } }
+				localization_key = SADC_tag_consumer_good_AGL
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = BOT } }
+				localization_key = SADC_tag_consumer_good_BOT
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = COM } }
+				localization_key = SADC_tag_consumer_good_COM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = DRC } }
+				localization_key = SADC_tag_consumer_good_DRC
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = LES } }
+				localization_key = SADC_tag_consumer_good_LES
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MAD } }
+				localization_key = SADC_tag_consumer_good_MAD
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MLW } }
+				localization_key = SADC_tag_consumer_good_MLW
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MOZ } }
+				localization_key = SADC_tag_consumer_good_MOZ
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MRT } }
+				localization_key = SADC_tag_consumer_good_MRT
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = NAM } }
+				localization_key = SADC_tag_consumer_good_NAM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SAF } }
+				localization_key = SADC_tag_consumer_good_SAF
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SEY } }
+				localization_key = SADC_tag_consumer_good_SEY
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SWA } }
+				localization_key = SADC_tag_consumer_good_SWA
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = TNZ } }
+				localization_key = SADC_tag_consumer_good_TNZ
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ZAM } }
+				localization_key = SADC_tag_consumer_good_ZAM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ZIM } }
+				localization_key = SADC_tag_consumer_good_ZIM
+			}
+		}
+		defined_text = {
+			name = SADC_tag_luxury_good
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = AGL } }
+				localization_key = SADC_tag_luxury_good_AGL
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = BOT } }
+				localization_key = SADC_tag_luxury_good_BOT
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = COM } }
+				localization_key = SADC_tag_luxury_good_COM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = DRC } }
+				localization_key = SADC_tag_luxury_good_DRC
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = LES } }
+				localization_key = SADC_tag_luxury_good_LES
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MAD } }
+				localization_key = SADC_tag_luxury_good_MAD
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MLW } }
+				localization_key = SADC_tag_luxury_good_MLW
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MOZ } }
+				localization_key = SADC_tag_luxury_good_MOZ
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = MRT } }
+				localization_key = SADC_tag_luxury_good_MRT
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = NAM } }
+				localization_key = SADC_tag_luxury_good_NAM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SAF } }
+				localization_key = SADC_tag_luxury_good_SAF
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SEY } }
+				localization_key = SADC_tag_luxury_good_SEY
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = SWA } }
+				localization_key = SADC_tag_luxury_good_SWA
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = TNZ } }
+				localization_key = SADC_tag_luxury_good_TNZ
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ZAM } }
+				localization_key = SADC_tag_luxury_good_ZAM
+			}
+			text = {
+				trigger = { check_variable = { ROOT.SADC_tag_selected = ZIM } }
+				localization_key = SADC_tag_luxury_good_ZIM
+			}
+		}
+	# SADC MEMBER OPINION
+		defined_text = {
+			name = SADC_member_opinion_TEXT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_member_opinion_TEXT_self
+			}
+			text = {
+				localization_key = SADC_member_opinion_TEXT_other
+			}
+		}
+		defined_text = {
+			name = SADC_member_opinion_TT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_member_opinion_TT_self
+			}
+			text = {
+				localization_key = SADC_member_opinion_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_member_opinion_TT_delayed_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_member_opinion_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_member_opinion_TT_delayed_other
+			}
+		}
+	# COMMERCIAL IMPORTS
+		defined_text = {
+			name = SADC_commercial_imports_TT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_choose_import_COMMERCIAL_button_TT_self
+			}
+			text = {
+				localization_key = SADC_choose_import_COMMERCIAL_button_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_commercial_imports_TT_delayed_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_choose_import_COMMERCIAL_button_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_choose_import_COMMERCIAL_button_TT_delayed_other
+			}
+		}
+	# LUXURY IMPORTS
+		defined_text = {
+			name = SADC_luxury_imports_TT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_choose_import_LUXURY_button_TT_self
+			}
+			text = {
+				localization_key = SADC_choose_import_LUXURY_button_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_luxury_imports_TT_delayed_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_choose_import_LUXURY_button_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_choose_import_LUXURY_button_TT_delayed_other
+			}
+		}
+	# FUND PROSPECTORS
+		defined_text = {
+			name = SADC_fund_resources_TT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_fund_RESOURCES_button_TT_self
+			}
+			text = {
+				localization_key = SADC_fund_RESOURCES_button_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_fund_resources_TT_delayed_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_fund_RESOURCES_button_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_fund_RESOURCES_button_TT_delayed_other
+			}
+		}
+	# PERMITS AID
+		defined_text = {
+			name = SADC_fund_construction_TT_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_fund_CONSTRUCTION_button_TT_self
+			}
+			text = {
+				localization_key = SADC_fund_CONSTRUCTION_button_TT_other
+			}
+		}
+		defined_text = {
+			name = SADC_fund_construction_TT_delayed_check
+			text = {
+				trigger = { check_variable = { THIS = ROOT } }
+				localization_key = SADC_fund_CONSTRUCTION_button_TT_delayed_self
+			}
+			text = {
+				localization_key = SADC_fund_CONSTRUCTION_button_TT_delayed_other
+			}
+		}
+# MZUZU
+	# TOOLTIP
+	defined_text = {
+		name = MLW_MZUZU_production_modifier_check_TT
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { modifier@MLW_MZUZU_production_modifier > 0 }
+					check_variable = { modifier@MLW_MZUZU_production_modifier < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_production_AMOUNT_TT_existing
+		}
+		text = {
+			trigger = { check_variable = { modifier@MLW_MZUZU_production_modifier = 0 } }
+			localization_key = ""
+		}
+	}
+	defined_text = {
+		name = MLW_MZUZU_income_modifier_check_TT
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { modifier@MLW_MZUZU_income_modifier > 0 }
+					check_variable = { modifier@MLW_MZUZU_income_modifier < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_income_AMOUNT_TT_existing
+		}
+		text = {
+			trigger = { check_variable = { modifier@MLW_MZUZU_income_modifier = 0 } }
+			localization_key = ""
+		}
+	}
+	# DELAYED
+	defined_text = {
+		name = MLW_MZUZU_production_modifier_check_TT_delayed
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { modifier@MLW_MZUZU_production_modifier > 0 }
+					check_variable = { modifier@MLW_MZUZU_production_modifier < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_production_AMOUNT_TT_delayed_existing
+		}
+		text = {
+			trigger = { check_variable = { modifier@MLW_MZUZU_production_modifier = 0 } }
+			localization_key = ""
+		}
+	}
+	defined_text = {
+		name = MLW_MZUZU_income_modifier_check_TT_delayed
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { modifier@MLW_MZUZU_income_modifier > 0 }
+					check_variable = { modifier@MLW_MZUZU_income_modifier < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_income_AMOUNT_TT_delayed_existing
+		}
+		text = {
+			trigger = { check_variable = { modifier@MLW_MZUZU_income_modifier = 0 } }
+			localization_key = ""
+		}
+	}
+	# MODIFIERS DISPLAY
+	defined_text = {
+		name = MLW_MZUZU_DM_modifier_display_PRODUCTION
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { MLW_MZUZU_DM_production > 0 }
+					check_variable = { MLW_MZUZU_DM_production < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_DM_modifier_display_PRODUCTION_TT
+		}
+		text = {
+			trigger = { check_variable = { MLW_MZUZU_DM_production = 0 } }
+			localization_key = ""
+		}
+	}
+	defined_text = {
+		name = MLW_MZUZU_DM_modifier_display_INCOME
+		text = {
+			trigger = {
+				OR = {
+					check_variable = { MLW_MZUZU_DM_income > 0 }
+					check_variable = { MLW_MZUZU_DM_income < 0 }
+				}
+			}
+			localization_key = MLW_MZUZU_DM_modifier_display_INCOME_TT
+		}
+		text = {
+			trigger = { check_variable = { MLW_MZUZU_DM_income = 0 } }
+			localization_key = ""
+		}
+	}
+# MONEY SYSTEM
+	# INDUSTRY INCOMES
+		defined_text = {
+			name = MLW_MZUZU_INCOME
+			text = {
+				trigger = { check_variable = { MLW_MZ_weekly_income > 0 } }
+				localization_key = MLW_MZUZU_INCOME_display_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_MZ_weekly_income = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_SADC_TRADING_INCOME
+			text = {
+				trigger = { check_variable = { MLW_SADC_trade_income > 0 } }
+				localization_key = MLW_MZUZU_INCOME_display_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_SADC_trade_income = 0 } }
+				localization_key = ""
+			}
+		}
+	# POLITICAL PARTY INCOMES
+		# UDF INCOMES
+			defined_text = {
+				name = MLW_UDF_additional_INCOME
+				text = {
+					trigger = { check_variable = { MLW_UDF_policies_additional_income > 0 } }
+					localization_key = MLW_UDF_additional_INCOME_display_TT
+				}
+				text = {
+					trigger = { check_variable = { MLW_UDF_policies_additional_income = 0 } }
+					localization_key = ""
+				}
+			}
+	# INDUSTRY EXPENSES
+		defined_text = {
+			name = MLW_MZUZU_EXPENSE
+			text = {
+				trigger = { check_variable = { MLW_MZ_weekly_expenses > 0 } }
+				localization_key = MLW_MZUZU_EXPENSE_display_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_MZ_weekly_expenses = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_SADC_TRADING_EXPENSE
+			text = {
+				trigger = { check_variable = { MLW_SADC_trade_expense > 0 } }
+				localization_key = MLW_MZUZU_INCOME_display_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_SADC_trade_expense = 0 } }
+				localization_key = ""
+			}
+		}
+		defined_text = {
+			name = MLW_oil_additional_EXPENSE
+			text = {
+				trigger = { check_variable = { MLW_oil_upkeep_costs > 0 } }
+				localization_key = MLW_oil_additional_EXPENSE_display_TT
+			}
+			text = {
+				trigger = { check_variable = { MLW_oil_upkeep_costs = 0 } }
+				localization_key = ""
+			}
+		}
+	# POLITICAL PARTY EXPENSES
+		# UDF EXPENSES
+			defined_text = {
+				name = MLW_UDF_additional_EXPENSE
+				text = {
+					trigger = { check_variable = { MLW_UDF_policies_additional_expenses > 0 } }
+					localization_key = MLW_UDF_additional_EXPENSE_display_TT
+				}
+				text = {
+					trigger = { check_variable = { MLW_UDF_policies_additional_expenses = 0 } }
+					localization_key = ""
+				}
+			}
+# GUI ELEMENTS
+	defined_text = {
+		name = MLW_SADC_CONSUMER_checkbox
+		text = {
+			trigger = { has_country_flag = SADC_use_consumer_goods }
+			localization_key = "GFX_ban_party_button"
+		}
+		text = { localization_key = "GFX_ban_party_button_inactive" }
+	}
+	defined_text = {
+		name = MLW_SADC_LUXURY_checkbox
+		text = {
+			trigger = { has_country_flag = SADC_use_luxury_goods }
+			localization_key = "GFX_ban_party_button"
+		}
+		text = { localization_key = "GFX_ban_party_button_inactive" }
+	}
+	defined_text = {
+		name = MLW_SADC_GOODS_toggle
+		text = {
+			trigger = { has_country_flag = SADC_luxury_import_FLAG }
+			localization_key = "GFX_toggle_on"
+		}
+		text = { localization_key = "GFX_toggle_off" }
+	}
+	defined_text = {
+		name = MLW_MZUZU_checkbox
+		text = {
+			trigger = { has_country_flag = MLW_MZ_allow_deficit }
+			localization_key = "GFX_ban_party_button"
+		}
+		text = { localization_key = "GFX_ban_party_button_inactive" }
+	}

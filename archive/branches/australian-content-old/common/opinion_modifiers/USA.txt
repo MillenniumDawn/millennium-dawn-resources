@@ -1,0 +1,173 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+opinion_modifiers = {
+
+	#USA
+	USA_NEGOTIATE_TISA = {
+		trade = yes
+		value = 25
+	}
+	USA_Withdraw_TTIP = {
+		trade = yes
+		value = -25
+	}
+	USA_Negotiate_TTIP = {
+		trade = yes
+		value = 25
+	}
+	USA_Rejoin_TPP = {
+		trade = yes
+		value = 25
+	}
+	USA_Withdraw_TPP = {
+		trade = yes
+		value = -25
+	}
+	Reneotiate_NAFTA = {
+		trade = yes
+		value = -25
+	}
+	USA_INDIA_ALLIANCE = {
+		value = 200
+	}
+	USA_TAIWAN_ALLIANCE = {
+		value = 200
+	}
+	USA_COMMIT_TO_NATO = {
+		value = 25
+	}
+	USA_COMMIT_TO_NATO_EAST = {
+		value = 25
+	}
+	USA_COMMIT_TO_NATO_SOUTH = {
+		value = 25
+	}
+	USA_UNITED_EUEOPE = {
+		value = 10
+	}
+	USA_UNITED_EUEOPE_TRADE = {
+		value = 10
+		trade = yes
+	}
+	USA_REAPROACH_RUSSIA = {
+		value = 100
+	}
+	USA_ENG_SPECIAL = {
+		value = 100
+	}
+	USA_BAN_MUSLIMS = {
+		value = -10
+	}
+	USA_THE_WALL = {
+		value = -10
+	}
+	USA_NEGOTIATE_TTIP = {
+		value = 25
+	}
+	Major_Non_NATO_Ally = {
+		value = 25
+	}
+	USA_ISR_Jerusalem_Capital = {
+		value = 50
+	}
+	USA_Recognize_Jerusalem_Capital = {
+		value = -10
+		months = 120
+	}
+	USA_Not_Jerusalem_Capital = {
+		value = -10
+		months = 120
+	}
+	USA_Decline_PER_Embargo = {
+		value = -15
+		months = 36
+	}
+	USA_Shayrat_missile_strike = {
+		value = -10
+	}
+	USA_Enduring_Freedom = {
+		value = 50
+	}
+	USA_Inherent_Resolve = {
+		value = 50
+	}
+	USA_ROJ_ARMED = {
+		value = 15
+	}
+	USA_TUR_ARM_KURDS = {
+		value = -15
+		months = 50
+	}
+	USA_LEFT_JCPOA = {
+		value = 5
+		months = 16
+	}
+	USA_EXPAND_ME = {
+		value = 5
+		months = 24
+	}
+	USA_DISENGAGE_ME = {
+		value = -5
+		months = 24
+	}
+	USA_END_SPECIAL_RELATIONSHIP = {
+		value = -50
+	}
+	USA_CAN_friendship = {
+		value = 25
+	}
+	ANZUS = {
+		value = 25
+	}
+	ANZUS_partial = {
+		value = 15
+	}
+	NATO_member_modifier = {
+		value = 30
+	}
+	NAFTA = {
+		value = 50
+		trade = yes
+	}
+	chinese_american_rivalry = {
+		value = -30
+	}
+	USA_Associated_State = {
+		value = 50
+	}
+
+	# Pacific rebalance - the American side of the Solomon Islands contest.
+	# Canberra co-funding an American programme in its own near region, rather
+	# than being told about one after the fact.
+	USA_pacific_burden_sharing = {
+		value = 25
+		decay = 0.05
+	}
+	# Washington negotiating a Compact of Free Association with a capital that
+	# a China-aligned Canberra still considers its own back yard. This is not a
+	# misunderstanding between allies; it is what replaces the alliance.
+	USA_courting_our_near_region = {
+		value = -45
+		decay = 0.03
+	}
+	# The same grievance once the Compact was actually signed over Canberra's
+	# objections. It replaces USA_courting_our_near_region rather than sitting
+	# on top of it, so the relationship gets worse at the second beat without
+	# the same named modifier stacking against itself.
+	USA_took_our_near_region = {
+		value = -70
+		decay = 0.02
+	}
+	# A signed Compact: defence responsibility and unrestricted military access,
+	# in exchange for money and the right of residence.
+	USA_pacific_compact_partner = {
+		value = 80
+	}
+}

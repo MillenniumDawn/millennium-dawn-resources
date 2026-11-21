@@ -1,0 +1,614 @@
+set_leader_AST = {
+
+	if = { limit = { has_country_flag = set_conservatism }
+		if = { limit = { check_variable = { conservatism_leader = 0 } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "John Howard"
+				picture = "John_Howard.dds"
+				desc = "JOHN_HOWARD_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism capable lawyer pro_american }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2007.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Peter Costello"
+				picture = "Peter_Costello.dds"
+				desc = "PETER_COSTELLO_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism economist rational honest }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2010.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Malcolm Turnbull"
+				picture = "Malcolm_Turnbull.dds"
+				desc = "MALCOLM_TURNBULL_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism businessman tech_savy }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2013.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 3 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Tony Abbott"
+				picture = "Tony_Abbott.dds"
+				desc = "TONY_ABBOTT_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism stubborn hawk rash }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2016.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 4 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Malcolm Turnbull"
+				picture = "Malcolm_Turnbull.dds"
+				desc = "MALCOLM_TURNBULL_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism businessman tech_savy }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2018.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 5 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Scott Morrison"
+				picture = "Scott_Morrison.dds"
+				desc = "SCOTT_MORRISON_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism inexperienced dishonest }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			if = { limit = { date < 2022.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { conservatism_leader = 6 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Peter Dutton"
+				picture = "Peter_Dutton.dds"
+				desc = "PETER_DUTTON_LEADER_DESC"
+				ideology = conservatism
+				traits = { western_conservatism hawk ruthless cautious }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { conservatism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_liberalism }
+		if = { limit = { check_variable = { liberalism_leader = 0 } }
+			add_to_variable = { liberalism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Dr John Humphreys"
+				picture = "John_Humphreys.dds"
+				desc = "JOHN_HUMPHREYS_LEADER_DESC"
+				ideology = liberalism
+				traits = { western_liberalism economist inexperienced honest }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { liberalism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_socialism }
+		if = { limit = { check_variable = { socialism_leader = 0 } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Kim Beazley"
+				picture = "Kim_Beazley.dds"
+				desc = "KIM_BEAZLEY_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism geopolitical_thinker military_genius }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			if = { limit = { date < 2007.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { socialism_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Kevin Rudd"
+				picture = "Kevin_Rudd.dds"
+				desc = "KEVIN_RUDD_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism diplomat likeable capable }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			if = { limit = { date < 2010.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { socialism_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Julia Gillard"
+				picture = "Julia_Gillard.dds"
+				desc = "JULIA_GILLARD_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism feminist political_dancer ruthless }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			if = { limit = { date < 2013.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { socialism_leader = 3 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Kevin Rudd"
+				picture = "Kevin_Rudd.dds"
+				desc = "KEVIN_RUDD_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism diplomat likeable capable }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			if = { limit = { date < 2016.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { socialism_leader = 4 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Bill Shorten"
+				picture = "Bill_Shorten.dds"
+				desc = "BILL_SHORTEN_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism union_man likeable }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			if = { limit = { date < 2019.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { socialism_leader = 5 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { socialism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Anthony Albanese"
+				picture = "Anthony_Albanese.dds"
+				desc = "ANTHONY_ALBANESE_LEADER_DESC"
+				ideology = socialism
+				traits = { western_socialism capable rational }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { socialism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Communist-State }
+		if = { limit = { check_variable = { Communist-State_leader = 0 } }
+			add_to_variable = { Communist-State_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Peter Symon"
+				picture = "Peter_Symon.dds"
+				desc = "PETER_SYMON_LEADER_DESC"
+				ideology = Communist-State
+				traits = { emerging_Communist }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Communist-State_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_anarchist_communism }
+		if = { limit = { check_variable = { anarchist_communism_leader = 0 } }
+			add_to_variable = { anarchist_communism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Sue Bolton"
+				picture = "Sue_Bolton.dds"
+				desc = "SUE_BOLTON_LEADER_DESC"
+				ideology = anarchist_communism
+				traits = { emerging_anarchist_communism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { anarchist_communism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Conservative }
+		if = { limit = { check_variable = { Conservative_leader = 0 } }
+			add_to_variable = { Conservative_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Bob Katter"
+				picture = "Bob_Katter.dds"
+				desc = "BOB_KATTER_LEADER_DESC"
+				ideology = Conservative
+				traits = { emerging_Conservative }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Conservative_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Neutral_conservatism }
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 0 } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "John Anderson"
+				picture = "John_Anderson.dds"
+				desc = "JOHN_ANDERSON_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			if = { limit = { date < 2005.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Mark Vaile"
+				picture = "Mark_Vaile.dds"
+				desc = "MARK_VAILE_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			if = { limit = { date < 2007.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Warren Truss"
+				picture = "Warren_Truss.dds"
+				desc = "WARREN_TRUSS_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			if = { limit = { date < 2016.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 3 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Barnaby Joyce"
+				picture = "Barnaby_Joyce.dds"
+				desc = "BARNABY_JOYCE_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			if = { limit = { date < 2018.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 4 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Michael McCormack"
+				picture = "Michael_McCormack.dds"
+				desc = "MICHAEL_MCCORMACK_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			if = { limit = { date < 2021.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_conservatism_leader = 5 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_conservatism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Barnaby Joyce"
+				picture = "Barnaby_Joyce.dds"
+				desc = "BARNABY_JOYCE_LEADER_DESC"
+				ideology = neutral_conservatism
+				traits = { neutrality_neutral_conservatism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_conservatism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Neutral_green }
+		if = { limit = { check_variable = { Neutral_green_leader = 0 } }
+			add_to_variable = { Neutral_green_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Bob Brown"
+				picture = "Bob_Brown.dds"
+				desc = "BOB_BROWN_LEADER_DESC"
+				ideology = neutral_green
+				traits = { neutrality_neutral_green }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_green_leader = 1 } }
+			if = { limit = { date < 2012.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_green_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_green_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Christine Milne"
+				picture = "Christine_Milne.dds"
+				desc = "CHRISTINE_MILNE_LEADER_DESC"
+				ideology = neutral_green
+				traits = { neutrality_neutral_green }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_green_leader = 1 } }
+			if = { limit = { date < 2015.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_green_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_green_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Richard Di Natale"
+				picture = "Richard_Di_Natale.dds"
+				desc = "RICHARD_DI_NATALE_LEADER_DESC"
+				ideology = neutral_green
+				traits = { neutrality_neutral_green }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_green_leader = 1 } }
+			if = { limit = { date < 2021.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_green_leader = 3 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_green_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Adam Bandt"
+				picture = "Adam_Bandt.dds"
+				desc = "ADAM_BANDT_LEADER_DESC"
+				ideology = neutral_green
+				traits = { neutrality_neutral_green }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_green_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Neutral_Communism }
+		if = { limit = { check_variable = { Neutral_Communism_leader = 0 } }
+			add_to_variable = { Neutral_Communism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Nick Beams"
+				picture = "Nick_Beams.dds"
+				desc = "NICK_BEAMS_LEADER_DESC"
+				ideology = neutral_communism
+				traits = { neutrality_neutral_communism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_Communism_leader = 1 } }
+			if = { limit = { date < 2016.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Neutral_Communism_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Neutral_Communism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "James Cogan"
+				picture = "James_Cogan.dds"
+				desc = "JAMES_COGAN_LEADER_DESC"
+				ideology = neutral_communism
+				traits = { neutrality_neutral_communism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Neutral_Communism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Nat_Populism }
+		if = { limit = { check_variable = { Nat_Populism_leader = 0 } }
+			add_to_variable = { Nat_Populism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Pauline Hanson"
+				picture = "Pauline_Hanson.dds"
+				desc = "PAULINE_HANSON_LEADER_DESC"
+				ideology = nat_populism
+				traits = { nationalist_nat_populism hawk special_businesswoman islamophobe scholarly_challenged }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Populism_leader = 1 } }
+			if = { limit = { date < 2002.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Nat_Populism_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Nat_Populism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "David Oldfield"
+				picture = "David_Oldfield.dds"
+				desc = "DAVID_OLDFIELD_LEADER_DESC"
+				ideology = nat_populism
+				traits = { nationalist_nat_populism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Populism_leader = 1 } }
+			if = { limit = { date < 2004.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Nat_Populism_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Nat_Populism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Pauline Hanson"
+				picture = "Pauline_Hanson.dds"
+				desc = "PAULINE_HANSON_LEADER_DESC"
+				ideology = nat_populism
+				traits = { nationalist_nat_populism hawk special_businesswoman islamophobe scholarly_challenged }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Populism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+		if = { limit = { check_variable = { Nat_Populism_leader = 3 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Nat_Populism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Clive Palmer"
+				picture = "Clive_Palmer.dds"
+				desc = "CLIVE_PALMER_LEADER_DESC"
+				ideology = nat_populism
+				traits = { nationalist_nat_populism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Populism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Nat_Fascism }
+		if = { limit = { check_variable = { Nat_Fascism_leader = 0 } }
+			add_to_variable = { Nat_Fascism_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Jim Saleam"
+				picture = "Jim_Saleam.dds"
+				desc = "JIM_SALEAM_LEADER_DESC"
+				ideology = Nat_Fascism
+				traits = { nationalist_Nat_Fascism }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Fascism_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	else_if = { limit = { has_country_flag = set_Nat_Autocracy }
+		if = { limit = { check_variable = { Nat_Autocracy_leader = 0 } }
+			add_to_variable = { Nat_Autocracy_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Chris Barrie"
+				picture = "Chris_Barrie.dds"
+				desc = "CHRIS_BARRIE_LEADER_DESC"
+				ideology = nat_autocracy
+				traits = { nationalist_nat_autocracy }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Autocracy_leader = 1 } }
+			if = { limit = { date < 2014.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Nat_Autocracy_leader = 1 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Nat_Autocracy_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Mark Binskin"
+				picture = "Mark_Binskin.dds"
+				desc = "MARK_BINSKIN_LEADER_DESC"
+				ideology = nat_autocracy
+				traits = { nationalist_nat_autocracy }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Autocracy_leader = 1 } }
+			if = { limit = { date < 2018.1.1 } set_temp_variable = { b = 1 } }
+		}
+		if = { limit = { check_variable = { Nat_Autocracy_leader = 2 } NOT = { check_variable = { b = 1 } } }
+			add_to_variable = { Nat_Autocracy_leader = 1 }
+			hidden_effect = { kill_country_leader = yes }
+
+			create_country_leader = {
+				name = "Angus Campbell"
+				picture = "Angus_Campbell.dds"
+				desc = "ANGUS_CAMPBELL_LEADER_DESC"
+				ideology = nat_autocracy
+				traits = { nationalist_nat_autocracy }
+			}
+
+			if = { limit = { has_country_flag = do_not_retire } subtract_from_variable = { Nat_Autocracy_leader = 1 } }
+			set_temp_variable = { b = 1 }
+		}
+	}
+
+	# Safety net: none of the ideology flags above matched (e.g. a government form this
+	# succession list was never written for). The calling wrapper already killed the
+	# previous leader, so without this AST would be left with no leader at all.
+	else = {
+		hidden_effect = { kill_country_leader = yes }
+
+		create_country_leader = {
+			name = "Interim Government of Australia"
+			picture = "gfx/leaders/generic_politicians/white_001.dds"
+			desc = "AST_INTERIM_GOVERNMENT_LEADER_DESC"
+			ideology = Neutral_Autocracy
+			traits = { neutrality_Neutral_Autocracy }
+		}
+
+		set_temp_variable = { b = 1 }
+	}
+
+	if = { limit = { has_idea = AST_From_a_Commonwealth_to_a_Republic_idea }
+		add_country_leader_trait = President_of_Australia
+	}
+}

@@ -1,0 +1,233 @@
+capital = 191
+2000.1.1 = {
+	complete_special_project = sp:sp_armoured_vehicle_project
+	set_variable = { currency_strength = 0.65 }
+	set_variable = { gdp_per_capita = 8.780 }
+	add_ideas = {
+		partially_privatized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		minimal_regulations
+
+		sunni
+		non_state_actor
+		corruption_level_05
+		intervention_neo_imperialism
+		defence_09
+		edu_01
+		health_01
+		social_01
+		police_05
+		bureau_04
+		police_05
+		al_jazeera_banned
+		youth_radicalization
+		partial_draft_army
+		no_women_in_military
+		foreign_jihadis
+		wahabi_ulema
+		the_ulema
+		ISI_jihadist_islamic_state
+		no_currency_backing
+	}
+
+	# Starting tech
+	set_technology = {
+
+		infantry_mass_assault = 1
+		early_guerilla_warfare = 1
+
+		#For templates
+		combat_eng_equipment = 1
+		infantry_weapons_1 = 1
+		cnc_equipment_1 = 1
+		Heavy_Anti_tank_1 = 1
+		Anti_tank_1 = 1
+		util_vehicle_1 = 1
+		util_vehicle_2 = 1
+		night_vision_1 = 1
+		night_vision_2 = 1
+		land_drone_equipment_type = 1
+		support_weapons = 1
+		special_forces_tech_1 = 1
+		fuel_silos = 1
+
+		nanofibers_1 = 1
+		printing_1 = 1
+		fuel_refining = 1
+		construction1 = 1
+	}
+	if = {
+		limit = { has_dlc = "No Step Back" }
+
+		set_technology = {
+			mbt_tech_ops = 1
+			nsb_artillery_1 = 1
+			nsb_Anti_Air_0 = 1
+		}
+
+		else = {
+			set_technology = {
+				MBT_1 = 1
+				Early_APC = 1
+				APC_1 = 1
+				IFV_1 = 1
+				tech_arty_0 = 1
+				SP_arty_0 = 1
+				Anti_Air_0 = 1
+				Rec_tank_0 = 1
+			}
+		}
+	}
+
+	#Inner Politics of Daesh
+	add_to_array = { faction_approval = 80 } # Warrior Faction
+	add_to_array = { faction_approval = 66 } # Caliph Loyalist Faction
+	add_to_array = { faction_approval = 38 } # The Ummah Faction
+	add_to_array = { faction_approval = 57 } # The Ulema Faction
+
+	add_to_array = { faction_strength = 35 }
+	add_to_array = { faction_strength = 22 }
+	add_to_array = { faction_strength = 6 }
+	add_to_array = { faction_strength = 18 }
+
+	set_variable = { wahabi_ulema_opinion = 80 }
+	set_variable = { the_ulema_opinion = 80 }
+	set_variable = { foreign_jihadis_opinion = 80 }
+
+	add_opinion_modifier = { target = PER modifier = hostile_status }
+	add_opinion_modifier = { target = KUR modifier = hostile_status }
+	add_opinion_modifier = { target = PUK modifier = hostile_status }
+	add_opinion_modifier = { target = ROJ modifier = hostile_status }
+	add_opinion_modifier = { target = SYR modifier = hostile_status }
+	add_opinion_modifier = { target = IRQ modifier = hostile_status }
+	add_opinion_modifier = { target = FSA modifier = hostile_status }
+	add_opinion_modifier = { target = SAU modifier = hostile_status }
+	add_opinion_modifier = { target = QAT modifier = hostile_status }
+	add_opinion_modifier = { target = KUW modifier = hostile_status }
+	add_opinion_modifier = { target = UAE modifier = hostile_status }
+	add_opinion_modifier = { target = OMA modifier = hostile_status }
+	add_opinion_modifier = { target = USA modifier = hostile_status }
+	add_opinion_modifier = { target = CAN modifier = hostile_status }
+	add_opinion_modifier = { target = ENG modifier = hostile_status }
+	add_opinion_modifier = { target = IRE modifier = hostile_status }
+	add_opinion_modifier = { target = FRA modifier = hostile_status }
+	add_opinion_modifier = { target = SPR modifier = hostile_status }
+	add_opinion_modifier = { target = POR modifier = hostile_status }
+	add_opinion_modifier = { target = AUS modifier = hostile_status }
+	add_opinion_modifier = { target = ITA modifier = hostile_status }
+	add_opinion_modifier = { target = BEL modifier = hostile_status }
+	add_opinion_modifier = { target = HOL modifier = hostile_status }
+	add_opinion_modifier = { target = LUX modifier = hostile_status }
+	add_opinion_modifier = { target = GER modifier = hostile_status }
+	add_opinion_modifier = { target = DEN modifier = hostile_status }
+	add_opinion_modifier = { target = NRY modifier = hostile_status }
+	add_opinion_modifier = { target = SWE modifier = hostile_status }
+	add_opinion_modifier = { target = FIN modifier = hostile_status }
+	add_opinion_modifier = { target = POL modifier = hostile_status }
+	add_opinion_modifier = { target = EST modifier = hostile_status }
+	add_opinion_modifier = { target = LAT modifier = hostile_status }
+	add_opinion_modifier = { target = LIT modifier = hostile_status }
+	add_opinion_modifier = { target = CZE modifier = hostile_status }
+	add_opinion_modifier = { target = SLO modifier = hostile_status }
+	add_opinion_modifier = { target = HUN modifier = hostile_status }
+	add_opinion_modifier = { target = ROM modifier = hostile_status }
+	add_opinion_modifier = { target = BUL modifier = hostile_status }
+	add_opinion_modifier = { target = CRO modifier = hostile_status }
+	add_opinion_modifier = { target = TUR modifier = hostile_status }
+	add_opinion_modifier = { target = SWI modifier = hostile_status }
+	add_opinion_modifier = { target = ICE modifier = hostile_status }
+	add_opinion_modifier = { target = CHI modifier = hostile_status }
+	add_opinion_modifier = { target = KOR modifier = hostile_status }
+	add_opinion_modifier = { target = RAJ modifier = hostile_status }
+	add_opinion_modifier = { target = JAP modifier = hostile_status }
+	add_opinion_modifier = { target = SOV modifier = hostile_status }
+
+	# Economy
+	set_variable = { var = debt value = 0 }
+	set_variable = { var = int_investments value = 0 }
+	set_variable = { var = treasury value = 10 }
+	set_variable = { var = corporate_tax_rate value = 20 }
+	set_variable = { var = population_tax_rate value = 15 }
+
+	#Influence system
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 220 }
+	add_to_array = { influence_array = SAU.id }
+	add_to_array = { influence_array_val = 15 }
+	add_to_array = { influence_array = QAT.id }
+	add_to_array = { influence_array_val = 10 }
+	add_to_array = { influence_array = TUR.id }
+	add_to_array = { influence_array_val = 2 }
+	sort_influence = yes
+
+	#Offmap factories
+	add_offsite_building = { type = industrial_complex level = 1 }
+	add_offsite_building = { type = arms_factory level = 2 }
+
+	# Economic Setup
+	set_variable = { var = debt value = 0 }
+	set_variable = { var = int_investments value = 0 }
+	set_variable = { var = treasury value = 5 }
+	set_variable = { var = corporate_tax_rate value = 20 }
+	set_variable = { var = population_tax_rate value = 20 }
+
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 0.0
+		fascism = 100.0
+		neutrality = 0.0
+		nationalist = 0.0
+	}
+	set_politics = {
+
+		ruling_party = fascism
+		last_election = "2012.3.25"
+		election_frequency = 60
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+
+	### Ruling Party
+	set_variable = { party_pop_array^11 = 1.0 } #Caliphate
+	set_variable = { ruling_party = 11 }
+
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Abu Bakr al-Baghdadi"
+		desc = "ABU_BAKR_AL_BAGHDADI_DESC"
+		picture = "Abu_Bakr_al-Baghdadi.dds"
+		expire = "2050.1.1"
+		ideology = Caliphate
+		traits = {
+			salafist_Caliphate
+			guerrilla_leader
+			qureshi
+			zealous
+			ruthless
+			war_criminal # Allegedly haha pink shirt
+			# TODO: Add trait here for the faction that is sponsoring the Caliphate
+			ISI_lone_wolves_strongest
+			ISI_the_caliph_loyalists_strongest
+			ISI_the_ummah_strongest
+			ISI_the_ulema_strongest
+		}
+	}
+
+	recruit_character = ISI_abu_fatima_aljaheishi
+	recruit_character = ISI_fares_reif_alnaima
+	recruit_character = ISI_ayad_aljumaili
+	recruit_character = ISI_lavdrim_muhaxheri
+	recruit_character = ISI_gulmurod_khalimov
+	recruit_character = ISI_abdullah_ahmed_almashadani
+	recruit_character = ISI_ahmed_khalal_aljuhayshi
+	recruit_character = ISI_abu_ahmad_alalwani
+	recruit_character = ISI_abdul_wahid_khutnayer_ahmad
+	recruit_character = ISI_air_chief
+	set_variable = { overall_productivity = 550 }
+	set_variable = { cb_policy_rate = 3 }
+}

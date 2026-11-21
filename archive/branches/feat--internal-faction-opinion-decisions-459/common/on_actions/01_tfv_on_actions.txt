@@ -1,0 +1,302 @@
+on_actions = {
+	#ROOT is subject FROM is previous overlord
+	on_subject_free = {
+		effect = {
+			ROOT = {
+				calculate_influence_percentage = yes #set alignment drifts from influence
+				startup_politics = yes
+				set_law_vars = yes 	#vars for change laws secondary effects
+				ingame_update_setup = yes 	#money system
+				setup_init_factions = yes 	#flags for int. factions
+				internal_faction_seed_factions = yes
+				update_neighbors_effects = yes # Updates Neighbor Effects
+				economic_cycle_drift_popularity = yes # Actually impacts the economic cycle drifts
+				if = { limit = { is_ai = yes }
+				}
+
+				mb_refresh_relations_effect = yes
+
+				if = {
+					limit = {
+						NOT = { has_variable = domestic_influence_amount }
+					}
+					set_variable = { domestic_influence_amount = 100 }
+				}
+				recalculate_influence = yes
+
+				# Union state flag
+				if = {
+					limit = { has_country_flag = BLR_unionstate_agree }
+					clr_country_flag = BLR_unionstate_agree
+				}
+			}
+		}
+	}
+
+	#ROOT is subject FROM is overlord
+	on_subject_annexed = {
+		effect = { ##Grants Cores on Annexation
+			ROOT = {
+				for_each_loop = {
+					array = core_states
+					value = v
+					var:v = {
+						add_core_of = FROM
+					}
+				}
+				if = { limit = { original_tag = LBA }
+					set_country_flag = LBA_prevent_giving_tribal_traits
+				}
+				every_unit_leader = {
+					set_nationality = FROM
+				}
+				if = { limit = { original_tag = LBA }
+					clr_country_flag = LBA_prevent_giving_tribal_traits
+				}
+				if = {
+					limit = { has_country_flag = overlord_subsidies }
+					clr_country_flag = overlord_subsidies
+					clr_country_flag = overlord_is_subsidizing_us_@FROM
+				}
+				if = {
+					limit = {
+						has_country_flag = CHI_sco_joint_exercises_offered
+					}
+					clr_country_flag = CHI_sco_joint_exercises_offered
+				}
+				FROM = {
+					if = {
+						limit = { ROOT = { has_country_flag = overlord_subsidies } }
+						clr_country_flag = overlord_subsidies
+						clr_country_flag = overlord_is_subsidizing_us_@ROOT
+					}
+					if = {
+						limit = {
+							has_country_flag = CHI_sco_joint_exercises_offered
+						}
+						clr_country_flag = CHI_sco_joint_exercises_offered
+					}
+					add_to_variable = { treasury = ROOT.treasury }
+					add_to_variable = { debt = ROOT.debt }
+					add_to_variable = { int_investments = ROOT.int_investments }
+
+					country_event = overlord.1
+					if = { limit = { original_tag = USA }
+						add_to_array = { USA_collapse_releases = ROOT.id }
+					}
+				}
+			}
+
+			# Free operatives held by the annexed subject.
+			every_country = {
+				limit = {
+					ROOT = { has_captured_operative = PREV }
+				}
+				free_random_operative = {
+					captured_by = ROOT
+					all = yes
+				}
+			}
+
+			# Clear operation assets targeting the annexed subject.
+			every_country = {
+				limit = {
+					OR = {
+						has_operation_token = { tag = ROOT token = token_airforce }
+						has_operation_token = { tag = ROOT token = token_army }
+						has_operation_token = { tag = ROOT token = token_civilian }
+						has_operation_token = { tag = ROOT token = token_navy }
+						has_operation_token = { tag = ROOT token = token_resistance_contacts }
+						has_operation_token = { tag = ROOT token = token_hvt }
+						has_operation_token = { tag = ROOT token = token_arms_cache }
+						has_operation_token = { tag = ROOT token = token_training_camps }
+						has_operation_token = { tag = ROOT token = token_regional_headquarters }
+						has_operation_token = { tag = ROOT token = token_foreign_advisors }
+					}
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_airforce } }
+					remove_operation_token = { tag = ROOT token = token_airforce }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_army } }
+					remove_operation_token = { tag = ROOT token = token_army }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_civilian } }
+					remove_operation_token = { tag = ROOT token = token_civilian }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_navy } }
+					remove_operation_token = { tag = ROOT token = token_navy }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_resistance_contacts } }
+					remove_operation_token = { tag = ROOT token = token_resistance_contacts }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_hvt } }
+					remove_operation_token = { tag = ROOT token = token_hvt }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_arms_cache } }
+					remove_operation_token = { tag = ROOT token = token_arms_cache }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_training_camps } }
+					remove_operation_token = { tag = ROOT token = token_training_camps }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_regional_headquarters } }
+					remove_operation_token = { tag = ROOT token = token_regional_headquarters }
+				}
+				if = {
+					limit = { has_operation_token = { tag = ROOT token = token_foreign_advisors } }
+					remove_operation_token = { tag = ROOT token = token_foreign_advisors }
+				}
+			}
+		}
+	}
+
+	#used when puppeting in a peace conference
+	#ROOT = nation being puppeted, FROM = overlord
+	on_puppet = {
+		effect = {
+			ROOT = {
+				set_temp_variable = { overlord_to_match = FROM.id }
+				effect_puppet_match_ruling_party_to_overlord = yes
+				research_slot_init_for_country = yes
+				calculate_expected_spending = yes
+				if = {
+					limit = { is_ai = yes }
+					give_AI_templates = yes
+				}
+				set_temp_variable = { percent_change = 30 }
+				set_temp_variable = { tag_index = FROM.id }
+				set_temp_variable = { influence_target = THIS.id }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { FROM = { has_idea = faction_resistance_axis_member } }
+				ROOT = { add_ideas = faction_resistance_axis_member }
+			}
+		}
+	}
+
+	#ROOT = nation being liberated, FROM = leader of the liberators
+	on_liberate = {
+		effect = {
+			log = "[GetDateText]: [This.GetName]: country [ROOT.GetName]|[THIS.GetName] is liberated by [FROM.GetName]"
+			set_temp_variable = { neighbors_updated_by_startup = 0 }
+			if = { limit = { NOT = { has_variable = last_quarter_gdp_total } }
+				set_temp_variable = { neighbors_updated_by_startup = 1 }
+				FROM = { ROOT = { ingame_startup_nations_effect = yes } }
+			}
+			# if basic setup failed for some reason - country file not loaded
+			if = { limit = { NOT = { country_exists = ROOT } }
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_idea = sunni
+								has_idea = shia
+								has_idea = sufi_islam
+								has_idea = ibadi
+								has_idea = christian
+								has_idea = orthodox_christian
+								has_idea = pluralist
+								has_idea = buddism
+								has_idea = hindu
+								has_idea = judaism
+								has_idea = shinto
+								has_idea = cheondo
+								has_idea = uniate_church
+								has_idea = zoroastrian
+							}
+						}
+					}
+
+					log = "[GetDateText]: [This.GetName]: country [ROOT.GetName] history file is not loaded"
+
+					set_temp_variable = { neighbors_updated_by_startup = 1 }
+					FROM = {
+						ROOT = {
+							civil_war_replication_effect = yes
+							set_variable = { treasury = 0 }
+							update_laws_for_new_nation = yes
+
+							set_temp_variable = { nation_to_copy_from = PREV.id }
+							configure_religious_setup = yes
+
+							add_ideas = {
+								police_02
+								health_02
+								bureau_02
+								edu_02
+								social_02
+								defence_02
+							}
+						}
+					}
+				}
+				else = {
+					ROOT = {
+						set_temp_variable = { percent_change = 15 }
+						set_temp_variable = { tag_index = FROM.id }
+						set_temp_variable = { influence_target = ROOT.id }
+						change_influence_percentage = yes
+
+						calculate_influence_percentage = yes #set alignment drifts from influence
+						calculate_expected_spending = yes
+
+						set_temp_variable = { nation_to_copy_from = PREV.id }
+						setup_employment_variables = yes
+
+						ingame_update_setup = yes 	#money system
+					}
+				}
+			}
+			if = { limit = { check_variable = { neighbors_updated_by_startup = 0 } }
+				update_neighbors_effects = yes
+			}
+			if = { limit = { original_tag = TAL } AFG_reapply_taliban_opinion_modifiers = yes }
+		}
+	}
+
+	#used when puppeting through the occupied territories menu during peace time (or when releasing from non-core but owned territory, f.e. Britain releasing Egypt)
+	#ROOT = nation being released, FROM = overlord
+	on_release_as_puppet = {
+		effect = {
+			FROM = {
+				ROOT = {
+					set_temp_variable = { overlord_to_match = FROM.id }
+					effect_puppet_match_ruling_party_to_overlord = yes
+					if = {
+						limit = { has_elections = yes }
+						set_temp_variable = { year_change = 3 }
+						set_election_year_60_months = yes
+					}
+					ingame_startup_nations_effect = yes
+					if = { limit = { original_tag = TAL } AFG_reapply_taliban_opinion_modifiers = yes }
+				}
+			}
+		}
+	}
+
+	#ROOT is free nation FROM is releaser
+	on_release_as_free = {
+		effect = {
+			FROM = {
+				ROOT = {
+					ingame_startup_nations_effect = yes
+					if = { limit = { original_tag = TAL } AFG_reapply_taliban_opinion_modifiers = yes }
+				}
+			}
+			set_temp_variable = { percent_change = 5 }
+			set_temp_variable = { tag_index = FROM.id }
+			set_temp_variable = { influence_target = ROOT.id }
+			change_influence_percentage = yes
+			research_slot_init_for_country = yes
+		}
+	}
+}

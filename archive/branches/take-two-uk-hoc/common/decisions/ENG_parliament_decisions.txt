@@ -1,0 +1,100 @@
+ENG_house_of_commons = {
+
+	ENG_hoc_call_snap_election = {
+		allowed = { original_tag = ENG }
+		icon = GFX_decision_generic_form_nation
+
+		cost = 200
+
+		visible = {
+			has_country_flag = ENG_hoc_enabled
+			NOT = { has_country_flag = ENG_devolution_purged }
+		}
+
+		available = {
+			check_variable = { ENG_hoc_election_var > 12 }
+			NOT = { has_country_flag = ENG_hoc_snap_election_cooldown }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision ENG_hoc_call_snap_election"
+			set_variable = { ENG_hoc_election_var = 1 }
+			set_country_flag = { flag = ENG_hoc_snap_election_cooldown days = 365 value = 1 }
+			country_event = { id = ENG_parliament.70 days = 1 }
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 5
+				has_country_flag = ENG_hoc_hung_parliament
+				check_variable = { party_popularity_100^ruling_party > 40 }
+			}
+		}
+	}
+
+	ENG_hoc_vote_no_confidence = {
+		allowed = { original_tag = ENG }
+		icon = GFX_decision_generic_form_nation
+
+		cost = 150
+
+		visible = {
+			has_country_flag = ENG_hoc_enabled
+			NOT = { has_country_flag = ENG_devolution_purged }
+			OR = {
+				has_country_flag = ENG_hoc_hung_parliament
+				has_idea = ENG_minority_government_spirit
+			}
+		}
+
+		available = {
+			check_variable = { ENG_hoc_election_var > 6 }
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision ENG_hoc_vote_no_confidence"
+			set_variable = { ENG_hoc_election_var = 1 }
+			country_event = { id = ENG_parliament.70 days = 1 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	ENG_hoc_win_sovereign_support = {
+		allowed = { original_tag = ENG }
+		icon = GFX_decision_generic_form_nation
+
+		cost = 300
+		days_remove = 180
+
+		visible = {
+			has_country_flag = ENG_hoc_enabled
+			has_country_flag = ENG_hoc_extremist_pm
+			NOT = { has_country_flag = ENG_hoc_sovereign_support }
+			NOT = { has_country_flag = ENG_devolution_purged }
+			# Only right-wing extremists can win sovereign support
+			OR = {
+				check_variable = { ENG_hoc_extremist_index = 6 }
+				check_variable = { ENG_hoc_extremist_index = 20 }
+				check_variable = { ENG_hoc_extremist_index = 21 }
+			}
+		}
+
+		available = {
+			has_stability > 0.4
+			has_war_support > 0.3
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision ENG_hoc_win_sovereign_support"
+			country_event = { id = ENG_parliament.5 days = 1 }
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+}

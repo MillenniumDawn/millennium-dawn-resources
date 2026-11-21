@@ -1,0 +1,1930 @@
+﻿l_english:
+ # Pre-War Events
+ chad.1.t: "Tensions with Sudan Rise"
+ chad.1.d: "Relations with Sudan have deteriorated as the Darfur conflict spills across our border. Refugees are flooding into eastern Chad, and there are reports of cross-border raids by Janjaweed militias. We must decide how to respond to this crisis."
+ chad.1.a: "We cannot ignore these provocations."
+ chad.1.b: "We should try to maintain neutrality."
+
+ chad.5.t: "Support for Darfur Rebels"
+ chad.5.d: "The Justice and Equality Movement and other Darfur rebel groups have approached us for support. Many of their fighters are Zaghawa, like our president. Supporting them would strike at Khartoum, but could draw us into a wider conflict."
+ chad.5.a: "We will support our ethnic kin in Darfur."
+ chad.5.b: "This is not our fight."
+
+ chad.10.t: "Constitutional Referendum"
+ chad.10.d: "President Déby has proposed a referendum to remove constitutional term limits. This would allow him to remain in office indefinitely. The opposition has called for a boycott, but the referendum will proceed."
+ chad.10.a: "The people have spoken - remove term limits."
+ chad.10.b: "Respect the constitution."
+
+ chad.15.t: "Opposition Protests"
+ chad.15.d: "The removal of term limits has sparked protests across the country. Opposition parties are calling for a general strike, and there are reports of military officers sympathizing with the protesters."
+ chad.15.a: "Disperse the protesters by force."
+ chad.15.b: "Allow the protests to continue."
+
+ # Civil War Outbreak
+ chad.20.t: "Attack on Adré"
+ chad.20.d: "On December 18, 2005, rebel forces crossed from Sudan and attacked the border town of Adré. This is a coordinated assault backed by Khartoum. The Second Chadian Civil War has begun."
+ chad.20.a: "Mobilize our forces!"
+
+ chad.41.t: "Formation of the FUC"
+ chad.41.d: "The United Front for Democratic Change (FUC) has been formed under the leadership of Mahamat Nour Abdelkerim. This coalition of rebel groups aims to overthrow the government. They are receiving substantial support from Sudan."
+ chad.41.a: "We will crush these traitors."
+
+ chad.45.t: "Sudan Arms the Rebels"
+ chad.45.d: "Intelligence reports confirm that Sudan is providing weapons, vehicles, and logistical support to the FUC rebels. Khartoum is using the rebels as a proxy force to destabilize our government."
+ chad.45.a: "This is an act of war."
+
+ chad.50.t: "Rebel Advance"
+ chad.50.d: "The rebels are advancing across eastern Chad. Several towns have fallen to their forces. If they are not stopped, they could threaten the capital itself."
+ chad.50.a: "We must stop their advance."
+
+ # First Battle of N'Djamena
+ chad.71.t: "First Battle of N'Djamena"
+ chad.71.d: "April 13, 2006. The FUC rebels have reached the outskirts of N'Djamena. After a grueling advance across the country, they are now at our doorstep. The battle for the capital has begun."
+ chad.71.a: "Defend the capital at all costs!"
+
+ chad.75.t: "Victory at N'Djamena"
+ chad.75.d: "The rebel assault has been repelled! After intense street fighting, government forces have pushed the FUC back from the capital. The rebels have suffered significant casualties and are retreating eastward."
+ chad.75.a: "Pursue the retreating rebels."
+
+ # UFDD Formation
+ chad.101.t: "Formation of the UFDD"
+ chad.101.d: "The FUC has collapsed, but a new rebel coalition has emerged. The Union of Forces for Democracy and Development (UFDD), led by former defense minister Mahamat Nouri, has absorbed FUC remnants and continues the fight."
+ chad.101.a: "Another enemy to defeat."
+
+ chad.110.t: "Tripoli Peace Talks"
+ chad.110.d: "Libya's Muammar Gaddafi has offered to mediate peace talks between the government and the rebels in Tripoli. This could be an opportunity to end the conflict."
+ chad.110.a: "We will negotiate."
+ chad.110.b: "There will be no negotiations with traitors."
+
+ chad.115.t: "Sirte Agreement Collapses"
+ chad.115.d: "The peace agreement signed in Sirte has collapsed. Both sides accuse the other of violating the ceasefire. Fighting has resumed across eastern Chad."
+ chad.115.a: "So be it."
+
+ # Second Battle of N'Djamena
+ chad.131.t: "Second Battle of N'Djamena"
+ chad.131.d: "February 2, 2008. The UFDD has launched another assault on the capital. This time they are better prepared, and their forces have entered the city center. The situation is critical."
+ chad.131.a: "Every man to his post!"
+
+ chad.135.t: "Death of Daoud Soumain"
+ chad.135.d: "General Daoud Soumain, one of our most capable commanders, has been killed in the fighting. His death is a significant blow to our forces."
+ chad.135.a: "We mourn his loss."
+
+ chad.140.t: "French Air Strikes"
+ chad.140.d: "France has responded to our request for assistance. French Mirage jets have conducted air strikes against rebel positions around the capital. The tide may be turning."
+ chad.140.a: "Thank France for their support."
+ chad.140.b: "We can handle this ourselves."
+
+ chad.145.t: "Rebel Withdrawal"
+ chad.145.d: "The UFDD forces are withdrawing from N'Djamena. French air strikes and determined resistance have broken their assault. The capital is saved, for now."
+ chad.145.a: "A narrow victory."
+
+ # War Conclusion
+ chad.191.t: "Path to Reconciliation"
+ chad.191.d: "After years of fighting, both sides are exhausted. There are growing calls for a negotiated settlement to end the civil war."
+ chad.191.a: "Perhaps it is time for peace."
+ chad.191.b: "We will fight until victory."
+
+ chad.195.t: "Chad-Sudan Normalization"
+ chad.195.d: "In February 2010, Chad and Sudan agreed to normalize relations. Both countries have pledged to stop supporting rebel groups operating against each other. This could be the key to ending the civil war."
+ chad.195.a: "Accept the agreement."
+ chad.195.b: "Sudan cannot be trusted."
+
+ chad.200.t: "End of the Civil War"
+ chad.200.d: "The Second Chadian Civil War is over. The rebel groups have been defeated or disbanded, and Sudan has ceased its support for the insurgency. Now begins the long process of rebuilding."
+ chad.200.a: "Peace at last."
+
+ chad.205.t: "Post-War Recovery"
+ chad.205.d: "The guns have fallen silent, but Chad bears the scars of years of civil war. We must now focus on rebuilding our nation and healing the divisions that led to this conflict."
+ chad.205.a: "Let the recovery begin."
+
+ # Déby Succession
+ chad.221.t: "FACT Rebellion"
+ chad.221.d: "April 2021. The Front for Change and Concord in Chad (FACT), a rebel group based in Libya, has launched an offensive into northern Chad. President Déby has personally gone to the front to lead our forces."
+ chad.221.a: "The President leads from the front."
+
+ chad.225.t: "Death of Idriss Déby"
+ chad.225.d: "President Idriss Déby has died. Official reports say he was killed leading troops against the FACT rebels. After 30 years in power, the strongman of Chad is gone."
+ chad.225.a: "The nation mourns."
+
+ chad.230.t: "Mahamat Déby Takes Power"
+ chad.230.d: "The military has announced that Mahamat Idriss Déby, son of the late president and commander of the Republican Guard, will lead a Transitional Military Council. The constitution has been suspended."
+ chad.230.a: "A new era begins."
+
+ chad.235.t: "Transitional Military Council"
+ chad.235.d: "The Transitional Military Council under Mahamat Déby has promised a transition to civilian rule within 18 months. However, critics say this is simply a continuation of the Déby dynasty."
+ chad.235.a: "Support the transition."
+ chad.235.b: "Consolidate military rule."
+
+ # Alternative Paths
+ chad.251.t: "Civil War Averted"
+ chad.251.d: "Through careful diplomacy and inclusive governance, we have managed to prevent the civil war that could have torn our nation apart. Chad can now focus on peaceful development."
+ chad.251.a: "A brighter future awaits."
+
+ chad.260.t: "Government Collapse"
+ chad.260.d: "The rebels have captured N'Djamena. President Déby has fled the country. The government has collapsed, and the rebel leaders are taking power."
+ chad.260.a: "A new government takes power."
+
+ chad.270.t: "Democratic Transition"
+ chad.270.d: "Chad has successfully transitioned to democracy. Free and fair elections have brought a new government to power, opening a new chapter in our nation's history."
+ chad.270.a: "Democracy triumphs."
+
+ # News Events
+ chad.1001.t: "Civil War in Chad"
+ chad.1001.d: "Civil war has erupted in Chad as rebel forces backed by Sudan attack government positions. The fighting threatens to destabilize the entire Sahel region."
+ chad.1001.a: "Troubling news."
+
+ chad.1002.t: "Chad Civil War Ends"
+ chad.1002.d: "The Second Chadian Civil War has come to an end. After years of fighting, the government has prevailed over the rebel forces."
+ chad.1002.a: "Peace returns to Chad."
+
+ chad.1003.t: "Chad's President Dies, Son Takes Power"
+ chad.1003.d: "Chadian President Idriss Déby has died while fighting rebels. His son, Mahamat Déby, has been installed as head of a military council, continuing the family's grip on power."
+ chad.1003.a: "A dynasty continues."
+
+ chad.1004.t: "France Intervenes in Chad"
+ chad.1004.d: "France has deployed military forces to support the Chadian government against rebel attack. French jets have conducted air strikes on rebel positions near the capital."
+ chad.1004.a: "France acts to protect its ally."
+
+ # Sudan Events - Chad Related
+ Sudan.50.t: "Chad Supports Darfur Rebels"
+ Sudan.50.d: "Intelligence reports confirm that Chad is providing support to the Darfur rebel groups, including the Justice and Equality Movement. This is a clear act of interference in our internal affairs. We must decide how to respond."
+ Sudan.50.a: "This will not go unanswered."
+ Sudan.50.b: "We must show restraint."
+
+ Sudan.51.t: "Chad Arms JEM Forces"
+ Sudan.51.d: "Chad has escalated its support for the Darfur rebels by providing weapons and military equipment to the Justice and Equality Movement. Our enemies are now better armed than ever."
+ Sudan.51.a: "Support the Chadian rebels in retaliation."
+ Sudan.51.b: "We cannot afford to escalate further."
+
+ Sudan.52.t: "Chad Proposes Normalization"
+ Sudan.52.d: "The Chadian government has approached us with a proposal to normalize relations. They are willing to cease support for Darfur rebels if we stop backing the Chadian insurgency. This could be an opportunity for peace."
+ Sudan.52.a: "Accept the proposal for peace."
+ Sudan.52.b: "Reject this proposal."
+
+ Sudan.53.t: "Civil War Erupts in Chad"
+ Sudan.53.d: "Civil war has broken out in Chad. Rebel forces are advancing toward N'Djamena. This chaos presents an opportunity for us to strike back at a government that has long supported our enemies in Darfur."
+ Sudan.53.a: "Support the Chadian rebels."
+ Sudan.53.b: "Stay out of their internal conflict."
+
+ # Economic Events
+ chad.301.t: "Oil Production Milestone"
+ chad.301.d: "Our oil production from the Doba Basin has reached a significant milestone. The revenues are beginning to transform our economy, providing resources for development projects across the country."
+ chad.301.a: "A promising development for our nation."
+
+ chad.302.t: "World Bank Corruption Concerns"
+ chad.302.d: "The World Bank has raised concerns about the management of our oil revenues. They are threatening to suspend the development program unless we implement stricter oversight and transparency measures."
+ chad.302.a: "Accept the World Bank's conditions."
+ chad.302.b: "Reject foreign interference in our affairs."
+
+ chad.303.t: "Lake Chad Shrinking Crisis"
+ chad.303.d: "Lake Chad has shrunk to a fraction of its former size, threatening the livelihoods of millions who depend on its waters for fishing, farming, and livestock. Environmental experts warn of humanitarian catastrophe."
+ chad.303.a: "Invest in water conservation programs."
+ chad.303.b: "We cannot afford such programs now."
+
+ chad.304.t: "Cotton Harvest Success"
+ chad.304.d: "This year's cotton harvest has exceeded expectations. The investments in agricultural infrastructure are paying off, bringing prosperity to rural communities in the south."
+ chad.304.a: "Excellent news for our farmers."
+
+ chad.305.t: "Drought and Food Crisis"
+ chad.305.d: "Severe drought has devastated crops across Chad. Food prices are rising and thousands face hunger. International aid agencies are urging immediate action to prevent famine."
+ chad.305.a: "Request international food aid."
+ chad.305.b: "We must handle this ourselves."
+
+ chad.306.t: "Chinese Investment Offer"
+ chad.306.d: "China has proposed a significant investment package for Chad, including infrastructure development and oil sector cooperation. However, Western partners view this with concern."
+ chad.306.a: "Accept the Chinese investment."
+ chad.306.b: "Maintain focus on Western partnerships."
+
+ # Foreign Policy Events
+ chad.311.t: "Libyan Refugees Arrive"
+ chad.311.d: "The civil war in Libya has sent thousands of refugees fleeing south into Chad. Many are ethnic Toubou with ties to northern Chad. How should we respond to this influx?"
+ chad.311.a: "Welcome the refugees."
+ chad.311.b: "Close the border."
+
+ chad.312.t: "CEMAC Integration Proposal"
+ chad.312.d: "The Central African Economic and Monetary Community has proposed deeper integration among member states. This could bring economic benefits but may limit our policy flexibility."
+ chad.312.a: "Support deeper integration."
+ chad.312.b: "Maintain our independence."
+
+ chad.313.t: "CAR Border Crisis"
+ chad.313.d: "Violence in the Central African Republic is spilling across our southern border. Refugees are arriving and there are reports of armed groups operating near the frontier."
+ chad.313.a: "Deploy troops to secure the border."
+ chad.313.b: "Monitor the situation."
+
+ chad.314.t: "French Military Cooperation"
+ chad.314.d: "France has offered to expand military cooperation with Chad, including joint exercises and equipment transfers. This would strengthen our capabilities but deepen our reliance on Paris."
+ chad.314.a: "Accept the cooperation offer."
+ chad.314.b: "Politely decline for now."
+
+ chad.315.t: "AU Peacekeeping Request"
+ chad.315.d: "The African Union has requested Chad contribute forces to a peacekeeping mission in the Central African Republic. This would demonstrate our regional leadership but strain our military."
+ chad.315.a: "Contribute peacekeeping forces."
+ chad.315.b: "Decline the request."
+
+ # Counter-Terrorism Events
+ chad.321.t: "Boko Haram Border Attacks"
+ chad.321.d: "Boko Haram militants have launched attacks across the Nigerian border into Chad. Villages have been raided and civilians killed. This terrorist threat demands a response."
+ chad.321.a: "Launch a military operation."
+ chad.321.b: "Strengthen border defenses."
+
+ chad.322.t: "Counter-Terror Operation Success"
+ chad.322.d: "Our joint counter-terrorism operation with regional partners has achieved significant success. Boko Haram positions have been destroyed and their fighters scattered."
+ chad.322.a: "A victory for regional security."
+
+ chad.323.t: "G5 Sahel Formation"
+ chad.323.d: "Chad has been invited to join the G5 Sahel, a regional security initiative to combat terrorism and organized crime in the Sahel region. This would formalize our cooperation with neighbors."
+ chad.323.a: "Join the G5 Sahel."
+ chad.323.b: "Remain outside this framework."
+
+ chad.324.t: "Terror Attack in N'Djamena"
+ chad.324.d: "A devastating suicide bombing has struck the capital. Dozens are dead and many more wounded. The public demands action against the terrorists responsible."
+ chad.324.a: "We will not be intimidated."
+
+ # Social & Development Events
+ chad.331.t: "Ethnic Tensions in the North"
+ chad.331.d: "Tensions between ethnic groups in northern Chad have flared up again. There are reports of clashes over grazing land and water rights. This could destabilize the region if not addressed."
+ chad.331.a: "Send mediators to resolve the dispute."
+ chad.331.b: "Let local leaders handle it."
+
+ chad.332.t: "Healthcare Initiative Success"
+ chad.332.d: "Our healthcare initiatives in the capital are showing results. New clinics have opened and disease rates are declining. International health organizations have praised our progress."
+ chad.332.a: "Continue investing in healthcare."
+
+ chad.333.t: "Education Reform Progress"
+ chad.333.d: "Education reforms are bearing fruit. School enrollment is up and literacy rates are improving. A new generation of educated Chadians is emerging."
+ chad.333.a: "Education is the foundation of progress."
+
+ chad.334.t: "Infrastructure Project Completed"
+ chad.334.d: "A major road construction project has been completed, connecting previously isolated communities to markets and services. This will boost economic development in the region."
+ chad.334.a: "This opens new opportunities."
+
+ chad.335.t: "Electricity Grid Expansion"
+ chad.335.d: "The electricity grid expansion has brought power to thousands of households for the first time. Businesses are opening and quality of life is improving in newly connected areas."
+ chad.335.a: "Progress for our people."
+
+ # Military Events
+ chad.341.t: "Desert Warfare Training"
+ chad.341.d: "Our forces have completed an intensive desert warfare training exercise. The skills developed will serve us well in Chad's harsh terrain."
+ chad.341.a: "Our soldiers are ready."
+
+ chad.342.t: "Toyota War Veterans"
+ chad.342.d: "Veterans of the Toyota War against Libya have petitioned for recognition of their service. These experienced desert fighters remain a valuable resource for our military."
+ chad.342.a: "Honor our veterans and their expertise."
+
+ chad.343.t: "Air Force Modernization"
+ chad.343.d: "Our air force modernization program has received new aircraft. This significantly enhances our ability to project power across Chad's vast territory."
+ chad.343.a: "Our skies are better protected."
+
+ chad.344.t: "Republican Guard Expansion"
+ chad.344.d: "The Republican Guard has been expanded and equipped with modern weapons. This elite force ensures the security of the government and capital."
+ chad.344.a: "A strong guard ensures stability."
+
+ # Tribal Events
+ chad.401.t: "Zaghawa Tribal Demands"
+ chad.401.d: "Zaghawa tribal leaders have presented a list of demands to the government. They want greater representation in the military and more development funds for their region. As the president's own ethnic group, their loyalty is crucial."
+ chad.401.a: "Grant their requests."
+ chad.401.b: "We cannot show favoritism."
+
+ chad.402.t: "Arab Tribal Leaders Seek Audience"
+ chad.402.d: "Influential Arab tribal leaders have requested a meeting with government officials. They feel their community has been marginalized and want assurances of fair treatment and economic opportunities."
+ chad.402.a: "Meet with them and address their concerns."
+ chad.402.b: "They must wait their turn."
+
+ chad.403.t: "Sara Grievances"
+ chad.403.d: "Representatives from the Sara community in southern Chad have voiced grievances about northern domination. They point to the lack of investment in their region and underrepresentation in government."
+ chad.403.a: "Promise reforms and investment."
+ chad.403.b: "The south has always been difficult."
+
+ chad.404.t: "Toubou Border Incident"
+ chad.404.d: "A clash has occurred between Toubou militiamen and government forces in the Tibesti region. The Toubou accuse the military of heavy-handed tactics, while the army claims they were fighting smugglers."
+ chad.404.a: "Investigate and seek reconciliation."
+ chad.404.b: "Reinforce our military presence."
+
+ chad.405.t: "Tribal Congress Success"
+ chad.405.d: "The national tribal congress has concluded successfully. Representatives from all major ethnic groups have agreed on a framework for sharing power and resources. This is a significant step toward national unity."
+ chad.405.a: "Strengthen traditional authority."
+ chad.405.b: "Modernize tribal governance."
+ chad.405.c: "Integrate tribes into national politics."
+
+ chad.406.t: "Zaghawa-Arab Tensions"
+ chad.406.d: "Tensions between Zaghawa and Arab communities have flared up over grazing rights and water access. Several people have been killed in clashes, and both sides are demanding government intervention."
+ chad.406.a: "Send mediators immediately."
+ chad.406.b: "Deploy the military to restore order."
+
+ chad.407.t: "Sara Cultural Festival"
+ chad.407.d: "The Sara people are celebrating their annual cultural festival. Government participation would be a powerful symbol of national unity, but some northern politicians are reluctant."
+ chad.407.a: "The president will attend personally."
+ chad.407.b: "Send a representative."
+
+ chad.408.t: "Toubou Autonomy Demands"
+ chad.408.d: "Toubou leaders in Tibesti are demanding greater autonomy for their region. They cite historical neglect and cultural differences with the rest of Chad."
+ chad.408.a: "Consider their demands seriously."
+ chad.408.b: "Autonomy is not an option."
+
+ chad.409.t: "Tribal Patronage Scandal"
+ chad.409.d: "A scandal has erupted over the distribution of government funds to tribal communities. Accusations of favoritism and corruption are straining inter-ethnic relations."
+ chad.409.a: "Launch an anti-corruption investigation."
+ chad.409.b: "This is how politics works in Chad."
+
+ chad.410.t: "National Unity Celebration"
+ chad.410.d: "Chad is celebrating a new era of national unity. After years of careful diplomacy and equitable development, the country's diverse ethnic groups have come together as one nation."
+ chad.410.a: "Unity is our strength."
+
+ # Climate Events
+ chad.601.t: "Sahel Drought"
+ chad.601.d: "A severe drought has struck the Sahel region. Crops are failing, livestock are dying, and communities face food insecurity. International agencies warn of a humanitarian crisis."
+ chad.601.a: "Request emergency aid."
+ chad.601.b: "Mobilize domestic resources."
+
+ chad.602.t: "Lake Chad Continues to Shrink"
+ chad.602.d: "Satellite images confirm that Lake Chad has shrunk to barely 10% of its 1960s extent. The environmental and humanitarian consequences are dire, affecting millions who depend on its waters."
+ chad.602.a: "This requires international action."
+ chad.602.b: "Focus on local adaptation."
+
+ chad.603.t: "Locust Swarm"
+ chad.603.d: "A massive locust swarm has descended on Chad's agricultural regions. Farmers watch helplessly as the insects devour their crops. Without intervention, famine could follow."
+ chad.603.a: "Deploy aerial spraying operations."
+ chad.603.b: "Traditional methods must suffice."
+
+ chad.605.t: "Harmattan Dust Storm"
+ chad.605.d: "A severe Harmattan dust storm has swept across Chad, reducing visibility to near zero and disrupting transportation. Respiratory illnesses are spiking in urban areas."
+ chad.605.a: "Issue health advisories and wait it out."
+
+ chad.607.t: "N'Djamena Flooding"
+ chad.607.d: "Unusually heavy rains have caused severe flooding in N'Djamena. Thousands are displaced, infrastructure is damaged, and disease outbreaks threaten the capital."
+ chad.607.a: "Mobilize emergency response."
+ chad.607.b: "The rains will pass."
+
+ # Historical Events (renumbered to avoid collision with Foreign Patron branch)
+ chad.7010.t: "Independence Day Celebrations"
+ chad.7010.d: "Chad celebrates another anniversary of independence from France. Parades, speeches, and festivities mark the occasion, though some question what true independence means when French troops still patrol our streets."
+ chad.7010.a: "Celebrate our sovereignty."
+
+ chad.7020.t: "Toyota War Veterans Reunion"
+ chad.7020.d: "Veterans of the Toyota War against Libya have gathered to commemorate their unlikely victory. These men defeated a much larger Libyan force using mobility, courage, and Toyota pickup trucks."
+ chad.7020.a: "Honor their sacrifice and skill."
+
+ chad.7030.t: "National Elections"
+ chad.7030.d: "Chad is holding national elections. The opposition complains of irregularities, while the government insists the process is fair. International observers are watching closely."
+ chad.7030.a: "Ensure a credible process."
+ chad.7030.b: "The outcome is predetermined."
+
+ chad.7050.t: "Chad Hosts Regional Summit"
+ chad.7050.d: "Chad is hosting a major regional summit, bringing together leaders from across the Sahel and Central Africa. This is an opportunity to showcase our diplomatic leadership."
+ chad.7050.a: "Welcome our guests."
+
+ chad.707.t: "Oil Production Milestone"
+ chad.707.d: "Chad's oil production has reached a significant milestone. The petroleum sector now dominates our economy, bringing both opportunities and challenges."
+ chad.707.a: "The black gold flows."
+
+ # Social Events
+ chad.801.t: "Women's Rights Movement"
+ chad.801.d: "A growing women's rights movement is demanding legal reforms. They call for better education access, protection from violence, and greater political representation for Chadian women."
+ chad.801.a: "Support progressive reforms."
+ chad.801.b: "Traditional values must be respected."
+
+ chad.802.t: "Student Protests"
+ chad.802.d: "University students have taken to the streets, protesting poor conditions, lack of opportunities, and government corruption. The youth are demanding change."
+ chad.802.a: "Engage with student leaders."
+ chad.802.b: "Disperse the protesters."
+
+ chad.803.t: "Civil Service Strike"
+ chad.803.d: "Government employees have gone on strike, demanding unpaid wages and better working conditions. Essential services are disrupted across the country."
+ chad.803.a: "Negotiate and pay what is owed."
+ chad.803.b: "Order them back to work."
+
+ chad.805.t: "Cholera Outbreak"
+ chad.805.d: "A cholera outbreak has struck refugee camps and poor urban neighborhoods. Without clean water and sanitation, the disease is spreading rapidly."
+ chad.805.a: "Launch emergency health response."
+ chad.805.b: "We lack the resources."
+
+ chad.807.t: "Gold Discovery in Tibesti"
+ chad.807.d: "Gold has been discovered in the remote Tibesti region. Prospectors are flooding in, creating a boom town atmosphere but also tensions with local Toubou communities."
+ chad.807.a: "Regulate the gold rush."
+ chad.807.b: "Let the market sort it out."
+
+ # Neighbor Relations Events
+ chad.901.t: "Weapons from Libya"
+ chad.901.d: "The collapse of the Gaddafi regime has flooded the region with weapons. Libyan arms are being smuggled across our northern border, potentially reaching rebel groups and criminals."
+ chad.901.a: "Crack down on smuggling."
+ chad.901.b: "Some weapons could be useful."
+
+ chad.902.t: "Libyan Refugees Arrive"
+ chad.902.d: "Thousands of refugees are fleeing Libya's civil war into Chad. Many are ethnic Toubou with ties to our northern communities. They need assistance but also bring challenges."
+ chad.902.a: "Welcome and assist the refugees."
+ chad.902.b: "Close the border."
+
+ chad.903.t: "CAR Requests Intervention"
+ chad.903.d: "The Central African Republic government has formally requested Chadian military intervention. Seleka rebels threaten Bangui, and they believe only Chad can save them."
+ chad.903.a: "Prepare for intervention."
+ chad.903.b: "This is not our fight."
+
+ chad.904.t: "Chadian Troops in Bangui"
+ chad.904.d: "Our forces have deployed to Bangui. The situation is chaotic, with Seleka and Anti-Balaka militias terrorizing civilians. Our soldiers face a difficult mission."
+ chad.904.a: "Maintain order at all costs."
+ chad.904.b: "Withdraw before we're trapped."
+
+ chad.905.t: "Border Incident with Cameroon"
+ chad.905.d: "A dispute has erupted along the Cameroon border over the exact demarcation line. Local officials on both sides are trading accusations."
+ chad.905.a: "Resolve this diplomatically."
+ chad.905.b: "Assert our territorial claims."
+
+ chad.906.t: "Niger Cooperation Offer"
+ chad.906.d: "Niger has proposed deeper military and economic cooperation. Both nations face similar challenges and could benefit from working together."
+ chad.906.a: "Accept the partnership."
+ chad.906.b: "We prefer independence."
+
+ chad.907.t: "Pipeline Revenue Dispute"
+ chad.907.d: "A dispute has arisen with Cameroon over revenue sharing from the Chad-Cameroon oil pipeline. Cameroon wants to renegotiate the terms."
+ chad.907.a: "Negotiate in good faith."
+ chad.907.b: "The terms are set."
+
+ chad.908.t: "Boko Haram Cross-Border Raid"
+ chad.908.d: "Boko Haram militants have launched a major cross-border raid from Nigeria. Villages have been attacked, civilians killed, and captives taken."
+ chad.908.a: "Launch immediate counter-offensive."
+ chad.908.b: "Strengthen border defenses."
+
+ chad.909.t: "Regional Counter-Terrorism Success"
+ chad.909.d: "Our joint operation with regional partners has achieved significant success against Boko Haram. Key leaders have been killed and their safe havens destroyed."
+ chad.909.a: "A victory for the region."
+
+ chad.910.t: "Sudan Border Tensions"
+ chad.910.d: "Tensions are rising along the Sudan border. Despite the normalization agreement, cross-border incidents continue and both sides accuse the other of violations."
+ chad.910.a: "Seek diplomatic resolution."
+ chad.910.b: "Reinforce the border."
+
+ # Additional Tribal Events (chad.411-420)
+ chad.411.t: "Zaghawa-Arab Clashes in Ouaddaï"
+ chad.411.d: "Violence has erupted between Zaghawa and Arab communities in the Ouaddaï region. What started as a dispute over grazing land has escalated into deadly clashes. Dozens are dead and the violence threatens to spread."
+ chad.411.a: "Intervene to protect Arab communities."
+ chad.411.b: "Support the Zaghawa position."
+ chad.411.c: "Call for emergency tribal mediation."
+
+ chad.412.t: "Sara Political Marginalization"
+ chad.412.d: "Southern Sara communities are protesting what they see as decades of marginalization by northern-dominated governments. They demand greater representation in the government and investment in southern development."
+ chad.412.a: "Promise southern development programs."
+ chad.412.b: "Appoint Sara ministers to key positions."
+ chad.412.c: "Suppress the protests."
+
+ chad.413.t: "Farmer-Herder Violence"
+ chad.413.d: "The recurring tragedy of farmer-herder conflict has struck again. Nomadic herders' livestock trampled crops, leading to violent retaliation. Both sides have suffered casualties, and the cycle of violence continues."
+ chad.413.a: "Side with the settled farmers."
+ chad.413.b: "Side with the nomadic herders."
+ chad.413.c: "Establish land use committees."
+
+ chad.414.t: "National Reconciliation Conference"
+ chad.414.d: "With tribal loyalties relatively stable, the time has come for a national reconciliation conference. Representatives from all major ethnic groups could gather in N'Djamena to discuss Chad's future together."
+ chad.414.a: "Hold a full inclusive dialogue."
+ chad.414.b: "Limited dialogue - exclude some groups."
+ chad.414.c: "A symbolic conference only."
+
+ chad.415.t: "Tibesti Gold Rush Tensions"
+ chad.415.d: "The discovery of gold in Tibesti has sparked a rush of prospectors from across Chad. Local Toubou communities are angry at outsiders exploiting their traditional lands. Tensions are rising and violence seems inevitable."
+ chad.415.a: "Protect Toubou mining rights."
+ chad.415.b: "Open Tibesti to all prospectors."
+ chad.415.c: "Nationalize all gold mining."
+
+ chad.416.t: "Rebel Leaders Return from Exile"
+ chad.416.d: "Former rebel commanders who spent years in exile have expressed interest in returning to Chad. Some led armed movements against the government, but they represent constituencies that could be valuable allies."
+ chad.416.a: "Welcome them into government."
+ chad.416.b: "Limited amnesty only."
+ chad.416.c: "Arrest them on arrival."
+
+ chad.417.t: "Traditional Inter-Tribal Alliance"
+ chad.417.d: "In a remarkable development, traditional leaders from the Zaghawa and Arab communities have forged a historic alliance. This cross-tribal partnership could be a model for national unity."
+ chad.417.a: "Celebrate this alliance publicly."
+ chad.417.b: "Keep it low-key."
+
+ chad.418.t: "Tribal Militia Demobilization"
+ chad.418.d: "With peace restored, the question of what to do with tribal militias must be addressed. These armed groups were essential during the conflict but now pose a challenge to state authority."
+ chad.418.a: "Full demobilization with compensation."
+ chad.418.b: "Integrate them into the national army."
+ chad.418.c: "Delay demobilization for now."
+
+ chad.419.t: "Traditional vs State Justice"
+ chad.419.d: "A dispute over a murder case has highlighted the tension between traditional tribal justice and state courts. Traditional leaders want to handle it their way, but the justice ministry insists on formal prosecution."
+ chad.419.a: "Strengthen state courts' authority."
+ chad.419.b: "Respect traditional authority."
+ chad.419.c: "Allow a dual system approach."
+
+ chad.420.t: "Full Tribal Harmony Achieved"
+ chad.420.d: "A remarkable transformation has occurred. Through careful diplomacy, equitable development, and patient reconciliation, Chad's diverse ethnic groups have achieved a genuine sense of national unity. The old divisions are healing."
+ chad.420.a: "A new era for Chad begins."
+
+ # Libya Aftermath Events (chad.501-506)
+ chad.501.t: "Weapons Flood from Libya"
+ chad.501.d: "The fall of Gaddafi has unleashed a flood of weapons from Libyan arsenals. Heavy weapons, anti-aircraft guns, and vast ammunition stockpiles are flowing across the Sahara, fueling instability throughout the Sahel."
+ chad.501.a: "Attempt to intercept the weapons."
+ chad.501.b: "Let them flow - some could be useful."
+ chad.501.c: "Request international assistance."
+
+ chad.502.t: "Chadian Mercenaries Return"
+ chad.502.d: "Thousands of Chadian fighters who served Gaddafi are returning home. They are battle-hardened and armed, but also destitute and potentially dangerous if not reintegrated into society."
+ chad.502.a: "Integrate them into the army."
+ chad.502.b: "Offer a DDR program."
+ chad.502.c: "Arrest them as collaborators."
+
+ chad.503.t: "Border Clash with Libyan Faction"
+ chad.503.d: "Armed elements from Libya have clashed with our border forces. The chaotic situation in southern Libya means various militias and armed groups frequently stray into Chadian territory."
+ chad.503.a: "Military response."
+ chad.503.b: "Lodge a diplomatic protest."
+ chad.503.c: "Reinforce the border."
+
+ chad.504.t: "Tuareg and Toubou Refugees"
+ chad.504.d: "Waves of Tuareg and Toubou refugees are fleeing the violence in Libya. They have ethnic ties to communities in Chad but their arrival strains our resources and could alter local demographics."
+ chad.504.a: "Accept the refugees."
+ chad.504.b: "Restrict entry."
+ chad.504.c: "Temporary camps only."
+
+ chad.505.t: "Arms Smuggling Route Discovered"
+ chad.505.d: "Intelligence has uncovered a major arms smuggling route running through Tibesti into the Sahel. The route is controlled by local Toubou networks and is moving weapons to various armed groups."
+ chad.505.a: "Shut it down."
+ chad.505.b: "Tax the smugglers."
+ chad.505.c: "Use it for our own purposes."
+
+ chad.506.t: "Islamic State in Southern Libya"
+ chad.506.d: "Islamic State fighters have established a presence in southern Libya, dangerously close to our border. They pose a direct threat to Chad's security and could attempt to recruit or conduct operations on our soil."
+ chad.506.a: "Launch preemptive strikes."
+ chad.506.b: "Strengthen border defenses."
+ chad.506.c: "Seek an international coalition."
+
+ # Central African Republic Events (chad.511-516)
+ chad.511.t: "Seleka Advances on Bangui"
+ chad.511.d: "The Seleka rebel coalition is advancing rapidly toward Bangui. The CAR government is crumbling, and regional states are scrambling to respond. Chad's position as a regional power means we cannot ignore this crisis."
+ chad.511.a: "Mediate peace talks through ECCAS."
+ chad.511.b: "Support the government militarily."
+ chad.511.c: "Remain neutral."
+
+ chad.512.t: "Allegations of Chadian Fighters in Seleka"
+ chad.512.d: "Reports are emerging that Chadian nationals, possibly including former soldiers, are fighting with the Seleka rebels. International observers are questioning our role in the crisis. This threatens our reputation as a stabilizing force."
+ chad.512.a: "Deny official involvement."
+ chad.512.b: "Recall any Chadian fighters."
+ chad.512.c: "Blame mercenaries beyond our control."
+
+ chad.513.t: "Anti-Balaka Massacres"
+ chad.513.d: "The Anti-Balaka militia has begun systematic attacks on Muslim civilians in the Central African Republic. Reports of massacres, ethnic cleansing, and atrocities are flooding in. Muslims are fleeing for their lives."
+ chad.513.a: "Condemn the violence."
+ chad.513.b: "Prepare to evacuate Muslims."
+ chad.513.c: "Call for international intervention."
+
+ chad.514.t: "Muslim Refugees Flee to Chad"
+ chad.514.d: "Tens of thousands of Muslims are fleeing the Central African Republic into Chad. Entire communities are being displaced, bringing with them stories of horror and desperation. They need shelter, food, and protection."
+ chad.514.a: "Welcome all refugees."
+ chad.514.b: "Limited acceptance only."
+ chad.514.c: "Establish transit camps."
+
+ chad.515.t: "Chad Withdraws from CAR"
+ chad.515.d: "Our military intervention in the Central African Republic has become controversial. Accusations of atrocities by Chadian troops, combined with the chaotic situation on the ground, make continued deployment untenable."
+ chad.515.a: "Complete withdrawal."
+ chad.515.b: "Maintain limited presence."
+ chad.515.c: "Transition to UN mission."
+
+ chad.516.t: "ICC Investigation"
+ chad.516.d: "The International Criminal Court is investigating atrocities in the Central African Republic. Some evidence points to involvement by Chadian nationals. The ICC may request our cooperation in prosecuting suspects."
+ chad.516.a: "Cooperate fully with the ICC."
+ chad.516.b: "Limited cooperation only."
+ chad.516.c: "Refuse to cooperate."
+
+ # Tribal Rebellion Escalation Events
+ # Zaghawa Events
+ chad_tribal.1.t: "Zaghawa Protests"
+ chad_tribal.1.desc: "Demonstrations have erupted in Zaghawa communities across eastern Chad. Protesters are demanding greater representation, economic development, and an end to perceived marginalization. If their grievances are not addressed, the situation could escalate."
+ chad_tribal.1.a: "We must address their concerns."
+ chad_tribal.1.b: "These protests will disperse."
+
+ chad_tribal.2.t: "Zaghawa Partisan Activity"
+ chad_tribal.2.desc: "Armed Zaghawa militants have begun conducting guerrilla operations in the east. Government convoys are being ambushed, infrastructure sabotaged, and officials assassinated. This is no longer mere protest - it is armed resistance."
+ chad_tribal.2.a: "Launch counter-insurgency operations."
+ chad_tribal.2.b: "Attempt negotiations."
+
+ chad_tribal.3.t: "Zaghawa Separatism"
+ chad_tribal.3.desc: "Zaghawa leaders have issued an ultimatum: grant autonomy to their region or face the consequences. They are mobilizing their people for conflict and have established a parallel governance structure. Civil war looms."
+ chad_tribal.3.a: "Prepare for the worst."
+ chad_tribal.3.b: "Make a final peace offer."
+
+ chad_tribal.4.t: "Zaghawa Rebellion"
+ chad_tribal.4.desc: "The Zaghawa have risen in open rebellion. Armed forces loyal to tribal leaders have seized control of key towns in the east and declared the formation of the Zaghawa State. Chad faces civil war."
+ chad_tribal.4.a: "Crush the rebellion!"
+
+ # Arab Events
+ chad_tribal.5.t: "Arab Tribal Protests"
+ chad_tribal.5.desc: "Arab tribal communities in central Chad have risen in protest. They decry what they see as systematic discrimination and demand equal treatment. Markets in major towns have been shut down in solidarity."
+ chad_tribal.5.a: "Open dialogue with Arab leaders."
+ chad_tribal.5.b: "The protests will pass."
+
+ chad_tribal.6.t: "Arab Partisan Attacks"
+ chad_tribal.6.desc: "Arab militiamen have launched attacks on government positions. The ancient tradition of razzia has been revived, with government property and facilities being targeted. The Arab tribes are at war with N'Djamena."
+ chad_tribal.6.a: "Deploy the military."
+ chad_tribal.6.b: "Seek tribal mediation."
+
+ chad_tribal.7.t: "Arab Separatist Movement"
+ chad_tribal.7.desc: "A council of Arab tribal leaders has formed the Arab Council of Chad, demanding self-governance. They control significant territory and have the loyalty of thousands of armed tribesmen. The situation is critical."
+ chad_tribal.7.a: "This cannot stand."
+ chad_tribal.7.b: "Consider autonomy arrangements."
+
+ chad_tribal.8.t: "Arab Rebellion"
+ chad_tribal.8.desc: "The Arab tribes have launched a full-scale rebellion. The Arab Council of Chad has declared independence and is fielding a formidable army of tribal warriors. Central Chad is in flames."
+ chad_tribal.8.a: "To war!"
+
+ # Sara Events
+ chad_tribal.9.t: "Sara Demonstrations"
+ chad_tribal.9.desc: "The Sara people of southern Chad are protesting in unprecedented numbers. After decades of northern domination, they demand justice, development, and political representation. The Christian south is rising."
+ chad_tribal.9.a: "Hear their demands."
+ chad_tribal.9.b: "Maintain order."
+
+ chad_tribal.10.t: "Sara Resistance Movement"
+ chad_tribal.10.desc: "Sara militants have formed a resistance movement. They are attacking government installations, disrupting oil production, and establishing no-go zones in the south. This is an organized insurgency."
+ chad_tribal.10.a: "Military response required."
+ chad_tribal.10.b: "Negotiate with their leaders."
+
+
+
+ # Toubou Events
+
+ chad_tribal.14.b: "Offer autonomy."
+
+ chad_tribal.15.t: "Toubou Autonomy Demands"
+ chad_tribal.15.desc: "The Toubou Derde Council has demanded full autonomy for the Tibesti region. They have declared that they will no longer recognize government authority and are preparing for war if their demands are rejected."
+ chad_tribal.15.a: "Reject their ultimatum."
+ chad_tribal.15.b: "Accept autonomy."
+
+ chad_tribal.16.t: "Toubou Rebellion"
+ chad_tribal.16.desc: "The Toubou have risen in full rebellion. The Tibesti region has been declared independent as Toubou Tibesti, and their fierce desert warriors are defending their homeland against all comers."
+ chad_tribal.16.a: "Reconquer the north!"
+
+ # Arab Tribal Events (IDs 11-14)
+ chad_tribal.11.t: "Arab Tribal Protests"
+ chad_tribal.11.desc: "Arab tribal communities in central Chad have risen in protest. They decry what they see as systematic discrimination and demand equal treatment. Markets in major towns have been shut down in solidarity."
+ chad_tribal.11.a: "Open dialogue with Arab leaders."
+ chad_tribal.11.b: "The protests will pass."
+
+ chad_tribal.12.t: "Arab Partisan Attacks"
+ chad_tribal.12.desc: "Arab militiamen have launched attacks on government positions. The ancient tradition of razzia has been revived, with government property and facilities being targeted. The Arab tribes are at war with N'Djamena."
+ chad_tribal.12.a: "Deploy the military."
+ chad_tribal.12.b: "Seek tribal mediation."
+
+ chad_tribal.13.t: "Arab Separatist Movement"
+ chad_tribal.13.desc: "A council of Arab tribal leaders has formed the Arab Council of Chad, demanding self-governance. They control significant territory and have the loyalty of thousands of armed tribesmen. The situation is critical."
+ chad_tribal.13.a: "This cannot stand."
+ chad_tribal.13.b: "Consider autonomy arrangements."
+
+ chad_tribal.14.t: "Arab Rebellion"
+ chad_tribal.14.desc: "The Arab tribes have launched a full-scale rebellion. The Arab Council of Chad has declared independence and is fielding a formidable army of tribal warriors. Central Chad is in flames."
+ chad_tribal.14.a: "To war!"
+
+ # Sara Tribal Events (IDs 21-24)
+ chad_tribal.21.t: "Sara Demonstrations"
+ chad_tribal.21.desc: "The Sara people of southern Chad are protesting in unprecedented numbers. After decades of northern domination, they demand justice, development, and political representation. The Christian south is rising."
+ chad_tribal.21.a: "Hear their demands."
+ chad_tribal.21.b: "Maintain order."
+
+ chad_tribal.22.t: "Sara Resistance Movement"
+ chad_tribal.22.desc: "Sara militants have formed a resistance movement. They are attacking government installations, disrupting oil production, and establishing no-go zones in the south. This is an organized insurgency."
+ chad_tribal.22.a: "Military response required."
+ chad_tribal.22.b: "Negotiate with their leaders."
+
+ chad_tribal.23.t: "Sara Independence Movement"
+ chad_tribal.23.desc: "Sara leaders have proclaimed the Sara Republic, demanding independence for southern Chad. They have established a provisional government and are mobilizing their communities for separation or war."
+ chad_tribal.23.a: "Independence is impossible."
+ chad_tribal.23.b: "Propose a federation."
+
+ chad_tribal.24.t: "Sara Civil War"
+ chad_tribal.24.desc: "Southern Chad has erupted in civil war. The Sara Republic has declared independence and its forces have seized control of the south. Chad is being torn apart along ethnic and religious lines."
+ chad_tribal.24.a: "Fight to preserve Chad!"
+
+ # Toubou Tribal Events (IDs 31-34)
+ chad_tribal.31.t: "Toubou Unrest in Tibesti"
+ chad_tribal.31.desc: "The Toubou people of northern Chad are in open unrest. These fierce desert warriors have long resented central government control, and now they are demanding respect for their traditional way of life."
+ chad_tribal.31.a: "Send representatives to negotiate."
+ chad_tribal.31.b: "Reinforce our northern garrisons."
+
+ chad_tribal.32.t: "Toubou Guerrilla Warfare"
+ chad_tribal.32.desc: "Toubou fighters have launched a guerrilla campaign in the Tibesti Mountains. These experienced desert warriors are ambushing convoys, raiding outposts, and making the north ungovernable. The government's writ barely extends beyond the towns."
+ chad_tribal.32.a: "Launch a major offensive."
+ chad_tribal.32.b: "Offer autonomy."
+
+ chad_tribal.33.t: "Toubou Autonomy Demands"
+ chad_tribal.33.desc: "The Toubou Derde Council has demanded full autonomy for the Tibesti region. They have declared that they will no longer recognize government authority and are preparing for war if their demands are rejected."
+ chad_tribal.33.a: "Reject their ultimatum."
+ chad_tribal.33.b: "Accept autonomy."
+
+ chad_tribal.34.t: "Toubou Rebellion"
+ chad_tribal.34.desc: "The Toubou have risen in full rebellion. The Tibesti region has been declared independent as Toubou Tibesti, and their fierce desert warriors are defending their homeland against all comers."
+ chad_tribal.34.a: "Reconquer the north!"
+
+ # Rebellion End Event
+ chad_tribal.100.t: "Tribal Rebellion Defeated"
+ chad_tribal.100.desc: "The tribal rebellion has been crushed. Government forces have restored control over the breakaway regions. But the underlying grievances remain, and without reconciliation, another uprising is only a matter of time."
+ chad_tribal.100.a: "Begin reconciliation efforts."
+ chad_tribal.100.b: "Punish the rebels."
+
+ # Tribal Rebellion News Events
+ chad.1050.t: "Zaghawa Rise in Chad"
+ chad.1050.d: "The Zaghawa people of eastern Chad have risen in rebellion against the government. The newly proclaimed Zaghawa State claims control over significant territory and is fielding armed forces against N'Djamena."
+ chad.1050.a: "Troubling developments."
+
+ chad.1051.t: "Arab Rebellion in Chad"
+ chad.1051.d: "Arab tribes in central Chad have declared independence as the Arab Council of Chad. Tribal warriors are fighting government forces across a wide front. The conflict threatens regional stability."
+ chad.1051.a: "Another crisis in the Sahel."
+
+ chad.1052.t: "Southern Chad Seeks Independence"
+ chad.1052.d: "The predominantly Christian Sara people of southern Chad have declared independence as the Sara Republic. The split divides Chad along ethnic and religious lines, with potentially devastating consequences."
+ chad.1052.a: "A nation divided."
+
+ chad.1053.t: "Toubou Independence in Northern Chad"
+ chad.1053.d: "The Toubou people have declared the independence of Tibesti from Chad. These fierce desert warriors are defending their mountainous homeland against government attempts to restore control."
+ chad.1053.a: "The Sahara is restless."
+
+ # New Political Paths - Global News Events
+ chad.600.t: "Chad Establishes Tribal Confederation"
+ chad.600.desc: "In a historic development, Chad has rejected both Western democratic models and authoritarian rule, instead establishing a Tribal Confederation based on traditional governance structures. Power will be shared between the major ethnic groups - the Zaghawa, Arabs, Sara, and Toubou - through a Council of Elders. This unique experiment in African governance may serve as a model for other ethnically diverse nations struggling with post-colonial borders."
+ chad.600.a: "A new path for Africa."
+
+ chad.604.t: "Chad Ratifies Tribal Constitution"
+ chad.604.desc: "The Chadian Tribal Confederation has ratified its new constitution, formalizing the power-sharing arrangement between ethnic groups and establishing the Council of Elders as the supreme governing body. The constitution guarantees tribal representation at all levels of government and enshrines the principle of rotating leadership between major ethnic groups."
+ chad.604.a: "An interesting experiment in governance."
+
+ chad.610.t: "Chad Takes Leadership of G5 Sahel"
+ chad.610.desc: "Chad has emerged as the leader of the G5 Sahel alliance, coordinating military and economic cooperation between the five Sahel nations. Under Chadian leadership, the alliance is pursuing a Pan-African vision that emphasizes regional self-reliance over dependence on former colonial powers. The Chadian military, hardened by years of conflict, forms the backbone of the joint Sahel force."
+ chad.610.a: "African solutions for African problems."
+
+ chad.615.t: "Chad Declares Restoration of Kanem-Bornu Empire"
+ chad.615.desc: "In a stunning proclamation, Chad has declared the restoration of the Kanem-Bornu Empire, the medieval African state that once dominated the Lake Chad Basin. This Pan-African vision claims historical legitimacy over territories in modern Nigeria, Niger, Cameroon, and Libya. Regional powers are watching with concern as Chad positions itself as the heir to this ancient legacy."
+ chad.615.a: "An empire reborn?"
+
+ chad.620.t: "Chad Completes Integration with France"
+ chad.620.desc: "Chad has formalized its deep partnership with France, effectively becoming a French protectorate in all but name. French military forces have expanded their presence, French companies dominate the economy, and the CFA Franc remains the currency. Critics call it neo-colonialism; supporters say it guarantees stability in a volatile region."
+ chad.620.a: "A strong Franco-African partnership."
+ chad.620.b: "Western imperialism continues."
+ chad.620.c: "The French sphere expands."
+
+ chad.625.t: "Chad Joins Chinese Sphere of Influence"
+ chad.625.desc: "Chad has completed its pivot to China, joining Beijing's sphere of influence through massive infrastructure investments and military cooperation. Chinese companies now control Chad's oil industry, Chinese-built roads and railways connect the country, and Chinese military equipment arms the Chadian forces. This represents a major shift in the geopolitical balance of Central Africa."
+ chad.625.a: "A new partner in Africa."
+ chad.625.b: "Chinese expansion in Africa continues."
+ chad.625.c: "The great power competition intensifies."
+
+ chad.630.t: "Chad Leads African Standby Force"
+ chad.630.desc: "Chad has been appointed to lead the African Standby Force, the African Union's rapid response military force. Chadian troops, recognized as some of the most capable fighters on the continent, will form the core of this Pan-African force dedicated to maintaining peace and stability across the continent."
+ chad.630.a: "Chad takes its rightful place."
+ chad.630.b: "African military cooperation grows."
+
+ # Historical Path Events (2000-2008)
+ chad.2000.t: "Post-Civil War Stabilization"
+ chad.2000.d: "With the civil war behind us, Chad must now chart a course toward stability. The scars of conflict run deep, but there is an opportunity to rebuild institutions and restore confidence in governance."
+ chad.2000.a: "Focus on reconciliation and stability."
+ chad.2000.b: "Prioritize security above all else."
+
+ chad.2001.t: "The Tibesti Question Erupts"
+ chad.2001.d: "Tensions in the remote Tibesti region have flared into a political crisis. Toubou communities demand recognition of their rights, while the government fears losing control of this strategic northern territory."
+ chad.2001.a: "Assert government authority in Tibesti."
+ chad.2001.b: "Negotiate with Toubou leaders."
+
+ chad.2002.t: "2008 Constitutional Referendum"
+ chad.2002.d: "A constitutional referendum has been called to amend the fundamental law of the republic. The proposed changes would consolidate executive power and extend presidential term limits, drawing both support and fierce opposition."
+ chad.2002.a: "Push the amendments through."
+ chad.2002.b: "Withdraw the proposed changes."
+
+ chad.2003.t: "Libyan Refugee Crisis"
+ chad.2003.d: "The collapse of order in Libya has driven thousands of refugees south into Chad. These displaced people need shelter and assistance, but their arrival strains our already limited resources."
+ chad.2003.a: "Open our borders to the refugees."
+ chad.2003.b: "Restrict the flow of refugees."
+
+ chad.2004.t: "2021 Election"
+ chad.2004.d: "Chad is holding its presidential election. President Déby seeks another mandate, and the opposition struggles to mount a credible challenge. The outcome will shape the country's future for years to come."
+ chad.2004.a: "Déby wins another term."
+ chad.2004.b: "Allow a genuinely contested election."
+
+ chad.2005.t: "Death of Idriss Déby"
+ chad.2005.d: "President Idriss Déby Itno, who ruled Chad for three decades, has died from wounds sustained while visiting troops fighting FACT rebels in the north. His death plunges the nation into uncertainty."
+ chad.2005.a: "The strongman is gone."
+
+ chad.2006.t: "October 2022 Protests Suppressed"
+ chad.2006.d: "Massive protests have erupted against the Transitional Military Council's decision to extend its rule. Security forces have responded with deadly force, killing dozens of demonstrators in N'Djamena."
+ chad.2006.a: "Restore order at any cost."
+ chad.2006.b: "Show restraint and open dialogue."
+
+ chad.2007.t: "Inclusive National Dialogue 2022"
+ chad.2007.d: "The Transitional Military Council has convened an Inclusive National Dialogue to chart Chad's political future. Opposition groups are divided on whether to participate, and the outcome remains uncertain."
+ chad.2007.a: "Support a broad-based dialogue."
+ chad.2007.b: "Use the dialogue to consolidate power."
+
+ chad.2008.t: "Fifth Republic Proclaimed"
+ chad.2008.d: "Chad has proclaimed its Fifth Republic, marking a new constitutional era. The new framework promises democratic governance, but critics question whether real change will follow or if it is merely a reshuffling of power."
+ chad.2008.a: "A new republic is born."
+
+ # Authoritarian Path Events (2010-2023)
+ chad.2010.t: "Constitutional Referendum on Term Limits"
+ chad.2010.d: "The government has called a referendum to abolish presidential term limits. This would allow the president to rule indefinitely. The opposition calls it a power grab, while loyalists insist it ensures continuity."
+ chad.2010.a: "Abolish term limits."
+ chad.2010.b: "Go further - expand executive powers."
+
+ chad.2011.t: "2011 Constitutional Reform"
+ chad.2011.d: "A sweeping constitutional reform has been enacted, centralizing power in the presidency and weakening the legislature and judiciary. Chad's political system is being reshaped to serve one man's vision."
+ chad.2011.a: "The reforms are enacted."
+
+ chad.2012.t: "Oil Patronage Scandals"
+ chad.2012.d: "Revelations of massive corruption in the oil sector have surfaced. Government officials are accused of siphoning billions in oil revenues into private accounts, while ordinary Chadians struggle in poverty."
+ chad.2012.a: "Suppress the reports."
+ chad.2012.b: "Allow limited investigations."
+
+ chad.2013.t: "Media Crackdown"
+ chad.2013.d: "The government has launched a crackdown on independent media. Journalists have been arrested, newspapers shut down, and internet access restricted. The free press in Chad is being systematically dismantled."
+ chad.2013.a: "Silence the critics."
+ chad.2013.b: "Allow some press freedom."
+
+ chad.2014.t: "Zaghawa Rally to Arms"
+ chad.2014.d: "The Zaghawa ethnic group, the president's own people, have rallied to defend the regime. Thousands of armed tribesmen are ready to fight for the government, providing a loyal militia force."
+ chad.2014.a: "The Zaghawa stand with us."
+
+ chad.2015.t: "Sudan Proxy Escalation"
+ chad.2015.d: "Sudan has escalated its proxy war against Chad, increasing support for rebel groups. Cross-border raids are intensifying, and intelligence suggests a major offensive may be in preparation."
+ chad.2015.a: "Prepare for conflict with Sudan."
+ chad.2015.b: "Seek international mediation."
+
+ chad.2016.t: "Libyan Refugee Wave"
+ chad.2016.d: "A massive wave of refugees from Libya's ongoing civil war is pouring into northern Chad. The influx brings both humanitarian challenges and security concerns, as armed elements may be among the displaced."
+ chad.2016.a: "Accept the refugees."
+ chad.2016.b: "Turn them away at the border."
+
+ chad.2017.t: "Boko Haram Incursion"
+ chad.2017.d: "Boko Haram has launched a major incursion into Chadian territory from the Lake Chad Basin. Villages have been burned, civilians massacred, and the terrorist group is establishing a foothold on our soil."
+ chad.2017.a: "Launch a full military offensive."
+ chad.2017.b: "Strengthen defensive positions."
+
+ chad.2018.t: "Déby's Fourth Mandate"
+ chad.2018.d: "President Déby has secured a fourth term in office through an election widely condemned as neither free nor fair. The opposition has been marginalized, and Chad settles deeper into authoritarian rule."
+ chad.2018.a: "Another mandate secured."
+
+ chad.2019.t: "Austerity Protests"
+ chad.2019.d: "Collapsing oil prices have forced severe austerity measures. Civil servants go unpaid for months, public services collapse, and angry citizens take to the streets demanding relief from economic hardship."
+ chad.2019.a: "Crack down on the protests."
+ chad.2019.b: "Release emergency funds."
+
+ chad.2020.t: "Transitional Military Council Formed"
+ chad.2020.d: "Following the death of President Déby, the military has formed a Transitional Military Council under his son Mahamat. The constitution has been suspended and the military rules by decree."
+ chad.2020.a: "The military takes control."
+
+ chad.2021.t: "Mahamat Consolidates Power"
+ chad.2021.d: "Mahamat Idriss Déby has moved swiftly to consolidate his grip on power. Key rivals have been sidelined, loyalists promoted, and the Transitional Military Council serves as a rubber stamp for his decisions."
+ chad.2021.a: "Power is consolidated."
+
+ chad.2022.t: "Permanent Military State"
+ chad.2022.d: "The promised transition to civilian rule has been abandoned. Chad has become a permanent military state, with the armed forces controlling all aspects of governance. Democracy is a distant memory."
+ chad.2022.a: "The military rules."
+
+ chad.2023.t: "Sahel Strongman Emerges"
+ chad.2023.d: "Chad's leader has emerged as the dominant strongman of the Sahel region. Military prowess, strategic alliances, and ruthless domestic control have made Chad a regional power feared by its neighbors."
+ chad.2023.a: "The strongman of the Sahel."
+
+ # Democratic Path Events (2030-2050)
+ chad.2030.t: "First Free Elections in Chad"
+ chad.2030.d: "For the first time in decades, Chad is holding genuinely free and fair elections. International observers are present, multiple parties compete, and citizens line up to cast their ballots in this historic moment."
+ chad.2030.a: "The people choose democracy."
+ chad.2030.b: "Ensure a smooth transition."
+
+ chad.2031.t: "Second Democratic Election"
+ chad.2031.d: "Chad's second free election demonstrates that democracy is taking root. The peaceful transfer of power between parties shows the world that Chad has truly changed."
+ chad.2031.a: "Democracy grows stronger."
+ chad.2031.b: "Some challenges remain."
+
+ chad.2032.t: "Voter Registration Drive"
+ chad.2032.d: "A nationwide voter registration drive is underway, seeking to enroll millions of previously unregistered citizens. This grassroots effort is strengthening democratic participation across Chad."
+ chad.2032.a: "Every citizen's voice matters."
+ chad.2032.b: "Registration efforts face obstacles."
+
+ chad.2033.t: "NGO Partnerships Established"
+ chad.2033.d: "International NGOs have established partnerships with Chadian civil society organizations. These partnerships are building capacity for democratic governance, human rights monitoring, and development."
+ chad.2033.a: "Welcome international cooperation."
+ chad.2033.b: "Maintain sovereignty over our affairs."
+
+ chad.2034.t: "Women's Rights Legislation"
+ chad.2034.d: "Parliament has passed landmark legislation advancing women's rights in Chad. The new laws guarantee equal access to education, protection from violence, and greater political representation."
+ chad.2034.a: "A milestone for equality."
+
+ chad.2035.t: "Education Reform Success"
+ chad.2035.d: "Chad's education reform program has achieved remarkable results. Literacy rates are climbing, new schools have opened across the country, and a generation of educated young Chadians is emerging."
+ chad.2035.a: "Education transforms our nation."
+
+ chad.2036.t: "Human Rights Charter Signed"
+ chad.2036.d: "Chad has signed a comprehensive human rights charter, committing to protect civil liberties, end arbitrary detention, and ensure judicial independence. This marks a decisive break from the authoritarian past."
+ chad.2036.a: "A new commitment to human rights."
+
+ chad.2037.t: "Decentralization Begins"
+ chad.2037.d: "The government has begun devolving power to regional and local authorities. Decentralization will bring governance closer to the people and reduce the concentration of power in N'Djamena."
+ chad.2037.a: "Power to the regions."
+
+ chad.2038.t: "Regional Elections Held"
+ chad.2038.d: "The first regional elections under the decentralization program have been held. Local leaders are now directly elected, giving communities a genuine voice in their own governance."
+ chad.2038.a: "Local democracy takes root."
+
+ chad.2039.t: "IMF Structural Adjustment"
+ chad.2039.d: "The IMF has offered a structural adjustment package to modernize Chad's economy. The reforms promise long-term growth but require painful short-term austerity measures that will affect ordinary citizens."
+ chad.2039.a: "Accept the full IMF package."
+ chad.2039.b: "Negotiate modified terms."
+
+ chad.2040.t: "Truth and Reconciliation Commission"
+ chad.2040.d: "Chad has established a Truth and Reconciliation Commission to address decades of political violence, ethnic conflict, and human rights abuses. Victims and perpetrators alike are coming forward to tell their stories."
+ chad.2040.a: "Healing begins with truth."
+
+ chad.2041.t: "World Bank Development Projects"
+ chad.2041.d: "The World Bank has approved major development projects for Chad, funding infrastructure, healthcare, and education initiatives. These investments will transform the lives of millions of Chadians."
+ chad.2041.a: "Development accelerates."
+
+ chad.2042.t: "Millennium Development Progress"
+ chad.2042.d: "Chad has made significant progress toward its millennium development goals. Child mortality is declining, access to clean water is expanding, and poverty rates are falling across the country."
+ chad.2042.a: "Real progress for our people."
+
+ chad.2043.t: "Vibrant Democracy Achieved"
+ chad.2043.d: "Chad has become a vibrant democracy, with free elections, a free press, independent judiciary, and active civil society. Once a symbol of authoritarian rule in Africa, Chad now serves as a beacon of democratic transformation."
+ chad.2043.a: "Democracy triumphs in Chad."
+
+ chad.2044.t: "Democratic Army Reform"
+ chad.2044.d: "The military has been reformed to serve the democratic state. Ethnic quotas have been abolished in favor of merit-based recruitment, and the army now answers to civilian authority."
+ chad.2044.a: "A professional national army."
+
+ chad.2045.t: "Civilian Oversight Commission"
+ chad.2045.d: "A civilian oversight commission has been established to monitor the security forces. This ensures accountability and prevents the military from ever again seizing political power."
+ chad.2045.a: "Accountability for all."
+
+ chad.2046.t: "African Democratic Model"
+ chad.2046.d: "Chad's democratic transformation has become a model for the entire continent. African nations look to N'Djamena for inspiration, and Chad's leaders are invited to share their experience at international forums."
+ chad.2046.a: "Chad leads by example."
+
+ chad.2047.t: "Western Democracy Support"
+ chad.2047.d: "Western nations have pledged substantial aid to support Chad's democratic transition. Development funds, technical assistance, and trade agreements are flowing in, rewarding Chad's commitment to democratic governance."
+ chad.2047.a: "The West invests in our democracy."
+
+ chad.2048.t: "Independent Election Commission"
+ chad.2048.d: "An independent election commission has been established, free from government interference. This institution will ensure that future elections in Chad remain free, fair, and credible."
+ chad.2048.a: "Electoral integrity secured."
+
+ chad.2049.t: "Second Term Election"
+ chad.2049.d: "The democratic government faces its second term election. Multiple candidates compete in a vibrant campaign, and the outcome is genuinely uncertain - a sign of healthy democracy."
+ chad.2049.a: "The incumbent seeks re-election."
+ chad.2049.b: "A new leader emerges."
+
+ chad.2050.t: "Local Governance Established"
+ chad.2050.d: "Local governance structures are now fully operational across Chad. Communities manage their own affairs, elect their own leaders, and participate directly in decisions that affect their lives."
+ chad.2050.a: "Governance from the ground up."
+
+ # Islamist Path Events (2060-2065)
+ chad.2060.t: "Caliphate Expansion Declaration"
+ chad.2060.d: "The Islamist government has declared its intention to expand the caliphate across the Sahel. This aggressive proclamation has alarmed neighboring states and drawn international condemnation."
+ chad.2060.a: "The caliphate will grow."
+ chad.2060.b: "Focus on consolidating at home."
+
+ chad.2065.t: "Sharia Law Nationwide"
+ chad.2065.d: "Sharia law has been imposed across all of Chad, replacing the secular legal code. The Christian south resists fiercely, while the international community imposes sanctions. Chad is increasingly isolated."
+ chad.2065.a: "Divine law governs our nation."
+ chad.2065.b: "Allow regional exemptions."
+
+ # Tribal Path Events (2080)
+ chad.2080.t: "Tribal Parliament Established"
+ chad.2080.d: "A new Tribal Parliament has been established, where representatives from each major ethnic group deliberate on national affairs. This unique institution blends traditional governance with modern statecraft."
+ chad.2080.a: "The tribes govern together."
+ chad.2080.b: "A cautious experiment."
+
+ # Socialist Path Events (2090-2099)
+ chad.2090.t: "Post-Gaddafi Crisis"
+ chad.2090.d: "The fall of Gaddafi has created a power vacuum in the region. Returning Chadian fighters and flowing weapons present both dangers and opportunities for those seeking revolutionary change."
+ chad.2090.a: "Seize this revolutionary moment."
+ chad.2090.b: "Maintain stability first."
+
+ chad.2091.t: "Workers' Councils Formed"
+ chad.2091.d: "Workers' councils have been established in factories, farms, and mines across Chad. These revolutionary bodies give workers direct control over production and challenge the old economic order."
+ chad.2091.a: "Power to the workers!"
+
+ chad.2092.t: "Revolutionary Vanguard Party"
+ chad.2092.d: "A revolutionary vanguard party has been formed to lead Chad's socialist transformation. The party claims to represent the workers and peasants against the exploitative ruling class."
+ chad.2092.a: "The revolution advances."
+
+ chad.2093.t: "People's Republic Declared"
+ chad.2093.d: "Chad has been proclaimed a People's Republic. The old state apparatus has been dismantled and replaced with revolutionary institutions. Private property is being collectivized and a new socialist order is taking shape."
+ chad.2093.a: "The people's state is born."
+
+ chad.2094.t: "Five Year Plan Launched"
+ chad.2094.d: "The government has launched an ambitious Five Year Plan to industrialize Chad and develop its economy along socialist lines. Massive state investment will build factories, roads, and irrigation systems."
+ chad.2094.a: "Build the socialist economy."
+
+ chad.2095.t: "Cooperative Markets Open"
+ chad.2095.d: "State-run cooperative markets have opened across Chad, replacing private traders. These markets provide affordable goods to ordinary citizens, though critics complain about shortages and quality."
+ chad.2095.a: "The cooperatives serve the people."
+
+ chad.2096.t: "Green Revolution Success"
+ chad.2096.d: "Chad's socialist agricultural program has achieved a breakthrough. Collective farms are producing bumper harvests, and food security has improved dramatically. The Green Revolution is transforming rural Chad."
+ chad.2096.a: "The land feeds the people."
+
+ chad.2097.t: "Water for All Program"
+ chad.2097.d: "The government's Water for All program has brought clean water to thousands of villages. Wells, pumps, and water treatment facilities have been built across the country, dramatically reducing waterborne diseases."
+ chad.2097.a: "Clean water is a human right."
+
+ chad.2098.t: "Mines Nationalized"
+ chad.2098.d: "All mining operations in Chad have been nationalized. Foreign mining companies have been expelled and their assets seized. The revenues now flow directly to the state for the benefit of all Chadians."
+ chad.2098.a: "Our resources belong to the people."
+
+ chad.2099.t: "Non-Aligned Movement Leadership"
+ chad.2099.d: "Chad has assumed a leadership role in the Non-Aligned Movement, championing the cause of developing nations against great power interference. Chad's voice carries weight on the international stage."
+ chad.2099.a: "Neither East nor West - Chad leads."
+
+ # Military Junta Path Events (2100-2112)
+ chad.2100.t: "Parliament Dissolved"
+ chad.2100.d: "The military junta has dissolved parliament and suspended the constitution. All political parties have been banned, and military tribunals replace civilian courts. Chad is under full military rule."
+ chad.2100.a: "The military knows best."
+ chad.2100.b: "Maintain a civilian facade."
+
+ chad.2101.t: "Military Governors Appointed"
+ chad.2101.d: "Military governors have been appointed to every region of Chad. These officers answer directly to the junta and exercise absolute authority over their territories."
+ chad.2101.a: "Military discipline for every region."
+ chad.2101.b: "Allow some civilian administration."
+
+ chad.2102.t: "Junta Constitution Drafted"
+ chad.2102.d: "The junta has drafted a new constitution that enshrines military supremacy in governance. The armed forces are designated as the ultimate authority, with civilian institutions subordinate to military command."
+ chad.2102.a: "The military constitution is adopted."
+
+ chad.2103.t: "Military Industrial Expansion"
+ chad.2103.d: "The junta has launched a program to develop domestic military industry. Workshops and factories are being converted to produce weapons, ammunition, and military vehicles."
+ chad.2103.a: "Build our arsenal."
+
+ chad.2104.t: "Conscription Drive"
+ chad.2104.d: "A nationwide conscription drive has been launched to expand the armed forces. Every able-bodied young man is being called to serve, dramatically increasing the size of Chad's military."
+ chad.2104.a: "The nation in arms."
+
+ chad.2105.t: "Wagner Group Arrives"
+ chad.2105.d: "Russian Wagner Group mercenaries have arrived in Chad to support the junta. These experienced fighters provide military expertise, but their presence draws international condemnation and Western sanctions."
+ chad.2105.a: "Accept Russian military support."
+ chad.2105.b: "Decline their presence."
+
+ chad.2106.t: "Fortress Chad Complete"
+ chad.2106.d: "The junta's fortress program is complete. Border fortifications, military bases, and surveillance systems now cover the country. Chad has become an armed camp, bristling with defenses."
+ chad.2106.a: "An impregnable fortress."
+
+ chad.2107.t: "Russian Arms Shipment"
+ chad.2107.d: "A major shipment of Russian military equipment has arrived in N'Djamena. Tanks, armored vehicles, and modern infantry weapons significantly boost Chad's military capabilities."
+ chad.2107.a: "Our forces are strengthened."
+
+ chad.2108.t: "Pivot from France"
+ chad.2108.d: "The junta has decisively pivoted away from France, Chad's former colonial patron. French military bases have been closed and French advisors expelled. Chad charts a new course independent of Paris."
+ chad.2108.a: "Freedom from French influence."
+
+ chad.2109.t: "French Alliance Maintained"
+ chad.2109.d: "Despite the military takeover, Chad has maintained its alliance with France. French troops remain stationed in the country, and Paris continues to provide military and economic support to the junta."
+ chad.2109.a: "The French partnership endures."
+
+ chad.2110.t: "Sham Elections Held"
+ chad.2110.d: "The junta has held elections to legitimize its rule. With opposition candidates barred or imprisoned and the media tightly controlled, the military's chosen candidate wins by an overwhelming margin."
+ chad.2110.a: "The people have spoken."
+ chad.2110.b: "Even this charade goes too far."
+
+ chad.2111.t: "Total Repression"
+ chad.2111.d: "The junta has imposed total repression on Chadian society. Secret police monitor every aspect of life, arbitrary arrests are routine, and dissent of any kind is met with imprisonment or worse."
+ chad.2111.a: "Order through fear."
+
+ chad.2112.t: "Eternal Junta Proclaimed"
+ chad.2112.d: "The military junta has proclaimed itself the permanent government of Chad. There will be no transition, no elections, no civilian rule. The military will govern indefinitely in the name of national security."
+ chad.2112.a: "The junta rules forever."
+
+ # Socialist Path Events (2200-2207)
+ chad.2200.t: "Bolivarian Solidarity Pact"
+ chad.2200.d: "Chad has signed a Bolivarian Solidarity Pact with like-minded socialist nations across the developing world. This alliance commits signatories to mutual support against imperialism and capitalist exploitation."
+ chad.2200.a: "Solidarity with the global south."
+
+ chad.2201.t: "Revolutionary Guard Formed"
+ chad.2201.d: "A Revolutionary Guard has been formed to defend the socialist revolution. This elite ideological force is tasked with protecting the regime from internal and external enemies of the people's state."
+ chad.2201.a: "Defend the revolution."
+
+ chad.2202.t: "Refugees as Comrades"
+ chad.2202.d: "The socialist government has declared that all refugees entering Chad will be welcomed as comrades in the revolutionary struggle. They will be integrated into collective farms and workers' councils."
+ chad.2202.a: "All workers are welcome."
+
+ chad.2203.t: "Sahel Socialist Bloc"
+ chad.2203.d: "Chad has formed a Sahel Socialist Bloc with neighboring revolutionary states. This regional alliance coordinates economic planning, military cooperation, and ideological solidarity across the Sahel."
+ chad.2203.a: "The revolution spreads across the Sahel."
+
+ chad.2204.t: "Permanent Revolution Declared"
+ chad.2204.d: "The government has declared a state of permanent revolution. The struggle against imperialism, capitalism, and reaction will never end. Every citizen must remain vigilant and committed to the revolutionary cause."
+ chad.2204.a: "The revolution is eternal."
+
+ chad.2205.t: "People's Paradise"
+ chad.2205.d: "The government proclaims that Chad has achieved a people's paradise. State media celebrates the achievements of socialism - universal healthcare, education, and employment. Whether reality matches the propaganda is another question."
+ chad.2205.a: "Paradise achieved."
+
+ chad.2206.t: "African USSR Proclaimed"
+ chad.2206.d: "In a dramatic proclamation, Chad has declared itself the nucleus of an African Union of Socialist Republics. This ambitious vision seeks to unite the continent under a single socialist banner, alarming both Western powers and neighboring governments."
+ chad.2206.a: "A united socialist Africa."
+
+ chad.2207.t: "Cuban Advisors Arrive"
+ chad.2207.d: "Cuban military and medical advisors have arrived in Chad to support the socialist government. Their expertise in revolutionary warfare and public health will bolster the regime's capabilities."
+ chad.2207.a: "Cuban comrades join our cause."
+
+ # Tribal Path Events (chad.350-369)
+ chad.350.t: "Tribal Parliament Formation"
+ chad.350.d: "The time has come to formalize the role of traditional leaders in our governance. A Tribal Parliament will bring together elders from all major ethnic groups - Zaghawa, Arab, Sara, and Toubou - to deliberate on national affairs. The question remains: should this parliament wield genuine authority, or serve as an advisory body to the state?"
+ chad.350.a: "Grant the parliament full traditional authority."
+ chad.350.b: "Establish it as an advisory council."
+
+ chad.351.t: "Nomadic Crisis"
+ chad.351.d: "Severe drought has struck the Sahel, devastating the nomadic herders who traverse our northern territories. Their livestock are dying, water sources have dried up, and entire communities face starvation. Traditional routes between seasonal pastures have become death marches. These nomads are our people, and they look to the government for salvation."
+ chad.351.a: "Dispatch emergency aid to the nomads."
+ chad.351.b: "They must endure as they always have."
+
+ chad.352.t: "Desert Cavalry Formed"
+ chad.352.d: "The fierce mounted warriors of Chad's northern tribes have offered to form specialized cavalry units for the national military. These men are born to the saddle, experts in desert warfare who can traverse terrain where conventional forces cannot operate. Their traditional fighting spirit could be harnessed for modern military purposes."
+ chad.352.a: "Establish elite desert cavalry units."
+ chad.352.b: "Integrate them into standard forces."
+
+ chad.353.t: "Traditional Justice System Established"
+ chad.353.d: "For centuries, disputes among our people have been resolved through traditional justice administered by tribal elders. These customary courts command deep respect in rural communities, often more than state judges sent from the capital. The question now is whether to grant these traditional courts legal authority, or maintain them alongside the state judicial system."
+ chad.353.a: "Grant traditional courts full legal authority."
+ chad.353.b: "Allow a parallel justice system."
+
+ chad.354.t: "Tribal Land Rights Codified"
+ chad.354.d: "Land ownership in Chad has always been a matter of tribal custom and ancestral claims rather than written deeds. Now there are calls to formally recognize these traditional land rights in law, protecting tribal territories from exploitation and encroachment. This could resolve longstanding disputes, but also challenges the state's ultimate sovereignty over national territory."
+ chad.354.a: "Enshrine tribal land rights in law."
+ chad.354.b: "Recognize rights through customary agreements."
+
+ chad.355.t: "Inter-Tribal Marriage Alliance"
+ chad.355.d: "In a development that could heal old wounds, the families of prominent Zaghawa and Arab leaders have proposed a marriage alliance between their children. Such unions historically served to bind tribes together and end blood feuds. This alliance could become a powerful symbol of national unity, if conservative elders can be convinced to embrace it."
+ chad.355.a: "Celebrate this alliance publicly."
+ chad.355.b: "The elders will not approve."
+
+ chad.356.t: "Nomadic Integration Program"
+ chad.356.d: "The nomadic peoples of northern Chad have lived largely outside the reach of the modern state, following ancient migration patterns and traditional ways of life. A comprehensive integration program would bring education, healthcare, and economic opportunities to these communities while respecting their cultural identity and mobility."
+ chad.356.a: "Launch a fully-funded integration program."
+ chad.356.b: "Let traditional councils manage integration."
+
+ chad.357.t: "Tribal Trade Networks Established"
+ chad.357.d: "For millennia, trade routes have crisscrossed the Sahel, connecting communities through networks of exchange maintained by traditional traders. These informal networks move goods efficiently across vast distances, but operate outside state control and taxation. Formalizing these tribal trade networks could boost economic development while respecting commercial traditions."
+ chad.357.a: "Formalize the tribal trade networks."
+ chad.357.b: "Keep trade informal to avoid disputes."
+
+ chad.358.t: "Pastoral Development Success"
+ chad.358.d: "Our pastoral development programs have achieved remarkable results. New wells provide water during dry seasons, veterinary services keep livestock healthy, and improved breeds yield more milk and meat. Nomadic communities that once lived on the edge of survival now enjoy prosperity, and they credit the government for this transformation."
+ chad.358.a: "A triumph for our people."
+
+ chad.359.t: "Tribal Resource Sharing Agreement"
+ chad.359.d: "Water, grazing land, and mineral resources have long been sources of conflict between Chad's ethnic groups. Now tribal leaders have come together to negotiate a comprehensive resource-sharing agreement that would distribute these vital assets equitably. Such an agreement could end generations of conflict - or simply codify existing power imbalances."
+ chad.359.a: "Sign an agreement binding all tribes."
+ chad.359.b: "Limit sharing to allied tribal groups."
+
+ chad.360.t: "Tribal Defense Pact Signed"
+ chad.360.d: "The warrior traditions of Chad's tribes have often been turned against each other in bloody feuds. Now there is an opportunity to unite these martial peoples in defense of the nation. A tribal defense pact would commit all major clans to mutual protection, creating a formidable force that no enemy would dare challenge."
+ chad.360.a: "Unite all clans under one banner."
+ chad.360.b: "Form a northern tribal confederacy."
+
+ chad.361.t: "Cross-Border Tribal Agreement"
+ chad.361.d: "Many of Chad's ethnic groups straddle colonial borders, with kin living in neighboring nations. Toubou communities extend into Libya and Niger, while Arabs and Zaghawa have relatives across multiple frontiers. A cross-border tribal agreement would recognize these traditional connections, potentially strengthening regional ties - or threatening national sovereignty."
+ chad.361.a: "Sign cross-border tribal agreements."
+ chad.361.b: "Restrict such agreements for sovereignty."
+
+ chad.362.t: "Sahel Tribal Alliance Summit"
+ chad.362.d: "Tribal leaders from across the Sahel have gathered in N'Djamena for an unprecedented summit. Representatives from Chad, Mali, Niger, and beyond are discussing cooperation on security, trade, and cultural preservation. This could establish Chad as the leader of a pan-Sahel tribal alliance that transcends the artificial borders imposed by colonialism."
+ chad.362.a: "Forge a comprehensive Sahel alliance."
+ chad.362.b: "Achieve limited bilateral agreements."
+
+ chad.363.t: "Tribal Golden Age Declared"
+ chad.363.d: "After years of careful cultivation of tribal harmony and respect for traditional governance, Chad has entered what many are calling a tribal golden age. Ethnic tensions have eased, traditional institutions flourish, and the diverse peoples of Chad have found a way to coexist that honors both heritage and modernity. The nation celebrates this remarkable achievement."
+ chad.363.a: "A golden age dawns for Chad."
+
+ chad.364.t: "Confederation of Peoples Established"
+ chad.364.d: "The ultimate expression of tribal governance has been achieved: the Confederation of Peoples. This new constitutional framework establishes Chad not as a nation-state but as a voluntary union of ethnic communities, each retaining autonomy while cooperating on matters of common interest. It is a radical experiment in post-colonial African governance."
+ chad.364.a: "Establish a strong confederation."
+ chad.364.b: "Maintain limited central authority."
+
+ chad.365.t: "Toubou Reconciliation Ceremony"
+ chad.365.d: "The proud Toubou people of northern Chad have long been alienated from the southern-dominated government. Now their traditional leaders have agreed to a reconciliation ceremony, a sacred ritual in which past grievances are forgiven and new bonds of trust established. If successful, this could finally integrate the fierce warriors of Tibesti into the national project."
+ chad.365.a: "Embrace the reconciliation fully."
+ chad.365.b: "Some clans remain skeptical."
+
+ chad.366.t: "Tribal Education Initiative"
+ chad.366.d: "Chad's rich oral traditions - epic poems, genealogies, and historical knowledge passed down through generations - are endangered by modernization. A tribal education initiative would preserve these traditions by integrating them into schools, ensuring that young Chadians learn their cultural heritage alongside modern subjects."
+ chad.366.a: "Focus on preserving oral traditions."
+ chad.366.b: "Build modern schools alongside traditional learning."
+
+ chad.367.t: "Traditional Medicine Revival"
+ chad.367.d: "For countless generations, traditional healers have treated illness using medicinal plants, spiritual practices, and accumulated wisdom. While modern medicine offers powerful tools, many rural Chadians still trust the old ways. A traditional medicine revival would validate these practices and potentially integrate valuable indigenous knowledge with scientific healthcare."
+ chad.367.a: "Promote traditional medicine nationally."
+ chad.367.b: "Integrate traditional and modern healthcare."
+
+ chad.368.t: "Customary Law Recognized"
+ chad.368.d: "The legal systems imposed by colonialism often conflict with the customary law that has governed Chad's peoples for centuries. From marriage customs to inheritance rules to conflict resolution, traditional practices differ markedly from written statutes. Formally recognizing customary law would validate these traditions, but create complex questions about legal authority and jurisdiction."
+ chad.368.a: "Recognize customary law as equal to state law."
+ chad.368.b: "Grant customary law advisory status only."
+
+ chad.369.t: "Nomadic Rights Charter"
+ chad.369.d: "The nomadic peoples of Chad have always moved freely across vast territories, following seasonal patterns established over millennia. Modern borders, property rights, and state authority often conflict with this way of life. A Nomadic Rights Charter would guarantee freedom of movement and protect traditional migration routes, recognizing that Chad's desert peoples cannot be sedentary."
+ chad.369.a: "Guarantee complete freedom of movement."
+ chad.369.b: "Allow movement with seasonal restrictions."
+
+ # Pan-African Path Events (chad.380-399)
+ chad.380.t: "CEMAC Reform Summit"
+ chad.380.d: "The Central African Economic and Monetary Community faces calls for reform and deeper integration. As a member state, Chad must decide whether to push for a more unified economic and political bloc that could rival the influence of former colonial powers, or to maintain current arrangements that preserve national sovereignty at the cost of collective strength."
+ chad.380.a: "Push for comprehensive CEMAC reform."
+ chad.380.b: "Accept modest reforms only."
+
+ chad.381.t: "Common Market Launched"
+ chad.381.d: "A proposal has been advanced to create a true common market across Central Africa, eliminating all tariffs and trade barriers between member states. This would create a massive regional economy and boost trade, but would require surrendering control over national trade policy and exposing domestic industries to foreign competition."
+ chad.381.a: "Launch the common market immediately."
+ chad.381.b: "Phase in tariff reductions gradually."
+
+ chad.382.t: "Free Movement Agreement"
+ chad.382.d: "The borders drawn by colonialism divided ethnic groups and disrupted ancient trade and migration patterns. A free movement agreement would allow citizens of member states to cross borders without restriction, reuniting divided peoples and facilitating commerce. However, concerns about security and national identity make this a sensitive issue."
+ chad.382.a: "Open all borders completely."
+ chad.382.b: "Allow movement for workers only."
+
+ chad.383.t: "Pan-African Army Formation"
+ chad.383.d: "The vision of a unified Pan-African military force is gaining momentum. Such an army would enable African nations to handle continental security without relying on foreign intervention. Chad's battle-hardened forces would form a core component, but this would require surrendering some military sovereignty to a supranational command structure."
+ chad.383.a: "Commit Chad as a key contributor."
+ chad.383.b: "Provide only token forces."
+
+ chad.384.t: "Anti-Colonial Liberation Support"
+ chad.384.d: "Liberation movements fighting against colonial or neo-colonial domination across Africa have requested Chad's support. Providing aid to these movements would advance the Pan-African cause and strike at imperialism, but would also strain our resources and provoke retaliation from powerful foreign interests."
+ chad.384.a: "Provide full support to liberation movements."
+ chad.384.b: "Express solidarity without material aid."
+
+ chad.385.t: "Peacekeeping Force Deployed"
+ chad.385.d: "A neighboring African nation has descended into civil war, and the continental community has called for a peacekeeping intervention. Chadian forces are battle-tested and respected, making our participation crucial to the mission's success. This would demonstrate regional leadership but commit our troops to a dangerous and potentially lengthy deployment."
+ chad.385.a: "Deploy peacekeeping forces immediately."
+ chad.385.b: "Limit contribution to logistical support."
+
+ chad.386.t: "Kanem-Bornu Border Restoration"
+ chad.386.d: "The medieval Kanem-Bornu Empire once dominated the Lake Chad Basin, ruling territories that span modern Chad, Nigeria, Niger, and Cameroon. Some Pan-Africanists argue that restoring these historical borders would correct the arbitrary divisions imposed by colonialism. This vision appeals to historical pride but would challenge the sovereignty of neighboring nations."
+ chad.386.a: "Claim the Kanem-Bornu legacy."
+ chad.386.b: "Honor the legacy through cultural cooperation."
+
+ chad.387.t: "Lake Chad Basin Authority Established"
+ chad.387.d: "Lake Chad is shared by four nations and its shrinking waters affect millions. Establishing a Lake Chad Basin Authority with real power to manage water resources and coordinate development would benefit the entire region. The question is whether Chad should lead this organization or participate as an equal partner."
+ chad.387.a: "Lead the Basin Authority."
+ chad.387.b: "Join as an equal partner."
+
+ chad.388.t: "Imperial Administration Restored"
+ chad.388.d: "Drawing on the legacy of pre-colonial African empires, there is a proposal to restore imperial administrative structures adapted for modern governance. This would blend the hierarchical organization and ceremonial traditions of African monarchies with contemporary bureaucracy, creating a uniquely African form of state administration."
+ chad.388.a: "Restore imperial administrative traditions."
+ chad.388.b: "Preserve imperial culture only."
+
+ chad.389.t: "Negritude Cultural Movement"
+ chad.389.d: "The Negritude movement, celebrating African cultural identity and rejecting colonial cultural domination, has found new life in Chad. Intellectuals, artists, and activists are calling for a renaissance of African cultural pride, emphasizing indigenous languages, art forms, and philosophies over those imposed by colonialism."
+ chad.389.a: "Embrace Negritude as national identity."
+ chad.389.b: "Support cultural revival alongside modernization."
+
+ chad.390.t: "Pan-African University Founded"
+ chad.390.d: "There is a proposal to establish a Pan-African University in N'Djamena, drawing students and scholars from across the continent. This institution would teach African history, languages, and philosophies while training the next generation of continental leaders. It would be expensive but would elevate Chad's intellectual and diplomatic standing."
+ chad.390.a: "Found the Pan-African University."
+ chad.390.b: "Partner with existing institutions instead."
+
+ chad.391.t: "African Languages Revival"
+ chad.391.d: "French and Arabic dominate government and education in Chad, while indigenous African languages are relegated to informal use. A language revival movement proposes elevating Sara, Kanuri, and other native tongues to official status, conducting government business and education in African languages rather than those of former colonizers."
+ chad.391.a: "Replace colonial languages entirely."
+ chad.391.b: "Promote African languages alongside colonial ones."
+
+ chad.392.t: "Decolonize Minds Campaign"
+ chad.392.d: "True independence requires not just political sovereignty but mental liberation from colonial thinking. A 'Decolonize Minds' campaign would reshape education to emphasize African perspectives, challenge Eurocentric narratives, and instill pride in indigenous knowledge systems. Critics warn this could isolate Chad from global discourse."
+ chad.392.a: "Reshape education comprehensively."
+ chad.392.b: "The campaign receives mixed support."
+
+ chad.393.t: "United States of Africa Proposed"
+ chad.393.d: "The ultimate Pan-African vision: a United States of Africa, a single continental nation replacing the artificial states created by colonialism. This ambitious proposal envisions a federal government in which current nations would become provinces of a unified African superstate. It is a revolutionary idea that both inspires and frightens."
+ chad.393.a: "Champion the United States of Africa."
+ chad.393.b: "Propose gradual confederation instead."
+
+ chad.394.t: "Continental Parliament Session"
+ chad.394.d: "The Continental Parliament, representing nations across Africa, has convened to advance Pan-African integration. Delegates debate everything from common currency to freedom of movement to mutual defense. Chad's representatives have an opportunity to shape this agenda - or to watch it collapse into gridlock."
+ chad.394.a: "Advance the Pan-African agenda."
+ chad.394.b: "The session ends in disagreement."
+
+ chad.395.t: "African Currency Launch"
+ chad.395.d: "The CFA Franc, a remnant of French colonial control, has long been criticized as a tool of neo-colonial economic domination. A proposal has emerged to replace it with a new African currency free from European control. This would assert economic sovereignty but also create uncertainty and require abandoning the franc's stability."
+ chad.395.a: "Adopt the new African currency."
+ chad.395.b: "Join a regional currency zone first."
+
+ chad.396.t: "Pan-African Defense Treaty"
+ chad.396.d: "A comprehensive Pan-African Defense Treaty would commit signatory nations to mutual military assistance, creating a collective security architecture independent of foreign powers. An attack on one African nation would be treated as an attack on all. This would provide security but also risk entangling Chad in distant conflicts."
+ chad.396.a: "Sign with mutual defense clause."
+ chad.396.b: "Sign with non-binding cooperation only."
+
+ chad.397.t: "African Renaissance Declaration"
+ chad.397.d: "After years of Pan-African organizing and cultural revival, the moment has come to declare an African Renaissance - a new era of continental unity, cultural pride, and self-determination. This declaration would signal to the world that Africa has shed the legacy of colonialism and claims its rightful place among the great civilizations of history."
+ chad.397.a: "Declare the African Renaissance."
+
+ chad.398.t: "AU Leadership Bid"
+ chad.398.d: "The African Union chairmanship is rotating to a new nation, and Chad has been nominated. Leading the AU would elevate Chad's diplomatic status and allow us to shape continental policy. However, it would also require significant resources and diplomatic capital, and carries the risk of failure on a very public stage."
+ chad.398.a: "Launch Chad's bid for AU leadership."
+ chad.398.b: "Support an allied candidate instead."
+
+ chad.399.t: "Sahel Unity Summit"
+ chad.399.d: "A historic summit has convened in N'Djamena bringing together the nations of the Sahel to forge lasting unity. The challenges facing our region - terrorism, climate change, poverty - can only be addressed through collective action. This summit could create an unbreakable regional bloc, or merely produce empty declarations that change nothing."
+ chad.399.a: "Forge unbreakable regional bonds."
+ chad.399.b: "Establish a framework for future cooperation."
+
+ # Foreign Patron Events
+ chad.700.t: "French Military Demands"
+ chad.700.d: "France has requested expanded basing rights in Chad, offering military equipment and training in return. Accepting would strengthen our defenses but further entrench foreign military presence on our soil."
+ chad.700.a: "Accept their terms in full."
+ chad.700.b: "Negotiate limited access."
+ chad.700.c: "Refuse their demands."
+
+ chad.701.t: "CFA Franc Crisis"
+ chad.701.d: "The CFA Franc is under pressure, and France is pushing for a devaluation that would hurt our purchasing power but boost exports. We must decide how to respond to this economic challenge."
+ chad.701.a: "Accept the devaluation."
+ chad.701.b: "Push for a smaller adjustment."
+ chad.701.c: "Reject and consider alternatives."
+
+ chad.702.t: "Chinese Belt & Road Proposal"
+ chad.702.d: "Beijing has offered a comprehensive infrastructure package under the Belt and Road Initiative. The deal promises modern roads, railways, and telecommunications — but the terms include significant Chinese control over these assets."
+ chad.702.a: "Accept the full package."
+ chad.702.b: "Negotiate reduced terms."
+ chad.702.c: "Decline politely."
+
+ chad.703.t: "Anti-Foreign Protests"
+ chad.703.d: "Protests have erupted in N'Djamena and other cities against the growing foreign influence in our country. Demonstrators demand that the government reassert national sovereignty and reduce dependence on foreign powers."
+ chad.703.a: "Suppress the protests."
+ chad.703.b: "Address their grievances."
+
+ chad.704.t: "Patron Alignment Vote at the UN"
+ chad.704.d: "A critical vote at the United Nations General Assembly requires us to take a position. Our patron expects us to vote with them, but doing so may damage our relationships with other nations."
+ chad.704.a: "Vote with our patron."
+ chad.704.b: "Abstain from the vote."
+ chad.704.c: "Vote independently."
+
+ chad.705.t: "Economic Strings Attached"
+ chad.705.d: "Our foreign patron has presented a series of economic demands, including privatization of state assets and preferential trade agreements. Our low sovereignty leaves us with limited options to resist."
+ chad.705.a: "We have no choice but to comply."
+ chad.705.b: "Try to negotiate better terms."
+
+ chad.706.t: "Declaration of Full Sovereignty"
+ chad.706.d: "Our nation has reached a level of independence that allows us to formally declare full sovereignty! We can sever the last ties of dependency and chart our own course as a truly independent nation."
+ chad.706.a: "Declare full sovereignty!"
+ chad.706.b: "Maintain the status quo for now."
+
+ # Pan-African Events
+ chad.710.t: "Pan-African Congress"
+ chad.710.d: "A Pan-African congress is being organized to discuss continental unity and cooperation. We have the opportunity to host this prestigious event, which would boost our diplomatic standing significantly."
+ chad.710.a: "Host the congress — spare no expense."
+ chad.710.b: "Host modestly and focus on military cooperation."
+ chad.710.c: "Attend as a participant instead."
+
+ chad.711.t: "Sahel Crisis Response"
+ chad.711.d: "A neighboring Sahel nation has been destabilized by armed groups. The African Union is calling for a collective response. Chad's experienced military could play a decisive role, but deployment carries real risks."
+ chad.711.a: "Deploy military forces."
+ chad.711.b: "Send financial aid instead."
+ chad.711.c: "Offer only diplomatic support."
+
+ chad.712.t: "AU Chairmanship Bid"
+ chad.712.d: "An opportunity has arisen to bid for the African Union chairmanship. Success would cement Chad's position as a continental leader, but the campaign requires significant diplomatic capital and resources."
+ chad.712.a: "Launch an ambitious campaign."
+ chad.712.b: "Make a modest bid."
+
+ chad.713.t: "Border Dispute Mediation"
+ chad.713.d: "Two of our neighbors are locked in a border dispute and have asked Chad to mediate. This is an opportunity to demonstrate our diplomatic leadership, but taking sides could damage relations."
+ chad.713.a: "Favor the stronger neighbor."
+ chad.713.b: "Favor the weaker neighbor."
+ chad.713.c: "Pursue a balanced mediation."
+
+ chad.714.t: "Lake Chad Environmental Summit"
+ chad.714.d: "The shrinking of Lake Chad threatens millions of people across four nations. A summit has been called to address the crisis. We must decide how much of our water resources we're willing to share."
+ chad.714.a: "Agree to water sharing arrangements."
+ chad.714.b: "Assert our control over water resources."
+
+ chad.715.t: "Kanem-Bornu Heritage Claim"
+ chad.715.d: "Scholars and nationalists have revived interest in Chad's connection to the historic Kanem-Bornu Empire. We could leverage this heritage to strengthen Pan-African ties — or to make territorial claims."
+ chad.715.a: "Pursue a soft cultural revival."
+ chad.715.b: "Assert territorial heritage claims."
+
+ chad.716.t: "Peacekeeping Deployment Request"
+ chad.716.d: "The United Nations has requested Chad contribute troops to a peacekeeping mission in a conflict zone. This would boost our international prestige and provide our military with valuable experience."
+ chad.716.a: "Deploy a full contingent."
+ chad.716.b: "Send a token force."
+ chad.716.c: "Decline the request."
+
+ # Tribal Events
+ chad.720.t: "Tribal Dispute Over Resources"
+ chad.720.d: "Two tribal groups are claiming the same territory and its resources. The dispute threatens to escalate into violence unless the government intervenes to settle the matter."
+ chad.720.a: "Favor the first tribe."
+ chad.720.b: "Favor the second tribe."
+ chad.720.c: "Mediate a compromise."
+
+ chad.721.t: "Elder's Council Ultimatum"
+ chad.721.d: "The council of tribal elders has presented an ultimatum: either the government grants them greater autonomy and resources, or they will withdraw their support. This could destabilize the entire tribal governance system."
+ chad.721.a: "Comply with their demands."
+ chad.721.b: "Refuse their ultimatum."
+
+ chad.722.t: "Political Marriage Alliance"
+ chad.722.d: "An opportunity has arisen to arrange a political marriage between prominent families of two rival tribes. If successful, this could forge lasting bonds of unity — but failure would create a scandal."
+ chad.722.a: "Arrange the marriage."
+ chad.722.b: "Too risky — decline."
+
+ chad.723.t: "Tribal Militia Call-Up"
+ chad.723.d: "The tribal confederation allows us to call upon tribal militias in times of need. Converting tribal loyalty into military manpower comes at the cost of reduced loyalty from the contributing tribe."
+ chad.723.a: "Call up the Zaghawa militia."
+ chad.723.b: "Call up the Arab militia."
+ chad.723.c: "Call up the Sara militia."
+
+ chad.724.t: "Drought Crisis"
+ chad.724.d: "A severe drought has struck Chad, threatening agriculture and livelihoods across multiple regions. Water and food must be distributed, but resources are limited. Who gets priority will affect tribal loyalties."
+ chad.724.a: "Prioritize the northern regions."
+ chad.724.b: "Prioritize the southern regions."
+ chad.724.c: "Equal distribution — stretch resources thin."
+
+ chad.725.t: "Succession Crisis"
+ chad.725.d: "A prominent tribal leader has died without a clear successor. Three candidates have emerged, each backed by different factions within the tribe. Our choice could reshape the balance of tribal politics."
+ chad.725.a: "Support the traditionalist candidate."
+ chad.725.b: "Support the reformist candidate."
+ chad.725.c: "Let the tribe decide on their own."
+
+ chad.726.t: "Tribal Trade Caravan"
+ chad.726.d: "A major tribal trade caravan is being organized along historic Saharan routes. Investing in this venture could yield significant economic returns and strengthen ties with the trading tribes."
+ chad.726.a: "Invest heavily in the caravan."
+ chad.726.b: "Make a modest investment."
+
+ # Islamist Events
+ chad.730.t: "Sharia Implementation Scope"
+ chad.730.d: "The time has come to determine the scope of Islamic law in Chad. We can limit sharia to the predominantly Muslim north, or attempt a nationwide implementation — a far more ambitious and controversial undertaking."
+ chad.730.a: "Implement nationwide."
+ chad.730.b: "Limit to northern regions."
+
+ chad.731.t: "Southern Christian Backlash"
+ chad.731.d: "The implementation of Islamic governance has sparked significant backlash among Christian communities in southern Chad. Protests and civil disobedience are growing, threatening to destabilize the south."
+ chad.731.a: "Suppress the opposition."
+ chad.731.b: "Offer accommodations."
+
+ chad.732.t: "Islamic Banking Transition"
+ chad.732.d: "Converting to an Islamic banking system aligned with sharia principles requires significant restructuring of the financial sector. The transition will be costly initially but could attract investment from Gulf states."
+ chad.732.a: "Full conversion to Islamic banking."
+ chad.732.b: "Dual system — gradual transition."
+
+ chad.733.t: "Madrasa Network Expansion"
+ chad.733.d: "The government is expanding religious education through a network of madrasas. We must decide whether these institutions will focus purely on religious instruction or include secular subjects alongside Quranic studies."
+ chad.733.a: "Pure religious education."
+ chad.733.b: "Mixed religious and secular curriculum."
+
+ chad.734.t: "Hajj Diplomacy"
+ chad.734.d: "A government delegation to Saudi Arabia during the Hajj season offers an opportunity to strengthen ties with the Islamic world. Different approaches could yield different diplomatic and economic benefits."
+ chad.734.a: "Pursue economic partnership."
+ chad.734.b: "Seek military cooperation."
+ chad.734.c: "Focus on religious cultural exchange."
+
+ chad.735.t: "Interfaith Dialogue Initiative"
+ chad.735.d: "Moderate voices within the government are proposing an interfaith dialogue initiative to reduce growing religious tensions. This would cost political capital but could prevent the country from fracturing along religious lines."
+ chad.735.a: "Launch the dialogue initiative."
+ chad.735.b: "Reject it — stay the course."
+
+ chad.736.t: "Foreign Jihadist Infiltration"
+ chad.736.d: "Intelligence reports indicate that foreign jihadist fighters have infiltrated Chad, exploiting the radical Islamic governance to recruit and establish cells. We must decide how to respond to this threat."
+ chad.736.a: "Launch a military crackdown."
+ chad.736.b: "Exploit their presence for strength."
+
+ # Economic Events
+ chad.740.t: "Oil Price Shock"
+ chad.740.d: "Global oil prices have shifted dramatically, sending shockwaves through Chad's oil-dependent economy. This will significantly impact our revenue projections and economic planning."
+ chad.740.a: "Adjust our economic plans accordingly."
+
+ chad.741.t: "Dutch Disease"
+ chad.741.d: "Our growing oil wealth is having unintended consequences on the agricultural sector. As the economy shifts toward oil, farmers are struggling to compete. We must decide whether to intervene."
+ chad.741.a: "Subsidize the agricultural sector."
+ chad.741.b: "Let the market decide."
+
+ chad.742.t: "Infrastructure Corruption"
+ chad.742.d: "Reports indicate that significant funds allocated for infrastructure projects have been siphoned off by corrupt officials. We must decide how to respond to this endemic problem."
+ chad.742.a: "Launch a formal investigation."
+ chad.742.b: "Ignore it — we can't afford the disruption."
+
+ # New Overhaul Events
+ chad.1102.t: "The Socialist Transition"
+ chad.1102.d: "The government has announced a radical shift toward African socialism. Inspired by Nkrumah, Sankara, and Nyerere, Chad will chart a new course — nationalizing key industries, redistributing land, and breaking free from neocolonial dependency. But the path forward is uncertain."
+ chad.1102.a: "Radical transformation — full speed ahead!"
+ chad.1102.b: "A gradual approach is wiser."
+
+ chad.1103.t: "The Livestock Trade Question"
+ chad.1103.d: "Chad possesses one of the largest cattle herds in Africa. Our new meat export program must choose its markets. Regional CEMAC partners offer stable demand and strengthen brotherhood, while international export promises higher revenues but risks dependency on volatile global markets."
+ chad.1103.a: "Focus on regional CEMAC markets."
+ chad.1103.b: "Target international export markets."
+
+ chad.1104.t: "Legacy of the Wadai Sultanate"
+ chad.1104.d: "The ancient Wadai Sultanate was a center of Islamic learning, trade, and governance for centuries. Its traditions of scholarship and justice still resonate in eastern Chad. We must decide how to honor this heritage — through cultural preservation or by adapting it for modern governance."
+ chad.1104.a: "Preserve our cultural heritage."
+ chad.1104.b: "Modernize and adapt our traditions."
+
+ chad.1105.t: "The Kanembu Revival"
+ chad.1105.d: "The Kanembu people carry the proud legacy of the Kanem-Bornu Empire, which once dominated the Lake Chad region. A growing cultural revival movement seeks to reconnect with this history. Should we embrace historical identity or focus on building a unified national consciousness?"
+ chad.1105.a: "Embrace our imperial heritage."
+ chad.1105.b: "Build a shared national identity."
+
+ chad.1106.t: "Great Power Competition for Chad"
+ chad.1106.d: "Chad sits at the crossroads of competing great power interests. France, our former colonial master, seeks to maintain its military presence and economic ties. China offers infrastructure and investment with fewer political strings. Both court our favor — and both have ulterior motives."
+ chad.1106.a: "Lean toward France."
+ chad.1106.b: "Lean toward China."
+ chad.1106.c: "Play both sides."
+
+ chad.1107.t: "The Oil Revenue Dilemma"
+ chad.1107.d: "Oil revenues are flowing, but how should they be spent? Social programs — schools, hospitals, clean water — would improve lives immediately but consume the windfall. A sovereign wealth fund would secure long-term prosperity but do nothing for those suffering today."
+ chad.1107.a: "Invest in social programs."
+ chad.1107.b: "Establish a sovereign wealth fund."
+
+ chad.1108.t: "Oil Revenue Consequences"
+ chad.1108.d: "The consequences of our oil revenue strategy are becoming clear. The path we chose has shaped Chad's economy and society in ways both expected and surprising."
+ chad.1108.a: "The social investment is paying off."
+ chad.1108.b: "The sovereign wealth fund grows."
+
+ chad.1109.t: "Lake Chad Water Crisis Summit"
+ chad.1109.d: "The shrinking of Lake Chad has reached crisis proportions. An international summit has been convened to address this existential threat. We can pursue multinational cooperation — slow but sustainable — or take unilateral action to secure our water supply first."
+ chad.1109.a: "Pursue multinational cooperation."
+ chad.1109.b: "Take unilateral action."
+
+ chad.1110.t: "Cotton vs Oil: Economic Crossroads"
+ chad.1110.d: "Chad now has both oil and cotton as major economic pillars. But our resources are limited. Should we double down on oil — the more lucrative but volatile commodity — or maintain a balanced economy that spreads risk across sectors?"
+ chad.1110.a: "Double down on oil production."
+ chad.1110.b: "Maintain a balanced economy."
+
+ chad.1111.t: "Infrastructure Corruption Scandal"
+ chad.1111.d: "A major corruption scandal has rocked our infrastructure program. Construction funds have been embezzled by officials, projects are delayed, and public trust is shaken. We must decide how to respond."
+ chad.1111.a: "Prosecute the corrupt officials."
+ chad.1111.b: "Cover it up and move on."
+
+ chad.1112.t: "French Military Base Renegotiation"
+ chad.1112.d: "France has proposed expanding its military presence in Chad under a new security agreement. The expanded base would bring more equipment, training, and protection — but at a significant cost to our sovereignty. Some call for renegotiation; others demand the French leave entirely."
+ chad.1112.a: "Accept the expansion."
+ chad.1112.b: "Renegotiate the terms."
+ chad.1112.c: "Demand French withdrawal."
+
+ chad.1113.t: "Sahel Security Summit"
+ chad.1113.d: "Regional leaders have gathered for a Sahel security summit. Chad's military prowess makes us a natural leader in the fight against terrorism and instability. But leadership comes with costs — troops, treasure, and political obligations."
+ chad.1113.a: "Take the leadership role."
+ chad.1113.b: "Attend as an observer."
+
+ chad.1114.t: "Arms Deal Opportunity"
+ chad.1114.d: "An opportunity has arisen to acquire a significant quantity of weapons. Through black market channels, we can get equipment cheaply and quickly — but with corruption risks. Legitimate procurement is cleaner but more expensive and slower."
+ chad.1114.a: "Use black market channels."
+ chad.1114.b: "Pursue legitimate procurement."
+
+ chad.1115.t: "N'Djamena Armory: Production Strategy"
+ chad.1115.d: "Our new armory in N'Djamena is ready to begin production. We must choose our manufacturing approach: domestic production builds self-sufficiency and national pride, while licensed production from France yields higher-quality weapons faster."
+ chad.1115.a: "Domestic production."
+ chad.1115.b: "Licensed French production."
+
+ # Lake Chad Event
+ chad.1200.t: "The Shrinking Lake Chad"
+ chad.1200.d: "Lake Chad, once one of Africa's largest lakes, has shrunk to a fraction of its former size. The environmental catastrophe threatens fishing communities, agriculture, and regional stability. Scientists warn that without intervention, the lake could disappear entirely within decades."
+ chad.1200.a: "Prioritize water conservation."
+ chad.1200.b: "Focus on irrigation first."
+
+ # CFA Franc Events
+ chad.1300.t: "The CFA Franc Question"
+ chad.1300.d: "Economists and politicians are debating Chad's continued membership in the CFA Franc zone. The currency provides stability and facilitates trade with France, but critics argue it keeps African economies subservient to European monetary policy. The Minister of Finance has requested a policy review."
+ chad.1300.a: "The CFA provides stability we need."
+ chad.1300.b: "We must chart our own monetary course."
+
+ chad.1301.t: "France Reacts to Monetary Independence"
+ chad.1301.d: "Paris has reacted with barely concealed fury to our decision to leave the CFA Franc zone. French diplomats warn of 'consequences,' and already we can feel the chill in our bilateral relations. Investment projects are being 'reviewed.' Trade agreements are being 'reconsidered.'"
+ chad.1301.a: "We will weather the storm."
+ chad.1301.b: "Negotiate transition terms with France."
+
+ # Sovereignty Threshold Events
+ chad.1400.t: "Foreign Companies Demand Tax Breaks"
+ chad.1400.d: "As our sovereignty erodes, foreign corporations grow bolder. A consortium of companies with ties to our patron has demanded sweeping tax exemptions, threatening to withdraw investment if we refuse. Our treasury cannot afford to lose their revenue, but compliance sets a dangerous precedent."
+ chad.1400.a: "We have no choice but to comply."
+ chad.1400.b: "Resist their demands."
+
+ chad.1401.t: "Patron Dictates Foreign Policy"
+ chad.1401.d: "Our patron's ambassador has delivered what amounts to an ultimatum: align our foreign policy with theirs, or face consequences. They want us to vote with them at the UN, restrict trade with their rivals, and grant preferential access to our resources. Our diplomats are furious, but our options are limited."
+ chad.1401.a: "Accept their guidance."
+ chad.1401.b: "Push back diplomatically."
+
+ chad.1402.t: "Puppet Government Allegations"
+ chad.1402.d: "Protests have erupted across N'Djamena. Students, workers, and opposition politicians march through the streets carrying signs that read 'Chad is not for sale.' International media has picked up the story, and neighboring countries are questioning whether our government truly represents the Chadian people."
+ chad.1402.a: "Suppress the protests."
+ chad.1402.b: "Address the allegations publicly."
+
+ chad.1403.t: "Navigate Great Power Competition"
+ chad.1403.d: "With coffers empty and infrastructure crumbling, the reality of our situation is stark. France maintains military bases on our soil and controls our currency. China offers loans and builds roads, but always with conditions. We are a chessboard, and the great powers are the players. Somehow, we must find a way to become players ourselves."
+ chad.1403.a: "We must navigate carefully."
+
+ chad.1404.t: "Debt Trap Consequences"
+ chad.1404.d: "The debts we have accumulated are now being called in. Our creditors demand not just repayment but structural changes to our economy — privatization of state assets, removal of subsidies, and preferential contracts for their companies. The people will suffer, but default would be catastrophic."
+ chad.1404.a: "Accept forced concessions."
+ chad.1404.b: "Attempt to renegotiate the terms."
+
+ # Tribal Negotiation Events
+ chad_tribal.200.t: "Zaghawa Elders Demand Concessions"
+ chad_tribal.200.desc: "The council of Zaghawa elders has arrived at the presidential palace with a list of demands. They want greater representation in the military command structure and control over regional security forces. The elders remind us that the Zaghawa have been the backbone of this regime — and that loyalty must be rewarded."
+ chad_tribal.200.a: "Grant them military positions."
+ chad_tribal.200.b: "Offer wealth redistribution instead."
+
+ chad_tribal.201.t: "Zaghawa Arms Dealers"
+ chad_tribal.201.desc: "A network of Zaghawa arms dealers has approached the government with an unusual proposition. They offer to arm and train a Zaghawa militia force loyal to the regime, providing fighters experienced in desert warfare. The alternative is to redirect those funds toward civilian development in Zaghawa territories."
+ chad_tribal.201.a: "Arm the militia."
+ chad_tribal.201.b: "Invest in civilian development."
+
+ chad_tribal.202.t: "Zaghawa Gold Rush"
+ chad_tribal.202.desc: "Gold deposits have been discovered in the Tibesti Mountains, within traditional Zaghawa territory. The elders demand exclusive mining rights as their ancestral claim. Nationalizing the deposits would anger the Zaghawa but could fill the treasury with much-needed revenue."
+ chad_tribal.202.a: "Grant exclusive mining rights."
+ chad_tribal.202.b: "Nationalize the gold deposits."
+
+ chad_tribal.203.t: "Zaghawa Officer Promotion"
+ chad_tribal.203.desc: "The Zaghawa military establishment is pushing for fast-track promotions of their officers to senior command positions. While this would strengthen ethnic loyalty within the armed forces, it would alienate officers from other ethnic groups and undermine meritocratic principles."
+ chad_tribal.203.a: "Fast-track Zaghawa officers."
+ chad_tribal.203.b: "Maintain merit-based promotion."
+
+ chad_tribal.204.t: "Zaghawa Borderlands"
+ chad_tribal.204.desc: "The Zaghawa clans along the Sudanese border are demanding greater autonomy for their region. They want their own courts, tax collection, and border patrol forces. Granting autonomy would secure their loyalty but weaken central authority in a sensitive border zone."
+ chad_tribal.204.a: "Grant regional autonomy."
+ chad_tribal.204.b: "Centralize control."
+
+ chad_tribal.210.t: "Arab Traders' Council"
+ chad_tribal.210.desc: "The Chadian Arab Traders' Council has petitioned for special commercial privileges in N'Djamena's markets. They want reduced tariffs on cross-border trade and exclusive rights to certain commercial districts. The alternative is to impose uniform regulations that would modernize the market but anger traditional merchants."
+ chad_tribal.210.a: "Grant trade concessions."
+ chad_tribal.210.b: "Regulate the markets."
+
+ chad_tribal.211.t: "Cross-Border Smuggling Networks"
+ chad_tribal.211.desc: "Arab smuggling networks operate freely across our northern and eastern borders, moving goods, weapons, and people with impunity. We could crack down on these operations — alienating Arab communities but restoring order — or tax the smugglers, turning illegal trade into revenue."
+ chad_tribal.211.a: "Crack down on smuggling."
+ chad_tribal.211.b: "Tax the smugglers."
+
+ chad_tribal.212.t: "Arab Media Demands"
+ chad_tribal.212.desc: "Arab community leaders are demanding an Arabic-language television channel to serve Chad's Arabic-speaking population. The Sara and southern communities view this as cultural imperialism, fearing it would marginalize French and local languages in public discourse."
+ chad_tribal.212.a: "Launch Arabic language TV."
+ chad_tribal.212.b: "Maintain bilingual media policy."
+
+ chad_tribal.213.t: "Arab Minister Scandal"
+ chad_tribal.213.desc: "A cabinet minister of Arab descent has been caught embezzling state funds to benefit his clan. The evidence is damning. Prosecuting him would demonstrate our commitment to accountability but infuriate his powerful Arab constituency. Covering it up preserves ethnic peace but undermines governance."
+ chad_tribal.213.a: "Cover up the scandal."
+ chad_tribal.213.b: "Prosecute the minister."
+
+ chad_tribal.214.t: "Arab Merchant Fleet"
+ chad_tribal.214.desc: "Arab merchants seek a monopoly over Lake Chad's fishing and trade routes, claiming historical rights dating back centuries. Granting it would secure Arab loyalty but anger the Sara fishermen who depend on the lake for their livelihoods."
+ chad_tribal.214.a: "Grant the trade monopoly."
+ chad_tribal.214.b: "Keep markets open to all."
+
+ chad_tribal.220.t: "Southern Development Conference"
+ chad_tribal.220.desc: "Sara leaders have organized a development conference in Moundou, demanding that oil revenues be invested in the underdeveloped South. They present plans for roads, schools, and hospitals. The question is whether to prioritize southern development or spread investment nationally."
+ chad_tribal.220.a: "Invest heavily in the South."
+ chad_tribal.220.b: "Prioritize national projects."
+
+ chad_tribal.221.t: "Sara Cotton Cooperative"
+ chad_tribal.221.desc: "The Sara cotton cooperative, once the backbone of Chad's export economy, is struggling. They request government subsidies to modernize production and compete internationally. Privatization would be more efficient but would devastate Sara farming communities."
+ chad_tribal.221.a: "Subsidize the cooperative."
+ chad_tribal.221.b: "Privatize the cotton industry."
+
+ chad_tribal.222.t: "Christian Mission Schools"
+ chad_tribal.222.desc: "Christian mission schools in the South provide the best education available in Chad. Sara leaders want increased government support for these institutions. Arab communities view this as favoring Christianity over Islam and demand equal funding for Islamic schools — or a fully secular system."
+ chad_tribal.222.a: "Support mission schools."
+ chad_tribal.222.b: "Establish secular schools for all."
+
+ chad_tribal.223.t: "Sara Veterans' Demands"
+ chad_tribal.223.desc: "Veterans of the First Chadian Civil War, mostly Sara, are demanding pensions and recognition for their service. Many are elderly and destitute. Granting pensions would be expensive but would heal old wounds. Offering land grants is a cheaper alternative."
+ chad_tribal.223.a: "Grant military pensions."
+ chad_tribal.223.b: "Offer land grants instead."
+
+ chad_tribal.224.t: "Sara Cultural Revival"
+ chad_tribal.224.desc: "A cultural revival movement is sweeping through Sara communities. They want government funding for traditional festivals, language preservation, and historical monuments. Some in the government see this as a celebration of southern identity; others fear it could fuel separatist sentiment."
+ chad_tribal.224.a: "Fund the cultural festival."
+ chad_tribal.224.b: "Suppress cultural expression."
+
+ chad_tribal.230.t: "Inter-Tribal Water Dispute"
+ chad_tribal.230.desc: "A violent dispute has erupted between Zaghawa herders and Sara farmers over access to a vital water source. Both sides claim traditional rights, and the conflict threatens to escalate into broader ethnic violence. The government must act as mediator — or risk letting the situation spiral out of control."
+ chad_tribal.230.a: "Mediate the dispute fairly."
+ chad_tribal.230.b: "Ignore it — let them sort it out."
+
+ chad_tribal.231.t: "CAR Refugee Crisis"
+ chad_tribal.231.desc: "Thousands of refugees are fleeing the conflict in the Central African Republic, streaming across our southern border. Accepting them would strain our resources and potentially destabilize the region, but turning them away would draw international condemnation and abandon our neighbors in their hour of need."
+ chad_tribal.231.a: "Accept the refugees."
+ chad_tribal.231.b: "Close the border."
+
+ chad_tribal.232.t: "Tribal Unity Summit"
+ chad_tribal.232.desc: "Representatives from all of Chad's major ethnic groups have gathered for an unprecedented summit in N'Djamena. The atmosphere is tense but hopeful. A grand bargain — mutual concessions, shared power, and genuine reconciliation — could lay the groundwork for lasting national unity. Or we could settle for modest, incremental progress."
+ chad_tribal.232.a: "Propose a grand bargain."
+ chad_tribal.232.b: "Start with modest proposals."
+
+ # Custom Tooltips
+ CHA_cfa_debate_stability_tt: "The CFA Franc continues to provide monetary stability for Chad."
+ CHA_cfa_debate_independence_tt: "The path to monetary independence is now open."
+ CHA_neocolonial_opening_tt: "Chad must navigate the dangerous waters of great power competition."
+
+ # French Equipment Purchase
+ chad.743.t: "French Equipment Purchase"
+ chad.743.d: "Chad has requested the purchase of military equipment from France. As a key partner in the Sahel, this arms deal would strengthen Chadian forces and deepen Franco-Chadian military ties. However, some in Paris question the wisdom of arming yet another African government."
+ chad.743.a: "Approve the arms sale."
+ chad.743.b: "Decline the request."
+
+ # Islamist Path Events
+ chad.2061.t: "Islamic Banking Established"
+ chad.2061.d: "The government has authorized the establishment of an Islamic banking system operating under Sharia-compliant financial principles. Interest-free lending and profit-sharing arrangements are replacing conventional banking practices, attracting investment from Gulf states and winning support among devout Muslims."
+ chad.2061.a: "A righteous financial system."
+
+ chad.2062.t: "Islamic Courts System"
+ chad.2062.d: "A parallel Islamic court system has been established to handle civil and criminal cases under Sharia law. While popular among the Muslim majority in the north, the Christian and animist populations in the south view this as a direct threat to their rights and way of life."
+ chad.2062.a: "Justice shall be rendered by divine law."
+
+ chad.2063.t: "Moderate Islamic Republic"
+ chad.2063.d: "Chad has declared itself a moderate Islamic republic, drawing inspiration from countries like Malaysia and Turkey. The new constitutional framework enshrines Islam as the state religion while theoretically protecting minority rights. The transition has been surprisingly smooth."
+ chad.2063.a: "A balanced path forward."
+
+ chad.2064.t: "Islamic Education Expansion"
+ chad.2064.d: "The government has launched a massive expansion of Islamic education across the country. Madrasas are being built in every province, and the national curriculum has been revised to include Quranic studies as a core subject. Literacy rates are improving, though secular educators express concern."
+ chad.2064.a: "Knowledge is a pillar of faith."
+
+ chad.2066.t: "Revival of the Wadai Sultanate"
+ chad.2066.d: "In a dramatic break with the republican tradition, the government has restored the historical Wadai Sultanate as a governing institution. The Sultan of Wadai, descendant of the ancient dynasty, has been granted real political authority over eastern Chad. This revival of pre-colonial Islamic governance has electrified supporters and alarmed secularists."
+ chad.2066.a: "The Sultanate shall rise again."
+
+ chad.2067.t: "Jihadist Recruitment Drive"
+ chad.2067.d: "A wave of religious fervor is sweeping through Chad's northern provinces. Radical preachers are calling young men to take up arms in defense of the faith, and thousands are answering the call. The new recruits are zealous but poorly trained, and their militant ideology is pushing Chad toward extremism."
+ chad.2067.a: "The faithful answer the call."
+
+ chad.2068.t: "Foreign Fighters Arrive"
+ chad.2068.d: "Word of Chad's Islamic revolution has spread across the Muslim world. Experienced fighters from Libya, Sudan, and beyond are arriving to join the cause, bringing combat experience and military expertise. Their presence strengthens our forces but raises concerns about foreign influence over our movement."
+ chad.2068.a: "Welcome our brothers in faith."
+
+ chad.2069.t: "Purge of Christians"
+ chad.2069.d: "Hardliners within the regime have launched a systematic campaign against Chad's Christian minority. Churches are being shuttered, Christian officials removed from government posts, and southern communities subjected to forced conversions. The international community watches in horror as Chad tears itself apart along religious lines."
+ chad.2069.a: "There is no room for infidels."
+
+ chad.2070.t: "OIC Membership Secured"
+ chad.2070.d: "Chad has been granted full membership in the Organisation of Islamic Cooperation, cementing its new identity as an Islamic state on the world stage. The diplomatic recognition brings access to development funds and political solidarity with the Muslim world."
+ chad.2070.a: "We stand with the Ummah."
+
+ chad.2071.t: "Qatar Funding Secured"
+ chad.2071.d: "The Emirate of Qatar has agreed to provide substantial financial support to Chad's Islamic government. Qatari investment will fund infrastructure projects, mosques, and social programs across the country. In return, Chad has aligned its foreign policy with Doha's interests in the Sahel region."
+ chad.2071.a: "A generous benefactor."
+
+ chad.2072.t: "Islamic Solidarity Conference"
+ chad.2072.d: "N'Djamena has hosted a major Islamic Solidarity Conference, bringing together religious leaders and government officials from across Africa and the Middle East. The conference has declared Chad a model for Islamic governance in sub-Saharan Africa, boosting the regime's legitimacy and international standing."
+ chad.2072.a: "Chad leads the faithful."
+
+ chad.2073.t: "Religious Police Deployed"
+ chad.2073.d: "A religious police force — the Hisbah — has been deployed across Chad's cities to enforce Islamic moral codes. They patrol the streets enforcing dress codes, prayer attendance, and the prohibition of alcohol. While order has improved in some areas, the heavy-handed tactics are breeding resentment."
+ chad.2073.a: "Virtue must be enforced."
+
+ chad.2074.t: "Secularism Banned"
+ chad.2074.d: "The government has formally banned all secular political parties and ideologies. Advocacy for the separation of religion and state is now a criminal offense. The last vestiges of Chad's secular republic have been swept away, replaced by an uncompromising theocratic order."
+ chad.2074.a: "God's law is the only law."
+
+ chad.2075.t: "The Islamic Golden Age"
+ chad.2075.d: "Chad's Islamic transformation has entered a period of consolidation and prosperity. The fusion of religious governance with pragmatic economic policy has produced surprising results — stability has improved, Gulf investment is flowing in, and the population has largely accepted the new order. Some speak of a new golden age."
+ chad.2075.a: "Blessed are the faithful."
+
+ chad.2076.t: "Anti-French Jihad"
+ chad.2076.d: "The regime has declared a holy struggle against French neocolonial influence in the Sahel. French military personnel have been expelled, cultural centers shut down, and economic ties severed. The break with Paris is total and irreversible, marking Chad's definitive turn toward the Islamic world."
+ chad.2076.a: "Drive out the colonizers!"
+
+ # Tribal Path Events
+ chad.2081.t: "Traditional Justice Restored"
+ chad.2081.d: "The government has formally recognized traditional tribal courts as legitimate judicial institutions. Village elders and clan chiefs now have the authority to settle disputes according to customary law. This has eased the burden on the overwhelmed formal court system and strengthened the bond between the state and tribal communities."
+ chad.2081.a: "The elders' wisdom shall guide us."
+
+ chad.2082.t: "Tribal Land Rights"
+ chad.2082.d: "A new land reform law has been passed granting collective ownership rights to tribal communities over their ancestral territories. Pastoralist groups can now legally protect their grazing lands from encroachment by commercial interests, and farmers' traditional plots are secured against government seizure."
+ chad.2082.a: "The land belongs to those who tend it."
+
+ chad.2083.t: "Nomadic Integration"
+ chad.2083.d: "The government has launched a program to better integrate Chad's nomadic communities into the national framework without forcing them to abandon their traditional way of life. Mobile schools, veterinary clinics, and administrative services now follow the seasonal migration routes of the Toubou and Arab pastoralists."
+ chad.2083.a: "Honor the ways of the desert."
+
+ chad.2084.t: "Tribal Trade Networks"
+ chad.2084.d: "Ancient trans-Saharan trade routes are being revitalized under a government program that supports traditional tribal trading networks. Camel caravans once again carry salt, dates, and goods between Chad, Libya, and Niger. The revival of these networks is generating revenue and strengthening cross-border tribal ties."
+ chad.2084.a: "The caravans ride again."
+
+ chad.2085.t: "Desert Cavalry Formed"
+ chad.2085.d: "Drawing on centuries of warrior tradition, the government has organized the Toubou and Zaghawa horsemen into formal desert cavalry units. These skilled riders know the Saharan terrain better than anyone and can operate in conditions that would defeat conventional forces. They have quickly become an elite element of our military."
+ chad.2085.a: "Riders of the Sahara, mount up!"
+
+ chad.2086.t: "Tribal Defense Pact"
+ chad.2086.d: "The major tribal confederations of Chad have signed a mutual defense pact, pledging to come to each other's aid in times of external threat. This historic agreement transcends the old ethnic and regional rivalries, creating a unified front that no foreign aggressor would dare challenge lightly."
+ chad.2086.a: "United we are invincible."
+
+ chad.2087.t: "Tribal Golden Age"
+ chad.2087.d: "Chad's experiment in tribal governance has produced remarkable results. The decentralized system of power, rooted in traditional authority and consensus-building, has brought a stability that decades of centralized rule never achieved. Communities govern themselves according to their own customs, while a council of chiefs manages national affairs."
+ chad.2087.a: "Our traditions are our strength."
+
+ chad.2088.t: "Confederation of Peoples"
+ chad.2088.d: "Chad has been formally reorganized as a confederation of tribal peoples. Each major ethnic group — the Zaghawa, Sara, Toubou, Arab, Kanembou, and others — governs its own territory autonomously while participating in a national council. This bold political experiment has created a genuinely pluralistic state unlike anything else in Africa."
+ chad.2088.a: "E pluribus unum."
+
+ chad.2089.t: "Toubou Reconciliation"
+ chad.2089.d: "After decades of marginalization and sporadic rebellion, the Toubou people of northern Chad have been fully reconciled with the central government. Their grievances have been addressed through land rights recognition, political representation, and economic development in the Tibesti region. The last major internal fault line has been healed."
+ chad.2089.a: "All peoples of Chad are one."
+
+ # Pan-African Path Events
+ chad.2300.t: "CEMAC Reform Summit"
+ chad.2300.d: "Chad has convened a summit of the Central African Economic and Monetary Community to push for sweeping reforms. The proposal would strengthen regional integration, harmonize trade policies, and give member states a greater voice in monetary policy currently dominated by the French Treasury."
+ chad.2300.a: "Central Africa must unite."
+
+ chad.2301.t: "Common Market Established"
+ chad.2301.d: "A common market for Central Africa has been formally established, eliminating tariffs and trade barriers between member states. Goods, services, and capital can now flow freely across borders. The economic boost is immediate, and Chad, at the crossroads of the region, stands to benefit enormously."
+ chad.2301.a: "Free trade for a free Africa."
+
+ chad.2302.t: "Free Movement of Peoples"
+ chad.2302.d: "Borders between participating African states have been opened to allow the free movement of peoples. Citizens can now travel, work, and settle anywhere within the union without visas or permits. The policy reunites ethnic groups long divided by colonial borders and creates a dynamic labor market."
+ chad.2302.a: "No more colonial borders."
+
+ chad.2303.t: "Pan-African Army Created"
+ chad.2303.d: "A unified Pan-African military force has been created, with Chad contributing a significant contingent of battle-hardened troops. The combined army represents a powerful deterrent against external aggression and a tool for maintaining peace across the continent. Chadian officers, veterans of years of desert warfare, hold key command positions."
+ chad.2303.a: "Africa defends itself."
+
+ chad.2304.t: "Anti-Colonial Liberation"
+ chad.2304.d: "Chad has thrown its weight behind a continent-wide anti-colonial liberation movement. The campaign targets the remaining vestiges of European economic and political control over African nations — from military bases to exploitative trade agreements. The call to break free from neocolonial chains resonates powerfully across the continent."
+ chad.2304.a: "Africa for Africans!"
+
+ chad.2305.t: "Peacekeeping Force Deployed"
+ chad.2305.d: "Chad has deployed peacekeeping forces to conflict zones across Africa as part of its commitment to continental solidarity. Chadian troops, with their extensive combat experience, have proven remarkably effective at stabilizing volatile regions. The deployments have earned Chad respect and influence far beyond its borders."
+ chad.2305.a: "We keep the peace."
+
+ chad.2306.t: "Kanem-Bornu Borders Restored"
+ chad.2306.d: "In a dramatic assertion of historical claims, Chad has declared its intention to restore the borders of the medieval Kanem-Bornu Empire. This pan-Sahelian vision encompasses parts of Niger, Nigeria, and Cameroon — territories linked by centuries of shared history, trade, and culture. The announcement sends shockwaves through the region."
+ chad.2306.a: "Reclaim our ancestral lands!"
+
+ chad.2307.t: "Lake Chad Basin Authority"
+ chad.2307.d: "Chad has taken the lead in transforming the Lake Chad Basin Commission into a powerful supranational authority. The reformed institution now coordinates environmental protection, water management, and economic development across the entire basin. Under Chadian leadership, ambitious plans are underway to replenish the shrinking lake."
+ chad.2307.a: "Save our great lake."
+
+ chad.2308.t: "Negritude Cultural Revival"
+ chad.2308.d: "A cultural revival movement inspired by the Negritude philosophy of Leopold Senghor and Aime Cesaire is sweeping through Chad. African languages, art, music, and traditions are being celebrated and promoted as the foundation of a new continental identity. The movement rejects cultural assimilation and embraces authenticity."
+ chad.2308.a: "Celebrate our African identity."
+
+ chad.2309.t: "Pan-African University"
+ chad.2309.d: "A major Pan-African university has been established in N'Djamena, attracting scholars and students from across the continent. The institution focuses on African history, philosophy, science, and development studies, training the next generation of leaders who will build a united Africa. It has quickly become a beacon of intellectual life."
+ chad.2309.a: "Knowledge is Africa's future."
+
+ chad.2310.t: "United States of Africa"
+ chad.2310.d: "The dream of Kwame Nkrumah has been realized. Chad has joined a political union that aspires to become the United States of Africa — a federal superstate encompassing the entire continent. While the project remains in its early stages, the sheer ambition of the undertaking has captured the imagination of millions."
+ chad.2310.a: "One Africa, one destiny!"
+
+ chad.2311.t: "Continental Parliament"
+ chad.2311.d: "A Continental Parliament has been established, with elected representatives from every African nation. Chad has secured a prominent role in the new legislative body, leveraging its geographic centrality and diplomatic efforts. The Parliament has begun drafting continent-wide legislation on trade, human rights, and environmental protection."
+ chad.2311.a: "Democracy for all of Africa."
+
+ chad.2312.t: "African Currency Created"
+ chad.2312.d: "A new pan-African currency has been created to replace the patchwork of national currencies and the hated CFA Franc. The Afro, backed by the continent's vast natural resources, promises monetary sovereignty and economic integration. Chad, long chafing under French monetary control, is among the first to adopt it."
+ chad.2312.a: "The Afro shall set us free."
+
+ chad.2313.t: "Pan-African Defense Force"
+ chad.2313.d: "The Continental Parliament has authorized the creation of a permanent Pan-African Defense Force, a professional military capable of defending the entire continent. Chad's experienced soldiers form the core of the Sahelian brigade. For the first time, Africa has the military means to defend itself without relying on foreign powers."
+ chad.2313.a: "Africa stands ready."
+
+ chad.2314.t: "The African Renaissance"
+ chad.2314.d: "Africa is experiencing a renaissance. Political unity, economic integration, and cultural confidence have unleashed the continent's enormous potential. Chad, once one of the poorest and most unstable nations on Earth, has become a thriving hub at the heart of a resurgent Africa. The future belongs to those who dared to dream."
+ chad.2314.a: "The dawn of a new era."
+
+ # Neocolonial Path Events
+ chad.2400.t: "Operation Barkhane Expansion"
+ chad.2400.d: "France has proposed expanding Operation Barkhane, its counter-terrorism mission in the Sahel, with Chad serving as the primary hub. Additional French troops, aircraft, and intelligence assets would be stationed on Chadian soil. The arrangement strengthens our security but deepens our military dependence on Paris."
+ chad.2400.a: "Expand the partnership."
+
+ chad.2401.t: "French Base Rights Signed"
+ chad.2401.d: "Chad has signed a comprehensive base rights agreement granting France permanent military installations on Chadian territory. In exchange, Paris will provide substantial financial compensation and security guarantees. Critics call it a surrender of sovereignty; pragmatists call it the price of survival in a dangerous neighborhood."
+ chad.2401.a: "Sign the agreement."
+
+ chad.2402.t: "Francafrique Elite Meeting"
+ chad.2402.d: "Chad's leadership has been invited to a discreet gathering of Francafrique elites in Paris. Behind closed doors, African heads of state and French business magnates negotiate the terms of continued cooperation. The deals struck here will shape Chad's economic future — for better or worse."
+ chad.2402.a: "Play the Francafrique game."
+
+ chad.2403.t: "Special Economic Zone Opens"
+ chad.2403.d: "A Special Economic Zone has been established in N'Djamena, offering tax breaks, streamlined regulations, and cheap labor to foreign investors. European and Chinese companies are rushing to set up operations. The zone is generating revenue and jobs, but the profits flow overwhelmingly to foreign shareholders."
+ chad.2403.a: "Open for business."
+
+ chad.2404.t: "Chinese Technology Transfer"
+ chad.2404.d: "China has offered Chad a technology transfer package, providing telecommunications infrastructure, solar energy equipment, and agricultural machinery. The deal comes with strings attached — Chinese technicians, Chinese standards, and a growing political debt to Beijing — but the technology is desperately needed."
+ chad.2404.a: "Accept the Chinese offer."
+
+ chad.2405.t: "Belt and Road Hub"
+ chad.2405.d: "Chad has been designated a key hub in China's Belt and Road Initiative. Billions of dollars in Chinese investment will flow into roads, railways, and ports connecting Chad to global markets. The infrastructure is transformative, but the debt burden is staggering and the geopolitical implications are profound."
+ chad.2405.a: "Join the Belt and Road."
+
+ chad.2406.t: "Balanced Dependency Strategy"
+ chad.2406.d: "Chad's leadership has adopted a deliberate strategy of balancing between competing foreign patrons. By playing France against China, the United States against Russia, and the Gulf states against each other, Chad maximizes the aid and investment flowing into the country while avoiding total dependence on any single power."
+ chad.2406.a: "Play them against each other."
+
+ chad.2407.t: "Competitive Bidding War"
+ chad.2407.d: "Chad's strategy of playing foreign powers against each other has triggered a competitive bidding war for influence. France, China, and the Gulf states are all offering increasingly generous aid packages and investment deals to secure Chad's loyalty. The treasury swells, but every gift comes with expectations."
+ chad.2407.a: "Let them outbid each other."
+
+ chad.2408.t: "Sovereign Debt Crisis"
+ chad.2408.d: "Years of borrowing from multiple foreign creditors have caught up with Chad. The country faces a crippling sovereign debt crisis as loan repayments consume an ever-larger share of the national budget. Essential services are being cut, and the population is growing restless. The foreign patrons are circling."
+ chad.2408.a: "We must weather the storm."
+
+ chad.2409.t: "Debt Renegotiation"
+ chad.2409.d: "After months of tense negotiations, Chad has managed to restructure its foreign debts on more favorable terms. Repayment schedules have been extended, interest rates reduced, and some debts partially forgiven. The crisis has eased, but the underlying vulnerability remains."
+ chad.2409.a: "A reprieve, not a solution."
+
+ chad.2410.t: "Vassal State Status"
+ chad.2410.d: "Chad's dependence on foreign patrons has reached its logical conclusion. The country has effectively become a vassal state, its sovereignty existing only on paper. Foreign powers dictate economic policy, military deployments, and even domestic politics. The treasury receives generous subsidies, but the price is national dignity."
+ chad.2410.a: "This is the cost of survival."
+
+ chad.2411.t: "Break Free from Patrons"
+ chad.2411.d: "A wave of popular anger against foreign domination has swept through Chad. The government, riding this nationalist tide, has announced a dramatic break with all foreign patrons. Military bases will be closed, exploitative contracts annulled, and sovereign authority reasserted. It is a bold gamble that could liberate or destroy the nation."
+ chad.2411.a: "Chad will be truly free!"
+
+ chad.2412.t: "Sovereign Chad Achieved"
+ chad.2412.d: "Against all odds, Chad has successfully broken free from the web of foreign dependency. The transition has been painful — aid has dried up, investment has fled, and the economy has contracted — but the country has survived and is rebuilding on its own terms. True sovereignty, so long denied, has finally been achieved."
+ chad.2412.a: "Independence at last."
+
+ chad.2413.t: "Loyal Client State"
+ chad.2413.d: "Chad has embraced its role as a loyal client state, deepening ties with its primary foreign patron in exchange for guaranteed security and economic support. The arrangement provides stability and predictable revenue, even as it forecloses the possibility of genuine independence. For a country with Chad's history, perhaps stability is enough."
+ chad.2413.a: "Stability through loyalty."
+
+ chad.2414.t: "Economic Diversification"
+ chad.2414.d: "Foreign investment and technical assistance have enabled Chad to begin diversifying its economy beyond oil and subsistence agriculture. New industries are emerging in textiles, food processing, and light manufacturing. The economic base is broadening, reducing vulnerability to commodity price shocks and creating new opportunities for Chadian workers."
+ chad.2414.a: "Diversify and grow."
+
+ chad.2415.t: "Foreign-Trained Army"
+ chad.2415.d: "A comprehensive military training program conducted by foreign advisors has transformed the Chadian armed forces into a professional fighting force. Officers have attended prestigious military academies abroad, and the rank and file have been drilled in modern tactics and equipment. The army is more capable than ever, though its loyalty may run in two directions."
+ chad.2415.a: "A professional fighting force."

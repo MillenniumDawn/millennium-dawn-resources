@@ -1,0 +1,162 @@
+AST_diplo_tug_of_war = {
+    icon = power_struggle
+
+	allowed = {
+		original_tag = AST
+	}
+
+	picture = GFX_decision_ast
+	priority = 100
+
+	custom_icon = {
+		tag = USA
+		value = AST_USA_trade_influence_icon_value
+		desc = AST_USA_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = USA
+		}
+	}
+	custom_icon = {
+		tag = CHI
+		value = AST_CHI_trade_influence_icon_value
+		desc = AST_CHI_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = CHI
+		}
+	}
+	
+	visible_when_empty = yes
+	visible = {
+		original_tag = AST
+	}
+}
+AST_diplo_tug_of_war_USA_cat = {
+	icon = POL_category
+
+	allowed = {
+		original_tag = USA
+	}
+
+	custom_icon = {
+		tag = USA
+		value = AST_USA_trade_influence_icon_value
+		desc = AST_USA_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = USA
+		}
+	}
+	custom_icon = {
+		tag = CHI
+		value = AST_CHI_trade_influence_icon_value
+		desc = AST_CHI_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = CHI
+		}
+	}
+	picture = GFX_decision_cat_generic_gran_colombia
+	priority = 100
+
+	visible_when_empty = yes
+	visible = {
+		original_tag = USA
+	}
+}
+AST_diplo_tug_of_war_CHI_cat = {
+	icon = POL_category
+
+	allowed = {
+		original_tag = CHI
+	}
+
+	custom_icon = {
+		tag = USA
+		value = AST_USA_trade_influence_icon_value
+		desc = AST_USA_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = USA
+		}
+	}
+	custom_icon = {
+		tag = CHI
+		value = AST_CHI_trade_influence_icon_value
+		desc = AST_CHI_trade_influence_full_influence_breakdown
+		visible = {
+			country_exists = CHI
+		}
+	}
+	picture = GFX_decision_cat_generic_gran_colombia
+	priority = 100
+
+	visible_when_empty = yes
+	visible = {
+		original_tag = CHI
+	}
+}
+
+AST_Iraq_War_Construction_And_Propaganda = {
+	icon = generic_independence
+
+	allowed = {
+		original_tag = AST
+	}
+
+	priority = 85
+
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = AST_Depose_Saddam
+	}
+}
+
+AST_Papua_New_Guinea_Development = {
+	icon = investment
+
+	allowed = {
+		original_tag = AST
+	}
+
+	priority = 85
+
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = AST_grow_Sangara_rubber_plantation
+	}
+}
+
+AST_solomon_engagement_category = {
+	icon = investment
+
+	allowed = {
+		original_tag = AST
+	}
+
+	priority = 90
+
+	visible_when_empty = no
+	visible = {
+		country_exists = SOL
+		OR = {
+			SOL_competition_active = yes
+			SOL_competition_resolved = yes
+		}
+	}
+}
+
+USA_solomon_engagement_category = {
+	icon = power_struggle
+
+	allowed = {
+		original_tag = USA
+	}
+
+	priority = 90
+
+	visible_when_empty = no
+	visible = {
+		country_exists = SOL
+		OR = {
+			SOL_competition_active = yes
+			SOL_competition_resolved = yes
+		}
+	}
+}

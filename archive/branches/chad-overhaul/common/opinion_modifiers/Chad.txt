@@ -1,0 +1,210 @@
+#########################################################################
+# CHAD OPINION MODIFIERS
+##########################################################################
+
+opinion_modifiers = {
+	# General diplomatic modifiers
+	hostile_neighbour = {
+		value = -50
+		decay = 0.5
+	}
+
+	trade_agreement = {
+		value = 25
+		decay = 0.25
+	}
+
+	foreign_investment = {
+		value = 30
+		decay = 0.25
+	}
+
+	foreign_alliance = {
+		value = 40
+		decay = 0.25
+	}
+
+	military_access_agreement = {
+		value = 20
+		decay = 0.25
+	}
+
+	border_cooperation = {
+		value = 15
+		decay = 0.25
+	}
+
+	regional_cooperation = {
+		value = 20
+		decay = 0.25
+	}
+
+	resource_agreement = {
+		value = 25
+		decay = 0.25
+	}
+
+	# Political/ideological modifiers
+	religious_cooperation = {
+		value = 20
+		decay = 0.25
+	}
+
+	supports_terrorism = {
+		value = -75
+		decay = 0.25
+	}
+
+	declared_caliphate = {
+		value = -100
+		decay = 0.1
+	}
+
+	anti_colonial_stance = {
+		value = -40
+		decay = 0.25
+	}
+
+	socialist_solidarity = {
+		value = 30
+		decay = 0.25
+	}
+
+	# French relations
+	francophonie_leader = {
+		value = 25
+		decay = 0.25
+	}
+
+	expelled_our_military = {
+		value = -60
+		decay = 0.25
+	}
+
+	nationalized_our_companies = {
+		value = -50
+		decay = 0.25
+	}
+
+	# African Union
+	au_cooperation = {
+		value = 15
+		decay = 0.25
+	}
+
+	# Great power alignment
+	western_ally = {
+		value = 30
+		decay = 0.25
+	}
+
+	eastern_partner = {
+		value = 25
+		decay = 0.25
+	}
+
+	# Libya relations
+	gaddafi_alliance = {
+		value = 35
+		decay = 0.25
+	}
+
+	# Sudan proxy war
+	supports_rebels = {
+		value = -60
+		decay = 0.25
+	}
+
+	arms_rebels = {
+		value = -75
+		decay = 0.25
+	}
+
+	arms_enemy_rebels = {
+		value = -80
+		decay = 0.25
+	}
+
+	proxy_war_enemy = {
+		value = -100
+		decay = 0.1
+	}
+
+	improving_relations = {
+		value = 15
+		decay = 0.5
+	}
+
+	refused_peace = {
+		value = -30
+		decay = 0.5
+	}
+
+	# Intervention
+	military_intervention = {
+		value = -40
+		decay = 0.25
+	}
+
+	military_alliance = {
+		value = 50
+		decay = 0.25
+	}
+
+	foreign_support = {
+		value = 25
+		decay = 0.25
+	}
+
+	# New political paths modifiers
+	sahel_cooperation = {
+		value = 35
+		decay = 0.25
+	}
+
+	strategic_partnership = {
+		value = 50
+		decay = 0.25
+	}
+
+	pan_african_solidarity = {
+		value = 30
+		decay = 0.25
+	}
+
+	tribal_friendship = {
+		value = 20
+		decay = 0.25
+	}
+
+	# New event opinion modifiers
+	CHA_trade_partner = {
+		value = 25
+		decay = 0.25
+	}
+
+	CHA_military_cooperation = {
+		value = 35
+		decay = 0.25
+	}
+
+	CHA_development_partner = {
+		value = 30
+		decay = 0.25
+	}
+
+	CHA_water_cooperation = {
+		value = 25
+		decay = 0.25
+	}
+
+	CHA_water_dispute = {
+		value = -30
+		decay = 0.25
+	}
+
+	CHA_diplomatic_rift = {
+		value = -50
+		decay = 0.25
+	}
+}

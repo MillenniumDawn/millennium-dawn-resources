@@ -1,0 +1,1117 @@
+# The Internal Faction System:
+# Authored: Killerrabbit, Angriest Bird
+# ---
+# The Internal Faction System is meant to represent internal politics and strife within a country.
+# It also represents special interest groups such as Labour Unions or Small & Medium Business Owners
+# All effects are housed in md/common/scripted_effects/00_internal_factions_effects.txt
+# Last Updated in January, 2022
+
+# List of Factions sorted by category
+# Economic Type: Small & Medium Business Owners, International Bankers, Fossil Fuel Industry
+# Industrial Conglomerates, Oligarchs
+# Militaristic: Maritime Industry, Military-Industrial Complex, The Military, Intelligence Community
+# Special Interest: Labour Unions, Landowners, Farmers, Communist Cadres
+# Religious Factions: Wahhabi Ulema, The Ulema, The Clergy, The Priesthood
+# Nation Specific: The Donju, Saudi Royal Family, Iranian Quds Force,
+# Foreign Jihadis, Chaebols, Wall Street
+
+ideas = {
+	internal_factions = {
+		#####################
+		### Economic-type ###
+		#####################
+		small_medium_business_owners = {
+			cost = 1500
+			# Korea, North Korea, and Iran all get unique versions of the SMBO faction.
+			allowed = {
+				NOT = {
+					OR = {
+						original_tag = KOR
+						original_tag = NKO
+					}
+				}
+			}
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = business_owners_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { small_medium_business_owners_opinion = 60 }
+					set_variable = { small_medium_business_owners_opinion_min = { value = 50 add = modifier@if_small_medium_business_owners_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		international_bankers = {
+			# USA Get's the Wall Street Faction which is essentially a better version of this
+			allowed = {
+				NOT = {
+					original_tag = USA
+				}
+			}
+			cost = 1500
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = international_bankers_opinion_tt
+				hidden_effect = {
+					ingame_update_setup = yes
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { international_bankers_opinion = 60 }
+					set_variable = { international_bankers_opinion_min = { value = 50 add = modifier@if_international_bankers_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+			modifier = {
+				interest_rate_multiplier_modifier = -1
+				expected_education_modifier = 0.5
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		fossil_fuel_industry = {
+			cost = 1500
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = fossil_fuel_industry_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { fossil_fuel_industry_opinion = 60 }
+					set_variable = { fossil_fuel_industry_opinion_min = { value = 50 add = modifier@if_fossil_fuel_industry_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		industrial_conglomerates = {
+			cost = 1500
+
+			available = {
+				if = {
+					limit = {
+						original_tag = AST
+					}
+					NOT = {
+						has_country_flag = cannot_change_factions_flag
+					}
+
+				}
+			}
+
+			# These are the Oligarch Nations
+			# They don't take industrial conglomerates
+			allowed = {
+				NOT = {
+					OR = {
+						original_tag = KOR
+						original_tag = SOV
+						original_tag = UKR
+						original_tag = KAZ
+						original_tag = MLV
+						original_tag = PMR
+						original_tag = NOV
+						original_tag = ARM
+						original_tag = KYR
+						original_tag = SOO
+						original_tag = ABK
+						original_tag = GEO
+						original_tag = TRK
+						original_tag = UZB
+						original_tag = BLR
+						original_tag = SYR
+						original_tag = EGY
+					}
+				}
+			}
+
+			on_add = {
+				custom_effect_tooltip = industrial_conglomerates_opinion_tt
+				hidden_effect = {
+					# Cleanup Function
+					if_no_longer_has_faction_clear_previous = yes
+					# Intializes the Dynamic Modifier Properly
+					set_variable = { industrial_conglomerates_opinion = 60 }
+					set_variable = { industrial_conglomerates_opinion_min = { value = 50 add = modifier@if_industrial_conglomerates_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+					update_mio_catalog_dirty_variable = yes
+				}
+			}
+			modifier = {
+				investment_duration_modifier = -0.25
+				expected_adm_modifier = 0.5
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		oligarchs = {
+			cost = 1500
+
+			allowed = {
+				OR = {
+					check_variable = { ruling_party = 15 }
+					is_in_array = { gov_coalition_array = 15 }
+					original_tag = SOV
+					original_tag = UKR
+					original_tag = KAZ
+					original_tag = MLV
+					original_tag = PER
+					original_tag = PMR
+					original_tag = NOV
+					original_tag = ARM
+					original_tag = KYR
+					original_tag = TAJ
+					original_tag = SOO
+					original_tag = ABK
+					original_tag = GEO
+					original_tag = TRK
+					original_tag = UZB
+					original_tag = BLR
+					original_tag = BUL
+					original_tag = SYR
+					original_tag = EGY
+					original_tag = VEN
+					original_tag = NIG
+					original_tag = UOE
+					original_tag = WAG
+				}
+			}
+
+			available = {
+				OR = {
+					neutrality_neutral_oligarch_are_in_power = yes
+					neutrality_neutral_oligarch_are_in_coalition = yes
+					original_tag = SOV
+					original_tag = UKR
+					original_tag = KAZ
+					original_tag = MLV
+					original_tag = PMR
+					original_tag = NOV
+					original_tag = ARM
+					original_tag = KYR
+					original_tag = PER
+					original_tag = TAJ
+					original_tag = SOO
+					original_tag = ABK
+					original_tag = GEO
+					original_tag = TRK
+					original_tag = UZB
+					original_tag = BLR
+					original_tag = BUL
+					original_tag = SYR
+					original_tag = EGY
+					original_tag = VEN
+					original_tag = NIG
+					original_tag = UOE
+					original_tag = WAG
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				corruption_cost_factor = 0.25
+				expected_education_modifier = -0.5
+			}
+
+			on_add = {
+				custom_effect_tooltip = oligarchs_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { oligarchs_opinion = 60 }
+					set_variable = { oligarchs_opinion_min = { value = 50 add = modifier@if_oligarchs_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		#####################
+		### Militaristic ####
+		#####################
+
+		maritime_industry = {
+			cost = 1500
+			available = {
+				any_owned_state = {
+					is_coastal = yes
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = maritime_industry_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { maritime_industry_opinion = 60 }
+					set_variable = { maritime_industry_opinion_min = { value = 50 add = modifier@if_maritime_industry_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+					update_mio_catalog_dirty_variable = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		defense_industry = {
+			cost = 1500
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = defense_industry_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { defense_industry_opinion = 60 }
+					set_variable = { defense_industry_opinion_min = { value = 50 add = modifier@if_defense_industry_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+					update_mio_catalog_dirty_variable = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		the_military = {
+			cost = 1500
+			available = {
+				NOT = {
+					has_idea = no_military
+				}
+				internal_faction_swap_allowed = yes
+			}
+			modifier = {
+				nationalist_drift = 0.02
+				expected_mil_modifier = 0.5
+			}
+
+			on_add = {
+				custom_effect_tooltip = the_military_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { the_military_opinion = 60 }
+					set_variable = { the_military_opinion_min = { value = 50 add = modifier@if_the_military_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		intelligence_community = {
+			cost = 1500
+			# Pakistan & Iran have their own unique factions
+			allowed = {
+				NOT = {
+					original_tag = PAK
+				}
+			}
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = intelligence_community_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { intelligence_community_opinion = 60 }
+					set_variable = { intelligence_community_opinion_min = { value = 50 add = modifier@if_intelligence_community_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_police_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		##########################
+		### Special interests ####
+		##########################
+		labour_unions = {
+			cost = 1500
+			available = {
+				NOT = { has_government = nationalist }
+				NOT = { has_government = fascism }
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = labour_unions_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { labour_unions_opinion = 60 }
+					set_variable = { labour_unions_opinion_min = { value = 50 add = modifier@if_labour_unions_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = -0.5
+				expected_healthcare_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		landowners = {
+			cost = 1500
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				corruption_cost_factor = 0.15
+				expected_welfare_modifier = -0.5
+			}
+
+			on_add = {
+				custom_effect_tooltip = landowners_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { landowners_opinion = 60 }
+					set_variable = { landowners_opinion_min = { value = 50 add = modifier@if_landowners_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		farmers = {
+			cost = 1500
+			visible = {
+				NOT = {
+					original_tag = LBA
+				}
+			}
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = farmers_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { farmers_opinion = 60 }
+					set_variable = { farmers_opinion_min = { value = 50 add = modifier@if_farmers_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				agriculture_workers_modifier = 0.05
+				agriculture_district_worker_requirement_modifier = 0.05
+			}
+
+			cancel_if_invalid = no
+		}
+
+		communist_cadres = {
+			cost = 1500
+
+			available = {
+				OR = {
+					neutrality_neutral_communism_are_in_power = yes
+					emerging_communist_state_are_in_power = yes
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = communist_cadres_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { communist_cadres_opinion = 60 }
+					set_variable = { communist_cadres_opinion_min = { value = 50 add = modifier@if_communist_cadres_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_adm_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+
+		# Religious Factions
+		# the_priesthood - for all non muslim or christians
+		# the_ulema - for all muslims
+		# wahabi_ulema - for radical muslims kek
+		# the_clergy - for all christian based faiths
+		the_priesthood = {
+			cost = 1500
+			available = {
+				OR = {
+					has_idea = buddism
+					has_idea = hindu
+					has_idea = shinto
+					has_idea = cheondo
+				}
+				NOT = {
+					OR = {
+						has_idea = the_ulema
+						has_idea = the_clergy
+						has_idea = wahabi_ulema
+					}
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = the_priesthood_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { the_priesthood_opinion = 60 }
+					set_variable = { the_priesthood_opinion_min = { value = 50 add = modifier@if_the_priesthood_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = -0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		the_ulema = {
+			cost = 1500
+			available = {
+				OR = {
+					has_idea = sunni
+					has_idea = ibadi
+					has_idea = sufi_islam
+					has_idea = shia
+					AND = {
+						original_tag = NIG
+						NOT = { has_completed_focus = NIG_suppression_of_islam }
+					}
+					NOT = {
+						OR = {
+							has_idea = the_priesthood
+							has_idea = the_clergy
+							has_idea = wahabi_ulema
+						}
+					}
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = the_ulema_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { the_ulema_opinion = 60 }
+					set_variable = { the_ulema_opinion_min = { value = 50 add = modifier@if_the_ulema_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		the_clergy = {
+			cost = 1500
+			available = {
+				OR = {
+					has_idea = orthodox_christian
+					has_idea = christian
+					has_idea = UKR_idea_orthodox_christian_church
+					has_idea = eastern_church_arm
+					has_idea = eastern_church_eth
+					has_idea = eastern_church_egy
+					AND = {
+						original_tag = NIG
+						NOT = { has_completed_focus = NIG_convert_the_christians }
+					}
+					NOT = {
+						OR = {
+							has_idea = the_priesthood
+							has_idea = the_ulema
+							has_idea = wahabi_ulema
+						}
+					}
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = the_clergy_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { the_clergy_opinion = 60 }
+					set_variable = { the_clergy_opinion_min = { value = 50 add = modifier@if_the_clergy_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = -0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+		wahabi_ulema = {
+			cost = 1500
+			# Wahabbism only exists in specific nations really
+			# Keeping this allowed - Bird
+			allowed = {
+				OR = {
+					original_tag = AQY
+					original_tag = ISI
+					original_tag = SAU
+					original_tag = QAT
+					original_tag = UAE
+					original_tag = NUS
+					original_tag = SHB
+				}
+			}
+			available = {
+				OR = {
+					has_idea = sunni
+					has_idea = ibadi
+					has_idea = sufi_islam
+				}
+				NOT = {
+					OR = {
+						has_idea = the_priesthood
+						has_idea = the_ulema
+						has_idea = the_clergy
+					}
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = wahabi_ulema_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { wahabi_ulema_opinion = 60 }
+					set_variable = { wahabi_ulema_opinion_min = { value = 50 add = modifier@if_wahabi_ulema_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			modifier = {
+				expected_mil_modifier = 0.5
+			}
+
+			cancel_if_invalid = no
+		}
+
+
+		### NATION SPECIFIC ###
+		# North Korean version of SMBO
+		the_donju = {
+			cost = 1500
+			allowed = { original_tag = NKO }
+
+			available = {
+				original_tag = NKO
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				corruption_cost_factor = 0.30
+				interest_rate_multiplier_modifier = -1
+			}
+
+			on_add = {
+				custom_effect_tooltip = the_donju_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { the_donju_opinion = 60 }
+					set_variable = { the_donju_opinion_min = { value = 50 add = modifier@if_the_donju_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+					update_mio_catalog_dirty_variable = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		saudi_royal_family = {
+			cost = 1500
+
+			allowed = {
+				OR = {
+					original_tag = SAU
+					original_tag = QAT
+					original_tag = BHR
+					original_tag = OMA
+					original_tag = KUW
+				}
+			}
+
+			available = {
+				internal_faction_swap_allowed = yes
+			}
+
+			on_add = {
+				custom_effect_tooltip = saudi_royal_family_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { saudi_royal_family_opinion = 60 }
+					set_variable = { saudi_royal_family_opinion_min = { value = 50 add = modifier@if_saudi_royal_family_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		#for proxies
+		iranian_quds_force = {
+			cost = 1500
+
+			allowed = {
+				OR = {
+					original_tag = IRQ
+					original_tag = HAM
+					original_tag = HEZ
+					original_tag = SYR
+					original_tag = HOU
+					original_tag = YEM
+					original_tag = KUR
+					original_tag = PUK
+					original_tag = LEB
+					original_tag = AFG
+					original_tag = TAL
+					original_tag = TAJ
+					original_tag = BHR
+					original_tag = KUW
+					original_tag = OMA
+					original_tag = QAT
+					original_tag = SAU
+					original_tag = UAE
+				}
+			}
+
+			available = {
+				OR = {
+					has_government = communism
+					has_government = neutrality
+					has_government = nationalist
+				}
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				send_volunteer_size = 2
+				expected_mil_modifier = 0.5
+			}
+
+			on_add = {
+				custom_effect_tooltip = iranian_quds_force_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { iranian_quds_force_opinion = 60 }
+					set_variable = { iranian_quds_force_opinion_min = { value = 50 add = modifier@if_iranian_quds_force_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		# Custom Faction for all Islamic Extremist Groups
+		# Specifically to represent the Jihadists from abroad who flock to support a terror cell
+		# It also represents their ability to send jihadists abroad hence the volunteer size
+		foreign_jihadis = {
+			cost = 1500
+			available = {
+				has_government = fascism
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				send_volunteer_size = 1
+				surrender_limit = 0.2
+				expected_mil_modifier = 0.5
+				weekly_manpower = 100
+			}
+
+			on_add = {
+				add_manpower = 7500
+				custom_effect_tooltip = foreign_jihadis_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { foreign_jihadis_opinion = 60 }
+					set_variable = { foreign_jihadis_opinion_min = { value = 50 add = modifier@if_foreign_jihadis_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+				}
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+			cancel_if_invalid = no
+		}
+
+		# Wall Street
+		# American replacement to International Bankers
+		wall_street = {
+			cost = 1500
+			allowed = { original_tag = USA }
+
+			available = {
+				original_tag = USA
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				economic_cycles_cost_factor = -0.25
+				democratic_drift = 0.02
+				interest_rate_multiplier_modifier = -1
+				expected_welfare_modifier = -0.25
+				expected_healthcare_modifier = -0.25
+			}
+
+			on_add = {
+				custom_effect_tooltip = wall_street_opinion_tt
+
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { wall_street_opinion = 60 }
+					set_variable = { wall_street_opinion_min = { value = 50 add = modifier@if_wall_street_minimum_opinion clamp = { min = 0 max = 100 } } }
+					initialize_internal_faction_dynamic_modifiers = yes
+					ingame_update_setup = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		# Chaebols
+		# Unique Small Medium Business Owners Replacement
+		chaebols = {
+			cost = 1500
+			allowed = { original_tag = KOR }
+
+			available = {
+				original_tag = KOR
+				internal_faction_swap_allowed = yes
+			}
+
+			modifier = {
+				corruption_cost_factor = 0.25
+				receiving_investment_duration_modifier = -0.25
+				interest_rate_multiplier_modifier = -1
+				if_chaebols_minimum_opinion = 10
+			}
+
+			on_add = {
+				custom_effect_tooltip = chaebol_opinion_tt
+				hidden_effect = {
+					if_no_longer_has_faction_clear_previous = yes
+					set_variable = { chaebols_opinion = 60 }
+					set_variable = { chaebols_opinion_min = 60 }
+					initialize_internal_faction_dynamic_modifiers = yes
+					update_mio_catalog_dirty_variable = yes
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+	}
+
+	country = {
+		#Ideas related to Internal Faction events
+		internal_faction_labour_dispute_companies_favoured = {
+
+			picture = democracy
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				stability_factor = -0.05
+			}
+		}
+
+		internal_faction_labour_dispute_union_favoured = {
+			picture = democracy
+
+			modifier = {
+				production_speed_buildings_factor = -0.10
+				stability_factor = 0.05
+			}
+		}
+
+		internal_faction_economic_boom = {
+			picture = central_management
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				tax_gain_multiplier_modifier = 0.05
+			}
+		}
+
+		internal_faction_subsidize_convoy_production = {
+			picture = escort_effort
+
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+			}
+		}
+
+		internal_factions_allowed_foreign_nationals_military = {
+			picture = Disorganization_Military_3
+			cancel = {
+				NOT = { has_idea = the_military }
+			}
+
+			modifier = {
+				conscription_factor = 0.05
+				migration_rate_value_factor = 0.15
+				if_the_military_maximum_opinion = -5
+			}
+		}
+
+		internal_factions_temporarily_reduce_migrations = {
+			picture = Disorganization_Military_3
+			modifier = {
+				border_control_multiplier_modifier = -0.05
+				migration_rate_value_factor = -0.10
+			}
+		}
+
+		internal_factions_taxing_religious_institutions = {
+			picture = foreign_capital
+			cancel = {
+				NOT = {
+					OR = {
+						has_idea = the_ulema
+						has_idea = the_clergy
+						has_idea = wahabi_ulema
+						has_idea = the_priesthood
+					}
+				}
+			}
+			modifier = {
+				custom_modifier_tooltip = internal_factions_taxing_religious_institutions_tt
+				stability_factor = -0.05
+				if_the_ulema_maximum_opinion = -5
+				if_the_clergy_maximum_opinion = -5
+				if_wahabi_ulema_maximum_opinion = -5
+				if_the_priesthood_maximum_opinion = -5
+			}
+		}
+
+		internal_factions_maritime_industry_dockyard_paying_dividends = {
+			allowed_civil_war = { always = yes }
+			picture = foreign_capital
+
+			modifier = {
+				dockyard_productivity = 0.15
+				industrial_capacity_dockyard = 0.15
+			}
+		}
+
+		district_over_ulema = {
+			picture = international_treaty2
+
+			modifier = {
+				research_speed_factor = 0.05
+			}
+		}
+
+		ulema_over_district = {
+			picture = international_treaty2
+
+			modifier = {
+				education_cost_multiplier_modifier = -0.10
+				research_speed_factor = -0.05
+			}
+		}
+
+		ulema_over_law = {
+			picture = international_treaty2
+
+			modifier = {
+				police_cost_multiplier_modifier = -0.05
+				drift_defence_factor = -0.05
+			}
+		}
+
+		law_over_ulema = {
+			picture = international_treaty2
+
+			modifier = {
+				police_cost_multiplier_modifier = 0.05
+				drift_defence_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+
+		internal_factions_cadre_purge = {
+			picture = democracy
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				drift_defence_factor = 0.05
+			}
+		}
+
+		internal_factions_collectivisation_drive = {
+			picture = central_management
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		internal_factions_convoy_escort = {
+			picture = escort_effort
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				experience_gain_navy_factor = 0.05
+			}
+		}
+
+		internal_factions_piracy_losses = {
+			picture = poor_economy
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				stability_factor = -0.03
+			}
+		}
+
+		internal_factions_neutralised_spies = {
+			picture = Disorganization_Military_3
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				decryption_factor = 0.05
+			}
+		}
+
+		internal_factions_transparency_costs = {
+			picture = Disorganization_Military_3
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				intel_network_gain_factor = -0.15
+			}
+		}
+
+		internal_factions_jihadi_frontline = {
+			picture = license_production
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				army_attack_factor = 0.02
+				army_defence_factor = -0.03
+			}
+		}
+
+		internal_factions_jihadi_autonomy = {
+			picture = license_production
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				special_forces_cap = 0.1
+			}
+		}
+
+		internal_factions_jihadi_integrated = {
+			picture = license_production
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				army_org_regain = 0.03
+			}
+		}
+
+		internal_factions_quds_expanded = {
+			picture = foreign_capital
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				foreign_subversive_activites = 0.05
+				subversive_activites_upkeep = -0.10
+			}
+		}
+
+		internal_factions_quds_operation = {
+			picture = foreign_capital
+			allowed_civil_war = { always = yes }
+
+			modifier = {
+				army_attack_factor = 0.03
+			}
+		}
+	}
+
+	hidden_ideas = {
+		GAME_RULE_reduce_internal_factions_cost = {
+			modifier = {
+				internal_factions_cost_factor = -0.75
+			}
+		}
+	}
+}

@@ -1,0 +1,119 @@
+# Chad AI Behavior Rules
+
+CHA_ai_behavior = {
+	name = "CHA_AI_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_CHA_DEFAULT_DESC"
+	}
+	option = {
+		name = CHA_AUTHORITARIAN
+		text = "RULE_OPTION_CHA_AUTHORITARIAN"
+		desc = "RULE_OPTION_CHA_AUTHORITARIAN_DESC"
+	}
+	option = {
+		name = CHA_DEMOCRATIC
+		text = "RULE_OPTION_CHA_DEMOCRATIC"
+		desc = "RULE_OPTION_CHA_DEMOCRATIC_DESC"
+	}
+	option = {
+		name = CHA_ISLAMIST
+		text = "RULE_OPTION_CHA_ISLAMIST"
+		desc = "RULE_OPTION_CHA_ISLAMIST_DESC"
+	}
+	option = {
+		name = CHA_SOCIALIST
+		text = "RULE_OPTION_CHA_SOCIALIST"
+		desc = "RULE_OPTION_CHA_SOCIALIST_DESC"
+	}
+	option = {
+		name = CHA_MILITARY_JUNTA
+		text = "RULE_OPTION_CHA_MILITARY_JUNTA"
+		desc = "RULE_OPTION_CHA_MILITARY_JUNTA_DESC"
+	}
+	option = {
+		name = CHA_TRIBAL
+		text = "RULE_OPTION_CHA_TRIBAL"
+		desc = "RULE_OPTION_CHA_TRIBAL_DESC"
+	}
+	option = {
+		name = CHA_PANAFRICAN
+		text = "RULE_OPTION_CHA_PANAFRICAN"
+		desc = "RULE_OPTION_CHA_PANAFRICAN_DESC"
+	}
+	option = {
+		name = CHA_NEOCOLONIAL
+		text = "RULE_OPTION_CHA_NEOCOLONIAL"
+		desc = "RULE_OPTION_CHA_NEOCOLONIAL_DESC"
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_OPTION_RANDOM_DESC"
+	}
+}
+
+CHA_foreign_policy = {
+	name = "CHA_FOREIGN_POLICY"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_CHA_FOREIGN_DEFAULT_DESC"
+	}
+	option = {
+		name = CHA_PRO_WEST
+		text = "RULE_OPTION_CHA_PRO_WEST"
+		desc = "RULE_OPTION_CHA_PRO_WEST_DESC"
+	}
+	option = {
+		name = CHA_PIVOT_EAST
+		text = "RULE_OPTION_CHA_PIVOT_EAST"
+		desc = "RULE_OPTION_CHA_PIVOT_EAST_DESC"
+	}
+	option = {
+		name = CHA_REGIONAL_POWER
+		text = "RULE_OPTION_CHA_REGIONAL_POWER"
+		desc = "RULE_OPTION_CHA_REGIONAL_POWER_DESC"
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_OPTION_RANDOM_DESC"
+	}
+}
+
+CHA_civil_war_behavior = {
+	name = "CHA_CIVIL_WAR_BEHAVIOR"
+	group = "RULE_GROUP_AI_BEHAVIOR"
+
+	default = {
+		name = DEFAULT
+		text = "RULE_OPTION_DEFAULT"
+		desc = "RULE_OPTION_CHA_CW_DEFAULT_DESC"
+	}
+	option = {
+		name = CHA_AVOID_WAR
+		text = "RULE_OPTION_CHA_AVOID_WAR"
+		desc = "RULE_OPTION_CHA_AVOID_WAR_DESC"
+	}
+	option = {
+		name = CHA_HISTORICAL
+		text = "RULE_OPTION_CHA_HISTORICAL"
+		desc = "RULE_OPTION_CHA_HISTORICAL_DESC"
+	}
+	option = {
+		name = CHA_ALWAYS_WAR
+		text = "RULE_OPTION_CHA_ALWAYS_WAR"
+		desc = "RULE_OPTION_CHA_ALWAYS_WAR_DESC"
+	}
+	option = {
+		name = RANDOM
+		text = "RULE_OPTION_RANDOM"
+		desc = "RULE_OPTION_RANDOM_DESC"
+	}
+}

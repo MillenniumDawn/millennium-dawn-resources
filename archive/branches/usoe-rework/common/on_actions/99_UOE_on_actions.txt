@@ -1,0 +1,37 @@
+on_actions = {
+	on_monthly_UOE = {
+		effect = {
+			#updates the states with below or above average productivity
+			if = {
+				limit = {
+					has_country_flag = unstable_economy
+					NOT = { has_country_flag = states_exited_due_eco }
+				}
+				UOE_eoc_prod_track = yes
+			}
+			if = { limit = { NOT = { has_country_flag = military_appeased } }
+				UOE_mil_revolt_track = yes
+			}
+			if = { limit = { has_country_flag = UOE_massive_subsidies }
+				if = { limit = { has_idea = fast_growth }
+					clr_country_flag = UOE_massive_subsidies
+					clear_variable = UOE_subsidy_budget_weekly
+				}
+			}
+
+			set_temp_variable = { world_tension_var = 1 }
+			subtract_from_temp_variable = { world_tension_var = threat }
+			if = { limit = { check_variable = { world_tension_var = 1 } } subtract_from_temp_variable = { world_tension_var = 0.01 } }
+
+			multiply_temp_variable = { world_tension_var = -1 }
+			set_variable = { UOE_tension_mil_prod_var = world_tension_var }
+
+			add_to_variable = { UOE_tension_mil_prod_var = UOE_mil_indust_complex_var }
+
+			if = {
+				limit = { has_country_flag = working_on_superhighway }
+				grab_current_highway_infra = yes
+			}
+		}
+	}
+}

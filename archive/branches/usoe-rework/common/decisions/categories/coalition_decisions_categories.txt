@@ -1,0 +1,31 @@
+################
+##### Decisions for MD politics ######
+################
+
+generic_coalition_politics_decisions = {
+	allowed = { NOT = { MD_special_countries = yes }  }
+	icon = GFX_decisions_category_political
+
+	visible = {
+		has_civil_war = no
+		ERI_is_transitional_government_DIPLO = yes
+		OR = {
+			UOE_is_transitional_government_DIPLO = yes
+			UOE = { has_country_flag = propaganda_machine_started }
+		}
+		NOT = { tag = AST }
+	}
+
+	priority = 30
+}
+
+
+coalition_decisions = {
+	allowed = { is_ai = no }
+	icon = GFX_decisions_category_political
+
+	visible = {
+		has_country_flag = coalition_forming
+	}
+	priority = 60
+}

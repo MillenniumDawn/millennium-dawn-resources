@@ -1,0 +1,1117 @@
+@factory_cost = 10 # base 10
+@size_per_factory = 1
+@size_per_upgrade = 1
+@size_impact_modifier = 0.1
+@cac_control_factor = 0.238 # mirrors @money_control_factor_scaling in 00_money_system.txt
+
+@global_stats_list_length = 15
+
+# CAC_add_company
+# Required Input: cac_selected_company (int)
+# Required Input: cac_company_type (int)
+
+# Optional Inputs:
+# cac_company_size (int)
+# cac_company_value (float)
+# cac_company_money (float)
+# cac_company_factories (int)
+# cac_company_income_per_factory (float)
+# cac_company_expenses_per_factory (float)
+# cac_company_additional_income (float)
+# cac_company_additional_expenses (float)
+
+# Purpose: Add the cac_selected_company to companys list
+CAC_add_company = {
+    if = {
+        limit = {
+            check_variable = { CAC_companies^num < 11  }
+        }
+
+        custom_effect_tooltip = CAC_add_company_tt
+
+        set_temp_variable = { company_slot_temp = CAC_companies^num }
+
+        add_to_array = {
+		    array = CAC_companies
+			value = cac_selected_company
+			index = company_slot_temp
+		}
+
+        add_to_array = {
+		    array = CAC_companies_type
+			value = cac_company_type
+			index = company_slot_temp
+		}
+
+        add_to_array = {
+            array = CAC_companies_size
+            value = cac_company_size
+            index = company_slot_temp
+        }
+
+        add_to_array = {
+            array = CAC_companies_value
+            value = cac_company_value
+            index = company_slot_temp
+        }
+
+        add_to_array = {
+            array = CAC_companies_money
+            value = 0
+            index = company_slot_temp
+        }
+
+        set_temp_variable = { cac_skip_update = 1 }
+
+        set_temp_variable = { cac_money_change = 5 }
+        set_temp_variable = { cac_slot = company_slot_temp }
+        CAC_modify_money_effect = yes
+
+        add_to_array = {
+            array = CAC_companies_revenue
+            value = 0
+            index = company_slot_temp
+        }
+
+        if = {
+            limit = {
+                NOT = { check_variable = { cac_company_additional_income = 0 } }
+            }
+
+            add_to_array = {
+                array = CAC_companies_additional_income
+                value = cac_company_additional_income
+                index = company_slot_temp
+            }
+        }
+        else = {
+            add_to_array = {
+                array = CAC_companies_additional_income
+                value = 0
+                index = company_slot_temp
+            }
+        }
+
+        if = {
+            limit = {
+                NOT = { check_variable = { cac_company_additional_expenses = 0 } }
+            }
+
+            add_to_array = {
+                array = CAC_companies_additional_expenses
+                value = cac_company_additional_expenses
+                index = company_slot_temp
+            }
+        }
+        else = {
+            add_to_array = {
+                array = CAC_companies_additional_expenses
+                value = 0
+                index = company_slot_temp
+            }
+        }
+
+        add_to_array = {
+			array = CAC_companies_income
+			value = 0.0
+			index = company_slot_temp
+		}
+        add_to_array = {
+			array = CAC_companies_expenses
+			value = 0.0
+			index = company_slot_temp
+		}
+        add_to_array = {
+			array = CAC_companies_taxes
+			value = 0.0
+			index = company_slot_temp
+		}
+        add_to_array = {
+            array = CAC_companies_display_expenses
+            value = 0.0
+            index = company_slot_temp
+        }
+        add_to_array = {
+            array = CAC_companies_maintenance
+            value = 0.0
+            index = company_slot_temp
+        }
+        add_to_array = {
+            array = CAC_companies_workforce
+            value = 0.0
+            index = company_slot_temp
+        }
+        add_to_array = {
+            array = CAC_companies_sector_buildings
+            value = 0
+            index = company_slot_temp
+        }
+
+        # company modifiers
+        add_to_array = {
+            array = CAC_companies_income_modifier
+            value = 0
+            index = company_slot_temp
+        }
+        add_to_array = {
+            array = CAC_companies_expenses_modifier
+            value = 0
+            index = company_slot_temp
+        }
+
+        add_to_array = {
+            array = CAC_companies_modifier_from_size
+            value = 0
+            index = company_slot_temp
+        }
+
+        set_temp_variable = { cac_skip_update = 0 }
+        CAC_update_variables = yes
+
+        # upgrades
+        if = {
+            limit = { check_variable = { CAC_companies_upgrades_2d^num = 0 } }
+
+            for_loop_effect = {
+                start = 0
+                end = 11
+                value = company_index
+
+                for_loop_effect = {
+                    start = 0
+                    end = 30
+                    value = upgrade_id
+
+                    set_temp_variable = { index = company_index }
+                    multiply_temp_variable = { index = 30 }
+                    add_to_temp_variable = { index = upgrade_id }
+
+                    add_to_array = {
+                        array = CAC_companies_upgrades_2d
+                        value = 3
+                        index = index
+                    }
+                }
+            }
+        }
+
+        if = {
+            limit = { check_variable = { cac_company_type = 0 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 1 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 2 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 3 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 4 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 5 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+        else_if = {
+            limit = { check_variable = { cac_company_type = 6 } }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 0 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+
+            set_temp_variable = { index = company_slot_temp }
+            multiply_temp_variable = { index = 30 }
+            add_to_temp_variable = { index = 11 }
+
+            set_variable = { CAC_companies_upgrades_2d^index = 2 }
+        }
+    }
+}
+
+# CAC_modify_money_effect
+# Required Input: cac_money_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company money on slot cac_slot by cac_money_change
+CAC_modify_money_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_money_tt
+
+        add_to_variable = { CAC_companies_money^cac_slot = cac_money_change }
+        add_to_variable = { CAC_companies_value^cac_slot = cac_money_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_additional_income_effect
+# Required Input: cac_additional_income_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company additional income on slot cac_slot by cac_additional_income_change
+CAC_modify_additional_income_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_additional_income_tt
+
+        add_to_variable = { CAC_companies_additional_income^cac_slot = cac_additional_income_change }
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_additional_expenses_effect
+# Required Input: cac_additional_expenses_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company additional expenses on slot cac_slot by cac_additional_expenses_change
+CAC_modify_additional_expenses_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_additional_expenses_tt
+
+        add_to_variable = { CAC_companies_additional_expenses^cac_slot = cac_additional_expenses_change }
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_income_per_factory_effect
+# Required Input: cac_income_per_factory_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company factory income on slot cac_slot by cac_income_per_factory_change
+CAC_modify_income_per_factory_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_income_per_factory_tt
+
+        add_to_variable = { CAC_companies_income_per_factory^cac_slot = cac_income_per_factory_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_expenses_per_factory_effect
+# Required Input: cac_expenses_per_factory_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company factory expenses on slot cac_slot by cac_expenses_per_factory_change
+CAC_modify_expenses_per_factory_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_expenses_per_factory_tt
+
+        add_to_variable = { CAC_companies_expenses_per_factory^cac_slot = cac_expenses_per_factory_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_income_modifier_effect
+# Required Input: cac_income_modifier_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company factory income modifier on slot cac_slot by cac_income_modifier_change
+CAC_modify_income_modifier_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_income_modifier_tt
+
+        add_to_variable = { CAC_companies_income_modifier^cac_slot = cac_income_modifier_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_expenses_modifier_effect
+# Required Input: cac_expenses_modifier_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company factory expenses modifier on slot cac_slot by cac_expenses_modifier_change
+CAC_modify_expenses_modifier_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_expenses_modifier_tt
+
+        add_to_variable = { CAC_companies_expenses_modifier^cac_slot = cac_expenses_modifier_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_size_effect
+# Required Input: cac_size_change (float)
+# Required Input: cac_slot (int)
+# Purpose: Change company factory size on slot cac_slot by cac_size_change
+CAC_modify_size_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        custom_effect_tooltip = CAC_modify_size_tt
+
+        add_to_variable = { CAC_companies_size^cac_slot = cac_size_change }
+
+        CAC_update_variables = yes
+    }
+}
+
+# CAC_modify_upgrade_status_effect
+# Required Input: cac_slot (int)
+# Required Input: cac_upgrade (int)
+# Required Input: cac_new_status (int) 1 - completed 2 - available 3 - blocked
+# Purpose: Change company upgrade status on slot cac_slot by cac_new_status
+CAC_modify_upgrade_status_effect = {
+    if = {
+        limit = {
+            AND = {
+                check_variable = { cac_slot > -1 }
+                check_variable = { cac_slot < CAC_companies^num }
+            }
+        }
+
+        set_temp_variable = { index = cac_slot }
+		multiply_temp_variable = { index = 30 }
+		add_to_temp_variable = { index = cac_upgrade }
+
+		set_variable = { CAC_companies_upgrades_2d^index = cac_new_status }
+
+        if = {
+            limit = { check_variable = { cac_new_status = 1 } }
+            #custom_effect_tooltip = CAC_modify_upgrade_status_1_tt
+        }
+        else_if = {
+            limit = { check_variable = { cac_new_status = 2 } }
+            #custom_effect_tooltip = CAC_modify_upgrade_status_2_tt
+        }
+        else_if = {
+            limit = { check_variable = { cac_new_status = 3 } }
+            #custom_effect_tooltip = CAC_modify_upgrade_status_3_tt
+        }
+    }
+}
+
+# CAC_complete_upgrade_effect
+# Required Input: cac_base_money_change (int)
+# Required Input: cac_slot (int)
+# Purpose: Remove money from company on upgrade
+CAC_complete_upgrade_effect = {
+    set_temp_variable = { cac_money_change_modifier = 1 }
+    add_to_temp_variable = { cac_money_change_modifier = CAC_companies_modifier_from_size^cac_slot }
+
+    multiply_temp_variable = { cac_base_money_change = cac_money_change_modifier }
+
+    add_to_variable = { CAC_companies_money^cac_slot = cac_base_money_change }
+    add_to_variable = { CAC_companies_value^cac_slot = cac_base_money_change }
+
+    CAC_update_variables = yes
+}
+
+# MODIFIERS
+
+# CAC_modify_modifier_political_power_effect
+# Required Input: cac_modifier_political_power_change (float)
+# Purpose: Change company political power modifier by cac_modifier_political_power_change
+CAC_modify_modifier_political_power_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_political_power_tt
+    add_to_variable = { CAC_modifier_political_power = cac_modifier_political_power_change }
+}
+
+# CAC_modify_modifier_opinion_gain_effect
+# Required Input: cac_modifier_opinion_gain_change (float)
+# Purpose: Change company opinion gain modifier by cac_modifier_opinion_gain_change
+CAC_modify_modifier_opinion_gain_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_opinion_gain_tt
+    add_to_variable = { CAC_modifier_opinion_gain = cac_modifier_opinion_gain_change }
+}
+
+# CAC_modify_modifier_consumer_goods_effect
+# Required Input: cac_modifier_consumer_goods_change (float)
+# Purpose: Change company consumer goods modifier by cac_modifier_consumer_goods_change
+CAC_modify_modifier_consumer_goods_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_consumer_goods_tt
+    add_to_variable = { CAC_modifier_consumer_goods = cac_modifier_consumer_goods_change }
+}
+
+# CAC_modify_modifier_total_workforce_effect
+# Required Input: cac_modifier_total_workforce_change (float)
+# Purpose: Change company total workforce modifier by cac_modifier_total_workforce_change
+CAC_modify_modifier_total_workforce_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_total_workforce_tt
+    add_to_variable = { CAC_modifier_total_workforce = cac_modifier_total_workforce_change }
+}
+
+# CAC_modify_modifier_tax_gain_multiplier_effect
+# Required Input: cac_modifier_tax_gain_multiplier_change (float)
+# Purpose: Change company tax gain multiplier modifier by cac_modifier_tax_gain_multiplier_change
+CAC_modify_modifier_tax_gain_multiplier_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_tax_gain_multiplier_tt
+    add_to_variable = { CAC_modifier_tax_gain_multiplier = cac_modifier_tax_gain_multiplier_change }
+}
+
+# CAC_modify_office_park_income_tax_effect
+# Required Input: cac_modifier_office_park_income_tax_change (float)
+# Purpose: Change company office park income tax modifier by cac_modifier_office_park_income_tax_change
+CAC_modify_office_park_income_tax_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_office_park_income_tax_tt
+    add_to_variable = { CAC_modifier_office_park_income_tax = cac_modifier_office_park_income_tax_change }
+}
+
+# CAC_modify_modifier_interest_rate_multiplier_effect
+# Required Input: cac_modifier_interest_rate_multiplier_change (int)
+# Purpose: Change company interest rate multiplier modifier by cac_modifier_interest_rate_multiplier_change
+CAC_modify_modifier_interest_rate_multiplier_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_interest_rate_multiplier_tt
+    add_to_variable = { CAC_modifier_interest_rate_multiplier = cac_modifier_interest_rate_multiplier_change }
+}
+
+# CAC_modify_modifier_health_cost_effect
+# Required Input: cac_modifier_health_cost_change (float)
+# Purpose: Change company health cost modifier by cac_modifier_health_cost_change
+CAC_modify_modifier_health_cost_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_health_cost_tt
+    add_to_variable = { CAC_modifier_health_cost = cac_modifier_health_cost_change }
+}
+
+# CAC_modify_modifier_return_on_investment_effect
+# Required Input: cac_modifier_return_on_investment_change (float)
+# Purpose: Change company return on investment modifier by cac_modifier_return_on_investment_change
+CAC_modify_modifier_return_on_investment_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_return_on_investment_tt
+    add_to_variable = { CAC_modifier_return_on_investment = cac_modifier_return_on_investment_change }
+}
+
+# CAC_modify_modifier_investment_cost_effect
+# Required Input: cac_modifier_investment_cost_change (float)
+# Purpose: Change company investment cost modifier by cac_modifier_investment_cost_change
+CAC_modify_modifier_investment_cost_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_investment_cost_tt
+    add_to_variable = { CAC_modifier_investment_cost = cac_modifier_investment_cost_change }
+}
+
+# CAC_modify_modifier_productivity_growth_effect
+# Required Input: cac_modifier_productivity_growth_change (float)
+# Purpose: Change company productivity growth modifier by cac_modifier_productivity_growth_change
+CAC_modify_modifier_productivity_growth_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_productivity_growth_tt
+    add_to_variable = { CAC_modifier_productivity_growth = cac_modifier_productivity_growth_change }
+}
+
+# CAC_modify_modifier_energy_gain_effect
+# Required Input: cac_modifier_energy_gain_change (float)
+# Purpose: Change company energy gain modifier by cac_modifier_energy_gain_change
+CAC_modify_modifier_energy_gain_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_energy_gain_tt
+    add_to_variable = { CAC_modifier_energy_gain = cac_modifier_energy_gain_change }
+}
+
+# CAC_modify_modifier_renewable_energy_gain_effect
+# Required Input: cac_modifier_renewable_energy_gain_change (float)
+# Purpose: Change company renewable energy gain modifier by cac_modifier_renewable_energy_gain_change
+CAC_modify_modifier_renewable_energy_gain_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_renewable_energy_gain_tt
+    add_to_variable = { CAC_modifier_renewable_energy_gain = cac_modifier_renewable_energy_gain_change }
+}
+
+# CAC_modify_modifier_fossil_pp_energy_generation_effect
+# Required Input: cac_modifier_fossil_pp_energy_generation_change (float)
+# Purpose: Change company fossil PP energy generation modifier by cac_modifier_fossil_pp_energy_generation_change
+CAC_modify_modifier_fossil_pp_energy_generation_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_fossil_pp_energy_generation_tt
+    add_to_variable = { CAC_modifier_fossil_pp_energy_generation = cac_modifier_fossil_pp_energy_generation_change }
+}
+
+# CAC_modify_modifier_nuclear_energy_generation_effect
+# Required Input: cac_modifier_nuclear_energy_generation_change (float)
+# Purpose: Change company nuclear energy generation modifier by cac_modifier_nuclear_energy_generation_change
+CAC_modify_modifier_nuclear_energy_generation_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_nuclear_energy_generation_tt
+    add_to_variable = { CAC_modifier_nuclear_energy_generation = cac_modifier_nuclear_energy_generation_change }
+}
+
+# CAC_modify_modifier_energy_use_effect
+# Required Input: cac_modifier_energy_use_change (float)
+# Purpose: Change company energy use modifier by cac_modifier_energy_use_change
+CAC_modify_modifier_energy_use_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_energy_use_tt
+    add_to_variable = { CAC_modifier_energy_use = cac_modifier_energy_use_change }
+}
+
+# CAC_modify_modifier_pop_energy_use_effect
+# Required Input: cac_modifier_pop_energy_use_change (float)
+# Purpose: Change company pop energy use modifier by cac_modifier_pop_energy_use_change
+CAC_modify_modifier_pop_energy_use_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_pop_energy_use_tt
+    add_to_variable = { CAC_modifier_pop_energy_use = cac_modifier_pop_energy_use_change }
+}
+
+# CAC_modify_modifier_production_factory_efficiency_gain_effect
+# Required Input: cac_modifier_production_factory_efficiency_gain_change (float)
+# Purpose: Change company factory efficiency gain modifier by cac_modifier_production_factory_efficiency_gain_change
+CAC_modify_modifier_production_factory_efficiency_gain_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_production_factory_efficiency_gain_tt
+    add_to_variable = { CAC_modifier_production_factory_efficiency_gain = cac_modifier_production_factory_efficiency_gain_change }
+}
+
+# CAC_modify_modifier_production_factory_max_efficiency_effect
+# Required Input: cac_modifier_production_factory_max_efficiency_change (float)
+# Purpose: Change company factory max efficiency modifier by cac_modifier_production_factory_max_efficiency_change
+CAC_modify_modifier_production_factory_max_efficiency_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_production_factory_max_efficiency_tt
+    add_to_variable = { CAC_modifier_production_factory_max_efficiency = cac_modifier_production_factory_max_efficiency_change }
+}
+
+# CAC_modify_modifier_production_lack_of_resource_penalty_effect
+# Required Input: cac_modifier_production_lack_of_resource_penalty_change (float)
+# Purpose: Change company lack of resource penalty modifier by cac_modifier_production_lack_of_resource_penalty_change
+CAC_modify_modifier_production_lack_of_resource_penalty_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_production_lack_of_resource_penalty_tt
+    add_to_variable = { CAC_modifier_production_lack_of_resource_penalty = cac_modifier_production_lack_of_resource_penalty_change }
+}
+
+# CAC_modify_modifier_industrial_capacity_factory_effect
+# Required Input: cac_modifier_industrial_capacity_factory_change (float)
+# Purpose: Change company industrial capacity (factory) modifier by cac_modifier_industrial_capacity_factory_change
+CAC_modify_modifier_industrial_capacity_factory_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_industrial_capacity_factory_tt
+    add_to_variable = { CAC_modifier_industrial_capacity_factory = cac_modifier_industrial_capacity_factory_change }
+}
+
+# CAC_modify_modifier_industrial_capacity_dockyard_effect
+# Required Input: cac_modifier_industrial_capacity_dockyard_change (float)
+# Purpose: Change company industrial capacity (dockyard) modifier by cac_modifier_industrial_capacity_dockyard_change
+CAC_modify_modifier_industrial_capacity_dockyard_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_industrial_capacity_dockyard_tt
+    add_to_variable = { CAC_modifier_industrial_capacity_dockyard = cac_modifier_industrial_capacity_dockyard_change }
+}
+
+# CAC_modify_modifier_production_speed_buildings_effect
+# Required Input: cac_modifier_production_speed_buildings_change (float)
+# Purpose: Change company production speed (buildings) modifier by cac_modifier_production_speed_buildings_change
+CAC_modify_modifier_production_speed_buildings_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_production_speed_buildings_tt
+    add_to_variable = { CAC_modifier_production_speed_buildings = cac_modifier_production_speed_buildings_change }
+}
+
+# CAC_modify_modifier_production_speed_industrial_complex_effect
+# Required Input: cac_modifier_production_speed_industrial_complex_change (float)
+# Purpose: Change company production speed (industrial complex) modifier by cac_modifier_production_speed_industrial_complex_change
+CAC_modify_modifier_production_speed_industrial_complex_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_production_speed_industrial_complex_tt
+    add_to_variable = { CAC_modifier_production_speed_industrial_complex = cac_modifier_production_speed_industrial_complex_change }
+}
+
+# CAC_modify_modifier_trade_opinion_effect
+# Required Input: cac_modifier_trade_opinion_change (float)
+# Purpose: Change company trade opinion modifier by cac_modifier_trade_opinion_change
+CAC_modify_modifier_trade_opinion_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_trade_opinion_tt
+    add_to_variable = { CAC_modifier_trade_opinion = cac_modifier_trade_opinion_change }
+}
+
+# CAC_modify_modifier_min_export_effect
+# Required Input: cac_modifier_min_export_change (float)
+# Purpose: Change company minimum export modifier by cac_modifier_min_export_change
+CAC_modify_modifier_min_export_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_min_export_tt
+    add_to_variable = { CAC_modifier_min_export = cac_modifier_min_export_change }
+}
+
+# CAC_modify_modifier_country_resource_oil_effect
+# Required Input: cac_modifier_country_resource_oil_change (float)
+# Purpose: Change company oil resource modifier by cac_modifier_country_resource_oil_change
+CAC_modify_modifier_country_resource_oil_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_oil_tt
+    add_to_variable = { CAC_modifier_country_resource_oil = cac_modifier_country_resource_oil_change }
+}
+
+# CAC_modify_modifier_country_resource_aluminium_effect
+# Required Input: cac_modifier_country_resource_aluminium_change (float)
+# Purpose: Change company aluminium resource modifier by cac_modifier_country_resource_aluminium_change
+CAC_modify_modifier_country_resource_aluminium_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_aluminium_tt
+    add_to_variable = { CAC_modifier_country_resource_aluminium = cac_modifier_country_resource_aluminium_change }
+}
+
+# CAC_modify_modifier_country_resource_rubber_effect
+# Required Input: cac_modifier_country_resource_rubber_change (float)
+# Purpose: Change company rubber resource modifier by cac_modifier_country_resource_rubber_change
+CAC_modify_modifier_country_resource_rubber_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_rubber_tt
+    add_to_variable = { CAC_modifier_country_resource_rubber = cac_modifier_country_resource_rubber_change }
+}
+
+# CAC_modify_modifier_country_resource_tungsten_effect
+# Required Input: cac_modifier_country_resource_tungsten_change (float)
+# Purpose: Change company tungsten resource modifier by cac_modifier_country_resource_tungsten_change
+CAC_modify_modifier_country_resource_tungsten_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_tungsten_tt
+    add_to_variable = { CAC_modifier_country_resource_tungsten = cac_modifier_country_resource_tungsten_change }
+}
+
+# CAC_modify_modifier_country_resource_steel_effect
+# Required Input: cac_modifier_country_resource_steel_change (float)
+# Purpose: Change company steel resource modifier by cac_modifier_country_resource_steel_change
+CAC_modify_modifier_country_resource_steel_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_steel_tt
+    add_to_variable = { CAC_modifier_country_resource_steel = cac_modifier_country_resource_steel_change }
+}
+
+# CAC_modify_modifier_country_resource_chromium_effect
+# Required Input: cac_modifier_country_resource_chromium_change (float)
+# Purpose: Change company chromium resource modifier by cac_modifier_country_resource_chromium_change
+CAC_modify_modifier_country_resource_chromium_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_country_resource_chromium_tt
+    add_to_variable = { CAC_modifier_country_resource_chromium = cac_modifier_country_resource_chromium_change }
+}
+
+# CAC_modify_modifier_fuel_gain_effect
+# Required Input: cac_modifier_fuel_gain_change (float)
+# Purpose: Change company fuel gain modifier by cac_modifier_fuel_gain_change
+CAC_modify_modifier_fuel_gain_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_fuel_gain_tt
+    add_to_variable = { CAC_modifier_fuel_gain = cac_modifier_fuel_gain_change }
+}
+
+# CAC_modify_modifier_research_speed_effect
+# Required Input: cac_modifier_research_speed_change (float)
+# Purpose: Change company research speed modifier by cac_modifier_research_speed_change
+CAC_modify_modifier_research_speed_effect = {
+    custom_effect_tooltip = CAC_modify_modifiers_research_speed_tt
+    add_to_variable = { CAC_modifier_research_speed = cac_modifier_research_speed_change }
+}
+
+# CAC_update_building_stats
+# Purpose: Computes building-count-derived values for all 7 company slots:
+# maintenance, workforce (stored as negative), and sector_buildings.
+# Called monthly and at startup (before CAC_update_variables).
+# These values only change when construction completes, so monthly cadence is sufficient.
+CAC_update_building_stats = {
+	# Pre-compute shared workforce scaling factor (gdp_per_capita * 0.007) used by all 7 slots
+	set_temp_variable = { cac_gdpc_scaled = gdp_per_capita }
+	multiply_temp_variable = { cac_gdpc_scaled = 0.007 }
+
+	# Slot 0 — Banking & Finance (offices)
+	set_variable = { CAC_companies_maintenance^0 = office_park_total }
+	multiply_variable = { CAC_companies_maintenance^0 = 0.01260 }         # 12.00 * 0.15 * 0.007
+	multiply_variable = { CAC_companies_maintenance^0 = -1 }
+	set_temp_variable = { cac_workforce_cost = office_park_total }
+	multiply_temp_variable = { cac_workforce_cost = 0.630 }               # workers_per_office
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	set_variable = { CAC_companies_workforce^0 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^0 = -1 }
+	set_variable = { CAC_companies_sector_buildings^0 = office_park_total }
+
+	# Slot 1 — Mining & Resources (synthetic refineries + agriculture + resource extraction)
+	set_variable = { CAC_companies_maintenance^1 = synthetic_refinery_total }
+	multiply_variable = { CAC_companies_maintenance^1 = 0.00630 }         # 6.00 * 0.15 * 0.007
+	set_temp_variable = { cac_agri_maintenance = agriculture_district_total }
+	multiply_temp_variable = { cac_agri_maintenance = 0.00525 }           # 5.00 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^1 = cac_agri_maintenance }
+	multiply_variable = { CAC_companies_maintenance^1 = -1 }
+	set_temp_variable = { cac_workforce_cost = synthetic_refinery_total }
+	multiply_temp_variable = { cac_workforce_cost = 0.245 }               # workers_per_synthetic_refinery
+	multiply_temp_variable = { cac_workforce_cost = synthetic_refinery_manpower_fulfillment }
+	set_temp_variable = { cac_agri_workforce = agriculture_district_total }
+	multiply_temp_variable = { cac_agri_workforce = 0.250 }               # workers_per_agriculture_district
+	multiply_temp_variable = { cac_agri_workforce = agriculture_district_manpower_fulfillment }
+	add_to_temp_variable = { cac_workforce_cost = cac_agri_workforce }
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	# Add resource extraction workers (already in millions, GDP-adjusted; scale by wage factor)
+	set_temp_variable = { cac_resource_workforce_cost = resource_sector_workers }
+	multiply_temp_variable = { cac_resource_workforce_cost = resource_sector_worker_fulfillment }
+	multiply_temp_variable = { cac_resource_workforce_cost = cac_gdpc_scaled }
+	add_to_temp_variable = { cac_workforce_cost = cac_resource_workforce_cost }
+	set_variable = { CAC_companies_workforce^1 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^1 = -1 }
+	set_variable = { CAC_companies_sector_buildings^1 = synthetic_refinery_total }
+	add_to_variable = { CAC_companies_sector_buildings^1 = agriculture_district_total }
+
+	# Slot 2 — Energy & Utilities (fuel silos + fossil powerplants + nuclear reactors + renewable energy)
+	set_variable = { CAC_companies_maintenance^2 = fuel_silos }
+	multiply_variable = { CAC_companies_maintenance^2 = 0.00315 }         # 3.00 * 0.15 * 0.007
+	set_temp_variable = { cac_energy_maint = number_of_fossil_pps }
+	multiply_temp_variable = { cac_energy_maint = 0.00341 }               # 3.25 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^2 = cac_energy_maint }
+	set_temp_variable = { cac_energy_maint = nuclear_reactors }
+	multiply_temp_variable = { cac_energy_maint = 0.00945 }               # 9.00 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^2 = cac_energy_maint }
+	set_temp_variable = { cac_energy_maint = renewable_energy_infra }
+	multiply_temp_variable = { cac_energy_maint = 0.00893 }               # 8.50 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^2 = cac_energy_maint }
+	multiply_variable = { CAC_companies_maintenance^2 = -1 }
+	set_temp_variable = { cac_workforce_cost = fuel_silos }
+	multiply_temp_variable = { cac_workforce_cost = 0.010 }               # workers_per_fuel_silo
+	set_temp_variable = { cac_energy_workforce = number_of_fossil_pps }
+	multiply_temp_variable = { cac_energy_workforce = 0.075 }             # workers_per_fossil_powerplant
+	multiply_temp_variable = { cac_energy_workforce = fossil_powerplant_manpower_fulfillment }
+	add_to_temp_variable = { cac_workforce_cost = cac_energy_workforce }
+	set_temp_variable = { cac_energy_workforce = nuclear_reactors }
+	multiply_temp_variable = { cac_energy_workforce = 0.100 }             # workers_per_nuclear_reactor
+	multiply_temp_variable = { cac_energy_workforce = nuclear_reactor_manpower_fulfillment }
+	add_to_temp_variable = { cac_workforce_cost = cac_energy_workforce }
+	set_temp_variable = { cac_energy_workforce = renewable_energy_infra }
+	multiply_temp_variable = { cac_energy_workforce = 0.030 }             # workers_per_renewable_energy
+	multiply_temp_variable = { cac_energy_workforce = renewable_energy_infra_manpower_fulfillment }
+	add_to_temp_variable = { cac_workforce_cost = cac_energy_workforce }
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	set_variable = { CAC_companies_workforce^2 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^2 = -1 }
+	set_variable = { CAC_companies_sector_buildings^2 = fuel_silos }
+	add_to_variable = { CAC_companies_sector_buildings^2 = number_of_fossil_pps }
+	add_to_variable = { CAC_companies_sector_buildings^2 = nuclear_reactors }
+	add_to_variable = { CAC_companies_sector_buildings^2 = renewable_energy_infra }
+
+	# Slot 3 — Defense (military factories + dockyards)
+	set_variable = { CAC_companies_maintenance^3 = military_fac }
+	add_to_variable = { CAC_companies_maintenance^3 = dockyard_fac }
+	multiply_variable = { CAC_companies_maintenance^3 = 0.007875 }        # 7.50 * 0.15 * 0.007
+	multiply_variable = { CAC_companies_maintenance^3 = -1 }
+	set_temp_variable = { cac_workforce_cost = military_fac }
+	add_to_temp_variable = { cac_workforce_cost = dockyard_fac }
+	multiply_temp_variable = { cac_workforce_cost = 0.025 }               # workers_per_mil_fac / workers_per_dockyard
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	set_variable = { CAC_companies_workforce^3 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^3 = -1 }
+	set_variable = { CAC_companies_sector_buildings^3 = military_fac }
+	add_to_variable = { CAC_companies_sector_buildings^3 = dockyard_fac }
+
+	# Slot 4 — Technology & Communications (microchip plants + composite plants + internet stations)
+	set_variable = { CAC_companies_maintenance^4 = microchip_plant_total }
+	multiply_variable = { CAC_companies_maintenance^4 = 0.01575 }         # 15.00 * 0.15 * 0.007
+	set_temp_variable = { cac_composite_maintenance = composite_plant_total }
+	multiply_temp_variable = { cac_composite_maintenance = 0.01365 }      # 13.00 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^4 = cac_composite_maintenance }
+	set_temp_variable = { cac_internet_maintenance = internet_station_total }
+	multiply_temp_variable = { cac_internet_maintenance = 0.00315 }       # 3.00 * 0.15 * 0.007
+	add_to_variable = { CAC_companies_maintenance^4 = cac_internet_maintenance }
+	multiply_variable = { CAC_companies_maintenance^4 = -1 }
+	set_temp_variable = { cac_workforce_cost = microchip_plant_total }
+	multiply_temp_variable = { cac_workforce_cost = 0.050 }               # workers_per_microchip_plant
+	set_temp_variable = { cac_composite_workforce = composite_plant_total }
+	multiply_temp_variable = { cac_composite_workforce = 0.050 }          # workers_per_composite_plant
+	add_to_temp_variable = { cac_workforce_cost = cac_composite_workforce }
+	set_temp_variable = { cac_internet_workforce = internet_station_total }
+	multiply_temp_variable = { cac_internet_workforce = 0.030 }           # workers_per_internet_station
+	multiply_temp_variable = { cac_internet_workforce = internet_station_manpower_fulfillment }
+	add_to_temp_variable = { cac_workforce_cost = cac_internet_workforce }
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	set_variable = { CAC_companies_workforce^4 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^4 = -1 }
+	set_variable = { CAC_companies_sector_buildings^4 = microchip_plant_total }
+	add_to_variable = { CAC_companies_sector_buildings^4 = composite_plant_total }
+	add_to_variable = { CAC_companies_sector_buildings^4 = internet_station_total }
+
+	# Slot 5 — Construction & Infrastructure (civilian factories)
+	set_variable = { CAC_companies_maintenance^5 = industrial_complex_total }
+	multiply_variable = { CAC_companies_maintenance^5 = 0.007875 }        # 7.50 * 0.15 * 0.007
+	multiply_variable = { CAC_companies_maintenance^5 = -1 }
+	set_temp_variable = { cac_workforce_cost = industrial_complex_total }
+	multiply_temp_variable = { cac_workforce_cost = 0.275 }               # workers_per_civ_fac
+	multiply_temp_variable = { cac_workforce_cost = cac_gdpc_scaled }
+	set_variable = { CAC_companies_workforce^5 = cac_workforce_cost }
+	multiply_variable = { CAC_companies_workforce^5 = -1 }
+	set_variable = { CAC_companies_sector_buildings^5 = industrial_complex_total }
+
+	# Slot 6 — Healthcare & Pharma (scales with state_hospital_need)
+	#TODO: add modifier so that increased health requires increased maintenance
+	set_variable = { CAC_companies_maintenance^6 = state_hospital_need }
+	multiply_variable = { CAC_companies_maintenance^6 = 0.175 }
+	multiply_variable = { CAC_companies_maintenance^6 = -1 }
+	set_variable = { CAC_companies_workforce^6 = state_hospital_need }
+	multiply_variable = { CAC_companies_workforce^6 = cac_gdpc_scaled }
+	multiply_variable = { CAC_companies_workforce^6 = -1 }
+	set_variable = { CAC_companies_sector_buildings^6 = 0 }
+}
+
+# CAC_update_variables
+# Purpose: Computes per-company taxes (needed for corporate_tax → tax_gain) and, for human
+# players only, refreshes income/revenue/display_expenses display arrays.
+# Called from calculate_tax_gain weekly and from CAC_modify_* effects on player actions.
+# Guarded by cac_skip_all_updates during startup initialization.
+# Maintenance and workforce are pre-computed monthly (stored as negative) by
+# CAC_update_building_stats and added directly into revenue/display_expenses here.
+CAC_update_variables = {
+	if = {
+		limit = { NOT = { check_variable = { cac_skip_all_updates = 1 } } }
+
+		# cac_gdpc_scaled needed for energy income (slot 2) — computed for both AI and human
+		set_temp_variable = { cac_gdpc_scaled = gdp_per_capita }
+		multiply_temp_variable = { cac_gdpc_scaled = 0.007 }
+
+		# Slot 0 — Banking & Finance (offices)
+		# Tax stored positive, used in display block, then negated for corporate_tax subtraction trick.
+		set_variable = { CAC_companies_taxes^0 = office_tax }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^0 = office_gross_income }
+			set_variable = { CAC_companies_revenue^0 = CAC_companies_income^0 }
+			subtract_from_variable = { CAC_companies_revenue^0 = CAC_companies_taxes^0 }
+			add_to_variable = { CAC_companies_revenue^0 = CAC_companies_additional_income^0 }
+			subtract_from_variable = { CAC_companies_revenue^0 = CAC_companies_additional_expenses^0 }
+			add_to_variable = { CAC_companies_revenue^0 = CAC_companies_maintenance^0 }
+			add_to_variable = { CAC_companies_revenue^0 = CAC_companies_workforce^0 }
+			set_variable = { CAC_companies_display_expenses^0 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^0 = CAC_companies_taxes^0 }
+			subtract_from_variable = { CAC_companies_display_expenses^0 = CAC_companies_additional_expenses^0 }
+			add_to_variable = { CAC_companies_display_expenses^0 = CAC_companies_maintenance^0 }
+			add_to_variable = { CAC_companies_display_expenses^0 = CAC_companies_workforce^0 }
+		}
+		multiply_variable = { CAC_companies_taxes^0 = -1 }
+
+		# Slot 1 — Mining & Resources (resource exports + synthetic refineries + agriculture)
+		set_variable = { CAC_companies_taxes^1 = synthetic_refinery_tax }
+		add_to_variable = { CAC_companies_taxes^1 = agriculture_district_tax }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^1 = CAC_resource_sale_cic_adjusted }
+			add_to_variable = { CAC_companies_income^1 = synthetic_gross_income }
+			add_to_variable = { CAC_companies_income^1 = agriculture_district_gross_income }
+			set_variable = { CAC_companies_revenue^1 = CAC_companies_income^1 }
+			subtract_from_variable = { CAC_companies_revenue^1 = CAC_companies_taxes^1 }
+			add_to_variable = { CAC_companies_revenue^1 = CAC_companies_additional_income^1 }
+			subtract_from_variable = { CAC_companies_revenue^1 = CAC_companies_additional_expenses^1 }
+			add_to_variable = { CAC_companies_revenue^1 = CAC_companies_maintenance^1 }
+			add_to_variable = { CAC_companies_revenue^1 = CAC_companies_workforce^1 }
+			set_variable = { CAC_companies_display_expenses^1 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^1 = CAC_companies_taxes^1 }
+			subtract_from_variable = { CAC_companies_display_expenses^1 = CAC_companies_additional_expenses^1 }
+			add_to_variable = { CAC_companies_display_expenses^1 = CAC_companies_maintenance^1 }
+			add_to_variable = { CAC_companies_display_expenses^1 = CAC_companies_workforce^1 }
+		}
+		multiply_variable = { CAC_companies_taxes^1 = -1 }
+
+		# Slot 2 — Energy & Utilities (fuel silos + fossil powerplants + nuclear reactors + renewable energy)
+		# Income computed in temps; tax stored directly from temp (avoids reading persistent income^2).
+		set_temp_variable = { cac_energy_income = fuel_silos }
+		multiply_temp_variable = { cac_energy_income = 0.05 }            # income_rate_fuel_silo
+		set_temp_variable = { cac_energy_temp = number_of_fossil_pps }
+		multiply_temp_variable = { cac_energy_temp = 0.35 }              # income_rate_fossil_powerplant
+		add_to_temp_variable = { cac_energy_income = cac_energy_temp }
+		set_temp_variable = { cac_energy_temp = nuclear_reactors }
+		multiply_temp_variable = { cac_energy_temp = 0.60 }              # income_rate_nuclear_reactor
+		add_to_temp_variable = { cac_energy_income = cac_energy_temp }
+		set_temp_variable = { cac_energy_temp = renewable_energy_infra }
+		multiply_temp_variable = { cac_energy_temp = 0.20 }              # income_rate_renewable_energy
+		add_to_temp_variable = { cac_energy_income = cac_energy_temp }
+		multiply_temp_variable = { cac_energy_income = cac_gdpc_scaled }
+		set_temp_variable = { energy_consumption_mod = 1 }
+		add_to_temp_variable = { energy_consumption_mod = modifier@energy_sector_consumption_multiplier_modifier }
+		multiply_temp_variable = { cac_energy_income = energy_consumption_mod }
+		set_variable = { CAC_companies_taxes^2 = cac_energy_income }
+		multiply_variable = { CAC_companies_taxes^2 = corporate_tax_rate }
+		multiply_variable = { CAC_companies_taxes^2 = 0.01 }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^2 = cac_energy_income }
+			set_variable = { CAC_companies_revenue^2 = CAC_companies_income^2 }
+			subtract_from_variable = { CAC_companies_revenue^2 = CAC_companies_taxes^2 }
+			add_to_variable = { CAC_companies_revenue^2 = CAC_companies_additional_income^2 }
+			subtract_from_variable = { CAC_companies_revenue^2 = CAC_companies_additional_expenses^2 }
+			add_to_variable = { CAC_companies_revenue^2 = CAC_companies_maintenance^2 }
+			add_to_variable = { CAC_companies_revenue^2 = CAC_companies_workforce^2 }
+			set_variable = { CAC_companies_display_expenses^2 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^2 = CAC_companies_taxes^2 }
+			subtract_from_variable = { CAC_companies_display_expenses^2 = CAC_companies_additional_expenses^2 }
+			add_to_variable = { CAC_companies_display_expenses^2 = CAC_companies_maintenance^2 }
+			add_to_variable = { CAC_companies_display_expenses^2 = CAC_companies_workforce^2 }
+		}
+		multiply_variable = { CAC_companies_taxes^2 = -1 }
+
+		# Slot 3 — Defense (military factories + dockyards)
+		set_variable = { CAC_companies_taxes^3 = military_fac_tax }
+		add_to_variable = { CAC_companies_taxes^3 = dockyard_tax }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^3 = military_gross_income }
+			add_to_variable = { CAC_companies_income^3 = dockyard_gross_income }
+			set_variable = { CAC_companies_revenue^3 = CAC_companies_income^3 }
+			subtract_from_variable = { CAC_companies_revenue^3 = CAC_companies_taxes^3 }
+			add_to_variable = { CAC_companies_revenue^3 = CAC_companies_additional_income^3 }
+			subtract_from_variable = { CAC_companies_revenue^3 = CAC_companies_additional_expenses^3 }
+			add_to_variable = { CAC_companies_revenue^3 = CAC_companies_maintenance^3 }
+			add_to_variable = { CAC_companies_revenue^3 = CAC_companies_workforce^3 }
+			set_variable = { CAC_companies_display_expenses^3 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^3 = CAC_companies_taxes^3 }
+			subtract_from_variable = { CAC_companies_display_expenses^3 = CAC_companies_additional_expenses^3 }
+			add_to_variable = { CAC_companies_display_expenses^3 = CAC_companies_maintenance^3 }
+			add_to_variable = { CAC_companies_display_expenses^3 = CAC_companies_workforce^3 }
+		}
+		multiply_variable = { CAC_companies_taxes^3 = -1 }
+
+		# Slot 4 — Technology & Communications (microchip plants + composite plants + internet stations)
+		set_variable = { CAC_companies_taxes^4 = microchip_plant_tax }
+		add_to_variable = { CAC_companies_taxes^4 = composite_plant_tax }
+		add_to_variable = { CAC_companies_taxes^4 = internet_station_tax }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^4 = microchip_gross_income }
+			add_to_variable = { CAC_companies_income^4 = composite_gross_income }
+			add_to_variable = { CAC_companies_income^4 = internet_station_gross_income }
+			set_variable = { CAC_companies_revenue^4 = CAC_companies_income^4 }
+			subtract_from_variable = { CAC_companies_revenue^4 = CAC_companies_taxes^4 }
+			add_to_variable = { CAC_companies_revenue^4 = CAC_companies_additional_income^4 }
+			subtract_from_variable = { CAC_companies_revenue^4 = CAC_companies_additional_expenses^4 }
+			add_to_variable = { CAC_companies_revenue^4 = CAC_companies_maintenance^4 }
+			add_to_variable = { CAC_companies_revenue^4 = CAC_companies_workforce^4 }
+			set_variable = { CAC_companies_display_expenses^4 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^4 = CAC_companies_taxes^4 }
+			subtract_from_variable = { CAC_companies_display_expenses^4 = CAC_companies_additional_expenses^4 }
+			add_to_variable = { CAC_companies_display_expenses^4 = CAC_companies_maintenance^4 }
+			add_to_variable = { CAC_companies_display_expenses^4 = CAC_companies_workforce^4 }
+		}
+		multiply_variable = { CAC_companies_taxes^4 = -1 }
+
+		# Slot 5 — Construction & Infrastructure (civilian factories)
+		set_variable = { CAC_companies_taxes^5 = civil_fac_tax }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^5 = civil_gross_income }
+			set_variable = { CAC_companies_revenue^5 = CAC_companies_income^5 }
+			subtract_from_variable = { CAC_companies_revenue^5 = CAC_companies_taxes^5 }
+			add_to_variable = { CAC_companies_revenue^5 = CAC_companies_additional_income^5 }
+			subtract_from_variable = { CAC_companies_revenue^5 = CAC_companies_additional_expenses^5 }
+			add_to_variable = { CAC_companies_revenue^5 = CAC_companies_maintenance^5 }
+			add_to_variable = { CAC_companies_revenue^5 = CAC_companies_workforce^5 }
+			set_variable = { CAC_companies_display_expenses^5 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^5 = CAC_companies_taxes^5 }
+			subtract_from_variable = { CAC_companies_display_expenses^5 = CAC_companies_additional_expenses^5 }
+			add_to_variable = { CAC_companies_display_expenses^5 = CAC_companies_maintenance^5 }
+			add_to_variable = { CAC_companies_display_expenses^5 = CAC_companies_workforce^5 }
+		}
+		multiply_variable = { CAC_companies_taxes^5 = -1 }
+
+		# Slot 6 — Healthcare & Pharma (scales with GDP/C * population)
+		# Income formula: 0.003 * gdp_per_capita * population_total_m
+		# Tax derived directly from temp income to avoid writing persistent income^6 on AI path.
+		set_temp_variable = { cac_healthcare_income = gdp_per_capita }
+		multiply_temp_variable = { cac_healthcare_income = population_total_m }
+		multiply_temp_variable = { cac_healthcare_income = 0.003 }
+		set_variable = { CAC_companies_taxes^6 = cac_healthcare_income }
+		multiply_variable = { CAC_companies_taxes^6 = corporate_tax_rate }
+		multiply_variable = { CAC_companies_taxes^6 = 0.01 }
+		if = { limit = { is_ai = no }
+			set_variable = { CAC_companies_income^6 = cac_healthcare_income }
+			set_variable = { CAC_companies_revenue^6 = CAC_companies_income^6 }
+			add_to_variable = { CAC_companies_revenue^6 = CAC_companies_additional_income^6 }
+			subtract_from_variable = { CAC_companies_revenue^6 = CAC_companies_taxes^6 }
+			add_to_variable = { CAC_companies_revenue^6 = CAC_companies_maintenance^6 }
+			add_to_variable = { CAC_companies_revenue^6 = CAC_companies_workforce^6 }
+			subtract_from_variable = { CAC_companies_revenue^6 = CAC_companies_additional_expenses^6 }
+			set_variable = { CAC_companies_display_expenses^6 = 0 }
+			subtract_from_variable = { CAC_companies_display_expenses^6 = CAC_companies_taxes^6 }
+			subtract_from_variable = { CAC_companies_display_expenses^6 = CAC_companies_additional_expenses^6 }
+			add_to_variable = { CAC_companies_display_expenses^6 = CAC_companies_maintenance^6 }
+			add_to_variable = { CAC_companies_display_expenses^6 = CAC_companies_workforce^6 }
+		}
+		multiply_variable = { CAC_companies_taxes^6 = -1 }
+	}
+}

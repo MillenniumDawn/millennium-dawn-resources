@@ -1,0 +1,13 @@
+{
+  "branch": "origin/feature/government-workforce",
+  "tip_sha": "8f1373a36efcaf0cf5cb838cc28dcf6697d01e4e",
+  "tip_short": "8f1373a36e",
+  "last_author": "Kenneth McCormick",
+  "last_commit_date": "2026-10-21T15:38:43-04:00",
+  "last_commit_subject": "Merge branch 'main' into feature/government-workforce",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "dccdffdcb6f6e4b7a7cf4d4a3220e164a5c2afe4",
+  "diverging_files_3dot": 8,
+  "archived_files": 8,
+  "deleted_paths": []
+}

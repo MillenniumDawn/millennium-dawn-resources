@@ -1,0 +1,692 @@
+# Author(s): AngriestBird
+tax_gain_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+interest_rate_multiplier_modifier = {
+	color_type = bad
+	value_type = number
+	precision = 2
+	category = country
+}
+
+personnel_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+army_personnel_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+navy_personnel_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+airforce_personnel_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+equipment_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+military_spending_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+bureaucracy_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+police_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+education_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+health_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+healthcare_income_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+healthcare_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+education_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+police_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+welfare_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+bureaucracy_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+resource_extraction_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+infrastructure_workforce_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+social_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+resource_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+oil_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+steel_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+aluminium_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+tungsten_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+chromium_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+rubber_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+microchip_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+composite_export_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+econ_cycle_upg_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+cyber_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+tax_rate_change_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+return_on_investment_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+population_tax_income_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+corporate_tax_income_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+salafist_outlook_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+nonaligned_outlook_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+western_outlook_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+emerging_outlook_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+nationalist_outlook_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+propaganda_campaign_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+projects_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+office_park_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+agriculture_district_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+microchip_plant_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+composite_plant_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+synthetic_refinery_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+dockyard_income_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+military_industry_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+civilian_industry_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+agriculture_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+microchip_plant_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+composite_plant_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+synthetic_plant_tax_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+# Modifiers both Subsistence/Commercialized Agriculture District
+agricolture_productivity_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+microchip_plant_productivity_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+composite_plant_productivity_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+synthetic_refinery_productivity_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+civilian_factories_productivity = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+military_factories_productivity = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+dockyard_productivity = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+offices_productivity = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+#dictates how much the country's overall productivity grows monthly, keep it small or it will snowball rapidly
+productivity_growth_modifier = {
+	color_type = good
+	value_type = number
+	precision = 3
+	category = country
+}
+
+civ_facs_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+mil_facs_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+offices_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+agriculture_district_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+microchip_plant_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+composite_plant_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+synthetic_refinery_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+buildings_worker_requirement_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+total_workforce_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+high_unemployment_threshold_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 3
+	category = country
+}
+
+agriculture_workers_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+resource_sector_workers_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+gdp_from_resource_sector_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+#increases a state's productivity growth, does not affect its decrease
+state_productivity_growth_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = state
+}
+#increases a country's productivity growth, does not affect its decrease
+country_productivity_growth_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+un_aid_leased_civs_tracker_modifier = {
+	color_type = good
+	value_type = number
+	precision = 0
+	category = country
+}
+
+international_market_income_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+international_market_purchase_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+border_control_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+# Internal Investments
+internal_investments_pp_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+internal_investments_money_cost_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+#Civilian Microchips
+civilian_chip_consumption_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+industry_chip_consumption_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+inflation_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+inflation_gain_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+infrastructure_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+#per-source upkeep multipliers, stack onto infrastructure_cost_multiplier_modifier for that plant type only (set by the energy tech S-curves)
+#color_type = bad like infrastructure_cost_multiplier_modifier: these are costs, so the negative tech reductions render green
+nuclear_infra_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+fossil_infra_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+renewable_infra_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+internet_infra_cost_multiplier_modifier = {
+	color_type = bad
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+infrastructure_tax_gain_multiplier_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 2
+	category = country
+}
+
+currency_strength_modifier = {
+	color_type = good
+	value_type = number
+	precision = 2
+	category = country
+}
+
+currency_strength_minimum_modifier = {
+	color_type = good
+	value_type = number
+	precision = 2
+	category = country
+}
+
+seigniorage_income_modifier = {
+	color_type = good
+	value_type = percentage
+	precision = 1
+	category = country
+}

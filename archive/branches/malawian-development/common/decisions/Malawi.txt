@@ -1,0 +1,2392 @@
+# ECONOMY # fix
+	# AGRICULTURAL # fix
+		MLW_tea_company = { # fix
+			MLW_tea_company_ENG = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_time_for_tea
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TEA = yes }
+				cost = 50
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = ENG }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = ENG }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = ENG }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tea_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+			MLW_tea_company_RAJ = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_time_for_tea
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TEA = yes }
+				cost = 75
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = RAJ }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = RAJ }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = RAJ }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tea_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+			MLW_tea_company_USA = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_time_for_tea
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TEA = yes }
+				cost = 50
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = USA }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = USA }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = USA }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tea_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+		}
+		MLW_tobacco_company = { # fix
+			MLW_tobacco_company_ENG = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_tobacco_investments
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TOB = yes }
+				cost = 50
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = ENG }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = ENG }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = ENG }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tobacco_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+			MLW_tobacco_company_JAP = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_tobacco_investments
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TOB = yes }
+				cost = 75
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = JAP }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = JAP }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = JAP }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tobacco_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+			MLW_tobacco_company_USA = { # fix
+				icon = decision
+				visible = {
+					# has_completed_focus = MLW_tobacco_investments
+					# is_agrarian_economy = yes
+				}
+				available = { AGRI_NOT_sold_off_rights_to_land_TOB = yes }
+				cost = 50
+				complete_effect = {
+					set_temp_variable = { percent_change = 0.5 }
+					set_temp_variable = { tag_index = USA }
+					set_temp_variable = { influence_target = MLW }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { percent_change = 4 }
+					set_temp_variable = { tag_index = MLW }
+					set_temp_variable = { influence_target = USA }
+					change_influence_percentage = yes
+					newline = yes
+					set_temp_variable = { nation_with_land = MLW }
+					set_temp_variable = { nation_with_industry = USA }
+					set_temp_variable = { land_rights_days = 360 }
+					AGRI_give_tobacco_company_rights = yes
+					# fix
+					#
+					# make this give more income percentage for agricultural exports
+					# if both lands are sold to the same country, double the bonuses
+				}
+			}
+		}
+	# ECO-FRIENDLY
+		MLW_eco_cleanups = {
+			MLW_eco_set_up_skimmer = {
+				icon = decision
+				visible = {
+					check_variable = { MLW_skimmers_set_up < 4 }
+					# has_completed_focus = MLW_avoid_backlash
+				}
+				available = { MLW_not_doing_cleanups = yes }
+				custom_cost_trigger = { check_variable = { treasury > 0.499 } }
+				custom_cost_text = cost_0_5
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -0.5 }
+					modify_treasury_effect = yes
+					set_country_flag = MLW_eco_cleanups_occuring
+				}
+				remove_effect = {
+					set_temp_variable = { DM_health_cost_change = -0.025 }
+					update_MLW_lakeside_healthcare_cost = yes
+					add_to_variable = { MLW_skimmers_set_up = 1 }
+					clr_country_flag = MLW_eco_cleanups_occuring
+				}
+			}
+			MLW_eco_ban_dumping = {
+				icon = decision
+				fire_only_once = yes
+				# visible = { has_completed_focus = MLW_avoid_backlash }
+				available = { MLW_not_doing_cleanups = yes }
+				cost = 125
+				days_remove = 60
+				complete_effect = { set_country_flag = MLW_eco_cleanups_occuring }
+				remove_effect = {
+					set_temp_variable = { DM_health_cost_change = -0.05 }
+					update_MLW_lakeside_healthcare_cost = yes
+					set_temp_variable = { DM_pop_growth_change = 0.05 }
+					update_MLW_lakeside_population_growth = yes
+					clr_country_flag = MLW_eco_cleanups_occuring
+				}
+			}
+			MLW_eco_ban_lakeside_fertilisers = {
+				icon = decision
+				fire_only_once = yes
+				# visible = { has_completed_focus = MLW_avoid_backlash }
+				available = { MLW_not_doing_cleanups = yes }
+				cost = 200
+				days_remove = 90
+				complete_effect = { set_country_flag = MLW_eco_cleanups_occuring }
+				remove_effect = {
+					set_temp_variable = { DM_health_cost_change = -0.05 }
+					update_MLW_lakeside_healthcare_cost = yes
+					set_temp_variable = { DM_pop_growth_change = 0.05 }
+					update_MLW_lakeside_population_growth = yes
+					clr_country_flag = MLW_eco_cleanups_occuring
+				}
+			}
+		}
+	# RESOURCES
+		MLW_prospecting = {
+			MLW_IND_search_for_steel_1 = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = { has_completed_focus = MLW_dig_a_hole }
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 4 } }
+				custom_cost_text = cost_4_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -4 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+						set_country_flag = MLW_resources_extracted_ore_FLAG
+					}
+				}
+				remove_effect = { country_event = MLW_resources.1 }
+			}
+			MLW_IND_search_for_steel_2 = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = {
+					has_completed_focus = MLW_steel_mills
+					has_country_flag = MLW_resources_extracted_ore_FLAG
+				}
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 4 } }
+				custom_cost_text = cost_4_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -4 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+					}
+				}
+				remove_effect = { country_event = MLW_resources.1 }
+			}
+			MLW_IND_search_for_aluminium = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = { has_completed_focus = MLW_light_metals }
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 6 } }
+				custom_cost_text = cost_6_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -6 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+					}
+				}
+				remove_effect = { country_event = MLW_resources.2 }
+			}
+			MLW_IND_search_for_tungsten = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = { has_completed_focus = MLW_tech_metals }
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 6 } }
+				custom_cost_text = cost_6_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -6 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+					}
+				}
+				remove_effect = { country_event = MLW_resources.3 }
+			}
+			MLW_IND_search_for_precious_metals = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = { has_completed_focus = MLW_expand_the_mines }
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 6 } }
+				custom_cost_text = cost_6_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -6 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+					}
+				}
+				remove_effect = { country_event = MLW_resources.4 }
+			}
+			MLW_IND_search_for_rubber = {
+				icon = decision
+				fire_only_once = yes
+				fixed_random_seed = no
+				visible = { has_completed_focus = MLW_vizara_rubber }
+				available = { MLW_able_to_prospect = yes }
+				custom_cost_trigger = { check_variable = { treasury > 6 } }
+				custom_cost_text = cost_6_0
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { treasury_change = -6 }
+					modify_treasury_effect = yes
+					set_country_flag = {
+						flag = MLW_prospecting_underway
+						days = 30
+						value = 1
+					}
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_prospecting_failure }
+							35 = { set_country_flag = MLW_prospecting_below_average }
+							35 = { set_country_flag = MLW_prospecting_average }
+							20 = { set_country_flag = MLW_prospecting_above_average }
+							5 = { set_country_flag = MLW_prospecting_huge_success }
+						}
+					}
+				}
+				remove_effect = { country_event = MLW_resources.5 }
+			}
+		}
+# FOREIGN POLICY - FOPOL
+	# GCC
+		MLW_FOPOL_GCC_MLW_decisions_category = {}
+		MLW_FOPOL_GCC_GCC_decisions_category = {
+			MLW_FOPOL_GCC_hire_megaproject_workers = {
+				icon = decision
+				visible = {
+					MLW = { has_completed_focus = MLW_gcc_megaprojects }
+					MLW_GCC_nation = yes
+				}
+				available = {
+					MLW = {
+						has_opinion = {
+							target = ROOT
+							value > 39
+						}
+					}
+				}
+				custom_cost_trigger = { check_variable = { treasury > 2.4 } }
+				custom_cost_text = MLW_workers_GCC_COST
+				days_remove = 360
+				complete_effect = {
+					MLW_GCC_workers_cost_effect = yes
+					set_temp_variable = { treasury_change = MLW_GCC_worker_cost }
+					multiply_temp_variable = { treasury_change = -1 }
+					modify_treasury_effect = yes
+					add_ideas = MLW_MSCC_GCC_workers
+					MLW = { country_event = MLW_MSCC.1 }
+					set_temp_variable = { GCC_nation = THIS }
+					MLW_GCC_hire_MSCC = yes
+				}
+				remove_effect = {
+					remove_ideas = MLW_MSCC_GCC_workers
+					set_temp_variable = { GCC_nation = THIS }
+					MLW_GCC_fire_MSCC = yes
+				}
+			}
+			MLW_FOPOL_GCC_opt_out_of_viewing = {
+				icon = decision
+				complete_effect = {
+					custom_effect_tooltip = MLW_FOPOL_GCC_opt_out_of_viewing_TT
+					country_event = MLW_FOPOL_GCC.5
+				}
+			}
+		}
+	# LAKE WARS # fix
+		MLW_lake_wars = {
+			MLW_LW_reattempt_heligoland = { # fix
+				icon = decision
+				visible = {}
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {}
+				remove_effect = {}
+			}
+			# DIPLOMATIC ACTIONS # fix
+			MLW_LW_shared_border_corrections = {
+				icon = decision
+				visible = { MLW_LW_border_correction_visible_check = yes }
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					if = {
+						limit = { check_variable = { ROOT.MLW_LW_state_selected = 1045.id } }
+						TNZ = { country_event = MLW_FOPOL_LW.1 }
+					}
+					if = {
+						limit = { check_variable = { ROOT.MLW_LW_state_selected = 1049.id } }
+						MOZ = { country_event = MLW_FOPOL_LW.1 }
+					}
+				}
+				remove_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 1 }
+					MLW_LW_update_diplomatic_progress = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			MLW_LW_city_twinning = {
+				icon = decision
+				visible = {}
+				available = { MLW_LW_city_twinning_available_check = yes }
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					set_temp_variable = { treasury_change = -2 }
+					modify_treasury_effect = yes
+					if = {
+						limit = {
+							OR = {
+								MLW_LW_MBEYA = yes
+								MLW_LW_NJOMBE = yes
+								MLW_LW_WESTRUVUMA = yes
+							}
+						}
+						set_temp_variable = { percent_change = 1 }
+						set_temp_variable = { tag_index = TNZ }
+						set_temp_variable = { influence_target = MLW }
+						change_influence_percentage = yes
+						set_temp_variable = { percent_change = 2 }
+						set_temp_variable = { tag_index = MLW }
+						set_temp_variable = { influence_target = TNZ }
+						change_influence_percentage = yes
+						if = {
+							limit = { MLW_LW_MBEYA = yes }
+							1045 = { set_state_flag = MLW_LW_twinned_city }
+							newline = yes
+							custom_effect_tooltip = MLW_LW_mbeya_twin_TT
+						}
+						if = {
+							limit = { MLW_LW_NJOMBE = yes }
+							1046 = { set_state_flag = MLW_LW_twinned_city }
+							newline = yes
+							custom_effect_tooltip = MLW_LW_njombe_twin_TT
+						}
+						if = {
+							limit = { MLW_LW_WESTRUVUMA = yes }
+							1047 = { set_state_flag = MLW_LW_twinned_city }
+							newline = yes
+							custom_effect_tooltip = MLW_LW_westruvuma_twin_TT
+						}
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						set_temp_variable = { percent_change = 1 }
+						set_temp_variable = { tag_index = MOZ }
+						set_temp_variable = { influence_target = MLW }
+						change_influence_percentage = yes
+						set_temp_variable = { percent_change = 2 }
+						set_temp_variable = { tag_index = MLW }
+						set_temp_variable = { influence_target = MOZ }
+						change_influence_percentage = yes
+						newline = yes
+						custom_effect_tooltip = MLW_LW_westniassa_twin_TT
+						1049 = { set_state_flag = MLW_LW_twinned_city }
+					}
+				}
+				remove_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 2 }
+					MLW_LW_update_diplomatic_progress = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			MLW_LW_encourage_immigration = {
+				icon = decision
+				visible = { MLW_LW_encourage_immigration_visible_check = yes }
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					if = {
+						limit = {
+							OR = {
+								MLW_LW_MBEYA = yes
+								MLW_LW_NJOMBE = yes
+								MLW_LW_WESTRUVUMA = yes
+							}
+						}
+						TNZ = {
+							set_temp_variable = { DM_migration_rate_change = 0.02 }
+							update_MLW_LW_migration_rate = yes
+						}
+						set_temp_variable = { DM_migration_rate_change = 0.05 }
+						update_MLW_LW_migration_rate = yes
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						MOZ = {
+							set_temp_variable = { DM_migration_rate_change = 0.02 }
+							update_MLW_LW_migration_rate = yes
+						}
+						set_temp_variable = { DM_migration_rate_change = 0.05 }
+						update_MLW_LW_migration_rate = yes
+					}
+				}
+				remove_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 1 }
+					MLW_LW_update_diplomatic_progress = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			MLW_LW_special_economic_zones = {
+				icon = decision
+				visible = {}
+				available = { MLW_LW_special_economic_zone_available_check = yes }
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					if = {
+						limit = { MLW_LW_MBEYA = yes }
+						1045 = { set_state_flag = MLW_LW_SEZ }
+						add_to_variable = { MLW_LW_SEZ_number = 1 }
+					}
+					if = {
+						limit = { MLW_LW_NJOMBE = yes }
+						1046 = { set_state_flag = MLW_LW_SEZ }
+						add_to_variable = { MLW_LW_SEZ_number = 1 }
+					}
+					if = {
+						limit = { MLW_LW_WESTRUVUMA = yes }
+						1047 = { set_state_flag = MLW_LW_SEZ }
+						add_to_variable = { MLW_LW_SEZ_number = 1 }
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						1049 = { set_state_flag = MLW_LW_SEZ }
+						add_to_variable = { MLW_LW_SEZ_number = 1 }
+					}
+				}
+				remove_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 2 }
+					MLW_LW_update_diplomatic_progress = yes
+					MLW_LW_SEZ_effect = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			MLW_LW_influence_local_politics = {
+				icon = decision
+				visible = {}
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					set_temp_variable = { treasury_change = -3 }
+					modify_treasury_effect = yes
+					if = {
+						limit = {
+							OR = {
+								MLW_LW_MBEYA = yes
+								MLW_LW_NJOMBE = yes
+								MLW_LW_WESTRUVUMA = yes
+							}
+						}
+						set_temp_variable = { percent_change = -1 }
+						set_temp_variable = { tag_index = MLW }
+						set_temp_variable = { influence_target = TNZ }
+						change_influence_percentage = yes
+						TNZ = { add_opinion_modifier = { target = MLW modifier = MLW_local_political_influence } }
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						set_temp_variable = { percent_change = -1 }
+						set_temp_variable = { tag_index = MLW }
+						set_temp_variable = { influence_target = MOZ }
+						change_influence_percentage = yes
+						MOZ = { add_opinion_modifier = { target = MLW modifier = MLW_local_political_influence } }
+					}
+					# improvement
+					#
+					# when micro-corruption is done, add this to system
+				}
+				remove_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 1 }
+					MLW_LW_update_diplomatic_progress = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			MLW_LW_formal_annexation = {
+				icon = decision
+				visible = {}
+				available = { MLW_LW_10_diplo_check = yes }
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_country_flag = MLW_LW_diplomatic_FLAG
+					if = {
+						limit = { MLW_LW_MBEYA = yes }
+						set_country_flag = MLW_LW_MBEYA_purchase_FLAG
+					}
+					if = {
+						limit = { MLW_LW_NJOMBE = yes }
+						set_country_flag = MLW_LW_NJOMBE_purchase_FLAG
+					}
+					if = {
+						limit = { MLW_LW_WESTRUVUMA = yes }
+						set_country_flag = MLW_LW_WESTRUVUMA_purchase_FLAG
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						set_country_flag = MLW_LW_WESTNIASSA_purchase_FLAG
+					}
+				}
+				remove_effect = {
+					if = {
+						limit = {
+							NOT = {
+								OR = {
+									has_country_flag = MLW_LW_MBEYA_purchase_FLAG
+									has_country_flag = MLW_LW_NJOMBE_purchase_FLAG
+									has_country_flag = MLW_LW_WESTRUVUMA_purchase_FLAG
+									has_country_flag = MLW_LW_WESTNIASSA_purchase_FLAG
+								}
+							}
+						}
+						if = {
+							limit = {
+								OR = {
+									MLW_LW_MBEYA = yes
+									MLW_LW_NJOMBE = yes
+									MLW_LW_WESTRUVUMA = yes
+								}
+							}
+							custom_effect_tooltip = MLW_LW_formal_annexation_TNZ_TT
+							newline = yes
+							set_temp_variable = { accept_tag = TNZ }
+							if_they_accept_tooltip = yes
+							newline = yes
+							effect_tooltip = {
+								if = {
+									limit = { MLW_LW_MBEYA = yes }
+									1045 = { transfer_state_to = MLW }
+								}
+								if = {
+									limit = { MLW_LW_NJOMBE = yes }
+									1046 = { transfer_state_to = MLW }
+								}
+								if = {
+									limit = { MLW_LW_WESTRUVUMA = yes }
+									1047 = { transfer_state_to = MLW }
+								}
+							}
+						}
+						if = {
+							limit = { MLW_LW_WESTNIASSA = yes }
+							custom_effect_tooltip = MLW_LW_formal_annexation_MOZ_TT
+							newline = yes
+							set_temp_variable = { accept_tag = MOZ }
+							if_they_accept_tooltip = yes
+							newline = yes
+							effect_tooltip = {
+								if = {
+									limit = { MLW_LW_WESTNIASSA = yes }
+									1049 = { transfer_state_to = MLW }
+								}
+							}
+						}
+					}
+					if = {
+						limit = { has_country_flag = MLW_LW_MBEYA_purchase_FLAG }
+						TNZ = { country_event = MLW_FOPOL_LW.2 }
+					}
+					if = {
+						limit = { has_country_flag = MLW_LW_NJOMBE_purchase_FLAG }
+						TNZ = { country_event = MLW_FOPOL_LW.2 }
+					}
+					if = {
+						limit = { has_country_flag = MLW_LW_WESTRUVUMA_purchase_FLAG }
+						TNZ = { country_event = MLW_FOPOL_LW.2 }
+					}
+					if = {
+						limit = { has_country_flag = MLW_LW_WESTNIASSA_purchase_FLAG }
+						MOZ = { country_event = MLW_FOPOL_LW.2 }
+					}
+					newline = yes
+					MLW_LW_diplomatic_annexation_checker = yes
+					clr_country_flag = MLW_LW_diplomatic_FLAG
+				}
+			}
+			# DIPLOMATIC ANNEXATION # fix
+			# MLW_LW_replace_the_courts = { # fix
+			# 	icon = decision
+			# 	visible = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG }
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 20%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_readjust_tax_codes = { # fix
+			# 	icon = decision
+			# 	visible = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG }
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 10%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_issuing_ids = { # fix
+			# 	icon = decision
+			# 	visible = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG }
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 10%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_dual_nationalities = { # fix
+			# 	icon = decision
+			# 	visible = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG }
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 20%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_finalise_annexation_treaties = { # fix
+			# 	icon = decision
+			# 	visible = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG }
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# turn target state into core
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# HOSTILE ACTIONS # fix
+			MLW_LW_hybrid_warfare = {
+				icon = decision
+				visible = { MLW_LW_bordering_state_visible_check = yes }
+				available = { MLW_LW_hybrid_warfare_available_check = yes }
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					set_temp_variable = { MLW_LW_progress_change = 1 }
+					MLW_LW_update_militaristic_progress = yes
+					if = {
+						limit = {
+							OR = {
+								MLW_LW_MBEYA = yes
+								MLW_LW_NJOMBE = yes
+								MLW_LW_WESTRUVUMA = yes
+							}
+						}
+						if = {
+							limit = { MLW_LW_MBEYA = yes }
+							1045 = { add_to_variable = { MLW_LW_hybrid_warfare = 1 } }
+						}
+						if = {
+							limit = { MLW_LW_NJOMBE = yes }
+							1046 = { add_to_variable = { MLW_LW_hybrid_warfare = 1 } }
+						}
+						if = {
+							limit = { MLW_LW_WESTRUVUMA = yes }
+							1047 = { add_to_variable = { MLW_LW_hybrid_warfare = 1 } }
+						}
+						TNZ = { country_event = MLW_FOPOL_LW.4 }
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						1049 = { add_to_variable = { MLW_LW_hybrid_warfare = 1 } }
+						MOZ = { country_event = MLW_FOPOL_LW.4 }
+					}
+					add_timed_idea = {
+						idea = MLW_LW_migrants_leaving
+						days = 60
+					}
+				}
+				remove_effect = {}
+			}
+			MLW_LW_destabilisation_methods = { # fix
+				icon = decision
+				visible = {}
+				available = {
+					# fix
+					#
+					# need to make this available with influence in the country
+				}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					# fix
+					#
+					# need to make this cost influence
+					if = {
+						limit = {
+							OR = {
+								MLW_LW_MBEYA = yes
+								MLW_LW_NJOMBE = yes
+								MLW_LW_WESTRUVUMA = yes
+							}
+						}
+						TNZ = {
+							country_event = MLW_FOPOL_LW.5
+							add_timed_idea = {
+								idea = MLW_LW_misinformation_campaigns
+								days = 35
+							}
+						}
+					}
+					if = {
+						limit = { MLW_LW_WESTNIASSA = yes }
+						MOZ = {
+							country_event = MLW_FOPOL_LW.5
+							add_timed_idea = {
+								idea = MLW_LW_misinformation_campaigns
+								days = 35
+							}
+						}
+					}
+				}
+				remove_effect = {}
+			}
+			MLW_LW_terror_bombings = { # fix
+				icon = decision
+				visible = {}
+				available = {
+					# fix
+					#
+					# need to have high enough militaristic progress (level 5 and up)
+				}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					# fix
+					#
+					# needs to be random chance of bombing campaign failing to increase militarism, will take stability with each attack
+				}
+				remove_effect = {}
+			}
+			MLW_LW_smuggling_tunnels = { # fix
+				icon = decision
+				visible = {}
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					# fix
+					#
+					# if SEZ is in place in state, double the amount of money brought in from each smuggling run
+				}
+				remove_effect = {}
+			}
+			MLW_LW_dumping_toxic_waste = { # fix
+				icon = decision
+				visible = {}
+				available = {}
+
+				cost = 50
+
+				days_remove = 30
+				complete_effect = {
+					# fix
+					#
+					# harms all lake nations' opinions of you, harms your own country's attempt to clean the lake
+					# making it twice as difficult as before, if both nations are targeted, lake becomes 3 times
+					# as difficult to clean up
+					#
+					# if the cleanup has already been done, will need to reclean the lake
+				}
+				remove_effect = {}
+			}
+			MLW_LW_launch_assault = { # fix
+				icon = decision
+				visible = { MLW_LW_bordering_state_visible_check = yes }
+				available = { MLW_LW_10_military_check = yes }
+
+				cost = 50
+
+				# not sure how to make this do the proper "warn" for taking decisions
+				# because these aren't regular nor are they targeted, bird fix my ai
+
+				days_remove = 30
+				complete_effect = { # fix
+					if = { # MBEYA
+						limit = { MLW_LW_MBEYA = yes }
+						if = {
+							limit = {
+								owns_state = 259
+								owns_state = 1046
+							}
+							country_event = MLW_FOPOL_LW.8
+						}
+						if = {
+							limit = {
+								owns_state = 259
+								NOT = { owns_state = 1046 }
+							}
+							MLW_LW_assault_from_NORTH_MALAWI = yes
+						}
+						if = {
+							limit = {
+								NOT = { owns_state = 259 }
+								owns_state = 1046
+							}
+							MLW_LW_assault_from_NJOMBE = yes
+						}
+					}
+					if = { # NJOMBE
+						limit = { MLW_LW_NJOMBE = yes }
+						if = {
+							limit = {
+								owns_state = 1045
+								owns_state = 1047
+							}
+							country_event = MLW_FOPOL_LW.9
+						}
+						if = {
+							limit = {
+								owns_state = 1045
+								NOT = { owns_state = 1047 }
+							}
+							MLW_LW_assault_from_MBEYA = yes
+						}
+						if = {
+							limit = {
+								NOT = { owns_state = 1045 }
+								owns_state = 1047
+							}
+							MLW_LW_assault_from_WEST_RUVUMA = yes
+						}
+					}
+					if = { # WEST RUVUMA
+						limit = { MLW_LW_WESTRUVUMA = yes }
+						if = {
+							limit = {
+								owns_state = 1046
+								owns_state = 1049
+							}
+							country_event = MLW_FOPOL_LW.12
+						}
+						if = {
+							limit = {
+								owns_state = 1046
+								NOT = { owns_state = 1049 }
+							}
+							MLW_LW_assault_from_NJOMBE = yes
+						}
+						if = {
+							limit = {
+								NOT = { owns_state = 1046 }
+								owns_state = 1049
+							}
+							MLW_LW_assault_from_WEST_NIASSA = yes
+						}
+					}
+					if = { # WEST NIASSA
+						limit = { MLW_LW_WESTNIASSA = yes }
+						if = {
+							limit = {
+								owns_state = 260
+								owns_state = 1047
+							}
+							country_event = MLW_FOPOL_LW.13
+						}
+						if = {
+							limit = {
+								owns_state = 260
+								NOT = { owns_state = 1047 }
+							}
+							MLW_LW_assault_from_SOUTH_MALAWI = yes
+						}
+						if = {
+							limit = {
+								NOT = { owns_state = 260 }
+								owns_state = 1047
+							}
+							MLW_LW_assault_from_WEST_RUVUMA = yes
+						}
+					}
+					MLW_LW_hybrid_warfare_math = yes
+					# fix
+					#
+					# need to be victorious once in order to gain state from target, upon occupation, unlocks conquest annexation
+					# decisions for the state
+				}
+				remove_effect = {
+					if = { # MBEYA - 1045
+						limit = { MLW_LW_MBEYA = yes }
+						if = { # FROM NORTH MALAWI - 259
+							limit = { has_country_flag = MLW_LW_assault_launched_from_NORTH_MALAWI }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 259
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.10
+									on_lose = MLW_FOPOL_LWBW.11
+									on_cancel = MLW_FOPOL_LWBW.1
+								}
+								defender = {
+									state = 1045
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.10
+									on_lose = MLW_FOPOL_LWBW.11
+									on_cancel = MLW_FOPOL_LWBW.1
+								}
+							}
+							set_border_war_data = {
+								attacker = 259
+								defender = 1045
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+						if = { # FROM NJOMBE - 1046
+							limit = { has_country_flag = MLW_LW_assault_launched_from_NJOMBE }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1046
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.20
+									on_lose = MLW_FOPOL_LWBW.21
+									on_cancel = MLW_FOPOL_LWBW.2
+								}
+								defender = {
+									state = 1045
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.20
+									on_lose = MLW_FOPOL_LWBW.21
+									on_cancel = MLW_FOPOL_LWBW.2
+								}
+							}
+							set_border_war_data = {
+								attacker = 1046
+								defender = 1045
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+					}
+					if = { # NJOMBE - 1046
+						limit = { MLW_LW_NJOMBE = yes }
+						if = { # FROM MBEYA - 1045
+							limit = { has_country_flag = MLW_LW_assault_launched_from_MBEYA }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1045
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.30
+									on_lose = MLW_FOPOL_LWBW.31
+									on_cancel = MLW_FOPOL_LWBW.3
+								}
+								defender = {
+									state = 1046
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.30
+									on_lose = MLW_FOPOL_LWBW.31
+									on_cancel = MLW_FOPOL_LWBW.3
+								}
+							}
+							set_border_war_data = {
+								attacker = 1045
+								defender = 1046
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+						if = { # FROM WEST RUVUMA - 1047
+							limit = { has_country_flag = MLW_LW_assault_launched_from_WEST_RUVUMA }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1047
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.40
+									on_lose = MLW_FOPOL_LWBW.41
+									on_cancel = MLW_FOPOL_LWBW.4
+								}
+								defender = {
+									state = 1046
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.40
+									on_lose = MLW_FOPOL_LWBW.41
+									on_cancel = MLW_FOPOL_LWBW.4
+								}
+							}
+							set_border_war_data = {
+								attacker = 1047
+								defender = 1046
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+					}
+					if = { # WEST RUVUMA - 1047
+						limit = { MLW_LW_WESTRUVUMA = yes }
+						if = { # FROM NJOMBE - 1046
+							limit = { has_country_flag = MLW_LW_assault_launched_from_NJOMBE }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1046
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.50
+									on_lose = MLW_FOPOL_LWBW.51
+									on_cancel = MLW_FOPOL_LWBW.5
+								}
+								defender = {
+									state = 1047
+									num_provinces = 2
+									on_win = MLW_FOPOL_LWBW.50
+									on_lose = MLW_FOPOL_LWBW.51
+									on_cancel = MLW_FOPOL_LWBW.5
+								}
+							}
+							set_border_war_data = {
+								attacker = 1046
+								defender = 1047
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+						if = { # FROM WEST NIASSA - 1049
+							limit = { has_country_flag = MLW_LW_assault_launched_from_WEST_NIASSA }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1049
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.60
+									on_lose = MLW_FOPOL_LWBW.61
+									on_cancel = MLW_FOPOL_LWBW.6
+								}
+								defender = {
+									state = 1047
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.60
+									on_lose = MLW_FOPOL_LWBW.61
+									on_cancel = MLW_FOPOL_LWBW.6
+								}
+							}
+							set_border_war_data = {
+								attacker = 1049
+								defender = 1047
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+					}
+					if = { # WEST NIASSA - 1049
+						limit = { MLW_LW_WESTNIASSA = yes }
+						if = { # FROM SOUTH MALAWI - 260
+							limit = { has_country_flag = MLW_LW_assault_launched_from_SOUTH_MALAWI }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 260
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.70
+									on_lose = MLW_FOPOL_LWBW.71
+									on_cancel = MLW_FOPOL_LWBW.7
+								}
+								defender = {
+									state = 1049
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.70
+									on_lose = MLW_FOPOL_LWBW.71
+									on_cancel = MLW_FOPOL_LWBW.7
+								}
+							}
+							set_border_war_data = {
+								attacker = 260
+								defender = 1049
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+						if = { # FROM WEST RUVUMA - 1047
+							limit = { has_country_flag = MLW_LW_assault_launched_from_WEST_RUVUMA }
+							start_border_war = {
+								change_state_after_war = no
+								attacker = {
+									state = 1047
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.80
+									on_lose = MLW_FOPOL_LWBW.81
+									on_cancel = MLW_FOPOL_LWBW.8
+								}
+								defender = {
+									state = 1049
+									num_provinces = 1
+									on_win = MLW_FOPOL_LWBW.80
+									on_lose = MLW_FOPOL_LWBW.81
+									on_cancel = MLW_FOPOL_LWBW.8
+								}
+							}
+							set_border_war_data = {
+								attacker = 1049
+								defender = 1047
+								defender_modifier = MLW_LW_defence_VAR
+							}
+						}
+					}
+				}
+			}
+			# CONQUEST ANNEXATION
+			# MLW_LW_root_out_rebels = { # fix
+			# 	icon = decision
+			# 	visible = {}
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 15%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_expose_quislings = { # fix
+			# 	icon = decision
+			# 	visible = {}
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 10%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_armed_tax_men = { # fix
+			# 	icon = decision
+			# 	visible = {}
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 5%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_confiscate_ids = { # fix
+			# 	icon = decision
+			# 	visible = {}
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# increase annexation progress by 10%
+			# 	}
+			# 	remove_effect = {}
+			# }
+			# MLW_LW_pacify_wilderness = { # fix
+			# 	icon = decision
+			# 	visible = {}
+			# 	available = {}
+
+			# 	cost = 50
+
+			# 	days_remove = 30
+			# 	complete_effect = {
+			# 		# fix
+			# 		#
+			# 		# turn target state into core
+			# 	}
+			# 	remove_effect = {}
+			# }
+		}
+		# MLW_lake_wars_border_conflict = {
+		# 	# NJOMBE ATTACKS #
+		# 		# ATTACK FROM MBEYA #
+		# 			MLW_LW_from_MB_to_NJ = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 				available = { owns_state = 1045 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 1045
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.3
+		# 					# 		on_lose = MalawiLakeWars.30
+		# 					# 		on_cancel = MalawiLakeWars.300
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1046
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.12
+		# 					# 		on_lose = MalawiLakeWars.120
+		# 					# 		on_cancel = MalawiLakeWars.1200
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# 		# ATTACK FROM WEST RUVUMA #
+		# 			MLW_LW_from_WR_to_NJ = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 				available = { owns_state = 1047 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 1047
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.4
+		# 					# 		on_lose = MalawiLakeWars.40
+		# 					# 		on_cancel = MalawiLakeWars.400
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1046
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.13
+		# 					# 		on_lose = MalawiLakeWars.130
+		# 					# 		on_cancel = MalawiLakeWars.1300
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# 	# WEST RUVUMA ATTACKS #
+		# 		# ATTACK FROM NJOMBE #
+		# 			MLW_LW_from_NJ_to_WR = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 				available = { owns_state = 1046 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 1046
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.5
+		# 					# 		on_lose = MalawiLakeWars.50
+		# 					# 		on_cancel = MalawiLakeWars.500
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1047
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.14
+		# 					# 		on_lose = MalawiLakeWars.140
+		# 					# 		on_cancel = MalawiLakeWars.1400
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# 		# ATTACK FROM WEST NIASSA #
+		# 			MLW_LW_from_WN_to_WR = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 				available = { owns_state = 1049 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 1049
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.6
+		# 					# 		on_lose = MalawiLakeWars.60
+		# 					# 		on_cancel = MalawiLakeWars.600
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1047
+		# 					# 		num_provinces = 2
+		# 					# 		on_win = MalawiLakeWars.15
+		# 					# 		on_lose = MalawiLakeWars.150
+		# 					# 		on_cancel = MalawiLakeWars.1500
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# 	# WEST NIASSA ATTACKS #
+		# 		# ATTACK FROM SOUTH MALAWI #
+		# 			MLW_LW_from_SM_to_WN = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_MOZ_not_listening }
+		# 				available = { owns_state = 260 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 260
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.7
+		# 					# 		on_lose = MalawiLakeWars.70
+		# 					# 		on_cancel = MalawiLakeWars.700
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1049
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.16
+		# 					# 		on_lose = MalawiLakeWars.160
+		# 					# 		on_cancel = MalawiLakeWars.1600
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# 		# ATTACK FROM WEST RUVUMA #
+		# 			MLW_LW_from_WR_to_WN = {
+		# 				icon = decision
+		# 				# visible = { has_completed_focus = MLW_MOZ_not_listening }
+		# 				available = { owns_state = 1047 }
+		# 				cost = 5
+		# 				complete_effect = {
+		# 					# start_border_war = {
+		# 					# 	change_state_after_war = no
+		# 					# 	attacker = {
+		# 					# 		state = 1047
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.8
+		# 					# 		on_lose = MalawiLakeWars.80
+		# 					# 		on_cancel = MalawiLakeWars.800
+		# 					# 	}
+		# 					# 	defender = {
+		# 					# 		state = 1049
+		# 					# 		num_provinces = 1
+		# 					# 		on_win = MalawiLakeWars.17
+		# 					# 		on_lose = MalawiLakeWars.170
+		# 					# 		on_cancel = MalawiLakeWars.1700
+		# 					# 	}
+		# 					# }
+		# 				}
+		# 			}
+		# }
+		# MLW_lake_wars_conflict_preparation = {
+		# 	# TANZANIAN PREPARATION
+		# 		MLW_TNZ_claim_the_lake = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 			# available = { MLW_not_doing_lake_war_stuff = yes }
+		# 			cost = 200
+		# 			days_remove = 45
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_lake_wars_preparation_ongoing
+		# 				custom_effect_tooltip = MLW_lake_wars_preparations
+		# 			}
+		# 			remove_effect = {
+		# 				add_state_claim = 1045
+		# 				add_state_claim = 1046
+		# 				add_state_claim = 1047
+		# 				clr_country_flag = MLW_lake_wars_preparation_ongoing
+		# 			}
+		# 		}
+		# 		MLW_TNZ_ready_militia = {
+		# 			icon = decision
+		# 			# visible = { has_completed_focus = MLW_TNZ_nyaja_malawi }
+		# 			# available = { MLW_not_doing_lake_war_stuff = yes }
+		# 			days_remove = 60
+		# 			days_re_enable = 120
+		# 			custom_cost_trigger = { has_equipment = { Inf_equipment > 799 } }
+		# 			custom_cost_text = equipment_cost_INF_800
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_lake_wars_preparation_ongoing
+		# 				custom_effect_tooltip = MLW_lake_wars_preparations
+		# 				add_equipment_to_stockpile = {
+		# 					type = Inf_equipment
+		# 					amount = -800
+		# 				}
+		# 				if = {
+		# 					limit = { NOT = { has_template = "Lakeside Militia" } }
+		# 					division_template = {
+		# 						name = "Lakeside Militia"
+		# 						is_locked = yes
+		# 						regiments = {
+		# 							Militia_Bat = { x = 0 y = 0 }
+		# 							Militia_Bat = { x = 0 y = 1 }
+		# 							Militia_Bat = { x = 0 y = 2 }
+		# 							Militia_Bat = { x = 1 y = 0 }
+		# 							Militia_Bat = { x = 1 y = 1 }
+		# 							Militia_Bat = { x = 1 y = 2 }
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 			remove_effect = {
+		# 				if = { # MBEYA
+		# 					limit = {
+		# 						NOT = { owns_state = 1045 }
+		# 					}
+		# 					259 = {
+		# 						create_unit = {
+		# 							division = " name = \"Mzuzu Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 							owner = MLW
+		# 							prioritize_location = 11180
+		# 						}
+		# 					}
+		# 					unlock_decision_tooltip = MLW_LW_from_NM_to_MB
+		# 					if = {
+		# 						limit = { owns_state = 1046 }
+		# 						1046 = {
+		# 							create_unit = {
+		# 								division = " name = \"Njombe Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 								owner = MLW
+		# 								prioritize_location = 13663
+		# 							}
+		# 						}
+		# 						unlock_decision_tooltip = MLW_LW_from_NJ_to_MB
+		# 					}
+		# 				}
+		# 				if = { # NJOMBE
+		# 					limit = {
+		# 						owns_state = 1045
+		# 						NOT = { owns_state = 1046 }
+		# 					}
+		# 					1045 = {
+		# 						create_unit = {
+		# 							division = " name = \"Mbeya Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 							owner = MLW
+		# 							prioritize_location = 13662
+		# 						}
+		# 					}
+		# 					unlock_decision_tooltip = MLW_LW_from_MB_to_NJ
+		# 					if = {
+		# 						limit = { owns_state = 1047 }
+		# 						1047 = {
+		# 							create_unit = {
+		# 								division = " name = \"Ruvuma Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 								owner = MLW
+		# 								prioritize_location = 13687
+		# 							}
+		# 						}
+		# 						unlock_decision_tooltip = MLW_LW_from_WR_to_NJ
+		# 					}
+		# 				}
+		# 				if = { # WEST RUVUMA
+		# 					limit = {
+		# 						NOT = { owns_state = 1047 }
+		# 						OR = {
+		# 							owns_state = 1046
+		# 							owns_state = 1049
+		# 						}
+		# 					}
+		# 					if = {
+		# 						limit = { owns_state = 1046 }
+		# 						1046 = {
+		# 							create_unit = {
+		# 								division = " name = \"Njombe Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 								owner = MLW
+		# 								prioritize_location = 13663
+		# 							}
+		# 						}
+		# 						unlock_decision_tooltip = MLW_LW_from_NJ_to_WR
+		# 					}
+		# 					if = {
+		# 						limit = { owns_state = 1049 }
+		# 						1049 = {
+		# 							create_unit = {
+		# 								division = " name = \"Niassa Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 								owner = MLW
+		# 								prioritize_location = 11439
+		# 							}
+		# 						}
+		# 						unlock_decision_tooltip = MLW_LW_from_WN_to_WR
+		# 					}
+		# 				}
+		# 				clr_country_flag = MLW_lake_wars_preparation_ongoing
+		# 			}
+		# 		}
+		# 	# MOZAMBICAN PREPARATION
+		# 		MLW_MOZ_claim_the_lake = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			# visible = { has_completed_focus = MLW_MOZ_not_listening }
+		# 			# available = { MLW_not_doing_lake_war_stuff = yes }
+		# 			cost = 200
+		# 			days_remove = 45
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_lake_wars_preparation_ongoing
+		# 				custom_effect_tooltip = MLW_lake_wars_preparations
+		# 			}
+		# 			remove_effect = {
+		# 				add_state_claim = 1049
+		# 				clr_country_flag = MLW_lake_wars_preparation_ongoing
+		# 			}
+		# 		}
+		# 		MLW_MOZ_ready_militia = {
+		# 			icon = decision
+		# 			# visible = { has_completed_focus = MLW_MOZ_not_listening }
+		# 			# available = { MLW_not_doing_lake_war_stuff = yes }
+		# 			days_remove = 60
+		# 			days_re_enable = 120
+		# 			custom_cost_trigger = { has_equipment = { Inf_equipment > 799 } }
+		# 			custom_cost_text = equipment_cost_INF_800
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_lake_wars_preparation_ongoing
+		# 				custom_effect_tooltip = MLW_lake_wars_preparations
+		# 				add_equipment_to_stockpile = {
+		# 					type = Inf_equipment
+		# 					amount = -800
+		# 				}
+		# 				if = {
+		# 					limit = { NOT = { has_template = "Lakeside Militia" } }
+		# 					division_template = {
+		# 						name = "Lakeside Militia"
+		# 						is_locked = yes
+		# 						regiments = {
+		# 							Militia_Bat = { x = 0 y = 0 }
+		# 							Militia_Bat = { x = 0 y = 1 }
+		# 							Militia_Bat = { x = 0 y = 2 }
+		# 							Militia_Bat = { x = 1 y = 0 }
+		# 							Militia_Bat = { x = 1 y = 1 }
+		# 							Militia_Bat = { x = 1 y = 2 }
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 			remove_effect = {
+		# 				if = {
+		# 					limit = { NOT = { owns_state = 1047 } }
+		# 					260 = {
+		# 						create_unit = {
+		# 							division = " name = \"Lilongwe Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 							owner = MLW
+		# 							prioritize_location = 12908
+		# 						}
+		# 					}
+		# 					unlock_decision_tooltip = MLW_LW_from_SM_to_WN
+		# 				}
+		# 				else_if = {
+		# 					limit = { owns_state = 1047 }
+		# 					1047 = {
+		# 						create_unit = {
+		# 							division = " name = \"Ruvuma Lakeside Militia\" division_template = \"Lakeside Militia\" start_experience_factor = 1"
+		# 							owner = MLW
+		# 							prioritize_location = 9254
+		# 						}
+		# 					}
+		# 					unlock_decision_tooltip = MLW_LW_from_WR_to_WN
+		# 				}
+		# 			}
+		# 		}
+		# }
+		# MLW_lake_wars_victory = {
+		# 	# MBEYA RELATED
+		# 		MLW_lwv_integrate_mbeya = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = { owns_state = 1045 }
+		# 			available = {
+		# 				# has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1045 = {
+		# 					compliance > 50
+		# 					resistance < 5
+		# 				}
+		# 				NOT = { has_country_flag = MLW_integrating_lake }
+		# 			}
+		# 			cost = 100
+		# 			days_remove = 90
+		# 			complete_effect = { set_country_flag = MLW_integrating_lake }
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_integrating_lake
+		# 				add_state_core = 1045
+		# 			}
+		# 		}
+		# 		MLW_lwv_oil_exploration_mbeya = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = {
+		# 				owns_state = 1045
+		# 				NOT = { has_country_flag = MLW_lwv_oil_mbeya }
+		# 				has_completed_focus = MLW_utilize_oil
+		# 			}
+		# 			available = {
+		# 				has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1045 = { is_core_of = MLW }
+		# 				NOT = { has_country_flag = MLW_oil_exploration }
+		# 			}
+		# 			custom_cost_trigger = { check_variable = { treasury < 3.9 } }
+		# 			custom_cost_text = oil_cost
+		# 			days_remove = 90
+		# 			fixed_random_seed = no
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_oil_exploration
+		# 				subtract_from_variable = { treasury = 4 }
+		# 			}
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_oil_exploration
+		# 				set_country_flag = MLW_lwv_oil_mbeya
+		# 				custom_effect_tooltip = MLW_lwv_oil_exploration_tt
+		# 				hidden_effect = {
+		# 					random_list = {
+		# 						8 = {
+		# 							#country_event = MLW_OIL.
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 1
+		# 								state = 1045
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 2
+		# 								state = 1045
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 3
+		# 								state = 1045
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 4
+		# 								state = 1045
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	# NJOMBE RELATED
+		# 		MLW_lwv_integrate_njombe = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = { owns_state = 1046 }
+		# 			available = {
+		# 				# has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1046 = {
+		# 					compliance > 50
+		# 					resistance < 5
+		# 				}
+		# 				NOT = { has_country_flag = MLW_integrating_lake }
+		# 			}
+		# 			cost = 100
+		# 			days_remove = 90
+		# 			complete_effect = { set_country_flag = MLW_integrating_lake }
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_integrating_lake
+		# 				add_state_core = 1046
+		# 			}
+		# 		}
+		# 		MLW_lwv_oil_exploration_njombe = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = {
+		# 				owns_state = 1046
+		# 				NOT = { has_country_flag = MLW_lwv_oil_njombe }
+		# 				has_completed_focus = MLW_utilize_oil
+		# 			}
+		# 			available = {
+		# 				has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1046 = { is_core_of = MLW }
+		# 				NOT = { has_country_flag = MLW_oil_exploration }
+		# 			}
+		# 			custom_cost_trigger = { check_variable = { treasury < 3.9 } }
+		# 			custom_cost_text = oil_cost
+		# 			days_remove = 90
+		# 			fixed_random_seed = no
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_oil_exploration
+		# 				subtract_from_variable = { treasury = 4 }
+		# 			}
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_oil_exploration
+		# 				set_country_flag = MLW_lwv_oil_njombe
+		# 				custom_effect_tooltip = MLW_lwv_oil_exploration_tt
+		# 				hidden_effect = {
+		# 					random_list = {
+		# 						8 = {
+		# 							#country_event = MLW_OIL.
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 1
+		# 								state = 1046
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 2
+		# 								state = 1046
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 3
+		# 								state = 1046
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 4
+		# 								state = 1046
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	# WEST RUVUMA RELATED
+		# 		MLW_lwv_integrate_ruvuma = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = { owns_state = 1047 }
+		# 			available = {
+		# 				# has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1047 = {
+		# 					compliance > 50
+		# 					resistance < 5
+		# 				}
+		# 				NOT = { has_country_flag = MLW_integrating_lake }
+		# 			}
+		# 			cost = 100
+		# 			days_remove = 90
+		# 			complete_effect = { set_country_flag = MLW_integrating_lake }
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_integrating_lake
+		# 				add_state_core = 1047
+		# 			}
+		# 		}
+		# 		MLW_lwv_oil_exploration_ruvuma = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = {
+		# 				owns_state = 1047
+		# 				NOT = { has_country_flag = MLW_lwv_oil_ruvuma }
+		# 				has_completed_focus = MLW_utilize_oil
+		# 			}
+		# 			available = {
+		# 				has_completed_focus = MLW_TNZ_solidify_holdings
+		# 				1047 = { is_core_of = MLW }
+		# 				NOT = { has_country_flag = MLW_oil_exploration }
+		# 			}
+		# 			custom_cost_trigger = { check_variable = { treasury < 3.9 } }
+		# 			custom_cost_text = oil_cost
+		# 			days_remove = 90
+		# 			fixed_random_seed = no
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_oil_exploration
+		# 				subtract_from_variable = { treasury = 4 }
+		# 			}
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_oil_exploration
+		# 				set_country_flag = MLW_lwv_oil_ruvuma
+		# 				custom_effect_tooltip = MLW_lwv_oil_exploration_tt
+		# 				hidden_effect = {
+		# 					random_list = {
+		# 						8 = {
+		# 							#country_event = MLW_OIL.
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 1
+		# 								state = 1047
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 2
+		# 								state = 1047
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 3
+		# 								state = 1047
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 4
+		# 								state = 1047
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	# WEST NIASSA RELATED
+		# 		MLW_lwv_integrate_niassa = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = { owns_state = 1049 }
+		# 			available = {
+		# 				1049 = {
+		# 					compliance > 50
+		# 					resistance < 5
+		# 				}
+		# 				NOT = { has_country_flag = MLW_integrating_lake }
+		# 			}
+		# 			cost = 100
+		# 			days_remove = 90
+		# 			complete_effect = { set_country_flag = MLW_integrating_lake }
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_integrating_lake
+		# 				add_state_core = 1049
+		# 			}
+		# 		}
+		# 		MLW_lwv_oil_exploration_niassa = {
+		# 			icon = decision
+		# 			fire_only_once = yes
+		# 			visible = {
+		# 				owns_state = 1049
+		# 				NOT = { has_country_flag = MLW_lwv_oil_niassa }
+		# 				has_completed_focus = MLW_utilize_oil
+		# 			}
+		# 			available = {
+		# 				1049 = { is_core_of = MLW }
+		# 				NOT = { has_country_flag = MLW_oil_exploration }
+		# 			}
+		# 			custom_cost_trigger = { check_variable = { treasury < 3.9 } }
+		# 			custom_cost_text = oil_cost
+		# 			days_remove = 90
+		# 			fixed_random_seed = no
+		# 			complete_effect = {
+		# 				set_country_flag = MLW_oil_exploration
+		# 				subtract_from_variable = { treasury = 4 }
+		# 			}
+		# 			remove_effect = {
+		# 				clr_country_flag = MLW_oil_exploration
+		# 				set_country_flag = MLW_lwv_oil_niassa
+		# 				custom_effect_tooltip = MLW_lwv_oil_exploration_tt
+		# 				hidden_effect = {
+		# 					random_list = {
+		# 						8 = {
+		# 							#country_event = MLW_OIL.
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 1
+		# 								state = 1049
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 2
+		# 								state = 1049
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 3
+		# 								state = 1049
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 						23 = {
+		# 							add_resource = {
+		# 								type = oil
+		# 								amount = 4
+		# 								state = 1049
+		# 							}
+		# 							custom_effect_tooltip = needs_event_tt
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# }
+	# MISCELLANEOUS
+		MLW_foreign_relations_cat = {
+			# MLW_ENG_imperial_tobacco = {
+			# 	icon = decision_uk
+			# 	fire_only_once = yes
+			# 	visible = { has_country_flag = MLW_AFORD_imperial_tobacco_flag }
+			# 	available = {
+			# 		ENG = {
+			# 			has_opinion = {
+			# 				target = MLW
+			# 				value > 24
+			# 			}
+			# 		}
+			# 	}
+			# 	cost = 50
+			# 	days_remove = 60
+			# 	complete_effect = {
+			# 		set_temp_variable = { percent_change = 1 }
+			# 		set_temp_variable = { tag_index = ENG }
+			# 		set_temp_variable = { influence_target = MLW }
+			# 		change_influence_percentage = yes
+			# 	}
+			# 	remove_effect = {
+			# 		random_owned_state = {
+			# 			add_building_construction = {
+			# 				type = offices
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 		}
+			# 		set_temp_variable = { debt_change = 12 }
+			# 		modify_debt_effect = yes
+			# 		clr_country_flag = MLW_AFORD_imperial_tobacco_flag
+			# 	}
+			# }
+			MLW_EU_delegation = {
+				icon = decision
+				visible = {
+					always = yes
+				}
+				available = {}
+				cost = 100
+				days_remove = 28
+				complete_effect = {
+				}
+				remove_effect = {
+				}
+			}
+		}
+	# MLW-ZAM JPCC
+		MLW_ZAM_JPCC = {
+			MLW_JPCC_conferences = {
+				icon = decision
+				visible = { MLW_ZAM_has_continued_the_JPCC = yes }
+				available = { MLW_JPCC_conferences_not_underway = yes }
+				custom_cost_trigger = { command_power > 9 }
+				custom_cost_text = command_power_more_than_10
+				days_remove = 14
+				days_re_enable = 120
+				complete_effect = {
+					set_country_flag = { flag = MLW_JPCC_conferences_held days = 180 value = 1 }
+					add_command_power = -10
+				}
+				remove_effect = {
+					hidden_effect = {
+						random_list = {
+							10 = { set_country_flag = MLW_JPCC_whoopsie_CON }
+							80 = { set_country_flag = MLW_JPCC_business_as_usual_CON }
+							10 = { set_country_flag = MLW_JPCC_were_the_best_alliance_CON }
+						}
+						country_event = MLW_FOPOL_ZAM.4
+					}
+					custom_effect_tooltip = MLW_JPCC_conferences_TT
+				}
+			}
+			MLW_JPCC_coordination = {
+				icon = decision
+				visible = { has_completed_focus = MLW_ZAM_troop_coordination }
+				available = { MLW_JPCC_troop_coordination_not_underway = yes }
+				custom_cost_trigger = { command_power > 19 }
+				custom_cost_text = command_power_more_than_20
+				days_remove = 28
+				days_re_enable = 120
+				complete_effect = {
+					set_country_flag = { flag = MLW_JPCC_coordination_underway days = 180 value = 1 }
+					add_command_power = -20
+				}
+				remove_effect = {
+					hidden_effect = {
+						random_list = {
+							10 = { set_country_flag = MLW_JPCC_whoopsie_COORD }
+							80 = { set_country_flag = MLW_JPCC_business_as_usual_COORD }
+							10 = { set_country_flag = MLW_JPCC_were_the_best_alliance_COORD }
+						}
+						country_event = MLW_FOPOL_ZAM.5
+					}
+					custom_effect_tooltip = MLW_JPCC_coordination_TT
+				}
+			}
+			MLW_JPCC_border_security = {
+				icon = decision
+				visible = { has_completed_focus = MLW_ZAM_border_security }
+				available = { MLW_JPCC_border_security_operation_not_underway = yes }
+				custom_cost_trigger = { command_power > 19 }
+				custom_cost_text = command_power_more_than_20
+				days_remove = 28
+				days_re_enable = 120
+				complete_effect = {
+					set_country_flag = { flag = MLW_JPCC_border_security_operations days = 180 value = 1 }
+					add_command_power = -20
+				}
+				remove_effect = {
+					hidden_effect = {
+						random_list = {
+							10 = { set_country_flag = MLW_JPCC_whoopsie_SEC }
+							80 = { set_country_flag = MLW_JPCC_business_as_usual_SEC }
+							10 = { set_country_flag = MLW_JPCC_were_the_best_alliance_SEC }
+						}
+						country_event = MLW_FOPOL_ZAM.6
+					}
+					custom_effect_tooltip = MLW_JPCC_border_security_TT
+				}
+			}
+			MLW_JPCC_ZAM_wargames = {
+				icon = decision
+				visible = { has_completed_focus = MLW_ZAM_wargames }
+				available = { MLW_JPCC_wargames_not_underway = yes }
+				custom_cost_trigger = { command_power > 29 }
+				custom_cost_text = command_power_more_than_30
+				days_remove = 28
+				days_re_enable = 300
+				complete_effect = { set_country_flag = { flag = MLW_wargames_held days = 360 value = 1 } }
+				remove_effect = {
+					hidden_effect = {
+						random_list = {
+							5 = { set_country_flag = MLW_JPCC_whoopsie_COORD }
+							45 = { set_country_flag = MLW_JPCC_whoopsie_COORD }
+							45 = { set_country_flag = MLW_JPCC_whoopsie_COORD }
+							5 = { set_country_flag = MLW_JPCC_whoopsie_COORD }
+						}
+						country_event = MLW_FOPOL_ZAM.7
+					}
+					custom_effect_tooltip = MLW_JPCC_ZAM_wargames_TT
+				}
+			}
+		}
+	# RAIL LINES
+		MLW_local_rail_laying = {
+			MLW_rail_to_MOZ = {
+				icon = decision
+				fire_only_once = yes
+				available = {
+					MOZ = {
+						has_opinion = {
+							target = MLW
+							value > 49
+						}
+					}
+				}
+				custom_cost_trigger = { check_variable = { treasury > 1.59 } }
+				custom_cost_text = MLW_rails_1_6
+				days_remove = 14
+				complete_effect = {
+					set_temp_variable = { treasury_change = -1.6 }
+					modify_treasury_effect = yes
+				}
+				remove_effect = {
+					MOZ = { country_event = MLW_rails.1 }
+					newline = yes
+					set_temp_variable = { accept_tag = MOZ }
+					if_they_accept_tooltip = yes
+					effect_tooltip = {
+						build_railway = {
+							level = 1
+							path = { 5155 12935 11363 5177 }
+						}
+					}
+					newline = yes
+				}
+			}
+			MLW_rail_to_TNZ = {
+				icon = decision
+				fire_only_once = yes
+				available = {
+					TNZ = {
+						has_opinion = {
+							target = MLW
+							value > 49
+						}
+					}
+					has_completed_focus = MLW_lilongwe_railway
+				}
+				custom_cost_trigger = { check_variable = { treasury > 1.19 } }
+				custom_cost_text = MLW_rails_1_2
+				days_remove = 14
+				complete_effect = {
+					set_temp_variable = { treasury_change = -1.6 }
+					modify_treasury_effect = yes
+				}
+				remove_effect = {
+					TNZ = { country_event = MLW_rails.2 }
+					newline = yes
+					set_temp_variable = { accept_tag = TNZ }
+					if_they_accept_tooltip = yes
+					effect_tooltip = {
+						build_railway = {
+							level = 1
+							path = { 11180 13662 13659 }
+						}
+					}
+					newline = yes
+				}
+			}
+			MLW_rail_to_ZAM = {
+				icon = decision
+				fire_only_once = yes
+				available = {
+					ZAM = {
+						has_opinion = {
+							target = MLW
+							value > 49
+						}
+					}
+				}
+				custom_cost_trigger = { check_variable = { treasury > 1.59 } }
+				custom_cost_text = MLW_rails_1_6
+				days_remove = 14
+				complete_effect = {
+					set_temp_variable = { treasury_change = -1.6 }
+					modify_treasury_effect = yes
+				}
+				remove_effect = {
+					ZAM = { country_event = MLW_rails.3 }
+					newline = yes
+					set_temp_variable = { accept_tag = ZAM }
+					if_they_accept_tooltip = yes
+					effect_tooltip = {
+						build_railway = {
+							level = 1
+							path = { 12986 5221 9581 5199 }
+						}
+					}
+					newline = yes
+				}
+			}
+		}
+	#
+#

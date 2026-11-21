@@ -1,0 +1,403 @@
+#By Zei33 MoreDPS
+on_actions = {
+	on_startup = { 
+    effect = {
+    	CAN = { set_country_flag = CANZUK_candidate_flag } #used for condition_CANZUK scripted diplomatic actions.
+    	NZL = { set_country_flag = CANZUK_candidate_flag }
+        ENG = { set_country_flag = CANZUK_candidate_flag }
+        AST = { set_country_flag = CANZUK_candidate_flag }      	
+        USA = { set_country_flag = CANZUK_candidate_flag } #they arent canzuk  but are in ANZUS so it will be localised to save having 2 conditions.
+
+        AST = {
+        add_ai_strategy = {
+					type = befriend
+					id = JAP
+					value = 15
+				}
+		}
+		JAP = {
+        add_ai_strategy = {
+					type = befriend
+					id = AST
+					value = 15
+				}
+		}
+		AST = {
+        add_ai_strategy = {
+					type = befriend
+					id = ENG
+					value = 15
+				}
+		}
+		ENG = {
+        add_ai_strategy = {
+					type = befriend
+					id = AST
+					value = 15
+				}
+		}
+		ENG = {
+        add_ai_strategy = {
+					type = protect
+					id = AST
+					value = 15
+				}
+		}
+		USA = {
+        add_ai_strategy = {
+					type = protect
+					id = AST
+					value = 20
+				}
+		}
+		AST = {
+        add_ai_strategy = {
+					type = befriend
+					id = IND
+					value = 15
+				}
+		}
+		IND = {
+        add_ai_strategy = {
+					type = befriend
+					id = AST
+					value = 15
+				}
+		}
+
+		AST = {
+        add_ai_strategy = {
+					type = befriend
+					id = NZL
+					value = 20
+				}
+		}
+		NZL = {
+        add_ai_strategy = {
+					type = befriend
+					id = AST
+					value = 20
+				}
+		}
+
+		AST = {
+        add_ai_strategy = {
+					type = befriend
+					id = KOR
+					value = 15
+				}
+		}
+		KOR = {
+        add_ai_strategy = {
+					type = befriend
+					id = AST
+					value = 15
+				}
+		}
+
+		#below are double referenced for PREV
+		AST = {		
+        	JAP = {
+        	set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = AST
+						}
+					}
+				}
+
+		JAP = {
+			AST = {
+				set_country_flag = long_term_trading_partner_flag@PREV
+        		add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = JAP
+						}
+					}
+				}
+
+		AST = {
+			ENG = {
+        		set_country_flag = long_term_trading_partner_flag@PREV
+        		set_country_flag = shared_colonial_history_flag
+        		add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = AST
+						}
+				add_opinion_modifier = {				
+						modifier = shared_colonial_history_mod
+						target = AST
+						}
+				}
+			}
+
+		ENG = {
+			AST = {
+				set_country_flag = long_term_trading_partner_flag@PREV
+				set_country_flag = shared_colonial_history_flag
+        		add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = ENG
+						}
+				add_opinion_modifier = {
+						modifier = shared_colonial_history_mod
+						target = ENG
+						}				
+					}
+				}
+
+		AST = {
+			NZL = {
+			set_country_flag = shared_colonial_history_flag@PREV
+			add_opinion_modifier = {
+						modifier = shared_colonial_history_mod
+						target = AST
+						}				
+					}
+				}
+
+		NZL = {
+			AST = {
+			set_country_flag = shared_colonial_history_flag@PREV
+			add_opinion_modifier = {
+						modifier = shared_colonial_history_mod
+						target = NZL
+						}				
+					}
+				}
+
+		AST = {
+			PAP = {
+			set_country_flag = shared_colonial_history_flag@PREV
+			add_opinion_modifier = {
+						modifier = shared_colonial_history_mod
+						target = AST
+						}				
+					}
+				}
+
+		PAP = {
+			AST = {
+			set_country_flag = shared_colonial_history_flag@PREV
+			add_opinion_modifier = {
+						modifier = shared_colonial_history_mod
+						target = PAP
+						}				
+					}
+				}
+
+
+		AST = {		
+			IND = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = AST
+						}
+					}
+				}
+
+		IND = {
+			AST = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = IND
+						}
+				}
+		}
+
+		AST = {
+			KOR = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = AST
+						}
+					}
+				}
+
+		KOR = {		
+			AST = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = KOR
+						}
+					}
+				}
+
+		AST = {
+			USA = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = AST
+						}
+					}
+				}
+		
+		USA = {
+		AST = {
+			set_country_flag = long_term_trading_partner_flag@PREV
+        	add_opinion_modifier = {
+						modifier = long_term_trading_partner_mod
+						target = USA
+						}
+		}
+		}
+
+		every_country = {
+        		limit = {
+        		has_dynamic_modifier = { modifier = Commonwealth_member_modifier }
+        		}
+        		set_country_flag = commonwealth_of_nations_member_flag
+        }
+    }
+}
+
+	on_state_control_changed = {
+		effect = {
+			if = { # MH17 crash triggers soon after LPR/DPR breaks away from Ukraine.
+				limit = {
+					FROM = { original_tag = UKR }
+					ROOT = { has_war_with = FROM }
+					OR = {
+						FROM = { original_tag = DPR }
+						FROM = { original_tag = LPR }
+					}
+				}
+				country_event = { id = australia_md.25 days = 30 random_days = 90 }
+			}
+		}
+	}
+
+	on_monthly_AST = {
+		effect = {
+			if = {
+				limit = { check_variable = { global.month = 9 } }
+				random_list = {
+					30 = { } #30% chance no bushfires this year
+					40 = { #40% chance of a minor bushfire event
+						country_event = { id = australia_md.29 days = 285 random_days = 100 }
+					}
+					25 = { #25% chance of a major bushfire event
+						country_event = { id = australia_md.28 days = 285 random_days = 100 }
+					}
+					5 = { #5% chance of a catastrophic bushfire event
+						if {
+							limit = { NOT = { has_idea = AST_idea_national_bushfire_strategy } }
+							country_event = { id = australia_md.27 days = 285 random_days = 100 }
+						}
+					}
+				}
+				if = {
+					limit = { has_idea = AST_volatile_politics }
+					random_list = {
+						80 = { }
+						20 = {
+							if = {
+								limit = { has_country_leader = { name = "John Howard" ruling_only = yes } }
+								country_event = { id = australia_md.politics.1 days = 30 random_days = 60 }
+							}
+							else_if = {
+								limit = { has_country_leader = { name = "Kevin Rudd" ruling_only = yes } }
+								country_event = { id = australia_md.politics.2 days = 30 random_days = 60 }
+							}
+							else_if = {
+								limit = { has_country_leader = { name = "Tony Abbott" ruling_only = yes } }
+								random_list = {
+									50 = { country_event = { id = australia_md.politics.3 days = 30 random_days = 60 } }
+									50 = { country_event = { id = australia_md.politics.4 days = 30 random_days = 60 } }
+								}
+							}
+							else_if = {
+								limit = { has_country_leader = { name = "Pauline Hanson" ruling_only = yes } }
+								country_event = { id = australia_md.politics.5 days = 30 random_days = 60 }
+							}
+							else_if = {
+								limit = { has_country_leader = { name = "Scott Morrison" ruling_only = yes } }
+								random_list = {
+									33 = { country_event = { id = australia_md.politics.7 days = 30 random_days = 60 } }
+									33 = { country_event = { id = australia_md.politics.8 days = 30 random_days = 60 } }
+									34 = { country_event = { id = australia_md.politics.9 days = 30 random_days = 60 } }
+								}
+							}
+							else_if = {
+								limit = { has_country_leader = { name = "Clive Palmer" ruling_only = yes } }
+								country_event = { id = australia_md.politics.10 days = 30 random_days = 60 }
+							}
+							else = {
+								country_event = { id = australia_md.politics.11 days = 30 random_days = 60 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	on_monthly_SOL = { # Solomon Islands Competition
+		effect = {
+			# Who currently holds the most influence in Honiara. The request
+			# decisions weight themselves off these, so they keep running after
+			# the competition resolves as well.
+			for_each_loop = {
+				array = influence_array
+				value = v
+				break = break
+				if = {
+					limit = { check_variable = { v = CHI } }
+					set_country_flag = solomon_competition_CHI_influence
+					clr_country_flag = solomon_competition_AST_influence
+					clr_country_flag = solomon_competition_USA_influence
+					set_temp_variable = { break = 1 }
+				}
+				else_if = {
+					limit = { check_variable = { v = AST } }
+					set_country_flag = solomon_competition_AST_influence
+					clr_country_flag = solomon_competition_CHI_influence
+					clr_country_flag = solomon_competition_USA_influence
+					set_temp_variable = { break = 1 }
+				}
+				else_if = {
+					limit = { check_variable = { v = USA } }
+					set_country_flag = solomon_competition_USA_influence
+					clr_country_flag = solomon_competition_AST_influence
+					clr_country_flag = solomon_competition_CHI_influence
+					set_temp_variable = { break = 1 }
+				}
+			}
+
+			if = {
+				limit = { NOT = { has_country_flag = SOL_finished_solomon_competition } }
+
+				# China's Belt and Road Pacific branch scores through the marks
+				# it leaves on Honiara rather than through hooks in its own tree.
+				SOL_convert_CHI_bri_progress = yes
+
+				# Australia can change sides at any point in the storyline.
+				SOL_reevaluate_competition_mode = yes
+			}
+			else = {
+				# The competition is settled, but the settlement still has to be
+				# held. Roughly once every four years the patron's standing in
+				# Honiara is tested. A stalemate settles without a patron, so
+				# there is nobody to test and the check never runs.
+				if = {
+					limit = {
+						check_variable = { AST_comp_status > 0 }
+						has_country_flag = SOL_comp_has_patron
+						NOT = { has_country_flag = SOL_patron_test_pending }
+					}
+					random_list = {
+						2 = {
+							set_country_flag = { flag = SOL_patron_test_pending days = 1460 value = 1 }
+							country_event = { id = solomon_competition.60 days = 30 random_days = 90 }
+						}
+						98 = { }
+					}
+				}
+			}
+		}
+	}
+}

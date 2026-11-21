@@ -1,0 +1,3299 @@
+# move this later
+if_they_accept_tooltip = { custom_effect_tooltip = if_they_accept_tooltip_TT }
+
+# use MLW_refresh_money_display when making scripted effects with money involved, income or expenses and set up similar to money scripted
+# this is to keep the money scripted effect cleaner with less merge conflicts possible
+
+# DYNAMIC MODIFIER SCRIPTED EFFECTS
+	# MULTIPURPOSE DM EFFECTS
+		update_MLW_agri_workers = {
+			custom_effect_tooltip = MLW_agri_workers_TT
+			add_to_variable = { MLW_agri_workers = DM_agri_workers_change }
+		}
+		update_MLW_civ_workers = {
+			custom_effect_tooltip = MLW_civ_workers_TT
+			add_to_variable = { MLW_civ_workers = DM_civ_workers_change }
+		}
+		update_MLW_construction_speed = {
+			custom_effect_tooltip = MLW_construction_speed_TT
+			add_to_variable = { MLW_construction_speed = DM_construction_speed_change }
+		}
+		update_MLW_education_cost = {
+			custom_effect_tooltip = MLW_education_cost_TT
+			add_to_variable = { MLW_education_cost = DM_edu_cost_change }
+		}
+		update_MLW_education_expenses = {
+			custom_effect_tooltip = MLW_education_expenses_TT
+			add_to_variable = { MLW_education_money_cost = DM_additional_money_change }
+		}
+		update_MLW_education_income = {
+			custom_effect_tooltip = MLW_education_income_TT
+			add_to_variable = { MLW_education_money_return = DM_additional_money_change }
+		}
+		update_MLW_elderly_expenses = {
+			custom_effect_tooltip = MLW_elderly_expenses_TT
+			add_to_variable = { MLW_elderly_money_cost = DM_additional_money_change }
+		}
+		update_MLW_elderly_income = {
+			custom_effect_tooltip = MLW_elderly_income_TT
+			add_to_variable = { MLW_elderly_money_return = DM_additional_money_change }
+		}
+		update_MLW_factory_efficiency = {
+			custom_effect_tooltip = MLW_factory_efficiency_TT
+			add_to_variable = { MLW_factory_efficiency = DM_factory_efficiency_change }
+		}
+		update_MLW_healthcare_cost = {
+			custom_effect_tooltip = MLW_healthcare_cost_TT
+			add_to_variable = { MLW_health_cost = DM_health_cost_change }
+		}
+		update_MLW_police_cost = {
+			custom_effect_tooltip = MLW_police_cost_TT
+			add_to_variable = { MLW_police_cost = DM_police_cost_change }
+		}
+		update_MLW_population_growth = {
+			custom_effect_tooltip = MLW_population_growth_TT
+			add_to_variable = { MLW_population_growth = DM_pop_growth_change }
+		}
+		update_MLW_repair_speed = {
+			custom_effect_tooltip = MLW_repair_speed_TT
+			add_to_variable = { MLW_repair_speed = DM_repair_speed_change }
+		}
+		update_MLW_research_speed = {
+			custom_effect_tooltip = MLW_research_speed_TT
+			add_to_variable = { MLW_research_speed = DM_research_speed_change }
+		}
+		update_MLW_social_cost = {
+			custom_effect_tooltip = MLW_social_cost_TT
+			add_to_variable = { MLW_social_cost = DM_social_cost_change }
+		}
+		update_MLW_stability = {
+			custom_effect_tooltip = MLW_stability_TT
+			add_to_variable = { MLW_stability = DM_stability_change }
+		}
+		update_MLW_total_expenses = {
+			set_variable = { ROOT.dynamic_policies_expenses = MLW_education_money_cost }
+			add_to_variable = { ROOT.dynamic_policies_expenses = MLW_youth_money_cost }
+			add_to_variable = { ROOT.dynamic_policies_expenses = MLW_worker_money_cost }
+			add_to_variable = { ROOT.dynamic_policies_expenses = MLW_elderly_money_cost }
+		}
+		update_MLW_total_income = {
+			set_variable = { ROOT.dynamic_policies_income = MLW_education_money_return }
+			add_to_variable = { ROOT.dynamic_policies_income = MLW_youth_money_return }
+			add_to_variable = { ROOT.dynamic_policies_income = MLW_worker_money_return }
+			add_to_variable = { ROOT.dynamic_policies_income = MLW_elderly_money_return }
+		}
+		update_MLW_worker_expenses = {
+			custom_effect_tooltip = MLW_worker_expenses_TT
+			add_to_variable = { MLW_worker_money_cost = DM_additional_money_change }
+		}
+		update_MLW_worker_income = {
+			custom_effect_tooltip = MLW_worker_income_TT
+			add_to_variable = { MLW_worker_money_return = DM_additional_money_change }
+		}
+		update_MLW_youth_income = {
+			custom_effect_tooltip = MLW_youth_income_TT
+			add_to_variable = { MLW_youth_money_return = DM_additional_money_change }
+		}
+	# OIL UPKEEP EFFECTS
+		update_MLW_oil_upkeep = {
+			custom_effect_tooltip = update_MLW_oil_upkeep_TT
+			add_to_variable = { MLW_oil_upkeep_costs = DM_additional_money_change }
+			MLW_refresh_money_display = yes
+		}
+	# FOREIGN POLICY EFFECTS
+		# GCC EFFECTS
+			update_MLW_GCC_power_plant_fuel = {
+				custom_effect_tooltip = MLW_GCC_power_plant_fuel_TT
+				add_to_variable = { MLW_gcc_power_plant_fuel = DM_fossil_fuel_fuel_use_change }
+			}
+			update_MLW_GCC_agri_productivity = {
+				custom_effect_tooltip = MLW_GCC_agri_productivity_TT
+				add_to_variable = { MLW_gcc_agri_productivity = DM_agri_productivity_change }
+			}
+			update_MLW_GCC_agri_workers = {
+				custom_effect_tooltip = MLW_GCC_agri_workers_TT
+				add_to_variable = { MLW_gcc_agri_workers = DM_agri_workers_change }
+			}
+			update_MLW_GCC_agri_dist_workers = {
+				custom_effect_tooltip = MLW_GCC_agri_dist_workers_TT
+				add_to_variable = { MLW_gcc_agri_dist_workers = DM_agri_workers_change }
+			}
+			update_MLW_GCC_agri_tax = {
+				custom_effect_tooltip = MLW_GCC_agri_tax_TT
+				add_to_variable = { MLW_gcc_agri_tax = DM_agri_tax_change }
+			}
+			update_MLW_GCC_agri_dist_tax = {
+				custom_effect_tooltip = MLW_GCC_agri_dist_tax_TT
+				add_to_variable = { MLW_gcc_agri_dist_tax = DM_agri_dist_tax_change }
+			}
+			update_MLW_GCC_total_productivity = {
+				custom_effect_tooltip = MLW_GCC_total_productivity_TT
+				add_to_variable = { MLW_gcc_total_productivity = DM_productivity_change }
+			}
+			update_MLW_GCC_construction_speed = {
+				custom_effect_tooltip = MLW_GCC_construction_speed_TT
+				add_to_variable = { MLW_gcc_construction_speed = DM_construction_speed_change }
+			}
+			update_MLW_GCC_foreign_influence_attack = {
+				custom_effect_tooltip = MLW_GCC_foreign_influence_attack_TT
+				add_to_variable = { MLW_gcc_foreign_influence_attack = DM_foreign_influence_OFF_change }
+			}
+			update_MLW_GCC_foreign_influence_defence = {
+				custom_effect_tooltip = MLW_GCC_foreign_influence_defence_TT
+				add_to_variable = { MLW_gcc_foreign_influence_defence = DM_foreign_influence_DEF_change }
+			}
+			update_MLW_GCC_salafism_acceptance = {
+				custom_effect_tooltip = MLW_GCC_fascism_acceptance_TT
+				add_to_variable = { MLW_gcc_salafism = DM_fascism_acceptance_change }
+			}
+			update_MLW_GCC_neutrality_acceptance = {
+				custom_effect_tooltip = MLW_GCC_neutrality_acceptance_TT
+				add_to_variable = { MLW_gcc_neutrality = DM_neutrality_acceptance_change }
+			}
+			MLW_GCC_workers_cost_effect = {
+				if = {
+					limit = {
+						always = yes
+						MLW_MSCC_worker_cost_trigger = yes
+					}
+				}
+				set_temp_variable = { MLW_GCC_worker_cost = MLW_GCC_worker_cost_temp }
+			}
+			MLW_GCC_hire_MSCC = {
+				if = {
+					limit = { var:GCC_nation = { NOT = { is_in_array = { MLW.MSCCGO_crew_hired = THIS } } } }
+					var:GCC_nation = { add_to_array = { MLW.MSCCGO_crew_hired = THIS } }
+					custom_effect_tooltip = MLW_GCC_hire_MSCC_TT
+				}
+				MLW_refresh_AIO = yes
+			}
+			MLW_GCC_fire_MSCC = {
+				if = {
+					limit = { var:GCC_nation = { is_in_array = { MLW.MSCCGO_crew_hired = THIS } } }
+					var:GCC_nation = { remove_from_array = { MLW.MSCCGO_crew_hired = THIS } }
+					custom_effect_tooltip = MLW_GCC_fire_MSCC_TT
+				}
+				MLW_refresh_AIO = yes
+			}
+
+			MLW_mscc_test = {
+				every_country = {
+					limit = { MLW_GCC_nation = yes }
+					set_temp_variable = { GCC_nation = THIS }
+					MLW_GCC_hire_MSCC = yes
+				}
+			}
+		# LAKE WARS EFFECTS
+			MLW_LW_select_state_effect = {
+				set_variable = { ROOT.MLW_LW_state_selected = THIS.id }
+				custom_effect_tooltip = MLW_LW_select_state_effect_TT
+				MLW_refresh_AIO = yes
+			}
+			MLW_LW_state_array_setup = {
+				clear_array = MLW.LW_states
+				if = { limit = { NOT = { 1045 = { is_core_of = MLW } } } 1045 = { add_to_array = { MLW.LW_states = THIS } } }
+				if = { limit = { NOT = { 1046 = { is_core_of = MLW } } } 1046 = { add_to_array = { MLW.LW_states = THIS } } }
+				if = { limit = { NOT = { 1047 = { is_core_of = MLW } } } 1047 = { add_to_array = { MLW.LW_states = THIS } } }
+				if = { limit = { NOT = { 1049 = { is_core_of = MLW } } } 1049 = { add_to_array = { MLW.LW_states = THIS } } }
+				MLW_refresh_AIO = yes
+			}
+			MLW_LW_test_diplo = {
+				set_temp_variable = { MLW_LW_progress_change = 1 }
+				MLW_LW_update_militaristic_progress = yes
+			}
+			MLW_LW_update_diplomatic_progress = {
+				var:MLW_LW_state_selected = {
+					add_to_variable = { MLW_LW_diplomatic_progress = MLW_LW_progress_change }
+					clamp_variable = {
+						var = MLW_LW_diplomatic_progress
+						min = 0
+						max = 10
+					}
+				}
+				custom_effect_tooltip = MLW_LW_update_diplomatic_progress_TT
+				MLW_refresh_AIO = yes
+			}
+			MLW_LW_update_militaristic_progress = {
+				var:MLW_LW_state_selected = {
+					add_to_variable = { MLW_LW_militarist_progress = MLW_LW_progress_change }
+					clamp_variable = {
+						var = MLW_LW_militarist_progress
+						min = 0
+						max = 10
+					}
+				}
+				custom_effect_tooltip = MLW_LW_update_militaristic_progress_TT
+				MLW_refresh_AIO = yes
+			}
+			update_MLW_LW_agri_income = {
+				custom_effect_tooltip = update_MLW_LW_agri_income_TT
+				add_to_variable = { MLW_LW_agri_income_multiplier = DM_agri_income_change }
+			}
+			update_MLW_LW_mzuzu_income = {
+				custom_effect_tooltip = update_MLW_LW_mzuzu_income_TT
+				add_to_variable = { MLW_LW_mzuzu_income_multiplier = DM_mzuzu_income_change }
+			}
+			update_MLW_LW_migration_rate = {
+				custom_effect_tooltip = update_MLW_LW_migration_rate_TT
+				add_to_variable = { MLW_LW_migration_rate = DM_migration_rate_change }
+			}
+			MLW_LW_SEZ_effect = {
+				set_variable = { MLW_LW_agri_income_multiplier = 0 }
+				if = {
+					limit = { check_variable = { MLW_LW_SEZ_number = 4 } }
+					set_temp_variable = { DM_agri_income_change = 0.15 }
+					update_MLW_LW_agri_income = yes
+				}
+				else_if = {
+					limit = { check_variable = { MLW_LW_SEZ_number = 3 } }
+					set_temp_variable = { DM_agri_income_change = 0.09 }
+					update_MLW_LW_agri_income = yes
+				}
+				else_if = {
+					limit = { check_variable = { MLW_LW_SEZ_number = 2 } }
+					set_temp_variable = { DM_agri_income_change = 0.06 }
+					update_MLW_LW_agri_income = yes
+				}
+				else_if = {
+					limit = { check_variable = { MLW_LW_SEZ_number = 1 } }
+					set_temp_variable = { DM_agri_income_change = 0.03 }
+					update_MLW_LW_agri_income = yes
+				}
+				if = {
+					limit = { MLW_mzuzu_motors_exists = yes }
+					set_variable = { MLW_LW_mzuzu_income_multiplier = 0 }
+					if = {
+						limit = { check_variable = { MLW_LW_SEZ_number = 4 } }
+						set_temp_variable = { DM_mzuzu_income_change = 0.15 }
+						update_MLW_LW_mzuzu_income = yes
+					}
+					else_if = {
+						limit = { check_variable = { MLW_LW_SEZ_number = 3 } }
+						set_temp_variable = { DM_mzuzu_income_change = 0.09 }
+						update_MLW_LW_mzuzu_income = yes
+					}
+					else_if = {
+						limit = { check_variable = { MLW_LW_SEZ_number = 2 } }
+						set_temp_variable = { DM_mzuzu_income_change = 0.06 }
+						update_MLW_LW_mzuzu_income = yes
+					}
+					else_if = {
+						limit = { check_variable = { MLW_LW_SEZ_number = 1 } }
+						set_temp_variable = { DM_mzuzu_income_change = 0.03 }
+						update_MLW_LW_mzuzu_income = yes
+					}
+				}
+			}
+			MLW_LW_diplomatic_annexation_checker = {
+				if = {
+					limit = { NOT = { has_country_flag = MLW_LW_diplomatic_annexation_FLAG } }
+					set_country_flag = MLW_LW_diplomatic_annexation_FLAG
+					custom_effect_tooltip = MLW_LW_diplomatic_annexation_checker_TT
+				}
+			}
+			MLW_LW_hybrid_warfare_on_MBEYA = {
+				set_country_flag = {
+					flag = MLW_LW_hybrid_warfare_1045_FLAG
+					days = 180
+					value = 1
+				}
+				1045 = {
+					set_state_flag = {
+						flag = MLW_LW_hybrid_warfare_FLAG
+						days = 180
+						value = 1
+					}
+				}
+			}
+			MLW_LW_hybrid_warfare_on_NJOMBE = {
+				set_country_flag = {
+					flag = MLW_LW_hybrid_warfare_1046_FLAG
+					days = 180
+					value = 1
+				}
+				1046 = {
+					set_state_flag = {
+						flag = MLW_LW_hybrid_warfare_FLAG
+						days = 180
+						value = 1
+					}
+				}
+			}
+			MLW_LW_hybrid_warfare_on_WESTRUVUMA = {
+				set_country_flag = {
+					flag = MLW_LW_hybrid_warfare_1047_FLAG
+					days = 180
+					value = 1
+				}
+				1047 = {
+					set_state_flag = {
+						flag = MLW_LW_hybrid_warfare_FLAG
+						days = 180
+						value = 1
+					}
+				}
+			}
+			MLW_LW_hybrid_warfare_on_WESTNIASSA = {
+				set_country_flag = {
+					flag = MLW_LW_hybrid_warfare_1049_FLAG
+					days = 90
+					value = 1
+				}
+				1049 = {
+					set_state_flag = {
+						flag = MLW_LW_hybrid_warfare_FLAG
+						days = 90
+						value = 1
+					}
+				}
+			}
+
+			MLW_LW_militaristic_annexation_checker = {
+				if = {
+					limit = { NOT = { has_country_flag = MLW_LW_militaristic_annexation_FLAG } }
+					set_country_flag = MLW_LW_militaristic_annexation_FLAG
+					custom_effect_tooltip = MLW_LW_militaristic_annexation_checker_TT
+				}
+			}
+
+			MLW_LW_assault_from_NORTH_MALAWI = {
+				custom_effect_tooltip = MLW_LW_assault_from_NORTH_MALAWI_TT
+				set_country_flag = MLW_LW_assault_launched_from_NORTH_MALAWI
+			}
+			MLW_LW_assault_from_NJOMBE = {
+				custom_effect_tooltip = MLW_LW_assault_from_NJOMBE_TT
+				set_country_flag = MLW_LW_assault_launched_from_NJOMBE
+			}
+			MLW_LW_assault_from_MBEYA = {
+				custom_effect_tooltip = MLW_LW_assault_from_MBEYA_TT
+				set_country_flag = MLW_LW_assault_launched_from_MBEYA
+			}
+			MLW_LW_assault_from_WEST_RUVUMA = {
+				custom_effect_tooltip = MLW_LW_assault_from_WEST_RUVUMA_TT
+				set_country_flag = MLW_LW_assault_launched_from_WEST_RUVUMA
+			}
+			MLW_LW_assault_from_WEST_NIASSA = {
+				custom_effect_tooltip = MLW_LW_assault_from_WEST_NIASSA_TT
+				set_country_flag = MLW_LW_assault_launched_from_WEST_NIASSA
+			}
+			MLW_LW_assault_from_SOUTH_MALAWI = {
+				custom_effect_tooltip = MLW_LW_assault_from_SOUTH_MALAWI_TT
+				set_country_flag = MLW_LW_assault_launched_from_SOUTH_MALAWI
+			}
+
+			MLW_LW_hybrid_warfare_refugee_math = {
+				set_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 1 }
+				if = { # DRC CHECK
+					limit = { has_country_flag = MLW_UDF_DRC_refugee_visa_ACTIVE }
+					if = { # DRC HIGH LEVEL
+						limit = { has_country_flag = MLW_second_congolese_war_refugee_level_DRC }
+						add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.5 }
+					}
+					else = { add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.2 } }
+				}
+				if = { # RWA CHECK
+					limit = { has_country_flag = MLW_UDF_RWA_refugee_visa_ACTIVE }
+					if = { # RWA HIGH LEVEL
+						limit = { has_country_flag = MLW_second_congolese_war_refugee_level_RWA }
+						add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.2 }
+					}
+					else = { add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.1 } }
+				}
+				if = { # BUR CHECK
+					limit = { has_country_flag = MLW_UDF_BUR_refugee_visa_ACTIVE }
+					if = { # BUR HIGH LEVEL
+						limit = { has_country_flag = MLW_second_congolese_war_refugee_level_BUR }
+						add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.1 }
+					}
+					else = { add_to_temp_variable = { MLW_LW_hybrid_multiplier_TEMP = 0.05 } }
+				}
+			}
+
+			MLW_LW_hybrid_warfare_math = {
+				clear_variable = MLW_LW_defence_VAR
+				MLW_LW_hybrid_warfare_refugee_math = yes
+				if = {
+					limit = { MLW_LW_MBEYA = yes }
+					# defence math
+					set_temp_variable = { DM_defence_change = 1045.MLW_LW_hybrid_warfare } # 5 - 5 times decision taken
+					multiply_temp_variable = { DM_defence_change = 6 } # 30 - multiplied by 6
+					multiply_temp_variable = { DM_defence_change = MLW_LW_hybrid_multiplier_TEMP } # 1.8 - max modifier with refugee math
+					multiply_temp_variable = { DM_defence_change = -1 } # inverted to give debuff
+					set_variable = { MLW_LW_defence_VAR = DM_defence_change } # -54%
+				}
+				if = {
+					limit = { MLW_LW_NJOMBE = yes }
+					set_temp_variable = { DM_defence_change = 1046.MLW_LW_hybrid_warfare }
+					multiply_temp_variable = { DM_defence_change = 6 }
+					multiply_temp_variable = { DM_defence_change = MLW_LW_hybrid_multiplier_TEMP }
+					multiply_temp_variable = { DM_defence_change = -1 }
+					set_variable = { MLW_LW_defence_VAR = DM_defence_change }
+				}
+				if = {
+					limit = { MLW_LW_WESTRUVUMA = yes }
+					set_temp_variable = { DM_defence_change = 1047.MLW_LW_hybrid_warfare }
+					multiply_temp_variable = { DM_defence_change = 6 }
+					multiply_temp_variable = { DM_defence_change = MLW_LW_hybrid_multiplier_TEMP }
+					multiply_temp_variable = { DM_defence_change = -1 }
+					set_variable = { MLW_LW_defence_VAR = DM_core_defence_change }
+				}
+				if = {
+					limit = { MLW_LW_WESTNIASSA = yes }
+					set_temp_variable = { DM_defence_change = 1049.MLW_LW_hybrid_warfare }
+					multiply_temp_variable = { DM_defence_change = 6 }
+					multiply_temp_variable = { DM_defence_change = MLW_LW_hybrid_multiplier_TEMP }
+					multiply_temp_variable = { DM_defence_change = -1 }
+					set_variable = { MLW_LW_defence_VAR = DM_defence_change }
+				}
+			}
+		# SOUTH AFRICA EFFECTS
+			MLW_SAF_dynamic_modifier_check_for_SAF = {
+				if = { limit = { NOT = { has_dynamic_modifier = { modifier = MLW_SAF_DM } } } add_dynamic_modifier = { modifier = MLW_SAF_DM } }
+			}
+			update_MLW_SAF_training_time = {
+				custom_effect_tooltip = MLW_SAF_training_time_TT
+				add_to_variable = { MLW_SAF_training_time = DM_training_time_change }
+			}
+			update_MLW_SAF_max_training = {
+				custom_effect_tooltip = MLW_SAF_max_training_TT
+				add_to_variable = { MLW_SAF_max_training = DM_max_training_change }
+			}
+			update_MLW_SAF_army_xp_factor = {
+				custom_effect_tooltip = MLW_SAF_army_xp_factor_TT
+				add_to_variable = { MLW_SAF_army_xp_gain = DM_xp_factor_change }
+			}
+			update_MLW_SAF_navy_xp_factor = {
+				custom_effect_tooltip = MLW_SAF_navy_xp_factor_TT
+				add_to_variable = { MLW_SAF_navy_xp_gain = DM_xp_factor_change }
+			}
+			update_MLW_SAF_air_xp_factor = {
+				custom_effect_tooltip = MLW_SAF_air_xp_factor_TT
+				add_to_variable = { MLW_SAF_air_xp_gain = DM_xp_factor_change }
+			}
+			update_MLW_SAF_police_cost = {
+				custom_effect_tooltip = MLW_SAF_police_cost_TT
+				add_to_variable = { MLW_SAF_police_cost = DM_police_cost_change }
+			}
+			update_MLW_SAF_border_control_cost = {
+				custom_effect_tooltip = MLW_SAF_border_control_cost_TT
+				add_to_variable = { MLW_SAF_border_control_cost = DM_border_control_cost_change }
+			}
+			update_MLW_SAF_migration_rate = {
+				custom_effect_tooltip = MLW_SAF_migration_rate_TT
+				add_to_variable = { MLW_SAF_migration_rate = DM_migration_rate_change }
+			}
+			update_MLW_SAF_additional_income = {
+				custom_effect_tooltip = MLW_SAF_additional_income_TT
+				add_to_variable = { MLW_SAF_additional_income = DM_additional_money_change }
+			}
+			update_MLW_SAF_additional_expense = {
+				custom_effect_tooltip = MLW_SAF_additional_expense_TT
+				add_to_variable = { MLW_SAF_additional_expense = DM_additional_money_change }
+			}
+		# TWO CHINA EFFECTS
+			update_MLW_2C_rail_construction_speed = {
+				custom_effect_tooltip = MLW_2C_rail_construction_speed_TT
+				add_to_variable = { MLW_2C_rail_speed = DM_rail_construction_speed_change }
+			}
+			update_MLW_2C_steel_stockpile = {
+				custom_effect_tooltip = MLW_2C_steel_stockpile_TT
+				add_to_variable = { MLW_2C_steel_stockpile = DM_steel_stockpile_change }
+			}
+			update_MLW_2C_research_speed = {
+				custom_effect_tooltip = MLW_2C_research_speed_TT
+				add_to_variable = { MLW_2C_research_speed = DM_research_speed_change }
+			}
+			update_MLW_2C_aluminium_stockpile = {
+				custom_effect_tooltip = MLW_2C_aluminium_stockpile_TT
+				add_to_variable = { MLW_2C_aluminium_stockpile = DM_aluminium_stockpile_change }
+			}
+		#
+	# DOMESTIC POLICY EFFECTS
+		# LOGGING EFFECTS
+			MLW_logging_peaceful_option = {
+				custom_effect_tooltip = MLW_logging_peaceful_option_TT
+				add_to_variable = { MLW_peaceful_option = 1 }
+				set_country_flag = MLW_anti_logging_underway
+			}
+			MLW_logging_militant_option = {
+				custom_effect_tooltip = MLW_logging_militant_option_TT
+				add_to_variable = { MLW_militant_option = 1 }
+				set_country_flag = MLW_anti_logging_underway
+			}
+			update_MLW_logging_factories = {
+				custom_effect_tooltip = MLW_state_building_slots_LOGGING_TT
+				add_to_variable = { MLW.MLW_local_buildings_LOGGING = DM_state_building_slots_change }
+				clamp_variable = {
+					var = MLW.MLW_local_buildings_LOGGING
+					max = 0
+				}
+			}
+			update_MLW_logging_division_speed = {
+				custom_effect_tooltip = MLW_military_speed_LOGGING_TT
+				add_to_variable = { MLW.MLW_military_speed_LOGGING = DM_military_speed_change }
+				clamp_variable = {
+					var = MLW.MLW_military_speed_LOGGING
+					max = 0
+				}
+			}
+			update_MLW_logging_resources = {
+				custom_effect_tooltip = MLW_state_resources_LOGGING_TT
+				add_to_variable = { MLW.MLW_resources_LOGGING = DM_state_resources_change }
+				clamp_variable = {
+					var = MLW.MLW_resources_LOGGING
+					max = 0
+				}
+			}
+			update_MLW_logging_construction_speed = {
+				custom_effect_tooltip = MLW_construction_speed_LOGGING_TT
+				add_to_variable = { MLW.MLW_construction_LOGGING = DM_construction_speed_change }
+				clamp_variable = {
+					var = MLW.MLW_construction_LOGGING
+					max = 0
+				}
+			}
+			update_MLW_logging_productivity_growth = {
+				custom_effect_tooltip = MLW_state_productivity_LOGGING_TT
+				add_to_variable = { MLW.MLW_state_productivity_LOGGING = DM_state_productivity_change }
+				clamp_variable = {
+					var = MLW.MLW_state_productivity_LOGGING
+					max = 0
+				}
+			}
+			MLW_logging_DM_workaround = {
+				hidden_effect = {
+					260 = {
+						remove_dynamic_modifier = { modifier = MLW_illegal_logging }
+						add_dynamic_modifier = { modifier = MLW_illegal_logging }
+					}
+					force_update_dynamic_modifier = yes
+					clr_country_flag = MLW_anti_logging_underway
+				}
+			}
+		# LAKESIDE EFFECTS
+			update_MLW_lakeside_healthcare_cost = {
+				custom_effect_tooltip = MLW_lakeside_healthcare_cost_TT
+				add_to_variable = { MLW_lakeside_healthcare_cost = DM_health_cost_change }
+			}
+			update_MLW_lakeside_population_growth = {
+				custom_effect_tooltip = MLW_lakeside_population_growth_TT
+				add_to_variable = { MLW_lakeside_population_growth = DM_pop_growth_change }
+			}
+			update_MLW_lakeside_income = {
+				custom_effect_tooltip = MLW_lakeside_income_TT
+				add_to_variable = { MLW_lakeside_money_return = DM_additional_money_change }
+			}
+			update_MLW_lakeside_expenses = {
+				custom_effect_tooltip = MLW_lakeside_expenses_TT
+				add_to_variable = { MLW_lakeside_money_cost = DM_additional_money_change }
+			}
+		# URBANISATION EFFECTS
+			MLW_internal_migration_tick = {
+				if = {
+					limit = { has_country_flag = MLW_lessen_the_divide_flag }
+					set_temp_variable = { region_place = 0 }
+					set_temp_variable = { MLW_internal_migration_change = 0.01 }
+					update_MLW_internal_migration = yes
+					set_temp_variable = { region_place = 1 }
+					set_temp_variable = { MLW_internal_migration_change = -0.01 }
+					update_MLW_internal_migration = yes
+				}
+			}
+			update_MLW_internal_migration = {
+				add_to_variable = { MLW_internal_migration^region_place = MLW_internal_migration_change }
+				clamp_variable = {
+					var = MLW_internal_migration^region_place
+					min = 0
+					max = 100
+				}
+				custom_effect_tooltip = MLW_internal_migration_change_TT
+			}
+	# STATE MODIFIER EFFECTS
+		# STATE POWER EFFECTS
+			update_MLW_construction_speed_POWER = {
+				custom_effect_tooltip = MLW_construction_speed_POWER_TT
+				add_to_variable = { MLW_construction_POWER = DM_construction_speed_change }
+			}
+			update_MLW_local_supplies_POWER = {
+				custom_effect_tooltip = MLW_local_supplies_POWER_TT
+				add_to_variable = { MLW_supplies_POWER = DM_local_supplies_change }
+			}
+			update_MLW_resistance_POWER = {
+				custom_effect_tooltip = MLW_resistance_POWER_TT
+				add_to_variable = { MLW_resistance_POWER = DM_resistance_growth_change }
+			}
+			update_MLW_state_resources_POWER = {
+				custom_effect_tooltip = MLW_state_resources_POWER_TT
+				add_to_variable = { MLW_resources_POWER = DM_state_resources_change }
+			}
+			update_MLW_state_productivity_POWER = {
+				custom_effect_tooltip = MLW_state_productivity_POWER_TT
+				add_to_variable = { MLW_state_productivity_POWER = DM_state_productivity_change }
+			}
+			MLW_power_DM_workaround = {
+				hidden_effect = {
+					259 = {
+						remove_dynamic_modifier = { modifier = MLW_power_outages }
+						add_dynamic_modifier = { modifier = MLW_power_outages }
+					}
+					force_update_dynamic_modifier = yes
+				}
+			}
+		# STATE LOGGING EFFECTS
+			update_MLW_military_speed_LOGGING = {
+				custom_effect_tooltip = MLW_military_speed_LOGGING_TT
+				add_to_variable = { MLW_military_speed_LOGGING = DM_military_speed_change }
+			}
+			update_MLW_construction_speed_LOGGING = {
+				custom_effect_tooltip = MLW_construction_speed_LOGGING_TT
+				add_to_variable = { MLW_construction_LOGGING = DM_construction_speed_change }
+			}
+			update_MLW_state_resources_LOGGING = {
+				custom_effect_tooltip = MLW_state_resources_LOGGING_TT
+				add_to_variable = { MLW_resources_LOGGING = DM_state_resources_change }
+			}
+			update_MLW_state_building_slots_LOGGING = {
+				custom_effect_tooltip = MLW_state_building_slots_LOGGING_TT
+				add_to_variable = { MLW_local_buildings_LOGGING = DM_state_building_slots_change }
+			}
+			update_MLW_state_productivity_LOGGING = {
+				custom_effect_tooltip = MLW_state_productivity_LOGGING_TT
+				add_to_variable = { MLW_state_productivity_LOGGING = DM_state_productivity_change }
+			}
+		#
+	# POLITICAL PARTY EFFECTS
+		MLW_party_drifts_tick = {
+			# UDF EFFECTS
+				if = {
+					limit = { has_country_flag = MLW_UDF_affirmative_action_FLAG }
+					set_temp_variable = { party_index = 2 }
+					set_temp_variable = { party_popularity_increase = 0.004 }
+					add_relative_party_popularity = yes
+				}
+				if = {
+					limit = { has_country_flag = MLW_UDF_SADC_parliament_requirements_FLAG }
+					set_temp_variable = { party_index = 2 }
+					set_temp_variable = { party_popularity_increase = 0.001 }
+					add_relative_party_popularity = yes
+				}
+		}
+		# MCP EFFECTS
+			MLW_MCP_faction_strength_update = {
+				set_temp_variable = { MLW_MCP_faction_strength_addition = faction_strength_change }
+				set_temp_variable = { MLW_MCP_faction_strength_subtraction = faction_strength_change }
+				multiply_temp_variable = { MLW_MCP_faction_strength_subtraction = -1 }
+				if = { # SELF CORRECTING CODE
+					limit = { check_variable = { faction_place = 0 } }
+					if = {
+						limit = { check_variable = { faction_strength_change > 0 } }
+						add_to_variable = { MLW_MCP_faction_strength^0 = MLW_MCP_faction_strength_addition }
+						add_to_variable = { MLW_MCP_faction_strength^1 = MLW_MCP_faction_strength_subtraction }
+					}
+					else = {
+						add_to_variable = { MLW_MCP_faction_strength^0 = MLW_MCP_faction_strength_subtraction }
+						add_to_variable = { MLW_MCP_faction_strength^1 = MLW_MCP_faction_strength_addition }
+					}
+				}
+				if = {
+					limit = { check_variable = { faction_place = 1 } }
+					if = {
+						limit = { check_variable = { faction_strength_change > 0 } }
+						add_to_variable = { MLW_MCP_faction_strength^0 = MLW_MCP_faction_strength_subtraction }
+						add_to_variable = { MLW_MCP_faction_strength^1 = MLW_MCP_faction_strength_addition }
+					}
+					else = {
+						add_to_variable = { MLW_MCP_faction_strength^0 = MLW_MCP_faction_strength_addition }
+						add_to_variable = { MLW_MCP_faction_strength^1 = MLW_MCP_faction_strength_subtraction }
+					}
+				}
+				clamp_variable = {
+					var = MLW_MCP_faction_strength^faction_place
+					min = 0
+					max = 1
+				}
+				custom_effect_tooltip = MLW_MCP_factionalism_strength_change_TT
+			}
+			MLW_MCP_corruption_decentralisation = {
+				# each level gov cost goes up by 10%
+				# each level tax income goes down by 0.5%
+				if = { # CORRUPTION 1
+					limit = { has_idea = negligble_corruption }
+					set_temp_variable = { DM_corruption_cost_change = -0.1 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = 0.05 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.10 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 2
+					limit = { has_idea = slight_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.05 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = 0.04 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.09 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 3
+					limit = { has_idea = modest_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.1 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = 0.03 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.08 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 4
+					limit = { has_idea = medium_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.15 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = 0.02 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.07 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 5
+					limit = { has_idea = widespread_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.2 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = 0.01 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.06 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 6
+					limit = { has_idea = systematic_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.25 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.05 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 7
+					limit = { has_idea = unrestrained_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.3 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = -0.01 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.04 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 8
+					limit = { has_idea = rampant_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.35 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = -0.02 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.03 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else_if = { # CORRUPTION 9
+					limit = { has_idea = crippling_corruption }
+					set_temp_variable = { DM_corruption_cost_change = 0.4 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = -0.03 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.02 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				else = { # CORRUPTION 10
+					set_temp_variable = { DM_corruption_cost_change = 0.45 }
+					update_MLW_MCP_corruption_cost = yes
+					set_temp_variable = { DM_tax_gain_change = -0.04 }
+					update_MLW_MCP_tax_gain = yes
+					set_temp_variable = { DM_bureau_cost_change = -0.01 }
+					# update_MLW_MCP_centralisation_cost = yes
+				}
+				force_update_dynamic_modifier = yes
+			}
+			MLW_law_blocking_check = {
+				if = { # FIRST ATTEMPT
+					limit = { check_variable = { MLW_law_attempt = 0 } }
+					if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_JUDGES }
+						random_list = {
+							90 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.16
+									days = 14
+								}
+							}
+							10 = {}
+						}
+					}
+					else_if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_POPULATION }
+						random_list = {
+							90 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.17
+									days = 14
+								}
+							}
+							10 = {}
+						}
+					}
+				}
+				else_if = { # SECOND ATTEMPT
+					limit = { check_variable = { MLW_law_attempt = 1 } }
+					if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_JUDGES }
+						random_list = {
+							70 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.16
+									days = 14
+								}
+							}
+							30 = {}
+						}
+					}
+					else_if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_POPULATION }
+						random_list = {
+							70 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.17
+									days = 14
+								}
+							}
+							30 = {}
+						}
+					}
+				}
+				else_if = { # THIRD ATTEMPT
+					limit = { check_variable = { MLW_law_attempt = 2 } }
+					if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_JUDGES }
+						random_list = {
+							50 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.16
+									days = 14
+								}
+							}
+							50 = {}
+						}
+					}
+					else_if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_POPULATION }
+						random_list = {
+							50 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.17
+									days = 14
+								}
+							}
+							50 = {}
+						}
+					}
+				}
+				else_if = { # FOURTH ATTEMPT
+					limit = { check_variable = { MLW_law_attempt = 3 } }
+					if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_JUDGES }
+						random_list = {
+							30 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.16
+									days = 14
+								}
+							}
+							70 = {}
+						}
+					}
+					else_if = {
+						limit = { has_country_flag = MLW_MCP_1993_referendum_POPULATION }
+						random_list = {
+							30 = {
+								add_to_variable = { MLW_law_attempt = 1 }
+								country_event = {
+									id = MLW_MCP.17
+									days = 14
+								}
+							}
+							70 = {}
+						}
+					}
+				}
+			}
+			MLW_MCP_LC_update = {
+				set_temp_variable = { MLW_MCP_LC_addition = LC_change }
+				set_temp_variable = { MLW_MCP_LC_subtraction = LC_change }
+				multiply_temp_variable = { MLW_MCP_LC_subtraction = -1 }
+				if = { # SELF CORRECTING CODE
+					limit = { check_variable = { LC_group = 0 } }
+					if = {
+						limit = { check_variable = { LC_change > 0 } }
+						add_to_variable = { MLW_MCP_population_LC^0 = MLW_MCP_LC_addition }
+						add_to_variable = { MLW_MCP_population_LC^1 = MLW_MCP_LC_subtraction }
+					}
+					else = {
+						add_to_variable = { MLW_MCP_population_LC^0 = MLW_MCP_LC_subtraction }
+						add_to_variable = { MLW_MCP_population_LC^1 = MLW_MCP_LC_addition }
+					}
+				}
+				if = {
+					limit = { check_variable = { LC_group = 1 } }
+					if = {
+						limit = { check_variable = { LC_change > 0 } }
+						add_to_variable = { MLW_MCP_population_LC^0 = MLW_MCP_LC_subtraction }
+						add_to_variable = { MLW_MCP_population_LC^1 = MLW_MCP_LC_addition }
+					}
+					else = {
+						add_to_variable = { MLW_MCP_population_LC^0 = MLW_MCP_LC_addition }
+						add_to_variable = { MLW_MCP_population_LC^1 = MLW_MCP_LC_subtraction }
+					}
+				}
+				clamp_variable = {
+					var = MLW_MCP_population_LC^LC_group
+					min = 0
+					max = 1
+				}
+				custom_effect_tooltip = MLW_MCP_LC_change_TT
+			}
+			MLW_MCP_RR_support_update = {
+				add_to_variable = { MLW_MCP_group_support^RR_group = RR_support_change }
+				clamp_variable = {
+					var = MLW_MCP_group_support^RR_group
+					min = 0
+					max = 100
+				}
+				custom_effect_tooltip = MLW_MCP_RR_support_change_TT
+			}
+			MLW_MCP_RR_suspicion_update = {
+				add_to_variable = { MLW_MCP_group_suspicion^RR_group = RR_suspicion_change }
+				clamp_variable = {
+					var = MLW_MCP_group_suspicion^RR_group
+					min = 0
+					max = 100
+				}
+				custom_effect_tooltip = MLW_MCP_RR_suspicion_change_TT
+			}
+			MLW_run_interference = {
+				custom_effect_tooltip = MLW_run_interference_TT
+				clamp_variable = {
+					var = MLW_MCP_interference
+					min = 0
+					max = 1
+				}
+				add_to_variable = { MLW_MCP_interference = MLW_MCP_interference_change }
+			}
+			MLW_MCP_status_update = {
+				MLW_MCP_faction_strength_update = yes
+				MLW_MCP_faction_threat_update = yes
+			}
+			MLW_MCP_stability_changes = {
+				if = {
+					limit = { has_country_flag = MLW_MCP_rose_tinted_glasses }
+					set_temp_variable = { DM_stability_change = -0.002 }
+					update_MLW_MCP_stability = yes
+				}
+			}
+			# DM EFFECTS
+				update_MLW_MCP_bureau_cost = {
+					custom_effect_tooltip = MLW_MCP_bureau_cost_TT
+					add_to_variable = { MLW_MCP_bureau_cost = DM_bureau_cost_change }
+				}
+				update_MLW_MCP_corp_tax_income = {
+					custom_effect_tooltip = MLW_MCP_corp_tax_income_TT
+					add_to_variable = { MLW_MCP_corp_tax_income = DM_corp_tax_income_change }
+				}
+				update_MLW_MCP_corruption_cost = {
+					custom_effect_tooltip = MLW_MCP_corruption_cost_TT
+					add_to_variable = { MLW_MCP_corruption_cost = DM_corruption_cost_change }
+				}
+				update_MLW_MCP_education_cost = {
+					custom_effect_tooltip = MLW_MCP_education_cost_TT
+					add_to_variable = { MLW_MCP_education_cost = DM_edu_cost_change }
+				}
+				update_MLW_MCP_health_cost = {
+					custom_effect_tooltip = MLW_MCP_health_cost_TT
+					add_to_variable = { MLW_MCP_health_cost = DM_health_cost_change }
+				}
+				update_MLW_MCP_militia_attack = {
+					custom_effect_tooltip = MLW_MCP_militia_attack_TT
+					add_to_variable = { MLW_MCP_militia_attack = DM_militia_attack }
+				}
+				update_MLW_MCP_militia_defence = {
+					custom_effect_tooltip = MLW_MCP_militia_defence_TT
+					add_to_variable = { MLW_MCP_militia_defence = DM_militia_defence }
+				}
+				update_MLW_MCP_police_cost = {
+					custom_effect_tooltip = MLW_MCP_police_cost_TT
+					add_to_variable = { MLW_MCP_police_cost = DM_police_cost_change }
+				}
+				update_MLW_MCP_policies_expenses = {
+					custom_effect_tooltip = MLW_MCP_expenses_TT
+					add_to_variable = { MLW_MCP_policies_additional_expenses = DM_additional_money_change }
+				}
+				update_MLW_MCP_pop_tax_income = {
+					custom_effect_tooltip = MLW_MCP_pop_tax_income_TT
+					add_to_variable = { MLW_MCP_pop_tax_income = DM_pop_tax_income_change }
+				}
+				update_MLW_MCP_population_growth = {
+					custom_effect_tooltip = MLW_MCP_population_growth_TT
+					add_to_variable = { MLW_MCP_population_growth = DM_pop_growth_change }
+				}
+				update_MLW_MCP_pp_gain = {
+					custom_effect_tooltip = MLW_MCP_PP_gain_TT
+					add_to_variable = { MLW_MCP_PP_gain = DM_political_power_gain_change }
+				}
+				update_MLW_MCP_social_cost = {
+					custom_effect_tooltip = MLW_MCP_social_cost_TT
+					add_to_variable = { MLW_MCP_social_cost = DM_social_cost_change }
+				}
+				update_MLW_MCP_stability = {
+					custom_effect_tooltip = MLW_MCP_stability_TT
+					add_to_variable = { MLW_MCP_stability = DM_stability_change }
+				}
+				update_MLW_MCP_tax_gain = {
+					custom_effect_tooltip = MLW_MCP_tax_gain_TT
+					add_to_variable = { MLW_MCP_tax_gain = DM_tax_gain_change }
+				}
+				update_MLW_MCP_war_support = {
+					custom_effect_tooltip = MLW_MCP_war_support_TT
+					add_to_variable = { MLW_MCP_war_support = DM_war_support_change }
+				}
+		# UDF EFFECTS
+			MLW_chief_dice_roll = {
+				hidden_effect = {
+					random_list = {
+						40 = { set_country_flag = MLW_chiefs_request_money }
+						40 = { set_country_flag = MLW_chiefs_request_political_concessions }
+						20 = { set_country_flag = MLW_chiefs_request_nepotism }
+					}
+				}
+			}
+			MLW_congo_war_check_to_add_refugees_CONGO = {
+				if = {
+					limit = { DRC = { exists = yes } }
+					DRC = { add_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+				if = {
+					limit = { MLC = { exists = yes } }
+					MLC = { add_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+				if = {
+					limit = { RCD = { exists = yes } }
+					RCD = { add_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_congo_war_check_to_add_refugees_RWANDA = {
+				if = {
+					limit = { RWA = { exists = yes } }
+					RWA = { add_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_congo_war_check_to_add_refugees_BURUNDI = {
+				if = {
+					limit = { BUR = { exists = yes } }
+					BUR = { add_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_congo_war_check_to_remove_refugees_CONGO = {
+				if = {
+					limit = {
+						DRC = {
+							exists = yes
+							has_opinion_modifier = AFRICA_accepting_of_refugees
+						}
+					}
+					DRC = { remove_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+				if = {
+					limit = {
+						MLC = {
+							exists = yes
+							has_opinion_modifier = AFRICA_accepting_of_refugees
+						}
+					}
+					MLC = { remove_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+				if = {
+					limit = {
+						RCD = {
+							exists = yes
+							has_opinion_modifier = AFRICA_accepting_of_refugees
+						}
+					}
+					RCD = { remove_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_congo_war_check_to_remove_refugees_RWANDA = {
+				if = {
+					limit = {
+						RWA = {
+							exists = yes
+							has_opinion_modifier = AFRICA_accepting_of_refugees
+						}
+					}
+					RWA = { remove_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_congo_war_check_to_remove_refugees_BURUNDI = {
+				if = {
+					limit = {
+						BUR = {
+							exists = yes
+							has_opinion_modifier = AFRICA_accepting_of_refugees
+						}
+					}
+					BUR = { remove_opinion_modifier = { target = MLW modifier = AFRICA_accepting_of_refugees } }
+					newline = yes
+				}
+			}
+			MLW_UDF_raid_DPP_PP = {
+				random_list = {
+					20 = {
+						set_temp_variable = { party_index = 1 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					20 = {
+						set_temp_variable = { party_index = 3 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					20 = {
+						set_temp_variable = { party_index = 14 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					20 = {
+						set_temp_variable = { party_index = 18 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					20 = {
+						set_temp_variable = { party_index = 20 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+				}
+			}
+			MLW_UDF_raid_DPP = {
+				random_list = {
+					25 = {
+						set_temp_variable = { party_index = 3 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					25 = {
+						set_temp_variable = { party_index = 14 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					25 = {
+						set_temp_variable = { party_index = 18 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					25 = {
+						set_temp_variable = { party_index = 20 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+				}
+			}
+			MLW_UDF_raid = {
+				random_list = {
+					33 = {
+						set_temp_variable = { party_index = 14 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					33 = {
+						set_temp_variable = { party_index = 18 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+					33 = {
+						set_temp_variable = { party_index = 20 }
+						set_temp_variable = { party_popularity_increase = -0.025 }
+						add_relative_party_popularity = yes
+					}
+				}
+			}
+			# DM EFFECTS
+				update_MLW_UDF_centralisation_cost = {
+					custom_effect_tooltip = MLW_UDF_bureau_cost_TT
+					add_to_variable = { MLW_UDF_bureau_cost = DM_bureau_cost_change }
+				}
+				update_MLW_UDF_construction_speed = {
+					custom_effect_tooltip = MLW_UDF_construction_speed_TT
+					add_to_variable = { MLW_UDF_construction_speed = DM_construction_speed_change }
+				}
+				update_MLW_UDF_corp_tax_income = {
+					custom_effect_tooltip = MLW_UDF_corp_tax_income_TT
+					add_to_variable = { MLW_UDF_corp_tax_income = DM_corp_tax_income_change }
+				}
+				update_MLW_UDF_education_cost = {
+					custom_effect_tooltip = MLW_UDF_education_cost_TT
+					add_to_variable = { MLW_UDF_education_cost = DM_edu_cost_change }
+				}
+				update_MLW_UDF_factory_efficiency = { # fix
+					custom_effect_tooltip = MLW_UDF_factory_efficiency_TT
+					add_to_variable = { MLW_UDF_factory_efficiency = DM_factory_efficiency_change }
+				}
+				update_MLW_UDF_foreign_influence_defence = { # fix
+					custom_effect_tooltip = MLW_UDF_foreign_influence_defence_TT
+					add_to_variable = { MLW_UDF_foreign_influence_defence = DM_foreign_influence_DEF_change }
+				}
+				update_MLW_UDF_health_cost = {
+					custom_effect_tooltip = MLW_UDF_health_cost_TT
+					add_to_variable = { MLW_UDF_health_cost = DM_health_cost_change }
+				}
+				update_MLW_UDF_investment_cost = { # fix
+					custom_effect_tooltip = MLW_UDF_investment_cost_TT
+					add_to_variable = { MLW_UDF_investment_cost = DM_investment_cost_change }
+				}
+				update_MLW_UDF_investment_time = { # fix
+					custom_effect_tooltip = MLW_UDF_investment_time_TT
+					add_to_variable = { MLW_UDF_investment_time = DM_investment_time_change }
+				}
+				update_MLW_UDF_migration_rate = {
+					custom_effect_tooltip = MLW_UDF_migration_rate_TT
+					add_to_variable = { MLW_UDF_migration_rate = DM_migration_rate_change }
+				}
+				update_MLW_UDF_police_cost = {
+					custom_effect_tooltip = MLW_UDF_police_cost_TT
+					add_to_variable = { MLW_UDF_police_cost = DM_police_cost_change }
+				}
+				update_MLW_UDF_policies_expenses = {
+					custom_effect_tooltip = MLW_UDF_expenses_TT
+					add_to_variable = { MLW_UDF_policies_additional_money_cost = DM_additional_money_change }
+					MLW_refresh_money_display = yes
+				}
+				update_MLW_UDF_policies_income = {
+					custom_effect_tooltip = MLW_UDF_income_TT
+					add_to_variable = { MLW_UDF_policies_additional_money_return = DM_additional_money_change }
+					MLW_refresh_money_display = yes
+				}
+				update_MLW_UDF_pop_tax_income = {
+					custom_effect_tooltip = MLW_UDF_pop_tax_income_TT
+					add_to_variable = { MLW_UDF_pop_tax_income = DM_pop_tax_income_change }
+				}
+				update_MLW_UDF_population_growth = {
+					custom_effect_tooltip = MLW_UDF_population_growth_TT
+					add_to_variable = { MLW_UDF_population_growth = DM_pop_growth_change }
+				}
+				update_MLW_UDF_pp_gain = { # fix
+					custom_effect_tooltip = MLW_UDF_pp_gain_TT
+					add_to_variable = { MLW_UDF_PP_gain = DM_political_power_gain_change }
+				}
+				update_MLW_UDF_research_speed = {
+					custom_effect_tooltip = MLW_UDF_research_speed_TT
+					add_to_variable = { MLW_UDF_research_speed = DM_research_speed_change }
+				}
+				update_MLW_UDF_social_cost = {
+					custom_effect_tooltip = MLW_UDF_social_cost_TT
+					add_to_variable = { MLW_UDF_social_cost = DM_social_cost_change }
+				}
+				update_MLW_UDF_stability = {
+					custom_effect_tooltip = MLW_UDF_stability_TT
+					add_to_variable = { MLW_UDF_stability = DM_stability_change }
+				}
+				update_MLW_UDF_western_propaganda = {
+					custom_effect_tooltip = MLW_UDF_propaganda_TT
+					add_to_variable = { MLW_UDF_policies_western_propaganda = DM_western_campaign_cost_change }
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	# ECONOMY EFFECTS
+		MLW_economy_go_forwards = {
+			if = {
+				limit = {
+					has_idea = MLW_backwards_economy_idea_1
+				}
+				swap_ideas = {
+					remove_idea = MLW_backwards_economy_idea_1
+					add_idea = MLW_backwards_economy_idea_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MLW_backwards_economy_idea_2
+				}
+				swap_ideas = {
+					remove_idea = MLW_backwards_economy_idea_2
+					add_idea = MLW_backwards_economy_idea_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MLW_backwards_economy_idea_3
+				}
+				swap_ideas = {
+					remove_idea = MLW_backwards_economy_idea_3
+					add_idea = MLW_backwards_economy_idea_4
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MLW_backwards_economy_idea_4
+				}
+				swap_ideas = {
+					remove_idea = MLW_backwards_economy_idea_4
+					add_idea = MLW_backwards_economy_idea_5
+				}
+			}
+		}
+		MLW_catching_up = {
+			if = {
+				limit = {
+					has_idea = MLW_playing_catch_up_idea_1
+				}
+				swap_ideas = {
+					remove_idea = MLW_playing_catch_up_idea_1
+					add_idea = MLW_playing_catch_up_idea_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MLW_playing_catch_up_idea_2
+				}
+				swap_ideas = {
+					remove_idea = MLW_playing_catch_up_idea_2
+					add_idea = MLW_playing_catch_up_idea_3
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = MLW_playing_catch_up_idea_3
+				}
+				swap_ideas = {
+					remove_idea = MLW_playing_catch_up_idea_3
+					add_idea = MLW_playing_catch_up_idea_4
+				}
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# GUI STUFF
+
+MLW_refresh_money_display = {
+	# INCOMES
+		set_variable = { MLW_total_income = 0 }
+		if = { # UDF POLICY INCOMES
+			limit = { check_variable = { MLW_UDF_policies_additional_income > 0 } }
+			add_to_variable = { MLW_total_income = MLW_UDF_policies_additional_income }
+		}
+		if = { # MZUZU MOTORS
+			limit = { check_variable = { MLW_MZ_weekly_income > 0 } }
+			add_to_variable = { MLW_total_income = MLW_MZ_weekly_income }
+		}
+		if = { # SADC TRADE INCOME
+			limit = { check_variable = { MLW_SADC_trade_income > 0 } }
+			add_to_variable = { MLW_total_income = MLW_SADC_trade_income }
+		}
+	# EXPENSES
+		set_variable = { MLW_total_expenses = 0 }
+		if = { # UDF POLICY EXPENSES
+			limit = { check_variable = { MLW_UDF_policies_additional_expenses > 0 } }
+			add_to_variable = { MLW_total_expenses = MLW_UDF_policies_additional_expenses }
+		}
+		if = { # MZUZU MOTORS
+			limit = { check_variable = { MLW_MZ_weekly_expenses > 0 } }
+			add_to_variable = { MLW_total_expenses = MLW_MZ_weekly_expenses }
+		}
+		if = { # SADC TRADE INCOME
+			limit = { check_variable = { MLW_SADC_trade_expense > 0 } }
+			add_to_variable = { MLW_total_expenses = MLW_SADC_trade_expense }
+		}
+		if = { # OIL UPKEEP COSTS
+			limit = { check_variable = { MLW_oil_upkeep_costs > 0 } }
+			add_to_variable = { MLW_total_expenses = MLW_oil_upkeep_costs }
+		}
+}
+
+
+
+
+
+
+
+
+
+
+
+# GUI EFFECTS
+	MLW_refresh_AIO = {
+		if = { limit = { check_variable = { MLW.refresh_AIO = 5000 } } set_variable = { MLW.refresh_AIO = 1 } }
+		else = { add_to_variable = { MLW.refresh_AIO = 1 } }
+	}
+	# POLITICAL PARTIES
+		# FULL DEBUGGING
+			MLW_init_party_policies_DEBUG = {
+				# AFORD
+				# DPP
+				# LESOMA
+				# MCP
+				clear_array = MCP_policies_passed_parliament
+				clear_array = MCP_repealed_policies
+				MLW_init_passed_MCP_policies_DEBUG = yes
+				MLW_init_repealed_MCP_policies_DEBUG = yes
+				# PP
+				# UDF
+				clear_array = UDF_policies_passed_parliament
+				clear_array = UDF_repealed_policies
+				MLW_init_passed_UDF_policies_DEBUG = yes
+				MLW_init_repealed_UDF_policies_DEBUG = yes
+			}
+			MLW_clear_arrays = {
+				clear_array = MLW.MCP_repealed_policies
+				clear_array = MLW.MCP_policies_passed_parliament
+			}
+		# AFORD
+		# DPP
+		# LESOMA
+		# MCP # fix
+			# MCP DEBUGGING
+				MLW_init_passed_MCP_policies_DEBUG = {
+					# TIER 1 POLICIES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1105 } # ANTI CORRUPTION AGENCY
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1112 } # COMMUNITY HEALTHCARE ACT
+					# TIER 2 POLICIES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1124 } # CCAM RENEWAL
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1129 } # MODESTY AND DECENCY LAWS
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1110 } # CONSERVATIVE DRESS CODES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1121 } # CONTRACEPTIVE BANS
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1125 } # ENSHRINED TRADITIONALISM
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1109 } # DECENTRALISED ACA OFFICES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1141 } # ACA TRANSPARENCY LAWS
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1142 } # CORRUPTION WATCHDOG
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1134 } # PRESS FREEDOMS
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1138 } # DOCTORAL FUNDING PROGRAMME
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1133 } # CHRISTIAN MEDICAL AID
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1143 } # ACCESS TO WATER SCHEME
+					# TIER 3 POLICIES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1137 } # RESTRICTIONS ON DEMOCRACY
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1117 } # ANTI PROTEST LAW
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1184 } # RELAUNCHING THE MYP
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1173 } # REARMING THE MYP
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1126 } # MCP MEMBERSHIP MANDATES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1128 } # CONSERVATIVE IMMIGRATION
+					# TIER 4 POLICIES
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1148 } # HERALDING THE NEW NGWAZI
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1150 } # ONE PARTY STATE
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1152 } # TOTAL MEDIA BLACKOUT
+						add_to_array = { MLW.MCP_policies_passed_parliament = 1131 } # CHRISTIAN NATIONALISM
+				}
+				MLW_init_repealed_MCP_policies_DEBUG = {
+					# TIER 1 POLICIES
+						add_to_array = { MLW.MCP_repealed_policies = 1105 } # ANTI CORRUPTION AGENCY
+						add_to_array = { MLW.MCP_repealed_policies = 1112 } # COMMUNITY HEALTHCARE ACT
+					# TIER 2 POLICIES
+						add_to_array = { MLW.MCP_repealed_policies = 1124 } # CCAM RENEWAL
+						add_to_array = { MLW.MCP_repealed_policies = 1129 } # MODESTY AND DECENCY LAWS
+						add_to_array = { MLW.MCP_repealed_policies = 1110 } # CONSERVATIVE DRESS CODES
+						add_to_array = { MLW.MCP_repealed_policies = 1121 } # CONTRACEPTIVE BANS
+						add_to_array = { MLW.MCP_repealed_policies = 1125 } # ENSHRINED TRADITIONALISM
+						add_to_array = { MLW.MCP_repealed_policies = 1109 } # DECENTRALISED ACA OFFICES
+						add_to_array = { MLW.MCP_repealed_policies = 1141 } # ACA TRANSPARENCY LAWS
+						add_to_array = { MLW.MCP_repealed_policies = 1142 } # CORRUPTION WATCHDOG
+						add_to_array = { MLW.MCP_repealed_policies = 1134 } # PRESS FREEDOMS
+						add_to_array = { MLW.MCP_repealed_policies = 1138 } # DOCTORAL FUNDING PROGRAMME
+						add_to_array = { MLW.MCP_repealed_policies = 1133 } # CHRISTIAN MEDICAL AID
+						add_to_array = { MLW.MCP_repealed_policies = 1143 } # ACCESS TO WATER SCHEME
+					# TIER 3 POLICIES
+						add_to_array = { MLW.MCP_repealed_policies = 1137 } # RESTRICTIONS ON DEMOCRACY
+						add_to_array = { MLW.MCP_repealed_policies = 1117 } # ANTI PROTEST LAW
+						add_to_array = { MLW.MCP_repealed_policies = 1184 } # RELAUNCHING THE MYP
+						add_to_array = { MLW.MCP_repealed_policies = 1173 } # REARMING THE MYP
+						add_to_array = { MLW.MCP_repealed_policies = 1126 } # MCP MEMBERSHIP MANDATES
+						add_to_array = { MLW.MCP_repealed_policies = 1128 } # CONSERVATIVE IMMIGRATION
+					# TIER 4 POLICIES
+						add_to_array = { MLW.MCP_repealed_policies = 1148 } # HERALDING THE NEW NGWAZI
+						add_to_array = { MLW.MCP_repealed_policies = 1150 } # ONE PARTY STATE
+						add_to_array = { MLW.MCP_repealed_policies = 1152 } # TOTAL MEDIA BLACKOUT
+						add_to_array = { MLW.MCP_repealed_policies = 1131 } # CHRISTIAN NATIONALISM
+				}
+			# POLICY SELECTION
+				MLW_select_enacted_MCP_policy = {
+					clear_variable = ROOT.MLW_policy_selected
+					set_variable = { ROOT.MLW_policy_selected = MLW.MCP_policies_passed_parliament^i }
+					MLW_refresh_AIO = yes
+				}
+				MLW_select_repealed_MCP_policy = {
+					clear_variable = ROOT.MLW_policy_selected
+					set_variable = { ROOT.MLW_policy_selected = MLW.MCP_repealed_policies^i }
+					MLW_refresh_AIO = yes
+				}
+			# REPEAL/REENACT ACTIONS
+				MLW_repeal_selected_MCP_policy = {
+					MLW_repeal_MCP_policy_check = yes
+					add_to_array = { MLW.MCP_repealed_policies = ROOT.MLW_policy_selected }
+					remove_from_array = { MLW.MCP_policies_passed_parliament = ROOT.MLW_policy_selected }
+					clear_variable = ROOT.MLW_policy_selected
+					MLW_refresh_AIO = yes
+				}
+				MLW_reenact_selected_MCP_policy = {
+					MLW_reenact_MCP_policy_check = yes
+					add_to_array = { MLW.MCP_policies_passed_parliament = ROOT.MLW_policy_selected }
+					remove_from_array = { MLW.MCP_repealed_policies = ROOT.MLW_policy_selected }
+					clear_variable = ROOT.MLW_policy_selected
+					MLW_refresh_AIO = yes
+				}
+			# POLICY REPEAL EFFECTS
+				MLW_repeal_MCP_policy_check = {
+					# TIER 1 POLICIES
+						if = { # ANTI CORRUPTION AGENCY
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1105 } }
+							set_temp_variable = { DM_corruption_cost_change = 0.05 }
+							update_MLW_MCP_corruption_cost = yes
+						}
+						if = { # COMMUNITY HEALTHCARE ACT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+							if = {
+								limit = { has_country_flag = MLW_community_health_PLURALIST }
+								set_temp_variable = { DM_pop_growth_change = 0.025 }
+								update_MLW_population_growth = yes
+								clr_country_flag = MLW_community_health_PLURALIST
+							}
+							else_if = {
+								limit = { has_country_flag = MLW_community_health_CHRISTIAN }
+								set_temp_variable = { DM_pop_growth_change = -0.025 }
+								update_MLW_population_growth = yes
+								clr_country_flag = MLW_community_health_CHRISTIAN
+							}
+							else_if = {
+								limit = { has_country_flag = MLW_community_health_MUSLIM }
+								set_temp_variable = { DM_pop_growth_change = -0.05 }
+								update_MLW_population_growth = yes
+								clr_country_flag = MLW_community_health_MUSLIM
+							}
+							else = { custom_effect_tooltip = i_have_no_idea_TT }
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = 0.02 }
+							update_MLW_healthcare_cost = yes
+						}
+					# TIER 2 POLICIES
+						if = { # CCAM RENEWAL
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1124 } }
+							set_temp_variable = { DM_pop_growth_change = -0.005 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = 0.015 }
+							update_MLW_MCP_health_cost = yes
+							newline = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.05 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # MODESTY AND DECENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+							set_temp_variable = { DM_stability_change = 0.08 }
+							update_MLW_MCP_stability = yes
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = -0.05 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.1 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # CONSERVATIVE DRESS CODES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+							set_temp_variable = { DM_stability_change = 0.03 }
+							update_MLW_MCP_stability = yes
+							newline = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.07 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # CONTRACEPTIVE BANS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+							set_temp_variable = { DM_pop_growth_change = -0.085 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = -0.075 }
+							update_MLW_MCP_health_cost = yes
+							newline = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.025 }
+							MLW_MCP_LC_update = yes
+							clr_country_flag = MLW_MCP_banned_contraceptives
+						}
+						if = { # ENSHRINED TRADITIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+							set_temp_variable = { DM_pop_growth_change = -0.025 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.05 }
+							MLW_MCP_LC_update = yes
+							clr_country_flag = MLW_MCP_women_banned_from_service
+						}
+						if = { # DECENTRALISED ACA OFFICES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1109 } }
+							custom_effect_tooltip = "this needs to be reversed with the effect MLW_MCP_corruption_decentralisation"
+						}
+						if = { # ACA TRANSPARENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+							if = {
+								limit = { has_country_flag = MLW_MCP_hardliner_transparency }
+								set_temp_variable = { DM_pop_tax_income_change = -0.05 }
+								update_MLW_MCP_pop_tax_income = yes
+								newline = yes
+								set_temp_variable = { DM_corp_tax_income_change = 0.025 }
+								update_MLW_MCP_corp_tax_income = yes
+								if = {
+									limit = { has_country_flag = MLW_MCP_big_business }
+									clr_country_flag = MLW_MCP_big_business
+								}
+								clr_country_flag = MLW_MCP_hardliner_transparency
+							}
+							else = {
+								set_temp_variable = { DM_pop_tax_income_change = 0.025 }
+								update_MLW_MCP_pop_tax_income = yes
+								newline = yes
+								set_temp_variable = { DM_corp_tax_income_change = -0.05 }
+								update_MLW_MCP_corp_tax_income = yes
+								if = {
+									limit = { has_country_flag = MLW_MCP_the_little_guy }
+									clr_country_flag = MLW_MCP_the_little_guy
+								}
+							}
+						}
+						if = { # CORRUPTION WATCHDOG
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+							if = {
+								limit = { has_country_flag = MLW_MCP_hardliner_corruption }
+								set_temp_variable = { DM_corruption_cost_change = -0.1 }
+								update_MLW_MCP_corruption_cost = yes
+								clr_country_flag = MLW_MCP_hardliner_corruption
+							}
+							else = {
+								set_temp_variable = { DM_corruption_cost_change = 0.1 }
+								update_MLW_MCP_corruption_cost = yes
+							}
+						}
+						if = { # PRESS FREEDOMS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+							if = { # STATE MEDIA
+							limit = { has_country_flag = MLW_MCP_state_media }
+								set_temp_variable = { DM_corruption_cost_change = -0.2 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = -0.1 }
+								update_MLW_MCP_pp_gain = yes
+								clr_country_flag = MLW_MCP_state_media
+							}
+							else_if = { # STATE SPONSORED
+								limit = { has_country_flag = MLW_MCP_sponsored_media }
+								set_temp_variable = { DM_corruption_cost_change = -0.05 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = -0.2 }
+								update_MLW_MCP_pp_gain = yes
+								clr_country_flag = MLW_MCP_sponsored_media
+							}
+							else = { # FREE MEDIA
+								set_temp_variable = { DM_corruption_cost_change = 0.1 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = -0.1 }
+								update_MLW_MCP_pp_gain = yes
+								clr_country_flag = MLW_MCP_free_media
+							}
+						}
+						if = { # DOCTORAL FUNDING PROGRAMME
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1138 } }
+							set_temp_variable = { DM_health_cost_change = 0.025 }
+							update_MLW_healthcare_cost = yes
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = -0.025 }
+							update_MLW_population_growth = yes
+						}
+						if = { # CHRISTIAN MEDICAL AID
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+							every_country = {
+								limit = { has_opinion_modifier = religious_outreach }
+								remove_opinion_modifier = { target = ROOT modifier = religious_outreach }
+							}
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = 0.015 }
+							update_MLW_healthcare_cost = yes
+						}
+						if = { # ACCESS TO WATER SCHEME
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+							if = {
+								limit = { has_country_flag = MLW_MCP_wfa_CLEAN }
+								set_temp_variable = { DM_health_cost_change = 0.1 }
+								update_MLW_MCP_health_cost = yes
+								newline = yes
+								set_temp_variable = { region_place = 1 }
+								set_temp_variable = { MLW_internal_migration_change = 0.15 }
+								update_MLW_internal_migration = yes
+								clr_country_flag = MLW_MCP_wfa_CLEAN
+							}
+							else = {
+								set_temp_variable = { DM_health_cost_change = 0.05 }
+								update_MLW_MCP_health_cost = yes
+								newline = yes
+								set_temp_variable = { region_place = 1 }
+								set_temp_variable = { MLW_internal_migration_change = 0.075 }
+								update_MLW_internal_migration = yes
+							}
+						}
+					# TIER 3 POLICIES
+						if = { # RESTRICTIONS ON DEMOCRACY
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+						}
+						if = { # ANTI PROTEST LAW
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+						}
+						if = { # RELAUNCHING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+							clr_country_flag = MLW_MCP_MYP_reformed
+							set_temp_variable = { DM_pop_growth_change = -0.05 }
+							update_MLW_MCP_population_growth = yes
+							set_temp_variable = { DM_stability_change = 0.05 }
+							update_MLW_MCP_stability = yes
+							if = {
+								limit = { has_country_flag = MLW_MCP_MYP_moderates_internals }
+								clr_country_flag = MLW_MCP_MYP_moderates_internals
+							}
+							else_if = {
+								limit = { has_country_flag = MLW_MCP_MYP_moderates }
+								clr_country_flag = MLW_MCP_MYP_moderates
+							}
+							else_if = {
+								limit = { has_country_flag = MLW_MCP_MYP_hardliners_internals }
+								clr_country_flag = MLW_MCP_MYP_hardliners_internals
+							}
+							else_if = {
+								limit = { has_country_flag = MLW_MCP_MYP_hardliners }
+								clr_country_flag = MLW_MCP_MYP_hardliners
+							}
+						}
+						if = { # REARMING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+							set_temp_variable = { DM_militia_attack = -0.1 }
+							update_MLW_MCP_militia_attack = yes
+							set_temp_variable = { DM_militia_defence = -0.1 }
+							update_MLW_MCP_militia_defence = yes
+							set_temp_variable = { DM_stability_change = 0.03 }
+							update_MLW_MCP_stability = yes
+						}
+						if = { # MCP MEMBERSHIP MANDATES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+							set_temp_variable = { DM_stability_change = 0.05 }
+							update_MLW_MCP_stability = yes
+							if = {
+								limit = { has_country_flag = MLW_MCP_mandated_membership }
+								clr_country_flag = MLW_MCP_mandated_membership
+							}
+						}
+						if = { # CONSERVATIVE IMMIGRATION
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+							set_temp_variable = { DM_pop_growth_change = -0.05 }
+							update_MLW_MCP_population_growth = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.08 }
+							MLW_MCP_LC_update = yes
+						}
+					# TIER 4 POLICIES
+						if = { # HERALDING THE NEW NGWAZI
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1148 } }
+						}
+						if = { # ONE PARTY STATE
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1150 } }
+						}
+						if = { # TOTAL MEDIA BLACKOUT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+							set_temp_variable = { DM_stability_change = 0.075 }
+							update_MLW_MCP_stability = yes
+							set_temp_variable = { DM_police_cost_change = -0.2 }
+							update_MLW_MCP_police_cost = yes
+							set_temp_variable = { DM_pop_growth_change = -0.15 }
+							update_MLW_MCP_population_growth = yes
+							clr_country_flag = MLW_MCP_silenced_media
+						}
+						if = { # CHRISTIAN NATIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+							set_temp_variable = { DM_pop_growth_change = -0.25 }
+							update_MLW_MCP_population_growth = yes
+						}
+				}
+			# POLICY REENACT EFFECTS
+				MLW_reenact_MCP_policy_check = {
+					# TIER 1 POLICIES
+						if = { # ANTI CORRUPTION AGENCY
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1105 } }
+							set_temp_variable = { DM_corruption_cost_change = -0.05 }
+							update_MLW_MCP_corruption_cost = yes
+						}
+						if = { # COMMUNITY HEALTHCARE ACT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1112 } }
+							if = {
+								limit = { has_idea = pluralist }
+								set_temp_variable = { DM_pop_growth_change = -0.025 }
+								update_MLW_population_growth = yes
+								set_country_flag = MLW_community_health_PLURALIST
+							}
+							else_if = {
+								limit = { is_christian_nation = yes }
+								set_temp_variable = { DM_pop_growth_change = 0.025 }
+								update_MLW_population_growth = yes
+								set_country_flag = MLW_community_health_CHRISTIAN
+							}
+							else_if = {
+								limit = { is_muslim_nation = yes }
+								set_temp_variable = { DM_pop_growth_change = 0.05 }
+								update_MLW_population_growth = yes
+								set_country_flag = MLW_community_health_MUSLIM
+							}
+							else = { custom_effect_tooltip = i_have_no_idea_TT }
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = -0.02 }
+							update_MLW_healthcare_cost = yes
+						}
+					# TIER 2 POLICIES
+						if = { # CCAM RENEWAL
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1124 } }
+							set_temp_variable = { DM_pop_growth_change = 0.005 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = -0.015 }
+							update_MLW_MCP_health_cost = yes
+							newline = yes
+							set_temp_variable = { LC_group = 1 }
+							set_temp_variable = { LC_change = 0.05 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # MODESTY AND DECENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1129 } }
+							set_temp_variable = { DM_stability_change = -0.08 }
+							update_MLW_MCP_stability = yes
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = 0.05 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.1 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # CONSERVATIVE DRESS CODES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1110 } }
+							set_temp_variable = { DM_stability_change = -0.03 }
+							update_MLW_MCP_stability = yes
+							newline = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.07 }
+							MLW_MCP_LC_update = yes
+						}
+						if = { # CONTRACEPTIVE BANS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1121 } }
+							custom_effect_tooltip = MLW_MCP_banned_contraceptives_TT
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = 0.085 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = 0.075 }
+							update_MLW_MCP_health_cost = yes
+							newline = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.025 }
+							MLW_MCP_LC_update = yes
+							set_country_flag = MLW_MCP_banned_contraceptives
+						}
+						if = { # ENSHRINED TRADITIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1125 } }
+							custom_effect_tooltip = MLW_MCP_women_banned_from_serving_TT
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = 0.025 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.05 }
+							MLW_MCP_LC_update = yes
+							hidden_effect = {
+								if = {
+									limit = { has_idea = drafted_women }
+									swap_ideas = {
+										remove_idea = drafted_women
+										add_idea = no_women_in_military
+									}
+								}
+								else_if = {
+									limit = { has_idea = volunteer_women }
+									swap_ideas = {
+										remove_idea = volunteer_women
+										add_idea = no_women_in_military
+									}
+								}
+							}
+							set_country_flag = MLW_MCP_women_banned_from_service
+						}
+						if = { # DECENTRALISED ACA OFFICES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1109 } }
+							MLW_MCP_corruption_decentralisation = yes
+							custom_effect_tooltip = MLW_corruption_explainer_TT
+						}
+						if = { # ACA TRANSPARENCY LAWS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1141 } }
+							if = {
+								limit = { check_variable = { MLW_MCP_faction_strength^1 > 0.499 } }
+								custom_effect_tooltip = MLW_MCP_hardliners_effect_TT
+								newline = yes
+								set_temp_variable = { DM_pop_tax_income_change = 0.05 }
+								update_MLW_MCP_pop_tax_income = yes
+								newline = yes
+								set_temp_variable = { DM_corp_tax_income_change = -0.025 }
+								update_MLW_MCP_corp_tax_income = yes
+								set_country_flag = MLW_MCP_hardliner_transparency
+							}
+							else = {
+								custom_effect_tooltip = MLW_MCP_moderates_effect_TT
+								newline = yes
+								set_temp_variable = { DM_pop_tax_income_change = -0.025 }
+								update_MLW_MCP_pop_tax_income = yes
+								newline = yes
+								set_temp_variable = { DM_corp_tax_income_change = 0.05 }
+								update_MLW_MCP_corp_tax_income = yes
+							}
+						}
+						if = { # CORRUPTION WATCHDOG
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1142 } }
+							if = {
+								limit = { check_variable = { MLW_MCP_faction_strength^1 > 0.499 } }
+								custom_effect_tooltip = MLW_MCP_hardliners_effect_TT
+								newline = yes
+								set_temp_variable = { DM_corruption_cost_change = 0.1 }
+								update_MLW_MCP_corruption_cost = yes
+								set_country_flag = MLW_MCP_hardliner_corruption
+							}
+							else = {
+								custom_effect_tooltip = MLW_MCP_moderates_effect_TT
+								newline = yes
+								set_temp_variable = { DM_corruption_cost_change = -0.1 }
+								update_MLW_MCP_corruption_cost = yes
+							}
+						}
+						if = { # PRESS FREEDOMS
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1134 } }
+							if = { # STATE MEDIA
+								limit = { check_variable = { MLW_MCP_faction_strength^1 > 0.699 } }
+								custom_effect_tooltip = MLW_MCP_hardliners_effect_TT
+								newline = yes
+								set_temp_variable = { DM_corruption_cost_change = 0.2 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = 0.1 }
+								update_MLW_MCP_pp_gain = yes
+								set_country_flag = MLW_MCP_state_media
+							}
+							else_if = { # STATE SPONSORED
+								limit = {
+									check_variable = { MLW_MCP_faction_strength^1 < 0.7 }
+									check_variable = { MLW_MCP_faction_strength^1 > 0.399 }
+								}
+								custom_effect_tooltip = MLW_MCP_hardliners_effect_TT
+								newline = yes
+								set_temp_variable = { DM_corruption_cost_change = 0.05 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = 0.2 }
+								update_MLW_MCP_pp_gain = yes
+								set_country_flag = MLW_MCP_sponsored_media
+							}
+							else = { # FREE MEDIA
+								custom_effect_tooltip = MLW_MCP_moderates_effect_TT
+								newline = yes
+								set_temp_variable = { DM_corruption_cost_change = -0.1 }
+								update_MLW_MCP_corruption_cost = yes
+								newline = yes
+								set_temp_variable = { DM_political_power_gain_change = 0.1 }
+								update_MLW_MCP_pp_gain = yes
+								set_country_flag = MLW_MCP_free_media
+							}
+						}
+						if = { # DOCTORAL FUNDING PROGRAMME
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1138 } }
+							set_temp_variable = { DM_health_cost_change = -0.025 }
+							update_MLW_healthcare_cost = yes
+							newline = yes
+							set_temp_variable = { DM_pop_growth_change = 0.025 }
+							update_MLW_population_growth = yes
+						}
+						if = { # CHRISTIAN MEDICAL AID
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1133 } }
+							every_country = {
+								limit = { is_christian_nation = yes }
+								add_opinion_modifier = { target = ROOT modifier = religious_outreach }
+							}
+							newline = yes
+							set_temp_variable = { DM_health_cost_change = -0.015 }
+							update_MLW_healthcare_cost = yes
+						}
+						if = { # ACCESS TO WATER SCHEME
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1143 } }
+							if = {
+								limit = { has_completed_focus = MLW_clean_lake }
+								set_temp_variable = { DM_health_cost_change = -0.1 }
+								update_MLW_MCP_health_cost = yes
+								newline = yes
+								set_temp_variable = { region_place = 0 }
+								set_temp_variable = { MLW_internal_migration_change = 0.15 }
+								update_MLW_internal_migration = yes
+								set_country_flag = MLW_MCP_wfa_CLEAN
+							}
+							else = {
+								set_temp_variable = { DM_health_cost_change = -0.05 }
+								update_MLW_MCP_health_cost = yes
+								newline = yes
+								set_temp_variable = { region_place = 0 }
+								set_temp_variable = { MLW_internal_migration_change = 0.075 }
+								update_MLW_internal_migration = yes
+							}
+						}
+					# TIER 3 POLICIES # fix
+						if = { # RESTRICTIONS ON DEMOCRACY # fix
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1137 } }
+						}
+						if = { # ANTI PROTEST LAW # fix
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1117 } }
+						}
+						if = { # RELAUNCHING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1184 } }
+							set_country_flag = MLW_MCP_MYP_reformed
+							set_temp_variable = { DM_pop_growth_change = -0.05 }
+							update_MLW_MCP_population_growth = yes
+							newline = yes
+							set_temp_variable = { DM_stability_change = 0.05 }
+							update_MLW_MCP_stability = yes
+							if = {
+								limit = { is_in_array = { ruling_party = 14 } }
+								if = {
+									limit = { has_country_flag = MLW_MCP_internal_fighting }
+									newline = yes
+									custom_effect_tooltip = MLW_MCP_moderates_internals_TT
+									set_country_flag = {
+										flag = MLW_MCP_MYP_moderates_internals
+										value = 1
+										days = 180
+									}
+								}
+								else_if = {
+									limit = { NOT = { has_country_flag = MLW_MCP_internal_fighting } }
+									newline = yes
+									custom_effect_tooltip = MLW_MCP_moderates_TT
+									set_country_flag = {
+										flag = MLW_MCP_MYP_moderates
+										value = 1
+										days = 360
+									}
+								}
+							}
+							else_if = {
+								limit = { is_in_array = { ruling_party = 20 } }
+								if = {
+									limit = { has_country_flag = MLW_MCP_internal_fighting }
+									newline = yes
+									custom_effect_tooltip = MLW_MCP_hardliners_internals_TT
+									set_country_flag = {
+										flag = MLW_MCP_MYP_hardliners_internals
+										value = 1
+										days = 180
+									}
+								}
+								else_if = {
+									limit = { NOT = { has_country_flag = MLW_MCP_internal_fighting } }
+									newline = yes
+									custom_effect_tooltip = MLW_MCP_hardliners_TT
+									set_country_flag = {
+										flag = MLW_MCP_MYP_hardliners
+										value = 1
+										days = 360
+									}
+								}
+							}
+							else = {
+								newline = yes
+								custom_effect_tooltip = MLW_MCP_not_in_power_policies_TT
+							}
+						}
+						if = { # REARMING THE MYP
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1173 } }
+							set_temp_variable = { DM_militia_attack = 0.1 }
+							update_MLW_MCP_militia_attack = yes
+							set_temp_variable = { DM_militia_defence = 0.1 }
+							update_MLW_MCP_militia_defence = yes
+							set_temp_variable = { DM_stability_change = -0.03 }
+							update_MLW_MCP_stability = yes
+						}
+						if = { # MCP MEMBERSHIP MANDATES
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1126 } }
+							set_temp_variable = { DM_stability_change = -0.05 }
+							update_MLW_MCP_stability = yes
+							custom_effect_tooltip = MLW_MCP_H_mandate_membership_TT
+							set_country_flag = {
+								flag = MLW_MCP_mandated_membership
+								value = 1
+								days = 180
+							}
+						}
+						if = { # CONSERVATIVE IMMIGRATION
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1128 } }
+							set_temp_variable = { DM_pop_growth_change = 0.05 }
+							update_MLW_MCP_population_growth = yes
+							set_temp_variable = { LC_group = 0 }
+							set_temp_variable = { LC_change = 0.08 }
+							MLW_MCP_LC_update = yes
+						}
+					# TIER 4 POLICIES # fix
+						if = { # HERALDING THE NEW NGWAZI # fix
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1148 } }
+						}
+						if = { # ONE PARTY STATE # fix
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1150 } }
+						}
+						if = { # TOTAL MEDIA BLACKOUT
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1152 } }
+							set_temp_variable = { DM_stability_change = -0.075 }
+							update_MLW_MCP_stability = yes
+							set_temp_variable = { DM_police_cost_change = 0.2 }
+							update_MLW_MCP_police_cost = yes
+							set_temp_variable = { DM_pop_growth_change = 0.15 }
+							update_MLW_MCP_population_growth = yes
+							set_country_flag = MLW_MCP_silenced_media
+						}
+						if = { # CHRISTIAN NATIONALISM
+							limit = { check_variable = { ROOT.MLW_policy_selected = 1131 } }
+							set_temp_variable = { DM_pop_growth_change = 0.25 }
+							update_MLW_MCP_population_growth = yes
+						}
+				}
+			# POLITICAL PARTY MECHANICS # fix
+				# FACTIONALISM
+					# MODERATE BUTTONS
+						MLW_AIO_MCP_F_empower_moderates = {
+							custom_effect_tooltip = MLW_MCP_empower_the_moderates_TT
+							newline = yes
+							set_temp_variable = { party_index = 14 }
+							set_temp_variable = { party_popularity_increase = party_pop_array^20 }
+							multiply_temp_variable = { party_popularity_increase = 0.5 }
+							set_temp_variable = { temp_outlook_increase = party_pop_array^20 }
+							multiply_temp_variable = { temp_outlook_increase = 0.5 }
+							add_relative_party_popularity = yes
+							if = {
+								limit = { MCP_H_is_ruling_party = yes }
+								newline = yes
+								set_temp_variable = { rul_party_temp = 14 }
+								change_ruling_party_effect = yes
+								set_politics = {
+									ruling_party = neutrality
+									elections_allowed = yes
+								}
+								set_temp_variable = { add_col_one = 20 }
+								add_coalition_members_effect = yes
+							}
+							newline = yes
+							add_political_power = -150
+						}
+						MLW_AIO_MCP_F_criticise_banda = {
+							set_temp_variable = { treasury_change = -1 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_anti_hardliner_operation_underway
+								days = 120
+							}
+							set_temp_variable = { faction_place = 0 }
+							set_temp_variable = { faction_strength_change = 0.075 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 1 }
+								set_temp_variable = { faction_strength_change = -0.075 }
+								MLW_MCP_faction_strength_update = yes
+							}
+						}
+						MLW_AIO_MCP_F_democratic_values = {
+							set_country_flag = {
+								flag = MLW_anti_hardliner_operation_underway
+								days = 60
+							}
+							set_temp_variable = { faction_place = 0 }
+							set_temp_variable = { faction_strength_change = 0.03 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 1 }
+								set_temp_variable = { faction_strength_change = -0.03 }
+								MLW_MCP_faction_strength_update = yes
+							}
+							newline = yes
+							add_political_power = -50
+						}
+						MLW_AIO_MCP_F_liberalise_conservatism = {
+							set_temp_variable = { treasury_change = -2 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_anti_hardliner_operation_underway
+								days = 90
+							}
+							set_temp_variable = { faction_place = 0 }
+							set_temp_variable = { faction_strength_change = 0.05 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 1 }
+								set_temp_variable = { faction_strength_change = -0.05 }
+								MLW_MCP_faction_strength_update = yes
+							}
+						}
+					# HARDLINER BUTTONS
+						MLW_AIO_MCP_F_empower_hardliners = {
+							custom_effect_tooltip = MLW_MCP_empower_the_hardliners_TT
+							newline = yes
+							set_temp_variable = { party_index = 20 }
+							set_temp_variable = { party_popularity_increase = party_pop_array^14 }
+							multiply_temp_variable = { party_popularity_increase = 0.5 }
+							set_temp_variable = { temp_outlook_increase = party_pop_array^14 }
+							multiply_temp_variable = { temp_outlook_increase = 0.5 }
+							add_relative_party_popularity = yes
+							if = {
+								limit = { MCP_M_is_ruling_party = yes }
+								newline = yes
+								set_temp_variable = { rul_party_temp = 20 }
+								change_ruling_party_effect = yes
+								set_politics = {
+									ruling_party = neutrality
+									elections_allowed = yes
+								}
+								set_temp_variable = { add_col_one = 14 }
+								add_coalition_members_effect = yes
+							}
+							newline = yes
+							add_political_power = -150
+						}
+						MLW_AIO_MCP_F_glorify_banda = {
+							set_temp_variable = { treasury_change = -1 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_anti_moderate_operation_underway
+								days = 120
+							}
+							set_temp_variable = { faction_place = 1 }
+							set_temp_variable = { faction_strength_change = 0.075 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 0 }
+								set_temp_variable = { faction_strength_change = -0.075 }
+								MLW_MCP_faction_strength_update = yes
+							}
+						}
+						MLW_AIO_MCP_F_criticise_democracy = {
+							set_country_flag = {
+								flag = MLW_anti_moderate_operation_underway
+								days = 60
+							}
+							set_temp_variable = { faction_place = 1 }
+							set_temp_variable = { faction_strength_change = 0.03 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 0 }
+								set_temp_variable = { faction_strength_change = -0.03 }
+								MLW_MCP_faction_strength_update = yes
+							}
+							newline = yes
+							add_political_power = -50
+						}
+						MLW_AIO_MCP_F_conservative_hardlining = {
+							set_temp_variable = { treasury_change = -2 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_anti_moderate_operation_underway
+								days = 90
+							}
+							set_temp_variable = { faction_place = 1 }
+							set_temp_variable = { faction_strength_change = 0.05 }
+							MLW_MCP_faction_strength_update = yes
+							hidden_effect = {
+								set_temp_variable = { faction_place = 0 }
+								set_temp_variable = { faction_strength_change = -0.05 }
+								MLW_MCP_faction_strength_update = yes
+							}
+						}
+				# SOCIETAL CONSERVATISM
+					# CONSERVATIVE BUTTONS
+					# LIBERAL BUTTONS
+				# REFERENDUM REPEAL STATUS # fix
+					# JUDGES BUTTONS # fix
+						MLW_AIO_MCP_RR_sway_judges_monetarily = { # fix
+							set_temp_variable = { treasury_change = -1 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 14
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# more corruption = more likely to get away with it
+								60 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = 0.08 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = -0.015 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.05 }
+									MLW_MCP_RR_suspicion_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.03 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_sway_judges_politically = { # fix
+							add_political_power = -50
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 30
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# more corruption = more likely to get away with it
+								60 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = 0.08 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = -0.03 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.08 }
+									MLW_MCP_RR_suspicion_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.06 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_intimidate_judges = { # fix
+							add_command_power = -30
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 30
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# more corruption = more likely to get away with it
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = 0.12 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.05 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								60 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = -0.04 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.1 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_assert_intentions_judges = { # fix
+							set_temp_variable = { treasury_change = -2.5 }
+							modify_treasury_effect = yes
+							add_political_power = -25
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 45
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# less corruption = more likely to get away with it
+								50 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = 0.02 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = -0.08 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								50 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_support_change = -0.08 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = -0.02 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+					# POPULATION BUTTONS # fix
+						MLW_AIO_MCP_RR_sway_population_monetarily = { # fix
+							set_temp_variable = { treasury_change = -2 }
+							modify_treasury_effect = yes
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 21
+							}
+							random_list = {
+								60 = {
+									# fix
+									#
+									# need to make the modifiers for these work along corruption
+									# more corruption = more likely to get away with it
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = 0.12 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = -0.03 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.06 }
+									MLW_MCP_RR_suspicion_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.03 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_sway_population_politically = { # fix
+							add_political_power = -100
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 35
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# more corruption = more likely to get away with it
+								60 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = 0.16 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = -0.04 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.12 }
+									MLW_MCP_RR_suspicion_update = yes
+									set_temp_variable = { RR_group = 0 }
+									set_temp_variable = { RR_suspicion_change = 0.06 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_intimidate_population = { # fix
+							add_command_power = -45
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 21
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# more corruption = more likely to get away with it
+								40 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = 0.12 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.05 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								60 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = -0.04 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = 0.1 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+						MLW_AIO_MCP_RR_assert_intentions_population = { # fix
+							set_temp_variable = { treasury_change = -4 }
+							modify_treasury_effect = yes
+							add_political_power = -50
+							set_country_flag = {
+								flag = MLW_MCP_RR_action_underway
+								days = 60
+							}
+							random_list = {
+								# fix
+								#
+								# need to make the modifiers for these work along corruption
+								# less corruption = more likely to get away with it
+								50 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = 0.04 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = -0.12 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+								50 = {
+									modifier = {}
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_support_change = -0.08 }
+									MLW_MCP_RR_support_update = yes
+									set_temp_variable = { RR_group = 1 }
+									set_temp_variable = { RR_suspicion_change = -0.02 }
+									MLW_MCP_RR_suspicion_update = yes
+								}
+							}
+							MLW_refresh_AIO = yes
+						}
+		# PP
+		# UDF
+			# UDF DEBUGGING
+				MLW_init_passed_UDF_policies_DEBUG = {
+					# TIER 1 POLICIES
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1033 } # TOURIST HEALTHCARE
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1020 } # POLICE COMPLAINT AUTHORITY
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1044 } # CONGOLESE (DRC) REFUGEE VISA
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1058 } # RWANDAN (RWA) REFUGEE VISA
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1042 } # BURUNDIAN (BUR) REFUGEE VISA
+					# TIER 2 POLICIES
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1066 } # TEVET EXPANSION
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1038 } # YOUTH MINISTRY
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1024 } # COMMUNITY HEALTH WORKERS
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1007 } # FISHERY ASSISTANCE
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1027 } # IMMIGRATION REFORM
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1028 } # UNHRC GUIDELINES
+					# TIER 3 POLICIES
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1035 } # PRIVATE SCHOOLING
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1043 } # TEACHERS HOUSING
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1039 } # BENEFITS FOR HEALTH WORKERS
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1036 } # BUSINESS OUTREACH CENTERS
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1023 } # DECENTRALISED POLICE
+					# TIER 4 POLICIES
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1052 } # MONITOR THE CHATTER
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1048 } # PRIVATE POLICING
+						add_to_array = { MLW.UDF_policies_passed_parliament = 1019 } # CONTINENTAL PEACEKEEPERS
+				}
+				MLW_init_repealed_UDF_policies_DEBUG = {
+					# TIER 1 POLICIES
+						add_to_array = { MLW.UDF_repealed_policies = 1033 } # TOURIST HEALTHCARE
+						add_to_array = { MLW.UDF_repealed_policies = 1020 } # POLICE COMPLAINT AUTHORITY
+						add_to_array = { MLW.UDF_repealed_policies = 1044 } # CONGOLESE (DRC) REFUGEE VISA
+						add_to_array = { MLW.UDF_repealed_policies = 1058 } # RWANDAN (RWA) REFUGEE VISA
+						add_to_array = { MLW.UDF_repealed_policies = 1042 } # BURUNDIAN (BUR) REFUGEE VISA
+					# TIER 2 POLICIES
+						add_to_array = { MLW.UDF_repealed_policies = 1066 } # TEVET EXPANSION
+						add_to_array = { MLW.UDF_repealed_policies = 1038 } # YOUTH MINISTRY
+						add_to_array = { MLW.UDF_repealed_policies = 1024 } # COMMUNITY HEALTH WORKERS
+						add_to_array = { MLW.UDF_repealed_policies = 1007 } # FISHERY ASSISTANCE
+						add_to_array = { MLW.UDF_repealed_policies = 1027 } # IMMIGRATION REFORM
+						add_to_array = { MLW.UDF_repealed_policies = 1028 } # UNHRC GUIDELINES
+					# TIER 3 POLICIES
+						add_to_array = { MLW.UDF_repealed_policies = 1035 } # PRIVATE SCHOOLING
+						add_to_array = { MLW.UDF_repealed_policies = 1043 } # TEACHERS HOUSING
+						add_to_array = { MLW.UDF_repealed_policies = 1039 } # BENEFITS FOR HEALTH WORKERS
+						add_to_array = { MLW.UDF_repealed_policies = 1036 } # BUSINESS OUTREACH CENTERS
+						add_to_array = { MLW.UDF_repealed_policies = 1023 } # DECENTRALISED POLICE
+					# TIER 4 POLICIES
+						add_to_array = { MLW.UDF_repealed_policies = 1052 } # MONITOR THE CHATTER
+						add_to_array = { MLW.UDF_repealed_policies = 1048 } # PRIVATE POLICING
+						add_to_array = { MLW.UDF_repealed_policies = 1019 } # CONTINENTAL PEACEKEEPERS
+				}
+			# POLICY SELECTION
+			# REPEAL/REENACT ACTIONS
+			# POLICY REPEAL EFFECTS
+			# POLICY REENACT EFFECTS
+	# MZUZU MOTORS
+	# SADC TRADE
+
+
+# MZUZU MOTORS EFFECTS
+# MLW_MZUZU_motors_phase_1 = {
+# 	clear_array = MLW.MZUZU_markets
+# 	if = { limit = { country_exists = MOZ } MOZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TNZ } TNZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZAM } ZAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	custom_effect_tooltip = MLW_MZUZU_motors_phase_1_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_motors_phase_2 = {
+# 	clear_array = MLW.MZUZU_markets
+# 	if = { limit = { country_exists = AGL } AGL = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BOT } BOT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DRC } DRC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MLC } MLC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MOZ } MOZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RCD } RCD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TNZ } TNZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = UNI } UNI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZAM } ZAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZIM } ZIM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	custom_effect_tooltip = MLW_MZUZU_motors_phase_2_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_motors_phase_3 = {
+# 	clear_array = MLW.MZUZU_markets
+# 	if = { limit = { country_exists = AGL } AGL = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BOT } BOT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BUR } BUR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = COM } COM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DRC } DRC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = LES } LES = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MAD } MAD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MLC } MLC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MOZ } MOZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MRT } MRT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NAM } NAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RCD } RCD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RWA } RWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SAF } SAF = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SEY } SEY = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { OR = { country_exists = STH MLW = { NOT = { has_country_flag = MLW_bought_st_helena } } } } STH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SWA } SWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = UNI } UNI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TNZ } TNZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZAM } ZAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZIM } ZIM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	custom_effect_tooltip = MLW_MZUZU_motors_phase_3_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_motors_phase_4 = {
+# 	clear_array = MLW.MZUZU_markets
+# 	if = { limit = { country_exists = AGL } AGL = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BEN } BEN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BFA } BFA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BOT } BOT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BUR } BUR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CAM } CAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CAR } CAR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CDI } CDI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CHA } CHA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CNG } CNG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = COM } COM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DJI } DJI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DRC } DRC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = EGU } EGU = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ERI } ERI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ETH } ETH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GAB } GAB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GAH } GAH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = JUB } JUB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = KEN } KEN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = LES } LES = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MAD } MAD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MLC } MLC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MOZ } MOZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MRT } MRT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NAM } NAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NGR } NGR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NIG } NIG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = PUN } PUN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RCD } RCD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RWA } RWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SAF } SAF = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SAO } SAO = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SEY } SEY = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SML } SML = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SNA } SNA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SOM } SOM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SSU } SSU = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { OR = { country_exists = STH MLW = { NOT = { has_country_flag = MLW_bought_st_helena } } } } STH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SUD } SUD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SWA } SWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SWS } SWS = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TNZ } TNZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TOG } TOG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = UGA } UGA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZAM } ZAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZIM } ZIM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	custom_effect_tooltip = MLW_MZUZU_motors_phase_4_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_motors_phase_5 = {
+# 	clear_array = MLW.MZUZU_markets
+# 	if = { limit = { country_exists = AGL } AGL = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ALG } ALG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BEN } BEN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BFA } BFA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BOT } BOT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = BUR } BUR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CAM } CAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CAR } CAR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CDI } CDI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CHA } CHA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = CNG } CNG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = COM } COM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DJI } DJI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = DRC } DRC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = EGU } EGU = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = EGY } EGY = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ERI } ERI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ETH } ETH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GAB } GAB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GAH } GAH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GAM } GAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GUB } GUB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = GUI } GUI = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = JUB } JUB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = KEN } KEN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = LBA } LBA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = LES } LES = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = LIB } LIB = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MAD } MAD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MAL } MAL = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MAU } MAU = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MLC } MLC = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MOR } MOR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MOZ } MOZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = MRT } MRT = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NAM } NAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NGR } NGR = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = NIG } NIG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = PUN } PUN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RCD } RCD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = RWA } RWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SAF } SAF = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SAO } SAO = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SEN } SEN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SEY } SEY = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SHA } SHA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SIE } SIE = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SML } SML = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SNA } SNA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SOM } SOM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SSU } SSU = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { OR = { country_exists = STH MLW = { NOT = { has_country_flag = MLW_bought_st_helena } } } } STH = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SUD } SUD = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SWA } SWA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = SWS } SWS = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TNZ } TNZ = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TOG } TOG = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = TUN } TUN = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = UGA } UGA = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = VER } VER = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZAM } ZAM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	if = { limit = { country_exists = ZIM } ZIM = { add_to_array = { MLW.MZUZU_markets = THIS } } }
+# 	custom_effect_tooltip = MLW_MZUZU_motors_phase_5_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZ_market_change_order_quantity = {
+# 	add_to_variable = { MLW_MZUZU_sales_stored = MLW_MZ_sales_change }
+# 	custom_effect_tooltip = MLW_MZ_market_change_order_quantity_TT
+# 	if = {
+# 		limit = { has_country_flag = MLW_MZ_allow_deficit }
+# 		clamp_variable = {
+# 			var = MLW_MZUZU_sales_stored
+# 			min = THIS.MLW_MZUZU_export_amount
+# 		}
+# 	}
+# 	else = {
+# 		clamp_variable = {
+# 			var = MLW_MZUZU_sales_stored
+# 			min = THIS.MLW_MZUZU_export_amount
+# 			max = MLW_MZ_leftover_vehicles
+# 		}
+# 	}
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZ_send_invoices = {
+# 	var:MLW_MZ_tag_selected = {
+# 		add_to_variable = { THIS.MLW_MZUZU_sales = MLW.MLW_MZUZU_sales_stored }
+# 		if = {
+# 			limit = { check_variable = { THIS.MLW_MZUZU_tag_export = 0 } }
+# 			set_variable = { THIS.MLW_MZUZU_tag_export = MLW.MLW_MZUZU_sales_stored }
+# 		}
+# 		else = { add_to_variable = { THIS.MLW_MZUZU_tag_export = MLW.MLW_MZUZU_sales_stored } }
+# 		set_variable = { THIS.MLW_MZUZU_export_amount = THIS.MLW_MZUZU_tag_export }
+# 		multiply_variable = { THIS.MLW_MZUZU_export_amount = -1 }
+# 		MLW_MZUZU_exporting_to_target_check = yes
+# 	}
+# 	clear_variable = MLW_MZUZU_sales_stored
+# 	custom_effect_tooltip = MLW_MZ_send_invoices_TT
+# 	MLW_MZUZU_set_exports = yes
+# }
+# MLW_MZ_assign_factory = {
+# 	if = { limit = { NOT = { has_dynamic_modifier = { modifier = MLW_MZUZU_DM } } } add_dynamic_modifier = { modifier = MLW_MZUZU_DM } }
+# 	set_temp_variable = { MLW_MZUZU_factories_in_use_temp = num_of_civilian_factories }
+# 	set_temp_variable = { MLW_MZUZU_remaining_factories_temp = num_of_civilian_factories }
+# 	multiply_temp_variable = { MLW_MZUZU_factories_in_use_temp = modifier@consumer_goods_expected_value }
+# 	round_temp_variable = MLW_MZUZU_factories_in_use_temp
+# 	subtract_from_temp_variable = { MLW_MZUZU_remaining_factories_temp = MLW_MZUZU_factories_in_use_temp }
+# 	set_variable = { MLW_MZUZU_remaining_factories = MLW_MZUZU_remaining_factories_temp }
+# 	add_to_variable = { MLW_MZUZU_DM_factory_use = MLW_MZUZU_factory_change }
+# 	custom_effect_tooltip = MLW_MZ_assign_factory_TT
+# 	clamp_variable = {
+# 		var = MLW_MZUZU_DM_factory_use
+# 		min = 0
+# 		max = MLW_MZUZU_remaining_factories
+# 	}
+# 	if = { limit = { check_variable = { MLW_MZUZU_DM_factory_use = 0 } } remove_dynamic_modifier = { modifier = MLW_MZUZU_DM } }
+# 	force_update_dynamic_modifier = yes
+# 	MLW_MZUZU_set_manufacture = yes
+# }
+# MLW_MZ_home_market_target_effect = {
+# 	set_variable = { ROOT.MLW_MZ_tag_selected = ROOT.id }
+# 	custom_effect_tooltip = MLW_MZ_home_market_target_effect_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_market_target_effect = {
+# 	set_variable = { ROOT.MLW_MZ_tag_selected = THIS.id }
+# 	custom_effect_tooltip = MLW_MZUZU_market_target_effect_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_buyout_effect = {
+# 	custom_effect_tooltip = MLW_MZUZU_buyout_effect_TT
+# }
+# MLW_MZUZU_industrialise_effect = {
+# 	custom_effect_tooltip = MLW_MZUZU_industrialise_effect_TT
+# }
+# MLW_MZUZU_purchase_land_effect = {
+# 	custom_effect_tooltip = MLW_MZUZU_purchase_land_effect_TT
+# }
+# MLW_MZ_store_land_price = {
+# 	set_variable = { land_price = buy_land_temp }
+# 	custom_effect_tooltip = MLW_MZ_store_land_price_TT
+# }
+# MLW_MZUZU_exporting_to_target_check = {
+# 	if = {
+# 		limit = {
+# 			check_variable = { THIS.MLW_MZUZU_tag_export > 0 }
+# 			NOT = { is_in_array = { MLW.MLW_MZ_exporters = THIS.id } }
+# 		}
+# 		add_to_array = { MLW.MLW_MZ_exporters = THIS.id }
+# 	}
+# 	if = {
+# 		limit = {
+# 			check_variable = { THIS.MLW_MZUZU_tag_export = 0 }
+# 			is_in_array = { MLW.MLW_MZ_exporters = THIS.id }
+# 		}
+# 		remove_from_array = { MLW.MLW_MZ_exporters = THIS.id }
+# 	}
+# }
+# MLW_MZUZU_lease_failsafe = {
+# 	if = {
+# 		limit = {
+# 			check_variable = {
+# 				var = MLW_MZUZU_DM_factory_use
+# 				value = ROOT.num_of_civilian_factories_available_for_projects
+# 				compare = greater_than_or_equals
+# 			}
+# 		}
+# 		set_temp_variable = { MLW_civs_available_temp = ROOT.num_of_civilian_factories_available_for_projects }
+# 		subtract_from_temp_variable = { MLW_civs_available_temp = MLW_MZUZU_DM_factory_use }
+# 		if = {
+# 			limit = { check_variable = { MLW_MZUZU_failsafe_temp = 1 } }
+# 			subtract_from_temp_variable = { MLW_civs_available_temp = 1 }
+# 		}
+# 		set_temp_variable = { MLW_MZUZU_factory_change = MLW_civs_available_temp }
+# 		MLW_MZ_assign_factory = yes
+# 	}
+# }
+# LETS DO SOME FACKIN MAFFS
+# MLW_MZUZU_market_cap_change = {
+# 	for_each_scope_loop = {
+# 		array = MLW.MLW_MZ_exporters
+# 		set_temp_variable = { MLW_MZ_market_share_temp = THIS.MLW_MZUZU_tag_export }
+# 		set_temp_variable = { MLW_MZ_customers_temp = THIS.workforce_total_display }
+# 		divide_temp_variable = { MLW_MZ_market_share_temp = MLW_MZ_customers_temp }
+# 		multiply_temp_variable = { MLW_MZ_market_share_temp = 4 }
+# 		set_temp_variable = { MLW_MZ_market_share_frame_temp = MLW_MZ_market_share_temp }
+# 		divide_temp_variable = { MLW_MZ_market_share_frame_temp = 20 }
+# 		multiply_temp_variable = { MLW_MZ_market_share_frame_temp = 0.005 } # change this if needed to balance increase to market share
+# 		multiply_temp_variable = { MLW_MZ_market_share_temp = 0.001 }
+# 		divide_temp_variable = { MLW_MZ_market_share_temp = 4 }
+# 		add_to_variable = { THIS.MLW_MZ_market_share_display = MLW_MZ_market_share_temp }
+# 		add_to_variable = { THIS.MLW_MZ_market_share_frame = MLW_MZ_market_share_frame_temp }
+# 	}
+# }
+# this sets up the weekly production math
+# MLW_MZUZU_set_manufacture = {
+# 	set_temp_variable = { MLW_MZ_fact_temp = MLW_MZUZU_DM_factory_use }
+# 	set_temp_variable = { MLW_MZ_prod_temp = 1 }
+# 	add_to_temp_variable = { MLW_MZ_prod_temp = ROOT.modifier@MLW_MZUZU_production_modifier }
+# 	multiply_temp_variable = { MLW_MZ_prod_temp = 1000 }
+# 	multiply_temp_variable = { MLW_MZ_prod_temp = MLW_MZ_fact_temp }
+# 	add_to_variable = { MLW_MZ_weekly_production = MLW_MZ_prod_temp }
+# 	clamp_variable = { # seriously this is an insane amount of cars
+# 		var = MLW_MZ_weekly_production
+# 		min = 0
+# 		max = 2000000
+# 	}
+# 	set_variable = { MLW_MZ_leftover_vehicles = MLW_MZ_weekly_production }
+# 	MLW_refresh_AIO = yes
+# }
+# this sets up the export variable to be removed in the on_weekly
+# MLW_MZUZU_set_exports = {
+# 	for_each_scope_loop = {
+# 		array = MLW.MLW_MZ_exporters
+# 		add_to_temp_variable = { sum = THIS.MLW_MZUZU_tag_export }
+# 		log = "[THIS.GetName] - [?THIS.MLW_MZUZU_tag_export|0] units exported"
+# 	}
+# 	set_variable = { MLW_MZ_total_exports = sum }
+# 	set_variable = { MLW_MZ_leftover_vehicles = MLW_MZ_weekly_production }
+# 	subtract_from_variable = { MLW_MZ_leftover_vehicles = MLW_MZ_total_exports }
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_MZUZU_production_and_export = {
+# 	add_to_variable = { MLW_MZ_stockpiled = MLW_MZ_weekly_production }
+# 	set_temp_variable = { MLW_MZ_total_exports_temp = MLW_MZ_total_exports }
+# 	multiply_temp_variable = { MLW_MZ_total_exports_temp = -1 }
+# 	add_to_variable = { MLW_MZ_stockpiled = MLW_MZ_total_exports_temp }
+# 	clamp_variable = {
+# 		var = MLW_MZ_stockpiled
+# 		min = 0
+# 		max = 2000000
+# 	}
+# 	MLW_MZUZU_income_effect = yes
+# }
+# then this is what gives you money, yay money
+# MLW_MZUZU_income_effect = {
+# 	set_variable = { MLW_MZ_weekly_income = 0 }
+# 	if = {
+# 		limit = {
+# 			NOT = { has_country_flag = MLW_MZ_allow_deficit }
+# 			NOT = { has_country_flag = MLW_MZ_income_check }
+# 			check_variable = { MLW_MZ_stockpiled < MLW_MZ_total_exports }
+# 		}
+# 		set_country_flag = {
+# 			flag = MLW_MZUZU_export_failed
+# 			days = 60
+# 		}
+# 		MLW_MZUZU_export_failed = yes
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			NOT = { has_country_flag = MLW_MZ_income_check }
+# 			check_variable = { MLW_MZ_stockpiled = 0 }
+# 			check_variable = { MLW_MZ_stockpiled < MLW_MZ_total_exports }
+# 		}
+# 		set_country_flag = {
+# 			flag = MLW_MZUZU_export_failed
+# 			days = 60
+# 		}
+# 		MLW_MZUZU_export_failed = yes
+# 	}
+# 	else = {
+# 		set_temp_variable = { MLW_MZ_income_temp = 1 }
+# 		add_to_temp_variable = { MLW_MZ_income_temp = modifier@MLW_MZUZU_income_modifier }
+# 		multiply_temp_variable = { MLW_MZ_income_temp = MLW_MZ_total_exports }
+# 		multiply_temp_variable = { MLW_MZ_income_temp = MLW_MZ_ppu }
+# 		clamp_temp_variable = {
+# 			var = MLW_MZ_income_temp
+# 			min = 0
+# 			max = 2000000
+# 		}
+# 		multiply_temp_variable = { MLW_MZ_income_temp = 0.001 }
+# 		multiply_temp_variable = { MLW_MZ_income_temp = 0.01 }
+# 		set_variable = { MLW_MZ_weekly_income = MLW_MZ_income_temp }
+# 		if = {
+# 			limit = { has_country_flag = MLW_MZ_orders_unfulfilled }
+# 			clr_country_flag = MLW_MZ_orders_unfulfilled
+# 		}
+# 		set_country_flag = {
+# 			flag = MLW_MZ_income_check
+# 			days = 8
+# 		}
+# 	}
+# 	MLW_refresh_AIO = yes
+# }
+# this is the effect for when you have nothing to sell, no sales, cancelled exports, simple as
+# MLW_MZUZU_export_failed = {
+# 	if = {
+# 		limit = { has_country_flag = MLW_MZ_orders_unfulfilled }
+# 		for_each_scope_loop = {
+# 			array = MLW.MLW_MZ_exporters
+# 			clear_variable = MLW_MZUZU_tag_export
+# 		}
+# 		set_variable = { MLW_MZ_total_exports = 0 }
+# 		clear_array = MLW.MLW_MZ_exporters
+# 		clr_country_flag = MLW_MZ_allow_deficit
+# 		MLW_refresh_AIO = yes
+# 	}
+# }
+
+# SADC EFFECTS
+# MLW_SADC_trading_effect = {
+# 	set_variable = { MLW_SADC_trade_income = signed_trade_agreements }
+# 	if = {
+# 		limit = {
+# 			has_completed_focus = MLW_SADC_luxury_goods
+# 			NOT = { has_completed_focus = MLW_SADC_consumer_goods }
+# 		}
+# 		multiply_variable = { MLW_SADC_trade_income = 0.1 }
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			has_completed_focus = MLW_SADC_luxury_goods
+# 			has_completed_focus = MLW_SADC_consumer_goods
+# 		}
+# 		multiply_variable = { MLW_SADC_trade_income = 0.15 }
+# 	}
+# 	else = { multiply_variable = { MLW_SADC_trade_income = 0 } }
+
+# 	for_each_scope_loop = {
+# 		array = global.SADC_member
+# 		if = {
+# 			limit = { has_dynamic_modifier = { modifier = MLW_SADC_trade_OTHER_DM } }
+# 			MLW_SADC_trading_OTHER_effect = yes
+# 		}
+# 	}
+
+# 	force_update_dynamic_modifier = yes
+# 	hidden_effect = { ingame_update_setup = yes }
+# }
+
+# MLW_SADC_trading_OTHER_effect = {
+# 	set_variable = { THIS.SADC_trade_income = MLW.MLW_SADC_trade_income }
+# 	multiply_variable = { THIS.SADC_trade_income = 0.5 }
+
+# 	force_update_dynamic_modifier = yes
+# 	hidden_effect = { ingame_update_setup = yes }
+# }
+
+
+
+# SADC_import_target_effect = {
+# 	set_variable = { ROOT.SADC_tag_selected = THIS.id }
+# 	clear_variable = MLW_SADC_imports_stored
+# 	custom_effect_tooltip = SADC_import_target_effect_TT
+# 	MLW_refresh_AIO = yes
+# }
+
+
+
+
+
+
+# MLW_SADC_change_goods_import = {
+# 	add_to_variable = { MLW_SADC_imports_stored = MLW_SADC_imports_change }
+# 	clamp_variable = {
+# 		var = MLW_SADC_imports_stored
+# 		min = 0
+# 		max = 50000
+# 	}
+# 	custom_effect_tooltip = MLW_SADC_change_goods_import_TT
+# 	MLW_refresh_AIO = yes
+# }
+
+# MLW_SADC_confirm_import_effect = {
+# 	if = {
+# 		limit = { has_country_flag = SADC_luxury_import_FLAG }
+# 		add_to_variable = { SADC_luxury_goods_total = MLW_SADC_imports_stored }
+# 	}
+# 	else = { add_to_variable = { SADC_consumer_goods_total = MLW_SADC_imports_stored } }
+# 	custom_effect_tooltip = MLW_SADC_confirm_imports_TT
+# 	clear_variable = MLW_SADC_imports_stored
+# 	MLW_refresh_AIO = yes
+# }
+
+# MLW_SADC_trade_agreement = {
+# 	if = {
+# 		limit = {
+# 			OR = {
+# 				check_variable = { MLW_SADC_consumer_goods_total > 0 }
+# 				check_variable = { MLW_SADC_luxury_goods_total > 0 }
+# 			}
+# 		}
+# 		set_variable = { MLW_SADC_trade_income = signed_trade_agreements }
+# 		# MAIN MATH
+# 		if = { limit = { has_country_flag = MLW_SADC_luxury_goods } multiply_variable = { MLW_SADC_trade_income = 0.1 } }
+# 		else = { multiply_variable = { MLW_SADC_trade_income = 0.05 } }
+# 		# ECONOMIC CYCLE MATH
+# 		if = { limit = { has_idea = depression } multiply_variable = { MLW_SADC_trade_income = 0.5 } }
+# 		else_if = { limit = { has_idea = recession } multiply_variable = { MLW_SADC_trade_income = 1 } }
+# 		else_if = { limit = { has_idea = stagnation } multiply_variable = { MLW_SADC_trade_income = 1.5 } }
+# 		else_if = { limit = { has_idea = stable_growth } multiply_variable = { MLW_SADC_trade_income = 2 } }
+# 		else_if = { limit = { has_idea = fast_growth } multiply_variable = { MLW_SADC_trade_income = 2.5 } }
+# 		else = { multiply_variable = { MLW_SADC_trade_income = 3 } }
+# 	}
+# 	else = { set_variable = { MLW_SADC_trade_income = 0 } }
+
+# 	force_update_dynamic_modifier = yes
+# 	hidden_effect = { ingame_update_setup = yes }
+# }
+# MLW_SADC_import_target_effect = {
+# 	set_variable = { ROOT.SADC_tag_selected = THIS.id }
+# 	custom_effect_tooltip = MLW_SADC_import_target_effect_TT
+# 	MLW_refresh_AIO = yes
+# }
+# MLW_SADC_trade_stockpile_change = {
+# 	set_temp_variable = { MLW_SADC_stockpile_change = signed_trade_agreements }
+# 	multiply_temp_variable = { MLW_SADC_stockpile_change = -1000 }
+# 	if = {
+# 		limit = { has_country_flag = MLW_SADC_luxury_goods }
+# 		add_to_variable = { MLW_SADC_luxury_goods_total = MLW_SADC_stockpile_change }
+# 	}
+# 	else = { add_to_variable = { MLW_SADC_consumer_goods_total = MLW_SADC_stockpile_change } }
+# }
+# MLW_SADC_import_commercial_cost = {
+# 	set_temp_variable = { MLW_SADC_import_consumer_price = 0.05 }
+# 	multiply_temp_variable = { MLW_SADC_import_consumer_price = THIS.opinion@ROOT }
+# 	add_to_variable = { MLW_SADC }
+# 	custom_effect_tooltip = MLW_SADC_import_commercial_cost_TT
+# }
+# MLW_SADC_import_from_target = {
+# 	if = {
+# 		limit = {
+# 			var:SADC_tag_selected = {
+# 				has_opinion = { target = ROOT value > -26 }
+# 				has_opinion = { target = ROOT value < 1 }
+# 			}
+
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			var:SADC_tag_selected = {
+# 				has_opinion = { target = ROOT value > -1 }
+# 				has_opinion = { target = ROOT value < 26 }
+# 			}
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			var:SADC_tag_selected = {
+# 				has_opinion = { target = ROOT value > 24 }
+# 				has_opinion = { target = ROOT value < 51 }
+# 			}
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			var:SADC_tag_selected = {
+# 				has_opinion = { target = ROOT value > 49 }
+# 				has_opinion = { target = ROOT value < 76 }
+# 			}
+# 		}
+# 	}
+# 	else_if = {
+# 		limit = {
+# 			var:SADC_tag_selected = {
+# 				has_opinion = { target = ROOT value > 74 }
+# 			}
+# 		}
+# 	}
+# }
+
+# every week that there is a variable in one of the selected goods
+# gain X amount of those resources, with the cost of each nation's imports
+# based off of the target's opinion of you
+#
+# if the opinion of a target is too low, they will not let you trade with them
+# -25 locks off luxury, -50 locks off commercial
+#
+# with an event you can send them "aid" in the form of prospectors and permit
+# funding, with prospectors you gain 1-10% of the new resources found for a year
+# this is locked off for as much time
+#
+# with permit funding you give them easier time constructing a random building and create
+# an investment of the same, unable to send event if at max investments used, has a chance to
+# increase corruption in the target dependent on your own corruption
+#
+# for each trade deal signed, removes 1k units and gives money back to malawi based on economic
+# cycle at current, possible to stockpile and switch trade type between commercial and luxury
+# items in GUI, once one type of good is used up, auto switches to the other, if there are no
+# goods to subtract, all additional money will stop, flagging the "no" symbol in the GUI

@@ -1,0 +1,627 @@
+add_namespace = ENG_parliament
+
+# ============================================================
+# GENERAL ELECTION
+# ============================================================
+country_event = {
+	id = ENG_parliament.1
+	title = ENG_parliament.1.t
+	desc = ENG_parliament.1.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_parliament.1.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.1.a executed"
+		ENG_hoc_calculate_all = yes
+		country_event = { id = ENG_parliament.2 days = 3 }
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# ELECTION RESULTS
+# Displays all seats, then chains to appropriate formation event
+# ============================================================
+country_event = {
+	id = ENG_parliament.2
+	title = ENG_parliament.2.t
+	desc = ENG_parliament.2.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Majority government - ruling party won with 326+ seats, non extremist
+	option = {
+		name = ENG_parliament.2.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.2.a executed"
+		trigger = {
+			check_variable = { ENG_hoc_majority = 1 }
+			check_variable = { ENG_hoc_ruling_party_won = 1 }
+			check_variable = { ENG_hoc_extremist_winner = 0 }
+		}
+		# Strong majority (>340)
+		if = {
+			limit = { check_variable = { ENG_hoc_ruling_seats > 340 } }
+			add_ideas = ENG_strong_majority_spirit
+		}
+		else = {
+			add_ideas = ENG_slim_majority_spirit
+		}
+		ai_chance = { base = 1 }
+	}
+
+	# Hung parliament - ruling party doesn't have 326+ seats OR lost the election
+	option = {
+		name = ENG_parliament.2.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.2.b executed"
+		trigger = {
+			check_variable = { ENG_hoc_extremist_winner = 0 }
+			OR = {
+				check_variable = { ENG_hoc_majority = 0 }
+				check_variable = { ENG_hoc_ruling_party_won = 0 }
+			}
+		}
+		country_event = { id = ENG_parliament.20 days = 5 }
+		ai_chance = { base = 1 }
+	}
+
+	# Extremist wins - monarchy intervention
+	option = {
+		name = ENG_parliament.2.c
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.2.c executed"
+		trigger = {
+			check_variable = { ENG_hoc_extremist_winner = 1 }
+		}
+		country_event = { id = ENG_parliament.3 days = 3 }
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# MONARCHY BLOCKS EXTREMIST PM
+# ============================================================
+country_event = {
+	id = ENG_parliament.3
+	title = ENG_parliament.3.t
+	desc = ENG_parliament.3.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Accept monarch's choice - next largest non-extremist party
+	option = {
+		name = ENG_parliament.3.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.3.a executed"
+		custom_effect_tooltip = ENG_hoc_accept_monarch_TT
+		# The monarch picks the next largest non-extremist party
+		# This effectively means the 2nd place party governs
+		if = {
+			limit = { check_variable = { ENG_hoc_majority = 1 } }
+			add_ideas = ENG_slim_majority_spirit
+		}
+		else = {
+			country_event = { id = ENG_parliament.20 days = 3 }
+		}
+		ai_chance = { base = 9 }
+	}
+
+	# Defy the crown - play as the extremist party
+	option = {
+		name = ENG_parliament.3.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.3.b executed"
+		custom_effect_tooltip = ENG_hoc_defy_monarch_TT
+		set_country_flag = ENG_hoc_extremist_pm
+		add_ideas = ENG_constitutional_crisis
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# EXTREMIST GOVERNANCE - Monthly undermining
+# ============================================================
+country_event = {
+	id = ENG_parliament.4
+	title = ENG_parliament.4.t
+	desc = ENG_parliament.4.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Endure the pressure
+	option = {
+		name = ENG_parliament.4.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.4.a executed"
+		add_stability = -0.02
+		add_political_power = -25
+		ai_chance = { base = 1 }
+	}
+
+	# Call new elections
+	option = {
+		name = ENG_parliament.4.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.4.b executed"
+		clr_country_flag = ENG_hoc_extremist_pm
+		if = { limit = { has_idea = ENG_constitutional_crisis } remove_ideas = ENG_constitutional_crisis }
+		country_event = { id = ENG_parliament.70 days = 3 }
+		ai_chance = { base = 0 }
+	}
+}
+
+# ============================================================
+# SOVEREIGN SUPPORT WON (right-wing extremists only)
+# ============================================================
+country_event = {
+	id = ENG_parliament.5
+	title = ENG_parliament.5.t
+	desc = ENG_parliament.5.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_parliament.5.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.5.a executed"
+		set_country_flag = ENG_hoc_sovereign_support
+		clr_country_flag = ENG_hoc_extremist_pm
+		if = { limit = { has_idea = ENG_constitutional_crisis } remove_ideas = ENG_constitutional_crisis }
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# MAJORITY GOVERNMENT FORMED
+# ============================================================
+country_event = {
+	id = ENG_parliament.10
+	title = ENG_parliament.10.t
+	desc = ENG_parliament.10.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_parliament.10.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.10.a executed"
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# HUNG PARLIAMENT - Choose first coalition partner or minority
+# ============================================================
+country_event = {
+	id = ENG_parliament.20
+	title = ENG_parliament.20.t
+	desc = ENG_parliament.20.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Seek coalition with Lib Dems
+	option = {
+		name = ENG_parliament.20.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.20.a executed"
+		trigger = {
+			check_variable = { ENG_hoc_seats^2 > 5 }
+			NOT = { has_country_flag = ENG_hoc_coalition_libdem }
+		}
+		country_event = { id = ENG_parliament.30 days = 5 }
+		ai_chance = { base = 5 }
+	}
+
+	# Seek coalition with SNP
+	option = {
+		name = ENG_parliament.20.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.20.b executed"
+		trigger = {
+			check_variable = { ENG_hoc_snp_seats > 5 }
+			NOT = { country_exists = SCO }
+			NOT = { has_country_flag = ENG_hoc_coalition_snp }
+		}
+		country_event = { id = ENG_parliament.31 days = 5 }
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 2
+				is_in_array = { ruling_party = 3 }
+			}
+		}
+	}
+
+	# Seek coalition with DUP
+	option = {
+		name = ENG_parliament.20.c
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.20.c executed"
+		trigger = {
+			check_variable = { ENG_hoc_dup_seats > 3 }
+			NOT = { country_exists = NIR }
+			NOT = { has_country_flag = ENG_hoc_coalition_dup }
+		}
+		country_event = { id = ENG_parliament.32 days = 5 }
+		ai_chance = {
+			base = 2
+			modifier = {
+				factor = 3
+				is_in_array = { ruling_party = 1 }
+			}
+		}
+	}
+
+	# Minority government
+	option = {
+		name = ENG_parliament.20.d
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.20.d executed"
+		set_country_flag = ENG_hoc_hung_parliament
+		if = { limit = { NOT = { has_idea = ENG_minority_government_spirit } } add_ideas = ENG_minority_government_spirit }
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# COALITION WITH LIB DEMS
+# ============================================================
+country_event = {
+	id = ENG_parliament.30
+	title = ENG_parliament.30.t
+	desc = ENG_parliament.30.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Coalition agreed
+	option = {
+		name = ENG_parliament.30.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.30.a executed"
+		set_country_flag = ENG_hoc_coalition_active
+		set_country_flag = ENG_hoc_coalition_libdem
+		set_variable = { ENG_hoc_coalition_satisfaction_libdem = 75 }
+		add_to_variable = { ENG_hoc_ruling_seats = ENG_hoc_seats^2 }
+		# Check if coalition now exceeds largest opposition party
+		country_event = { id = ENG_parliament.35 days = 3 }
+		ai_chance = { base = 8 }
+	}
+
+	# Reject - back to partner selection
+	option = {
+		name = ENG_parliament.30.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.30.b executed"
+		country_event = { id = ENG_parliament.20 days = 3 }
+		ai_chance = { base = 2 }
+	}
+}
+
+# ============================================================
+# COALITION WITH SNP
+# ============================================================
+country_event = {
+	id = ENG_parliament.31
+	title = ENG_parliament.31.t
+	desc = ENG_parliament.31.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Coalition agreed
+	option = {
+		name = ENG_parliament.31.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.31.a executed"
+		set_country_flag = ENG_hoc_coalition_active
+		set_country_flag = ENG_hoc_coalition_snp
+		set_variable = { ENG_hoc_coalition_satisfaction_snp = 75 }
+		add_to_variable = { ENG_hoc_ruling_seats = ENG_hoc_snp_seats }
+		# Check if coalition now exceeds largest opposition party
+		country_event = { id = ENG_parliament.35 days = 3 }
+		ai_chance = { base = 6 }
+	}
+
+	# Reject - back to partner selection
+	option = {
+		name = ENG_parliament.31.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.31.b executed"
+		country_event = { id = ENG_parliament.20 days = 3 }
+		ai_chance = { base = 4 }
+	}
+}
+
+# ============================================================
+# COALITION WITH DUP
+# ============================================================
+country_event = {
+	id = ENG_parliament.32
+	title = ENG_parliament.32.t
+	desc = ENG_parliament.32.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Coalition agreed
+	option = {
+		name = ENG_parliament.32.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.32.a executed"
+		set_country_flag = ENG_hoc_coalition_active
+		set_country_flag = ENG_hoc_coalition_dup
+		set_variable = { ENG_hoc_coalition_satisfaction_dup = 75 }
+		add_to_variable = { ENG_hoc_ruling_seats = ENG_hoc_dup_seats }
+		# Check if coalition now exceeds largest opposition party
+		country_event = { id = ENG_parliament.35 days = 3 }
+		ai_chance = { base = 7 }
+	}
+
+	# Reject - back to partner selection
+	option = {
+		name = ENG_parliament.32.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.32.b executed"
+		country_event = { id = ENG_parliament.20 days = 3 }
+		ai_chance = { base = 3 }
+	}
+}
+
+# ============================================================
+# COALITION ASSESSMENT - Check if coalition has enough seats
+# If combined seats > largest opposition, coalition succeeds
+# If not, offer to seek additional partners or go minority
+# ============================================================
+country_event = {
+	id = ENG_parliament.35
+	title = ENG_parliament.35.t
+	desc = ENG_parliament.35.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Coalition has enough seats - form government
+	option = {
+		name = ENG_parliament.35.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.35.a executed"
+		trigger = {
+			check_variable = { ENG_hoc_ruling_seats > ENG_hoc_largest_party_seats }
+		}
+		if = {
+			limit = { check_variable = { ENG_hoc_ruling_seats > 325 } }
+			set_variable = { ENG_hoc_majority = 1 }
+		}
+		if = { limit = { NOT = { has_idea = ENG_coalition_government_spirit } } add_ideas = ENG_coalition_government_spirit }
+		ai_chance = { base = 10 }
+	}
+
+	# Not enough seats - seek more partners
+	option = {
+		name = ENG_parliament.35.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.35.b executed"
+		trigger = {
+			NOT = { check_variable = { ENG_hoc_ruling_seats > ENG_hoc_largest_party_seats } }
+			OR = {
+				AND = {
+					check_variable = { ENG_hoc_seats^2 > 5 }
+					NOT = { has_country_flag = ENG_hoc_coalition_libdem }
+				}
+				AND = {
+					check_variable = { ENG_hoc_snp_seats > 5 }
+					NOT = { country_exists = SCO }
+					NOT = { has_country_flag = ENG_hoc_coalition_snp }
+				}
+				AND = {
+					check_variable = { ENG_hoc_dup_seats > 3 }
+					NOT = { country_exists = NIR }
+					NOT = { has_country_flag = ENG_hoc_coalition_dup }
+				}
+			}
+		}
+		country_event = { id = ENG_parliament.20 days = 3 }
+		ai_chance = { base = 8 }
+	}
+
+	# Not enough seats, no more partners available - minority government
+	option = {
+		name = ENG_parliament.35.c
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.35.c executed"
+		trigger = {
+			NOT = { check_variable = { ENG_hoc_ruling_seats > ENG_hoc_largest_party_seats } }
+		}
+		set_country_flag = ENG_hoc_hung_parliament
+		if = { limit = { NOT = { has_idea = ENG_minority_government_spirit } } add_ideas = ENG_minority_government_spirit }
+		ai_chance = { base = 2 }
+	}
+}
+
+# ============================================================
+# COALITION DEMANDS - LIB DEM: Electoral Reform
+# ============================================================
+country_event = {
+	id = ENG_parliament.50
+	title = ENG_parliament.50.t
+	desc = ENG_parliament.50.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Accept demand
+	option = {
+		name = ENG_parliament.50.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.50.a executed"
+		add_political_power = -50
+		add_to_variable = { ENG_hoc_coalition_satisfaction_libdem = 20 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_libdem min = 0 max = 100 }
+		ai_chance = { base = 6 }
+	}
+
+	# Reject demand
+	option = {
+		name = ENG_parliament.50.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.50.b executed"
+		subtract_from_variable = { ENG_hoc_coalition_satisfaction_libdem = 15 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_libdem min = 0 max = 100 }
+		ai_chance = { base = 4 }
+	}
+}
+
+# ============================================================
+# COALITION DEMANDS - SNP: Scottish Devolution
+# ============================================================
+country_event = {
+	id = ENG_parliament.52
+	title = ENG_parliament.52.t
+	desc = ENG_parliament.52.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Accept demand
+	option = {
+		name = ENG_parliament.52.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.52.a executed"
+		add_political_power = -75
+		add_to_variable = { ENG_hoc_coalition_satisfaction_snp = 20 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_snp min = 0 max = 100 }
+		# Boosts Scottish nationalism
+		add_to_variable = { ENG_scottish_nationalists = 5 }
+		ai_chance = { base = 5 }
+	}
+
+	# Reject demand
+	option = {
+		name = ENG_parliament.52.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.52.b executed"
+		subtract_from_variable = { ENG_hoc_coalition_satisfaction_snp = 15 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_snp min = 0 max = 100 }
+		ai_chance = { base = 5 }
+	}
+}
+
+# ============================================================
+# COALITION DEMANDS - DUP: NI Investment
+# ============================================================
+country_event = {
+	id = ENG_parliament.54
+	title = ENG_parliament.54.t
+	desc = ENG_parliament.54.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Accept demand
+	option = {
+		name = ENG_parliament.54.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.54.a executed"
+		add_political_power = -40
+		add_to_variable = { ENG_hoc_coalition_satisfaction_dup = 20 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_dup min = 0 max = 100 }
+		ai_chance = { base = 7 }
+	}
+
+	# Reject demand
+	option = {
+		name = ENG_parliament.54.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.54.b executed"
+		subtract_from_variable = { ENG_hoc_coalition_satisfaction_dup = 15 }
+		clamp_variable = { var = ENG_hoc_coalition_satisfaction_dup min = 0 max = 100 }
+		ai_chance = { base = 3 }
+	}
+}
+
+# ============================================================
+# COALITION PARTNER WARNING - Low satisfaction
+# ============================================================
+country_event = {
+	id = ENG_parliament.60
+	title = ENG_parliament.60.t
+	desc = ENG_parliament.60.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Try to appease them
+	option = {
+		name = ENG_parliament.60.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.60.a executed"
+		add_political_power = -30
+		if = {
+			limit = { has_country_flag = ENG_hoc_coalition_libdem }
+			add_to_variable = { ENG_hoc_coalition_satisfaction_libdem = 10 }
+		}
+		if = {
+			limit = { has_country_flag = ENG_hoc_coalition_snp }
+			add_to_variable = { ENG_hoc_coalition_satisfaction_snp = 10 }
+		}
+		if = {
+			limit = { has_country_flag = ENG_hoc_coalition_dup }
+			add_to_variable = { ENG_hoc_coalition_satisfaction_dup = 10 }
+		}
+		ai_chance = { base = 7 }
+	}
+
+	# Ignore their concerns
+	option = {
+		name = ENG_parliament.60.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.60.b executed"
+		ai_chance = { base = 3 }
+	}
+}
+
+# ============================================================
+# COALITION COLLAPSE - Partner leaves
+# ============================================================
+country_event = {
+	id = ENG_parliament.61
+	title = ENG_parliament.61.t
+	desc = ENG_parliament.61.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	# Accept and govern as minority
+	option = {
+		name = ENG_parliament.61.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.61.a executed"
+		clr_country_flag = ENG_hoc_coalition_active
+		clr_country_flag = ENG_hoc_coalition_libdem
+		clr_country_flag = ENG_hoc_coalition_snp
+		clr_country_flag = ENG_hoc_coalition_dup
+		set_country_flag = ENG_hoc_hung_parliament
+		if = { limit = { has_idea = ENG_coalition_government_spirit } remove_ideas = ENG_coalition_government_spirit }
+		add_ideas = ENG_minority_government_spirit
+		ai_chance = { base = 5 }
+	}
+
+	# Call snap election
+	option = {
+		name = ENG_parliament.61.b
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.61.b executed"
+		clr_country_flag = ENG_hoc_coalition_active
+		clr_country_flag = ENG_hoc_coalition_libdem
+		clr_country_flag = ENG_hoc_coalition_snp
+		clr_country_flag = ENG_hoc_coalition_dup
+		if = { limit = { has_idea = ENG_coalition_government_spirit } remove_ideas = ENG_coalition_government_spirit }
+		country_event = { id = ENG_parliament.70 days = 3 }
+		ai_chance = { base = 5 }
+	}
+}
+
+# ============================================================
+# SNAP ELECTION CALLED
+# ============================================================
+country_event = {
+	id = ENG_parliament.70
+	title = ENG_parliament.70.t
+	desc = ENG_parliament.70.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_parliament.70.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.70.a executed"
+		# Reset election timer
+		set_variable = { ENG_hoc_election_var = 60 }
+		# Clear hung parliament
+		clr_country_flag = ENG_hoc_hung_parliament
+		if = { limit = { has_idea = ENG_hung_parliament_spirit } remove_ideas = ENG_hung_parliament_spirit }
+		if = { limit = { has_idea = ENG_minority_government_spirit } remove_ideas = ENG_minority_government_spirit }
+		# Trigger new election
+		country_event = { id = ENG_parliament.1 days = 30 }
+		ai_chance = { base = 1 }
+	}
+}
+
+# ============================================================
+# BY-ELECTION
+# ============================================================
+country_event = {
+	id = ENG_parliament.100
+	title = ENG_parliament.100.t
+	desc = ENG_parliament.100.d
+	picture = GFX_report_event_generic_parliament
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_parliament.100.a
+		log = "[GetDateText]: [This.GetName]: ENG_parliament.100.a executed"
+		ENG_hoc_by_election_calc = yes
+		ai_chance = { base = 1 }
+	}
+}

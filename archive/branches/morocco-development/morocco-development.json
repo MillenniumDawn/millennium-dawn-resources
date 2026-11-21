@@ -1,0 +1,13 @@
+{
+  "branch": "origin/morocco-development",
+  "tip_sha": "61b960759caf96c936448f17fb9704b557102e84",
+  "tip_short": "61b960759c",
+  "last_author": "AngriestBird",
+  "last_commit_date": "2026-07-12T12:47:43-04:00",
+  "last_commit_subject": "Merge remote-tracking branch 'origin/main' into morocco-development",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "480af4b83e83bf6e3c486b2dd89509a6d87f244e",
+  "diverging_files_3dot": 15,
+  "archived_files": 15,
+  "deleted_paths": []
+}

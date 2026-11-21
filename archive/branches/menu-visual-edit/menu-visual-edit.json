@@ -1,0 +1,13 @@
+{
+  "branch": "origin/menu-visual-edit",
+  "tip_sha": "6485e57f3f8f56b50d6e0714a4a7c14f4d5d7dca",
+  "tip_short": "6485e57f3f",
+  "last_author": "Sheep",
+  "last_commit_date": "2026-02-23T11:53:15+11:00",
+  "last_commit_subject": "edit to ct window",
+  "main_sha": "72c4b2a861b2b343372ed73c8818758052425042",
+  "merge_base_sha": "a60144b59a51cb5bfc79c39b440ea5fd48123bdc",
+  "diverging_files_3dot": 9,
+  "archived_files": 9,
+  "deleted_paths": []
+}

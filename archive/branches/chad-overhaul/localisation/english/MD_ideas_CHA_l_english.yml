@@ -1,0 +1,481 @@
+﻿l_english:
+ # Civil War Ideas
+ CHA_second_civil_war: "Second Chadian Civil War"
+ CHA_second_civil_war_desc: "Chad is engulfed in civil war. Rebel forces backed by Sudan are fighting to overthrow the government. The conflict has disrupted the economy and threatens the stability of the entire region.\n\n§YRemoval:§! This spirit is removed when the civil war ends, either through military victory or peace negotiations via the focus tree."
+
+ CHA_battle_for_ndjamena: "Battle for N'Djamena"
+ CHA_battle_for_ndjamena_desc: "The rebels are at the gates of the capital. Every soldier must fight to defend N'Djamena from the enemy assault."
+
+ CHA_post_war_recovery: "Post-War Recovery"
+ CHA_post_war_recovery_desc: "The civil war is over, but its scars remain. Chad must now rebuild its shattered infrastructure and heal the divisions that led to the conflict.\n\n§YRemoval:§! This spirit is replaced with better modifiers as Chad completes reconstruction focuses in the post-war branch."
+
+ CHA_rebel_momentum: "Rebel Momentum"
+ CHA_rebel_momentum_desc: "The rebels are on the offensive. Their forces are motivated and moving quickly across the countryside."
+
+ # International Intervention
+ CHA_minurcat_presence: "MINURCAT Presence"
+ CHA_minurcat_presence_desc: "The United Nations Mission in the Central African Republic and Chad (MINURCAT) has deployed peacekeepers to help stabilize the country and protect refugees."
+
+ CHA_eufor_presence: "EUFOR Presence"
+ CHA_eufor_presence_desc: "The European Union has deployed a military force to Chad to support the UN mission and protect civilians in the conflict zone."
+
+ CHA_french_air_support: "French Air Support"
+ CHA_french_air_support_desc: "French Mirage jets are providing air support to Chadian forces. Their strikes have proven devastating to rebel formations."
+
+ CHA_french_military_presence: "French Military Presence"
+ CHA_french_military_presence_desc: "French forces are stationed in Chad under Operation Épervier. Their presence provides a crucial security guarantee for the government."
+
+ # Political Ideas
+ CHA_term_limits_removed: "Term Limits Removed"
+ CHA_term_limits_removed_desc: "The 2005 constitutional referendum removed presidential term limits, allowing Idriss Déby to remain in power indefinitely. This has consolidated his rule but fueled opposition."
+
+ CHA_zaghawa_dominance: "Zaghawa Dominance"
+ CHA_zaghawa_dominance_desc: "The Zaghawa ethnic group dominates Chad's political and military elite. This patronage network ensures loyalty but creates resentment among other groups.\n\n§YModification:§! The stability penalty can be mitigated by pursuing tribal balance focuses and maintaining high loyalty with other tribes through the tribal relations decisions."
+
+ CHA_democratic_transition: "Democratic Transition"
+ CHA_democratic_transition_desc: "Chad is transitioning toward greater democracy. This uncertain process brings both opportunities and risks."
+
+ CHA_competitive_politics: "Competitive Politics"
+ CHA_competitive_politics_desc: "Chad has developed a more competitive political system, with multiple parties contesting for power through elections."
+
+ CHA_transitional_military_council: "Transitional Military Council"
+ CHA_transitional_military_council_desc: "The military has taken power through a Transitional Military Council, promising an eventual return to civilian rule.\n\n§YRemoval:§! This spirit is removed when completing the democratic transition focuses, or replaced with 'Praetorian State' if pursuing permanent military rule."
+
+ CHA_broad_coalition: "Broad Coalition Government"
+ CHA_broad_coalition_desc: "The government includes representatives from across Chad's diverse ethnic and political spectrum, promoting stability through inclusion."
+
+ CHA_expanded_security_services: "Expanded Security Services"
+ CHA_expanded_security_services_desc: "Chad's intelligence and security services have been significantly expanded, monitoring potential threats to the regime."
+
+ CHA_peaceful_development: "Peaceful Development"
+ CHA_peaceful_development_desc: "Having avoided civil war, Chad can focus its resources on economic development and improving the lives of its citizens."
+
+ # Economic Ideas
+ CHA_oil_boom: "Oil Boom"
+ CHA_oil_boom_desc: "Oil production from the Doba Basin has transformed Chad's economy. Petroleum revenues provide significant resources for development."
+
+ CHA_managed_oil_economy: "Managed Oil Economy"
+ CHA_managed_oil_economy_desc: "Chad has implemented programs to manage its oil revenues responsibly, investing in development rather than allowing corruption to squander this resource."
+
+ CHA_cotton_exports: "Cotton Export Economy"
+ CHA_cotton_exports_desc: "Cotton remains an important export crop for Chad. Investments in this sector have boosted rural incomes."
+
+ CHA_improved_irrigation: "Improved Irrigation"
+ CHA_improved_irrigation_desc: "New irrigation systems around Lake Chad have expanded agricultural production and helped address food insecurity."
+
+ CHA_food_security_program: "Food Security Program"
+ CHA_food_security_program_desc: "A comprehensive food security program has reduced Chad's vulnerability to famine and improved nutrition across the country."
+
+ # Military Ideas
+ CHA_french_trained_army: "French-Trained Army"
+ CHA_french_trained_army_desc: "French military advisors have helped train and professionalize Chad's armed forces, significantly improving their capabilities."
+
+ CHA_desert_warriors: "Desert Warriors"
+ CHA_desert_warriors_desc: "Chad's soldiers are masters of desert warfare, honed by decades of conflict in the Sahara. They move swiftly and strike hard in the harsh terrain."
+
+ CHA_presidential_guard: "Presidential Guard"
+ CHA_presidential_guard_desc: "The elite Presidential Guard, known as the Republican Guard, serves as the regime's ultimate guarantor of security."
+
+ CHA_counter_terrorism_training: "Counter-Terrorism Training"
+ CHA_counter_terrorism_training_desc: "Specialized training has prepared Chad's forces to combat jihadist groups operating in the Sahel region."
+
+ CHA_sahel_force_member: "G5 Sahel Force Member"
+ CHA_sahel_force_member_desc: "Chad is a member of the G5 Sahel joint force, cooperating with regional partners to combat terrorism and transnational crime."
+
+ # Decision-Related Ideas
+ CHA_cotton_exports_bonus: "Cotton Export Program"
+ CHA_cotton_exports_bonus_desc: "Chad's cotton export initiative has boosted agricultural income and diversified the economy beyond oil dependence."
+
+ CHA_toyota_war_doctrine: "Toyota War Doctrine"
+ CHA_toyota_war_doctrine_desc: "Chad's military has formalized the mobile desert warfare tactics perfected during the Toyota War against Libya, using light vehicles for rapid strikes."
+
+ CHA_border_patrol_active: "Active Border Patrols"
+ CHA_border_patrol_active_desc: "Dedicated border security forces patrol Chad's extensive frontiers, reducing smuggling and militant infiltration."
+
+ CHA_cemac_member: "CEMAC Integration"
+ CHA_cemac_member_desc: "Chad's deeper integration with the Central African Economic and Monetary Community has opened new trade opportunities and strengthened regional economic ties."
+
+ # Great Green Wall
+ CHA_reforestation_program: "Reforestation Program"
+ CHA_reforestation_program_desc: "Chad's participation in the Great Green Wall initiative is bringing environmental benefits and improving agricultural productivity across the Sahel region."
+
+ # Islamist Path Ideas
+ CHA_islamic_schools: "Islamic Education System"
+ CHA_islamic_schools_desc: "A network of madrasas and Quranic schools provides religious education throughout Chad, strengthening Islamic identity."
+ CHA_sufi_influence: "Sufi Brotherhood Influence"
+ CHA_sufi_influence_desc: "The Sufi brotherhoods exert significant influence over religious affairs in Chad, promoting a traditional form of Islam."
+ CHA_wahabi_mosques: "Wahabi Religious Institutions"
+ CHA_wahabi_mosques_desc: "Saudi-funded religious institutions spread Wahabi interpretations of Islam throughout Chad.\n\n§RNote:§! This spirit represents a fundamental shift in religious character and cannot be easily removed once adopted."
+ CHA_caliphate_declared: "Islamic State of the Sahel"
+ CHA_caliphate_declared_desc: "Chad has declared itself an Islamic state, implementing full Sharia law and establishing a caliphate in the heart of Africa.\n\n§RNote:§! This is a permanent transformation of the state. The stability penalty reflects ongoing tensions with secular and non-Muslim populations."
+
+ # Pan-African Socialist Ideas
+ CHA_nationalized_oil: "Nationalized Oil Industry"
+ CHA_nationalized_oil_desc: "Chad has nationalized its oil industry. The state now controls petroleum production and exports."
+ CHA_state_controlled_economy: "State-Controlled Economy"
+ CHA_state_controlled_economy_desc: "The government maintains comprehensive control over key economic sectors, directing resources according to central plans."
+ CHA_collectivized_agriculture: "Collectivized Agriculture"
+ CHA_collectivized_agriculture_desc: "Agricultural production has been organized into collective farms, combining resources for state-directed cultivation."
+ CHA_pan_african_leader: "Pan-African Leadership"
+ CHA_pan_african_leader_desc: "Chad has emerged as a leader of the pan-African socialist movement, building alliances against Western imperialism."
+
+ # Military Junta Ideas
+ CHA_state_of_emergency: "Permanent State of Emergency"
+ CHA_state_of_emergency_desc: "Martial law has been extended indefinitely. The military exercises extraordinary powers to maintain security.\n\n§YRemoval:§! Can be lifted by pursuing democratic reform focuses, or upgraded to 'Praetorian State' by fully embracing military rule."
+ CHA_military_elite: "Military Officer Privileges"
+ CHA_military_elite_desc: "Military officers enjoy special privileges and economic benefits, ensuring their loyalty to the regime."
+ CHA_praetorian_guard_state: "Praetorian State"
+ CHA_praetorian_guard_state_desc: "Chad has become a military-ruled state where the armed forces hold supreme political power."
+
+ # Tribal Relations Ideas
+ CHA_tribal_balance_idea: "Tribal Balance Policy"
+ CHA_tribal_balance_idea_desc: "The government maintains a careful balance of tribal interests through consultation, patronage, and power-sharing."
+ CHA_zaghawa_militia_idea: "Zaghawa Militia Forces"
+ CHA_zaghawa_militia_idea_desc: "Armed Zaghawa militias serve as a loyal paramilitary force supporting the government."
+ CHA_arab_council: "Chadian Arab Council"
+ CHA_arab_council_desc: "A formal council represents Arab tribal interests in government deliberations."
+ CHA_southern_development: "Southern Development Program"
+ CHA_southern_development_desc: "Heavy investment in infrastructure and services addresses regional inequalities in the Sara-dominated south."
+ CHA_national_unity_achieved: "National Unity Achieved"
+ CHA_national_unity_achieved_desc: "Through careful management of tribal relations, Chad has achieved genuine national unity that transcends ethnic divisions."
+
+ # Neighbor Relations Ideas
+ CHA_libyan_weapons: "Libyan Weapons Influx"
+ CHA_libyan_weapons_desc: "The collapse of Libya has flooded Chad with weapons, providing military resources but also feeding instability."
+ CHA_car_peacekeeper: "CAR Peacekeeping Commitment"
+ CHA_car_peacekeeper_desc: "Chadian forces are deployed to maintain order in the Central African Republic, building regional influence."
+ CHA_regional_trade_hub: "Regional Trade Hub"
+ CHA_regional_trade_hub_desc: "Chad has become a hub for regional trade, connecting Central and West Africa through improved infrastructure."
+
+ # Economic Expansion Ideas
+ CHA_mega_infrastructure: "Mega-Infrastructure Projects"
+ CHA_mega_infrastructure_desc: "Ambitious infrastructure projects are transforming Chad, from highways to airports to telecommunications."
+ CHA_foreign_investment_boom: "Foreign Investment Boom"
+ CHA_foreign_investment_boom_desc: "Major international companies have invested heavily in Chad, bringing capital, technology, and economic growth."
+
+ # Tribal Loyalty Bonus Ideas
+ CHA_zaghawa_elite_guard_idea: "Zaghawa Elite Guard"
+ CHA_zaghawa_elite_guard_idea_desc: "The most loyal Zaghawa warriors have been organized into an elite guard unit, providing exceptional protection for the regime and enhancing military capabilities."
+ CHA_arab_cavalry_idea: "Arab Cavalry Auxiliaries"
+ CHA_arab_cavalry_idea_desc: "Chadian Arab tribes contribute mobile cavalry forces to the national army, their horsemanship and desert knowledge proving invaluable in rapid operations."
+ CHA_sara_prosperity_idea: "Sara Agricultural Boom"
+ CHA_sara_prosperity_idea_desc: "Investment in the Sara heartlands has sparked an agricultural renaissance, increasing food production and strengthening the economy of southern Chad."
+ CHA_toubou_guides_idea: "Toubou Desert Guides"
+ CHA_toubou_guides_idea_desc: "Toubou tribesmen serve as expert guides and scouts, their unmatched knowledge of the Tibesti Mountains and northern deserts proving crucial for military operations."
+ CHA_agricultural_investment: "Agricultural Investment"
+ CHA_agricultural_investment_desc: "Significant investment in Chad's agricultural sector is improving productivity and diversifying the economy beyond oil dependence."
+ CHA_tribal_unity: "National Tribal Unity"
+ CHA_tribal_unity_desc: "Through careful diplomacy and patronage, Chad has achieved unprecedented unity among its diverse tribal groups, strengthening both the nation and the military."
+ CHA_military_offensive_idea: "Military Offensive Operations"
+ CHA_military_offensive_idea_desc: "Chad's armed forces are conducting major offensive operations, prioritizing attack capability over defensive positions."
+
+ # Tribal Resource Economy Modifiers
+ CHA_zaghawa_resource_bonus: "Zaghawa Cooperation - Oil Region"
+ CHA_zaghawa_resource_bonus_desc: "High Zaghawa loyalty has secured cooperation in the eastern oil-producing regions, boosting petroleum extraction and infrastructure development."
+ CHA_zaghawa_resource_penalty_low: "Zaghawa Unrest - Oil Region"
+ CHA_zaghawa_resource_penalty_low_desc: "Low Zaghawa loyalty is disrupting oil operations in the eastern regions. Workers and local officials are uncooperative, reducing extraction efficiency."
+ CHA_zaghawa_resource_penalty_critical: "Zaghawa Crisis - Oil Region"
+ CHA_zaghawa_resource_penalty_critical_desc: "Critical Zaghawa discontent has severely impacted oil production. Sabotage, strikes, and local resistance are crippling the petroleum industry in the east."
+
+ CHA_arab_resource_bonus: "Arab Cooperation - Trade Routes"
+ CHA_arab_resource_bonus_desc: "High Arab tribal loyalty has secured the central trade routes and livestock markets, improving commerce and reducing consumer goods costs."
+ CHA_arab_resource_penalty_low: "Arab Unrest - Trade Disruption"
+ CHA_arab_resource_penalty_low_desc: "Low Arab loyalty is disrupting trade in central Chad. Livestock markets and caravan routes are increasingly unsafe."
+ CHA_arab_resource_penalty_critical: "Arab Crisis - Trade Collapse"
+ CHA_arab_resource_penalty_critical_desc: "Critical Arab discontent has collapsed trade networks in central Chad. Markets are closed, caravans are raided, and the economy suffers greatly."
+
+ CHA_sara_resource_bonus: "Sara Cooperation - Agricultural Belt"
+ CHA_sara_resource_bonus_desc: "High Sara loyalty has maximized agricultural output in the fertile south, providing food security and economic stability."
+ CHA_sara_resource_penalty_low: "Sara Unrest - Agricultural Disruption"
+ CHA_sara_resource_penalty_low_desc: "Low Sara loyalty is reducing agricultural production in the south. Farmers are reluctant to sell to state markets."
+ CHA_sara_resource_penalty_critical: "Sara Crisis - Food Shortage"
+ CHA_sara_resource_penalty_critical_desc: "Critical Sara discontent has devastated food production. The south refuses to feed the north, threatening famine and population decline."
+
+ CHA_toubou_resource_bonus: "Toubou Cooperation - Tibesti Control"
+ CHA_toubou_resource_bonus_desc: "High Toubou loyalty has secured the northern Tibesti region, enabling resource exploitation and reducing military attrition in the desert."
+ CHA_toubou_resource_penalty_low: "Toubou Unrest - Border Insecurity"
+ CHA_toubou_resource_penalty_low_desc: "Low Toubou loyalty has created instability in the north. Border security is compromised and desert operations face difficulties."
+ CHA_toubou_resource_penalty_critical: "Toubou Crisis - Tibesti Lost"
+ CHA_toubou_resource_penalty_critical_desc: "Critical Toubou discontent has effectively lost government control over Tibesti. The region is a no-go zone with severe military attrition."
+
+ # Tribal Rebellion Ideas
+ CHA_tribal_rebel_momentum: "Tribal Rebel Momentum"
+ CHA_tribal_rebel_momentum_desc: "The tribal rebellion has momentum. Fighters are motivated by deep-seated grievances and fighting for their homeland."
+ CHA_desert_fighters: "Desert Fighters"
+ CHA_desert_fighters_desc: "These warriors know the desert like no other. Their ability to survive and fight in harsh conditions makes them deadly opponents."
+ CHA_tribal_protests: "Tribal Protests"
+ CHA_tribal_protests_desc: "One or more tribal groups are staging protests against the government. If their grievances are not addressed, the situation may escalate."
+
+ # Rebel Country Names
+ ZGW: "Zaghawa State"
+ ZGW_DEF: "the Zaghawa State"
+ ZGW_ADJ: "Zaghawa"
+ ARC: "Arab Council of Chad"
+ ARC_DEF: "the Arab Council of Chad"
+ ARC_ADJ: "Arab Chadian"
+ SRR: "Sara Republic"
+ SRR_DEF: "the Sara Republic"
+ SRR_ADJ: "Sara"
+ TBU: "Toubou Tibesti"
+ TBU_DEF: "Toubou Tibesti"
+ TBU_ADJ: "Toubou"
+ ISC: "Islamic State of Chad"
+ ISC_DEF: "the Islamic State of Chad"
+ ISC_ADJ: "Chadian Islamist"
+
+ # Tribal Confederation Path Ideas
+ CHA_tribal_council_idea: "Council of Elders"
+ CHA_tribal_council_idea_desc: "A formal Council of Elders representing all major tribal groups advises the government on national policy, ensuring traditional wisdom guides the state."
+ CHA_power_rotation_idea: "Power Rotation System"
+ CHA_power_rotation_idea_desc: "Leadership rotates between tribal groups according to an agreed schedule, ensuring all communities have a stake in governance."
+ CHA_tribal_federalism_idea: "Tribal Federal System"
+ CHA_tribal_federalism_idea_desc: "Chad has been restructured as a federation with significant autonomy for tribal territories, allowing traditional authorities to govern according to custom."
+ CHA_tribal_military_idea: "Tribal Army"
+ CHA_tribal_military_idea_desc: "Chad's military has been restructured along tribal lines, with units drawn from and loyal to their respective communities, creating a unified force from diverse warriors."
+
+ # Pan-Africanism Path Ideas
+ CHA_au_standby_force_idea: "AU Standby Force Commitment"
+ CHA_au_standby_force_idea_desc: "Chad has committed significant forces to the African Standby Force, becoming a key pillar of continental security and gaining valuable experience."
+ CHA_imperial_legacy_idea: "Imperial Legacy of Kanem-Bornu"
+ CHA_imperial_legacy_idea_desc: "Chad has revived the legacy of the ancient Kanem-Bornu Empire, inspiring national pride and regional leadership."
+
+ # Neocolonialism Path Ideas
+ CHA_french_protectorate_idea: "French Sphere of Influence"
+ CHA_french_protectorate_idea_desc: "Chad has fully integrated into the French sphere of influence. French protection provides security, while French investment drives development - at the cost of true independence."
+ CHA_chinese_oil_investment_idea: "Chinese Oil Investment"
+ CHA_chinese_oil_investment_idea_desc: "Chinese oil companies have invested heavily in Chad's petroleum sector, bringing capital and technology in exchange for resource access."
+ CHA_chinese_sphere_idea: "Chinese Sphere of Influence"
+ CHA_chinese_sphere_idea_desc: "Chad has become fully integrated into China's economic sphere, serving as Beijing's gateway to Central Africa. Chinese investment flows freely, but so does Chinese influence."
+
+ # Wave 1 - Authoritarian Path Ideas
+ CHA_deby_consolidation: "Déby's Consolidation"
+ CHA_deby_consolidation_desc: "President Déby has consolidated power, building a tight circle of loyalists around the presidency. The regime is stable but increasingly autocratic."
+ CHA_patronage_network: "Patronage Network"
+ CHA_patronage_network_desc: "An extensive network of patronage ties the political elite to the presidency. Loyalty is rewarded with positions and resources, but the system drains public coffers."
+ CHA_state_media: "State-Controlled Media"
+ CHA_state_media_desc: "The government controls all major media outlets, shaping public narratives and suppressing dissent through information dominance."
+ CHA_entrenched_rule: "Entrenched Rule"
+ CHA_entrenched_rule_desc: "Decades of one-man rule have entrenched the regime deeply into Chad's political fabric. The system resists change but breeds growing resentment."
+ CHA_war_on_terror: "War on Terror"
+ CHA_war_on_terror_desc: "Chad has committed its military to the global war on terror, deploying forces against jihadist groups across the Sahel. This boosts military capability but strains resources."
+CHA_authoritarian_crackdown: "Authoritarian Crackdown"
+ CHA_authoritarian_crackdown_desc: "The regime has launched a sweeping crackdown on opposition, jailing dissidents and silencing critics. Order is maintained through fear."
+ CHA_reform_momentum: "Reform Momentum"
+ CHA_reform_momentum_desc: "A wave of political reforms is transforming Chad's governance. Democratic institutions are being strengthened and civil liberties expanded."
+ CHA_free_press_idea: "Free Press"
+ CHA_free_press_idea_desc: "Independent media outlets now operate freely in Chad, providing citizens with diverse sources of information and holding the government accountable."
+ CHA_civil_society: "Vibrant Civil Society"
+ CHA_civil_society_desc: "A network of NGOs, community organizations, and civic groups has flourished, strengthening democratic participation and social development."
+ CHA_gender_equality: "Gender Equality Reforms"
+ CHA_gender_equality_desc: "Comprehensive gender equality legislation has expanded women's rights in education, employment, and political participation, unlocking new economic potential."
+ CHA_democratic_beacon: "Democratic Beacon"
+ CHA_democratic_beacon_desc: "Chad has become a beacon of democracy in Central Africa, inspiring neighboring nations with its successful transition to representative government."
+ CHA_development_planning: "National Development Plan"
+ CHA_development_planning_desc: "A comprehensive national development plan guides investment priorities and infrastructure construction across Chad."
+ CHA_independent_elections: "Independent Elections"
+ CHA_independent_elections_desc: "An independent electoral commission oversees free and fair elections, ensuring that the will of the people determines Chad's leadership."
+ CHA_human_rights_charter_idea: "Human Rights Charter"
+ CHA_human_rights_charter_idea_desc: "Chad has adopted a comprehensive human rights charter, enshrining protections for civil liberties and individual freedoms in law."
+ CHA_decentralized_governance: "Decentralized Governance"
+ CHA_decentralized_governance_desc: "Power has been devolved to regional and local governments, allowing communities to manage their own affairs and improving service delivery."
+
+ # Wave 1 - External Conflict and Transition Ideas
+ CHA_sudan_proxy_war: "Sudan Proxy War"
+ CHA_sudan_proxy_war_desc: "Chad is engaged in a proxy conflict with Sudan, each nation supporting rebel groups against the other. The border remains tense and militarized."
+ CHA_boko_haram_war_idea: "War Against Boko Haram"
+ CHA_boko_haram_war_idea_desc: "Chad's forces are deployed against Boko Haram militants in the Lake Chad Basin. The campaign builds military prestige but costs lives and resources."
+ CHA_austerity_measures_idea: "Austerity Measures"
+ CHA_austerity_measures_idea_desc: "Severe austerity measures have been imposed to cope with falling oil revenues. Public services are cut and salaries reduced, sparking widespread discontent."
+ CHA_tmc_authority: "TMC Authority"
+ CHA_tmc_authority_desc: "The Transitional Military Council has seized control following Déby's death, concentrating authority in the hands of military officers while promising a return to civilian rule."
+ CHA_fifth_republic_idea: "Fifth Republic"
+ CHA_fifth_republic_idea_desc: "Chad's Fifth Republic has been proclaimed under new constitutional arrangements, consolidating political authority and providing a fresh mandate for governance."
+ CHA_sahel_strongman_idea: "Sahel Strongman"
+ CHA_sahel_strongman_idea_desc: "Chad's leader has established himself as the dominant military figure in the Sahel, projecting power across the region and commanding respect from allies and rivals alike."
+
+ # Wave 2 - Military Junta Path Ideas
+ CHA_martial_law: "Martial Law"
+ CHA_martial_law_desc: "Martial law has been imposed across Chad. Military commanders govern in place of civilian authorities, enforcing order at gunpoint."
+ CHA_military_administration: "Military Administration"
+ CHA_military_administration_desc: "The military has taken over government administration, replacing civilian bureaucrats with officers. Efficiency is prioritized over democratic accountability."
+ CHA_total_war_economy: "Total War Economy"
+ CHA_total_war_economy_desc: "Chad's economy has been restructured to support military operations above all else. Industrial output is directed toward defense production."
+ CHA_police_state: "Police State"
+ CHA_police_state_desc: "A pervasive security apparatus monitors and controls all aspects of civilian life. Dissent is crushed before it can take root."
+ CHA_junta_constitution_idea: "Junta Constitution"
+ CHA_junta_constitution_idea_desc: "A new constitution has been drafted to legitimize military rule, granting the armed forces a permanent role in governance."
+ CHA_military_industrial_complex_idea: "Military-Industrial Complex"
+ CHA_military_industrial_complex_idea_desc: "Chad has developed a domestic military-industrial complex, producing weapons and equipment to reduce dependence on foreign suppliers."
+ CHA_fortress_chad_idea: "Fortress Chad"
+ CHA_fortress_chad_idea_desc: "Chad has been transformed into a fortress state, with extensive defensive positions and a military-first mentality pervading all aspects of national life."
+ CHA_wagner_cooperation_idea: "Wagner Group Cooperation"
+ CHA_wagner_cooperation_idea_desc: "Chad has invited the Wagner Group to assist its military operations, gaining experienced mercenary support at the cost of Russian political influence."
+ CHA_eternal_junta_idea: "Eternal Junta"
+ CHA_eternal_junta_idea_desc: "The military junta has consolidated permanent control over Chad. The generals rule unchallenged, backed by overwhelming force and a cult of military discipline."
+
+ # Wave 2 - Islamist Path Ideas
+ CHA_sharia_finance: "Sharia-Compliant Finance"
+ CHA_sharia_finance_desc: "Chad's financial system has been reformed to comply with Islamic law, introducing interest-free banking and Islamic investment principles."
+ CHA_sharia_courts: "Sharia Courts"
+ CHA_sharia_courts_desc: "Islamic courts have been established to adjudicate legal matters according to Sharia law, replacing or supplementing the secular judicial system."
+ CHA_islamic_republic: "Islamic Republic"
+ CHA_islamic_republic_desc: "Chad has been proclaimed an Islamic Republic, with governance guided by religious principles and Islamic scholars holding significant political influence."
+ CHA_morality_police: "Morality Police"
+ CHA_morality_police_desc: "A religious morality police enforces strict social codes, patrolling the streets and punishing violations of Islamic behavioral norms."
+ CHA_jihad_declared: "Jihad Declared"
+ CHA_jihad_declared_desc: "A holy war has been declared against Chad's enemies. Religious fervor drives the military to fight with fanatical devotion, though internal stability suffers."
+ CHA_wadai_sultanate_idea: "Revival of the Wadai Sultanate"
+ CHA_wadai_sultanate_idea_desc: "Chad has revived the legacy of the historic Wadai Sultanate, restoring traditional Islamic governance structures and drawing on centuries of Muslim political heritage."
+ CHA_islamic_golden_age_idea: "Islamic Golden Age"
+ CHA_islamic_golden_age_idea_desc: "Chad has entered an Islamic golden age, combining religious devotion with economic development and cultural flourishing under the banner of faith."
+
+ # Wave 3 - Socialist Path Ideas
+ CHA_workers_councils_idea: "Workers' Councils"
+ CHA_workers_councils_idea_desc: "Democratic workers' councils have been established in factories and farms, giving laborers a direct voice in managing production and workplace decisions."
+ CHA_vanguard_party: "Vanguard Party"
+ CHA_vanguard_party_desc: "A disciplined vanguard party leads Chad's socialist revolution, directing state policy and mobilizing the masses toward collective goals."
+ CHA_food_sovereignty: "Food Sovereignty"
+ CHA_food_sovereignty_desc: "Chad has achieved food sovereignty, ensuring that domestic agriculture feeds the nation without dependence on foreign imports or international food markets."
+ CHA_revolutionary_military: "Revolutionary Military"
+ CHA_revolutionary_military_desc: "Chad's armed forces have been reorganized as a revolutionary army, with political commissars and ideological training inspiring troops to fight for the socialist cause."
+
+ # Wave 3 - Tribal Confederation Path Ideas
+ CHA_customary_law: "Customary Law System"
+ CHA_customary_law_desc: "Traditional customary law has been formally recognized alongside modern legal codes, allowing tribal communities to govern local disputes according to ancestral traditions."
+ CHA_nomadic_rights: "Nomadic Rights Protection"
+ CHA_nomadic_rights_desc: "Legislation protecting the rights of nomadic pastoralists ensures freedom of movement and access to grazing lands, preserving traditional lifestyles."
+ CHA_resource_sharing: "Resource Sharing Agreement"
+ CHA_resource_sharing_desc: "A formal resource-sharing agreement distributes national wealth equitably among all tribal groups, reducing competition and promoting cooperation."
+ CHA_tribal_harmony: "Tribal Harmony"
+ CHA_tribal_harmony_desc: "Through years of dialogue and cooperation, Chad's diverse tribal groups have achieved genuine harmony, creating a stable and unified nation built on mutual respect."
+
+ # Wave 3 - Pan-African Path Ideas
+ CHA_cultural_renaissance: "Cultural Renaissance"
+ CHA_cultural_renaissance_desc: "A cultural renaissance is sweeping Chad, celebrating African art, literature, and music while fostering national pride and identity."
+ CHA_intellectual_liberation: "Intellectual Liberation"
+ CHA_intellectual_liberation_desc: "Chad has embraced intellectual liberation, investing in education, research, and free thought to break the chains of colonial-era knowledge systems."
+ CHA_continental_parliament_idea: "Continental Parliament Advocate"
+ CHA_continental_parliament_idea_desc: "Chad champions the creation of a pan-African continental parliament, working to unite African nations under shared democratic governance."
+ CHA_african_renaissance_idea: "African Renaissance"
+ CHA_african_renaissance_idea_desc: "Chad leads an African Renaissance, inspiring the continent with a vision of unity, self-reliance, and collective prosperity free from external domination."
+
+ # Wave 3 - Neocolonial Path Ideas
+ CHA_barkhane_base: "Operation Barkhane Base"
+ CHA_barkhane_base_desc: "France's Operation Barkhane maintains a major military base in Chad, providing security guarantees and military support at the cost of sovereignty."
+ CHA_debt_trap: "Debt Trap"
+ CHA_debt_trap_desc: "Chad has fallen into a debt trap, with foreign creditors leveraging massive loans to extract political concessions and resource access."
+ CHA_trade_hub: "International Trade Hub"
+ CHA_trade_hub_desc: "Chad has positioned itself as a key international trade hub, attracting foreign businesses and serving as a gateway between Central and West Africa."
+ CHA_sovereign_chad_idea: "Sovereign Chad"
+ CHA_sovereign_chad_idea_desc: "Chad has reclaimed its sovereignty from foreign influence, charting an independent course that balances development needs with national dignity."
+
+ # New National Spirit Swap Chains
+ CHA_foreign_dependency_1: "Foreign Dependency"
+ CHA_foreign_dependency_1_desc: "Chad relies on foreign patrons for economic and military support. While this provides much-needed aid, it comes at the cost of national sovereignty and independence in decision-making.\n\n§YUpgraded by:§! Foreign patron focuses"
+ CHA_foreign_dependency_2: "Deep Foreign Entanglement"
+ CHA_foreign_dependency_2_desc: "Our dependence on foreign patrons has deepened considerably. They provide substantial economic aid and military equipment, but increasingly dictate our foreign and domestic policies.\n\n§YUpgraded by:§! Foreign patron focuses"
+ CHA_foreign_dependency_3: "Patron State"
+ CHA_foreign_dependency_3_desc: "Chad has become a client state in all but name. Our patron provides enormous economic and military support, but our sovereignty has been severely compromised. Major decisions require consultation with foreign capitals.\n\n§YUpgraded by:§! Foreign patron focuses"
+
+ CHA_pan_african_influence_1: "Pan-African Aspirations"
+ CHA_pan_african_influence_1_desc: "Chad has begun asserting itself on the continental stage, building diplomatic ties and participating in African Union initiatives. This comes at a modest cost to the treasury.\n\n§YUpgraded by:§! Pan-African path focuses"
+ CHA_pan_african_influence_2: "Regional Leader"
+ CHA_pan_african_influence_2_desc: "Chad's diplomatic efforts have paid off, and we are now recognized as a key regional player. Our voice carries weight in continental affairs, though maintaining this status requires ongoing investment.\n\n§YUpgraded by:§! Pan-African path focuses"
+ CHA_pan_african_influence_3: "Continental Power Broker"
+ CHA_pan_african_influence_3_desc: "Chad has achieved remarkable diplomatic standing in Africa. We mediate disputes, lead initiatives, and shape the continent's future. The costs are significant, but our influence is unmatched for a nation of our size.\n\n§YUpgraded by:§! Pan-African path focuses"
+
+ CHA_tribal_governance_1: "Tribal Consultation"
+ CHA_tribal_governance_1_desc: "The government has begun formally consulting with tribal leaders on matters of governance. This traditional approach builds unity but requires careful management of competing interests.\n\n§YUpgraded by:§! Tribal confederation focuses"
+ CHA_tribal_governance_2: "Tribal Council System"
+ CHA_tribal_governance_2_desc: "A formalized tribal council now advises the government on key decisions. The system promotes unity among Chad's diverse ethnic groups, though it requires sustained effort and resources to maintain.\n\n§YUpgraded by:§! Tribal confederation focuses"
+ CHA_tribal_governance_3: "United Tribal Confederation"
+ CHA_tribal_governance_3_desc: "Chad has achieved a remarkable level of tribal unity through its confederation system. All major ethnic groups participate in governance, creating a stable and cohesive nation. This is a model for the region.\n\n§YUpgraded by:§! Tribal confederation focuses"
+
+ CHA_islamic_governance_1: "Islamic Values in Governance"
+ CHA_islamic_governance_1_desc: "The government has begun incorporating Islamic principles into governance. Sharia-inspired laws are applied in some areas, boosting support among Muslim populations but creating tension with secular and Christian communities.\n\n§YUpgraded by:§! Islamist path focuses"
+ CHA_islamic_governance_2: "Sharia Law Implementation"
+ CHA_islamic_governance_2_desc: "Islamic law has been broadly implemented across Chad. The judiciary operates under sharia principles, and Islamic banking has replaced conventional finance. Religious tension with the south continues to grow.\n\n§YUpgraded by:§! Islamist path focuses"
+ CHA_islamic_governance_3: "Islamic Republic"
+ CHA_islamic_governance_3_desc: "Chad has been transformed into an Islamic republic. Every aspect of governance reflects Islamic principles. While this has united the Muslim majority, it has created serious tensions with non-Muslim populations in the south.\n\n§YUpgraded by:§! Islamist path focuses"
+
+ CHA_economic_development_1: "Economic Modernization"
+ CHA_economic_development_1_desc: "Chad has embarked on a program of economic modernization, investing in infrastructure and industry. The early results are promising but require continued investment.\n\n§YUpgraded by:§! Economic branch focuses"
+ CHA_economic_development_2: "Industrial Growth"
+ CHA_economic_development_2_desc: "Chad's economy is growing steadily as new factories and infrastructure projects come online. The diversification away from oil dependence is beginning to bear fruit.\n\n§YUpgraded by:§! Economic branch focuses"
+ CHA_economic_development_3: "Economic Transformation"
+ CHA_economic_development_3_desc: "Chad has achieved a remarkable economic transformation. A diversified economy with modern industry, reliable infrastructure, and a skilled workforce positions the nation for sustained growth.\n\n§YUpgraded by:§! Economic branch focuses"
+
+ CHA_religious_harmony: "Religious Harmony"
+ CHA_religious_harmony_desc: "Chad's diverse religious communities coexist peacefully. Christians, Muslims, and practitioners of traditional faiths live side by side with mutual respect, creating a stable social fabric."
+
+ # New Overhaul Ideas
+ CHA_constitutional_protections: "Constitutional Protections"
+ CHA_constitutional_protections_desc: "A reformed constitution with robust protections for civil liberties, term limits, and separation of powers strengthens democratic governance and political stability."
+ CHA_revolutionary_fervor: "Revolutionary Fervor"
+ CHA_revolutionary_fervor_desc: "The spirit of socialist revolution burns bright. Workers and peasants rally to the cause, but the upheaval also brings uncertainty and economic disruption."
+ CHA_planned_economy: "Planned Economy"
+ CHA_planned_economy_desc: "Central economic planning directs resources and production according to state priorities. Factories produce what the plan demands, reducing waste but also stifling innovation."
+ CHA_livestock_export_program: "Livestock Export Program"
+ CHA_livestock_export_program_desc: "A comprehensive program to modernize Chad's livestock industry and develop export infrastructure. Improved slaughterhouses, cold chains, and trade agreements are boosting the rural economy."
+ CHA_environmental_restoration: "Environmental Restoration"
+ CHA_environmental_restoration_desc: "Chad's participation in the Great Green Wall and local reforestation efforts is restoring degraded land, improving food security, and building resilience against climate change."
+ CHA_ndjamena_free_trade_zone: "N'Djamena Free Trade Zone"
+ CHA_ndjamena_free_trade_zone_desc: "A designated free trade zone in the capital attracts foreign investment and stimulates industrial growth, creating jobs and boosting production capacity."
+ CHA_oil_price_insurance: "Oil Price Insurance"
+ CHA_oil_price_insurance_desc: "Financial hedging instruments protect Chad's economy from the worst effects of oil price volatility, providing a buffer against sudden revenue drops."
+ CHA_foreign_dependency_4: "Total Foreign Subordination"
+ CHA_foreign_dependency_4_desc: "Chad has become completely subordinate to its foreign patron. All major policy decisions are effectively made in foreign capitals. The nation retains sovereignty in name only.\n\n§RWarning:§! This represents near-total loss of independence."
+
+ # Tribe-Specific Partisan Ideas
+ CHA_zaghawa_partisans: "Zaghawa Partisans"
+ CHA_zaghawa_partisans_desc: "Armed Zaghawa militants are conducting guerrilla operations in eastern Chad, attacking government convoys and sabotaging infrastructure."
+ CHA_arab_partisans: "Arab Partisans"
+ CHA_arab_partisans_desc: "Arab tribal fighters are waging a guerrilla campaign across central Chad, disrupting trade routes and government authority."
+ CHA_toubou_partisans: "Toubou Partisans"
+ CHA_toubou_partisans_desc: "Toubou desert warriors are conducting guerrilla warfare in the Tibesti Mountains, ambushing convoys and raiding government outposts."
+ CHA_sara_partisans: "Sara Partisans"
+ CHA_sara_partisans_desc: "Sara militants have formed a resistance movement in southern Chad, attacking government installations and disrupting economic activity."
+
+ # Tribe-Specific Separatism Ideas
+ CHA_zaghawa_separatism: "Zaghawa Separatism"
+ CHA_zaghawa_separatism_desc: "Zaghawa leaders are demanding autonomy or independence, mobilizing their people for potential conflict with the central government."
+ CHA_arab_separatism: "Arab Separatism"
+ CHA_arab_separatism_desc: "The Arab Council of Chad demands self-governance, controlling significant territory and commanding the loyalty of thousands of armed tribesmen."
+ CHA_toubou_separatism: "Toubou Separatism"
+ CHA_toubou_separatism_desc: "The Toubou Derde Council has demanded full autonomy for the Tibesti region, refusing to recognize government authority."
+ CHA_sara_separatism: "Sara Separatism"
+ CHA_sara_separatism_desc: "Sara leaders have proclaimed a separatist movement for southern Chad, demanding independence or full federal autonomy."
+
+ # Oil Revenue Social Investment
+ CHA_social_investment: "Social Investment Program"
+ CHA_social_investment_desc: "Oil revenues are being invested in schools, hospitals, and clean water infrastructure, improving living conditions but consuming substantial funds."
+
+ # New Starting Spirits
+ CHA_ethnic_tensions: "Ethnic Tensions"
+ CHA_ethnic_tensions_desc: "Chad's diverse ethnic groups — the Zaghawa, Arabs, Sara, and Toubou — remain deeply divided by historical grievances, competition for resources, and political power. These tensions undermine national cohesion and make governance extremely difficult.\n\n§YRemoval:§! Complete the National Unity focus after achieving high tribal loyalty."
+ CHA_underdevelopment: "Chronic Underdevelopment"
+ CHA_underdevelopment_desc: "Chad is one of the least developed countries on Earth. Minimal infrastructure, widespread illiteracy, and a predominantly subsistence economy create enormous barriers to growth. Even basic services like electricity and clean water are luxuries for most citizens.\n\n§YRemoval:§! Complete the Electricity Grid focus in the economic branch."
+ CHA_boko_haram_threat: "Boko Haram Threat"
+ CHA_boko_haram_threat_desc: "The rise of Boko Haram in northeastern Nigeria poses a direct threat to Chad's security. The group's influence extends across the border into the Lake Chad region, where it recruits among disaffected youth and attacks civilian targets.\n\n§YRemoval:§! Complete the Anti-Boko Haram Operations focus."
+
+ # Effect Diversity Ideas
+ CHA_research_initiative: "Research Initiative"
+ CHA_research_initiative_desc: "A national research initiative has been established to address Chad's chronic shortage of scientific and technical expertise."
+ CHA_literacy_campaign: "National Literacy Campaign"
+ CHA_literacy_campaign_desc: "A nationwide literacy campaign is teaching basic reading and writing to millions of Chadians, slowly building the human capital needed for modernization."
+ CHA_public_health_program: "Public Health Program"
+ CHA_public_health_program_desc: "Government health clinics and vaccination programs are improving life expectancy and reducing infant mortality across Chad."
+ CHA_mineral_survey: "Mineral Survey"
+ CHA_mineral_survey_desc: "A comprehensive geological survey has identified previously unknown mineral deposits across Chad, opening new economic opportunities."
+ CHA_rural_electrification: "Rural Electrification"
+ CHA_rural_electrification_desc: "Solar panels and small diesel generators are bringing electricity to rural communities for the first time, enabling new economic activities."
+
+ # Lake Chad Ideas
+ CHA_lake_chad_water_management: "Lake Chad Water Management"
+ CHA_lake_chad_water_management_desc: "The Lake Chad Water Authority coordinates conservation efforts, irrigation planning, and sustainable resource management across the shrinking lake basin."
+ CHA_fishing_industry: "Restored Fishing Industry"
+ CHA_fishing_industry_desc: "Fisheries restoration in Lake Chad has revived a traditional industry, providing food security and reducing dependence on imported goods."
+ CHA_regional_water_cooperation: "Regional Water Cooperation"
+ CHA_regional_water_cooperation_desc: "Through the Lake Chad Basin Commission, Chad leads a multinational effort to manage the shared water resources of Lake Chad, strengthening regional ties and improving environmental governance."
+ CHA_paratrooper_training_idea: "Paratrooper Training Program"
+ CHA_paratrooper_training_idea_desc: "A dedicated paratrooper training program develops elite airborne infantry capabilities, expanding special forces capacity."

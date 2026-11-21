@@ -1,0 +1,665 @@
+scripted_gui = {
+	MLW_special_GUI = {
+		window_name = "MLW_special_GUI_view"
+		context_type = player_context
+		parent_window_token = politics_tab
+		dirty = MLW.refresh_AIO
+
+		visible = { original_tag = MLW }
+
+		effects = {
+			MLW_special_GUI_view_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_special_GUI } } set_country_flag = MLW_view_special_GUI }
+				else = { clr_country_flag = MLW_view_special_GUI }
+			}
+		}
+	}
+
+	MLW_AIO_main = {
+		window_name = "MLW_AIO_main_menu"
+		context_type = player_context
+		parent_scripted_gui = MLW_special_GUI
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_special_GUI }
+
+		effects = {
+			# PARTIES
+			MLW_AIO_view_AFORD_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_AFORD_GUI } } set_country_flag = MLW_view_AFORD_GUI }
+				else = { clr_country_flag = MLW_view_AFORD_GUI }
+				clr_country_flag = MLW_view_MCP_GUI
+				clr_country_flag = MLW_view_UDF_GUI
+				#
+				clr_country_flag = MLW_view_MZUZU_GUI
+				clr_country_flag = MLW_view_SADC_GUI
+			}
+			MLW_AIO_view_MCP_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_MCP_GUI } } set_country_flag = MLW_view_MCP_GUI }
+				else = { clr_country_flag = MLW_view_MCP_GUI }
+				clr_country_flag = MLW_view_AFORD_GUI
+				clr_country_flag = MLW_view_UDF_GUI
+				#
+				clr_country_flag = MLW_view_MZUZU_GUI
+				clr_country_flag = MLW_view_SADC_GUI
+			}
+			MLW_AIO_view_UDF_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_UDF_GUI } } set_country_flag = MLW_view_UDF_GUI }
+				else = { clr_country_flag = MLW_view_UDF_GUI }
+				clr_country_flag = MLW_view_AFORD_GUI
+				clr_country_flag = MLW_view_MCP_GUI
+				#
+				clr_country_flag = MLW_view_MZUZU_GUI
+				clr_country_flag = MLW_view_SADC_GUI
+			}
+			# MISC
+			MLW_AIO_view_MZUZU_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_MZUZU_GUI } } set_country_flag = MLW_view_MZUZU_GUI }
+				else = { clr_country_flag = MLW_view_MZUZU_GUI }
+				clr_country_flag = MLW_view_AFORD_GUI
+				clr_country_flag = MLW_view_MCP_GUI
+				clr_country_flag = MLW_view_SADC_GUI
+			}
+			MLW_AIO_view_SADC_button_click = {
+				if = { limit = { NOT = { has_country_flag = MLW_view_SADC_GUI } } set_country_flag = MLW_view_SADC_GUI }
+				else = { clr_country_flag = MLW_view_SADC_GUI }
+				clr_country_flag = MLW_view_AFORD_GUI
+				clr_country_flag = MLW_view_MCP_GUI
+				clr_country_flag = MLW_view_MZUZU_GUI
+			}
+		}
+	}
+
+	# AFORD
+	MLW_AIO_AFORD_party_info = {
+		window_name = "MLW_AIO_AFORD_party_status"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_AFORD_GUI }
+	}
+
+	# MCP
+	MLW_AIO_MCP_party_info = {
+		window_name = "MLW_AIO_MCP_party_status"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_MCP_GUI }
+
+		effects = {
+			MLW_AIO_MCP_repeal_policy_button_click = { MLW_repeal_selected_MCP_policy = yes }
+			MLW_AIO_MCP_reenact_policy_button_click = { MLW_reenact_selected_MCP_policy = yes }
+			# FACTIONALISM - MODERATES BUTTONS
+			MLW_AIO_MCP_empower_the_moderates_button_click = { MLW_AIO_MCP_F_empower_moderates = yes }
+			MLW_AIO_MCP_criticise_the_banda_regime_button_click = { MLW_AIO_MCP_F_criticise_banda = yes }
+			MLW_AIO_MCP_encourage_democratic_ideals_button_click = { MLW_AIO_MCP_F_democratic_values = yes }
+			MLW_AIO_MCP_liberal_conservativism_button_click = { MLW_AIO_MCP_F_liberalise_conservatism = yes }
+			# FACTIONALISM - HARDLINERS BUTTONS
+			MLW_AIO_MCP_empower_the_hardliners_button_click = { MLW_AIO_MCP_F_empower_hardliners = yes }
+			MLW_AIO_MCP_glorify_the_banda_regime_button_click = { MLW_AIO_MCP_F_glorify_banda = yes }
+			MLW_AIO_MCP_critique_democracy_button_click = { MLW_AIO_MCP_F_criticise_democracy = yes }
+			MLW_AIO_MCP_hardline_conservativism_button_click = { MLW_AIO_MCP_F_conservative_hardlining = yes }
+		}
+
+		triggers = {
+			MLW_AIO_MCP_repeal_policy_button_click_enabled = { MLW_AIO_GUI_MCP_can_repeal_law = yes }
+			MLW_AIO_MCP_reenact_policy_button_click_enabled = { MLW_AIO_GUI_MCP_can_reenact_law = yes }
+			# FACTIONALISM - MODERATES BUTTONS
+			MLW_AIO_MCP_empower_the_moderates_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_empower_moderates = yes }
+			MLW_AIO_MCP_criticise_the_banda_regime_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_criticise_bandas_reign = yes }
+			MLW_AIO_MCP_encourage_democratic_ideals_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_value_democracy = yes }
+			MLW_AIO_MCP_liberal_conservativism_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_liberalise_conservatism = yes }
+			# FACTIONALISM - HARDLINERS BUTTONS
+			MLW_AIO_MCP_empower_the_hardliners_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_empower_hardliners = yes }
+			MLW_AIO_MCP_glorify_the_banda_regime_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_glorify_banda = yes }
+			MLW_AIO_MCP_critique_democracy_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_criticise_democracy = yes }
+			MLW_AIO_MCP_hardline_conservativism_button_click_enabled = { MLW_AIO_GUI_MCP_F_can_radicalise_conservatism = yes }
+		}
+	}
+	MLW_AIO_MCP_liberalism_conservatism = {
+		window_name = "MLW_AIO_MCP_social_conservativism_window"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_MCP_party_info
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_MCP_conservatism_unlocked }
+	}
+	MLW_AIO_MCP_referendum_repeal = {
+		window_name = "MLW_AIO_MCP_referendum_repeal_status_window"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_MCP_party_info
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_MCP_referendum_unlocked }
+
+		effects = {
+			# JUDGES BUTTONS
+			MLW_AIO_MCP_sway_judges_monetary_button_click = { MLW_AIO_MCP_RR_sway_judges_monetarily = yes }
+			MLW_AIO_MCP_sway_judges_politically_button_click = { MLW_AIO_MCP_RR_sway_judges_politically = yes }
+			MLW_AIO_MCP_intimidate_judges_button_click = { MLW_AIO_MCP_RR_intimidate_judges = yes }
+			MLW_AIO_MCP_assert_intentions_to_judges_button_click = { MLW_AIO_MCP_RR_assert_intentions_judges = yes }
+			# POPULATION BUTTONS
+			MLW_AIO_MCP_sway_population_monetary_button_click = { MLW_AIO_MCP_RR_sway_population_monetarily = yes }
+			MLW_AIO_MCP_sway_population_politically_button_click = { MLW_AIO_MCP_RR_sway_population_politically = yes }
+			MLW_AIO_MCP_intimidate_population_button_click = { MLW_AIO_MCP_RR_intimidate_population = yes }
+			MLW_AIO_MCP_assert_intentions_to_population_button_click = { MLW_AIO_MCP_RR_assert_intentions_population = yes }
+		}
+
+		triggers = {
+			# JUDGES BUTTONS
+			MLW_AIO_MCP_sway_judges_monetary_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_money_to_sway_judges = yes }
+			MLW_AIO_MCP_sway_judges_politically_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_judges = yes }
+			MLW_AIO_MCP_intimidate_judges_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_judges = yes }
+			MLW_AIO_MCP_assert_intentions_to_judges_button_click_enabled = { MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_judges = yes }
+			# POPULATION BUTTONS
+			MLW_AIO_MCP_sway_population_monetary_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_money_to_sway_population = yes }
+			MLW_AIO_MCP_sway_population_politically_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_political_power_to_sway_population = yes }
+			MLW_AIO_MCP_intimidate_population_button_click_enabled = { MLW_AIO_GUI_MCP_RR_has_command_power_to_sway_population = yes }
+			MLW_AIO_MCP_assert_intentions_to_population_button_click_enabled = { MLW_AIO_GUI_MCP_RR_can_afford_to_assert_intentions_population = yes }
+		}
+	}
+	# PASSED POLICIES
+		MLW_AIO_MCP_passed_party_policies = {
+			window_name = "MLW_AIO_MCP_passed_policies_GRID"
+			context_type = player_context
+			parent_scripted_gui = MLW_AIO_main
+			dirty = MLW.refresh_AIO
+
+			visible = { has_country_flag = MLW_view_MCP_GUI }
+
+			dynamic_lists = {
+				MLW_AIO_MCP_passed_policies_list = {
+					change_scope = yes
+					array = MLW.MCP_policies_passed_parliament
+					entry_container = "MLW_AIO_MCP_passed_policies_ENTRY"
+				}
+			}
+
+			effects = {
+				MLW_AIO_MCP_select_passed_policy_button_click = { MLW_select_enacted_MCP_policy = yes }
+			}
+		}
+	# REPEALED POLICIES
+		MLW_AIO_MCP_repealed_party_policies = {
+			window_name = "MLW_AIO_MCP_repealed_policies_GRID"
+			context_type = player_context
+			parent_scripted_gui = MLW_AIO_main
+			dirty = MLW.refresh_AIO
+
+			visible = { has_country_flag = MLW_view_MCP_GUI }
+
+			dynamic_lists = {
+				MLW_AIO_MCP_repealed_policies_list = {
+					change_scope = yes
+					array = MLW.MCP_repealed_policies
+					entry_container = "MLW_AIO_MCP_repealed_policies_ENTRY"
+				}
+			}
+
+			effects = {
+				MLW_AIO_MCP_select_repealed_policy_button_click = { MLW_select_repealed_MCP_policy = yes }
+			}
+		}
+
+	# UDF
+	MLW_AIO_UDF_party_info = {
+		window_name = "MLW_AIO_UDF_party_status"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_UDF_GUI }
+	}
+	# PASSED POLICIES
+	MLW_AIO_UDF_passed_party_policies = {
+		window_name = "MLW_AIO_UDF_passed_policies_GRID"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_UDF_GUI }
+
+		dynamic_lists = {
+			MLW_AIO_UDF_passed_policies_list = {
+				change_scope = yes
+				array = MLW.UDF_policies_passed_parliament
+				entry_container = "MLW_AIO_UDF_passed_policies_ENTRY"
+			}
+		}
+	}
+	# REPEALED POLICIES
+	MLW_AIO_UDF_repealed_party_policies = {
+		window_name = "MLW_AIO_UDF_repealed_policies_GRID"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_UDF_GUI }
+
+		dynamic_lists = {
+			MLW_AIO_UDF_repealed_policies_list = {
+				change_scope = yes
+				array = MLW.UDF_repealed_policies
+				entry_container = "MLW_AIO_UDF_repealed_policies_ENTRY"
+			}
+		}
+	}
+
+	MLW_AIO_MZUZU_sales = {
+		window_name = "MLW_AIO_MZUZU_sales_menu"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_MZUZU_GUI }
+
+		properties = {
+			MLW_AIO_MZUZU_continental_market_share_BAR = { frame = ROOT.AFRICA_MZ_market_share_frame }
+			MLW_AIO_MZUZU_home_market_flag = { image = "[ROOT.GetFlag]" }
+			MLW_AIO_MZUZU_home_market_share_BAR = { frame = ROOT.MLW_MZ_market_share_frame }
+			MLW_AIO_MZUZU_clicker_select_FLAG = { image = "[?ROOT.MLW_MZ_tag_selected.GetFlag]" }
+			MLW_AIO_MZUZU_allow_deficit_checkbox = { image = "[MLW_MZUZU_checkbox]" }
+		}
+
+		effects = {
+			# CONTINENTAL PHASES BUTTONS
+			MLW_AIO_MZUZU_continental_market_phase_1_button_click = {
+				# MLW_MZUZU_motors_phase_1 = yes
+			}
+			MLW_AIO_MZUZU_continental_market_phase_2_button_click = {
+				# MLW_MZUZU_motors_phase_2 = yes
+			}
+			MLW_AIO_MZUZU_continental_market_phase_3_button_click = {
+				# MLW_MZUZU_motors_phase_3 = yes
+			}
+			MLW_AIO_MZUZU_continental_market_phase_4_button_click = {
+				# MLW_MZUZU_motors_phase_4 = yes
+			}
+			MLW_AIO_MZUZU_continental_market_phase_5_button_click = {
+				# MLW_MZUZU_motors_phase_5 = yes
+			}
+			# PRODUCTION DISPLAYS
+			MLW_AIO_MZUZU_decrease_factory_assign_button_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = -1 }
+				# MLW_MZ_assign_factory = yes
+			}
+			MLW_AIO_MZUZU_decrease_factory_assign_button_shift_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = -10 }
+				# MLW_MZ_assign_factory = yes
+			}
+			MLW_AIO_MZUZU_decrease_factory_assign_button_control_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = -100 }
+				# MLW_MZ_assign_factory = yes
+			}
+			MLW_AIO_MZUZU_increase_factory_assign_button_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = 1 }
+				# MLW_MZ_assign_factory = yes
+			}
+			MLW_AIO_MZUZU_increase_factory_assign_button_shift_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = 10 }
+				# MLW_MZ_assign_factory = yes
+			}
+			MLW_AIO_MZUZU_increase_factory_assign_button_control_click = {
+				# set_temp_variable = { MLW_MZUZU_factory_change = 100 }
+				# MLW_MZ_assign_factory = yes
+			}
+			# MALAWIAN MARKETS
+			MLW_AIO_MZUZU_home_market_select_button_click = {
+				# MLW_MZ_home_market_target_effect = yes
+			}
+			# DECREASE ORDER BUTTON
+			MLW_MZUZU_decrease_sales_button_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = -1 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_decrease_sales_button_shift_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = -10 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_decrease_sales_button_control_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = -100 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_decrease_sales_button_alt_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = -1000 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			# INCREASE ORDER BUTTON
+			MLW_MZUZU_increase_sales_button_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = 1 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_increase_sales_button_shift_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = 10 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_increase_sales_button_control_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = 100 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			MLW_MZUZU_increase_sales_button_alt_click = {
+				# set_temp_variable = { MLW_MZ_sales_change = 1000 }
+				# MLW_MZ_market_change_order_quantity = yes
+			}
+			# CONFIRM ORDER BUTTON
+			MLW_MZUZU_confirm_changes_button_click = {
+				# MLW_MZ_send_invoices = yes
+			}
+			# CHECKBOX
+			MLW_AIO_MZUZU_allow_deficit_checkbox_click = {
+				if = {
+					limit = { NOT = { has_country_flag = MLW_MZ_allow_deficit } }
+					set_country_flag = MLW_MZ_allow_deficit
+				}
+				else = { clr_country_flag = MLW_MZ_allow_deficit }
+				MLW_refresh_AIO = yes
+			}
+		}
+	}
+	MLW_AIO_MZUZU_market_list = {
+		window_name = "MLW_AIO_MZUZU_sales_menu_GRID"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_MZUZU_GUI }
+
+		properties = {
+			MLW_possible_MZUZU_market_flag = { image = "[THIS.GetFlag]" }
+			MLW_MZUZU_market_share_BAR = { frame = THIS.MLW_MZ_market_share_frame }
+		}
+
+		effects = {
+			MLW_MZUZU_select_market_button_click = {
+				# MLW_MZUZU_market_target_effect = yes
+			}
+			MLW_MZUZU_buyout_button_click = {
+				# MLW_MZUZU_buyout_effect = yes
+			}
+			MLW_MZUZU_industrialise_button_click = {
+				# MLW_MZUZU_industrialise_effect = yes
+			}
+			MLW_MZUZU_purchase_land_button_click = {
+				# MLW_MZUZU_purchase_land_effect = yes
+			}
+		}
+
+		triggers = {
+			# BUYOUT COMPANIES
+			MLW_MZUZU_buyout_button_visible = {
+				# MLW_MZUZU_buyout_button_visible_check = yes
+			}
+			MLW_MZUZU_buyout_button_click_enable = {
+				# MLW_MZUZU_buyout_button_enable_check = yes
+			}
+			# LEASE INDUSTRIES
+			MLW_MZUZU_industrialise_button_visible = {
+				# MLW_MZUZU_industrialise_button_visible_check = yes
+			}
+			MLW_MZUZU_industrialise_button_click_enable = {
+				# MLW_MZUZU_industrialise_button_enable_check = yes
+			}
+			# BUYOUT LAND
+			MLW_MZUZU_purchase_land_button_visible = {
+				# MLW_MZUZU_purchase_land_button_visible_check = yes
+			}
+			MLW_MZUZU_purchase_land_button_click_enable = {
+				# MLW_MZUZU_purchase_land_button_enable_check = yes
+			}
+		}
+
+		dynamic_lists = {
+			MLW_AIO_MZUZU_possible_markets = {
+				change_scope = yes
+				array = MLW.MZUZU_markets
+				entry_container = "MLW_tag_entry_MZUZU"
+			}
+		}
+	}
+	MLW_AIO_SADC_trade = {
+		window_name = "MLW_AIO_SADC_trade_menu"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_SADC_GUI }
+
+		properties = {
+			MLW_AIO_SADC_clicker_select_FLAG = { image = "[?ROOT.SADC_tag_selected.GetFlag]" }
+			MLW_AIO_SADC_CONSUMER_checkbox = { image = "[MLW_SADC_CONSUMER_checkbox]" }
+			MLW_AIO_SADC_LUXURY_checkbox = { image = "[MLW_SADC_LUXURY_checkbox]" }
+			MLW_AIO_SADC_goods_type_toggle = { image = "[MLW_SADC_GOODS_toggle]" }
+		}
+
+		triggers = {
+			MLW_SADC_decrease_import_button_click_enabled = {
+				# MLW_SADC_can_decrease_imports = yes
+				# MLW_SADC_not_importing_from_self = yes
+			}
+			MLW_SADC_increase_import_button_click_enabled = {
+				# MLW_SADC_can_increase_imports = yes
+				# MLW_SADC_not_importing_from_self = yes
+			}
+			MLW_SADC_confirm_changes_button_click_enabled = {
+				# MLW_SADC_not_importing_from_self = yes
+			}
+		}
+
+		effects = {
+			MLW_AIO_SADC_CONSUMER_checkbox_click = {
+				if = {
+					limit = { NOT = { has_country_flag = SADC_use_consumer_goods } }
+					set_country_flag = SADC_use_consumer_goods
+				}
+				else = { clr_country_flag = SADC_use_consumer_goods }
+				MLW_refresh_AIO = yes
+			}
+			MLW_AIO_SADC_LUXURY_checkbox_click = {
+				if = {
+					limit = { NOT = { has_country_flag = SADC_use_luxury_goods } }
+					set_country_flag = SADC_use_luxury_goods
+				}
+				else = { clr_country_flag = SADC_use_luxury_goods }
+				MLW_refresh_AIO = yes
+			}
+			MLW_AIO_SADC_goods_type_toggle_click = {
+				if = {
+					limit = { NOT = { has_country_flag = SADC_luxury_import_FLAG } }
+					set_country_flag = SADC_luxury_import_FLAG
+				}
+				else = { clr_country_flag = SADC_luxury_import_FLAG }
+				MLW_refresh_AIO = yes
+			}
+
+			MLW_SADC_confirm_changes_button_click = {
+				# MLW_SADC_confirm_import_effect = yes
+			}
+
+			MLW_SADC_decrease_import_button_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = -1000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+			MLW_SADC_decrease_import_button_shift_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = -10000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+			MLW_SADC_decrease_import_button_control_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = -50000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+
+			MLW_SADC_increase_import_button_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = 1000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+			MLW_SADC_increase_import_button_shift_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = 10000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+			MLW_SADC_increase_import_button_control_click = {
+				# set_temp_variable = { MLW_SADC_imports_change = 50000 }
+				# MLW_SADC_change_goods_import = yes
+			}
+		}
+	}
+	MLW_AIO_SADC_trade_list = {
+		window_name = "MLW_AIO_SADC_trade_menu_GRID"
+		context_type = player_context
+		parent_scripted_gui = MLW_AIO_main
+		dirty = MLW.refresh_AIO
+
+		visible = { has_country_flag = MLW_view_SADC_GUI }
+
+		properties = {
+			SADC_member_flag = { image = "[THIS.GetFlag]" }
+		}
+
+		dynamic_lists = {
+			MLW_AIO_SADC_possible_importers = {
+				change_scope = yes
+				array = global.SADC_member
+				entry_container = "SADC_member_tag_entry_TRADE"
+			}
+		}
+
+		effects = {
+			SADC_select_market_button_click = {
+				# SADC_import_target_effect = yes
+			}
+			# SADC_fund_RESOURCES_button_click = { SADC_fund_resources_effect = yes }
+			# SADC_fund_CONSTRUCTION_button_click = { SADC_fund_construction_effect = yes }
+		}
+	}
+
+	# DECISIONS BASED GUIS
+	MLW_FOPOL_GCC_CAT = {
+		window_name = "MLW_FOPOL_GCC_CAT_window_MAIN"
+		context_type = decision_category
+
+		dirty = MLW.refresh_AIO
+
+		properties = {
+			GCC_member_MSCC_flag = { image = "[THIS.GetFlag]" }
+		}
+
+		triggers = {
+			# MSCC
+			# MLW_FOPOL_GCC_CAT_window_MSCC_TITLE_visible = { has_completed_focus = MLW_gcc_megaprojects }
+			# MLW_FOPOL_GCC_CAT_window_MSCC_LOCKED_TITLE_visible = { NOT = { has_completed_focus = MLW_gcc_megaprojects } }
+		}
+
+		dynamic_lists = {
+			MLW_FOPOL_GCC_CAT_MSCC_box = {
+				change_scope = yes
+				array = MLW.MSCCGO_crew_hired
+				entry_container = "MLW_FOPOL_GCC_CAT_MSCC_entry"
+			}
+		}
+	}
+	MLW_FOPOL_lake_wars_CAT = {
+		window_name = "MLW_FOPOL_lake_wars_CAT_window_MAIN"
+		context_type = decision_category
+
+		dirty = MLW.refresh_AIO
+
+		properties = {
+			# DIPLOMATIC
+				MLW_LW_D1_icon = {
+					image = "[MLW_LW_diplomatic_progress_1]"
+					frame = 1
+				}
+				MLW_LW_D2_icon = {
+					image = "[MLW_LW_diplomatic_progress_2]"
+					frame = 2
+				}
+				MLW_LW_D3_icon = {
+					image = "[MLW_LW_diplomatic_progress_3]"
+					frame = 3
+				}
+				MLW_LW_D4_icon = {
+					image = "[MLW_LW_diplomatic_progress_4]"
+					frame = 4
+				}
+				MLW_LW_D5_icon = {
+					image = "[MLW_LW_diplomatic_progress_5]"
+					frame = 5
+				}
+				MLW_LW_D6_icon = {
+					image = "[MLW_LW_diplomatic_progress_6]"
+					frame = 6
+				}
+				MLW_LW_D7_icon = {
+					image = "[MLW_LW_diplomatic_progress_7]"
+					frame = 7
+				}
+				MLW_LW_D8_icon = {
+					image = "[MLW_LW_diplomatic_progress_8]"
+					frame = 8
+				}
+				MLW_LW_D9_icon = {
+					image = "[MLW_LW_diplomatic_progress_9]"
+					frame = 9
+				}
+				MLW_LW_D10_icon = {
+					image = "[MLW_LW_diplomatic_progress_10]"
+					frame = 10
+				}
+			# MILITARIST
+				MLW_LW_M1_icon = {
+					image = "[MLW_LW_militarist_progress_1]"
+					frame = 1
+				}
+				MLW_LW_M2_icon = {
+					image = "[MLW_LW_militarist_progress_2]"
+					frame = 2
+				}
+				MLW_LW_M3_icon = {
+					image = "[MLW_LW_militarist_progress_3]"
+					frame = 3
+				}
+				MLW_LW_M4_icon = {
+					image = "[MLW_LW_militarist_progress_4]"
+					frame = 4
+				}
+				MLW_LW_M5_icon = {
+					image = "[MLW_LW_militarist_progress_5]"
+					frame = 5
+				}
+				MLW_LW_M6_icon = {
+					image = "[MLW_LW_militarist_progress_6]"
+					frame = 6
+				}
+				MLW_LW_M7_icon = {
+					image = "[MLW_LW_militarist_progress_7]"
+					frame = 7
+				}
+				MLW_LW_M8_icon = {
+					image = "[MLW_LW_militarist_progress_8]"
+					frame = 8
+				}
+				MLW_LW_M9_icon = {
+					image = "[MLW_LW_militarist_progress_9]"
+					frame = 9
+				}
+				MLW_LW_M10_icon = {
+					image = "[MLW_LW_militarist_progress_10]"
+					frame = 10
+				}
+		}
+
+		dynamic_lists = {
+			MLW_LW_state_box = {
+				change_scope = yes
+				array = MLW.LW_states
+				entry_container = "MLW_FOPOL_lake_wars_CAT_state_entry"
+			}
+		}
+
+		effects = {
+			MLW_LW_select_state_button_click = { MLW_LW_select_state_effect = yes }
+		}
+	}
+}

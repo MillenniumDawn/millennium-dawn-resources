@@ -1,0 +1,17 @@
+# Author(s): AngriestBird
+MOR_kingly_balance_of_power_category = {
+	picture = generic
+	priority = 100
+
+	allowed = { original_tag = MOR }
+	visible = {
+		original_tag = MOR
+	}
+}
+
+MOR_exploit_the_reserves_category = {
+	picture = generic
+	priority = 100
+
+	allowed = { original_tag = MOR }
+}
